@@ -1,0 +1,7403 @@
+{
+  "generated": "2026-04-13T08:23:22.363757",
+  "sprint": "MOSE Sprint Day 1",
+  "investors_pulled": 11,
+  "investors_failed": 5,
+  "total_unique_stocks": 263,
+  "investors": [
+    {
+      "name": "Warren Buffett",
+      "fund": "Berkshire Hathaway",
+      "tier": 1,
+      "filing_date": "2026-02-17",
+      "total_value": 274160086701000,
+      "num_holdings": 42,
+      "top_10": [
+        {
+          "ticker": "AAPL",
+          "company": "APPLE INC",
+          "value": 61961735283000,
+          "pct": 22.6
+        },
+        {
+          "ticker": "AXP",
+          "company": "AMERICAN EXPRESS CO",
+          "value": 56088378465000,
+          "pct": 20.46
+        },
+        {
+          "ticker": "BAC",
+          "company": "BANK AMERICA CORP",
+          "value": 28451276370000,
+          "pct": 10.38
+        },
+        {
+          "ticker": "KO",
+          "company": "COCA COLA CO",
+          "value": 27964000000000,
+          "pct": 10.2
+        },
+        {
+          "ticker": "CVX",
+          "company": "CHEVRON CORP NEW",
+          "value": 19837131131000,
+          "pct": 7.24
+        },
+        {
+          "ticker": "MCO",
+          "company": "MOODYS CORP",
+          "value": 12602556092000,
+          "pct": 4.6
+        },
+        {
+          "ticker": "OXY",
+          "company": "OCCIDENTAL PETE CORP",
+          "value": 10894391643000,
+          "pct": 3.97
+        },
+        {
+          "ticker": "CB",
+          "company": "CHUBB LIMITED",
+          "value": 10689854998000,
+          "pct": 3.9
+        },
+        {
+          "ticker": "KHC",
+          "company": "KRAFT HEINZ CO",
+          "value": 7896644337000,
+          "pct": 2.88
+        },
+        {
+          "ticker": "GOOGL",
+          "company": "ALPHABET INC",
+          "value": 5585842446000,
+          "pct": 2.04
+        }
+      ]
+    },
+    {
+      "name": "Li Lu",
+      "fund": "Himalaya Capital",
+      "tier": 1,
+      "filing_date": "2026-02-19",
+      "total_value": 3568876223000,
+      "num_holdings": 9,
+      "top_10": [
+        {
+          "ticker": "GOOGL",
+          "company": "ALPHABET INC",
+          "value": 796052900000,
+          "pct": 22.31
+        },
+        {
+          "ticker": "GOOG",
+          "company": "ALPHABET INC",
+          "value": 769217940000,
+          "pct": 21.55
+        },
+        {
+          "ticker": "BAC",
+          "company": "BK OF AMERICA CORP",
+          "value": 573726285000,
+          "pct": 16.08
+        },
+        {
+          "ticker": "PDD",
+          "company": "PDD HOLDINGS INC",
+          "value": 522501120000,
+          "pct": 14.64
+        },
+        {
+          "ticker": "BRK-B",
+          "company": "BERKSHIRE HATHAWAY INC DEL",
+          "value": 451253535000,
+          "pct": 12.64
+        },
+        {
+          "ticker": "EAST",
+          "company": "EAST WEST BANCORP INC",
+          "value": 312034089000,
+          "pct": 8.74
+        },
+        {
+          "ticker": "OXY",
+          "company": "OCCIDENTAL PETE CORP",
+          "value": 60302480000,
+          "pct": 1.69
+        },
+        {
+          "ticker": "CROCS",
+          "company": "CROCS INC",
+          "value": 53720158000,
+          "pct": 1.51
+        },
+        {
+          "ticker": "AAPL",
+          "company": "APPLE INC",
+          "value": 30067716000,
+          "pct": 0.84
+        }
+      ]
+    },
+    {
+      "name": "Mohnish Pabrai",
+      "fund": "Dalal Street LLC",
+      "tier": 2,
+      "filing_date": "2026-02-13",
+      "total_value": 402040227000,
+      "num_holdings": 4,
+      "top_10": [
+        {
+          "ticker": "HCC",
+          "company": "WARRIOR MET COAL INC",
+          "value": 158691099000,
+          "pct": 39.47
+        },
+        {
+          "ticker": "RIG",
+          "company": "TRANSOCEAN LTD",
+          "value": 111675749000,
+          "pct": 27.78
+        },
+        {
+          "ticker": "ALPHA",
+          "company": "ALPHA METALLURGICAL RESOUR I",
+          "value": 108534840000,
+          "pct": 27.0
+        },
+        {
+          "ticker": "VAL",
+          "company": "VALARIS LTD",
+          "value": 23138539000,
+          "pct": 5.76
+        }
+      ]
+    },
+    {
+      "name": "Chuck Akre",
+      "fund": "Akre Capital Management",
+      "tier": 2,
+      "filing_date": "2026-02-13",
+      "total_value": 9120742965000,
+      "num_holdings": 18,
+      "top_10": [
+        {
+          "ticker": "MA",
+          "company": "MASTERCARD INCORPORATED",
+          "value": 1715654246000,
+          "pct": 18.81
+        },
+        {
+          "ticker": "BAM",
+          "company": "BROOKFIELD CORP",
+          "value": 1231854338000,
+          "pct": 13.51
+        },
+        {
+          "ticker": "KKR",
+          "company": "KKR & CO L P DEL",
+          "value": 1033359070000,
+          "pct": 11.33
+        },
+        {
+          "ticker": "V",
+          "company": "VISA INC",
+          "value": 938720206000,
+          "pct": 10.29
+        },
+        {
+          "ticker": "MCO",
+          "company": "MOODYS CORP",
+          "value": 886442756000,
+          "pct": 9.72
+        },
+        {
+          "ticker": "COSTAR",
+          "company": "COSTAR GROUP INC",
+          "value": 646701208000,
+          "pct": 7.09
+        },
+        {
+          "ticker": "OREILLY",
+          "company": "OREILLY AUTOMOTIVE INC",
+          "value": 612914691000,
+          "pct": 6.72
+        },
+        {
+          "ticker": "ROP",
+          "company": "ROPER TECHNOLOGIES INC",
+          "value": 491936755000,
+          "pct": 5.39
+        },
+        {
+          "ticker": "ABNB",
+          "company": "AIRBNB INC",
+          "value": 471388540000,
+          "pct": 5.17
+        },
+        {
+          "ticker": "FICO",
+          "company": "FAIR ISAAC CORP",
+          "value": 469054066000,
+          "pct": 5.14
+        }
+      ]
+    },
+    {
+      "name": "Guy Spier",
+      "fund": "Aquamarine Capital",
+      "tier": 2,
+      "filing_date": "2022-08-02",
+      "total_value": 170229000,
+      "num_holdings": 12,
+      "top_10": [
+        {
+          "ticker": "BRK-B",
+          "company": "BERKSHIRE HATHAWAY INC DEL",
+          "value": 38387000,
+          "pct": 22.55
+        },
+        {
+          "ticker": "AXP",
+          "company": "AMERICAN EXPRESS CO",
+          "value": 29110000,
+          "pct": 17.1
+        },
+        {
+          "ticker": "BAC",
+          "company": "BK OF AMERICA CORP",
+          "value": 23903000,
+          "pct": 14.04
+        },
+        {
+          "ticker": "MA",
+          "company": "MASTERCARD INCORPORATED",
+          "value": 20743000,
+          "pct": 12.19
+        },
+        {
+          "ticker": "RACE",
+          "company": "FERRARI N V",
+          "value": 14694000,
+          "pct": 8.63
+        },
+        {
+          "ticker": "BRK-A",
+          "company": "BERKSHIRE HATHAWAY INC DEL",
+          "value": 12269000,
+          "pct": 7.21
+        },
+        {
+          "ticker": "MICRON",
+          "company": "MICRON TECHNOLOGY INC",
+          "value": 11056000,
+          "pct": 6.49
+        },
+        {
+          "ticker": "MCO",
+          "company": "MOODYS CORP",
+          "value": 7343000,
+          "pct": 4.31
+        },
+        {
+          "ticker": "ALIBABA",
+          "company": "ALIBABA GROUP HLDG LTD",
+          "value": 5400000,
+          "pct": 3.17
+        },
+        {
+          "ticker": "DAILY",
+          "company": "DAILY JOURNAL CORP",
+          "value": 2976000,
+          "pct": 1.75
+        }
+      ]
+    },
+    {
+      "name": "Seth Klarman",
+      "fund": "Baupost Group",
+      "tier": 1,
+      "filing_date": "2026-02-13",
+      "total_value": 5278590000,
+      "num_holdings": 22,
+      "top_10": [
+        {
+          "ticker": "RESTAURA",
+          "company": "RESTAURANT BRANDS INTL INC",
+          "value": 551325000,
+          "pct": 10.44
+        },
+        {
+          "ticker": "AMZN",
+          "company": "AMAZON COM INC",
+          "value": 489659000,
+          "pct": 9.28
+        },
+        {
+          "ticker": "WILLIS",
+          "company": "WILLIS TOWERS WATSON PLC LTD",
+          "value": 446108000,
+          "pct": 8.45
+        },
+        {
+          "ticker": "ELV",
+          "company": "ELEVANCE HEALTH INC FORMERLY",
+          "value": 444954000,
+          "pct": 8.43
+        },
+        {
+          "ticker": "UNION",
+          "company": "UNION PAC CORP",
+          "value": 376416000,
+          "pct": 7.13
+        },
+        {
+          "ticker": "WESCO",
+          "company": "WESCO INTL INC",
+          "value": 347103000,
+          "pct": 6.58
+        },
+        {
+          "ticker": "GOOG",
+          "company": "ALPHABET INC",
+          "value": 341157000,
+          "pct": 6.46
+        },
+        {
+          "ticker": "FIDELITY",
+          "company": "FIDELITY NATL INFORMATION SV",
+          "value": 299323000,
+          "pct": 5.67
+        },
+        {
+          "ticker": "DOLLAR",
+          "company": "DOLLAR GEN CORP NEW",
+          "value": 273881000,
+          "pct": 5.19
+        },
+        {
+          "ticker": "FERGUSON",
+          "company": "FERGUSON ENTERPRISES INC",
+          "value": 253138000,
+          "pct": 4.8
+        }
+      ]
+    },
+    {
+      "name": "Bill Ackman",
+      "fund": "Pershing Square",
+      "tier": 2,
+      "filing_date": "2026-02-17",
+      "total_value": 15526737802000,
+      "num_holdings": 11,
+      "top_10": [
+        {
+          "ticker": "BAM",
+          "company": "BROOKFIELD CORP",
+          "value": 2817787754000,
+          "pct": 18.15
+        },
+        {
+          "ticker": "UBER",
+          "company": "UBER TECHNOLOGIES INC",
+          "value": 2468273945000,
+          "pct": 15.9
+        },
+        {
+          "ticker": "AMZN",
+          "company": "AMAZON COM INC",
+          "value": 2217677936000,
+          "pct": 14.28
+        },
+        {
+          "ticker": "GOOG",
+          "company": "ALPHABET INC",
+          "value": 1934222720000,
+          "pct": 12.46
+        },
+        {
+          "ticker": "META",
+          "company": "META PLATFORMS INC",
+          "value": 1764796161000,
+          "pct": 11.37
+        },
+        {
+          "ticker": "RESTAURA",
+          "company": "RESTAURANT BRANDS INTL INC",
+          "value": 1560199922000,
+          "pct": 10.05
+        },
+        {
+          "ticker": "HOWARD",
+          "company": "HOWARD HUGHES HOLDINGS INC",
+          "value": 1503829145000,
+          "pct": 9.69
+        },
+        {
+          "ticker": "HILTON",
+          "company": "HILTON WORLDWIDE HLDGS INC",
+          "value": 869983734000,
+          "pct": 5.6
+        },
+        {
+          "ticker": "GOOGL",
+          "company": "ALPHABET INC",
+          "value": 212306961000,
+          "pct": 1.37
+        },
+        {
+          "ticker": "SEAPORT",
+          "company": "SEAPORT ENTMT GROUP INC",
+          "value": 99320131000,
+          "pct": 0.64
+        }
+      ]
+    },
+    {
+      "name": "David Einhorn",
+      "fund": "Greenlight Capital",
+      "tier": 3,
+      "filing_date": "2024-02-14",
+      "total_value": 2047998727000,
+      "num_holdings": 40,
+      "top_10": [
+        {
+          "ticker": "GREEN",
+          "company": "GREEN BRICK PARTNERS INC",
+          "value": 592369623000,
+          "pct": 28.92
+        },
+        {
+          "ticker": "CONSOL",
+          "company": "CONSOL ENERGY INC NEW",
+          "value": 211673655000,
+          "pct": 10.34
+        },
+        {
+          "ticker": "BRIGHTHO",
+          "company": "BRIGHTHOUSE FINL INC",
+          "value": 161068530000,
+          "pct": 7.86
+        },
+        {
+          "ticker": "KYNDRYL",
+          "company": "KYNDRYL HLDGS INC",
+          "value": 132079115000,
+          "pct": 6.45
+        },
+        {
+          "ticker": "TMUS",
+          "company": "TENET HEALTHCARE CORP",
+          "value": 99447853000,
+          "pct": 4.86
+        },
+        {
+          "ticker": "THE",
+          "company": "THE ODP CORP",
+          "value": 98418030000,
+          "pct": 4.81
+        },
+        {
+          "ticker": "ALIGHT",
+          "company": "ALIGHT INC",
+          "value": 78831446000,
+          "pct": 3.85
+        },
+        {
+          "ticker": "SPDR",
+          "company": "SPDR GOLD TR",
+          "value": 73972084000,
+          "pct": 3.61
+        },
+        {
+          "ticker": "TECK",
+          "company": "TECK RESOURCES LTD",
+          "value": 65605702000,
+          "pct": 3.2
+        },
+        {
+          "ticker": "LIVANOVA",
+          "company": "LIVANOVA PLC",
+          "value": 63604811000,
+          "pct": 3.11
+        }
+      ]
+    },
+    {
+      "name": "Tom Gayner",
+      "fund": "Markel Group",
+      "tier": 2,
+      "filing_date": "2026-02-06",
+      "total_value": 12544358274000,
+      "num_holdings": 128,
+      "top_10": [
+        {
+          "ticker": "GOOG",
+          "company": "ALPHABET INC",
+          "value": 862906068000,
+          "pct": 6.88
+        },
+        {
+          "ticker": "BRK-A",
+          "company": "BERKSHIRE HATHAWAY INC DEL",
+          "value": 840847200000,
+          "pct": 6.7
+        },
+        {
+          "ticker": "BRK-B",
+          "company": "BERKSHIRE HATHAWAY INC DEL",
+          "value": 770045226000,
+          "pct": 6.14
+        },
+        {
+          "ticker": "BAM",
+          "company": "BROOKFIELD CORP",
+          "value": 599947917000,
+          "pct": 4.78
+        },
+        {
+          "ticker": "AMZN",
+          "company": "AMAZON COM INC",
+          "value": 468740022000,
+          "pct": 3.74
+        },
+        {
+          "ticker": "DE",
+          "company": "DEERE & CO",
+          "value": 408723903000,
+          "pct": 3.26
+        },
+        {
+          "ticker": "V",
+          "company": "VISA INC",
+          "value": 350459242000,
+          "pct": 2.79
+        },
+        {
+          "ticker": "AAPL",
+          "company": "APPLE INC",
+          "value": 333651061000,
+          "pct": 2.66
+        },
+        {
+          "ticker": "HD",
+          "company": "HOME DEPOT INC",
+          "value": 316572001000,
+          "pct": 2.52
+        },
+        {
+          "ticker": "GS",
+          "company": "GOLDMAN SACHS GROUP INC",
+          "value": 315877440000,
+          "pct": 2.52
+        }
+      ]
+    },
+    {
+      "name": "Chris Bloomstran",
+      "fund": "Semper Augustus",
+      "tier": 2,
+      "filing_date": "2026-02-12",
+      "total_value": 550214835000,
+      "num_holdings": 51,
+      "top_10": [
+        {
+          "ticker": "HCC",
+          "company": "Warrior Met Coal Inc.",
+          "value": 51431324000,
+          "pct": 9.35
+        },
+        {
+          "ticker": "TIDEWATE",
+          "company": "Tidewater Inc.",
+          "value": 44098816000,
+          "pct": 8.01
+        },
+        {
+          "ticker": "BOISE",
+          "company": "Boise Cascade Company",
+          "value": 31647926000,
+          "pct": 5.75
+        },
+        {
+          "ticker": "VAL",
+          "company": "Valaris Ltd.",
+          "value": 29452399000,
+          "pct": 5.35
+        },
+        {
+          "ticker": "BAM",
+          "company": "Brookfield Corp.",
+          "value": 25153181000,
+          "pct": 4.57
+        },
+        {
+          "ticker": "CBOE",
+          "company": "CBRE Group, Inc.",
+          "value": 23609600000,
+          "pct": 4.29
+        },
+        {
+          "ticker": "FIVE",
+          "company": "Five Point Holdings LLC - CL A",
+          "value": 22996796000,
+          "pct": 4.18
+        },
+        {
+          "ticker": "PGR",
+          "company": "Prologis Inc.",
+          "value": 18568275000,
+          "pct": 3.37
+        },
+        {
+          "ticker": "ROGERS",
+          "company": "Rogers Corp.",
+          "value": 18265834000,
+          "pct": 3.32
+        },
+        {
+          "ticker": "LENNAR",
+          "company": "Lennar Corp - Class B",
+          "value": 14078521000,
+          "pct": 2.56
+        }
+      ]
+    },
+    {
+      "name": "Christopher Hohn",
+      "fund": "TCI Fund Management",
+      "tier": 3,
+      "filing_date": "2026-02-17",
+      "total_value": 53648816254000,
+      "num_holdings": 9,
+      "top_10": [
+        {
+          "ticker": "GE",
+          "company": "GE AEROSPACE",
+          "value": 14634638061000,
+          "pct": 27.28
+        },
+        {
+          "ticker": "V",
+          "company": "VISA INC",
+          "value": 9723165755000,
+          "pct": 18.12
+        },
+        {
+          "ticker": "MSFT",
+          "company": "MICROSOFT CORP",
+          "value": 8116088110000,
+          "pct": 15.13
+        },
+        {
+          "ticker": "MCO",
+          "company": "MOODYS CORP",
+          "value": 6798636497000,
+          "pct": 12.67
+        },
+        {
+          "ticker": "SPG",
+          "company": "S&P GLOBAL INC",
+          "value": 6161498103000,
+          "pct": 11.48
+        },
+        {
+          "ticker": "CANADIAN",
+          "company": "CANADIAN PACIFIC KANSAS CITY",
+          "value": 3508630329000,
+          "pct": 6.54
+        },
+        {
+          "ticker": "GOOG",
+          "company": "ALPHABET INC",
+          "value": 2383881802000,
+          "pct": 4.44
+        },
+        {
+          "ticker": "FERROVIA",
+          "company": "FERROVIAL SE",
+          "value": 1348162940000,
+          "pct": 2.51
+        },
+        {
+          "ticker": "CNI",
+          "company": "CANADIAN NATL RY CO",
+          "value": 974114657000,
+          "pct": 1.82
+        }
+      ]
+    }
+  ],
+  "convergence_rankings": [
+    {
+      "ticker": "GOOG",
+      "company": "ALPHABET INC",
+      "convergence_score": 95,
+      "total_investor_count": 5,
+      "tier1_count": 2,
+      "tier2_count": 2,
+      "tier3_count": 1,
+      "total_conviction_pct": 51.79,
+      "total_value_held": 5950569687000,
+      "top5_bonus_count": 3,
+      "investors": [
+        {
+          "name": "Li Lu",
+          "fund": "Himalaya Capital",
+          "tier": 1,
+          "shares": 2451300,
+          "value": 769217940000,
+          "pct_of_portfolio": 21.55,
+          "is_top5": true
+        },
+        {
+          "name": "Seth Klarman",
+          "fund": "Baupost Group",
+          "tier": 1,
+          "shares": 1087181,
+          "value": 341157000,
+          "pct_of_portfolio": 6.46,
+          "is_top5": false
+        },
+        {
+          "name": "Bill Ackman",
+          "fund": "Pershing Square",
+          "tier": 2,
+          "shares": 6163871,
+          "value": 1934222720000,
+          "pct_of_portfolio": 12.46,
+          "is_top5": true
+        },
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 2749860,
+          "value": 862906068000,
+          "pct_of_portfolio": 6.88,
+          "is_top5": true
+        },
+        {
+          "name": "Christopher Hohn",
+          "fund": "TCI Fund Management",
+          "tier": 3,
+          "shares": 7596819,
+          "value": 2383881802000,
+          "pct_of_portfolio": 4.44,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "AMZN",
+      "company": "AMAZON COM INC",
+      "convergence_score": 90,
+      "total_investor_count": 4,
+      "tier1_count": 2,
+      "tier2_count": 2,
+      "tier3_count": 0,
+      "total_conviction_pct": 27.49,
+      "total_value_held": 3212253937000,
+      "top5_bonus_count": 3,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 2276000,
+          "value": 525346320000,
+          "pct_of_portfolio": 0.19,
+          "is_top5": false
+        },
+        {
+          "name": "Seth Klarman",
+          "fund": "Baupost Group",
+          "tier": 1,
+          "shares": 2121391,
+          "value": 489659000,
+          "pct_of_portfolio": 9.28,
+          "is_top5": true
+        },
+        {
+          "name": "Bill Ackman",
+          "fund": "Pershing Square",
+          "tier": 2,
+          "shares": 9607824,
+          "value": 2217677936000,
+          "pct_of_portfolio": 14.28,
+          "is_top5": true
+        },
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 2030760,
+          "value": 468740022000,
+          "pct_of_portfolio": 3.74,
+          "is_top5": true
+        }
+      ]
+    },
+    {
+      "ticker": "BAC",
+      "company": "BK OF AMERICA CORP",
+      "convergence_score": 80,
+      "total_investor_count": 3,
+      "tier1_count": 2,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 40.5,
+      "total_value_held": 29025026558000,
+      "top5_bonus_count": 3,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 517295934,
+          "value": 28451276370000,
+          "pct_of_portfolio": 10.38,
+          "is_top5": true
+        },
+        {
+          "name": "Li Lu",
+          "fund": "Himalaya Capital",
+          "tier": 1,
+          "shares": 10431387,
+          "value": 573726285000,
+          "pct_of_portfolio": 16.08,
+          "is_top5": true
+        },
+        {
+          "name": "Guy Spier",
+          "fund": "Aquamarine Capital",
+          "tier": 2,
+          "shares": 767845,
+          "value": 23903000,
+          "pct_of_portfolio": 14.04,
+          "is_top5": true
+        }
+      ]
+    },
+    {
+      "ticker": "GOOGL",
+      "company": "ALPHABET INC",
+      "convergence_score": 80,
+      "total_investor_count": 5,
+      "tier1_count": 2,
+      "tier2_count": 3,
+      "tier3_count": 0,
+      "total_conviction_pct": 28.17,
+      "total_value_held": 6773240050000,
+      "top5_bonus_count": 1,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 17846142,
+          "value": 5585842446000,
+          "pct_of_portfolio": 2.04,
+          "is_top5": false
+        },
+        {
+          "name": "Li Lu",
+          "fund": "Himalaya Capital",
+          "tier": 1,
+          "shares": 2543300,
+          "value": 796052900000,
+          "pct_of_portfolio": 22.31,
+          "is_top5": true
+        },
+        {
+          "name": "Guy Spier",
+          "fund": "Aquamarine Capital",
+          "tier": 2,
+          "shares": 800,
+          "value": 1743000,
+          "pct_of_portfolio": 1.02,
+          "is_top5": false
+        },
+        {
+          "name": "Bill Ackman",
+          "fund": "Pershing Square",
+          "tier": 2,
+          "shares": 678297,
+          "value": 212306961000,
+          "pct_of_portfolio": 1.37,
+          "is_top5": false
+        },
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 572000,
+          "value": 179036000000,
+          "pct_of_portfolio": 1.43,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "BRK-B",
+      "company": "BERKSHIRE HATHAWAY INC DEL",
+      "convergence_score": 80,
+      "total_investor_count": 4,
+      "tier1_count": 1,
+      "tier2_count": 3,
+      "tier3_count": 0,
+      "total_conviction_pct": 41.4,
+      "total_value_held": 1227319688000,
+      "top5_bonus_count": 3,
+      "investors": [
+        {
+          "name": "Li Lu",
+          "fund": "Himalaya Capital",
+          "tier": 1,
+          "shares": 897749,
+          "value": 451253535000,
+          "pct_of_portfolio": 12.64,
+          "is_top5": true
+        },
+        {
+          "name": "Chuck Akre",
+          "fund": "Akre Capital Management",
+          "tier": 2,
+          "shares": 11902,
+          "value": 5982540000,
+          "pct_of_portfolio": 0.07,
+          "is_top5": false
+        },
+        {
+          "name": "Guy Spier",
+          "fund": "Aquamarine Capital",
+          "tier": 2,
+          "shares": 140600,
+          "value": 38387000,
+          "pct_of_portfolio": 22.55,
+          "is_top5": true
+        },
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 1531971,
+          "value": 770045226000,
+          "pct_of_portfolio": 6.14,
+          "is_top5": true
+        }
+      ]
+    },
+    {
+      "ticker": "BN",
+      "company": "BROOKFIELD CORPORATION",
+      "convergence_score": 80,
+      "total_investor_count": 4,
+      "tier1_count": 0,
+      "tier2_count": 4,
+      "tier3_count": 0,
+      "total_conviction_pct": 41.93,
+      "total_value_held": 4789684387000,
+      "top5_bonus_count": 4,
+      "investors": [
+        {
+          "name": "Chuck Akre",
+          "fund": "Akre Capital Management",
+          "tier": 2,
+          "shares": 26843633,
+          "value": 1231854338000,
+          "pct_of_portfolio": 13.51,
+          "is_top5": true
+        },
+        {
+          "name": "Bill Ackman",
+          "fund": "Pershing Square",
+          "tier": 2,
+          "shares": 61403089,
+          "value": 2817787754000,
+          "pct_of_portfolio": 18.15,
+          "is_top5": true
+        },
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 15267562,
+          "value": 714889114000,
+          "pct_of_portfolio": 5.7,
+          "is_top5": true
+        },
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 548119,
+          "value": 25153181000,
+          "pct_of_portfolio": 4.57,
+          "is_top5": true
+        }
+      ]
+    },
+    {
+      "ticker": "MCO",
+      "company": "MOODYS CORP",
+      "convergence_score": 75,
+      "total_investor_count": 5,
+      "tier1_count": 1,
+      "tier2_count": 3,
+      "tier3_count": 1,
+      "total_conviction_pct": 32.82,
+      "total_value_held": 20478865726000,
+      "top5_bonus_count": 2,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 24669778,
+          "value": 12602556092000,
+          "pct_of_portfolio": 4.6,
+          "is_top5": false
+        },
+        {
+          "name": "Chuck Akre",
+          "fund": "Akre Capital Management",
+          "tier": 2,
+          "shares": 1735231,
+          "value": 886442756000,
+          "pct_of_portfolio": 9.72,
+          "is_top5": true
+        },
+        {
+          "name": "Guy Spier",
+          "fund": "Aquamarine Capital",
+          "tier": 2,
+          "shares": 27000,
+          "value": 7343000,
+          "pct_of_portfolio": 4.31,
+          "is_top5": false
+        },
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 356740,
+          "value": 191223038000,
+          "pct_of_portfolio": 1.52,
+          "is_top5": false
+        },
+        {
+          "name": "Christopher Hohn",
+          "fund": "TCI Fund Management",
+          "tier": 3,
+          "shares": 13308479,
+          "value": 6798636497000,
+          "pct_of_portfolio": 12.67,
+          "is_top5": true
+        }
+      ]
+    },
+    {
+      "ticker": "MA",
+      "company": "MASTERCARD INCORPORATED",
+      "convergence_score": 70,
+      "total_investor_count": 4,
+      "tier1_count": 1,
+      "tier2_count": 3,
+      "tier3_count": 0,
+      "total_conviction_pct": 32.77,
+      "total_value_held": 4110053035000,
+      "top5_bonus_count": 2,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 3986648,
+          "value": 2275897610000,
+          "pct_of_portfolio": 0.83,
+          "is_top5": false
+        },
+        {
+          "name": "Chuck Akre",
+          "fund": "Akre Capital Management",
+          "tier": 2,
+          "shares": 3005280,
+          "value": 1715654246000,
+          "pct_of_portfolio": 18.81,
+          "is_top5": true
+        },
+        {
+          "name": "Guy Spier",
+          "fund": "Aquamarine Capital",
+          "tier": 2,
+          "shares": 65750,
+          "value": 20743000,
+          "pct_of_portfolio": 12.19,
+          "is_top5": true
+        },
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 207540,
+          "value": 118480436000,
+          "pct_of_portfolio": 0.94,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "V",
+      "company": "VISA INC",
+      "convergence_score": 65,
+      "total_investor_count": 4,
+      "tier1_count": 1,
+      "tier2_count": 2,
+      "tier3_count": 1,
+      "total_conviction_pct": 32.26,
+      "total_value_held": 13922347400000,
+      "top5_bonus_count": 2,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 8297460,
+          "value": 2910002197000,
+          "pct_of_portfolio": 1.06,
+          "is_top5": false
+        },
+        {
+          "name": "Chuck Akre",
+          "fund": "Akre Capital Management",
+          "tier": 2,
+          "shares": 2676628,
+          "value": 938720206000,
+          "pct_of_portfolio": 10.29,
+          "is_top5": true
+        },
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 999285,
+          "value": 350459242000,
+          "pct_of_portfolio": 2.79,
+          "is_top5": false
+        },
+        {
+          "name": "Christopher Hohn",
+          "fund": "TCI Fund Management",
+          "tier": 3,
+          "shares": 27724233,
+          "value": 9723165755000,
+          "pct_of_portfolio": 18.12,
+          "is_top5": true
+        }
+      ]
+    },
+    {
+      "ticker": "AAPL",
+      "company": "APPLE INC",
+      "convergence_score": 60,
+      "total_investor_count": 3,
+      "tier1_count": 2,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 26.1,
+      "total_value_held": 62325454060000,
+      "top5_bonus_count": 1,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 227917808,
+          "value": 61961735283000,
+          "pct_of_portfolio": 22.6,
+          "is_top5": true
+        },
+        {
+          "name": "Li Lu",
+          "fund": "Himalaya Capital",
+          "tier": 1,
+          "shares": 110600,
+          "value": 30067716000,
+          "pct_of_portfolio": 0.84,
+          "is_top5": false
+        },
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 1227290,
+          "value": 333651061000,
+          "pct_of_portfolio": 2.66,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "AXP",
+      "company": "AMERICAN EXPRESS CO",
+      "convergence_score": 60,
+      "total_investor_count": 3,
+      "tier1_count": 1,
+      "tier2_count": 2,
+      "tier3_count": 0,
+      "total_conviction_pct": 39.0,
+      "total_value_held": 56269128151000,
+      "top5_bonus_count": 2,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 151610700,
+          "value": 56088378465000,
+          "pct_of_portfolio": 20.46,
+          "is_top5": true
+        },
+        {
+          "name": "Guy Spier",
+          "fund": "Aquamarine Capital",
+          "tier": 2,
+          "shares": 210000,
+          "value": 29110000,
+          "pct_of_portfolio": 17.1,
+          "is_top5": true
+        },
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 488500,
+          "value": 180720576000,
+          "pct_of_portfolio": 1.44,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "CVX",
+      "company": "CHEVRON CORP NEW",
+      "convergence_score": 40,
+      "total_investor_count": 2,
+      "tier1_count": 1,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 7.37,
+      "total_value_held": 19853081131000,
+      "top5_bonus_count": 1,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 130156362,
+          "value": 19837131131000,
+          "pct_of_portfolio": 7.24,
+          "is_top5": true
+        },
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 440000,
+          "value": 15950000000,
+          "pct_of_portfolio": 0.13,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "OXY",
+      "company": "OCCIDENTAL PETE CORP",
+      "convergence_score": 40,
+      "total_investor_count": 2,
+      "tier1_count": 2,
+      "tier2_count": 0,
+      "tier3_count": 0,
+      "total_conviction_pct": 6.04,
+      "total_value_held": 11999862062000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 271349180,
+          "value": 11939559582000,
+          "pct_of_portfolio": 4.35,
+          "is_top5": false
+        },
+        {
+          "name": "Li Lu",
+          "fund": "Himalaya Capital",
+          "tier": 1,
+          "shares": 1466500,
+          "value": 60302480000,
+          "pct_of_portfolio": 1.69,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "HCC",
+      "company": "Warrior Met Coal Inc.",
+      "convergence_score": 40,
+      "total_investor_count": 2,
+      "tier1_count": 0,
+      "tier2_count": 2,
+      "tier3_count": 0,
+      "total_conviction_pct": 48.82,
+      "total_value_held": 210122423000,
+      "top5_bonus_count": 2,
+      "investors": [
+        {
+          "name": "Mohnish Pabrai",
+          "fund": "Dalal Street LLC",
+          "tier": 2,
+          "shares": 1799831,
+          "value": 158691099000,
+          "pct_of_portfolio": 39.47,
+          "is_top5": true
+        },
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 583320,
+          "value": 51431324000,
+          "pct_of_portfolio": 9.35,
+          "is_top5": true
+        }
+      ]
+    },
+    {
+      "ticker": "VAL",
+      "company": "Valaris Ltd.",
+      "convergence_score": 40,
+      "total_investor_count": 2,
+      "tier1_count": 0,
+      "tier2_count": 2,
+      "tier3_count": 0,
+      "total_conviction_pct": 11.11,
+      "total_value_held": 52590938000,
+      "top5_bonus_count": 2,
+      "investors": [
+        {
+          "name": "Mohnish Pabrai",
+          "fund": "Dalal Street LLC",
+          "tier": 2,
+          "shares": 459098,
+          "value": 23138539000,
+          "pct_of_portfolio": 5.76,
+          "is_top5": true
+        },
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 584373,
+          "value": 29452399000,
+          "pct_of_portfolio": 5.35,
+          "is_top5": true
+        }
+      ]
+    },
+    {
+      "ticker": "RESTAURA",
+      "company": "RESTAURANT BRANDS INTL INC",
+      "convergence_score": 40,
+      "total_investor_count": 2,
+      "tier1_count": 1,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 20.49,
+      "total_value_held": 1560751247000,
+      "top5_bonus_count": 1,
+      "investors": [
+        {
+          "name": "Seth Klarman",
+          "fund": "Baupost Group",
+          "tier": 1,
+          "shares": 8080112,
+          "value": 551325000,
+          "pct_of_portfolio": 10.44,
+          "is_top5": true
+        },
+        {
+          "name": "Bill Ackman",
+          "fund": "Pershing Square",
+          "tier": 2,
+          "shares": 22866773,
+          "value": 1560199922000,
+          "pct_of_portfolio": 10.05,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "UNION",
+      "company": "UNION PAC CORP",
+      "convergence_score": 40,
+      "total_investor_count": 2,
+      "tier1_count": 1,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 7.39,
+      "total_value_held": 33056843000,
+      "top5_bonus_count": 1,
+      "investors": [
+        {
+          "name": "Seth Klarman",
+          "fund": "Baupost Group",
+          "tier": 1,
+          "shares": 1627254,
+          "value": 376416000,
+          "pct_of_portfolio": 7.13,
+          "is_top5": true
+        },
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 141278,
+          "value": 32680427000,
+          "pct_of_portfolio": 0.26,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "KO",
+      "company": "COCA COLA CO",
+      "convergence_score": 30,
+      "total_investor_count": 1,
+      "tier1_count": 1,
+      "tier2_count": 0,
+      "tier3_count": 0,
+      "total_conviction_pct": 10.2,
+      "total_value_held": 27964000000000,
+      "top5_bonus_count": 1,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 400000000,
+          "value": 27964000000000,
+          "pct_of_portfolio": 10.2,
+          "is_top5": true
+        }
+      ]
+    },
+    {
+      "ticker": "COF",
+      "company": "CAPITAL ONE FINL CORP",
+      "convergence_score": 30,
+      "total_investor_count": 2,
+      "tier1_count": 1,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.81,
+      "total_value_held": 1754928760000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 7150000,
+          "value": 1732874000000,
+          "pct_of_portfolio": 0.63,
+          "is_top5": false
+        },
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 91000,
+          "value": 22054760000,
+          "pct_of_portfolio": 0.18,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "UNH",
+      "company": "UNITEDHEALTH GROUP INC",
+      "convergence_score": 30,
+      "total_investor_count": 2,
+      "tier1_count": 1,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.68,
+      "total_value_held": 1672358388000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 5039564,
+          "value": 1663610472000,
+          "pct_of_portfolio": 0.61,
+          "is_top5": false
+        },
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 26500,
+          "value": 8747916000,
+          "pct_of_portfolio": 0.07,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "DPZ",
+      "company": "DOMINOS PIZZA INC",
+      "convergence_score": 30,
+      "total_investor_count": 2,
+      "tier1_count": 1,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.53,
+      "total_value_held": 1398639510000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 3350000,
+          "value": 1396347000000,
+          "pct_of_portfolio": 0.51,
+          "is_top5": false
+        },
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 5500,
+          "value": 2292510000,
+          "pct_of_portfolio": 0.02,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "AON",
+      "company": "AON PLC",
+      "convergence_score": 30,
+      "total_investor_count": 2,
+      "tier1_count": 1,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.84,
+      "total_value_held": 1318728440000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 3602995,
+          "value": 1271424876000,
+          "pct_of_portfolio": 0.46,
+          "is_top5": false
+        },
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 134050,
+          "value": 47303564000,
+          "pct_of_portfolio": 0.38,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "LENNAR",
+      "company": "Lennar Corp - Class B",
+      "convergence_score": 30,
+      "total_investor_count": 2,
+      "tier1_count": 1,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 2.83,
+      "total_value_held": 756130999000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 7231930,
+          "value": 742052478000,
+          "pct_of_portfolio": 0.27,
+          "is_top5": false
+        },
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 148008,
+          "value": 14078521000,
+          "pct_of_portfolio": 2.56,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "HEICO",
+      "company": "HEICO CORP NEW",
+      "convergence_score": 30,
+      "total_investor_count": 2,
+      "tier1_count": 1,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.88,
+      "total_value_held": 422632442000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 1294612,
+          "value": 326798907000,
+          "pct_of_portfolio": 0.12,
+          "is_top5": false
+        },
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 379644,
+          "value": 95833535000,
+          "pct_of_portfolio": 0.76,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "LAMAR",
+      "company": "LAMAR ADVERTISING CO NEW",
+      "convergence_score": 30,
+      "total_investor_count": 2,
+      "tier1_count": 1,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.25,
+      "total_value_held": 175618358000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 1202410,
+          "value": 152201058000,
+          "pct_of_portfolio": 0.06,
+          "is_top5": false
+        },
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 185000,
+          "value": 23417300000,
+          "pct_of_portfolio": 0.19,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "NVR",
+      "company": "NVR INC",
+      "convergence_score": 30,
+      "total_investor_count": 2,
+      "tier1_count": 1,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.73,
+      "total_value_held": 168601550000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 11112,
+          "value": 81037260000,
+          "pct_of_portfolio": 0.03,
+          "is_top5": false
+        },
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 12007,
+          "value": 87564290000,
+          "pct_of_portfolio": 0.7,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "DEO",
+      "company": "DIAGEO PLC",
+      "convergence_score": 30,
+      "total_investor_count": 2,
+      "tier1_count": 1,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.95,
+      "total_value_held": 137985242000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 227750,
+          "value": 19647993000,
+          "pct_of_portfolio": 0.01,
+          "is_top5": false
+        },
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 1371708,
+          "value": 118337249000,
+          "pct_of_portfolio": 0.94,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "ATLANTA",
+      "company": "Atlanta Braves Holdings Inc - A",
+      "convergence_score": 30,
+      "total_investor_count": 2,
+      "tier1_count": 1,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.46,
+      "total_value_held": 12570408000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 115428,
+          "value": 4553634000,
+          "pct_of_portfolio": 0.0,
+          "is_top5": false
+        },
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 190542,
+          "value": 8016774000,
+          "pct_of_portfolio": 1.46,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "PDD",
+      "company": "PDD HOLDINGS INC",
+      "convergence_score": 30,
+      "total_investor_count": 1,
+      "tier1_count": 1,
+      "tier2_count": 0,
+      "tier3_count": 0,
+      "total_conviction_pct": 14.64,
+      "total_value_held": 522501120000,
+      "top5_bonus_count": 1,
+      "investors": [
+        {
+          "name": "Li Lu",
+          "fund": "Himalaya Capital",
+          "tier": 1,
+          "shares": 4608000,
+          "value": 522501120000,
+          "pct_of_portfolio": 14.64,
+          "is_top5": true
+        }
+      ]
+    },
+    {
+      "ticker": "KKR",
+      "company": "KKR & CO L P DEL",
+      "convergence_score": 30,
+      "total_investor_count": 2,
+      "tier1_count": 0,
+      "tier2_count": 2,
+      "tier3_count": 0,
+      "total_conviction_pct": 12.81,
+      "total_value_held": 1218434534000,
+      "top5_bonus_count": 1,
+      "investors": [
+        {
+          "name": "Chuck Akre",
+          "fund": "Akre Capital Management",
+          "tier": 2,
+          "shares": 8106049,
+          "value": 1033359070000,
+          "pct_of_portfolio": 11.33,
+          "is_top5": true
+        },
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 1451800,
+          "value": 185075464000,
+          "pct_of_portfolio": 1.48,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "BRK-A",
+      "company": "BERKSHIRE HATHAWAY INC DEL",
+      "convergence_score": 30,
+      "total_investor_count": 2,
+      "tier1_count": 0,
+      "tier2_count": 2,
+      "tier3_count": 0,
+      "total_conviction_pct": 13.91,
+      "total_value_held": 840859469000,
+      "top5_bonus_count": 1,
+      "investors": [
+        {
+          "name": "Guy Spier",
+          "fund": "Aquamarine Capital",
+          "tier": 2,
+          "shares": 30,
+          "value": 12269000,
+          "pct_of_portfolio": 7.21,
+          "is_top5": false
+        },
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 1114,
+          "value": 840847200000,
+          "pct_of_portfolio": 6.7,
+          "is_top5": true
+        }
+      ]
+    },
+    {
+      "ticker": "WILLIS",
+      "company": "WILLIS TOWERS WATSON PLC LTD",
+      "convergence_score": 30,
+      "total_investor_count": 1,
+      "tier1_count": 1,
+      "tier2_count": 0,
+      "tier3_count": 0,
+      "total_conviction_pct": 8.45,
+      "total_value_held": 446108000,
+      "top5_bonus_count": 1,
+      "investors": [
+        {
+          "name": "Seth Klarman",
+          "fund": "Baupost Group",
+          "tier": 1,
+          "shares": 1357601,
+          "value": 446108000,
+          "pct_of_portfolio": 8.45,
+          "is_top5": true
+        }
+      ]
+    },
+    {
+      "ticker": "ELV",
+      "company": "ELEVANCE HEALTH INC FORMERLY",
+      "convergence_score": 30,
+      "total_investor_count": 1,
+      "tier1_count": 1,
+      "tier2_count": 0,
+      "tier3_count": 0,
+      "total_conviction_pct": 8.43,
+      "total_value_held": 444954000,
+      "top5_bonus_count": 1,
+      "investors": [
+        {
+          "name": "Seth Klarman",
+          "fund": "Baupost Group",
+          "tier": 1,
+          "shares": 1269302,
+          "value": 444954000,
+          "pct_of_portfolio": 8.43,
+          "is_top5": true
+        }
+      ]
+    },
+    {
+      "ticker": "WESCO",
+      "company": "Wesco International",
+      "convergence_score": 30,
+      "total_investor_count": 2,
+      "tier1_count": 1,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 7.48,
+      "total_value_held": 5312072000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Seth Klarman",
+          "fund": "Baupost Group",
+          "tier": 1,
+          "shares": 1418831,
+          "value": 347103000,
+          "pct_of_portfolio": 6.58,
+          "is_top5": false
+        },
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 20295,
+          "value": 4964969000,
+          "pct_of_portfolio": 0.9,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "DOLLAR",
+      "company": "DOLLAR GEN CORP NEW",
+      "convergence_score": 30,
+      "total_investor_count": 2,
+      "tier1_count": 1,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 6.11,
+      "total_value_held": 115684204000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Seth Klarman",
+          "fund": "Baupost Group",
+          "tier": 1,
+          "shares": 2062821,
+          "value": 273881000,
+          "pct_of_portfolio": 5.19,
+          "is_top5": false
+        },
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 869250,
+          "value": 115410323000,
+          "pct_of_portfolio": 0.92,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "FERGUSON",
+      "company": "FERGUSON ENTERPRISES INC",
+      "convergence_score": 30,
+      "total_investor_count": 2,
+      "tier1_count": 1,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 5.09,
+      "total_value_held": 36653143000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Seth Klarman",
+          "fund": "Baupost Group",
+          "tier": 1,
+          "shares": 1137035,
+          "value": 253138000,
+          "pct_of_portfolio": 4.8,
+          "is_top5": false
+        },
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 163500,
+          "value": 36400005000,
+          "pct_of_portfolio": 0.29,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "EAGLE",
+      "company": "EAGLE MATLS INC",
+      "convergence_score": 30,
+      "total_investor_count": 2,
+      "tier1_count": 1,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 4.66,
+      "total_value_held": 3293497000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Seth Klarman",
+          "fund": "Baupost Group",
+          "tier": 1,
+          "shares": 1185248,
+          "value": 244967000,
+          "pct_of_portfolio": 4.64,
+          "is_top5": false
+        },
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 14750,
+          "value": 3048530000,
+          "pct_of_portfolio": 0.02,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "UBER",
+      "company": "UBER TECHNOLOGIES INC",
+      "convergence_score": 30,
+      "total_investor_count": 2,
+      "tier1_count": 0,
+      "tier2_count": 2,
+      "tier3_count": 0,
+      "total_conviction_pct": 15.99,
+      "total_value_held": 2479713345000,
+      "top5_bonus_count": 1,
+      "investors": [
+        {
+          "name": "Bill Ackman",
+          "fund": "Pershing Square",
+          "tier": 2,
+          "shares": 30207734,
+          "value": 2468273945000,
+          "pct_of_portfolio": 15.9,
+          "is_top5": true
+        },
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 140000,
+          "value": 11439400000,
+          "pct_of_portfolio": 0.09,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "META",
+      "company": "META PLATFORMS INC",
+      "convergence_score": 30,
+      "total_investor_count": 2,
+      "tier1_count": 0,
+      "tier2_count": 2,
+      "tier3_count": 0,
+      "total_conviction_pct": 12.68,
+      "total_value_held": 1928698489000,
+      "top5_bonus_count": 1,
+      "investors": [
+        {
+          "name": "Bill Ackman",
+          "fund": "Pershing Square",
+          "tier": 2,
+          "shares": 2673569,
+          "value": 1764796161000,
+          "pct_of_portfolio": 11.37,
+          "is_top5": true
+        },
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 248303,
+          "value": 163902328000,
+          "pct_of_portfolio": 1.31,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "NEW",
+      "company": "NEW YORK CMNTY BANCORP INC",
+      "convergence_score": 25,
+      "total_investor_count": 2,
+      "tier1_count": 1,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 1.04,
+      "total_value_held": 370371856000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 5065744,
+          "value": 351663948000,
+          "pct_of_portfolio": 0.13,
+          "is_top5": false
+        },
+        {
+          "name": "David Einhorn",
+          "fund": "Greenlight Capital",
+          "tier": 3,
+          "shares": 1828730,
+          "value": 18707908000,
+          "pct_of_portfolio": 0.91,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "MSFT",
+      "company": "MICROSOFT CORP",
+      "convergence_score": 25,
+      "total_investor_count": 2,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 1,
+      "total_conviction_pct": 17.2,
+      "total_value_held": 8375153673000,
+      "top5_bonus_count": 1,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 535680,
+          "value": 259065563000,
+          "pct_of_portfolio": 2.07,
+          "is_top5": false
+        },
+        {
+          "name": "Christopher Hohn",
+          "fund": "TCI Fund Management",
+          "tier": 3,
+          "shares": 16781953,
+          "value": 8116088110000,
+          "pct_of_portfolio": 15.13,
+          "is_top5": true
+        }
+      ]
+    },
+    {
+      "ticker": "SPG",
+      "company": "S&P GLOBAL INC",
+      "convergence_score": 25,
+      "total_investor_count": 2,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 1,
+      "total_conviction_pct": 12.11,
+      "total_value_held": 6240247191000,
+      "top5_bonus_count": 1,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 150690,
+          "value": 78749088000,
+          "pct_of_portfolio": 0.63,
+          "is_top5": false
+        },
+        {
+          "name": "Christopher Hohn",
+          "fund": "TCI Fund Management",
+          "tier": 3,
+          "shares": 11790310,
+          "value": 6161498103000,
+          "pct_of_portfolio": 11.48,
+          "is_top5": true
+        }
+      ]
+    },
+    {
+      "ticker": "CB",
+      "company": "CHUBB LIMITED",
+      "convergence_score": 20,
+      "total_investor_count": 1,
+      "tier1_count": 1,
+      "tier2_count": 0,
+      "tier3_count": 0,
+      "total_conviction_pct": 3.9,
+      "total_value_held": 10689854998000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 34249183,
+          "value": 10689854998000,
+          "pct_of_portfolio": 3.9,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "KHC",
+      "company": "KRAFT HEINZ CO",
+      "convergence_score": 20,
+      "total_investor_count": 1,
+      "tier1_count": 1,
+      "tier2_count": 0,
+      "tier3_count": 0,
+      "total_conviction_pct": 2.88,
+      "total_value_held": 7896644337000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 325634818,
+          "value": 7896644337000,
+          "pct_of_portfolio": 2.88,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "DVA",
+      "company": "DAVITA INC",
+      "convergence_score": 20,
+      "total_investor_count": 1,
+      "tier1_count": 1,
+      "tier2_count": 0,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.32,
+      "total_value_held": 3608147375000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 31759065,
+          "value": 3608147375000,
+          "pct_of_portfolio": 1.32,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "KR",
+      "company": "KROGER CO",
+      "convergence_score": 20,
+      "total_investor_count": 1,
+      "tier1_count": 1,
+      "tier2_count": 0,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.14,
+      "total_value_held": 3124000000000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 50000000,
+          "value": 3124000000000,
+          "pct_of_portfolio": 1.14,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "SIRI",
+      "company": "SIRIUS XM HOLDINGS INC",
+      "convergence_score": 20,
+      "total_investor_count": 1,
+      "tier1_count": 1,
+      "tier2_count": 0,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.91,
+      "total_value_held": 2495518305000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 124807117,
+          "value": 2495518305000,
+          "pct_of_portfolio": 0.91,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "VZ",
+      "company": "VERISIGN INC",
+      "convergence_score": 20,
+      "total_investor_count": 1,
+      "tier1_count": 1,
+      "tier2_count": 0,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.8,
+      "total_value_held": 2184091346000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 8989880,
+          "value": 2184091346000,
+          "pct_of_portfolio": 0.8,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "STZ",
+      "company": "CONSTELLATION BRANDS INC",
+      "convergence_score": 20,
+      "total_investor_count": 1,
+      "tier1_count": 1,
+      "tier2_count": 0,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.65,
+      "total_value_held": 1793480000000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 13000000,
+          "value": 1793480000000,
+          "pct_of_portfolio": 0.65,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "LIBERTY",
+      "company": "LIBERTY LIVE HOLDINGS INC",
+      "convergence_score": 20,
+      "total_investor_count": 1,
+      "tier1_count": 1,
+      "tier2_count": 0,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.48,
+      "total_value_held": 1314319611000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 15904249,
+          "value": 1314319611000,
+          "pct_of_portfolio": 0.48,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "ALLY",
+      "company": "ALLY FINL INC",
+      "convergence_score": 20,
+      "total_investor_count": 1,
+      "tier1_count": 1,
+      "tier2_count": 0,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.48,
+      "total_value_held": 1313410001000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 29000000,
+          "value": 1313410001000,
+          "pct_of_portfolio": 0.48,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "POOL",
+      "company": "POOL CORP",
+      "convergence_score": 20,
+      "total_investor_count": 1,
+      "tier1_count": 1,
+      "tier2_count": 0,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.26,
+      "total_value_held": 702007444000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 3068885,
+          "value": 702007444000,
+          "pct_of_portfolio": 0.26,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "LOUISIAN",
+      "company": "LOUISIANA PAC CORP",
+      "convergence_score": 20,
+      "total_investor_count": 1,
+      "tier1_count": 1,
+      "tier2_count": 0,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.17,
+      "total_value_held": 457488683000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 5664793,
+          "value": 457488683000,
+          "pct_of_portfolio": 0.17,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "LSXMA",
+      "company": "LIBERTY MEDIA CORP DEL",
+      "convergence_score": 20,
+      "total_investor_count": 1,
+      "tier1_count": 1,
+      "tier2_count": 0,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.11,
+      "total_value_held": 297357853000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 3018555,
+          "value": 297357853000,
+          "pct_of_portfolio": 0.11,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "CHKP",
+      "company": "CHARTER COMMUNICATIONS INC N",
+      "convergence_score": 20,
+      "total_investor_count": 1,
+      "tier1_count": 1,
+      "tier2_count": 0,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.08,
+      "total_value_held": 221459118000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 1060882,
+          "value": 221459118000,
+          "pct_of_portfolio": 0.08,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "ALLEGION",
+      "company": "ALLEGION PLC",
+      "convergence_score": 20,
+      "total_investor_count": 1,
+      "tier1_count": 1,
+      "tier2_count": 0,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.05,
+      "total_value_held": 124212776000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 780133,
+          "value": 124212776000,
+          "pct_of_portfolio": 0.05,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "LILAK",
+      "company": "LIBERTY LATIN AMERICA LTD",
+      "convergence_score": 20,
+      "total_investor_count": 1,
+      "tier1_count": 1,
+      "tier2_count": 0,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.01,
+      "total_value_held": 27290143000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 3680685,
+          "value": 27290143000,
+          "pct_of_portfolio": 0.01,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "JEFFERIE",
+      "company": "JEFFERIES FINL GROUP INC",
+      "convergence_score": 20,
+      "total_investor_count": 1,
+      "tier1_count": 1,
+      "tier2_count": 0,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.01,
+      "total_value_held": 26867589000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Warren Buffett",
+          "fund": "Berkshire Hathaway",
+          "tier": 1,
+          "shares": 433558,
+          "value": 26867589000,
+          "pct_of_portfolio": 0.01,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "EAST",
+      "company": "EAST WEST BANCORP INC",
+      "convergence_score": 20,
+      "total_investor_count": 1,
+      "tier1_count": 1,
+      "tier2_count": 0,
+      "tier3_count": 0,
+      "total_conviction_pct": 8.74,
+      "total_value_held": 312034089000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Li Lu",
+          "fund": "Himalaya Capital",
+          "tier": 1,
+          "shares": 2776351,
+          "value": 312034089000,
+          "pct_of_portfolio": 8.74,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "CROCS",
+      "company": "CROCS INC",
+      "convergence_score": 20,
+      "total_investor_count": 1,
+      "tier1_count": 1,
+      "tier2_count": 0,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.51,
+      "total_value_held": 53720158000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Li Lu",
+          "fund": "Himalaya Capital",
+          "tier": 1,
+          "shares": 628159,
+          "value": 53720158000,
+          "pct_of_portfolio": 1.51,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "RIG",
+      "company": "TRANSOCEAN LTD",
+      "convergence_score": 20,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 27.78,
+      "total_value_held": 111675749000,
+      "top5_bonus_count": 1,
+      "investors": [
+        {
+          "name": "Mohnish Pabrai",
+          "fund": "Dalal Street LLC",
+          "tier": 2,
+          "shares": 27040133,
+          "value": 111675749000,
+          "pct_of_portfolio": 27.78,
+          "is_top5": true
+        }
+      ]
+    },
+    {
+      "ticker": "ALPHA",
+      "company": "ALPHA METALLURGICAL RESOUR I",
+      "convergence_score": 20,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 27.0,
+      "total_value_held": 108534840000,
+      "top5_bonus_count": 1,
+      "investors": [
+        {
+          "name": "Mohnish Pabrai",
+          "fund": "Dalal Street LLC",
+          "tier": 2,
+          "shares": 543000,
+          "value": 108534840000,
+          "pct_of_portfolio": 27.0,
+          "is_top5": true
+        }
+      ]
+    },
+    {
+      "ticker": "ABNB",
+      "company": "AIRBNB INC",
+      "convergence_score": 20,
+      "total_investor_count": 2,
+      "tier1_count": 0,
+      "tier2_count": 2,
+      "tier3_count": 0,
+      "total_conviction_pct": 5.43,
+      "total_value_held": 504000562000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chuck Akre",
+          "fund": "Akre Capital Management",
+          "tier": 2,
+          "shares": 3473243,
+          "value": 471388540000,
+          "pct_of_portfolio": 5.17,
+          "is_top5": false
+        },
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 240289,
+          "value": 32612022000,
+          "pct_of_portfolio": 0.26,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "CPRT",
+      "company": "COSTCO WHSL CORP NEW",
+      "convergence_score": 20,
+      "total_investor_count": 2,
+      "tier1_count": 0,
+      "tier2_count": 2,
+      "tier3_count": 0,
+      "total_conviction_pct": 3.65,
+      "total_value_held": 341791519000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chuck Akre",
+          "fund": "Akre Capital Management",
+          "tier": 2,
+          "shares": 7867967,
+          "value": 308030908000,
+          "pct_of_portfolio": 3.38,
+          "is_top5": false
+        },
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 39150,
+          "value": 33760611000,
+          "pct_of_portfolio": 0.27,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "AMERICAN",
+      "company": "AMERICAN TOWER CORP NEW",
+      "convergence_score": 20,
+      "total_investor_count": 2,
+      "tier1_count": 0,
+      "tier2_count": 2,
+      "tier3_count": 0,
+      "total_conviction_pct": 2.11,
+      "total_value_held": 53757462000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chuck Akre",
+          "fund": "Akre Capital Management",
+          "tier": 2,
+          "shares": 255267,
+          "value": 44817227000,
+          "pct_of_portfolio": 0.49,
+          "is_top5": false
+        },
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 278512,
+          "value": 8940235000,
+          "pct_of_portfolio": 1.62,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "KMX",
+      "company": "CARMAX INC",
+      "convergence_score": 20,
+      "total_investor_count": 2,
+      "tier1_count": 0,
+      "tier2_count": 2,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.1,
+      "total_value_held": 11093544000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chuck Akre",
+          "fund": "Akre Capital Management",
+          "tier": 2,
+          "shares": 150600,
+          "value": 5819184000,
+          "pct_of_portfolio": 0.06,
+          "is_top5": false
+        },
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 136500,
+          "value": 5274360000,
+          "pct_of_portfolio": 0.04,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "RACE",
+      "company": "FERRARI N V",
+      "convergence_score": 20,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 8.63,
+      "total_value_held": 14694000,
+      "top5_bonus_count": 1,
+      "investors": [
+        {
+          "name": "Guy Spier",
+          "fund": "Aquamarine Capital",
+          "tier": 2,
+          "shares": 80000,
+          "value": 14694000,
+          "pct_of_portfolio": 8.63,
+          "is_top5": true
+        }
+      ]
+    },
+    {
+      "ticker": "FIDELITY",
+      "company": "FIDELITY NATL INFORMATION SV",
+      "convergence_score": 20,
+      "total_investor_count": 1,
+      "tier1_count": 1,
+      "tier2_count": 0,
+      "tier3_count": 0,
+      "total_conviction_pct": 5.67,
+      "total_value_held": 299323000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Seth Klarman",
+          "fund": "Baupost Group",
+          "tier": 1,
+          "shares": 4503801,
+          "value": 299323000,
+          "pct_of_portfolio": 5.67,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "LBTYA",
+      "company": "LIBERTY GLOBAL LTD",
+      "convergence_score": 20,
+      "total_investor_count": 1,
+      "tier1_count": 1,
+      "tier2_count": 0,
+      "tier3_count": 0,
+      "total_conviction_pct": 4.81,
+      "total_value_held": 253744000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Seth Klarman",
+          "fund": "Baupost Group",
+          "tier": 1,
+          "shares": 22965237,
+          "value": 253744000,
+          "pct_of_portfolio": 4.81,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "GENUINE",
+      "company": "GENUINE PARTS CO",
+      "convergence_score": 20,
+      "total_investor_count": 1,
+      "tier1_count": 1,
+      "tier2_count": 0,
+      "tier3_count": 0,
+      "total_conviction_pct": 3.46,
+      "total_value_held": 182729000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Seth Klarman",
+          "fund": "Baupost Group",
+          "tier": 1,
+          "shares": 1486088,
+          "value": 182729000,
+          "pct_of_portfolio": 3.46,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "FI",
+      "company": "FISERV INC",
+      "convergence_score": 20,
+      "total_investor_count": 1,
+      "tier1_count": 1,
+      "tier2_count": 0,
+      "tier3_count": 0,
+      "total_conviction_pct": 2.8,
+      "total_value_held": 147774000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Seth Klarman",
+          "fund": "Baupost Group",
+          "tier": 1,
+          "shares": 2200000,
+          "value": 147774000,
+          "pct_of_portfolio": 2.8,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "CRH",
+      "company": "CRH PLC",
+      "convergence_score": 20,
+      "total_investor_count": 1,
+      "tier1_count": 1,
+      "tier2_count": 0,
+      "tier3_count": 0,
+      "total_conviction_pct": 2.54,
+      "total_value_held": 133905000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Seth Klarman",
+          "fund": "Baupost Group",
+          "tier": 1,
+          "shares": 1072957,
+          "value": 133905000,
+          "pct_of_portfolio": 2.54,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "HERBALIF",
+      "company": "HERBALIFE LTD",
+      "convergence_score": 20,
+      "total_investor_count": 1,
+      "tier1_count": 1,
+      "tier2_count": 0,
+      "tier3_count": 0,
+      "total_conviction_pct": 2.26,
+      "total_value_held": 119359000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Seth Klarman",
+          "fund": "Baupost Group",
+          "tier": 1,
+          "shares": 9259844,
+          "value": 119359000,
+          "pct_of_portfolio": 2.26,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "MNST",
+      "company": "MOLINA HEALTHCARE INC",
+      "convergence_score": 20,
+      "total_investor_count": 1,
+      "tier1_count": 1,
+      "tier2_count": 0,
+      "tier3_count": 0,
+      "total_conviction_pct": 2.05,
+      "total_value_held": 108463000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Seth Klarman",
+          "fund": "Baupost Group",
+          "tier": 1,
+          "shares": 625000,
+          "value": 108463000,
+          "pct_of_portfolio": 2.05,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "GRUPO",
+      "company": "GRUPO AEROMEXICO SAB DE CV",
+      "convergence_score": 20,
+      "total_investor_count": 1,
+      "tier1_count": 1,
+      "tier2_count": 0,
+      "tier3_count": 0,
+      "total_conviction_pct": 2.02,
+      "total_value_held": 106620000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Seth Klarman",
+          "fund": "Baupost Group",
+          "tier": 1,
+          "shares": 4855180,
+          "value": 106620000,
+          "pct_of_portfolio": 2.02,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "GDS",
+      "company": "GDS HLDGS LTD",
+      "convergence_score": 20,
+      "total_investor_count": 1,
+      "tier1_count": 1,
+      "tier2_count": 0,
+      "tier3_count": 0,
+      "total_conviction_pct": 2.01,
+      "total_value_held": 106264000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Seth Klarman",
+          "fund": "Baupost Group",
+          "tier": 1,
+          "shares": 3044818,
+          "value": 106264000,
+          "pct_of_portfolio": 2.01,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "AMERICOL",
+      "company": "AMERICOLD REALTY TRUST INC",
+      "convergence_score": 20,
+      "total_investor_count": 1,
+      "tier1_count": 1,
+      "tier2_count": 0,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.85,
+      "total_value_held": 44697000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Seth Klarman",
+          "fund": "Baupost Group",
+          "tier": 1,
+          "shares": 3475685,
+          "value": 44697000,
+          "pct_of_portfolio": 0.85,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "TAMBORAN",
+      "company": "TAMBORAN RES CORP",
+      "convergence_score": 20,
+      "total_investor_count": 1,
+      "tier1_count": 1,
+      "tier2_count": 0,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.13,
+      "total_value_held": 7004000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Seth Klarman",
+          "fund": "Baupost Group",
+          "tier": 1,
+          "shares": 257226,
+          "value": 7004000,
+          "pct_of_portfolio": 0.13,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "INVESTOR",
+      "company": "INVESTORS TITLE CO NC",
+      "convergence_score": 20,
+      "total_investor_count": 2,
+      "tier1_count": 0,
+      "tier2_count": 2,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.41,
+      "total_value_held": 58713830000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 213300,
+          "value": 53248212000,
+          "pct_of_portfolio": 0.42,
+          "is_top5": false
+        },
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 21894,
+          "value": 5465618000,
+          "pct_of_portfolio": 0.99,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "CBOE",
+      "company": "CBOE GLOBAL MKTS INC",
+      "convergence_score": 20,
+      "total_investor_count": 2,
+      "tier1_count": 0,
+      "tier2_count": 2,
+      "tier3_count": 0,
+      "total_conviction_pct": 4.37,
+      "total_value_held": 34088850000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 41750,
+          "value": 10479250000,
+          "pct_of_portfolio": 0.08,
+          "is_top5": false
+        },
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 146835,
+          "value": 23609600000,
+          "pct_of_portfolio": 4.29,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "TIDEWATE",
+      "company": "Tidewater Inc.",
+      "convergence_score": 20,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 8.01,
+      "total_value_held": 44098816000,
+      "top5_bonus_count": 1,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 873071,
+          "value": 44098816000,
+          "pct_of_portfolio": 8.01,
+          "is_top5": true
+        }
+      ]
+    },
+    {
+      "ticker": "BOISE",
+      "company": "Boise Cascade Company",
+      "convergence_score": 20,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 5.75,
+      "total_value_held": 31647926000,
+      "top5_bonus_count": 1,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 429999,
+          "value": 31647926000,
+          "pct_of_portfolio": 5.75,
+          "is_top5": true
+        }
+      ]
+    },
+    {
+      "ticker": "GREEN",
+      "company": "GREEN BRICK PARTNERS INC",
+      "convergence_score": 15,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 28.92,
+      "total_value_held": 592369623000,
+      "top5_bonus_count": 1,
+      "investors": [
+        {
+          "name": "David Einhorn",
+          "fund": "Greenlight Capital",
+          "tier": 3,
+          "shares": 11404883,
+          "value": 592369623000,
+          "pct_of_portfolio": 28.92,
+          "is_top5": true
+        }
+      ]
+    },
+    {
+      "ticker": "CONSOL",
+      "company": "CONSOL ENERGY INC NEW",
+      "convergence_score": 15,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 10.34,
+      "total_value_held": 211673655000,
+      "top5_bonus_count": 1,
+      "investors": [
+        {
+          "name": "David Einhorn",
+          "fund": "Greenlight Capital",
+          "tier": 3,
+          "shares": 2105577,
+          "value": 211673655000,
+          "pct_of_portfolio": 10.34,
+          "is_top5": true
+        }
+      ]
+    },
+    {
+      "ticker": "BRIGHTHO",
+      "company": "BRIGHTHOUSE FINL INC",
+      "convergence_score": 15,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 7.86,
+      "total_value_held": 161068530000,
+      "top5_bonus_count": 1,
+      "investors": [
+        {
+          "name": "David Einhorn",
+          "fund": "Greenlight Capital",
+          "tier": 3,
+          "shares": 3043623,
+          "value": 161068530000,
+          "pct_of_portfolio": 7.86,
+          "is_top5": true
+        }
+      ]
+    },
+    {
+      "ticker": "KYNDRYL",
+      "company": "KYNDRYL HLDGS INC",
+      "convergence_score": 15,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 6.45,
+      "total_value_held": 132079115000,
+      "top5_bonus_count": 1,
+      "investors": [
+        {
+          "name": "David Einhorn",
+          "fund": "Greenlight Capital",
+          "tier": 3,
+          "shares": 6356069,
+          "value": 132079115000,
+          "pct_of_portfolio": 6.45,
+          "is_top5": true
+        }
+      ]
+    },
+    {
+      "ticker": "TMUS",
+      "company": "TENET HEALTHCARE CORP",
+      "convergence_score": 15,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 4.86,
+      "total_value_held": 99447853000,
+      "top5_bonus_count": 1,
+      "investors": [
+        {
+          "name": "David Einhorn",
+          "fund": "Greenlight Capital",
+          "tier": 3,
+          "shares": 1315970,
+          "value": 99447853000,
+          "pct_of_portfolio": 4.86,
+          "is_top5": true
+        }
+      ]
+    },
+    {
+      "ticker": "FIRST",
+      "company": "First Industrial Realty Trust, Inc.",
+      "convergence_score": 15,
+      "total_investor_count": 2,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 1,
+      "total_conviction_pct": 3.83,
+      "total_value_held": 62138139000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "David Einhorn",
+          "fund": "Greenlight Capital",
+          "tier": 3,
+          "shares": 1460450,
+          "value": 56140366000,
+          "pct_of_portfolio": 2.74,
+          "is_top5": false
+        },
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 104728,
+          "value": 5997773000,
+          "pct_of_portfolio": 1.09,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "CNI",
+      "company": "CANADIAN NATL RY CO",
+      "convergence_score": 15,
+      "total_investor_count": 2,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 1,
+      "total_conviction_pct": 1.86,
+      "total_value_held": 978513482000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 44500,
+          "value": 4398825000,
+          "pct_of_portfolio": 0.04,
+          "is_top5": false
+        },
+        {
+          "name": "Christopher Hohn",
+          "fund": "TCI Fund Management",
+          "tier": 3,
+          "shares": 9849934,
+          "value": 974114657000,
+          "pct_of_portfolio": 1.82,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "CANADIAN",
+      "company": "CANADIAN PACIFIC KANSAS CITY",
+      "convergence_score": 15,
+      "total_investor_count": 2,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 1,
+      "total_conviction_pct": 6.57,
+      "total_value_held": 3512348644000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 50500,
+          "value": 3718315000,
+          "pct_of_portfolio": 0.03,
+          "is_top5": false
+        },
+        {
+          "name": "Christopher Hohn",
+          "fund": "TCI Fund Management",
+          "tier": 3,
+          "shares": 47654423,
+          "value": 3508630329000,
+          "pct_of_portfolio": 6.54,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "GE",
+      "company": "GE AEROSPACE",
+      "convergence_score": 15,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 27.28,
+      "total_value_held": 14634638061000,
+      "top5_bonus_count": 1,
+      "investors": [
+        {
+          "name": "Christopher Hohn",
+          "fund": "TCI Fund Management",
+          "tier": 3,
+          "shares": 47510431,
+          "value": 14634638061000,
+          "pct_of_portfolio": 27.28,
+          "is_top5": true
+        }
+      ]
+    },
+    {
+      "ticker": "COSTAR",
+      "company": "COSTAR GROUP INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 7.09,
+      "total_value_held": 646701208000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chuck Akre",
+          "fund": "Akre Capital Management",
+          "tier": 2,
+          "shares": 9617805,
+          "value": 646701208000,
+          "pct_of_portfolio": 7.09,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "OREILLY",
+      "company": "OREILLY AUTOMOTIVE INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 6.72,
+      "total_value_held": 612914691000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chuck Akre",
+          "fund": "Akre Capital Management",
+          "tier": 2,
+          "shares": 6719819,
+          "value": 612914691000,
+          "pct_of_portfolio": 6.72,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "ROP",
+      "company": "ROPER TECHNOLOGIES INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 5.39,
+      "total_value_held": 491936755000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chuck Akre",
+          "fund": "Akre Capital Management",
+          "tier": 2,
+          "shares": 1105153,
+          "value": 491936755000,
+          "pct_of_portfolio": 5.39,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "FICO",
+      "company": "FAIR ISAAC CORP",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 5.14,
+      "total_value_held": 469054066000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chuck Akre",
+          "fund": "Akre Capital Management",
+          "tier": 2,
+          "shares": 277445,
+          "value": 469054066000,
+          "pct_of_portfolio": 5.14,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "INTC",
+      "company": "CCC INTELLIGENT SOLUTIONS HL",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 2.16,
+      "total_value_held": 197454023000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chuck Akre",
+          "fund": "Akre Capital Management",
+          "tier": 2,
+          "shares": 24836984,
+          "value": 197454023000,
+          "pct_of_portfolio": 2.16,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "GOOSEHEA",
+      "company": "GOOSEHEAD INS INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.3,
+      "total_value_held": 27331220000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chuck Akre",
+          "fund": "Akre Capital Management",
+          "tier": 2,
+          "shares": 371096,
+          "value": 27331220000,
+          "pct_of_portfolio": 0.3,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "SOPHIA",
+      "company": "SOPHIA GENETICS SA",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.19,
+      "total_value_held": 17368384000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chuck Akre",
+          "fund": "Akre Capital Management",
+          "tier": 2,
+          "shares": 3719140,
+          "value": 17368384000,
+          "pct_of_portfolio": 0.19,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "DHR",
+      "company": "DANAHER CORPORATION",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.17,
+      "total_value_held": 15913603000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chuck Akre",
+          "fund": "Akre Capital Management",
+          "tier": 2,
+          "shares": 69516,
+          "value": 15913603000,
+          "pct_of_portfolio": 0.17,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "MICRON",
+      "company": "MICRON TECHNOLOGY INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 6.49,
+      "total_value_held": 11056000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Guy Spier",
+          "fund": "Aquamarine Capital",
+          "tier": 2,
+          "shares": 200000,
+          "value": 11056000,
+          "pct_of_portfolio": 6.49,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "ALIBABA",
+      "company": "ALIBABA GROUP HLDG LTD",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 3.17,
+      "total_value_held": 5400000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Guy Spier",
+          "fund": "Aquamarine Capital",
+          "tier": 2,
+          "shares": 47500,
+          "value": 5400000,
+          "pct_of_portfolio": 3.17,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "DAILY",
+      "company": "DAILY JOURNAL CORP",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.75,
+      "total_value_held": 2976000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Guy Spier",
+          "fund": "Aquamarine Capital",
+          "tier": 2,
+          "shares": 11500,
+          "value": 2976000,
+          "pct_of_portfolio": 1.75,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "SERITAGE",
+      "company": "SERITAGE GROWTH PPTYS",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.53,
+      "total_value_held": 2605000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Guy Spier",
+          "fund": "Aquamarine Capital",
+          "tier": 2,
+          "shares": 500000,
+          "value": 2605000,
+          "pct_of_portfolio": 1.53,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "HOWARD",
+      "company": "HOWARD HUGHES HOLDINGS INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 9.69,
+      "total_value_held": 1503829145000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Bill Ackman",
+          "fund": "Pershing Square",
+          "tier": 2,
+          "shares": 18852064,
+          "value": 1503829145000,
+          "pct_of_portfolio": 9.69,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "HILTON",
+      "company": "HILTON WORLDWIDE HLDGS INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 5.6,
+      "total_value_held": 869983734000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Bill Ackman",
+          "fund": "Pershing Square",
+          "tier": 2,
+          "shares": 3028664,
+          "value": 869983734000,
+          "pct_of_portfolio": 5.6,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "SEAPORT",
+      "company": "SEAPORT ENTMT GROUP INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.64,
+      "total_value_held": 99320131000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Bill Ackman",
+          "fund": "Pershing Square",
+          "tier": 2,
+          "shares": 5023780,
+          "value": 99320131000,
+          "pct_of_portfolio": 0.64,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "HERTZ",
+      "company": "HERTZ GLOBAL HLDGS INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.5,
+      "total_value_held": 78339393000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Bill Ackman",
+          "fund": "Pershing Square",
+          "tier": 2,
+          "shares": 15241127,
+          "value": 78339393000,
+          "pct_of_portfolio": 0.5,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "DE",
+      "company": "DEERE & CO",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 3.26,
+      "total_value_held": 408723903000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 877900,
+          "value": 408723903000,
+          "pct_of_portfolio": 3.26,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "HD",
+      "company": "HOME DEPOT INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 2.52,
+      "total_value_held": 316572001000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 920000,
+          "value": 316572001000,
+          "pct_of_portfolio": 2.52,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "GS",
+      "company": "GOLDMAN SACHS GROUP INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 2.52,
+      "total_value_held": 315877440000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 359360,
+          "value": 315877440000,
+          "pct_of_portfolio": 2.52,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "ANALOG",
+      "company": "ANALOG DEVICES INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 2.21,
+      "total_value_held": 277504044000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 1023245,
+          "value": 277504044000,
+          "pct_of_portfolio": 2.21,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "BLK",
+      "company": "BLACKROCK INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.88,
+      "total_value_held": 235688869000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 220200,
+          "value": 235688869000,
+          "pct_of_portfolio": 1.88,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "DIS",
+      "company": "DISNEY WALT CO",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.84,
+      "total_value_held": 231142527000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 2031665,
+          "value": 231142527000,
+          "pct_of_portfolio": 1.84,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "LPL",
+      "company": "LPL FINL HLDGS INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.59,
+      "total_value_held": 199997699000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 559951,
+          "value": 199997699000,
+          "pct_of_portfolio": 1.59,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "WSO",
+      "company": "WATSCO INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.55,
+      "total_value_held": 194645571000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 577669,
+          "value": 194645571000,
+          "pct_of_portfolio": 1.55,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "BLACKSTO",
+      "company": "BLACKSTONE INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.51,
+      "total_value_held": 189438060000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 1229000,
+          "value": 189438060000,
+          "pct_of_portfolio": 1.51,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "CAT",
+      "company": "CATERPILLAR INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.5,
+      "total_value_held": 188273727000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 328650,
+          "value": 188273727000,
+          "pct_of_portfolio": 1.5,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "LOW",
+      "company": "LOWES COS INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.41,
+      "total_value_held": 177127198000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 734480,
+          "value": 177127198000,
+          "pct_of_portfolio": 1.41,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "PCAR",
+      "company": "PROGRESSIVE CORP",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.37,
+      "total_value_held": 171643949000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 753750,
+          "value": 171643949000,
+          "pct_of_portfolio": 1.37,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "RLI",
+      "company": "RLI CORP",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.22,
+      "total_value_held": 153202926000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 2394544,
+          "value": 153202926000,
+          "pct_of_portfolio": 1.22,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "APOLLO",
+      "company": "APOLLO GLOBAL MGMT INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.17,
+      "total_value_held": 146569500000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 1012500,
+          "value": 146569500000,
+          "pct_of_portfolio": 1.17,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "NOVO-NOR",
+      "company": "NOVO-NORDISK A S",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.16,
+      "total_value_held": 146014101000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 2869774,
+          "value": 146014101000,
+          "pct_of_portfolio": 1.16,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "FRANCO",
+      "company": "FRANCO NEV CORP",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.13,
+      "total_value_held": 141675880000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 683500,
+          "value": 141675880000,
+          "pct_of_portfolio": 1.13,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "MMC",
+      "company": "MARSH & MCLENNAN COS INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.13,
+      "total_value_held": 141319860000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 761750,
+          "value": 141319860000,
+          "pct_of_portfolio": 1.13,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "SCHW",
+      "company": "SCHWAB CHARLES CORP",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.1,
+      "total_value_held": 137456178000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 1375800,
+          "value": 137456178000,
+          "pct_of_portfolio": 1.1,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "GENERAL",
+      "company": "GENERAL DYNAMICS CORP",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.05,
+      "total_value_held": 131634060000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 391000,
+          "value": 131634060000,
+          "pct_of_portfolio": 1.05,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "JNJ",
+      "company": "JOHNSON & JOHNSON",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.01,
+      "total_value_held": 126405060000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 610800,
+          "value": 126405060000,
+          "pct_of_portfolio": 1.01,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "TXN",
+      "company": "TEXAS INSTRS INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.0,
+      "total_value_held": 125606759000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 724000,
+          "value": 125606759000,
+          "pct_of_portfolio": 1.0,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "ROLLINS",
+      "company": "ROLLINS INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.71,
+      "total_value_held": 89371282000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 1489025,
+          "value": 89371282000,
+          "pct_of_portfolio": 0.71,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "ARCHER",
+      "company": "ARCHER DANIELS MIDLAND CO",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.69,
+      "total_value_held": 86568442000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 1505800,
+          "value": 86568442000,
+          "pct_of_portfolio": 0.69,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "LINDE",
+      "company": "LINDE PLC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.68,
+      "total_value_held": 85320641000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 200100,
+          "value": 85320641000,
+          "pct_of_portfolio": 0.68,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "JPM",
+      "company": "JPMORGAN CHASE & CO.",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.65,
+      "total_value_held": 81376661000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 252550,
+          "value": 81376661000,
+          "pct_of_portfolio": 0.65,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "ILMN",
+      "company": "ILLINOIS TOOL WKS INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.64,
+      "total_value_held": 80663249000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 327500,
+          "value": 80663249000,
+          "pct_of_portfolio": 0.64,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "NORFOLK",
+      "company": "NORFOLK SOUTHN CORP",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.63,
+      "total_value_held": 78964920000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 273500,
+          "value": 78964920000,
+          "pct_of_portfolio": 0.63,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "CARLYLE",
+      "company": "CARLYLE GROUP INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.63,
+      "total_value_held": 78438970000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 1327000,
+          "value": 78438970000,
+          "pct_of_portfolio": 0.63,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "ECOLAB",
+      "company": "ECOLAB INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.57,
+      "total_value_held": 72009236000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 274300,
+          "value": 72009236000,
+          "pct_of_portfolio": 0.57,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "ODFL",
+      "company": "OLD DOMINION FREIGHT LINE IN",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.53,
+      "total_value_held": 66114720000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 421650,
+          "value": 66114720000,
+          "pct_of_portfolio": 0.53,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "ROCKWELL",
+      "company": "ROCKWELL AUTOMATION INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.48,
+      "total_value_held": 60266943000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 154900,
+          "value": 60266943000,
+          "pct_of_portfolio": 0.48,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "SBUX",
+      "company": "STARBUCKS CORP",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.42,
+      "total_value_held": 52531714000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 623818,
+          "value": 52531714000,
+          "pct_of_portfolio": 0.42,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "TYSON",
+      "company": "TYSON FOODS INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.41,
+      "total_value_held": 51849390000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 884500,
+          "value": 51849390000,
+          "pct_of_portfolio": 0.41,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "HANOVER",
+      "company": "HANOVER INS GROUP INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.41,
+      "total_value_held": 51358370000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 281000,
+          "value": 51358370000,
+          "pct_of_portfolio": 0.41,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "ACN",
+      "company": "ACCENTURE PLC IRELAND",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.34,
+      "total_value_held": 42767020000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 159400,
+          "value": 42767020000,
+          "pct_of_portfolio": 0.34,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "HAGERTY",
+      "company": "HAGERTY INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.33,
+      "total_value_held": 41771520000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 3108000,
+          "value": 41771520000,
+          "pct_of_portfolio": 0.33,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "RTX",
+      "company": "RTX CORPORATION",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.33,
+      "total_value_held": 41081600000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 224000,
+          "value": 41081600000,
+          "pct_of_portfolio": 0.33,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "HCA",
+      "company": "HCA HEALTHCARE INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.3,
+      "total_value_held": 37666266000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 80680,
+          "value": 37666266000,
+          "pct_of_portfolio": 0.3,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "TMO",
+      "company": "THERMO FISHER SCIENTIFIC INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.29,
+      "total_value_held": 36389461000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 62800,
+          "value": 36389461000,
+          "pct_of_portfolio": 0.29,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "FACTSET",
+      "company": "FACTSET RESH SYS INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.28,
+      "total_value_held": 35366326000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 121873,
+          "value": 35366326000,
+          "pct_of_portfolio": 0.28,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "VRSK",
+      "company": "VERISK ANALYTICS INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.28,
+      "total_value_held": 34884456000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 155950,
+          "value": 34884456000,
+          "pct_of_portfolio": 0.28,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "BROWN",
+      "company": "BROWN FORMAN CORP",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.28,
+      "total_value_held": 34536643000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 1317187,
+          "value": 34536643000,
+          "pct_of_portfolio": 0.28,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "YUM",
+      "company": "YUM BRANDS INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.27,
+      "total_value_held": 34257507000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 226451,
+          "value": 34257507000,
+          "pct_of_portfolio": 0.27,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "ALL",
+      "company": "ALLSTATE CORP",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.26,
+      "total_value_held": 32169583000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 154550,
+          "value": 32169583000,
+          "pct_of_portfolio": 0.26,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "PRICE",
+      "company": "PRICE T ROWE GROUP INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.26,
+      "total_value_held": 32147319000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 314000,
+          "value": 32147319000,
+          "pct_of_portfolio": 0.26,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "LOCKHEED",
+      "company": "LOCKHEED MARTIN CORP",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.25,
+      "total_value_held": 31203003000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 64513,
+          "value": 31203003000,
+          "pct_of_portfolio": 0.25,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "SHERWIN",
+      "company": "SHERWIN WILLIAMS CO",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.24,
+      "total_value_held": 30514552000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 94172,
+          "value": 30514552000,
+          "pct_of_portfolio": 0.24,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "CMCSA",
+      "company": "COMCAST CORP NEW",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.23,
+      "total_value_held": 28750593000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 961880,
+          "value": 28750593000,
+          "pct_of_portfolio": 0.23,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "NKE",
+      "company": "NIKE INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.23,
+      "total_value_held": 28503854000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 447400,
+          "value": 28503854000,
+          "pct_of_portfolio": 0.23,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "MKL",
+      "company": "MARRIOTT INTL INC NEW",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.22,
+      "total_value_held": 27844040000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 89750,
+          "value": 27844040000,
+          "pct_of_portfolio": 0.22,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "CSCO",
+      "company": "CISCO SYS INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.22,
+      "total_value_held": 27384165000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 355500,
+          "value": 27384165000,
+          "pct_of_portfolio": 0.22,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "UNITED",
+      "company": "UNITED RENTALS INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.2,
+      "total_value_held": 25210318000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 31150,
+          "value": 25210318000,
+          "pct_of_portfolio": 0.2,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "CROWN",
+      "company": "CROWN HLDGS INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.17,
+      "total_value_held": 21829640000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 212000,
+          "value": 21829640000,
+          "pct_of_portfolio": 0.17,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "RENAISSA",
+      "company": "RENAISSANCERE HLDGS LTD",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.16,
+      "total_value_held": 19681200000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 70000,
+          "value": 19681200000,
+          "pct_of_portfolio": 0.16,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "WFC",
+      "company": "WELLS FARGO CO NEW",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.15,
+      "total_value_held": 19054740000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 204450,
+          "value": 19054740000,
+          "pct_of_portfolio": 0.15,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "PM",
+      "company": "PHILIP MORRIS INTL INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.15,
+      "total_value_held": 18365800000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 114500,
+          "value": 18365800000,
+          "pct_of_portfolio": 0.15,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "AIR",
+      "company": "AIR PRODS & CHEMS INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.14,
+      "total_value_held": 17661930000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 71500,
+          "value": 17661930000,
+          "pct_of_portfolio": 0.14,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "PAYCHEX",
+      "company": "PAYCHEX INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.13,
+      "total_value_held": 16827000000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 150000,
+          "value": 16827000000,
+          "pct_of_portfolio": 0.13,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "SHOP",
+      "company": "SHOPIFY INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.13,
+      "total_value_held": 16539668000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 102750,
+          "value": 16539668000,
+          "pct_of_portfolio": 0.13,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "EQUIFAX",
+      "company": "EQUIFAX INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.13,
+      "total_value_held": 15806993000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 72850,
+          "value": 15806993000,
+          "pct_of_portfolio": 0.13,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "SPOT",
+      "company": "SPOTIFY TECHNOLOGY S A",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.12,
+      "total_value_held": 15040389000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 25900,
+          "value": 15040389000,
+          "pct_of_portfolio": 0.12,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "SEI",
+      "company": "SEI INVTS CO",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.11,
+      "total_value_held": 14205864000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 173200,
+          "value": 14205864000,
+          "pct_of_portfolio": 0.11,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "BANK",
+      "company": "BANK NEW YORK MELLON CORP",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.11,
+      "total_value_held": 14104935000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 121500,
+          "value": 14104935000,
+          "pct_of_portfolio": 0.11,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "HEXCEL",
+      "company": "HEXCEL CORP NEW",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.11,
+      "total_value_held": 13967100000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 189000,
+          "value": 13967100000,
+          "pct_of_portfolio": 0.11,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "PEP",
+      "company": "PEPSICO INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.11,
+      "total_value_held": 13808059000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 96210,
+          "value": 13808059000,
+          "pct_of_portfolio": 0.11,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "TSM",
+      "company": "TARGET CORP",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.1,
+      "total_value_held": 13000750000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 133000,
+          "value": 13000750000,
+          "pct_of_portfolio": 0.1,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "CME",
+      "company": "CME GROUP INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.1,
+      "total_value_held": 12493410000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 45750,
+          "value": 12493410000,
+          "pct_of_portfolio": 0.1,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "CARRIER",
+      "company": "CARRIER GLOBAL CORPORATION",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.1,
+      "total_value_held": 12417400000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 235000,
+          "value": 12417400000,
+          "pct_of_portfolio": 0.1,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "HSY",
+      "company": "HERSHEY CO",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.1,
+      "total_value_held": 12283650000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 67500,
+          "value": 12283650000,
+          "pct_of_portfolio": 0.1,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "COMFORT",
+      "company": "COMFORT SYS USA INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.1,
+      "total_value_held": 12132770000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 13000,
+          "value": 12132770000,
+          "pct_of_portfolio": 0.1,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "CHOICE",
+      "company": "CHOICE HOTELS INTL INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.09,
+      "total_value_held": 11002530000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 115500,
+          "value": 11002530000,
+          "pct_of_portfolio": 0.09,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "IQVIA",
+      "company": "IQVIA HLDGS INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.08,
+      "total_value_held": 10571729000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 46900,
+          "value": 10571729000,
+          "pct_of_portfolio": 0.08,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "OTIS",
+      "company": "OTIS WORLDWIDE CORP",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.08,
+      "total_value_held": 10012059000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 114620,
+          "value": 10012059000,
+          "pct_of_portfolio": 0.08,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "SCOTTS",
+      "company": "SCOTTS MIRACLE-GRO CO",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.08,
+      "total_value_held": 9802801000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 168000,
+          "value": 9802801000,
+          "pct_of_portfolio": 0.08,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "APPLIED",
+      "company": "APPLIED MATLS INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.07,
+      "total_value_held": 8763360000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 34100,
+          "value": 8763360000,
+          "pct_of_portfolio": 0.07,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "HUNTINGT",
+      "company": "HUNTINGTON INGALLS INDS INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.07,
+      "total_value_held": 8671785000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 25500,
+          "value": 8671785000,
+          "pct_of_portfolio": 0.07,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "SONY",
+      "company": "SONY GROUP CORP",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.07,
+      "total_value_held": 8576000000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 335000,
+          "value": 8576000000,
+          "pct_of_portfolio": 0.07,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "INSPERIT",
+      "company": "INSPERITY INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.05,
+      "total_value_held": 5919242000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 152873,
+          "value": 5919242000,
+          "pct_of_portfolio": 0.05,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "GRAHAM",
+      "company": "GRAHAM HLDGS CO",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.05,
+      "total_value_held": 5712720000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 5200,
+          "value": 5712720000,
+          "pct_of_portfolio": 0.05,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "EASTMAN",
+      "company": "EASTMAN CHEM CO",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.04,
+      "total_value_held": 4784059000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 74950,
+          "value": 4784059000,
+          "pct_of_portfolio": 0.04,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "XOM",
+      "company": "EXXON MOBIL CORP",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.04,
+      "total_value_held": 4572920000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 38000,
+          "value": 4572920000,
+          "pct_of_portfolio": 0.04,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "BERKLEY",
+      "company": "BERKLEY W R CORP",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.03,
+      "total_value_held": 4259790000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 60750,
+          "value": 4259790000,
+          "pct_of_portfolio": 0.03,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "BRUNSWIC",
+      "company": "BRUNSWICK CORP",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.03,
+      "total_value_held": 3544960000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 47750,
+          "value": 3544960000,
+          "pct_of_portfolio": 0.03,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "ACUITY",
+      "company": "ACUITY INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.03,
+      "total_value_held": 3510390000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 9750,
+          "value": 3510390000,
+          "pct_of_portfolio": 0.03,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "ICE",
+      "company": "INTERCONTINENTAL EXCHANGE IN",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.03,
+      "total_value_held": 3380105000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 20870,
+          "value": 3380105000,
+          "pct_of_portfolio": 0.03,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "MKTX",
+      "company": "MGM RESORTS INTERNATIONAL",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.03,
+      "total_value_held": 3192875000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 87500,
+          "value": 3192875000,
+          "pct_of_portfolio": 0.03,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "SYSCO",
+      "company": "SYSCO CORP",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.02,
+      "total_value_held": 2247545000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 30500,
+          "value": 2247545000,
+          "pct_of_portfolio": 0.02,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "BRO",
+      "company": "BROWN & BROWN INC",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.01,
+      "total_value_held": 876700000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 11000,
+          "value": 876700000,
+          "pct_of_portfolio": 0.01,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "TRANSUNI",
+      "company": "TRANSUNION",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.0,
+      "total_value_held": 171500000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Tom Gayner",
+          "fund": "Markel Group",
+          "tier": 2,
+          "shares": 2000,
+          "value": 171500000,
+          "pct_of_portfolio": 0.0,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "FIVE",
+      "company": "Five Point Holdings LLC - CL A",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 4.18,
+      "total_value_held": 22996796000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 4113917,
+          "value": 22996796000,
+          "pct_of_portfolio": 4.18,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "PGR",
+      "company": "Prologis Inc.",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 3.37,
+      "total_value_held": 18568275000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 145451,
+          "value": 18568275000,
+          "pct_of_portfolio": 3.37,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "ROGERS",
+      "company": "Rogers Corp.",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 3.32,
+      "total_value_held": 18265834000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 199474,
+          "value": 18265834000,
+          "pct_of_portfolio": 3.32,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "DEUTSCHE",
+      "company": "Deutsche Bank AG",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 2.36,
+      "total_value_held": 13002162000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 337193,
+          "value": 13002162000,
+          "pct_of_portfolio": 2.36,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "U-HAUL",
+      "company": "U-Haul Holding Company",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 2.2,
+      "total_value_held": 12117158000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 259246,
+          "value": 12117158000,
+          "pct_of_portfolio": 2.2,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "SUN",
+      "company": "Sun Communities Inc.",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 2.18,
+      "total_value_held": 12009605000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 96922,
+          "value": 12009605000,
+          "pct_of_portfolio": 2.18,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "PULTEGRO",
+      "company": "PulteGroup Inc.",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 2.15,
+      "total_value_held": 11806206000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 100684,
+          "value": 11806206000,
+          "pct_of_portfolio": 2.15,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "JONES",
+      "company": "Jones Lang Lasalle",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 2.1,
+      "total_value_held": 11558081000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 34351,
+          "value": 11558081000,
+          "pct_of_portfolio": 2.1,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "DR",
+      "company": "DR Horton Inc.",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 2.05,
+      "total_value_held": 11262282000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 78194,
+          "value": 11262282000,
+          "pct_of_portfolio": 2.05,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "FNF",
+      "company": "FNF Group",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 2.04,
+      "total_value_held": 11208419000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 205320,
+          "value": 11208419000,
+          "pct_of_portfolio": 2.04,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "KAISER",
+      "company": "Kaiser Aluminum Corp.",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.78,
+      "total_value_held": 9804794000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 85363,
+          "value": 9804794000,
+          "pct_of_portfolio": 1.78,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "SUPERNUS",
+      "company": "Supernus Pharmaceuticals, Inc.",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.71,
+      "total_value_held": 9417802000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 189493,
+          "value": 9417802000,
+          "pct_of_portfolio": 1.71,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "COLLEGIU",
+      "company": "Collegium Pharmaceutical Inc.",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.71,
+      "total_value_held": 9417466000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 203401,
+          "value": 9417466000,
+          "pct_of_portfolio": 1.71,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "ENCORE",
+      "company": "Encore Capital Group Inc.",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.69,
+      "total_value_held": 9295046000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 171022,
+          "value": 9295046000,
+          "pct_of_portfolio": 1.69,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "UMB",
+      "company": "UMB Financial Corporation",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.64,
+      "total_value_held": 9001305000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 78245,
+          "value": 9001305000,
+          "pct_of_portfolio": 1.64,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "CHAMPION",
+      "company": "Champion Homes, Inc.",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.63,
+      "total_value_held": 8991561000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 106409,
+          "value": 8991561000,
+          "pct_of_portfolio": 1.63,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "MYR",
+      "company": "MYR Group Inc.",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.41,
+      "total_value_held": 7768549000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 35554,
+          "value": 7768549000,
+          "pct_of_portfolio": 1.41,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "PROASSUR",
+      "company": "Proassurance Corp.",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.29,
+      "total_value_held": 7078638000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 292990,
+          "value": 7078638000,
+          "pct_of_portfolio": 1.29,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "PROSPERI",
+      "company": "Prosperity Bancshares Inc.",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.28,
+      "total_value_held": 7060830000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 102168,
+          "value": 7060830000,
+          "pct_of_portfolio": 1.28,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "LSB",
+      "company": "LSB Industries Inc.",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.22,
+      "total_value_held": 6710300000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 789447,
+          "value": 6710300000,
+          "pct_of_portfolio": 1.22,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "OCTAVE",
+      "company": "Octave Specialty Group",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.11,
+      "total_value_held": 6084684000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 782093,
+          "value": 6084684000,
+          "pct_of_portfolio": 1.11,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "UNIFIRST",
+      "company": "UniFirst Corporation",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 1.0,
+      "total_value_held": 5484919000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 28434,
+          "value": 5484919000,
+          "pct_of_portfolio": 1.0,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "CENTRAL",
+      "company": "Central Securities Corporation",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.94,
+      "total_value_held": 5162887000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 101812,
+          "value": 5162887000,
+          "pct_of_portfolio": 0.94,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "TRI",
+      "company": "Tri Pointe Group Inc.",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.89,
+      "total_value_held": 4904757000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 155855,
+          "value": 4904757000,
+          "pct_of_portfolio": 0.89,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "SANDRIDG",
+      "company": "Sandridge Energy Inc.",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.87,
+      "total_value_held": 4773704000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 330818,
+          "value": 4773704000,
+          "pct_of_portfolio": 0.87,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "ICF",
+      "company": "ICF International, Inc.",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.82,
+      "total_value_held": 4509299000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 52864,
+          "value": 4509299000,
+          "pct_of_portfolio": 0.82,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "RAYONIER",
+      "company": "Rayonier Inc.",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.74,
+      "total_value_held": 4077561000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 188340,
+          "value": 4077561000,
+          "pct_of_portfolio": 0.74,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "WEYERHAE",
+      "company": "Weyerhaeuser Company",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.74,
+      "total_value_held": 4064778000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 171582,
+          "value": 4064778000,
+          "pct_of_portfolio": 0.74,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "ALAMO",
+      "company": "Alamo Group, Inc.",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.73,
+      "total_value_held": 4030391000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 24009,
+          "value": 4030391000,
+          "pct_of_portfolio": 0.73,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "BLUELINX",
+      "company": "Bluelinx Holdings Inc.",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.72,
+      "total_value_held": 3952345000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 64339,
+          "value": 3952345000,
+          "pct_of_portfolio": 0.72,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "CANTALOU",
+      "company": "Cantaloupe, Inc.",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.71,
+      "total_value_held": 3929538000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 370013,
+          "value": 3929538000,
+          "pct_of_portfolio": 0.71,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "OSCR",
+      "company": "PBF Energy Inc.",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.65,
+      "total_value_held": 3554076000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 131050,
+          "value": 3554076000,
+          "pct_of_portfolio": 0.65,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "SOUTHSID",
+      "company": "Southside Bancshares Inc.",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.65,
+      "total_value_held": 3551953000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 116879,
+          "value": 3551953000,
+          "pct_of_portfolio": 0.65,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "OCEANFIR",
+      "company": "OceanFirst Financial Trust",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.63,
+      "total_value_held": 3460886000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 192807,
+          "value": 3460886000,
+          "pct_of_portfolio": 0.63,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "FIRSTSER",
+      "company": "FirstService Corp.",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.53,
+      "total_value_held": 2910588000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 18714,
+          "value": 2910588000,
+          "pct_of_portfolio": 0.53,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "FLAGSTAR",
+      "company": "Flagstar Bank",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.5,
+      "total_value_held": 2735870000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 217305,
+          "value": 2735870000,
+          "pct_of_portfolio": 0.5,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "FRP",
+      "company": "FRP Holdings Inc.",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.44,
+      "total_value_held": 2448307000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 107429,
+          "value": 2448307000,
+          "pct_of_portfolio": 0.44,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "F&G",
+      "company": "F&G Annuities and Life",
+      "convergence_score": 10,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 1,
+      "tier3_count": 0,
+      "total_conviction_pct": 0.07,
+      "total_value_held": 380047000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Chris Bloomstran",
+          "fund": "Semper Augustus",
+          "tier": 2,
+          "shares": 12319,
+          "value": 380047000,
+          "pct_of_portfolio": 0.07,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "THE",
+      "company": "THE ODP CORP",
+      "convergence_score": 5,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 4.81,
+      "total_value_held": 98418030000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "David Einhorn",
+          "fund": "Greenlight Capital",
+          "tier": 3,
+          "shares": 1748100,
+          "value": 98418030000,
+          "pct_of_portfolio": 4.81,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "SPDR",
+      "company": "SPDR GOLD TR",
+      "convergence_score": 5,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 4.47,
+      "total_value_held": 91531590000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "David Einhorn",
+          "fund": "Greenlight Capital",
+          "tier": 3,
+          "shares": 516611,
+          "value": 91531590000,
+          "pct_of_portfolio": 4.47,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "ALIGHT",
+      "company": "ALIGHT INC",
+      "convergence_score": 5,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 3.85,
+      "total_value_held": 78831446000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "David Einhorn",
+          "fund": "Greenlight Capital",
+          "tier": 3,
+          "shares": 9241670,
+          "value": 78831446000,
+          "pct_of_portfolio": 3.85,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "TECK",
+      "company": "TECK RESOURCES LTD",
+      "convergence_score": 5,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 3.2,
+      "total_value_held": 65605702000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "David Einhorn",
+          "fund": "Greenlight Capital",
+          "tier": 3,
+          "shares": 1552063,
+          "value": 65605702000,
+          "pct_of_portfolio": 3.2,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "LIVANOVA",
+      "company": "LIVANOVA PLC",
+      "convergence_score": 5,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 3.11,
+      "total_value_held": 63604811000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "David Einhorn",
+          "fund": "Greenlight Capital",
+          "tier": 3,
+          "shares": 1229316,
+          "value": 63604811000,
+          "pct_of_portfolio": 3.11,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "GRAPHIC",
+      "company": "GRAPHIC PACKAGING HLDG CO",
+      "convergence_score": 5,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 3.05,
+      "total_value_held": 62514865000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "David Einhorn",
+          "fund": "Greenlight Capital",
+          "tier": 3,
+          "shares": 2536100,
+          "value": 62514865000,
+          "pct_of_portfolio": 3.05,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "WEATHERF",
+      "company": "WEATHERFORD INTL PLC",
+      "convergence_score": 5,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 2.18,
+      "total_value_held": 44669667000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "David Einhorn",
+          "fund": "Greenlight Capital",
+          "tier": 3,
+          "shares": 456605,
+          "value": 44669667000,
+          "pct_of_portfolio": 2.18,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "DHT",
+      "company": "DHT HOLDINGS INC",
+      "convergence_score": 5,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 1.81,
+      "total_value_held": 37080623000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "David Einhorn",
+          "fund": "Greenlight Capital",
+          "tier": 3,
+          "shares": 3779880,
+          "value": 37080623000,
+          "pct_of_portfolio": 1.81,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "VIATRIS",
+      "company": "VIATRIS INC",
+      "convergence_score": 5,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 1.77,
+      "total_value_held": 36342990000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "David Einhorn",
+          "fund": "Greenlight Capital",
+          "tier": 3,
+          "shares": 3355770,
+          "value": 36342990000,
+          "pct_of_portfolio": 1.77,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "NET",
+      "company": "NET POWER INC",
+      "convergence_score": 5,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 1.48,
+      "total_value_held": 30220311000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "David Einhorn",
+          "fund": "Greenlight Capital",
+          "tier": 3,
+          "shares": 2992110,
+          "value": 30220311000,
+          "pct_of_portfolio": 1.48,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "GULFPORT",
+      "company": "GULFPORT ENERGY CORP",
+      "convergence_score": 5,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 1.45,
+      "total_value_held": 29699604000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "David Einhorn",
+          "fund": "Greenlight Capital",
+          "tier": 3,
+          "shares": 222970,
+          "value": 29699604000,
+          "pct_of_portfolio": 1.45,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "SEADRILL",
+      "company": "SEADRILL 2021 LTD",
+      "convergence_score": 5,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 1.26,
+      "total_value_held": 25717246000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "David Einhorn",
+          "fund": "Greenlight Capital",
+          "tier": 3,
+          "shares": 543935,
+          "value": 25717246000,
+          "pct_of_portfolio": 1.26,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "HERC",
+      "company": "HERC HLDGS INC",
+      "convergence_score": 5,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 0.99,
+      "total_value_held": 20190973000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "David Einhorn",
+          "fund": "Greenlight Capital",
+          "tier": 3,
+          "shares": 135610,
+          "value": 20190973000,
+          "pct_of_portfolio": 0.99,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "AERCAP",
+      "company": "AERCAP HOLDINGS NV",
+      "convergence_score": 5,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 0.91,
+      "total_value_held": 18580000000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "David Einhorn",
+          "fund": "Greenlight Capital",
+          "tier": 3,
+          "shares": 250000,
+          "value": 18580000000,
+          "pct_of_portfolio": 0.91,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "INVESCO",
+      "company": "INVESCO EXCHANGE TRADED FD T",
+      "convergence_score": 5,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 0.89,
+      "total_value_held": 18387582000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "David Einhorn",
+          "fund": "Greenlight Capital",
+          "tier": 3,
+          "shares": 282511,
+          "value": 18387582000,
+          "pct_of_portfolio": 0.89,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "KENVUE",
+      "company": "KENVUE INC",
+      "convergence_score": 5,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 0.58,
+      "total_value_held": 11938170000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "David Einhorn",
+          "fund": "Greenlight Capital",
+          "tier": 3,
+          "shares": 554490,
+          "value": 11938170000,
+          "pct_of_portfolio": 0.58,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "GOPRO",
+      "company": "GOPRO INC",
+      "convergence_score": 5,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 0.48,
+      "total_value_held": 9796156000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "David Einhorn",
+          "fund": "Greenlight Capital",
+          "tier": 3,
+          "shares": 2823100,
+          "value": 9796156000,
+          "pct_of_portfolio": 0.48,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "COYA",
+      "company": "COYA THERAPEUTICS INC",
+      "convergence_score": 5,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 0.46,
+      "total_value_held": 9440533000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "David Einhorn",
+          "fund": "Greenlight Capital",
+          "tier": 3,
+          "shares": 1274026,
+          "value": 9440533000,
+          "pct_of_portfolio": 0.46,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "GALAPAGO",
+      "company": "GALAPAGOS NV",
+      "convergence_score": 5,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 0.32,
+      "total_value_held": 6608796000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "David Einhorn",
+          "fund": "Greenlight Capital",
+          "tier": 3,
+          "shares": 162578,
+          "value": 6608796000,
+          "pct_of_portfolio": 0.32,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "SOTERA",
+      "company": "SOTERA HEALTH CO",
+      "convergence_score": 5,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 0.28,
+      "total_value_held": 5677944000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "David Einhorn",
+          "fund": "Greenlight Capital",
+          "tier": 3,
+          "shares": 336970,
+          "value": 5677944000,
+          "pct_of_portfolio": 0.28,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "VANECK",
+      "company": "VANECK ETF TRUST",
+      "convergence_score": 5,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 0.14,
+      "total_value_held": 2869251000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "David Einhorn",
+          "fund": "Greenlight Capital",
+          "tier": 3,
+          "shares": 9270,
+          "value": 2869251000,
+          "pct_of_portfolio": 0.14,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "TEVA",
+      "company": "TEVA PHARMACEUTICAL INDS LTD",
+      "convergence_score": 5,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 0.14,
+      "total_value_held": 2802826000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "David Einhorn",
+          "fund": "Greenlight Capital",
+          "tier": 3,
+          "shares": 268470,
+          "value": 2802826000,
+          "pct_of_portfolio": 0.14,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "DANIMER",
+      "company": "DANIMER SCIENTIFIC INC",
+      "convergence_score": 5,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 0.14,
+      "total_value_held": 2789272000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "David Einhorn",
+          "fund": "Greenlight Capital",
+          "tier": 3,
+          "shares": 2734580,
+          "value": 2789272000,
+          "pct_of_portfolio": 0.14,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "GAIN",
+      "company": "GAIN THERAPEUTICS INC",
+      "convergence_score": 5,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 0.09,
+      "total_value_held": 1921158000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "David Einhorn",
+          "fund": "Greenlight Capital",
+          "tier": 3,
+          "shares": 588410,
+          "value": 1921158000,
+          "pct_of_portfolio": 0.09,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "TALIS",
+      "company": "TALIS BIOMEDICAL CORP",
+      "convergence_score": 5,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 0.05,
+      "total_value_held": 1110437000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "David Einhorn",
+          "fund": "Greenlight Capital",
+          "tier": 3,
+          "shares": 149052,
+          "value": 1110437000,
+          "pct_of_portfolio": 0.05,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "NEUBASE",
+      "company": "NEUBASE THERAPEUTICS INC",
+      "convergence_score": 5,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 0.0,
+      "total_value_held": 100912000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "David Einhorn",
+          "fund": "Greenlight Capital",
+          "tier": 3,
+          "shares": 136350,
+          "value": 100912000,
+          "pct_of_portfolio": 0.0,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "NUVATION",
+      "company": "NUVATION BIO INC",
+      "convergence_score": 5,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 0.0,
+      "total_value_held": 58842000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "David Einhorn",
+          "fund": "Greenlight Capital",
+          "tier": 3,
+          "shares": 134995,
+          "value": 58842000,
+          "pct_of_portfolio": 0.0,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "KATAPULT",
+      "company": "KATAPULT HOLDINGS INC",
+      "convergence_score": 5,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 0.0,
+      "total_value_held": 1940000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "David Einhorn",
+          "fund": "Greenlight Capital",
+          "tier": 3,
+          "shares": 262227,
+          "value": 1940000,
+          "pct_of_portfolio": 0.0,
+          "is_top5": false
+        }
+      ]
+    },
+    {
+      "ticker": "FERROVIA",
+      "company": "FERROVIAL SE",
+      "convergence_score": 5,
+      "total_investor_count": 1,
+      "tier1_count": 0,
+      "tier2_count": 0,
+      "tier3_count": 1,
+      "total_conviction_pct": 2.51,
+      "total_value_held": 1348162940000,
+      "top5_bonus_count": 0,
+      "investors": [
+        {
+          "name": "Christopher Hohn",
+          "fund": "TCI Fund Management",
+          "tier": 3,
+          "shares": 20740214,
+          "value": 1348162940000,
+          "pct_of_portfolio": 2.51,
+          "is_top5": false
+        }
+      ]
+    }
+  ]
+}
