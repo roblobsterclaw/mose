@@ -10,19 +10,21 @@
 **Goal:** Improve Watchlist sorting/grouping and add the first Research module without making Joe enter the same stock twice.
 
 **What was built:**
-- Watchlist now has Flat mode and Group mode.
-- Flat mode can sort by priority, ticker, date added, convergence score, 52-week discount, Joe holdings first, or needs-deep-dive first.
-- Group mode can group by status, conviction, portfolio role, or investor overlap.
+- Restored the cleaner original MOSE platform UI as the base: top market bar, command center, Joe's Watchlist, Joe's Holdings, Super Investors, and Deep-Dive Research Library.
+- Watchlist now has Flat mode and Group mode while keeping the original bucket-based layout.
+- Flat mode can sort by priority, score, ticker, date added, margin of safety, Joe holdings first, or needs-deep-dive first.
+- Group mode can group by bucket, status, conviction, portfolio role, or investor overlap.
 - Watchlist rows now include manual priority, convergence score, research status, and buttons to flag/approve/dismiss deep dives.
-- Added a new `Research` tab with Needs Deep Dive, Research Queue, and Research Library lanes.
+- The existing Research Library tab now includes a Research Queue lane above completed reports.
 - Research pulls from the same ticker universe as Watchlist plus auto-flagged high-convergence names, so stocks do not need to be added twice.
 - Added `research_items` and `research_reports` tables to both SQLite and Supabase schemas for the future persisted version.
+- Added `scripts/build_legacy_platform_data.py` to generate the root JSON files expected by the original MOSE platform UI from the current convergence master.
 
 **Current behavior:**
 - Watchlist and Research state persist in browser `localStorage`.
-- Auto deep dive flags are generated from loaded convergence data when a stock has 3+ investors and a convergence score of 60+.
-- Approving a deep dive moves it into the Research Queue.
-- Saving notes and marking reviewed moves it into the Research Library.
+- Auto deep dive flags are generated from the purchase-readiness score in the original command center.
+- Deep-dive requests flow into the Research Queue and also remain visible from the Watchlist/Command Center.
+- Completed reports continue to live in the Research Library.
 
 ---
 
