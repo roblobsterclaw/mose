@@ -1,0 +1,1631 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MOSE — Margin of Safety Engine</title>
+  <style>
+    :root {
+      --bg: #0D1117;
+      --card: #161B22;
+      --card-2: #1c222b;
+      --border: #30363D;
+      --text: #E6EDF3;
+      --muted: #8B949E;
+      --orange: #FF6B00;
+      --gold: #C59E3C;
+      --green: #2EA043;
+      --yellow: #D29922;
+      --red: #F85149;
+      --grey: #6E7681;
+      --blue: #58A6FF;
+      --shadow: 0 16px 40px rgba(0, 0, 0, .28);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    button, input, textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .app {
+      width: min(1440px, 100%);
+      margin: 0 auto;
+      padding: 18px;
+    }
+
+    header {
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, #161B22 0%, #111820 100%);
+      border-radius: 8px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .header-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(24px, 3vw, 38px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    .source-strip {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .metric {
+      border: 1px solid var(--border);
+      background: #0D1117;
+      border-radius: 8px;
+      padding: 11px 12px;
+      min-height: 72px;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 20px;
+      color: var(--gold);
+      margin-bottom: 3px;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      margin: 18px 0;
+      overflow-x: auto;
+      padding-bottom: 2px;
+    }
+
+    .tab-btn {
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      border-radius: 8px;
+      padding: 10px 12px;
+      white-space: nowrap;
+      min-height: 42px;
+    }
+
+    .tab-btn.active {
+      border-color: var(--orange);
+      color: white;
+      box-shadow: inset 0 -2px 0 var(--orange);
+    }
+
+    .panel {
+      display: none;
+    }
+
+    .panel.active {
+      display: block;
+    }
+
+    .panel-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .panel-head h2 {
+      margin: 0;
+      font-size: 24px;
+      letter-spacing: 0;
+    }
+
+    .panel-head p {
+      color: var(--muted);
+      margin: 4px 0 0;
+    }
+
+    .tools {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .toolbar-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .field, .textarea {
+      background: #0D1117;
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 8px;
+      padding: 10px 11px;
+      min-height: 42px;
+      outline: none;
+    }
+
+    .field:focus, .textarea:focus {
+      border-color: var(--orange);
+    }
+
+    .btn {
+      border: 1px solid var(--border);
+      background: var(--card-2);
+      color: var(--text);
+      border-radius: 8px;
+      padding: 10px 12px;
+      min-height: 42px;
+    }
+
+    .btn.primary {
+      border-color: var(--orange);
+      background: var(--orange);
+      color: #111;
+      font-weight: 700;
+    }
+
+    .btn.danger {
+      border-color: rgba(248,81,73,.45);
+      color: #ffb4ae;
+    }
+
+    .btn.small {
+      min-height: 34px;
+      padding: 7px 9px;
+      font-size: 13px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: 8px;
+      padding: 14px;
+      min-width: 0;
+    }
+
+    .warning {
+      border: 1px solid rgba(210,153,34,.55);
+      background: rgba(210,153,34,.09);
+      color: #f2d48f;
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-bottom: 14px;
+    }
+
+    .table-wrap {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: auto;
+      background: var(--card);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 860px;
+    }
+
+    th, td {
+      padding: 11px 12px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      background: #111820;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+
+    tr.clickable:hover {
+      background: rgba(255, 107, 0, .07);
+    }
+
+    .ticker {
+      color: white;
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+
+    .company {
+      color: var(--muted);
+      font-size: 13px;
+      max-width: 280px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 3px 8px;
+      font-size: 12px;
+      line-height: 1.2;
+      white-space: nowrap;
+      color: var(--text);
+      background: #0D1117;
+    }
+
+    .badge.green { border-color: rgba(46,160,67,.55); color: #93e29e; }
+    .badge.yellow { border-color: rgba(210,153,34,.65); color: #f2d48f; }
+    .badge.grey { border-color: var(--border); color: var(--muted); }
+    .badge.red { border-color: rgba(248,81,73,.55); color: #ffb4ae; }
+    .badge.blue { border-color: rgba(88,166,255,.55); color: #a8d1ff; }
+    .badge.gold { border-color: rgba(197,158,60,.7); color: #f3d782; }
+    .badge.orange { border-color: rgba(255,107,0,.7); color: #ffbd8a; }
+
+    .price {
+      font-variant-numeric: tabular-nums;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .detail-panel {
+      margin: 12px 0 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--card);
+      padding: 14px;
+      display: none;
+    }
+
+    .detail-panel.open {
+      display: block;
+    }
+
+    .investor-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .investor-card {
+      border: 1px solid var(--border);
+      background: #0D1117;
+      border-radius: 8px;
+      padding: 12px;
+    }
+
+    .investor-title {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .holdings {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    details.card {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 14px;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    .profile-body {
+      border-top: 1px solid var(--border);
+      padding: 14px;
+      background: #0D1117;
+    }
+
+    .mini-table {
+      width: 100%;
+      min-width: 0;
+    }
+
+    .mini-table th, .mini-table td {
+      padding: 8px;
+      font-size: 13px;
+    }
+
+    .feed {
+      display: grid;
+      gap: 10px;
+    }
+
+    .group-stack {
+      display: grid;
+      gap: 12px;
+    }
+
+    .group-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .group-title h3 {
+      margin: 0;
+      font-size: 17px;
+      letter-spacing: 0;
+    }
+
+    .inline-actions {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .summary-line {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 5px;
+    }
+
+    .feed-item {
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: 8px;
+      padding: 12px;
+      display: grid;
+      grid-template-columns: 160px 1fr auto;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .command {
+      display: none;
+      margin-top: 10px;
+      border: 1px solid var(--border);
+      background: #0D1117;
+      color: var(--gold);
+      border-radius: 8px;
+      padding: 12px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      overflow-x: auto;
+    }
+
+    .command.open {
+      display: block;
+    }
+
+    .textarea {
+      width: 100%;
+      min-width: 220px;
+      min-height: 68px;
+      resize: vertical;
+    }
+
+    .mobile-cards {
+      display: none;
+      gap: 10px;
+    }
+
+    .kv {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .kv div {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px;
+      background: #0D1117;
+    }
+
+    .kv span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 2px;
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 13px;
+      height: 13px;
+      border: 2px solid var(--border);
+      border-top-color: var(--orange);
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+      vertical-align: -2px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 900px) {
+      .source-strip, .grid, .profile-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .investor-list {
+        grid-template-columns: 1fr;
+      }
+
+      .feed-item {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .app {
+        padding: 12px;
+      }
+
+      header {
+        padding: 15px;
+      }
+
+      .source-strip, .grid, .profile-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .panel-head {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .tools {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .field, .btn {
+        width: 100%;
+      }
+
+      .desktop-table {
+        display: none;
+      }
+
+      .mobile-cards {
+        display: grid;
+      }
+
+      table {
+        min-width: 700px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div class="header-top">
+        <div>
+          <h1>🦞 MOSE — Margin of Safety Engine</h1>
+          <div class="subtitle">Last updated: <span id="lastUpdated">Loading reference data...</span></div>
+        </div>
+        <div class="tools">
+          <span class="badge orange" id="priceStatus"><span class="spinner"></span> Prices loading</span>
+          <span class="badge gold">Source: reference-data/convergence-master.json</span>
+        </div>
+      </div>
+      <div class="source-strip">
+        <div class="metric"><strong id="metricStocks">--</strong><span>Unique stocks in convergence universe</span></div>
+        <div class="metric"><strong id="metricLoaded">--</strong><span>Investors loaded from real filings/data</span></div>
+        <div class="metric"><strong id="metricMissing">--</strong><span>Protocol investors not yet loaded</span></div>
+        <div class="metric"><strong>May 15, 2026</strong><span>Next 13F deadline for Q1 2026 filings</span></div>
+      </div>
+    </header>
+
+    <nav class="tabs" aria-label="Dashboard tabs">
+      <button class="tab-btn active" data-tab="convergence">Convergence Score</button>
+      <button class="tab-btn" data-tab="profiles">Investor Profiles</button>
+      <button class="tab-btn" data-tab="watchlist">My Watchlist</button>
+      <button class="tab-btn" data-tab="signals">Signals</button>
+      <button class="tab-btn" data-tab="research">Research</button>
+      <button class="tab-btn" data-tab="status">Data Status</button>
+      <button class="tab-btn" data-tab="portfolio">Portfolio Tracker</button>
+    </nav>
+
+    <main>
+      <section id="convergence" class="panel active">
+        <div class="panel-head">
+          <div>
+            <h2>Convergence Score</h2>
+            <p>Ranked by real convergence scores from loaded filings and source data.</p>
+          </div>
+          <div class="tools">
+            <input id="convergenceSearch" class="field" placeholder="Filter ticker or company" autocomplete="off">
+            <select id="scoreFilter" class="field">
+              <option value="all">All scores</option>
+              <option value="80">80+ green</option>
+              <option value="50">50-79 yellow</option>
+              <option value="0">Below 50 grey</option>
+            </select>
+          </div>
+        </div>
+        <div id="staleWarning" class="warning" style="display:none"></div>
+        <div id="stockDetail" class="detail-panel"></div>
+        <div class="table-wrap desktop-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Ticker</th>
+                <th>Company</th>
+                <th>Current Price</th>
+                <th>Score</th>
+                <th>Investors</th>
+                <th>Tier 1 %</th>
+                <th>Total Conviction</th>
+                <th>Source</th>
+              </tr>
+            </thead>
+            <tbody id="convergenceRows"></tbody>
+          </table>
+        </div>
+        <div id="convergenceCards" class="mobile-cards"></div>
+      </section>
+
+      <section id="profiles" class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>Investor Profiles</h2>
+            <p>All protocol investors, with loaded filings separated from placeholders.</p>
+          </div>
+          <input id="investorSearch" class="field" placeholder="Filter investor or fund" autocomplete="off">
+        </div>
+        <div id="profileGrid" class="profile-grid"></div>
+      </section>
+
+      <section id="watchlist" class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>My Watchlist</h2>
+            <p>Joe's shared stock list. Sorting, grouping, notes, priority, and research status persist in this browser.</p>
+          </div>
+          <form id="addWatchForm" class="tools">
+            <input id="watchTicker" class="field" placeholder="Ticker" autocomplete="off" maxlength="12">
+            <button class="btn primary" type="submit">Add</button>
+          </form>
+        </div>
+        <div class="toolbar-row">
+          <div class="tools">
+            <select id="watchMode" class="field">
+              <option value="flat">Flat mode</option>
+              <option value="group">Group mode</option>
+            </select>
+            <select id="watchSort" class="field">
+              <option value="priority">Sort: Priority</option>
+              <option value="ticker">Sort: Ticker A-Z</option>
+              <option value="dateAdded">Sort: Date Added</option>
+              <option value="convergence">Sort: Convergence Score</option>
+              <option value="discount">Sort: 52W Discount</option>
+              <option value="holding">Sort: Joe Holdings First</option>
+              <option value="deepDive">Sort: Needs Deep Dive First</option>
+            </select>
+            <select id="watchGroup" class="field">
+              <option value="status">Group: Status</option>
+              <option value="conviction">Group: Conviction</option>
+              <option value="role">Group: Portfolio Role</option>
+              <option value="overlap">Group: Investor Overlap</option>
+            </select>
+          </div>
+          <div class="muted" id="watchSummary">--</div>
+        </div>
+        <div id="watchFlat" class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Ticker</th>
+                <th>Company</th>
+                <th>Priority</th>
+                <th>Current Price</th>
+                <th>52W Low / High</th>
+                <th>P/E</th>
+                <th>Convergence</th>
+                <th>Research</th>
+                <th>Joe's Notes</th>
+                <th>Date Added</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="watchRows"></tbody>
+          </table>
+        </div>
+        <div id="watchGroups" class="group-stack" style="display:none"></div>
+      </section>
+
+      <section id="signals" class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>Signals</h2>
+            <p>Derived only from the fields available in the loaded convergence master file.</p>
+          </div>
+        </div>
+        <div class="warning">Trend history is not present in the current JSON. Add/trim/exit/new-position signals are shown as unavailable instead of inferred.</div>
+        <div id="signalFeed" class="feed"></div>
+      </section>
+
+      <section id="research" class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>Research</h2>
+            <p>One shared ticker universe for watchlist names, auto deep-dive flags, approved research, and completed library notes.</p>
+          </div>
+          <div class="tools">
+            <input id="researchSearch" class="field" placeholder="Filter ticker or company" autocomplete="off">
+            <select id="researchFilter" class="field">
+              <option value="all">All research</option>
+              <option value="needs">Needs Deep Dive</option>
+              <option value="queue">Queue</option>
+              <option value="library">Library</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid" style="margin-bottom:12px">
+          <div class="card"><strong id="researchNeedsCount">--</strong><div class="muted">Needs Deep Dive</div></div>
+          <div class="card"><strong id="researchQueueCount">--</strong><div class="muted">Approved / Researching / Draft Ready</div></div>
+          <div class="card"><strong id="researchLibraryCount">--</strong><div class="muted">Saved research notes</div></div>
+        </div>
+        <div class="group-stack">
+          <div class="card">
+            <div class="group-title"><h3>Needs Deep Dive</h3><span class="badge orange">Auto + manual flags</span></div>
+            <div id="researchNeeds" class="feed"></div>
+          </div>
+          <div class="card">
+            <div class="group-title"><h3>Research Queue</h3><span class="badge blue">Approved work</span></div>
+            <div id="researchQueue" class="feed"></div>
+          </div>
+          <div class="card">
+            <div class="group-title"><h3>Research Library</h3><span class="badge green">Saved notes</span></div>
+            <div id="researchLibrary" class="feed"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="status" class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>Data Status</h2>
+            <p>Freshness is calculated from filing dates in the real reference data.</p>
+          </div>
+          <button id="refreshBtn" class="btn primary" type="button">Refresh All</button>
+        </div>
+        <div id="refreshCommand" class="command">python3 pull_13f.py</div>
+        <div class="grid" style="margin-bottom:12px">
+          <div class="card"><strong>Q4 2025 due</strong><div class="muted">February 14, 2026</div></div>
+          <div class="card"><strong>Q1 2026 due</strong><div class="muted">May 15, 2026</div></div>
+          <div class="card"><strong>Q2 2026 due</strong><div class="muted">August 14, 2026</div></div>
+          <div class="card"><strong>Q3 2026 due</strong><div class="muted">November 14, 2026</div></div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Investor</th>
+                <th>Fund</th>
+                <th>Last Pull</th>
+                <th>Filing Date</th>
+                <th>Next Expected</th>
+                <th>Status</th>
+                <th>Source</th>
+              </tr>
+            </thead>
+            <tbody id="statusRows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="portfolio" class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>Portfolio Tracker</h2>
+            <p>Joe deployed about $1.5M in late April 2026. Entry prices are not in the reference data, so gain/loss remains unavailable until entered.</p>
+          </div>
+        </div>
+        <div class="grid" style="margin-bottom:12px">
+          <div class="card"><strong id="portfolioValue">--</strong><div class="muted">Estimated current value from equal-weight deployment and live Yahoo prices</div></div>
+          <div class="card"><strong id="portfolioConsensus">--</strong><div class="muted">Holdings with convergence scores in loaded data</div></div>
+          <div class="card"><strong>Source labels</strong><div class="muted">Holdings: user prompt. Prices: Yahoo Finance. Consensus: convergence-master.json.</div></div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Ticker</th>
+                <th>Company</th>
+                <th>Current Price</th>
+                <th>Approx Shares</th>
+                <th>Current Value</th>
+                <th>Gain/Loss</th>
+                <th>Convergence</th>
+                <th>Source</th>
+              </tr>
+            </thead>
+            <tbody id="portfolioRows"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const DATA_URL = './reference-data/convergence-master.json';
+    const PRICE_TTL_MS = 15 * 60 * 1000;
+    const DASHBOARD_DATE = new Date('2026-05-07T12:00:00-04:00');
+    const JOE_DEPLOYED = 1500000;
+    const JOE_HOLDINGS = [
+      { ticker: 'V', company: 'Visa' },
+      { ticker: 'MA', company: 'Mastercard' },
+      { ticker: 'FICO', company: 'Fair Isaac' },
+      { ticker: 'MELI', company: 'MercadoLibre' },
+      { ticker: 'PGR', company: 'Progressive' },
+      { ticker: 'BABA', company: 'Alibaba' },
+      { ticker: 'AXP', company: 'American Express' },
+      { ticker: 'BRK-B', company: 'Berkshire Hathaway' },
+      { ticker: 'AAPL', company: 'Apple' }
+    ];
+
+    const PRIORITY_ORDER = { High: 0, Medium: 1, Low: 2, None: 3 };
+    const RESEARCH_STATUS = {
+      none: 'Not Started',
+      needs: 'Needs Deep Dive',
+      approved: 'Approved',
+      researching: 'Researching',
+      draft: 'Draft Ready',
+      reviewed: 'Reviewed',
+      dismissed: 'Dismissed'
+    };
+
+    const PROTOCOL_INVESTORS = [
+      { key: 'Buffett', name: 'Warren Buffett', fund: 'Berkshire Hathaway', protocolTier: 1 },
+      { key: 'Li Lu', name: 'Li Lu', fund: 'Himalaya Capital', protocolTier: 1 },
+      { key: 'Pabrai', name: 'Mohnish Pabrai', fund: 'Dalal Street LLC', protocolTier: 1 },
+      { key: 'Akre', name: 'Chuck Akre', fund: 'Akre Capital Management', protocolTier: 1 },
+      { key: 'Spier', name: 'Guy Spier', fund: 'Aquamarine Capital', protocolTier: 1 },
+      { key: 'Klarman', name: 'Seth Klarman', fund: 'Baupost Group', protocolTier: 1 },
+      { key: 'Ackman', name: 'Bill Ackman', fund: 'Pershing Square', protocolTier: 1 },
+      { key: 'Einhorn', name: 'David Einhorn', fund: 'Greenlight Capital', protocolTier: 1 },
+      { key: 'Gayner', name: 'Tom Gayner', fund: 'Markel Group', protocolTier: 1 },
+      { key: 'Hohn', name: 'Christopher Hohn', fund: 'TCI Fund Management', protocolTier: 1 },
+      { key: 'Dorsey', name: 'Pat Dorsey', fund: 'Dorsey Asset Management', protocolTier: 1 },
+      { key: 'Bloomstran', name: 'Chris Bloomstran', fund: 'Semper Augustus', protocolTier: 1 },
+      { key: 'Russo', name: 'Thomas Russo', fund: 'Gardner Russo & Quinn', protocolTier: 1 },
+      { key: 'Tepper', name: 'David Tepper', fund: 'Appaloosa Management', protocolTier: 1 },
+      { key: 'Burry', name: 'Michael Burry', fund: 'Scion Asset Management', protocolTier: 1 },
+      { key: 'Greenberg', name: 'Glenn Greenberg', fund: 'Brave Warrior Advisors', protocolTier: 1 },
+      { key: 'Kantesaria', name: 'Vinit Kantesaria', fund: 'VGI Partners / Kantesaria sources', protocolTier: 1 },
+      { key: 'Sosin', name: 'Adam Sosin', fund: 'Sosin Partners', protocolTier: 1 },
+      { key: 'Norbert Lou', name: 'Norbert Lou', fund: 'Punch Card Management', protocolTier: 1 },
+      { key: 'Chris Mayer', name: 'Chris Mayer', fund: 'Woodlock House / Public research', protocolTier: 1 },
+      { key: 'Greenblatt', name: 'Joel Greenblatt', fund: 'Gotham Asset Management', protocolTier: 1 },
+      { key: 'Bancroft', name: 'Bancroft', fund: 'Bancroft source not yet loaded', protocolTier: 1 },
+      { key: 'Terry Smith', name: 'Terry Smith', fund: 'Fundsmith UK', protocolTier: 2 },
+      { key: 'Rochon', name: 'François Rochon', fund: 'Giverny Canada', protocolTier: 2 },
+      { key: 'Watsa', name: 'Prem Watsa', fund: 'Fairfax Canada', protocolTier: 2 },
+      { key: 'Charlie Munger', name: 'Charlie Munger', fund: 'Daily Journal / Berkshire legacy', protocolTier: 3 },
+      { key: 'Peter Lynch', name: 'Peter Lynch', fund: 'Fidelity Magellan legacy', protocolTier: 3 },
+      { key: 'Templeton', name: 'John Templeton', fund: 'Templeton legacy', protocolTier: 3 },
+      { key: "O'Leary", name: "Kevin O'Leary", fund: 'Public disclosures', protocolTier: 4 },
+      { key: 'Greenwald', name: 'Bruce Greenwald', fund: 'Public commentary', protocolTier: 4 },
+      { key: 'Todd Combs', name: 'Todd Combs', fund: 'Berkshire embedded', protocolTier: 4 },
+      { key: 'Ted Weschler', name: 'Ted Weschler', fund: 'Berkshire embedded', protocolTier: 4 },
+      { key: 'Joe Lynch', name: 'Joe Lynch', fund: 'Student of the Game 📚', protocolTier: 5 }
+    ];
+
+    const state = {
+      data: null,
+      investors: [],
+      rankings: [],
+      priceCache: new Map(),
+      quoteCache: new Map(),
+      watchlist: [],
+      research: {},
+      watchMode: localStorage.getItem('mose_watch_mode') || 'flat',
+      watchSort: localStorage.getItem('mose_watch_sort') || 'priority',
+      watchGroup: localStorage.getItem('mose_watch_group') || 'status',
+      pricesFetchedAt: null
+    };
+
+    const $ = (id) => document.getElementById(id);
+    const money = (value) => Number.isFinite(value) ? value.toLocaleString(undefined, { style: 'currency', currency: 'USD', maximumFractionDigits: 2 }) : '--';
+    const pct = (value) => Number.isFinite(value) ? `${value.toFixed(1)}%` : '--';
+    const safe = (value) => String(value ?? '').replace(/[&<>"']/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m]));
+    const normalizeTicker = (ticker) => String(ticker || '').trim().toUpperCase().replace('.', '-');
+    const yahooTicker = (ticker) => normalizeTicker(ticker).replace('-', '-');
+
+    function tierBadge(tier) {
+      const map = {
+        1: ['📊 13F', 'green'],
+        2: ['📜 Letters', 'blue'],
+        3: ['👑 Legacy', 'gold'],
+        4: ['🌐 Public', 'grey'],
+        5: ['📚 Student', 'orange']
+      };
+      const [label, color] = map[tier] || ['Data', 'grey'];
+      return `<span class="badge ${color}">${label}</span>`;
+    }
+
+    function scoreBadge(score) {
+      const color = score >= 80 ? 'green' : score >= 50 ? 'yellow' : 'grey';
+      return `<span class="badge ${color}">${score}</span>`;
+    }
+
+    function dataAgeStatus(dateText) {
+      if (!dateText) return { label: '❌ Not Loaded', color: 'red', ageDays: null };
+      const date = new Date(`${dateText}T12:00:00-05:00`);
+      const ageDays = Math.floor((DASHBOARD_DATE - date) / 86400000);
+      if (ageDays > 183) return { label: '❌ Stale', color: 'red', ageDays };
+      if (ageDays > 120) return { label: '⚠️ Aging', color: 'yellow', ageDays };
+      return { label: '✅ Fresh', color: 'green', ageDays };
+    }
+
+    function loadedInvestorFor(protocolInvestor) {
+      return state.investors.find((item) => {
+        const haystack = `${item.name} ${item.fund}`.toLowerCase();
+        return haystack.includes(protocolInvestor.key.toLowerCase()) ||
+          haystack.includes(protocolInvestor.name.toLowerCase()) ||
+          protocolInvestor.name.toLowerCase().includes(item.name.toLowerCase());
+      });
+    }
+
+    function holdingsForInvestor(name) {
+      const holdings = [];
+      for (const stock of state.rankings) {
+        const holder = (stock.investors || []).find((inv) => inv.name === name);
+        if (holder) holdings.push({ ...holder, ticker: stock.ticker, company: stock.company });
+      }
+      return holdings.sort((a, b) => (b.pct_of_portfolio || 0) - (a.pct_of_portfolio || 0));
+    }
+
+    async function getPrice(ticker) {
+      const key = normalizeTicker(ticker);
+      const cached = state.priceCache.get(key);
+      if (cached && Date.now() - cached.fetchedAt < PRICE_TTL_MS) return cached;
+      const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(yahooTicker(key))}?interval=1d&range=1d`;
+      const resp = await fetch(url);
+      if (!resp.ok) throw new Error(`Yahoo price failed for ${key}`);
+      const data = await resp.json();
+      const meta = data?.chart?.result?.[0]?.meta;
+      const price = meta?.regularMarketPrice;
+      if (!Number.isFinite(price)) throw new Error(`No Yahoo price for ${key}`);
+      const record = {
+        price,
+        company: meta.longName || meta.shortName || '',
+        currency: meta.currency || 'USD',
+        fetchedAt: Date.now()
+      };
+      state.priceCache.set(key, record);
+      state.pricesFetchedAt = record.fetchedAt;
+      return record;
+    }
+
+    async function getQuoteSummary(ticker) {
+      const key = normalizeTicker(ticker);
+      const cached = state.quoteCache.get(key);
+      if (cached && Date.now() - cached.fetchedAt < PRICE_TTL_MS) return cached;
+      const url = `https://query1.finance.yahoo.com/v10/finance/quoteSummary/${encodeURIComponent(yahooTicker(key))}?modules=summaryDetail,defaultKeyStatistics`;
+      const resp = await fetch(url);
+      if (!resp.ok) throw new Error(`Yahoo quote failed for ${key}`);
+      const data = await resp.json();
+      const result = data?.quoteSummary?.result?.[0] || {};
+      const detail = result.summaryDetail || {};
+      const stats = result.defaultKeyStatistics || {};
+      const record = {
+        high52: detail.fiftyTwoWeekHigh?.raw,
+        low52: detail.fiftyTwoWeekLow?.raw,
+        pe: stats.trailingPE?.raw || detail.trailingPE?.raw,
+        fetchedAt: Date.now()
+      };
+      state.quoteCache.set(key, record);
+      return record;
+    }
+
+    function priceCell(ticker) {
+      const cached = state.priceCache.get(normalizeTicker(ticker));
+      if (!cached) return '<span class="muted"><span class="spinner"></span> Yahoo Finance</span>';
+      return `<span class="price">${money(cached.price)}</span><div class="muted">Yahoo Finance, ${new Date(cached.fetchedAt).toLocaleString()}</div>`;
+    }
+
+    function quoteCells(ticker) {
+      const quote = state.quoteCache.get(normalizeTicker(ticker));
+      if (!quote) return { range: '<span class="muted">Loading</span>', pe: '<span class="muted">Loading</span>' };
+      return {
+        range: `${money(quote.low52)} / ${money(quote.high52)}`,
+        pe: Number.isFinite(quote.pe) ? quote.pe.toFixed(1) : '--'
+      };
+    }
+
+    function stockRank(ticker) {
+      const key = normalizeTicker(ticker);
+      return state.rankings.find((stock) => normalizeTicker(stock.ticker) === key);
+    }
+
+    function watchItem(ticker) {
+      const key = normalizeTicker(ticker);
+      return state.watchlist.find((item) => item.ticker === key);
+    }
+
+    function ensureResearch(ticker, seed = {}) {
+      const key = normalizeTicker(ticker);
+      if (!key) return null;
+      const existing = state.research[key] || {};
+      state.research[key] = {
+        ticker: key,
+        company: seed.company || existing.company || stockRank(key)?.company || watchItem(key)?.company || '',
+        status: existing.status || seed.status || 'none',
+        priority: existing.priority || seed.priority || 'None',
+        reason: existing.reason || seed.reason || '',
+        notes: existing.notes || seed.notes || '',
+        updatedAt: existing.updatedAt || seed.updatedAt || new Date().toISOString()
+      };
+      return state.research[key];
+    }
+
+    function researchFor(ticker) {
+      const key = normalizeTicker(ticker);
+      const stock = stockRank(key);
+      const watch = watchItem(key);
+      const existing = state.research[key];
+      if (existing) return existing;
+      if (stock && (stock.convergence_score || 0) >= 60 && (stock.total_investor_count || 0) >= 3) {
+        return {
+          ticker: key,
+          company: stock.company,
+          status: 'needs',
+          priority: 'Medium',
+          reason: `Auto deep dive: ${stock.total_investor_count} investors, convergence score ${stock.convergence_score}.`,
+          notes: '',
+          updatedAt: ''
+        };
+      }
+      return {
+        ticker: key,
+        company: watch?.company || stock?.company || '',
+        status: 'none',
+        priority: watch?.priority || 'None',
+        reason: '',
+        notes: '',
+        updatedAt: ''
+      };
+    }
+
+    function saveResearch() {
+      localStorage.setItem('mose_research', JSON.stringify(state.research));
+    }
+
+    function setResearchStatus(ticker, status, reason = '') {
+      const record = ensureResearch(ticker, { status, reason });
+      record.status = status;
+      if (reason) record.reason = reason;
+      record.updatedAt = new Date().toISOString();
+      saveResearch();
+      renderAll();
+    }
+
+    function updateResearchNotes(ticker, notes) {
+      const record = ensureResearch(ticker);
+      record.notes = notes;
+      record.status = record.status === 'none' ? 'reviewed' : record.status;
+      record.updatedAt = new Date().toISOString();
+      saveResearch();
+    }
+
+    function discountToLow(ticker) {
+      const quote = state.quoteCache.get(normalizeTicker(ticker));
+      const price = state.priceCache.get(normalizeTicker(ticker));
+      if (!quote || !price || !Number.isFinite(quote.low52) || !Number.isFinite(quote.high52) || !Number.isFinite(price.price)) return null;
+      const span = quote.high52 - quote.low52;
+      return span > 0 ? (price.price - quote.low52) / span : null;
+    }
+
+    function priorityBadge(priority) {
+      const value = priority || 'None';
+      const color = value === 'High' ? 'red' : value === 'Medium' ? 'yellow' : value === 'Low' ? 'blue' : 'grey';
+      return `<span class="badge ${color}">${safe(value)}</span>`;
+    }
+
+    function researchBadge(status) {
+      const color = status === 'needs' ? 'orange' : ['approved', 'researching', 'draft'].includes(status) ? 'blue' : status === 'reviewed' ? 'green' : status === 'dismissed' ? 'grey' : 'grey';
+      return `<span class="badge ${color}">${safe(RESEARCH_STATUS[status] || status)}</span>`;
+    }
+
+    function renderHeader() {
+      const generated = state.data?.generated ? new Date(state.data.generated) : null;
+      $('lastUpdated').textContent = generated ? `${generated.toLocaleString()} from convergence-master.json` : new Date().toLocaleString();
+      $('metricStocks').textContent = state.data?.total_unique_stocks ?? state.rankings.length;
+      $('metricLoaded').textContent = state.investors.length;
+      $('metricMissing').textContent = PROTOCOL_INVESTORS.filter((item) => !loadedInvestorFor(item) && item.protocolTier === 1).length;
+      const stale = state.investors.filter((inv) => dataAgeStatus(inv.filing_date).ageDays > 183);
+      if (stale.length) {
+        $('staleWarning').style.display = 'block';
+        $('staleWarning').textContent = `Warning: ${stale.length} loaded investor data source(s) are more than 6 months old: ${stale.map((inv) => inv.name).join(', ')}.`;
+      }
+    }
+
+    function filteredRankings() {
+      const search = $('convergenceSearch').value.trim().toLowerCase();
+      const filter = $('scoreFilter').value;
+      return state.rankings.filter((stock) => {
+        const matchesSearch = !search || `${stock.ticker} ${stock.company}`.toLowerCase().includes(search);
+        const score = stock.convergence_score || 0;
+        const matchesScore = filter === 'all' || (filter === '80' && score >= 80) || (filter === '50' && score >= 50 && score < 80) || (filter === '0' && score < 50);
+        return matchesSearch && matchesScore;
+      });
+    }
+
+    function renderConvergence() {
+      const rows = filteredRankings();
+      $('convergenceRows').innerHTML = rows.map((stock, index) => {
+        const tierPct = stock.total_investor_count ? (stock.tier1_count / stock.total_investor_count) * 100 : 0;
+        return `<tr class="clickable" data-ticker="${safe(stock.ticker)}">
+          <td>${index + 1}</td>
+          <td><div class="ticker">${safe(stock.ticker)}</div></td>
+          <td><div>${safe(stock.company)}</div></td>
+          <td>${priceCell(stock.ticker)}</td>
+          <td>${scoreBadge(stock.convergence_score || 0)}</td>
+          <td>${stock.total_investor_count || 0}</td>
+          <td>${pct(tierPct)}</td>
+          <td>${pct(stock.total_conviction_pct || 0)}</td>
+          <td><span class="muted">13F/convergence file generated ${safe(state.data?.generated || 'unknown')}</span></td>
+        </tr>`;
+      }).join('');
+      $('convergenceCards').innerHTML = rows.map((stock) => {
+        const tierPct = stock.total_investor_count ? (stock.tier1_count / stock.total_investor_count) * 100 : 0;
+        return `<div class="card clickable" data-ticker="${safe(stock.ticker)}">
+          <div class="investor-title"><div><div class="ticker">${safe(stock.ticker)}</div><div class="company">${safe(stock.company)}</div></div>${scoreBadge(stock.convergence_score || 0)}</div>
+          <div class="kv">
+            <div><span>Price</span>${priceCell(stock.ticker)}</div>
+            <div><span>Investors</span>${stock.total_investor_count || 0}</div>
+            <div><span>Tier 1</span>${pct(tierPct)}</div>
+            <div><span>Conviction</span>${pct(stock.total_conviction_pct || 0)}</div>
+          </div>
+        </div>`;
+      }).join('');
+      document.querySelectorAll('[data-ticker]').forEach((row) => row.addEventListener('click', () => showStockDetail(row.dataset.ticker)));
+    }
+
+    function showStockDetail(ticker) {
+      const stock = state.rankings.find((item) => item.ticker === ticker);
+      if (!stock) return;
+      const holders = (stock.investors || []).map((inv) => `<div class="investor-card">
+        <div class="investor-title">
+          <div><strong>${safe(inv.name)}</strong><div class="muted">${safe(inv.fund)} · Source position from convergence-master.json</div></div>
+          ${tierBadge(inv.tier)}
+        </div>
+        <div class="kv">
+          <div><span>Position Size</span>${pct(inv.pct_of_portfolio || 0)}</div>
+          <div><span>Shares</span>${Number(inv.shares || 0).toLocaleString()}</div>
+          <div><span>Reported Value</span>${money(inv.value)}</div>
+          <div><span>Top 5</span>${inv.is_top5 ? 'Yes' : 'No'}</div>
+        </div>
+      </div>`).join('');
+      $('stockDetail').classList.add('open');
+      $('stockDetail').innerHTML = `<div class="investor-title">
+        <div><strong>${safe(stock.ticker)} — ${safe(stock.company)}</strong><div class="muted">Click rows to switch stocks. Filing-level source: convergence-master.json generated ${safe(state.data?.generated || 'unknown')}.</div></div>
+        ${scoreBadge(stock.convergence_score || 0)}
+      </div>
+      <div class="investor-list">${holders || '<div class="muted">No holders listed in reference data.</div>'}</div>`;
+      $('stockDetail').scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    }
+
+    function renderProfiles() {
+      const search = $('investorSearch').value.trim().toLowerCase();
+      const rows = PROTOCOL_INVESTORS.filter((item) => !search || `${item.name} ${item.fund}`.toLowerCase().includes(search));
+      $('profileGrid').innerHTML = rows.map((protocol) => {
+        const loaded = loadedInvestorFor(protocol);
+        const isJoe = protocol.name === 'Joe Lynch';
+        const holdings = loaded ? holdingsForInvestor(loaded.name) : (isJoe ? JOE_HOLDINGS.map((h) => ({ ...h, pct_of_portfolio: null, trend: '💼 Holding' })) : []);
+        const top = loaded?.top_10?.slice(0, 5) || holdings.slice(0, 5);
+        const status = loaded ? dataAgeStatus(loaded.filing_date) : null;
+        return `<details class="card">
+          <summary>
+            <div class="investor-title">
+              <div>
+                <strong>${safe(protocol.name)}</strong>
+                <div class="muted">${safe(loaded?.fund || protocol.fund)}</div>
+              </div>
+              ${tierBadge(protocol.protocolTier)}
+            </div>
+            <div class="holdings">
+              ${loaded ? `<span class="badge ${status.color}">${status.label}</span>` : '<span class="badge red">13F Not Yet Loaded</span>'}
+              <span class="badge grey">AUM: ${loaded ? money(loaded.total_value) : 'Data not yet loaded'}</span>
+              <span class="badge grey">Holdings: ${loaded?.num_holdings ?? (isJoe ? JOE_HOLDINGS.length : 'Data not yet loaded')}</span>
+              <span class="badge grey">Filed: ${loaded?.filing_date || 'Data not yet loaded'}</span>
+            </div>
+            <div class="holdings">${top.map((h) => `<span class="badge">${safe(h.ticker)} ${Number.isFinite(h.pct) ? pct(h.pct) : Number.isFinite(h.pct_of_portfolio) ? pct(h.pct_of_portfolio) : ''} ${isJoe ? '💼 Holding' : '➡️ Holding'}</span>`).join('') || '<span class="muted">No positions available from loaded sources.</span>'}</div>
+          </summary>
+          <div class="profile-body">
+            <table class="mini-table">
+              <thead><tr><th>Ticker</th><th>Company</th><th>Portfolio %</th><th>Trend</th><th>Source</th></tr></thead>
+              <tbody>${holdings.map((h) => `<tr>
+                <td class="ticker">${safe(h.ticker)}</td>
+                <td>${safe(h.company || '')}</td>
+                <td>${Number.isFinite(h.pct_of_portfolio) ? pct(h.pct_of_portfolio) : Number.isFinite(h.pct) ? pct(h.pct) : '--'}</td>
+                <td>${isJoe ? '💼 Holding' : '➡️ Holding'}</td>
+                <td class="muted">${loaded ? `13F/convergence source, filed ${safe(loaded.filing_date)}` : isJoe ? 'User prompt holdings' : 'Data not yet loaded'}</td>
+              </tr>`).join('') || '<tr><td colspan="5" class="muted">Data not yet loaded. No placeholder positions shown.</td></tr>'}</tbody>
+            </table>
+          </div>
+        </details>`;
+      }).join('');
+    }
+
+    function defaultWatchlist() {
+      return JOE_HOLDINGS.map((item) => ({
+        ticker: item.ticker,
+        company: item.company,
+        notes: '',
+        dateAdded: '2026-05-07',
+        holding: true,
+        priority: 'High',
+        role: 'Core Compounder'
+      }));
+    }
+
+    function loadWatchlist() {
+      const stored = JSON.parse(localStorage.getItem('mose_watchlist') || '[]');
+      const byTicker = new Map(defaultWatchlist().map((item) => [item.ticker, item]));
+      stored.forEach((item) => {
+        const ticker = normalizeTicker(item.ticker);
+        byTicker.set(ticker, {
+          ...item,
+          ticker,
+          priority: item.priority || 'None',
+          role: item.role || 'Watchlist'
+        });
+      });
+      state.watchlist = Array.from(byTicker.values()).map((item) => ({
+        ...item,
+        priority: item.priority || 'None',
+        role: item.role || (item.holding ? 'Core Compounder' : 'Watchlist')
+      }));
+      state.research = JSON.parse(localStorage.getItem('mose_research') || '{}');
+    }
+
+    function saveWatchlist() {
+      localStorage.setItem('mose_watchlist', JSON.stringify(state.watchlist));
+    }
+
+    function watchRowsSorted(items = state.watchlist) {
+      const rows = [...items];
+      const sorters = {
+        priority: (a, b) => (PRIORITY_ORDER[a.priority || 'None'] ?? 3) - (PRIORITY_ORDER[b.priority || 'None'] ?? 3) || a.ticker.localeCompare(b.ticker),
+        ticker: (a, b) => a.ticker.localeCompare(b.ticker),
+        dateAdded: (a, b) => String(b.dateAdded || '').localeCompare(String(a.dateAdded || '')) || a.ticker.localeCompare(b.ticker),
+        convergence: (a, b) => ((stockRank(b.ticker)?.convergence_score || 0) - (stockRank(a.ticker)?.convergence_score || 0)) || a.ticker.localeCompare(b.ticker),
+        discount: (a, b) => (discountToLow(a.ticker) ?? 999) - (discountToLow(b.ticker) ?? 999) || a.ticker.localeCompare(b.ticker),
+        holding: (a, b) => Number(Boolean(b.holding)) - Number(Boolean(a.holding)) || a.ticker.localeCompare(b.ticker),
+        deepDive: (a, b) => Number(researchFor(b.ticker).status === 'needs') - Number(researchFor(a.ticker).status === 'needs') || a.ticker.localeCompare(b.ticker)
+      };
+      return rows.sort(sorters[state.watchSort] || sorters.priority);
+    }
+
+    function watchGroupLabel(item) {
+      const stock = stockRank(item.ticker);
+      const research = researchFor(item.ticker);
+      if (state.watchGroup === 'conviction') {
+        const score = stock?.convergence_score || 0;
+        if (score >= 80) return 'High Convergence';
+        if (score >= 50) return 'Medium Convergence';
+        return 'Low / No Convergence';
+      }
+      if (state.watchGroup === 'role') return item.role || (item.holding ? 'Core Compounder' : 'Watchlist');
+      if (state.watchGroup === 'overlap') {
+        const holders = stock?.total_investor_count || 0;
+        if (holders >= 3) return 'Multiple Super Investors';
+        if (holders > 0) return 'Some Super Investor Support';
+        return 'No Loaded Super Investor Support';
+      }
+      if (research.status === 'needs') return 'Needs Deep Dive';
+      if (['approved', 'researching', 'draft'].includes(research.status)) return 'Research Queue';
+      if (item.holding) return 'Holding';
+      return 'Watchlist';
+    }
+
+    function renderWatchRow(item, grouped = false) {
+        const q = quoteCells(item.ticker);
+        const price = state.priceCache.get(normalizeTicker(item.ticker));
+        const stock = stockRank(item.ticker);
+        const research = researchFor(item.ticker);
+        const company = price?.company || item.company || '--';
+        const discount = discountToLow(item.ticker);
+        const actions = research.status === 'needs'
+          ? `<button class="btn small primary" data-research-action="approve" data-research-ticker="${safe(item.ticker)}" type="button">Approve</button><button class="btn small" data-research-action="dismiss" data-research-ticker="${safe(item.ticker)}" type="button">Dismiss</button>`
+          : `<button class="btn small" data-research-action="needs" data-research-ticker="${safe(item.ticker)}" type="button">Deep Dive</button>`;
+        return `<tr>
+          <td><div class="ticker">${safe(item.ticker)}</div>${item.holding ? '<span class="badge gold">💼 Holding</span>' : ''}</td>
+          <td>${safe(company)}</td>
+          <td><select class="field" data-priority="${safe(item.ticker)}">
+            ${['High', 'Medium', 'Low', 'None'].map((p) => `<option value="${p}" ${item.priority === p ? 'selected' : ''}>${p}</option>`).join('')}
+          </select></td>
+          <td>${priceCell(item.ticker)}</td>
+          <td>${q.range}<div class="muted">${Number.isFinite(discount) ? `${pct(discount * 100)} up from 52W low` : 'Yahoo Finance quoteSummary'}</div></td>
+          <td>${q.pe}</td>
+          <td>${stock ? `${scoreBadge(stock.convergence_score || 0)} <div class="muted">${stock.total_investor_count || 0} holders</div>` : '<span class="badge grey">No loaded consensus</span>'}</td>
+          <td>${researchBadge(research.status)}<div class="summary-line">${safe(research.reason || '')}</div><div class="inline-actions">${actions}</div></td>
+          <td><textarea class="textarea" data-note="${safe(item.ticker)}" placeholder="Why Joe is watching">${safe(item.notes || '')}</textarea></td>
+          <td>${safe(item.dateAdded)}</td>
+          <td><button class="btn danger" data-remove="${safe(item.ticker)}" type="button">Remove</button></td>
+        </tr>`;
+    }
+
+    function bindWatchControls() {
+      document.querySelectorAll('[data-note]').forEach((field) => {
+        field.addEventListener('input', () => {
+          const item = watchItem(field.dataset.note);
+          if (item) item.notes = field.value;
+          saveWatchlist();
+        });
+      });
+      document.querySelectorAll('[data-priority]').forEach((field) => {
+        field.addEventListener('change', () => {
+          const item = watchItem(field.dataset.priority);
+          if (item) item.priority = field.value;
+          const research = ensureResearch(field.dataset.priority);
+          research.priority = field.value;
+          research.updatedAt = new Date().toISOString();
+          saveWatchlist();
+          saveResearch();
+          renderWatchlist();
+          renderResearch();
+        });
+      });
+      document.querySelectorAll('[data-remove]').forEach((button) => {
+        button.addEventListener('click', () => {
+          state.watchlist = state.watchlist.filter((w) => w.ticker !== button.dataset.remove);
+          saveWatchlist();
+          renderAll();
+        });
+      });
+      document.querySelectorAll('[data-research-action]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const ticker = button.dataset.researchTicker;
+          const action = button.dataset.researchAction;
+          if (action === 'approve') setResearchStatus(ticker, 'approved', researchFor(ticker).reason || 'Approved from Watchlist.');
+          if (action === 'dismiss') setResearchStatus(ticker, 'dismissed', 'Dismissed from Watchlist.');
+          if (action === 'needs') setResearchStatus(ticker, 'needs', 'Manually flagged from Watchlist.');
+        });
+      });
+    }
+
+    function renderWatchlist() {
+      const rows = watchRowsSorted();
+      $('watchMode').value = state.watchMode;
+      $('watchSort').value = state.watchSort;
+      $('watchGroup').value = state.watchGroup;
+      $('watchSummary').textContent = `${rows.length} stocks · ${rows.filter((item) => item.holding).length} holdings · ${rows.filter((item) => researchFor(item.ticker).status === 'needs').length} need deep dive`;
+      $('watchFlat').style.display = state.watchMode === 'flat' ? 'block' : 'none';
+      $('watchGroups').style.display = state.watchMode === 'group' ? 'grid' : 'none';
+      $('watchRows').innerHTML = rows.map((item) => renderWatchRow(item)).join('');
+      const grouped = rows.reduce((acc, item) => {
+        const label = watchGroupLabel(item);
+        acc[label] = acc[label] || [];
+        acc[label].push(item);
+        return acc;
+      }, {});
+      $('watchGroups').innerHTML = Object.entries(grouped).map(([label, items]) => `<div class="card">
+        <div class="group-title"><h3>${safe(label)}</h3><span class="badge grey">${items.length} stocks</span></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Ticker</th><th>Company</th><th>Priority</th><th>Price</th><th>52W Low / High</th><th>P/E</th><th>Convergence</th><th>Research</th><th>Notes</th><th>Date Added</th><th></th></tr></thead>
+            <tbody>${items.map((item) => renderWatchRow(item, true)).join('')}</tbody>
+          </table>
+        </div>
+      </div>`).join('');
+      bindWatchControls();
+    }
+
+    function renderSignals() {
+      const now = new Date().toLocaleString();
+      const strongConsensus = state.rankings.filter((s) => (s.total_investor_count || 0) >= 3 && (s.convergence_score || 0) >= 60).slice(0, 12);
+      const forever = state.rankings.filter((s) => (s.total_conviction_pct || 0) >= 25 && (s.total_investor_count || 0) >= 3).slice(0, 10);
+      const unavailable = [
+        ['Strong Buy Signals', 'Trend history for simultaneous adding is not in the current JSON.'],
+        ['Exit Warnings', 'Trim/exit history is not in the current JSON.'],
+        ['New Positions', 'First-appearance quarter is not in the current JSON.']
+      ];
+      const items = [
+        ...strongConsensus.map((s) => ({ type: 'Consensus Monitor', badge: 'green', ticker: s.ticker, text: `${s.total_investor_count} loaded investors hold ${s.ticker}; convergence score ${s.convergence_score}. This is consensus, not an add signal.` })),
+        ...forever.map((s) => ({ type: 'High Conviction Monitor', badge: 'gold', ticker: s.ticker, text: `${pct(s.total_conviction_pct || 0)} total conviction across loaded holders. Hold-duration data is not available, so Forever Hold is not asserted.` })),
+        ...unavailable.map(([type, text]) => ({ type, badge: 'grey', ticker: 'N/A', text }))
+      ];
+      $('signalFeed').innerHTML = items.map((item) => `<div class="feed-item">
+        <div class="muted">${now}</div>
+        <div><span class="badge ${item.badge}">${safe(item.type)}</span><strong style="margin-left:8px">${safe(item.ticker)}</strong><div class="muted" style="margin-top:6px">${safe(item.text)}</div></div>
+        <span class="badge grey">Source-labeled</span>
+      </div>`).join('');
+    }
+
+    function researchUniverse() {
+      const map = new Map();
+      state.watchlist.forEach((item) => map.set(item.ticker, { ticker: item.ticker, company: item.company, source: 'Watchlist' }));
+      state.rankings
+        .filter((stock) => (stock.convergence_score || 0) >= 60 && (stock.total_investor_count || 0) >= 3)
+        .forEach((stock) => map.set(normalizeTicker(stock.ticker), { ticker: normalizeTicker(stock.ticker), company: stock.company, source: 'Auto Deep Dive' }));
+      Object.values(state.research).forEach((item) => map.set(normalizeTicker(item.ticker), { ticker: normalizeTicker(item.ticker), company: item.company, source: 'Research' }));
+      return Array.from(map.values()).map((item) => ({ ...item, research: researchFor(item.ticker), stock: stockRank(item.ticker), watch: watchItem(item.ticker) }));
+    }
+
+    function filteredResearchRows() {
+      const search = $('researchSearch').value.trim().toLowerCase();
+      const filter = $('researchFilter').value;
+      return researchUniverse().filter((item) => {
+        const status = item.research.status;
+        const matchesSearch = !search || `${item.ticker} ${item.company}`.toLowerCase().includes(search);
+        const matchesFilter = filter === 'all' ||
+          (filter === 'needs' && status === 'needs') ||
+          (filter === 'queue' && ['approved', 'researching', 'draft'].includes(status)) ||
+          (filter === 'library' && status === 'reviewed');
+        return matchesSearch && matchesFilter && status !== 'none' && status !== 'dismissed';
+      }).sort((a, b) => (PRIORITY_ORDER[a.research.priority || 'None'] ?? 3) - (PRIORITY_ORDER[b.research.priority || 'None'] ?? 3) || (b.stock?.convergence_score || 0) - (a.stock?.convergence_score || 0));
+    }
+
+    function researchItemHtml(item, area) {
+      const status = item.research.status;
+      const actionMap = {
+        needs: `<button class="btn small primary" data-research-action="approve" data-research-ticker="${safe(item.ticker)}" type="button">Approve</button><button class="btn small" data-research-action="dismiss" data-research-ticker="${safe(item.ticker)}" type="button">Dismiss</button>`,
+        queue: `<button class="btn small" data-research-action="researching" data-research-ticker="${safe(item.ticker)}" type="button">Researching</button><button class="btn small primary" data-research-action="draft" data-research-ticker="${safe(item.ticker)}" type="button">Draft Ready</button><button class="btn small" data-research-action="reviewed" data-research-ticker="${safe(item.ticker)}" type="button">Save to Library</button>`,
+        library: `<button class="btn small" data-research-action="needs" data-research-ticker="${safe(item.ticker)}" type="button">Reopen</button>`
+      };
+      return `<div class="feed-item">
+        <div>
+          <div class="ticker">${safe(item.ticker)}</div>
+          <div class="summary-line">${safe(item.watch ? 'On Watchlist' : item.source)}</div>
+        </div>
+        <div>
+          <div><strong>${safe(item.company || item.stock?.company || item.watch?.company || '--')}</strong> ${researchBadge(status)} ${priorityBadge(item.research.priority)}</div>
+          <div class="summary-line">${safe(item.research.reason || 'No reason recorded yet.')}</div>
+          <div class="holdings" style="margin-top:8px">
+            ${item.stock ? `${scoreBadge(item.stock.convergence_score || 0)} <span class="badge grey">${item.stock.total_investor_count || 0} holders</span>` : '<span class="badge grey">No loaded consensus</span>'}
+            ${item.watch ? '<span class="badge gold">Watchlist</span>' : '<span class="badge grey">Not on watchlist</span>'}
+          </div>
+          <textarea class="textarea" data-research-note="${safe(item.ticker)}" placeholder="Research notes, thesis, risks, or questions">${safe(item.research.notes || '')}</textarea>
+        </div>
+        <div class="inline-actions">
+          ${!item.watch ? `<button class="btn small" data-add-watch="${safe(item.ticker)}" type="button">Add Watchlist</button>` : ''}
+          ${actionMap[area] || ''}
+        </div>
+      </div>`;
+    }
+
+    function bindResearchControls() {
+      document.querySelectorAll('[data-research-note]').forEach((field) => {
+        field.addEventListener('input', () => updateResearchNotes(field.dataset.researchNote, field.value));
+      });
+      document.querySelectorAll('[data-add-watch]').forEach((button) => {
+        button.addEventListener('click', () => {
+          addWatchTicker(button.dataset.addWatch);
+        });
+      });
+      document.querySelectorAll('#research [data-research-action]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const ticker = button.dataset.researchTicker;
+          const action = button.dataset.researchAction;
+          const reason = researchFor(ticker).reason || 'Updated from Research tab.';
+          setResearchStatus(ticker, action === 'dismiss' ? 'dismissed' : action, reason);
+        });
+      });
+    }
+
+    function renderResearch() {
+      const rows = filteredResearchRows();
+      const needs = rows.filter((item) => item.research.status === 'needs');
+      const queue = rows.filter((item) => ['approved', 'researching', 'draft'].includes(item.research.status));
+      const library = rows.filter((item) => item.research.status === 'reviewed');
+      $('researchNeedsCount').textContent = needs.length;
+      $('researchQueueCount').textContent = queue.length;
+      $('researchLibraryCount').textContent = library.length;
+      $('researchNeeds').innerHTML = needs.map((item) => researchItemHtml(item, 'needs')).join('') || '<div class="muted">Nothing needs a deep dive right now.</div>';
+      $('researchQueue').innerHTML = queue.map((item) => researchItemHtml(item, 'queue')).join('') || '<div class="muted">No approved research queued yet.</div>';
+      $('researchLibrary').innerHTML = library.map((item) => researchItemHtml(item, 'library')).join('') || '<div class="muted">No completed research notes saved yet.</div>';
+      bindResearchControls();
+    }
+
+    function renderStatus() {
+      const tier1 = PROTOCOL_INVESTORS.filter((item) => item.protocolTier === 1);
+      $('statusRows').innerHTML = tier1.map((protocol) => {
+        const loaded = loadedInvestorFor(protocol);
+        const status = dataAgeStatus(loaded?.filing_date);
+        return `<tr>
+          <td><strong>${safe(protocol.name)}</strong></td>
+          <td>${safe(loaded?.fund || protocol.fund)}</td>
+          <td>${state.data?.generated ? new Date(state.data.generated).toLocaleString() : 'Data not yet loaded'}</td>
+          <td>${loaded?.filing_date || 'Data not yet loaded'}</td>
+          <td>May 15, 2026</td>
+          <td><span class="badge ${status.color}">${status.label}</span>${status.ageDays ? `<div class="muted">${status.ageDays} days old</div>` : ''}</td>
+          <td class="muted">${loaded ? 'reference-data/convergence-master.json' : 'MOSE-DATA-PROTOCOL.md placeholder only'}</td>
+        </tr>`;
+      }).join('');
+    }
+
+    function renderPortfolio() {
+      const eachDeployment = JOE_DEPLOYED / JOE_HOLDINGS.length;
+      let currentTotal = 0;
+      let withConsensus = 0;
+      $('portfolioRows').innerHTML = JOE_HOLDINGS.map((holding) => {
+        const price = state.priceCache.get(normalizeTicker(holding.ticker));
+        const stock = state.rankings.find((s) => s.ticker === holding.ticker);
+        if (stock) withConsensus++;
+        const shares = price?.price ? eachDeployment / price.price : null;
+        const value = shares && price?.price ? shares * price.price : null;
+        if (Number.isFinite(value)) currentTotal += value;
+        return `<tr>
+          <td class="ticker">${safe(holding.ticker)}</td>
+          <td>${safe(price?.company || holding.company)}</td>
+          <td>${priceCell(holding.ticker)}</td>
+          <td>${Number.isFinite(shares) ? shares.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '--'}<div class="muted">Estimated equal weight; actual shares not loaded</div></td>
+          <td>${money(value)}</td>
+          <td><span class="badge grey">Entry price not loaded</span></td>
+          <td>${stock ? `${scoreBadge(stock.convergence_score || 0)} <span class="muted">${stock.total_investor_count} holders</span>` : '<span class="badge grey">No loaded consensus</span>'}</td>
+          <td class="muted">Holdings: user prompt. Price: Yahoo Finance. Consensus: convergence-master.json.</td>
+        </tr>`;
+      }).join('');
+      $('portfolioValue').textContent = currentTotal ? money(currentTotal) : '--';
+      $('portfolioConsensus').textContent = `${withConsensus} of ${JOE_HOLDINGS.length}`;
+    }
+
+    function renderAll() {
+      renderHeader();
+      renderConvergence();
+      renderProfiles();
+      renderWatchlist();
+      renderSignals();
+      renderResearch();
+      renderStatus();
+      renderPortfolio();
+    }
+
+    async function refreshPrices() {
+      const tickers = new Set([
+        ...state.rankings.slice(0, 40).map((s) => s.ticker),
+        ...state.watchlist.map((w) => w.ticker),
+        ...researchUniverse().slice(0, 25).map((item) => item.ticker),
+        ...JOE_HOLDINGS.map((h) => h.ticker)
+      ]);
+      let ok = 0;
+      for (const ticker of tickers) {
+        try {
+          await getPrice(ticker);
+          ok++;
+        } catch (err) {
+          console.warn(err);
+        }
+        if (state.watchlist.some((w) => w.ticker === ticker)) {
+          try { await getQuoteSummary(ticker); } catch (err) { console.warn(err); }
+        }
+        renderAll();
+      }
+      $('priceStatus').className = ok ? 'badge green' : 'badge red';
+      $('priceStatus').textContent = ok ? `Prices fetched: ${new Date(state.pricesFetchedAt).toLocaleString()}` : 'Live prices unavailable';
+    }
+
+    async function boot() {
+      try {
+        loadWatchlist();
+        const response = await fetch(DATA_URL);
+        if (!response.ok) throw new Error(`Could not load ${DATA_URL}`);
+        state.data = await response.json();
+        state.investors = Array.isArray(state.data.investors) ? state.data.investors : Object.values(state.data.investors || {});
+        state.rankings = Array.isArray(state.data.convergence_rankings) ? state.data.convergence_rankings : [];
+        renderAll();
+        refreshPrices();
+      } catch (err) {
+        console.error(err);
+        $('lastUpdated').textContent = 'Reference data failed to load';
+        document.querySelector('main').innerHTML = `<div class="warning">Could not load ${safe(DATA_URL)}. Serve this directory over HTTP, then reload. Error: ${safe(err.message)}</div>`;
+      }
+    }
+
+    document.querySelectorAll('.tab-btn').forEach((button) => {
+      button.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach((btn) => btn.classList.remove('active'));
+        document.querySelectorAll('.panel').forEach((panel) => panel.classList.remove('active'));
+        button.classList.add('active');
+        $(button.dataset.tab).classList.add('active');
+      });
+    });
+    $('convergenceSearch').addEventListener('input', renderConvergence);
+    $('scoreFilter').addEventListener('change', renderConvergence);
+    $('investorSearch').addEventListener('input', renderProfiles);
+    $('researchSearch').addEventListener('input', renderResearch);
+    $('researchFilter').addEventListener('change', renderResearch);
+    $('watchMode').addEventListener('change', () => {
+      state.watchMode = $('watchMode').value;
+      localStorage.setItem('mose_watch_mode', state.watchMode);
+      renderWatchlist();
+    });
+    $('watchSort').addEventListener('change', () => {
+      state.watchSort = $('watchSort').value;
+      localStorage.setItem('mose_watch_sort', state.watchSort);
+      renderWatchlist();
+    });
+    $('watchGroup').addEventListener('change', () => {
+      state.watchGroup = $('watchGroup').value;
+      localStorage.setItem('mose_watch_group', state.watchGroup);
+      renderWatchlist();
+    });
+    $('refreshBtn').addEventListener('click', () => $('refreshCommand').classList.toggle('open'));
+    function addWatchTicker(rawTicker) {
+      const ticker = normalizeTicker(rawTicker);
+      if (!ticker || state.watchlist.some((item) => item.ticker === ticker)) return;
+      const stock = stockRank(ticker);
+      state.watchlist.push({ ticker, company: stock?.company || '', notes: '', dateAdded: new Date().toISOString().slice(0, 10), holding: false, priority: 'None', role: 'Watchlist' });
+      saveWatchlist();
+      ensureResearch(ticker, { company: stock?.company || '' });
+      saveResearch();
+      renderAll();
+      getPrice(ticker).then(renderAll).catch(console.warn);
+      getQuoteSummary(ticker).then(renderWatchlist).catch(console.warn);
+    }
+    $('addWatchForm').addEventListener('submit', (event) => {
+      event.preventDefault();
+      addWatchTicker($('watchTicker').value);
+      $('watchTicker').value = '';
+    });
+
+    boot();
+  </script>
+</body>
+</html>
