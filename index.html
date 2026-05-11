@@ -483,6 +483,21 @@
     border-radius: 6px; padding: 10px;
   }
   .research-mini-card .summary { font-size: 11px; color: var(--muted); line-height: 1.4; margin-top: 6px; }
+  .research-actions { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+  .research-action-btn {
+    background: var(--surface); border: 1px solid var(--border); color: var(--muted);
+    padding: 4px 9px; border-radius: 14px; cursor: pointer; font-size: 11px;
+    transition: all 0.15s;
+  }
+  .research-action-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .research-action-btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 700; }
+  .research-action-btn.good { border-color: var(--green); color: var(--green); }
+  .research-action-btn.warn { border-color: var(--yellow); color: var(--yellow); }
+  .research-status-pill {
+    display: inline-block; padding: 2px 7px; border-radius: 999px;
+    font-size: 11px; font-weight: 700; border: 1px solid var(--border);
+    color: var(--muted); white-space: nowrap;
+  }
   .i-own-cell { font-size: 12px; }
   .i-own-yes { color: #2ea043; font-weight: 600; }
   .i-own-no { color: var(--muted); }
@@ -842,12 +857,16 @@ function checkPw(){
       <h2>🎯 Joe's Watchlist</h2>
       <span id="watchlist-dd-counter" class="dd-counter-pill">loading…</span>
       <button class="sync-all-btn" id="save-changes-btn" onclick="syncAllToGitHub()">💾 Save Changes</button>
+      <select id="watchlist-view" class="watchlist-control" onchange="setWatchlistView(this.value)">
+        <option value="grouped">Group Mode</option>
+        <option value="flat">Flat Mode</option>
+      </select>
       <select id="watchlist-sort" class="watchlist-control" onchange="setWatchlistSort(this.value)">
         <option value="priority">Sort: Priority</option>
-        <option value="score">Sort: Score</option>
+        <option value="score">Sort: Convergence Score</option>
         <option value="ticker">Sort: Ticker</option>
         <option value="date">Sort: Date Added</option>
-        <option value="mos">Sort: Margin of Safety</option>
+        <option value="discount">Sort: 52-Week Discount</option>
         <option value="owned">Sort: I Own First</option>
         <option value="deepDive">Sort: Needs Deep Dive</option>
       </select>
@@ -970,10 +989,30 @@ function checkPw(){
       <span style="font-size:12px;color:var(--muted)">Full intrinsic value analysis · Owner Earnings method · Buffett/Munger framework</span>
     </div>
 
+    <div class="stats-bar">
+      <div class="stat-card"><div class="stat-val orange" id="research-needs-count">—</div><div class="stat-label">Needs Deep Dive</div></div>
+      <div class="stat-card"><div class="stat-val blue" id="research-queue-count">—</div><div class="stat-label">Research Queue</div></div>
+      <div class="stat-card"><div class="stat-val green" id="research-library-count">—</div><div class="stat-label">Library</div></div>
+    </div>
+
+    <div class="research-lane">
+      <h3>Needs Deep Dive</h3>
+      <div id="research-needs" class="research-mini-grid">
+        <div class="no-data">Loading deep-dive candidates…</div>
+      </div>
+    </div>
+
     <div class="research-lane">
       <h3>Research Queue</h3>
       <div id="research-queue" class="research-mini-grid">
         <div class="no-data">Loading research queue…</div>
+      </div>
+    </div>
+
+    <div class="research-lane">
+      <h3>Research Library</h3>
+      <div id="research-local-library" class="research-mini-grid">
+        <div class="no-data">Loading saved research…</div>
       </div>
     </div>
 
@@ -1302,10 +1341,20 @@ let watchlistView = 'grouped';
 let watchlistSort = localStorage.getItem('mose_watchlist_sort') || 'priority';
 let watchlistGroup = localStorage.getItem('mose_watchlist_group') || 'bucket';
 let watchlistPriority = JSON.parse(localStorage.getItem('mose_watchlist_priority') || '{}');
+let researchItems = JSON.parse(localStorage.getItem('mose_research_items') || '{}');
 let cockpitFilter = 'top';
 let autoDeepDiveQueueRan = false;
 let joeHoldingsData = null;
 const PRIORITY_ORDER = { High: 0, Medium: 1, Low: 2, None: 3 };
+const RESEARCH_LABELS = {
+  none: 'Not Started',
+  needs: 'Needs Deep Dive',
+  approved: 'Approved',
+  researching: 'Researching',
+  draft: 'Draft Ready',
+  reviewed: 'Saved to Library',
+  dismissed: 'Dismissed'
+};
 
 const WATCHLIST_BUCKETS = {
   'core-forever':    { label: '\uD83C\uDFF0 Core Forever (20+ years)',    color: '#2D5A27' },
@@ -1508,6 +1557,7 @@ async function loadHoldings() {
     renderHeatmap();
     renderPortfolio();
     renderCockpit();
+    renderResearchQueue();
     runAutoDeepDiveQueueIfReady();
   } catch(e) {
     document.getElementById('holdings-body').innerHTML =
@@ -1525,6 +1575,7 @@ async function loadDCF() {
     updateDCFStats();
     renderPortfolio(); // re-render with DCF data
     renderCockpit();
+    renderResearchQueue();
     runAutoDeepDiveQueueIfReady();
   } catch(e) {
     document.getElementById('dcf-body').innerHTML =
@@ -2029,6 +2080,12 @@ function setWatchlistView(view, btn) {
   watchlistView = view;
   document.querySelectorAll('.view-toggle-btn').forEach(b => b.classList.remove('active'));
   if (btn) btn.classList.add('active');
+  if (!btn) {
+    const activeBtn = document.getElementById(view === 'grouped' ? 'toggle-grouped' : 'toggle-flat');
+    if (activeBtn) activeBtn.classList.add('active');
+  }
+  const viewEl = document.getElementById('watchlist-view');
+  if (viewEl) viewEl.value = view;
   renderWatchlist();
 }
 
@@ -2061,6 +2118,63 @@ function prioritySelect(ticker) {
   return `<select class="priority-dropdown ${cls}" onchange="setPriority('${ticker}', this.value)">
     ${['High','Medium','Low','None'].map(p => `<option value="${p}"${current === p ? ' selected' : ''}>${p}</option>`).join('')}
   </select>`;
+}
+
+function saveResearchItems() {
+  localStorage.setItem('mose_research_items', JSON.stringify(researchItems));
+}
+
+function researchRecord(ticker, candidate) {
+  const key = canonicalTicker(ticker);
+  const existing = researchItems[key];
+  if (existing) return existing;
+  const auto = candidate && !candidate.hasDive && candidate.investors.length >= 3 && candidate.score >= 60;
+  return {
+    ticker: key,
+    status: auto ? 'needs' : 'none',
+    priority: getPriority(key),
+    reason: auto ? `Auto-flagged: ${candidate.investors.length} investors and score ${candidate.score}.` : '',
+    notes: '',
+    updatedAt: ''
+  };
+}
+
+function setResearchStatus(ticker, status, reason) {
+  const key = canonicalTicker(ticker);
+  const c = buildPurchaseCandidates().find(item => item.ticker === key);
+  const current = researchRecord(key, c);
+  researchItems[key] = {
+    ...current,
+    ticker: key,
+    status,
+    reason: reason || current.reason || `Marked ${RESEARCH_LABELS[status] || status}.`,
+    updatedAt: new Date().toISOString()
+  };
+  if (status === 'approved' && !ddRequestsData.requests.find(r => (r.ticker || r) === key)) {
+    ddRequestsData.requests.push({ ticker: key, requestedAt: new Date().toISOString(), status: 'approved', reason: researchItems[key].reason });
+  }
+  saveResearchItems();
+  markUnsaved();
+  updateDDCounter();
+  renderCockpit();
+  renderWatchlist();
+  renderResearchQueue();
+}
+
+function setResearchNote(ticker, text) {
+  const key = canonicalTicker(ticker);
+  const c = buildPurchaseCandidates().find(item => item.ticker === key);
+  const current = researchRecord(key, c);
+  researchItems[key] = { ...current, ticker: key, notes: text, updatedAt: new Date().toISOString() };
+  saveResearchItems();
+}
+
+function researchStatusPill(status) {
+  const color = status === 'needs' ? 'var(--accent)' :
+    ['approved','researching','draft'].includes(status) ? 'var(--blue)' :
+    status === 'reviewed' ? 'var(--green)' :
+    status === 'dismissed' ? 'var(--muted)' : 'var(--muted)';
+  return `<span class="research-status-pill" style="color:${color};border-color:${color}">${RESEARCH_LABELS[status] || status}</span>`;
 }
 
 function computeJoeOwns() {
@@ -2234,15 +2348,18 @@ function actionClass(action) {
 
 function deepDiveCellForCandidate(c) {
   if (c.hasDive) return `<a href="${getReportUrl(c.ticker)}" target="_blank" class="dd-report-link">View Report</a>`;
-  if (isRequested(c.ticker)) return `<span class="research-status" style="color:var(--yellow);font-weight:700">Queued</span>`;
-  if (c.score >= 70) return `<span class="research-status" style="color:var(--blue);font-weight:700">Auto queue</span>`;
+  const rec = researchRecord(c.ticker, c);
+  if (['approved','researching','draft'].includes(rec.status) || isRequested(c.ticker)) return `<span class="research-status" style="color:var(--yellow);font-weight:700">Queued</span>`;
+  if (rec.status === 'needs' || (c.investors.length >= 3 && c.score >= 60)) return `<span class="research-status" style="color:var(--blue);font-weight:700">Auto deep dive</span>`;
   return `<label style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--muted);cursor:pointer">
       <input type="checkbox" class="dd-checkbox" onchange="toggleDDRequest('${c.ticker}', this)"> Dive
     </label>`;
 }
 
 function needsDeepDive(c) {
-  return !!(c && !c.hasDive && (c.score >= 70 || isRequested(c.ticker)));
+  if (!c || c.hasDive) return false;
+  const status = researchRecord(c.ticker, c).status;
+  return status === 'needs' || (c.investors.length >= 3 && c.score >= 60);
 }
 
 function sortWatchlistStocks(stocks, candidateMap, joeOwns) {
@@ -2258,7 +2375,7 @@ function sortWatchlistStocks(stocks, candidateMap, joeOwns) {
     score: (a, b) => score(b) - score(a) || byTicker(a, b),
     ticker: byTicker,
     date: (a, b) => String(b.dateAdded || b.added || '').localeCompare(String(a.dateAdded || a.added || '')) || byTicker(a, b),
-    mos: (a, b) => mos(b) - mos(a) || score(b) - score(a) || byTicker(a, b),
+    discount: (a, b) => mos(b) - mos(a) || score(b) - score(a) || byTicker(a, b),
     owned: (a, b) => Number(Boolean(joeOwns[canonicalTicker(b.ticker)])) - Number(Boolean(joeOwns[canonicalTicker(a.ticker)])) || score(b) - score(a) || byTicker(a, b),
     deepDive: (a, b) => Number(needsDeepDive(candidateMap[canonicalTicker(b.ticker)])) - Number(needsDeepDive(candidateMap[canonicalTicker(a.ticker)])) || score(b) - score(a) || byTicker(a, b)
   };
@@ -2276,7 +2393,10 @@ function groupLabelForStock(p, candidateMap) {
   }
   if (watchlistGroup === 'status') {
     if (c?.hasDive) return { key: 'library', label: '📄 Research Library', color: 'var(--green)' };
-    if (needsDeepDive(c)) return { key: 'needs-dive', label: '🔎 Needs Deep Dive', color: 'var(--accent)' };
+    const status = c ? researchRecord(c.ticker, c).status : 'none';
+    if (status === 'dismissed') return { key: 'dismissed', label: 'Dismissed', color: '#5B5B5B' };
+    if (needsDeepDive(c)) return { key: 'needs-dive', label: 'Needs Deep Dive', color: 'var(--accent)' };
+    if (['approved','researching','draft'].includes(status)) return { key: 'queued', label: 'Research Queue', color: 'var(--yellow)' };
     if (isRequested(canonicalTicker(p.ticker))) return { key: 'queued', label: '📨 Research Queue', color: 'var(--yellow)' };
     return { key: 'watching', label: '👀 Watchlist', color: '#5B5B5B' };
   }
@@ -2381,6 +2501,7 @@ function renderCockpit() {
 function watchlistRowHtml(p, dcfMap, tickerToInvestors, joeOwns, candidateMap) {
   const dcf = dcfMap[p.ticker];
   const candidate = candidateMap[canonicalTicker(p.ticker)];
+  const rec = researchRecord(p.ticker, candidate);
   const investors = tickerToInvestors[p.ticker] || [];
   const owns = joeOwns[p.ticker];
   const defaultBucket = (p.bucket && WATCHLIST_BUCKETS[p.bucket]) ? p.bucket : 'uncategorized';
@@ -2421,6 +2542,14 @@ function watchlistRowHtml(p, dcfMap, tickerToInvestors, joeOwns, candidateMap) {
   const invCell = investors.length
     ? investors.map(inv => investorBadge(inv)).join(' ')
     : '<span style="color:var(--muted);font-size:11px">\u2014</span>';
+  const researchCell = `<div style="display:flex;flex-direction:column;gap:6px;min-width:130px">
+    ${researchStatusPill(rec.status)}
+    <div class="research-actions" style="margin-top:0">
+      ${rec.status === 'needs' ? `<button class="research-action-btn primary" onclick="setResearchStatus('${p.ticker}','approved','Approved from Watchlist.')">Approve</button><button class="research-action-btn" onclick="setResearchStatus('${p.ticker}','dismissed','Dismissed from Watchlist.')">Dismiss</button>` : ''}
+      ${rec.status === 'none' ? `<button class="research-action-btn" onclick="setResearchStatus('${p.ticker}','needs','Manually flagged from Watchlist.')">Flag</button>` : ''}
+      ${['approved','researching','draft'].includes(rec.status) ? `<button class="research-action-btn good" onclick="setResearchStatus('${p.ticker}','reviewed','Saved to Research Library from Watchlist.')">Library</button>` : ''}
+    </div>
+  </div>`;
 
   return `<tr>
     <td style="min-width:195px">${bucketSel}</td>
@@ -2436,6 +2565,7 @@ function watchlistRowHtml(p, dcfMap, tickerToInvestors, joeOwns, candidateMap) {
     <td>${mosCell}</td>
     <td>${dcfCell}</td>
     <td>${ddCell}</td>
+    <td>${researchCell}</td>
   </tr>`;
 }
 
@@ -2445,7 +2575,7 @@ function watchlistTableWrap(stocks, dcfMap, tickerToInvestors, joeOwns, candidat
     <table>
       <thead><tr>
         <th>Bucket</th><th>Ticker</th><th>Name</th>
-        <th>Priority</th><th>I Own</th><th>Notes</th><th>Investors</th><th>Score</th><th>Action</th><th>Base IV</th><th>MOS</th><th>DCF Signal</th><th>Deep Dive</th>
+        <th>Priority</th><th>I Own</th><th>Notes</th><th>Investors</th><th>Score</th><th>Action</th><th>Base IV</th><th>MOS</th><th>DCF Signal</th><th>Deep Dive</th><th>Research</th>
       </tr></thead>
       <tbody>${stocks.map(p => watchlistRowHtml(p, dcfMap, tickerToInvestors, joeOwns, candidateMap)).join('')}</tbody>
     </table>
@@ -2457,6 +2587,8 @@ function renderWatchlist() {
   if (!container) return;
   const sortEl = document.getElementById('watchlist-sort');
   const groupEl = document.getElementById('watchlist-group');
+  const viewEl = document.getElementById('watchlist-view');
+  if (viewEl) viewEl.value = watchlistView;
   if (sortEl) sortEl.value = watchlistSort;
   if (groupEl) groupEl.value = watchlistGroup;
   const groupedBtn = document.getElementById('toggle-grouped');
@@ -2665,32 +2797,50 @@ function getReportUrl(ticker) {
 }
 
 function renderResearchQueue() {
-  const container = document.getElementById('research-queue');
-  if (!container) return;
+  const needsEl = document.getElementById('research-needs');
+  const queueEl = document.getElementById('research-queue');
+  const libraryEl = document.getElementById('research-local-library');
+  if (!needsEl || !queueEl || !libraryEl) return;
   const candidates = buildPurchaseCandidates();
-  const requested = getDDRequests();
-  const rows = candidates
-    .filter(c => !c.hasDive && (c.score >= 70 || requested.includes(c.ticker)))
-    .sort((a, b) => Number(requested.includes(b.ticker)) - Number(requested.includes(a.ticker)) || b.score - a.score)
-    .slice(0, 24);
-  if (!rows.length) {
-    container.innerHTML = '<div class="no-data">No research items queued yet. Use Needs Deep Dive or Watchlist checkboxes to queue one.</div>';
-    return;
-  }
-  container.innerHTML = rows.map(c => {
-    const queued = requested.includes(c.ticker);
-    const status = queued ? 'Queued' : 'Auto Deep Dive';
-    const statusColor = queued ? 'var(--yellow)' : 'var(--blue)';
-    const drivers = c.drivers.length ? c.drivers.join(' · ') : 'High purchase-readiness score';
+  const requested = new Set(getDDRequests());
+  const rows = candidates.map(c => ({ ...c, research: researchRecord(c.ticker, c) }))
+    .filter(c => !c.hasDive && c.research.status !== 'dismissed')
+    .sort((a, b) => (PRIORITY_ORDER[getPriority(a.ticker)] ?? 3) - (PRIORITY_ORDER[getPriority(b.ticker)] ?? 3) || b.score - a.score || a.ticker.localeCompare(b.ticker));
+
+  const needs = rows.filter(c => c.research.status === 'needs' || (c.investors.length >= 3 && c.score >= 60 && c.research.status === 'none'));
+  const queue = rows.filter(c => ['approved','researching','draft'].includes(c.research.status) || requested.has(c.ticker));
+  const library = candidates.map(c => ({ ...c, research: researchRecord(c.ticker, c) })).filter(c => c.hasDive || c.research.status === 'reviewed');
+
+  const setText = (id, value) => { const el = document.getElementById(id); if (el) el.textContent = value; };
+  setText('research-needs-count', needs.length);
+  setText('research-queue-count', queue.length);
+  setText('research-library-count', library.length + allReports.length);
+
+  const card = (c, lane) => {
+    const rec = researchRecord(c.ticker, c);
+    const drivers = c.drivers.length ? c.drivers.join(' · ') : `${c.investors.length} investors · score ${c.score}`;
+    const summary = rec.reason || (c.investors.length >= 3 ? `Auto-flagged: ${c.investors.length} investors and score ${c.score}.` : drivers);
+    const note = rec.notes || '';
+    const actions = lane === 'needs'
+      ? `<button class="research-action-btn primary" onclick="setResearchStatus('${c.ticker}','approved','Approved from Research tab.')">Approve</button><button class="research-action-btn" onclick="setResearchStatus('${c.ticker}','dismissed','Dismissed from Research tab.')">Dismiss</button>`
+      : lane === 'queue'
+        ? `<button class="research-action-btn" onclick="setResearchStatus('${c.ticker}','researching','Research started.')">Researching</button><button class="research-action-btn warn" onclick="setResearchStatus('${c.ticker}','draft','Draft ready for review.')">Draft Ready</button><button class="research-action-btn good" onclick="setResearchStatus('${c.ticker}','reviewed','Saved to Research Library.')">Save to Library</button>`
+        : `<button class="research-action-btn" onclick="setResearchStatus('${c.ticker}','needs','Reopened from Research Library.')">Reopen</button>`;
     return `<div class="research-mini-card">
       <div style="display:flex;justify-content:space-between;gap:8px;align-items:flex-start">
         <div><span class="ticker">${c.ticker}</span><div style="font-size:12px;color:var(--muted);margin-top:3px">${c.name}</div></div>
         <span class="cockpit-score ${scoreClass(c.score)}">${c.score}</span>
       </div>
-      <div class="summary"><strong style="color:${statusColor}">${status}</strong> · ${drivers}</div>
-      <div style="margin-top:8px">${deepDiveCellForCandidate(c)}</div>
+      <div class="summary">${researchStatusPill(rec.status)} · ${summary}</div>
+      <div class="summary">${drivers}</div>
+      <textarea class="watchlist-control" style="width:100%;border-radius:6px;min-height:58px;margin-top:8px;white-space:normal" placeholder="Research notes..." oninput="setResearchNote('${c.ticker}', this.value)">${escapeHtml(note)}</textarea>
+      <div class="research-actions">${actions}</div>
     </div>`;
-  }).join('');
+  };
+
+  needsEl.innerHTML = needs.length ? needs.map(c => card(c, 'needs')).join('') : '<div class="no-data">No auto deep-dive candidates right now.</div>';
+  queueEl.innerHTML = queue.length ? queue.map(c => card(c, 'queue')).join('') : '<div class="no-data">No research items queued yet. Approve a deep dive from Needs Deep Dive or Watchlist.</div>';
+  libraryEl.innerHTML = library.length ? library.map(c => card(c, 'library')).join('') : '<div class="no-data">No saved local research yet. Completed report files appear below when available.</div>';
 }
 
 async function loadResearchLibrary() {
