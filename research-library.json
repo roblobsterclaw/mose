@@ -1,4 +1,77 @@
 {
-  "generated_at": "2026-05-11T20:23:33.678206+00:00",
-  "reports": []
+  "generated_at": "2026-04-25T06:33:00",
+  "reports": [
+    {
+      "ticker": "BN",
+      "company": "Brookfield Corporation",
+      "reportDate": "2026-04-29",
+      "intrinsicValue": 67,
+      "mosPrice": 48,
+      "currentPrice": 45.48,
+      "verdict": "BUY — 30-35% MOS, convergence score 80, 4 super investors top-5 position",
+      "verdictClass": "buy",
+      "superInvestors": ["Ackman 18.1%", "Akre 13.5%", "Gayner 5.7%", "Bloomstran 4.6%"],
+      "convergenceScore": 80,
+      "reportUrl": "https://roblobsterclaw.github.io/mose/deep-dives/bn-deep-dive-2026-04-29.html"
+    },
+    {
+      "ticker": "GOOGL",
+      "company": "Alphabet Inc.",
+      "reportDate": "2026-04-25",
+      "intrinsicValue": 400,
+      "mosPrice": 340,
+      "currentPrice": 344.40,
+      "verdict": "BUY — Convergence score 95 (highest in universe), 14% MOS, earnings Apr 29",
+      "verdictClass": "buy",
+      "superInvestors": ["Li Lu 22.3%", "Ackman 12.5%", "Gayner 6.9%"],
+      "convergenceScore": 95,
+      "reportUrl": "https://roblobsterclaw.github.io/mose/deep-dives/googl-deep-dive-2026-04-20.html"
+    },
+    {
+      "ticker": "BRK-B",
+      "company": "Berkshire Hathaway Inc.",
+      "reportDate": "2026-04-25",
+      "intrinsicValue": 520,
+      "mosPrice": 445,
+      "currentPrice": 469.32,
+      "verdict": "WATCH — Only 10% MOS at current price, add on 10-15% pullback",
+      "verdictClass": "fair",
+      "superInvestors": ["Spier 22.6%", "Li Lu 12.6%", "Gayner 6.1%"],
+      "convergenceScore": 75,
+      "reportUrl": "https://roblobsterclaw.github.io/mose/deep-dives/brkb-deep-dive-2026-04-20.html"
+    },
+    {
+      "ticker": "NVDA",
+      "company": "NVIDIA Corporation",
+      "reportDate": "2026-04-25",
+      "intrinsicValue": 195,
+      "mosPrice": 156,
+      "currentPrice": 208.27,
+      "verdict": "PASS — Zero super investor convergence, no margin of safety, hypergrowth priced in",
+      "verdictClass": "overvalued",
+      "superInvestors": [],
+      "convergenceScore": 0,
+      "reportUrl": "https://roblobsterclaw.github.io/mose/deep-dives/nvda-deep-dive-2026-04-20.html"
+    },
+    {
+      "ticker": "AMZN",
+      "company": "Amazon.com Inc.",
+      "reportDate": "2026-04-16",
+      "intrinsicValue": 216,
+      "mosPrice": 162,
+      "verdict": "Watchlist - fair to slightly high price",
+      "verdictClass": "fair",
+      "reportUrl": "https://roblobsterclaw.github.io/mose/deep-dives/amzn-deep-dive-2026-04-16.html"
+    },
+    {
+      "ticker": "MSFT",
+      "company": "Microsoft Corporation",
+      "reportDate": "2026-04-16",
+      "intrinsicValue": 386,
+      "mosPrice": 290,
+      "verdict": "Buy on weakness - trading near fair value",
+      "verdictClass": "fair",
+      "reportUrl": "https://roblobsterclaw.github.io/mose/deep-dives/msft-deep-dive-2026-04-16.html"
+    }
+  ]
 }

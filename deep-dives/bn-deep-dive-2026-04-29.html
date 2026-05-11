@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brookfield Corporation (BN) Deep Dive - April 2026 | JFL&amp;KL Fund</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card: #161b22;
+    --card2: #1c2128;
+    --border: #30363d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #e8562a;
+    --green: #3fb950;
+    --yellow: #d29922;
+    --red: #f85149;
+    --blue: #58a6ff;
+    --purple: #bc8cff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 15px; line-height: 1.6; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+  .header { background: linear-gradient(135deg, #1a0a05 0%, #2d0e07 50%, #1a0a05 100%); border: 1px solid var(--accent); border-radius: 12px; padding: 32px; margin-bottom: 24px; }
+  .header-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; }
+  .ticker-block h1 { font-size: 3rem; font-weight: 700; color: var(--accent); line-height: 1; }
+  .ticker-block h2 { font-size: 1.4rem; color: var(--text); font-weight: 400; margin-top: 4px; }
+  .ticker-block .date { color: var(--muted); font-size: 0.9rem; margin-top: 8px; }
+  .verdict-badge { background: var(--green); color: #000; padding: 8px 18px; border-radius: 6px; font-weight: 700; font-size: 1.1rem; white-space: nowrap; align-self: flex-start; }
+  .subtitle { margin-top: 20px; color: var(--muted); font-size: 0.95rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 16px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 24px; margin-bottom: 20px; }
+  .card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+  .section-num { background: var(--accent); color: white; width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; }
+  .card-header h3 { font-size: 1.15rem; font-weight: 600; color: var(--text); }
+  .metric-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; }
+  .metric { background: var(--card2); border: 1px solid var(--border); border-radius: 8px; padding: 14px; }
+  .metric .label { color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .metric .value { font-size: 1.3rem; font-weight: 700; color: var(--text); }
+  .metric .sub { color: var(--muted); font-size: 0.8rem; margin-top: 4px; }
+  .metric.green .value { color: var(--green); }
+  .metric.yellow .value { color: var(--yellow); }
+  .metric.red .value { color: var(--red); }
+  .metric.blue .value { color: var(--blue); }
+  .metric.purple .value { color: var(--purple); }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  th { background: #1f2937; color: var(--muted); text-align: left; padding: 10px 12px; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--border); }
+  td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; font-family: "SF Mono", Consolas, monospace; }
+  .green-text { color: var(--green); }
+  .yellow-text { color: var(--yellow); }
+  .red-text { color: var(--red); }
+  .blue-text { color: var(--blue); }
+  .bold { font-weight: 700; }
+  .pillar-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin-bottom: 16px; }
+  .pillar { background: var(--card2); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+  .pillar-title { font-weight: 700; color: var(--accent); margin-bottom: 8px; font-size: 0.95rem; }
+  .pillar-desc { color: var(--muted); font-size: 0.88rem; line-height: 1.5; }
+  .scenario-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 20px; }
+  .scenario { background: var(--card2); border: 2px solid var(--border); border-radius: 10px; padding: 20px; text-align: center; }
+  .scenario.bear { border-color: var(--red); }
+  .scenario.base { border-color: var(--blue); }
+  .scenario.bull { border-color: var(--green); }
+  .scenario .label { font-size: 0.85rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .scenario .price { font-size: 2.4rem; font-weight: 800; margin-bottom: 4px; }
+  .scenario.bear .price { color: var(--red); }
+  .scenario.base .price { color: var(--blue); }
+  .scenario.bull .price { color: var(--green); }
+  .scenario .prob { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px; }
+  .scenario .desc { font-size: 0.85rem; color: var(--muted); line-height: 1.45; }
+  .callout { background: rgba(232,86,42,0.08); border: 1px solid rgba(232,86,42,0.35); border-radius: 8px; padding: 16px; margin: 16px 0; }
+  .callout.green { background: rgba(63,185,80,0.08); border-color: rgba(63,185,80,0.35); }
+  .callout.yellow { background: rgba(210,153,34,0.08); border-color: rgba(210,153,34,0.35); }
+  ul { margin-left: 22px; }
+  li { margin: 8px 0; }
+  .footer { color: var(--muted); font-size: 0.8rem; text-align: center; padding: 30px 0; border-top: 1px solid var(--border); margin-top: 30px; }
+  a { color: var(--blue); }
+  @media (max-width: 800px) {
+    .scenario-grid { grid-template-columns: 1fr; }
+    .ticker-block h1 { font-size: 2.3rem; }
+    .header { padding: 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="header-top">
+      <div class="ticker-block">
+        <h1>BN</h1>
+        <h2>Brookfield Corporation</h2>
+        <div class="date">Deep Dive Research Report - April 29, 2026</div>
+      </div>
+      <span class="verdict-badge">BUY - OPPORTUNISTIC VALUE</span>
+    </div>
+    <div class="subtitle">
+      Brookfield is a complex but unusually durable capital allocator: asset management, wealth solutions, and owned operating businesses tied to infrastructure, renewable power, private equity, real estate, and credit. The setup is attractive because the market is valuing a complicated holding company while super-investor convergence and Brookfield's own cashflow disclosures point to a higher look-through value.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="section-num">1</div>
+      <h3>Executive Snapshot</h3>
+    </div>
+    <div class="metric-grid">
+      <div class="metric blue"><div class="label">Current Price</div><div class="value">$45.48</div><div class="sub">Dashboard price, Apr 2026</div></div>
+      <div class="metric green"><div class="label">Base Intrinsic Value</div><div class="value">$67</div><div class="sub">Sum-of-parts base case</div></div>
+      <div class="metric yellow"><div class="label">MOS Buy Price</div><div class="value">$48</div><div class="sub">25% margin to base value</div></div>
+      <div class="metric green"><div class="label">Upside to Base</div><div class="value">47%</div><div class="sub">Before dividends</div></div>
+      <div class="metric purple"><div class="label">Convergence Score</div><div class="value">80</div><div class="sub">Akre, Ackman, Gayner, Bloomstran</div></div>
+      <div class="metric blue"><div class="label">2025 DE</div><div class="value">$6.3B</div><div class="sub">Company reported</div></div>
+    </div>
+    <div class="callout green">
+      <strong>Bottom line:</strong> BN qualifies as a buy for an opportunistic value bucket below $48. The clean GAAP/IFRS screen looks poor because Brookfield reinvests heavily and consolidates complex operating companies; the more relevant lens is distributable earnings, fee-related earnings, carried interest realization, and the value of listed/owned assets.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="section-num">2</div>
+      <h3>Why This Is Mispriced</h3>
+    </div>
+    <div class="pillar-grid">
+      <div class="pillar">
+        <div class="pillar-title">Complexity Discount</div>
+        <div class="pillar-desc">Brookfield is a holding company, asset manager, insurer, real asset owner, and public-market sponsor at the same time. That structure makes it hard for screens to value, especially when IFRS net income is noisy.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-title">Cashflow Better Than EPS</div>
+        <div class="pillar-desc">Company-reported distributable earnings before realizations reached $5.4B, or $2.27 per share, in 2025. Total distributable earnings were $6.3B.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-title">Embedded Carry</div>
+        <div class="pillar-desc">Brookfield completed roughly $91B of monetizations in 2025 and expects asset sale activity to convert more carried interest into income over the next several years.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-title">AI Infrastructure Tailwind</div>
+        <div class="pillar-desc">Brookfield is positioned around power, data centers, grid capacity, renewables, and nuclear. It is selling picks and shovels to AI demand, not betting on a single model winner.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="section-num">3</div>
+      <h3>Super-Investor Convergence</h3>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Investor</th><th>Fund</th><th class="num">% Portfolio</th><th>Trend</th><th>Read-through</th></tr></thead>
+        <tbody>
+          <tr><td class="bold">Bill Ackman</td><td>Pershing Square</td><td class="num green-text">20.35%</td><td>Adding</td><td>Concentrated activist-style endorsement of Brookfield's capital allocation model.</td></tr>
+          <tr><td class="bold">Christopher Bloomstran</td><td>Semper Augustus</td><td class="num green-text">19.41%</td><td>Adding</td><td>Quality-value investor comfortable with holding-company complexity.</td></tr>
+          <tr><td class="bold">Chuck Akre</td><td>Akre Capital</td><td class="num green-text">15.05%</td><td>Adding</td><td>Fits Akre's compounding-machine framework: reinvestment runway plus owner-operator culture.</td></tr>
+          <tr><td class="bold">Tom Gayner</td><td>Markel Group</td><td class="num green-text">9.93%</td><td>Adding</td><td>Baby-Berkshire investor buying another long-duration capital allocator.</td></tr>
+          <tr><td class="bold">Joel Greenblatt</td><td>Gotham</td><td class="num">1.57%</td><td>Adding</td><td>Additional signal, though less concentrated than the top holders.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout">
+      BN is one of the cleaner examples in the dashboard where multiple Buffett-style investors are not merely present but meaningfully concentrated. The 13F data should be treated as delayed and approximate, but the direction and overlap are useful.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="section-num">4</div>
+      <h3>Business Model</h3>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Engine</th><th>What It Does</th><th>Economics</th><th>Quality</th></tr></thead>
+        <tbody>
+          <tr><td class="bold">Asset Management</td><td>Raises and manages private funds across infrastructure, renewables, real estate, private equity, and credit.</td><td>Fee-related earnings plus carried interest.</td><td class="green-text">High</td></tr>
+          <tr><td class="bold">Wealth Solutions</td><td>Insurance and retirement capital that can be invested across Brookfield's ecosystem.</td><td>Spread income, scale economics, permanent capital.</td><td class="green-text">High, but watch liabilities</td></tr>
+          <tr><td class="bold">Operating Businesses</td><td>Owned interests in real assets and listed affiliates.</td><td>Cash distributions, asset sales, reinvestment.</td><td class="yellow-text">Mixed, asset dependent</td></tr>
+          <tr><td class="bold">Corporate Capital</td><td>Liquidity, balance sheet, buybacks, opportunistic deployment.</td><td>Countercyclical optionality.</td><td class="green-text">Strategic advantage</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="section-num">5</div>
+      <h3>2025 Operating Evidence</h3>
+    </div>
+    <div class="metric-grid">
+      <div class="metric green"><div class="label">Fundraising</div><div class="value">$112B</div><div class="sub">Record year</div></div>
+      <div class="metric blue"><div class="label">Asset Sales</div><div class="value">$91B</div><div class="sub">Monetizations</div></div>
+      <div class="metric purple"><div class="label">Financings</div><div class="value">$175B</div><div class="sub">Approximate 2025 activity</div></div>
+      <div class="metric green"><div class="label">New Investments</div><div class="value">$126B</div><div class="sub">Capital deployed</div></div>
+      <div class="metric yellow"><div class="label">Deployable Capital</div><div class="value">$188B</div><div class="sub">Approximate</div></div>
+      <div class="metric blue"><div class="label">Buybacks</div><div class="value">$1B</div><div class="sub">2025 repurchases</div></div>
+    </div>
+    <div class="callout yellow">
+      The dashboard's generic DCF engine cannot value BN cleanly: it shows negative owner earnings because consolidated capex overwhelms net income. For Brookfield, that is the wrong tool. The report therefore uses a cashflow and sum-of-parts approach, consistent with how long-term Brookfield holders usually underwrite the company.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="section-num">6</div>
+      <h3>Sum-of-Parts Valuation</h3>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Component</th><th>Valuation Logic</th><th class="num">Bear</th><th class="num">Base</th><th class="num">Bull</th></tr></thead>
+        <tbody>
+          <tr><td class="bold">Asset Manager</td><td>Fee-related earnings and carry stream, lower multiple in bear case.</td><td class="num">$18</td><td class="num">$25</td><td class="num">$34</td></tr>
+          <tr><td class="bold">Wealth Solutions</td><td>Growing insurance platform valued on distributable earnings and spread durability.</td><td class="num">$8</td><td class="num">$13</td><td class="num">$19</td></tr>
+          <tr><td class="bold">Operating Businesses</td><td>Listed affiliates, private real assets, infrastructure, renewables, real estate, PE.</td><td class="num">$22</td><td class="num">$32</td><td class="num">$45</td></tr>
+          <tr><td class="bold">Corporate / Net</td><td>Corporate liquidity, debt, preferreds, and holdco discount.</td><td class="num">-$0</td><td class="num">-$3</td><td class="num">-$6</td></tr>
+          <tr><td class="bold">Total IV / Share</td><td>Probability-weighted long-term owner estimate.</td><td class="num red-text">$48</td><td class="num blue-text">$67</td><td class="num green-text">$92</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout green">
+      Base case uses $67 per share. A 25% margin-of-safety price is roughly $50, rounded down to a preferred buy zone of $48 because the structure deserves some humility.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="section-num">7</div>
+      <h3>Scenario Analysis</h3>
+    </div>
+    <div class="scenario-grid">
+      <div class="scenario bear">
+        <div class="label">Bear Case</div>
+        <div class="price">$48</div>
+        <div class="prob">25% probability</div>
+        <div class="desc">Higher rates persist, real estate marks disappoint, carry conversion takes longer, and Brookfield's complexity discount remains wide.</div>
+      </div>
+      <div class="scenario base">
+        <div class="label">Base Case</div>
+        <div class="price">$67</div>
+        <div class="prob">55% probability</div>
+        <div class="desc">Distributable earnings compound, wealth solutions scales, asset sales release carry, and the market gives partial credit for the platform.</div>
+      </div>
+      <div class="scenario bull">
+        <div class="label">Bull Case</div>
+        <div class="price">$92</div>
+        <div class="prob">20% probability</div>
+        <div class="desc">AI infrastructure, power demand, lower rates, and large monetizations drive a rerating closer to Brookfield's own value narrative.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="section-num">8</div>
+      <h3>Moat Assessment</h3>
+    </div>
+    <div class="pillar-grid">
+      <div class="pillar"><div class="pillar-title">Scale</div><div class="pillar-desc">More than $1T of assets under management gives Brookfield access to transactions, financing, and operating partners that smaller managers cannot match.</div></div>
+      <div class="pillar"><div class="pillar-title">Permanent Capital</div><div class="pillar-desc">Listed affiliates, insurance capital, and long-duration private funds create patient capital that supports countercyclical buying.</div></div>
+      <div class="pillar"><div class="pillar-title">Operating Expertise</div><div class="pillar-desc">Brookfield is not just an allocator; it has deep teams that build, finance, operate, and recycle real assets globally.</div></div>
+      <div class="pillar"><div class="pillar-title">Reputation</div><div class="pillar-desc">Institutional relationships, sovereign capital access, and decades of compounding create a flywheel for new funds and transactions.</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="section-num">9</div>
+      <h3>Key Risks</h3>
+    </div>
+    <ul>
+      <li><strong>Accounting opacity:</strong> Distributable earnings are non-GAAP/non-IFRS and require trust in management's bridge from accounting income to owner cashflow.</li>
+      <li><strong>Real estate marks:</strong> Office and certain property exposures can drag confidence, even if the broader platform is diversified.</li>
+      <li><strong>Leverage and rates:</strong> Brookfield is built around financing assets. Higher-for-longer rates reduce exit multiples and slow monetizations.</li>
+      <li><strong>Insurance liabilities:</strong> Wealth solutions adds permanent capital but also adds duration, spread, and regulatory risk.</li>
+      <li><strong>Complexity discount may persist:</strong> The stock can remain cheap for a long time because the story is difficult to underwrite quickly.</li>
+      <li><strong>Manager key-person risk:</strong> Bruce Flatt and senior leadership are central to the culture, even with deep succession planning.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="section-num">10</div>
+      <h3>Positioning Recommendation</h3>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Price Zone</th><th>Action</th><th>Rationale</th></tr></thead>
+        <tbody>
+          <tr><td class="green-text bold">Below $48</td><td class="bold">Buy / build position</td><td>Current quote sits inside the preferred buy zone with base-case upside near 47%.</td></tr>
+          <tr><td class="blue-text bold">$48-$60</td><td>Accumulate slowly</td><td>Still below base value, but margin of safety narrows as the stock approaches $60.</td></tr>
+          <tr><td class="yellow-text bold">$60-$70</td><td>Hold</td><td>Near fair value. Let compounding and catalysts work.</td></tr>
+          <tr><td class="red-text bold">Above $75</td><td>Re-underwrite</td><td>Needs fresh evidence of faster DE growth, carry realization, or AI infrastructure value capture.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout green">
+      Portfolio fit: opportunistic value, 10+ year hold, not a simple DCF compounder. Size it below true core-forever holdings because complexity and financial leverage are real.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="section-num">11</div>
+      <h3>Monitoring Checklist</h3>
+    </div>
+    <ul>
+      <li>Distributable earnings before realizations per share: should continue compounding at a double-digit rate.</li>
+      <li>Fee-related earnings growth in asset management: confirms fundraising quality, not just one-time asset sales.</li>
+      <li>Wealth solutions spread income and capital deployment: watch whether growth is profitable and conservatively matched.</li>
+      <li>Real estate valuation disclosures: look for transparency, realized exits, and reduced office concern.</li>
+      <li>Share repurchases: buybacks below intrinsic value are a strong signal from management.</li>
+      <li>AI infrastructure pipeline: power, data center, nuclear, and grid deals should convert into funded opportunities, not just headlines.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="section-num">12</div>
+      <h3>References</h3>
+    </div>
+    <p>
+      <strong>Primary sources:</strong>
+      <a href="https://www.brookfield.com/2025-brookfield-corporation-annual-report" target="_blank">Brookfield 2025 Annual Report</a> |
+      <a href="https://bn.brookfield.com/press-releases/brookfield-corporation-reports-record-distributable-earnings-realizations-54-billion" target="_blank">Brookfield Q4 2025 Results Release</a> |
+      local dashboard files: dcf-latest.json, holdings-latest.json, research-library.json.
+    </p>
+    <p style="margin-top:12px;color:var(--muted)">
+      This report is research support for portfolio decision-making, not personalized financial advice. Brookfield's structure is unusually complex; position sizing should reflect that complexity.
+    </p>
+  </div>
+
+  <div class="footer">
+    JFL&amp;KL Fund - Brookfield Corporation (BN) Deep Dive - Generated April 29, 2026
+  </div>
+</div>
+</body>
+</html>

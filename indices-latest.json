@@ -1,34 +1,39 @@
 {
-  "generated_at": "2026-05-11T20:23:33.678055+00:00",
+  "generated": "2026-04-25T07:11:14.532382",
   "indices": [
     {
       "name": "S&P 500",
-      "price": 0,
-      "change_pct": 0,
-      "vs_exit": null
+      "ticker": "^GSPC",
+      "price": 7165.08,
+      "change_pct": 0.8,
+      "vs_exit": 8.7
     },
     {
       "name": "Dow Jones",
-      "price": 0,
-      "change_pct": 0,
-      "vs_exit": null
+      "ticker": "^DJI",
+      "price": 49230.71,
+      "change_pct": -0.16,
+      "vs_exit": 6.03
     },
     {
       "name": "NASDAQ",
-      "price": 0,
-      "change_pct": 0,
+      "ticker": "^IXIC",
+      "price": 24836.6,
+      "change_pct": 1.63,
       "vs_exit": null
     },
     {
       "name": "Russell 2000",
-      "price": 0,
-      "change_pct": 0,
+      "ticker": "^RUT",
+      "price": 2787.0,
+      "change_pct": 0.43,
       "vs_exit": null
     },
     {
       "name": "VIX",
-      "price": 0,
-      "change_pct": 0,
+      "ticker": "^VIX",
+      "price": 18.71,
+      "change_pct": -3.11,
       "vs_exit": null
     }
   ]

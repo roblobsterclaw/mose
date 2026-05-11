@@ -1,10 +1,102 @@
 {
-  "as_of": "2026-05-11",
-  "total_value": 0,
+  "generated_at": "2026-03-31",
+  "data_as_of": "March 31, 2026 (Truist statements)",
+  "note": "Refresh this file when Joe sends updated brokerage statements",
+  "total_value": 1463333,
+  "accounts": [
+    {
+      "id": "WA7-228511",
+      "label": "Joe IRA",
+      "account_number": "WA7-228511",
+      "custodian": "Truist",
+      "type": "IRA",
+      "total_value": 491385,
+      "holdings": [
+        { "ticker": "SGOV", "name": "iShares 0-3 Month Treasury Bond ETF", "shares": 4550, "value": 458003, "category": "treasury" },
+        { "ticker": "GOOGL", "name": "Alphabet Inc (Google)", "shares": 25, "value": 7189, "category": "equity" },
+        { "ticker": "AMZN", "name": "Amazon.com Inc", "shares": 25, "value": 5207, "category": "equity" },
+        { "ticker": "WMT", "name": "Walmart Inc", "shares": 66, "value": 8202, "category": "equity" },
+        { "ticker": "CASH", "name": "Cash & Equivalents", "shares": null, "value": 12784, "category": "cash" }
+      ]
+    },
+    {
+      "id": "WA7-228512",
+      "label": "Joe IRA #2",
+      "account_number": "WA7-228512",
+      "custodian": "Truist",
+      "type": "IRA",
+      "total_value": 439176,
+      "holdings": [
+        { "ticker": "SGOV", "name": "iShares 0-3 Month Treasury Bond ETF", "shares": 4050, "value": 407673, "category": "treasury" },
+        { "ticker": "GOOGL", "name": "Alphabet Inc (Google)", "shares": 25, "value": 7189, "category": "equity" },
+        { "ticker": "AMZN", "name": "Amazon.com Inc", "shares": 25, "value": 5207, "category": "equity" },
+        { "ticker": "PLD", "name": "Prologis Inc", "shares": 38, "value": 5023, "category": "equity" },
+        { "ticker": "WMT", "name": "Walmart Inc", "shares": 74, "value": 9197, "category": "equity" },
+        { "ticker": "CASH", "name": "Cash & Equivalents", "shares": null, "value": 4888, "category": "cash" }
+      ]
+    },
+    {
+      "id": "WA7-228509",
+      "label": "Joint Taxable",
+      "account_number": "WA7-228509",
+      "custodian": "Truist",
+      "type": "Joint Taxable",
+      "total_value": 325270,
+      "holdings": [
+        { "ticker": "SGOV", "name": "iShares 0-3 Month Treasury Bond ETF", "shares": 2700, "value": 271782, "category": "treasury" },
+        { "ticker": "GOOGL", "name": "Alphabet Inc (Google)", "shares": 45, "value": 12940, "category": "equity" },
+        { "ticker": "NVDA", "name": "NVIDIA Corporation", "shares": 85, "value": 14824, "category": "equity" },
+        { "ticker": "AMZN", "name": "Amazon.com Inc", "shares": 55, "value": 11455, "category": "equity" },
+        { "ticker": "CASH", "name": "Cash & Equivalents", "shares": null, "value": 14269, "category": "cash" }
+      ]
+    },
+    {
+      "id": "WA7-231210",
+      "label": "Keli IRA Rollover",
+      "account_number": "WA7-231210",
+      "custodian": "Truist",
+      "type": "IRA Rollover",
+      "total_value": 205247,
+      "holdings": [
+        { "ticker": "BAC", "name": "Bank of America Corp", "shares": 117, "value": null, "category": "equity" },
+        { "ticker": "CSCO", "name": "Cisco Systems Inc", "shares": 88, "value": null, "category": "equity" },
+        { "ticker": "DVN", "name": "Devon Energy Corp", "shares": 51, "value": null, "category": "equity" },
+        { "ticker": "F", "name": "Ford Motor Company", "shares": 65, "value": null, "category": "equity" },
+        { "ticker": "XOM", "name": "Exxon Mobil Corp", "shares": 25, "value": null, "category": "equity" },
+        { "ticker": "FDX", "name": "FedEx Corporation", "shares": 12, "value": null, "category": "equity" },
+        { "ticker": "MANAGED", "name": "40+ Managed Positions (see full statement)", "shares": null, "value": 205247, "category": "managed" }
+      ],
+      "note": "40+ managed positions — major holdings listed. Full position details in Truist statement."
+    },
+    {
+      "id": "2680-8178",
+      "label": "Schwab (Transferring)",
+      "account_number": "2680-8178",
+      "custodian": "Schwab",
+      "type": "Individual",
+      "total_value": 2255,
+      "holdings": [
+        { "ticker": "CASH", "name": "Cash & Equivalents", "shares": null, "value": 2255, "category": "cash" }
+      ],
+      "note": "Transferring to IBKR"
+    }
+  ],
   "summary": {
-    "by_category": {},
-    "top_equity_positions": []
-  },
-  "accounts": [],
-  "note": "Brokerage statement data not loaded into this repo yet."
+    "total_value": 1463333,
+    "by_category": {
+      "treasury_sgov": 1137458,
+      "equities": 296578,
+      "cash": 31941,
+      "managed_keli_ira": 205247
+    },
+    "top_equity_positions": [
+      { "ticker": "GOOGL", "name": "Alphabet (Google)", "total_shares": 95, "total_value": 27318 },
+      { "ticker": "NVDA", "name": "NVIDIA", "total_shares": 85, "total_value": 14824 },
+      { "ticker": "AMZN", "name": "Amazon", "total_shares": 105, "total_value": 21869 },
+      { "ticker": "WMT", "name": "Walmart", "total_shares": 140, "total_value": 17399 },
+      { "ticker": "BAC", "name": "Bank of America", "total_shares": 117, "total_value": null },
+      { "ticker": "PLD", "name": "Prologis", "total_shares": 38, "total_value": 5023 }
+    ],
+    "deployment_note": "~$1.14M in SGOV/treasuries ready for April 30 deployment into 29-stock concentrated portfolio"
+  }
 }

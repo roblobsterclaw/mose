@@ -1,0 +1,50 @@
+{
+  "requests": [
+    {
+      "ticker": "BRK-B",
+      "requestedAt": "2026-04-20T10:37:00",
+      "status": "completed",
+      "completedAt": "2026-04-26T11:00:00Z"
+    },
+    {
+      "ticker": "GOOGL",
+      "requestedAt": "2026-04-20T10:37:00",
+      "status": "completed",
+      "completedAt": "2026-04-26T11:00:00Z"
+    },
+    {
+      "ticker": "NVDA",
+      "requestedAt": "2026-04-20T11:01:00",
+      "status": "completed",
+      "completedAt": "2026-04-26T11:00:00Z"
+    },
+    {
+      "ticker": "BN",
+      "requestedAt": "2026-04-25T06:05:00",
+      "status": "completed",
+      "completedAt": "2026-04-29T20:30:00Z"
+    },
+    {
+      "ticker": "MA",
+      "requestedAt": "2026-04-29T21:10:00Z",
+      "status": "completed",
+      "reason": "purchase-readiness-score-70-plus",
+      "completedAt": "2026-05-05T11:00:00Z"
+    },
+    {
+      "ticker": "UBER",
+      "requestedAt": "2026-04-29T21:10:00Z",
+      "status": "completed",
+      "reason": "purchase-readiness-score-70-plus",
+      "completedAt": "2026-05-05T11:00:00Z"
+    },
+    {
+      "ticker": "AXP",
+      "requestedAt": "2026-04-29T21:10:00Z",
+      "status": "completed",
+      "reason": "purchase-readiness-score-70-plus",
+      "completedAt": "2026-05-05T11:00:00Z"
+    }
+  ],
+  "lastChecked": "2026-05-05T11:00:00Z"
+}
