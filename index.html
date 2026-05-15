@@ -57,8 +57,9 @@
   .index-grid { display: flex; gap: 4px; flex-wrap: nowrap; flex: 1; overflow-x: auto; min-width: 0; }
   .idx-card {
     background: var(--bg); border: 1px solid var(--border); border-radius: 5px;
-    padding: 3px 7px; min-width: 72px; flex-shrink: 0; cursor: default;
+    padding: 3px 7px; min-width: 72px; flex-shrink: 0; cursor: pointer;
   }
+  .idx-card:hover { border-color: var(--blue); }
   .idx-card .idx-name { font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
   .idx-card .idx-price { font-size: 11px; font-weight: 700; margin: 1px 0; white-space: nowrap; }
   .idx-card .idx-change { font-size: 10px; white-space: nowrap; }
@@ -154,6 +155,8 @@
   td { padding: 9px 12px; vertical-align: middle; }
 
   .ticker { font-weight: 700; font-size: 14px; font-family: monospace; color: var(--blue); }
+  .ticker { cursor: pointer; }
+  .ticker:hover { text-decoration: underline; }
   .investor-badge {
     display: inline-block; padding: 2px 8px; border-radius: 10px;
     font-size: 11px; font-weight: 600; white-space: nowrap;
@@ -588,6 +591,73 @@
   }
   #watchlist-toast.show { opacity: 1; transform: translateY(0); }
 
+  /* SYMBOL SNAPSHOT */
+  .symbol-modal-backdrop {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.65); z-index: 9998;
+    display: none; align-items: center; justify-content: center; padding: 18px;
+  }
+  .symbol-modal-backdrop.show { display: flex; }
+  .symbol-modal {
+    width: min(980px, 96vw); max-height: 92vh; overflow: auto;
+    background: var(--bg); border: 1px solid var(--border); border-radius: 10px;
+    box-shadow: 0 18px 70px rgba(0,0,0,0.55);
+  }
+  .symbol-modal-header {
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
+    padding: 16px 18px; border-bottom: 1px solid var(--border); background: var(--surface);
+  }
+  .symbol-title { display: flex; flex-direction: column; gap: 4px; }
+  .symbol-title-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .symbol-title-row .ticker { font-size: 22px; text-decoration: none; }
+  .symbol-name { color: var(--muted); font-size: 13px; }
+  .symbol-close {
+    background: transparent; border: 1px solid var(--border); color: var(--muted);
+    border-radius: 999px; width: 30px; height: 30px; cursor: pointer; font-size: 16px;
+  }
+  .symbol-close:hover { color: var(--text); border-color: var(--accent); }
+  .symbol-modal-body { padding: 16px 18px 18px; }
+  .symbol-snapshot-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 10px; margin-bottom: 14px;
+  }
+  .symbol-metric {
+    border: 1px solid var(--border); background: var(--surface); border-radius: 7px;
+    padding: 10px;
+  }
+  .symbol-metric .label {
+    color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px;
+    margin-bottom: 5px;
+  }
+  .symbol-metric .value { font-size: 16px; font-weight: 800; color: var(--text); }
+  .symbol-chart-shell {
+    border: 1px solid var(--border); border-radius: 8px; background: var(--surface);
+    padding: 12px; margin-bottom: 14px;
+  }
+  .symbol-chart-toolbar {
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    margin-bottom: 10px; flex-wrap: wrap;
+  }
+  .range-controls { display: flex; gap: 6px; flex-wrap: wrap; }
+  .range-btn {
+    background: var(--bg); border: 1px solid var(--border); color: var(--muted);
+    border-radius: 999px; padding: 4px 10px; cursor: pointer; font-size: 11px; font-weight: 700;
+  }
+  .range-btn.active, .range-btn:hover { border-color: var(--accent); color: var(--accent); }
+  #symbol-chart { width: 100%; height: 280px; display: block; }
+  .symbol-notes {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px;
+  }
+  .symbol-note {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 7px;
+    padding: 10px; font-size: 12px; color: var(--muted); line-height: 1.45;
+  }
+  .symbol-note strong { color: var(--text); display: block; margin-bottom: 4px; }
+  .symbol-empty-chart {
+    display: flex; min-height: 220px; align-items: center; justify-content: center;
+    color: var(--muted); text-align: center; padding: 20px; border: 1px dashed var(--border);
+    border-radius: 8px; background: var(--bg);
+  }
+
   /* LIGHT THEME OVERRIDES */
   body.theme-light {
     background: var(--bg);
@@ -881,23 +951,23 @@ function checkPw(){
 <div id="topbar">
   <div class="brand">🦞 MOSE <span>Margin of Safety Engine</span></div>
   <div class="index-grid" id="index-grid">
-    <div class="idx-card" id="idx-spx">
+    <div class="idx-card" id="idx-spx" data-symbol="^GSPC" onclick="openSymbolSnapshot('^GSPC')">
       <div class="idx-name">S&amp;P 500</div>
       <div class="idx-price">—</div><div class="idx-change">Loading…</div><div class="idx-vs-exit"></div>
     </div>
-    <div class="idx-card" id="idx-dji">
+    <div class="idx-card" id="idx-dji" data-symbol="^DJI" onclick="openSymbolSnapshot('^DJI')">
       <div class="idx-name">Dow Jones</div>
       <div class="idx-price">—</div><div class="idx-change">Loading…</div><div class="idx-vs-exit"></div>
     </div>
-    <div class="idx-card" id="idx-ixic">
+    <div class="idx-card" id="idx-ixic" data-symbol="^IXIC" onclick="openSymbolSnapshot('^IXIC')">
       <div class="idx-name">NASDAQ</div>
       <div class="idx-price">—</div><div class="idx-change">Loading…</div><div class="idx-vs-exit"></div>
     </div>
-    <div class="idx-card" id="idx-rut">
+    <div class="idx-card" id="idx-rut" data-symbol="^RUT" onclick="openSymbolSnapshot('^RUT')">
       <div class="idx-name">Russell 2000</div>
       <div class="idx-price">—</div><div class="idx-change">Loading…</div><div class="idx-vs-exit"></div>
     </div>
-    <div class="idx-card" id="idx-vix">
+    <div class="idx-card" id="idx-vix" data-symbol="^VIX" onclick="openSymbolSnapshot('^VIX')">
       <div class="idx-name">VIX</div>
       <div class="idx-price">—</div><div class="idx-change">Loading…</div><div class="idx-vs-exit"></div>
     </div>
@@ -1639,6 +1709,10 @@ let reportTickers = new Set();
 let reportMap = {};  // ticker -> report object
 let liveMarketData = null;
 let liveQuotes = {};
+let symbolSnapshots = {};
+let priceHistoryData = {};
+let activeSymbolTicker = null;
+let activeSymbolRange = '1Y';
 
 // Watchlist state
 const GITHUB_REPO = 'roblobsterclaw/mose';
@@ -2952,7 +3026,7 @@ function watchlistRowHtml(p, dcfMap, tickerToInvestors, joeOwns, candidateMap) {
   const investors = tickerToInvestors[ticker] || [];
   const owns = joeOwns[ticker];
   const defaultBucket = (p.bucket && WATCHLIST_BUCKETS[p.bucket]) ? p.bucket : 'uncategorized';
-  const bucket = watchlistBuckets[p.ticker] || defaultBucket;
+  const bucket = watchlistBuckets[ticker] || defaultBucket;
 
   const ownCell = owns && owns.shares > 0
     ? `<span class="i-own-yes">\u2705 ${owns.shares} sh${owns.value ? ' (~' + fmtDollar(owns.value) + ')' : ''}</span>`
@@ -3414,6 +3488,222 @@ async function renderResearchLibrary() {
 }
 
 // ============================================================
+// SYMBOL SNAPSHOT MODAL
+// ============================================================
+async function loadSymbolData() {
+  await Promise.allSettled([loadSymbolSnapshots(), loadPriceHistory()]);
+}
+
+async function loadSymbolSnapshots() {
+  try {
+    const r = await fetch('symbol-snapshots.json?' + Date.now());
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    const data = await r.json();
+    symbolSnapshots = data.symbols || {};
+  } catch(e) {
+    symbolSnapshots = {};
+  }
+}
+
+async function loadPriceHistory() {
+  try {
+    const r = await fetch('price-history.json?' + Date.now());
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    const data = await r.json();
+    priceHistoryData = data.histories || {};
+  } catch(e) {
+    priceHistoryData = {};
+  }
+}
+
+function getSymbolSnapshot(ticker) {
+  const key = canonicalTicker(ticker);
+  const live = liveQuotes[key] || liveQuotes[ticker] || null;
+  const dcfMap = {};
+  allDCF.forEach(d => { dcfMap[canonicalTicker(d.ticker)] = d; });
+  const candidate = buildPurchaseCandidates().find(c => c.ticker === key);
+  const dcf = dcfMap[key] || null;
+  const report = getReportForTicker(key);
+  const stored = symbolSnapshots[key] || symbolSnapshots[ticker] || {};
+  const quote = live || stored.quote || {};
+  const val = getValuationForTicker(key, dcfMap);
+  const owns = computeJoeOwns()[key];
+  const topIndex = (liveMarketData?.indices || []).find(i => canonicalTicker(i.ticker) === key || i.ticker === ticker);
+
+  return {
+    ticker: key,
+    displayTicker: ticker,
+    name: stored.name || candidate?.name || dcf?.company || report?.company || topIndex?.name || key,
+    type: stored.type || (String(ticker).startsWith('^') ? 'Index' : 'Equity'),
+    quote,
+    price: quote.price ?? topIndex?.price ?? val.price,
+    changePct: quote.change_pct ?? topIndex?.change_pct ?? null,
+    volume: quote.volume ?? null,
+    valuation: val,
+    candidate,
+    dcf,
+    report,
+    owns,
+    bucket: candidate?.bucket || stored.bucket || '',
+    researchStatus: candidate ? researchRecord(key, candidate).status : '',
+    profile: stored.profile || {},
+    metrics: stored.metrics || {},
+    source: quote.source || stored.source || liveMarketData?.source || 'MOSE'
+  };
+}
+
+function openSymbolSnapshot(ticker) {
+  activeSymbolTicker = canonicalTicker(ticker);
+  activeSymbolRange = '1Y';
+  const backdrop = document.getElementById('symbol-modal-backdrop');
+  if (backdrop) backdrop.classList.add('show');
+  document.querySelectorAll('.range-btn').forEach(b => b.classList.toggle('active', b.dataset.range === '1Y'));
+  renderSymbolSnapshot(ticker);
+}
+
+function closeSymbolSnapshot() {
+  const backdrop = document.getElementById('symbol-modal-backdrop');
+  if (backdrop) backdrop.classList.remove('show');
+}
+
+function setSymbolRange(range, btn) {
+  activeSymbolRange = range;
+  document.querySelectorAll('.range-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  renderSymbolChart();
+}
+
+function metric(label, value) {
+  return `<div class="symbol-metric"><div class="label">${label}</div><div class="value">${value ?? '—'}</div></div>`;
+}
+
+function renderSymbolSnapshot(ticker) {
+  const s = getSymbolSnapshot(ticker);
+  const setText = (id, value) => { const el = document.getElementById(id); if (el) el.textContent = value; };
+  setText('symbol-modal-ticker', s.displayTicker || s.ticker);
+  setText('symbol-modal-type', s.type);
+  setText('symbol-modal-name', s.name);
+
+  const price = Number.isFinite(s.price) ? fmtPrice(s.price) : '—';
+  const change = Number.isFinite(s.changePct) ? fmtChange(s.changePct) : '—';
+  const rangeHigh = s.metrics?.week52High;
+  const rangeLow = s.metrics?.week52Low;
+  const offHigh = Number.isFinite(s.price) && Number.isFinite(rangeHigh) ? (((s.price - rangeHigh) / rangeHigh) * 100) : null;
+  const fromLow = Number.isFinite(s.price) && Number.isFinite(rangeLow) ? (((s.price - rangeLow) / rangeLow) * 100) : null;
+
+  const metricsEl = document.getElementById('symbol-metrics');
+  if (metricsEl) {
+    metricsEl.innerHTML = [
+      metric('Price / Level', price),
+      metric('Daily Change', change),
+      metric('52W High', fmtPrice(rangeHigh)),
+      metric('52W Low', fmtPrice(rangeLow)),
+      metric('Off 52W High', Number.isFinite(offHigh) ? fmtPct(offHigh) : '—'),
+      metric('From 52W Low', Number.isFinite(fromLow) ? fmtPct(fromLow) : '—'),
+      metric('Market Cap', s.metrics?.marketCap ? fmtDollar(s.metrics.marketCap) : '—'),
+      metric('P/E', Number.isFinite(s.metrics?.peRatio) ? s.metrics.peRatio.toFixed(1) : '—'),
+      metric('Volume', s.volume ? Math.round(s.volume).toLocaleString() : '—'),
+      metric('MOS', mosPill(s.valuation?.mos)),
+      metric('Bucket', s.bucket ? (WATCHLIST_BUCKETS[s.bucket]?.label || s.bucket) : '—'),
+      metric('Research', s.researchStatus ? (RESEARCH_LABELS[s.researchStatus] || s.researchStatus) : '—')
+    ].join('');
+  }
+
+  const notesEl = document.getElementById('symbol-notes');
+  if (notesEl) {
+    const reportLink = s.report?.reportUrl ? `<a class="dd-report-link" href="${s.report.reportUrl}" target="_blank">Open Deep Dive</a>` : 'No completed deep dive yet.';
+    notesEl.innerHTML = [
+      `<div class="symbol-note"><strong>MOSE View</strong>${escapeHtml(s.candidate?.action || s.valuation?.signal || 'Watching for current data.')} ${s.candidate?.score ? `Score ${s.candidate.score}.` : ''}</div>`,
+      `<div class="symbol-note"><strong>Ownership</strong>${s.owns ? `Joe owns ${s.owns.shares} shares${s.owns.value ? `, about ${fmtDollar(s.owns.value)}` : ''}.` : 'Not currently found in Joe holdings.'}</div>`,
+      `<div class="symbol-note"><strong>Research</strong>${reportLink}</div>`,
+      `<div class="symbol-note"><strong>Data Source</strong>${escapeHtml(s.source)} · ${escapeHtml(s.quote?.date || liveMarketData?.generated_at || 'latest snapshot')}</div>`
+    ].join('');
+  }
+
+  renderSymbolChart();
+}
+
+function historyForActiveSymbol() {
+  if (!activeSymbolTicker) return [];
+  const rows = priceHistoryData[activeSymbolTicker] || priceHistoryData[activeSymbolTicker.replace('^', '')] || [];
+  const years = activeSymbolRange === '5Y' ? 5 : activeSymbolRange === '2Y' ? 2 : 1;
+  const cutoff = new Date();
+  cutoff.setFullYear(cutoff.getFullYear() - years);
+  return rows
+    .filter(p => p && p.date && Number.isFinite(p.close))
+    .filter(p => new Date(p.date) >= cutoff)
+    .sort((a, b) => String(a.date).localeCompare(String(b.date)));
+}
+
+function renderSymbolChart() {
+  const canvas = document.getElementById('symbol-chart');
+  const empty = document.getElementById('symbol-empty-chart');
+  const caption = document.getElementById('symbol-chart-caption');
+  if (caption) caption.textContent = activeSymbolRange;
+  if (!canvas) return;
+  const history = historyForActiveSymbol();
+  if (history.length < 5) {
+    canvas.style.display = 'none';
+    if (empty) {
+      empty.style.display = 'flex';
+      empty.innerHTML = `Historical chart data is not connected for ${escapeHtml(activeSymbolTicker || 'this symbol')} yet.<br>MOSE is ready for 1Y / 2Y / 5Y once the price_history table is populated by the provider job.`;
+    }
+    return;
+  }
+  canvas.style.display = 'block';
+  if (empty) empty.style.display = 'none';
+
+  const ctx = canvas.getContext('2d');
+  const dpr = window.devicePixelRatio || 1;
+  const rect = canvas.getBoundingClientRect();
+  canvas.width = Math.max(640, Math.floor(rect.width * dpr));
+  canvas.height = Math.floor(280 * dpr);
+  ctx.scale(dpr, dpr);
+  const w = canvas.width / dpr, h = canvas.height / dpr;
+  ctx.clearRect(0, 0, w, h);
+  const pad = { l: 54, r: 16, t: 18, b: 32 };
+  const closes = history.map(p => p.close);
+  const min = Math.min(...closes), max = Math.max(...closes);
+  const span = Math.max(0.01, max - min);
+  const x = i => pad.l + (i / Math.max(1, history.length - 1)) * (w - pad.l - pad.r);
+  const y = v => pad.t + ((max - v) / span) * (h - pad.t - pad.b);
+  const up = closes[closes.length - 1] >= closes[0];
+
+  ctx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--border');
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  for (let i = 0; i < 4; i++) {
+    const yy = pad.t + i * ((h - pad.t - pad.b) / 3);
+    ctx.moveTo(pad.l, yy); ctx.lineTo(w - pad.r, yy);
+  }
+  ctx.stroke();
+
+  ctx.strokeStyle = up ? '#2ea043' : '#f85149';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  history.forEach((p, i) => {
+    if (i === 0) ctx.moveTo(x(i), y(p.close));
+    else ctx.lineTo(x(i), y(p.close));
+  });
+  ctx.stroke();
+
+  ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--muted');
+  ctx.font = '11px monospace';
+  ctx.fillText(fmtPrice(max), 6, pad.t + 4);
+  ctx.fillText(fmtPrice(min), 6, h - pad.b + 4);
+  ctx.fillText(history[0].date, pad.l, h - 10);
+  ctx.fillText(history[history.length - 1].date, Math.max(pad.l + 90, w - 110), h - 10);
+}
+
+document.addEventListener('click', event => {
+  const tickerEl = event.target.closest('.ticker');
+  if (!tickerEl) return;
+  if (event.target.closest('a')) return;
+  const raw = tickerEl.textContent.trim();
+  if (/^[A-Z0-9.^-]{1,12}$/.test(raw)) openSymbolSnapshot(raw);
+});
+
+// ============================================================
 // INIT
 // ============================================================
 async function hardRefreshAll() {
@@ -3432,7 +3722,8 @@ async function hardRefreshAll() {
       loadWatchlistBuckets(),
       loadWatchlistNotes(),
       loadDDRequestsFromGitHub(),
-      loadJoeHoldings()
+      loadJoeHoldings(),
+      loadSymbolData()
     ]);
     renderInvestors();
   } catch(e) { console.error('Hard refresh error', e); }
@@ -3447,6 +3738,7 @@ window.addEventListener('DOMContentLoaded', () => {
   renderInvestors();
   loadJoeHoldings();
   loadResearchLibrary();
+  loadSymbolData();
   loadWatchlistBuckets();
   loadWatchlistNotes();
   loadDDRequestsFromGitHub();
@@ -3457,6 +3749,39 @@ window.addEventListener('DOMContentLoaded', () => {
   setInterval(() => { loadHoldings(); loadDCF(); }, 5 * 60 * 1000);
 });
 </script>
+<div id="symbol-modal-backdrop" class="symbol-modal-backdrop" onclick="if(event.target===this)closeSymbolSnapshot()">
+  <div class="symbol-modal">
+    <div class="symbol-modal-header">
+      <div class="symbol-title">
+        <div class="symbol-title-row">
+          <span class="ticker" id="symbol-modal-ticker">—</span>
+          <span class="action-pill" id="symbol-modal-type">Symbol</span>
+        </div>
+        <div class="symbol-name" id="symbol-modal-name">Loading snapshot…</div>
+      </div>
+      <button class="symbol-close" onclick="closeSymbolSnapshot()" title="Close">×</button>
+    </div>
+    <div class="symbol-modal-body">
+      <div class="symbol-snapshot-grid" id="symbol-metrics"></div>
+      <div class="symbol-chart-shell">
+        <div class="symbol-chart-toolbar">
+          <div>
+            <strong>Price History</strong>
+            <span class="muted" id="symbol-chart-caption" style="font-size:12px;margin-left:8px">1Y</span>
+          </div>
+          <div class="range-controls">
+            <button class="range-btn active" data-range="1Y" onclick="setSymbolRange('1Y', this)">1Y</button>
+            <button class="range-btn" data-range="2Y" onclick="setSymbolRange('2Y', this)">2Y</button>
+            <button class="range-btn" data-range="5Y" onclick="setSymbolRange('5Y', this)">5Y</button>
+          </div>
+        </div>
+        <canvas id="symbol-chart" width="900" height="280"></canvas>
+        <div id="symbol-empty-chart" class="symbol-empty-chart" style="display:none"></div>
+      </div>
+      <div class="symbol-notes" id="symbol-notes"></div>
+    </div>
+  </div>
+</div>
 <div id="watchlist-toast"></div>
 </body>
 </html>

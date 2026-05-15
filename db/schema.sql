@@ -37,6 +37,26 @@ CREATE TABLE IF NOT EXISTS securities (
   company TEXT,
   cusip TEXT,
   asset_type TEXT NOT NULL DEFAULT 'equity',
+  display_name TEXT,
+  exchange TEXT,
+  sector TEXT,
+  industry TEXT,
+  active INTEGER NOT NULL DEFAULT 1,
+  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS market_symbols (
+  id INTEGER PRIMARY KEY,
+  security_id INTEGER REFERENCES securities(id) ON DELETE CASCADE,
+  symbol TEXT NOT NULL UNIQUE,
+  label TEXT NOT NULL,
+  symbol_type TEXT NOT NULL DEFAULT 'equity',
+  provider_symbol TEXT,
+  topbar INTEGER NOT NULL DEFAULT 0,
+  chart_enabled INTEGER NOT NULL DEFAULT 1,
+  active INTEGER NOT NULL DEFAULT 1,
+  sort_order INTEGER NOT NULL DEFAULT 100,
   created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
@@ -77,10 +97,60 @@ CREATE TABLE IF NOT EXISTS price_snapshots (
   security_id INTEGER NOT NULL REFERENCES securities(id) ON DELETE CASCADE,
   price REAL NOT NULL,
   currency TEXT NOT NULL DEFAULT 'USD',
+  change_pct REAL,
+  volume REAL,
+  market_status TEXT,
   source TEXT NOT NULL,
   fetched_at TEXT NOT NULL,
   raw_payload TEXT,
   UNIQUE(security_id, source, fetched_at)
+);
+
+CREATE TABLE IF NOT EXISTS price_history (
+  id INTEGER PRIMARY KEY,
+  security_id INTEGER NOT NULL REFERENCES securities(id) ON DELETE CASCADE,
+  price_date TEXT NOT NULL,
+  open REAL,
+  high REAL,
+  low REAL,
+  close REAL NOT NULL,
+  volume REAL,
+  source TEXT NOT NULL,
+  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE(security_id, price_date, source)
+);
+
+CREATE TABLE IF NOT EXISTS symbol_metrics (
+  id INTEGER PRIMARY KEY,
+  security_id INTEGER NOT NULL REFERENCES securities(id) ON DELETE CASCADE,
+  metric_date TEXT NOT NULL,
+  market_cap REAL,
+  pe_ratio REAL,
+  forward_pe REAL,
+  dividend_yield REAL,
+  beta REAL,
+  eps_ttm REAL,
+  revenue_growth REAL,
+  week_52_high REAL,
+  week_52_low REAL,
+  source TEXT NOT NULL,
+  raw_payload TEXT,
+  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE(security_id, metric_date, source)
+);
+
+CREATE TABLE IF NOT EXISTS symbol_profiles (
+  id INTEGER PRIMARY KEY,
+  security_id INTEGER NOT NULL REFERENCES securities(id) ON DELETE CASCADE,
+  description TEXT,
+  website TEXT,
+  logo_url TEXT,
+  country TEXT,
+  exchange TEXT,
+  source TEXT NOT NULL,
+  raw_payload TEXT,
+  updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE(security_id, source)
 );
 
 CREATE TABLE IF NOT EXISTS portfolio_accounts (
@@ -166,6 +236,9 @@ CREATE INDEX IF NOT EXISTS idx_holdings_security ON holdings(security_id);
 CREATE INDEX IF NOT EXISTS idx_filings_investor_date ON filings(investor_id, filing_date);
 CREATE INDEX IF NOT EXISTS idx_rankings_generated ON convergence_rankings(generated_at);
 CREATE INDEX IF NOT EXISTS idx_prices_security_fetched ON price_snapshots(security_id, fetched_at);
+CREATE INDEX IF NOT EXISTS idx_market_symbols_active ON market_symbols(active, topbar, sort_order);
+CREATE INDEX IF NOT EXISTS idx_price_history_security_date ON price_history(security_id, price_date);
+CREATE INDEX IF NOT EXISTS idx_symbol_metrics_security_date ON symbol_metrics(security_id, metric_date);
 CREATE INDEX IF NOT EXISTS idx_research_items_status ON research_items(status, priority);
 
 INSERT OR IGNORE INTO schema_migrations (version) VALUES ('001_initial_sqlite_truth_store');

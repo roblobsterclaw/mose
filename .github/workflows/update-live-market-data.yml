@@ -19,15 +19,17 @@ jobs:
         with:
           python-version: "3.12"
       - name: Refresh quote snapshot
+        env:
+          STOOQ_APIKEY: ${{ secrets.STOOQ_APIKEY }}
         run: python scripts/update_live_market_data.py
       - name: Commit quote snapshot
         run: |
-          if git diff --quiet live-quotes.json; then
+          if git diff --quiet live-quotes.json symbol-snapshots.json price-history.json; then
             echo "No quote changes"
           else
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add live-quotes.json
+            git add live-quotes.json symbol-snapshots.json price-history.json
             git commit -m "Update live market data"
             git push origin main
             git push origin HEAD:gh-pages --force
