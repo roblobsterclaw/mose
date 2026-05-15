@@ -16,6 +16,7 @@ import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -141,10 +142,11 @@ def main() -> None:
             indices.append({**fallback_indices[name], "source": "fallback-static"})
 
     now = datetime.now(timezone.utc)
+    eastern_now = now.astimezone(ZoneInfo("America/New_York"))
     OUTPUT.write_text(json.dumps({
         "generated_at": now.isoformat(),
         "source": "stooq",
-        "market_status": market_status(datetime.now()),
+        "market_status": market_status(eastern_now),
         "indices": indices,
         "quotes": quotes,
     }, indent=2) + "\n")

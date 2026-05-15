@@ -24,7 +24,20 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', monospace; font-size: 14px; }
   body.theme-light {
+    --bg: #f3f6fb;
+    --surface: #ffffff;
     --surface-2: #f8fafc;
+    --border: #d6dee8;
+    --text: #172033;
+    --muted: #5f6b7a;
+    --green: #1f7a3f;
+    --green-bg: #e8f6ee;
+    --yellow: #9a6700;
+    --yellow-bg: #fff5d6;
+    --red: #c7362f;
+    --red-bg: #fdecea;
+    --blue: #1f6fbf;
+    --purple: #7c4dba;
   }
 
   /* TOP BAR */
@@ -415,6 +428,7 @@
     background: var(--bg); border: 1px solid var(--border); color: var(--blue);
     cursor: default;
   }
+  .si-ticker-badge.is-shared { border-color: var(--accent); color: var(--accent); background: #1a0e0a; }
   .si-ticker-badge:hover { border-color: var(--blue); background: #0d1e2d; }
   .si-no-stocks { font-size: 11px; color: var(--muted); font-style: italic; }
 
@@ -573,6 +587,236 @@
     pointer-events: none;
   }
   #watchlist-toast.show { opacity: 1; transform: translateY(0); }
+
+  /* LIGHT THEME OVERRIDES */
+  body.theme-light {
+    background: var(--bg);
+    color: var(--text);
+  }
+  body.theme-light #topbar {
+    background: #ffffff;
+    border-bottom-color: var(--accent);
+    box-shadow: 0 1px 0 rgba(23,32,51,0.04);
+  }
+  body.theme-light .idx-card {
+    background: var(--surface-2);
+    border-color: var(--border);
+  }
+  body.theme-light .hard-refresh-btn,
+  body.theme-light .theme-toggle,
+  body.theme-light .filter-btn,
+  body.theme-light .si-sort-btn,
+  body.theme-light .view-toggle-btn,
+  body.theme-light .research-action-btn,
+  body.theme-light .dd-counter-pill {
+    background: #ffffff;
+    border-color: var(--border);
+    color: var(--muted);
+  }
+  body.theme-light .hard-refresh-btn:hover,
+  body.theme-light .theme-toggle:hover,
+  body.theme-light .filter-btn:hover,
+  body.theme-light .filter-btn.active,
+  body.theme-light .view-toggle-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #ffffff;
+  }
+  body.theme-light .tab-bar {
+    background: #ffffff;
+    border-bottom-color: var(--border);
+  }
+  body.theme-light .tab-btn {
+    color: var(--muted);
+  }
+  body.theme-light .tab-btn:hover {
+    color: var(--text);
+    background: #f6f8fb;
+  }
+  body.theme-light .tab-btn.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+    background: #fff8f5;
+  }
+  body.theme-light #main {
+    background: var(--bg);
+  }
+  body.theme-light .stat-card,
+  body.theme-light .si-card,
+  body.theme-light .watchlist-add-panel,
+  body.theme-light .research-lane,
+  body.theme-light .table-wrap,
+  body.theme-light .heatmap-wrap,
+  body.theme-light .conv-badge,
+  body.theme-light .watchlist-live-pill,
+  body.theme-light .bucket-dropdown,
+  body.theme-light .watchlist-control,
+  body.theme-light .priority-dropdown,
+  body.theme-light .si-search {
+    background: #ffffff;
+    border-color: var(--border);
+    color: var(--text);
+  }
+  body.theme-light .watchlist-add-input,
+  body.theme-light .research-mini-card,
+  body.theme-light .driver-tag,
+  body.theme-light .si-cat-badge,
+  body.theme-light .si-ticker-badge {
+    background: var(--surface-2);
+    border-color: var(--border);
+    color: var(--text);
+  }
+  body.theme-light thead th,
+  body.theme-light .heatmap-table th {
+    background: #eef3f8;
+    border-bottom-color: var(--border);
+    color: var(--muted);
+  }
+  body.theme-light thead th:hover {
+    color: var(--text);
+  }
+  body.theme-light tbody tr {
+    border-bottom-color: var(--border);
+  }
+  body.theme-light tbody tr:hover,
+  body.theme-light .heatmap-table tr:hover td {
+    background: #f6f8fb;
+  }
+  body.theme-light tr.zone-green:hover {
+    background: #ddf0e5 !important;
+  }
+  body.theme-light tr.zone-yellow:hover {
+    background: #ffedbd !important;
+  }
+  body.theme-light tr.zone-red:hover {
+    background: #fbd7d3 !important;
+  }
+  body.theme-light #exit-banner {
+    background: linear-gradient(135deg, #ffffff, #eef3fb);
+    border-color: #c9d4e5;
+    color: var(--muted);
+  }
+  body.theme-light .cockpit-hero {
+    background: linear-gradient(135deg, #ffffff 0%, #f5f8fc 58%, #edf3fa 100%);
+    border-color: var(--border);
+  }
+  body.theme-light .cockpit-stat {
+    background: rgba(255,255,255,0.82);
+    border-color: var(--border);
+  }
+  body.theme-light .gap-alert {
+    background: #f6f0ff;
+    border-color: #c4a7ef;
+  }
+  body.theme-light .warn-alert {
+    background: #fff3ed;
+    border-color: #f0a58b;
+  }
+  body.theme-light .mos-buy,
+  body.theme-light .action-buy,
+  body.theme-light .score-elite,
+  body.theme-light .tag-core,
+  body.theme-light .si-src-13f,
+  body.theme-light .si-src-boss,
+  body.theme-light .si-cat-legend {
+    background: #e8f6ee;
+    color: #166534;
+    border-color: #85c99b;
+  }
+  body.theme-light .mos-fair,
+  body.theme-light .action-stalk,
+  body.theme-light .score-watch,
+  body.theme-light .si-src-legacy,
+  body.theme-light .si-cat-global,
+  body.theme-light .stale-badge {
+    background: #fff5d6;
+    color: #8a5a00;
+    border-color: #e7c767;
+  }
+  body.theme-light .mos-ov,
+  body.theme-light .si-cat-value {
+    background: #fdecea;
+    color: #b42318;
+    border-color: #eda39c;
+  }
+  body.theme-light .action-dive,
+  body.theme-light .tag-opp,
+  body.theme-light .si-src-letters,
+  body.theme-light .si-cat-disciple {
+    background: #e9f2ff;
+    color: #1d4ed8;
+    border-color: #93bce8;
+  }
+  body.theme-light .tag-inn,
+  body.theme-light .si-cat-quality {
+    background: #f4edff;
+    color: #6d3bb6;
+    border-color: #c4a7ef;
+  }
+  body.theme-light .tag-warn,
+  body.theme-light .si-cat-brk,
+  body.theme-light .si-rating-badge {
+    background: #fff0e8;
+    color: var(--accent);
+    border-color: #f0a58b;
+  }
+  body.theme-light .si-rating-jfl {
+    background: #edf8ef;
+    border-color: #85c99b;
+  }
+  body.theme-light .si-src-public,
+  body.theme-light .si-cat-other,
+  body.theme-light .score-wait,
+  body.theme-light .action-wait,
+  body.theme-light .mos-nd {
+    background: #eef3f8;
+    color: var(--muted);
+    border-color: var(--border);
+  }
+  body.theme-light .heat-none {
+    color: #9aa6b4;
+  }
+  body.theme-light .si-ticker-badge:hover {
+    background: #e9f2ff;
+    border-color: var(--blue);
+    color: var(--blue);
+  }
+  body.theme-light .si-ticker-badge.is-shared,
+  body.theme-light .investor-badge {
+    background: #fff0e8 !important;
+    color: var(--accent) !important;
+    border-color: rgba(232,86,42,0.28) !important;
+  }
+  body.theme-light .bucket-count {
+    background: rgba(255,255,255,0.45);
+    color: #ffffff;
+  }
+  body.theme-light .notes-cell [contenteditable]:hover {
+    background: #eef3f8 !important;
+  }
+  body.theme-light .notes-cell [contenteditable]:focus {
+    background: #e8f0fa !important;
+    border-color: var(--border) !important;
+  }
+  body.theme-light #watchlist-toast {
+    background: #ffffff;
+    border-color: var(--border);
+    color: var(--text);
+    box-shadow: 0 12px 28px rgba(23,32,51,0.16);
+  }
+  body.theme-light #pw-gate {
+    background: var(--bg) !important;
+  }
+  body.theme-light #pw-gate > div {
+    background: #ffffff !important;
+    border-color: var(--border) !important;
+    box-shadow: 0 18px 48px rgba(23,32,51,0.16) !important;
+  }
+  body.theme-light #pw-input {
+    background: var(--surface-2) !important;
+    border-color: var(--border) !important;
+    color: var(--text) !important;
+  }
 
   /* Mobile tweaks */
   @media (max-width: 768px) {
@@ -1271,8 +1515,8 @@ function renderInvestors() {
     if (inv.stocks.length > 0) {
       stocksHtml = `<div class="si-stocks">${inv.stocks.map(t => {
         const isShared = inv._sharedStocks.includes(t);
-        const style = isShared ? ' style="border-color:var(--accent);color:var(--accent);background:#1a0e0a"' : '';
-        return `<span class="si-ticker-badge"${style}>${t}</span>`;
+        const cls = isShared ? ' si-ticker-badge is-shared' : ' si-ticker-badge';
+        return `<span class="${cls.trim()}">${t}</span>`;
       }).join('')}</div>`;
     } else {
       stocksHtml = '<div class="si-no-stocks">Study their philosophy</div>';
@@ -1568,6 +1812,7 @@ function setTheme(theme) {
   localStorage.setItem('mose_theme', next);
   const btn = document.getElementById('theme-toggle');
   if (btn) btn.textContent = next === 'light' ? '🌙 Dark' : '☀️ Light';
+  if (joeHoldingsData) renderJoeHoldings(joeHoldingsData);
 }
 
 function toggleTheme() {
@@ -2960,6 +3205,9 @@ function renderJoeHoldings(data) {
 
   const canvas = document.getElementById('jh-pie');
   const ctx = canvas.getContext('2d');
+  const theme = getComputedStyle(document.body);
+  const chartBg = theme.getPropertyValue('--bg').trim() || '#0d1117';
+  const chartText = theme.getPropertyValue('--text').trim() || '#e6edf3';
   const cx = 120, cy = 120, r = 100;
   let start = -Math.PI / 2;
   const totalPie = pieData.reduce((s, d) => s + d.value, 0);
@@ -2972,7 +3220,7 @@ function renderJoeHoldings(data) {
     ctx.closePath();
     ctx.fillStyle = seg.color;
     ctx.fill();
-    ctx.strokeStyle = '#0d1117';
+    ctx.strokeStyle = chartBg;
     ctx.lineWidth = 2;
     ctx.stroke();
     start += angle;
@@ -2980,9 +3228,9 @@ function renderJoeHoldings(data) {
   // Center hole (donut)
   ctx.beginPath();
   ctx.arc(cx, cy, 45, 0, Math.PI * 2);
-  ctx.fillStyle = '#0d1117';
+  ctx.fillStyle = chartBg;
   ctx.fill();
-  ctx.fillStyle = 'var(--text)';
+  ctx.fillStyle = chartText;
   ctx.font = 'bold 14px system-ui';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
