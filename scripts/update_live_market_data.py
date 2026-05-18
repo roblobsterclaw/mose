@@ -32,9 +32,9 @@ JOE_HOLDINGS_FILE = ROOT / "joes-holdings.json"
 
 
 INDEX_SYMBOLS = {
-    "S&P 500": ("^SPX", "^SPX"),
+    "S&P 500": ("^GSPC", "^SPX"),
     "Dow Jones": ("^DJI", "^DJI"),
-    "NASDAQ": ("^NDQ", "^NDQ"),
+    "NASDAQ": ("^IXIC", "^NDQ"),
 }
 
 
