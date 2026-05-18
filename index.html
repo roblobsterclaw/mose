@@ -564,6 +564,64 @@
     font-size: 11px; font-weight: 700; border: 1px solid var(--border);
     color: var(--muted); white-space: nowrap;
   }
+  .filing-summary-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px; margin-bottom: 14px;
+  }
+  .filing-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+    padding: 12px; min-height: 86px;
+  }
+  .filing-card .label { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .4px; }
+  .filing-card .value { color: var(--text); font-size: 24px; font-weight: 800; margin-top: 4px; }
+  .filing-card .sub { color: var(--muted); font-size: 11px; margin-top: 3px; line-height: 1.35; }
+  .filing-layout {
+    display: grid; grid-template-columns: minmax(260px, 360px) 1fr; gap: 14px;
+    align-items: start;
+  }
+  .filing-list {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+    overflow: hidden;
+  }
+  .filing-investor-row {
+    width: 100%; text-align: left; background: transparent; border: 0; border-bottom: 1px solid var(--border);
+    color: var(--text); padding: 10px 12px; cursor: pointer; display: grid; gap: 3px;
+  }
+  .filing-investor-row:hover, .filing-investor-row.active { background: rgba(232,86,42,.12); }
+  .filing-investor-row .name { font-weight: 800; font-size: 13px; }
+  .filing-investor-row .meta { color: var(--muted); font-size: 11px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .filing-pill {
+    display: inline-flex; align-items: center; border-radius: 999px; border: 1px solid var(--border);
+    color: var(--muted); padding: 2px 7px; font-size: 11px; font-weight: 700; white-space: nowrap;
+  }
+  .filing-pill.new { border-color: var(--blue); color: var(--blue); }
+  .filing-pill.add { border-color: var(--green); color: var(--green); }
+  .filing-pill.trim { border-color: var(--yellow); color: var(--yellow); }
+  .filing-pill.exit { border-color: var(--red); color: var(--red); }
+  .filing-detail {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+    padding: 14px; min-width: 0;
+  }
+  .filing-detail-head {
+    display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+  .filing-detail-head h3 { font-size: 16px; margin-bottom: 3px; }
+  .filing-filter-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+  .filing-table td:first-child { font-weight: 800; color: var(--blue); }
+  .filing-hotlist {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 10px; margin-top: 14px;
+  }
+  .filing-hot-card {
+    background: var(--bg); border: 1px solid var(--border); border-left: 3px solid var(--accent);
+    border-radius: 7px; padding: 10px;
+  }
+  .filing-hot-card .title { display: flex; justify-content: space-between; gap: 8px; align-items: center; }
+  .filing-hot-card .summary { color: var(--muted); font-size: 11px; line-height: 1.4; margin-top: 5px; }
+  @media (max-width: 920px) {
+    .filing-layout { grid-template-columns: 1fr; }
+  }
   .i-own-cell { font-size: 12px; }
   .i-own-yes { color: #2ea043; font-weight: 600; }
   .i-own-no { color: var(--muted); }
@@ -984,6 +1042,7 @@ function checkPw(){
   <button class="tab-btn" onclick="switchTab('holdings', this)">📊 Holdings Tracker</button>
   <button class="tab-btn" onclick="switchTab('dcf', this)">📐 DCF Valuations</button>
   <button class="tab-btn" onclick="switchTab('heatmap', this)">🔥 Convergence Heat Map</button>
+  <button class="tab-btn" onclick="switchTab('filings', this)">13F Tracker</button>
   <button class="tab-btn" onclick="switchTab('portfolio', this)">🎯 Joe's Watchlist</button>
   <button class="tab-btn" onclick="switchTab('investors', this)">🧠 Super Investors</button>
   <button class="tab-btn" onclick="switchTab('joeholdings', this)">💼 Joe's Holdings</button>
@@ -1214,7 +1273,77 @@ function checkPw(){
   </div>
 
   <!-- ============================================================ -->
-  <!-- TAB 4: JOE'S WATCHLIST -->
+  <!-- TAB 4: 13F TRACKER -->
+  <!-- ============================================================ -->
+  <div id="tab-filings" class="tab-panel">
+    <div class="toolbar">
+      <h2>13F Tracker</h2>
+      <span style="font-size:12px;color:var(--muted)" id="filing-data-date">Loading SEC filing tracker…</span>
+      <button class="filter-btn" onclick="loadFilingTracker(true)">Refresh Tracker</button>
+      <select id="filing-change-filter" class="watchlist-control" onchange="setFilingChangeFilter(this.value)">
+        <option value="all">All Positions</option>
+        <option value="new">New Buys</option>
+        <option value="add">Adds</option>
+        <option value="trim">Trims</option>
+        <option value="exit">Exits</option>
+      </select>
+    </div>
+
+    <div class="filing-summary-grid">
+      <div class="filing-card"><div class="label">Latest Quarter</div><div class="value" id="filing-quarter">—</div><div class="sub" id="filing-compare">Compared with prior quarter</div></div>
+      <div class="filing-card"><div class="label">Tracked Investors</div><div class="value" id="filing-investor-count">—</div><div class="sub">13F-focused managers in MOSE</div></div>
+      <div class="filing-card"><div class="label">Positions</div><div class="value" id="filing-position-count">—</div><div class="sub">Stored for investor change analysis</div></div>
+      <div class="filing-card"><div class="label">Changes Flagged</div><div class="value" id="filing-change-count">—</div><div class="sub">New, add, trim, or exit signals</div></div>
+    </div>
+
+    <div class="filing-layout">
+      <div class="filing-list" id="filing-investor-list">
+        <div class="no-data">Loading investor filings…</div>
+      </div>
+      <div class="filing-detail">
+        <div class="filing-detail-head">
+          <div>
+            <h3 id="filing-detail-title">Investor Filing Detail</h3>
+            <div style="font-size:12px;color:var(--muted)" id="filing-detail-sub">Select an investor to review holdings and changes.</div>
+          </div>
+          <div id="filing-detail-counts" style="display:flex;gap:6px;flex-wrap:wrap"></div>
+        </div>
+        <div class="table-wrap">
+          <table class="filing-table">
+            <thead>
+              <tr>
+                <th>Ticker</th>
+                <th>Company</th>
+                <th>Change</th>
+                <th>% Portfolio</th>
+                <th>Shares</th>
+                <th>Value</th>
+                <th>Rank</th>
+                <th>Filing Date</th>
+              </tr>
+            </thead>
+            <tbody id="filing-position-body">
+              <tr><td colspan="8" class="no-data">Loading 13F tracker…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="research-lane" style="margin-top:16px">
+      <h3>Smart Change Board</h3>
+      <div class="filing-hotlist" id="filing-hotlist">
+        <div class="no-data">Loading quarter-over-quarter signals…</div>
+      </div>
+    </div>
+
+    <div class="info-blurb">
+      13F filings are usually due within 45 days after each quarter ends, so this is a delayed super-investor signal, not a real-time trade feed. The current export is shaped for Supabase and will move from generated JSON into database tables as credentials are wired.
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- TAB 5: JOE'S WATCHLIST -->
   <!-- ============================================================ -->
   <div id="tab-portfolio" class="tab-panel">
     <div class="toolbar">
@@ -1869,6 +1998,9 @@ let holdingsSortKey = 'convergence';
 let holdingsSortDir = -1;
 let dcfSortKey = 'base_mos';
 let dcfSortDir = -1;
+let filingTrackerData = null;
+let selectedFilingInvestor = null;
+let filingChangeFilter = 'all';
 
 // ============================================================
 // TAB SWITCHING
@@ -2027,6 +2159,148 @@ async function loadDCF() {
     document.getElementById('dcf-body').innerHTML =
       `<tr><td colspan="12" class="no-data">⚠️ Could not load dcf-latest.json<br>Run: <code>python3 dcf_engine.py</code><br>${e.message}</td></tr>`;
   }
+}
+
+async function loadFilingTracker(showToast) {
+  try {
+    const r = await fetch('filing-changes-latest.json?' + Date.now());
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    filingTrackerData = await r.json();
+    selectedFilingInvestor = selectedFilingInvestor || filingTrackerData.investors?.[0]?.name || null;
+    renderFilingTracker();
+    if (showToast) showWatchlistToast('13F tracker refreshed');
+  } catch(e) {
+    const body = document.getElementById('filing-position-body');
+    if (body) body.innerHTML = `<tr><td colspan="8" class="no-data">Could not load filing-changes-latest.json: ${e.message}</td></tr>`;
+    const list = document.getElementById('filing-investor-list');
+    if (list) list.innerHTML = '<div class="no-data">13F tracker data unavailable.</div>';
+    if (showToast) showWatchlistToast('13F tracker refresh failed');
+  }
+}
+
+function setFilingChangeFilter(value) {
+  filingChangeFilter = value || 'all';
+  renderFilingTracker();
+}
+
+function selectFilingInvestor(name) {
+  selectedFilingInvestor = name;
+  renderFilingTracker();
+}
+
+function filingPill(type) {
+  const labels = { new: 'New Buy', add: 'Added', trim: 'Trimmed', exit: 'Exited', hold: 'Holding' };
+  const cls = ['new','add','trim','exit'].includes(type) ? type : '';
+  return `<span class="filing-pill ${cls}">${labels[type] || type || 'Holding'}</span>`;
+}
+
+function fmtFilingMoney(value) {
+  const n = Number(value || 0);
+  if (!Number.isFinite(n) || n <= 0) return '—';
+  if (n >= 1_000_000_000) return `$${(n / 1_000_000_000).toFixed(1)}B`;
+  if (n >= 1_000_000) return `$${(n / 1_000_000).toFixed(1)}M`;
+  if (n >= 1_000) return `$${(n / 1_000).toFixed(1)}K`;
+  return `$${n.toFixed(0)}`;
+}
+
+function fmtFilingNumber(value) {
+  const n = Number(value || 0);
+  if (!Number.isFinite(n) || n <= 0) return '—';
+  return n.toLocaleString('en-US', { maximumFractionDigits: 0 });
+}
+
+function renderFilingTracker() {
+  if (!filingTrackerData) return;
+  const data = filingTrackerData;
+  const setText = (id, value) => { const el = document.getElementById(id); if (el) el.textContent = value; };
+  setText('filing-data-date', `Generated ${data.generated_at ? new Date(data.generated_at).toLocaleString() : '—'} · Source: ${data.source || 'MOSE 13F export'}`);
+  setText('filing-quarter', data.latest_quarter || '—');
+  setText('filing-compare', data.previous_quarter ? `Compared with ${data.previous_quarter}` : 'Compared with prior quarter');
+  setText('filing-investor-count', data.investor_count ?? (data.investors || []).length);
+  setText('filing-position-count', data.holding_count ?? '—');
+  setText('filing-change-count', data.change_count ?? '—');
+
+  const investors = data.investors || [];
+  if (!selectedFilingInvestor && investors.length) selectedFilingInvestor = investors[0].name;
+  const selected = investors.find(i => i.name === selectedFilingInvestor) || investors[0];
+  if (selected) selectedFilingInvestor = selected.name;
+
+  const list = document.getElementById('filing-investor-list');
+  if (list) {
+    list.innerHTML = investors.length ? investors.map(inv => {
+      const active = inv.name === selectedFilingInvestor ? ' active' : '';
+      const totalChanges = (inv.new_positions || 0) + (inv.adds || 0) + (inv.trims || 0) + (inv.exits || 0);
+      return `<button class="filing-investor-row${active}" onclick="selectFilingInvestor('${escapeAttr(inv.name)}')">
+        <span class="name">${escapeHtml(inv.name)}</span>
+        <span class="meta">
+          <span>${escapeHtml(inv.fund || '')}</span>
+          <span>${inv.total_positions || 0} positions</span>
+          <span>${totalChanges} changes</span>
+        </span>
+      </button>`;
+    }).join('') : '<div class="no-data">No tracked 13F investors yet.</div>';
+  }
+
+  const title = document.getElementById('filing-detail-title');
+  const sub = document.getElementById('filing-detail-sub');
+  const counts = document.getElementById('filing-detail-counts');
+  const body = document.getElementById('filing-position-body');
+  if (!selected || !body) return;
+  if (title) title.textContent = selected.name;
+  if (sub) sub.textContent = `${selected.fund || '13F filer'} · ${selected.latest_quarter || data.latest_quarter || ''} filing view · ${selected.filing_date || 'filing date pending'}`;
+  if (counts) {
+    counts.innerHTML = [
+      ['new', selected.new_positions || 0],
+      ['add', selected.adds || 0],
+      ['trim', selected.trims || 0],
+      ['exit', selected.exits || 0],
+    ].map(([type, value]) => `${filingPill(type)} <span style="color:var(--muted);font-size:11px">${value}</span>`).join('');
+  }
+
+  let rows = selected.positions || selected.top_positions || [];
+  if (filingChangeFilter !== 'all') rows = rows.filter(r => r.change_type === filingChangeFilter);
+  body.innerHTML = rows.length ? rows.map(row => {
+    const ticker = canonicalTicker(row.ticker || '');
+    const report = reportTickers.has(ticker) ? `<a href="${getReportUrl(ticker)}" target="_blank" class="dd-report-link" style="margin-left:4px">Report</a>` : '';
+    return `<tr>
+      <td><span class="ticker">${escapeHtml(ticker)}</span>${report}</td>
+      <td>${escapeHtml(row.company || ticker)}</td>
+      <td>${filingPill(row.change_type)}</td>
+      <td class="mono">${row.pct_portfolio !== null && row.pct_portfolio !== undefined ? Number(row.pct_portfolio).toFixed(2) + '%' : '—'}</td>
+      <td class="mono">${fmtFilingNumber(row.shares)}</td>
+      <td class="mono">${fmtFilingMoney(row.market_value)}</td>
+      <td class="mono">${row.rank || '—'}</td>
+      <td class="mono muted">${row.filing_date || '—'}</td>
+    </tr>`;
+  }).join('') : '<tr><td colspan="8" class="no-data">No positions match this change filter.</td></tr>';
+
+  renderFilingHotlist();
+}
+
+function renderFilingHotlist() {
+  const el = document.getElementById('filing-hotlist');
+  if (!el || !filingTrackerData) return;
+  const tickers = filingTrackerData.tickers || [];
+  const hot = tickers
+    .filter(t => t.buyers > 0 || t.investor_count >= 3 || getWatchlistStocks().some(p => canonicalTicker(p.ticker) === canonicalTicker(t.ticker)))
+    .slice(0, 12);
+  el.innerHTML = hot.length ? hot.map(t => {
+    const ticker = canonicalTicker(t.ticker);
+    const watch = getWatchlistStocks().some(p => canonicalTicker(p.ticker) === ticker);
+    const owns = (joeHoldingsData?.summary?.top_equity_positions || []).some(p => canonicalTicker(p.ticker) === ticker);
+    const changes = (t.changes || []).filter(c => c.change_type !== 'hold');
+    const changeText = changes.length
+      ? changes.slice(0, 3).map(c => `${c.investor}: ${c.change_type}`).join(' · ')
+      : `${t.investor_count} tracked investors holding`;
+    return `<div class="filing-hot-card">
+      <div class="title">
+        <div><span class="ticker">${escapeHtml(ticker)}</span><div style="font-size:12px;color:var(--muted);margin-top:2px">${escapeHtml(t.company || ticker)}</div></div>
+        <span class="filing-pill ${t.buyers ? 'add' : ''}">${t.buyers} buyers</span>
+      </div>
+      <div class="summary">${changeText}</div>
+      <div class="summary">${t.investor_count} investors · ${fmtFilingMoney(t.total_value)} reported value${watch ? ' · on watchlist' : ''}${owns ? ' · Joe owns' : ''}</div>
+    </div>`;
+  }).join('') : '<div class="no-data">No high-signal 13F changes found yet.</div>';
 }
 
 // ============================================================
@@ -2403,6 +2677,10 @@ function onBucketChange(ticker, newBucket) {
 
 function escapeHtml(str) {
   return String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function escapeAttr(str) {
+  return String(str || '').replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/"/g, '&quot;');
 }
 
 function updateWatchlistNote(ticker, text) {
@@ -3719,6 +3997,7 @@ async function hardRefreshAll() {
       loadHoldings(),
       loadDCF(),
       loadResearchLibrary(),
+      loadFilingTracker(false),
       loadWatchlistBuckets(),
       loadWatchlistNotes(),
       loadDDRequestsFromGitHub(),
@@ -3738,6 +4017,7 @@ window.addEventListener('DOMContentLoaded', () => {
   renderInvestors();
   loadJoeHoldings();
   loadResearchLibrary();
+  loadFilingTracker(false);
   loadSymbolData();
   loadWatchlistBuckets();
   loadWatchlistNotes();
@@ -3747,6 +4027,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // Auto-refresh
   setInterval(loadIndices, 5 * 60 * 1000);
   setInterval(() => { loadHoldings(); loadDCF(); }, 5 * 60 * 1000);
+  setInterval(() => loadFilingTracker(false), 60 * 60 * 1000);
 });
 </script>
 <div id="symbol-modal-backdrop" class="symbol-modal-backdrop" onclick="if(event.target===this)closeSymbolSnapshot()">

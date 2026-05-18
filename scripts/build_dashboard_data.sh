@@ -7,4 +7,6 @@ cd "$ROOT"
 python3 scripts/mose_db.py init
 python3 scripts/mose_db.py import-snapshot --input reference-data/convergence-master.json
 python3 scripts/mose_db.py export-dashboard-json --output reference-data/convergence-master.json
+python3 scripts/build_legacy_platform_data.py
+python3 scripts/build_13f_tracker.py
 python3 scripts/mose_db.py status

@@ -92,6 +92,28 @@ CREATE TABLE IF NOT EXISTS convergence_rankings (
   UNIQUE(security_id, generated_at)
 );
 
+CREATE TABLE IF NOT EXISTS holding_changes (
+  id INTEGER PRIMARY KEY,
+  investor_id INTEGER NOT NULL REFERENCES investors(id) ON DELETE CASCADE,
+  security_id INTEGER NOT NULL REFERENCES securities(id) ON DELETE CASCADE,
+  current_filing_id INTEGER REFERENCES filings(id) ON DELETE SET NULL,
+  previous_filing_id INTEGER REFERENCES filings(id) ON DELETE SET NULL,
+  quarter TEXT NOT NULL,
+  previous_quarter TEXT,
+  change_type TEXT NOT NULL,
+  shares_current REAL,
+  shares_previous REAL,
+  shares_delta REAL,
+  market_value_current REAL,
+  market_value_previous REAL,
+  market_value_delta REAL,
+  pct_portfolio_current REAL,
+  pct_portfolio_previous REAL,
+  source TEXT NOT NULL DEFAULT '13f-change-engine',
+  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE(investor_id, security_id, quarter, source)
+);
+
 CREATE TABLE IF NOT EXISTS price_snapshots (
   id INTEGER PRIMARY KEY,
   security_id INTEGER NOT NULL REFERENCES securities(id) ON DELETE CASCADE,
@@ -235,6 +257,8 @@ CREATE INDEX IF NOT EXISTS idx_holdings_investor ON holdings(investor_id);
 CREATE INDEX IF NOT EXISTS idx_holdings_security ON holdings(security_id);
 CREATE INDEX IF NOT EXISTS idx_filings_investor_date ON filings(investor_id, filing_date);
 CREATE INDEX IF NOT EXISTS idx_rankings_generated ON convergence_rankings(generated_at);
+CREATE INDEX IF NOT EXISTS idx_holding_changes_quarter ON holding_changes(quarter, change_type);
+CREATE INDEX IF NOT EXISTS idx_holding_changes_security ON holding_changes(security_id, quarter);
 CREATE INDEX IF NOT EXISTS idx_prices_security_fetched ON price_snapshots(security_id, fetched_at);
 CREATE INDEX IF NOT EXISTS idx_market_symbols_active ON market_symbols(active, topbar, sort_order);
 CREATE INDEX IF NOT EXISTS idx_price_history_security_date ON price_history(security_id, price_date);
