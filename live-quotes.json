@@ -1,29 +1,29 @@
 {
-  "generated_at": "2026-05-19T18:26:30.389843+00:00",
+  "generated_at": "2026-05-19T20:10:45.291723+00:00",
   "source": "stooq",
-  "market_status": "open",
+  "market_status": "closed",
   "indices": [
     {
       "name": "S&P 500",
       "ticker": "^GSPC",
-      "price": 7380.4,
-      "change_pct": 0.20093407190180396,
-      "vs_exit": 11.961649903669656,
+      "price": 7353.6,
+      "change_pct": -0.16291951775822744,
+      "vs_exit": 11.555090338142278,
       "source": "stooq"
     },
     {
       "name": "Dow Jones",
       "ticker": "^DJI",
-      "price": 49551.1,
-      "change_pct": -0.2925759359311047,
-      "vs_exit": 6.723334673717073,
+      "price": 49363.9,
+      "change_pct": -0.6692624229070429,
+      "vs_exit": 6.32014265071618,
       "source": "stooq"
     },
     {
       "name": "NASDAQ",
       "ticker": "^IXIC",
-      "price": 25972.816,
-      "change_pct": 0.23485679971719534,
+      "price": 25870.709,
+      "change_pct": -0.1591967570187674,
       "vs_exit": null,
       "source": "stooq"
     },
@@ -48,326 +48,326 @@
     {
       "ticker": "AAPL",
       "symbol": "AAPL.US",
-      "price": 298.34,
-      "change_pct": 0.46132605987134984,
+      "price": 298.57,
+      "change_pct": 0.5387749604337023,
       "date": "2026-05-19",
-      "time": "20:11:01",
-      "volume": 13304317.0
+      "time": "21:55:13",
+      "volume": 17052175.0
     },
     {
       "ticker": "AMD",
       "symbol": "AMD.US",
-      "price": 422.76,
-      "change_pct": 2.4624333494910244,
+      "price": 412.41,
+      "change_pct": -0.04604944255937899,
       "date": "2026-05-19",
-      "time": "20:11:01",
-      "volume": 19154229.0
+      "time": "21:55:13",
+      "volume": 22512174.0
     },
     {
       "ticker": "AMZN",
       "symbol": "AMZN.US",
-      "price": 259.59,
-      "change_pct": -0.9349717600366529,
+      "price": 258.84,
+      "change_pct": -1.221187604945827,
       "date": "2026-05-19",
-      "time": "20:11:01",
-      "volume": 17665192.0
+      "time": "21:55:13",
+      "volume": 21019762.0
     },
     {
       "ticker": "AVGO",
       "symbol": "AVGO.US",
-      "price": 414.36,
-      "change_pct": 1.1090370045020352,
+      "price": 409.79,
+      "change_pct": -0.0061003135561112365,
       "date": "2026-05-19",
-      "time": "20:11:01",
-      "volume": 8507895.0
+      "time": "21:55:13",
+      "volume": 10906947.0
     },
     {
       "ticker": "AXP",
       "symbol": "AXP.US",
-      "price": 310.42,
-      "change_pct": -0.10297998326575053,
+      "price": 309.88,
+      "change_pct": -0.27675870502671485,
       "date": "2026-05-19",
-      "time": "20:10:52",
-      "volume": 711746.0
+      "time": "21:55:12",
+      "volume": 1368274.0
     },
     {
       "ticker": "BABA",
       "symbol": "BABA.US",
-      "price": 135.8,
-      "change_pct": 0.3361779156969319,
+      "price": 135.71,
+      "change_pct": 0.2696811851195161,
       "date": "2026-05-19",
-      "time": "20:10:43",
-      "volume": 4573639.0
+      "time": "21:55:10",
+      "volume": 5784948.0
     },
     {
       "ticker": "BAC",
       "symbol": "BAC.US",
-      "price": 51.105,
-      "change_pct": 0.7491375061606613,
+      "price": 50.595,
+      "change_pct": -0.25628388368655014,
       "date": "2026-05-19",
-      "time": "20:10:56",
-      "volume": 19760674.0
+      "time": "21:55:11",
+      "volume": 24494448.0
     },
     {
       "ticker": "BIL",
       "symbol": "BIL.US",
-      "price": 91.5501,
-      "change_pct": 0.00010922992900417222,
+      "price": 91.5598,
+      "change_pct": 0.010704533042051859,
       "date": "2026-05-19",
-      "time": "20:10:24",
-      "volume": 5597759.0
+      "time": "21:55:10",
+      "volume": 8583012.0
     },
     {
       "ticker": "BN",
       "symbol": "BN.US",
-      "price": 44.925,
-      "change_pct": -0.05561735261402821,
+      "price": 44.255,
+      "change_pct": -1.5461624026696335,
       "date": "2026-05-19",
-      "time": "20:10:56",
-      "volume": 1520756.0
+      "time": "21:55:11",
+      "volume": 2310221.0
     },
     {
       "ticker": "BRK-B",
       "symbol": "BRK-B.US",
-      "price": 485.525,
-      "change_pct": -0.3028747433264934,
+      "price": 480.635,
+      "change_pct": -1.3069815195071888,
       "date": "2026-05-19",
-      "time": "20:10:54",
-      "volume": 2058302.0
+      "time": "21:55:12",
+      "volume": 3070210.0
     },
     {
       "ticker": "CVX",
       "symbol": "CVX.US",
-      "price": 196.67,
-      "change_pct": 0.8926281229159085,
+      "price": 198.04,
+      "change_pct": 1.595444518545111,
       "date": "2026-05-19",
-      "time": "20:11:01",
-      "volume": 3619926.0
+      "time": "21:55:12",
+      "volume": 5789382.0
     },
     {
       "ticker": "DE",
       "symbol": "DE.US",
-      "price": 559.61,
-      "change_pct": -0.5208518505350642,
+      "price": 558.46,
+      "change_pct": -0.7252817577416588,
       "date": "2026-05-19",
-      "time": "20:10:29",
-      "volume": 264656.0
+      "time": "21:55:12",
+      "volume": 384762.0
     },
     {
       "ticker": "DVA",
       "symbol": "DVA.US",
-      "price": 196.15,
-      "change_pct": -1.3974764992711008,
+      "price": 194.58,
+      "change_pct": -2.1866988387875104,
       "date": "2026-05-19",
-      "time": "20:10:35",
-      "volume": 133586.0
+      "time": "21:54:52",
+      "volume": 250051.0
     },
     {
       "ticker": "FICO",
       "symbol": "FICO.US",
-      "price": 1183.86,
-      "change_pct": -1.8447736939416803,
+      "price": 1188.84,
+      "change_pct": -1.4318760312077656,
       "date": "2026-05-19",
-      "time": "20:11:00",
-      "volume": 195708.0
+      "time": "21:55:12",
+      "volume": 260703.0
     },
     {
       "ticker": "GOOGL",
       "symbol": "GOOGL.US",
-      "price": 391.24,
-      "change_pct": -1.4409512293429996,
+      "price": 387.02,
+      "change_pct": -2.5040306328093505,
       "date": "2026-05-19",
-      "time": "20:11:01",
-      "volume": 16330885.0
+      "time": "21:55:12",
+      "volume": 19907760.0
     },
     {
       "ticker": "INTC",
       "symbol": "INTC.US",
-      "price": 112.41,
-      "change_pct": 5.07571508693213,
+      "price": 109.96,
+      "change_pct": 2.7855673957749016,
       "date": "2026-05-19",
-      "time": "20:11:00",
-      "volume": 82814089.0
+      "time": "21:55:12",
+      "volume": 104909257.0
     },
     {
       "ticker": "KHC",
       "symbol": "KHC.US",
-      "price": 23.25,
-      "change_pct": -0.4921891718382129,
+      "price": 23.38,
+      "change_pct": 0.06419858763107456,
       "date": "2026-05-19",
-      "time": "20:10:57",
-      "volume": 5393189.0
+      "time": "21:55:11",
+      "volume": 7200822.0
     },
     {
       "ticker": "KMX",
       "symbol": "KMX.US",
-      "price": 37.14,
-      "change_pct": -0.026917900403763153,
+      "price": 36.375,
+      "change_pct": -2.0861372812920553,
       "date": "2026-05-19",
-      "time": "20:10:52",
-      "volume": 890594.0
+      "time": "21:55:06",
+      "volume": 1227958.0
     },
     {
       "ticker": "LLY",
       "symbol": "LLY.US",
-      "price": 1012.885,
-      "change_pct": 2.1254177988616756,
+      "price": 1012.605,
+      "change_pct": 2.097186442899569,
       "date": "2026-05-19",
-      "time": "20:11:01",
-      "volume": 871399.0
+      "time": "21:55:10",
+      "volume": 1202599.0
     },
     {
       "ticker": "LUMN",
       "symbol": "LUMN.US",
-      "price": 9.345,
-      "change_pct": -2.7069234773555415,
+      "price": 9.1201,
+      "change_pct": -5.0484122852680855,
       "date": "2026-05-19",
-      "time": "20:10:59",
-      "volume": 5128077.0
+      "time": "21:55:11",
+      "volume": 6727069.0
     },
     {
       "ticker": "MA",
       "symbol": "MA.US",
-      "price": 500.73,
-      "change_pct": -1.345653715816846,
+      "price": 499.145,
+      "change_pct": -1.657932067144775,
       "date": "2026-05-19",
-      "time": "20:10:34",
-      "volume": 1013998.0
+      "time": "21:55:11",
+      "volume": 1329874.0
     },
     {
       "ticker": "MCO",
       "symbol": "MCO.US",
-      "price": 438.95,
-      "change_pct": -1.5233095526540181,
+      "price": 434.675,
+      "change_pct": -2.4823888365414812,
       "date": "2026-05-19",
-      "time": "20:10:52",
-      "volume": 407744.0
+      "time": "21:55:11",
+      "volume": 618404.0
     },
     {
       "ticker": "MELI",
       "symbol": "MELI.US",
-      "price": 1595.975,
-      "change_pct": 0.6663891359332808,
+      "price": 1602.41,
+      "change_pct": 1.072277833494175,
       "date": "2026-05-19",
-      "time": "20:10:36",
-      "volume": 237061.0
+      "time": "21:55:06",
+      "volume": 323241.0
     },
     {
       "ticker": "META",
       "symbol": "META.US",
-      "price": 602.73,
-      "change_pct": -1.016553898705896,
+      "price": 602.705,
+      "change_pct": -1.0206595283452535,
       "date": "2026-05-19",
-      "time": "20:11:00",
-      "volume": 4567735.0
+      "time": "21:55:12",
+      "volume": 5819504.0
     },
     {
       "ticker": "MSFT",
       "symbol": "MSFT.US",
-      "price": 418.96,
-      "change_pct": -2.544777855315189,
+      "price": 416.74,
+      "change_pct": -3.0611770179111346,
       "date": "2026-05-19",
-      "time": "20:11:00",
-      "volume": 15093173.0
+      "time": "21:55:12",
+      "volume": 17852269.0
     },
     {
       "ticker": "MU",
       "symbol": "MU.US",
-      "price": 720.84,
-      "change_pct": 8.468761285662708,
+      "price": 694.03,
+      "change_pct": 4.434513061273629,
       "date": "2026-05-19",
-      "time": "20:10:58",
-      "volume": 36364280.0
+      "time": "21:55:12",
+      "volume": 44467092.0
     },
     {
       "ticker": "NVDA",
       "symbol": "NVDA.US",
-      "price": 223.495,
-      "change_pct": 1.764411255805482,
+      "price": 219.51,
+      "change_pct": -0.05008651306803281,
       "date": "2026-05-19",
-      "time": "20:11:00",
-      "volume": 60316516.0
+      "time": "21:55:12",
+      "volume": 77394336.0
     },
     {
       "ticker": "NVS",
       "symbol": "NVS.US",
-      "price": 150.84,
-      "change_pct": 0.8423586040914499,
+      "price": 150.355,
+      "change_pct": 0.5181173953736978,
       "date": "2026-05-19",
-      "time": "20:10:45",
-      "volume": 412593.0
+      "time": "21:55:12",
+      "volume": 515751.0
     },
     {
       "ticker": "ORLY",
       "symbol": "ORLY.US",
-      "price": 91.995,
-      "change_pct": -0.005434782608690709,
+      "price": 92.03,
+      "change_pct": 0.03260869565217515,
       "date": "2026-05-19",
-      "time": "20:10:51",
-      "volume": 1177453.0
+      "time": "21:55:12",
+      "volume": 1963285.0
     },
     {
       "ticker": "OXY",
       "symbol": "OXY.US",
-      "price": 60.47,
-      "change_pct": 0.5403607947460233,
+      "price": 60.915,
+      "change_pct": 1.2802394213982806,
       "date": "2026-05-19",
-      "time": "20:10:58",
-      "volume": 6233866.0
+      "time": "21:55:10",
+      "volume": 7933334.0
     },
     {
       "ticker": "PGR",
       "symbol": "PGR.US",
-      "price": 204.53,
-      "change_pct": -0.01955320917045121,
+      "price": 203.485,
+      "change_pct": -0.5303807987485847,
       "date": "2026-05-19",
-      "time": "20:10:57",
-      "volume": 667363.0
+      "time": "21:55:02",
+      "volume": 973073.0
     },
     {
       "ticker": "PLD",
       "symbol": "PLD.US",
-      "price": 142.29,
-      "change_pct": 0.40574392266167214,
+      "price": 142.45,
+      "change_pct": 0.5186465794023112,
       "date": "2026-05-19",
-      "time": "20:10:53",
-      "volume": 520371.0
+      "time": "21:55:12",
+      "volume": 855451.0
     },
     {
       "ticker": "PLTR",
       "symbol": "PLTR.US",
-      "price": 135.695,
-      "change_pct": 0.38839979285344806,
+      "price": 135.44,
+      "change_pct": 0.19974846489606443,
       "date": "2026-05-19",
-      "time": "20:11:00",
-      "volume": 14706556.0
+      "time": "21:55:12",
+      "volume": 18442310.0
     },
     {
       "ticker": "RACE",
       "symbol": "RACE.US",
-      "price": 332.19,
-      "change_pct": 0.7735711685475098,
+      "price": 329.86,
+      "change_pct": 0.06673947336489118,
       "date": "2026-05-19",
-      "time": "20:10:05",
-      "volume": 205884.0
+      "time": "21:55:11",
+      "volume": 252555.0
     },
     {
       "ticker": "ROBO",
       "symbol": "ROBO.US",
-      "price": 83.06,
-      "change_pct": 0.9080019340902837,
+      "price": 82.4525,
+      "change_pct": 0.16996182844424454,
       "date": "2026-05-19",
-      "time": "20:10:14",
-      "volume": 316168.0
+      "time": "21:55:10",
+      "volume": 433028.0
     },
     {
       "ticker": "ROP",
       "symbol": "ROP.US",
-      "price": 330.98,
-      "change_pct": -1.6696375519904945,
+      "price": 328.78,
+      "change_pct": -2.3232323232323377,
       "date": "2026-05-19",
-      "time": "20:10:58",
-      "volume": 579800.0
+      "time": "21:55:12",
+      "volume": 774056.0
     },
     {
       "ticker": "SGOV",
@@ -375,17 +375,17 @@
       "price": 100.565,
       "change_pct": -0.004971661529278565,
       "date": "2026-05-19",
-      "time": "20:10:57",
-      "volume": 12573223.0
+      "time": "21:55:11",
+      "volume": 16664044.0
     },
     {
       "ticker": "STZ",
       "symbol": "STZ.US",
-      "price": 145.38,
-      "change_pct": -1.3503426748999179,
+      "price": 146.225,
+      "change_pct": -0.7769559611861371,
       "date": "2026-05-19",
-      "time": "20:10:55",
-      "volume": 471941.0
+      "time": "21:55:09",
+      "volume": 747287.0
     },
     {
       "ticker": "TFLO",
@@ -393,62 +393,62 @@
       "price": 50.59,
       "change_pct": 0.019770660340065475,
       "date": "2026-05-19",
-      "time": "20:10:18",
-      "volume": 841629.0
+      "time": "21:54:55",
+      "volume": 1416789.0
     },
     {
       "ticker": "TSLA",
       "symbol": "TSLA.US",
-      "price": 404.715,
-      "change_pct": 0.3857029467208924,
+      "price": 403.63,
+      "change_pct": 0.11657902569698642,
       "date": "2026-05-19",
-      "time": "20:11:00",
-      "volume": 27421946.0
+      "time": "21:55:12",
+      "volume": 33372256.0
     },
     {
       "ticker": "TSM",
       "symbol": "TSM.US",
-      "price": 396.69,
-      "change_pct": 1.843341634361122,
+      "price": 391.81,
+      "change_pct": 0.5904854817591362,
       "date": "2026-05-19",
-      "time": "20:11:01",
-      "volume": 5828208.0
+      "time": "21:55:12",
+      "volume": 7265411.0
     },
     {
       "ticker": "V",
       "symbol": "V.US",
-      "price": 330.6401,
-      "change_pct": -0.7086786786786733,
+      "price": 329.81,
+      "change_pct": -0.9579579579579574,
       "date": "2026-05-19",
-      "time": "20:10:54",
-      "volume": 3048579.0
+      "time": "21:55:11",
+      "volume": 4054829.0
     },
     {
       "ticker": "VOO",
       "symbol": "VOO.US",
-      "price": 677.7,
-      "change_pct": 0.3167742317484902,
+      "price": 673.69,
+      "change_pct": -0.27680738942505345,
       "date": "2026-05-19",
-      "time": "20:11:01",
-      "volume": 2389457.0
+      "time": "21:55:12",
+      "volume": 3116515.0
     },
     {
       "ticker": "VRSN",
       "symbol": "VRSN.US",
-      "price": 303.92,
-      "change_pct": -0.5171849427168523,
+      "price": 302.255,
+      "change_pct": -1.0621931260229147,
       "date": "2026-05-19",
-      "time": "20:10:43",
-      "volume": 170130.0
+      "time": "21:55:07",
+      "volume": 239743.0
     },
     {
       "ticker": "WMT",
       "symbol": "WMT.US",
-      "price": 134.005,
-      "change_pct": 0.8011132841883539,
+      "price": 134.06,
+      "change_pct": 0.8424853317286028,
       "date": "2026-05-19",
-      "time": "20:11:00",
-      "volume": 5341357.0
+      "time": "21:55:11",
+      "volume": 7021234.0
     }
   ]
 }
