@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-25T06:33:00",
+  "generated_at": "2026-05-22T20:40:30+00:00",
   "reports": [
     {
       "ticker": "BN",
@@ -8,9 +8,14 @@
       "intrinsicValue": 67,
       "mosPrice": 48,
       "currentPrice": 45.48,
-      "verdict": "BUY — 30-35% MOS, convergence score 80, 4 super investors top-5 position",
+      "verdict": "BUY \u2014 30-35% MOS, convergence score 80, 4 super investors top-5 position",
       "verdictClass": "buy",
-      "superInvestors": ["Ackman 18.1%", "Akre 13.5%", "Gayner 5.7%", "Bloomstran 4.6%"],
+      "superInvestors": [
+        "Ackman 18.1%",
+        "Akre 13.5%",
+        "Gayner 5.7%",
+        "Bloomstran 4.6%"
+      ],
       "convergenceScore": 80,
       "reportUrl": "https://roblobsterclaw.github.io/mose/deep-dives/bn-deep-dive-2026-04-29.html"
     },
@@ -20,10 +25,14 @@
       "reportDate": "2026-04-25",
       "intrinsicValue": 400,
       "mosPrice": 340,
-      "currentPrice": 344.40,
-      "verdict": "BUY — Convergence score 95 (highest in universe), 14% MOS, earnings Apr 29",
+      "currentPrice": 344.4,
+      "verdict": "BUY \u2014 Convergence score 95 (highest in universe), 14% MOS, earnings Apr 29",
       "verdictClass": "buy",
-      "superInvestors": ["Li Lu 22.3%", "Ackman 12.5%", "Gayner 6.9%"],
+      "superInvestors": [
+        "Li Lu 22.3%",
+        "Ackman 12.5%",
+        "Gayner 6.9%"
+      ],
       "convergenceScore": 95,
       "reportUrl": "https://roblobsterclaw.github.io/mose/deep-dives/googl-deep-dive-2026-04-20.html"
     },
@@ -34,9 +43,13 @@
       "intrinsicValue": 520,
       "mosPrice": 445,
       "currentPrice": 469.32,
-      "verdict": "WATCH — Only 10% MOS at current price, add on 10-15% pullback",
+      "verdict": "WATCH \u2014 Only 10% MOS at current price, add on 10-15% pullback",
       "verdictClass": "fair",
-      "superInvestors": ["Spier 22.6%", "Li Lu 12.6%", "Gayner 6.1%"],
+      "superInvestors": [
+        "Spier 22.6%",
+        "Li Lu 12.6%",
+        "Gayner 6.1%"
+      ],
       "convergenceScore": 75,
       "reportUrl": "https://roblobsterclaw.github.io/mose/deep-dives/brkb-deep-dive-2026-04-20.html"
     },
@@ -47,7 +60,7 @@
       "intrinsicValue": 195,
       "mosPrice": 156,
       "currentPrice": 208.27,
-      "verdict": "PASS — Zero super investor convergence, no margin of safety, hypergrowth priced in",
+      "verdict": "PASS \u2014 Zero super investor convergence, no margin of safety, hypergrowth priced in",
       "verdictClass": "overvalued",
       "superInvestors": [],
       "convergenceScore": 0,
@@ -72,6 +85,59 @@
       "verdict": "Buy on weakness - trading near fair value",
       "verdictClass": "fair",
       "reportUrl": "https://roblobsterclaw.github.io/mose/deep-dives/msft-deep-dive-2026-04-16.html"
+    },
+    {
+      "ticker": "MA",
+      "company": "Mastercard Incorporated",
+      "reportDate": "2026-05-22",
+      "intrinsicValue": 450.52,
+      "mosPrice": 337.89,
+      "currentPrice": 504.17,
+      "verdict": "WATCH - elite business, but price is above base intrinsic value",
+      "verdictClass": "fair",
+      "superInvestors": [
+        "Chuck Akre 21.0%",
+        "Dev Kantesaria 20.2%",
+        "Tom Gayner 1.7%",
+        "Warren Buffett 1.2%",
+        "Joel Greenblatt 1.1%"
+      ],
+      "convergenceScore": 85,
+      "reportUrl": "https://roblobsterclaw.github.io/mose/deep-dives/ma-deep-dive-2026-05-22.html"
+    },
+    {
+      "ticker": "UBER",
+      "company": "Uber Technologies, Inc.",
+      "reportDate": "2026-05-22",
+      "intrinsicValue": 169.83,
+      "mosPrice": 127.37,
+      "currentPrice": 74.64,
+      "verdict": "BUY CANDIDATE - strong MOS, but quality proof still matters",
+      "verdictClass": "buy",
+      "superInvestors": [
+        "Bill Ackman 17.8%",
+        "Joel Greenblatt 0.7%",
+        "Tom Gayner 0.2%"
+      ],
+      "convergenceScore": 74,
+      "reportUrl": "https://roblobsterclaw.github.io/mose/deep-dives/uber-deep-dive-2026-05-22.html"
+    },
+    {
+      "ticker": "AXP",
+      "company": "American Express Company",
+      "reportDate": "2026-05-22",
+      "intrinsicValue": 350.95,
+      "mosPrice": 263.21,
+      "currentPrice": 314.08,
+      "verdict": "WATCH / FAIR - high-quality Buffett holding, modest MOS",
+      "verdictClass": "fair",
+      "superInvestors": [
+        "Warren Buffett 29.2%",
+        "Tom Gayner 2.5%",
+        "Joel Greenblatt 0.3%"
+      ],
+      "convergenceScore": 76,
+      "reportUrl": "https://roblobsterclaw.github.io/mose/deep-dives/axp-deep-dive-2026-05-22.html"
     }
   ]
 }
