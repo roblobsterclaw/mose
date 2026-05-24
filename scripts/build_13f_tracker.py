@@ -76,6 +76,30 @@ def row_key(row: dict[str, Any]) -> str:
     return str(row.get("ticker") or row.get("identifier") or f"CUSIP:{row.get('cusip', '')}").upper()
 
 
+
+
+def aggregate_holdings(rows: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    aggregated: dict[str, dict[str, Any]] = {}
+    for row in rows or []:
+        key = row_key(row)
+        if not key:
+            continue
+        current = aggregated.get(key)
+        if not current:
+            current = {**row}
+            current["market_value"] = 0.0
+            current["shares"] = 0.0
+            current["pct_portfolio"] = 0.0
+            aggregated[key] = current
+        current["market_value"] = pct_float(current.get("market_value")) + pct_float(row.get("market_value"))
+        current["shares"] = pct_float(current.get("shares")) + pct_float(row.get("shares"))
+        current["pct_portfolio"] = pct_float(current.get("pct_portfolio")) + pct_float(row.get("pct_portfolio"))
+        current["rank"] = min(
+            [rank for rank in [current.get("rank"), row.get("rank")] if isinstance(rank, int)],
+            default=current.get("rank"),
+        )
+    return aggregated
+
 def classify_change(current: dict[str, Any] | None, previous: dict[str, Any] | None) -> str:
     if current and not previous:
         return "new"
@@ -116,8 +140,8 @@ def build_from_sec_history(history: dict[str, Any]) -> dict[str, Any] | None:
         previous_filing = filings.get(previous_quarter)
         if not current_filing and not previous_filing:
             continue
-        current_map = {row_key(h): h for h in (current_filing or {}).get("holdings", [])}
-        previous_map = {row_key(h): h for h in (previous_filing or {}).get("holdings", [])}
+        current_map = aggregate_holdings((current_filing or {}).get("holdings", []))
+        previous_map = aggregate_holdings((previous_filing or {}).get("holdings", []))
         keys = sorted(set(current_map) | set(previous_map))
         rows = []
         for key in keys:
@@ -173,7 +197,7 @@ def build_from_sec_history(history: dict[str, Any]) -> dict[str, Any] | None:
                 "previous_quarter": previous_quarter,
                 "filing_date": (current_filing or {}).get("filing_date"),
                 "previous_filing_date": (previous_filing or {}).get("filing_date"),
-                "total_positions": len((current_filing or {}).get("holdings", [])),
+                "total_positions": len(current_map),
                 "total_value": (current_filing or {}).get("total_value"),
                 "new_positions": counts["new"],
                 "adds": counts["add"],
