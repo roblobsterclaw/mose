@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-27T21:59:13.230173+00:00",
+  "generated_at": "2026-05-27T22:25:40.427740+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -1286,7 +1286,7 @@
       "quote": {
         "ticker": "^GSPC",
         "price": 7520.4,
-        "change_pct": -0.07839177284988036,
+        "change_pct": -0.07440871644964608,
         "source": "stooq"
       },
       "metrics": {
@@ -1305,11 +1305,11 @@
       "quote": {
         "ticker": "^DJI",
         "price": 50644.3,
-        "change_pct": 0.1302927731996296,
+        "change_pct": 0.31116797921058376,
         "source": "stooq"
       },
       "metrics": {
-        "week52High": 50830.2,
+        "week52High": 50830.4,
         "week52Low": 41828.35
       },
       "profile": {
@@ -1323,8 +1323,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^IXIC",
-        "price": 26674.734,
-        "change_pct": -0.06965036878506842,
+        "price": 26674.73,
+        "change_pct": -0.07757879248290767,
         "source": "stooq"
       },
       "metrics": {

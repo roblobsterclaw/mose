@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-27T21:59:13.230173+00:00",
+  "generated_at": "2026-05-27T22:25:40.427740+00:00",
   "source": "stooq",
   "market_status": "closed",
   "indices": [
@@ -7,7 +7,7 @@
       "name": "S&P 500",
       "ticker": "^GSPC",
       "price": 7520.4,
-      "change_pct": -0.07839177284988036,
+      "change_pct": -0.07440871644964608,
       "vs_exit": 14.085468529559005,
       "source": "stooq"
     },
@@ -15,15 +15,15 @@
       "name": "Dow Jones",
       "ticker": "^DJI",
       "price": 50644.3,
-      "change_pct": 0.1302927731996296,
+      "change_pct": 0.31116797921058376,
       "vs_exit": 9.07787270547233,
       "source": "stooq"
     },
     {
       "name": "NASDAQ",
       "ticker": "^IXIC",
-      "price": 26674.734,
-      "change_pct": -0.06965036878506842,
+      "price": 26674.73,
+      "change_pct": -0.07757879248290767,
       "vs_exit": null,
       "source": "stooq"
     },
