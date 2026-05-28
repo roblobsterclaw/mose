@@ -510,13 +510,34 @@
     background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
     padding: 10px 12px; margin-bottom: 14px;
   }
+  .watchlist-search-wrap { position: relative; min-width: 120px; }
+  .watchlist-search-wrap.name { min-width: 240px; flex: 1; }
   .watchlist-add-input {
     background: var(--bg); border: 1px solid var(--border); color: var(--text);
     padding: 7px 10px; border-radius: 6px; font-size: 12px; outline: none;
-    min-width: 110px;
+    width: 100%; min-width: 0;
   }
-  .watchlist-add-input.name { min-width: 220px; flex: 1; }
   .watchlist-add-input:focus { border-color: var(--accent); }
+  .watchlist-suggestions {
+    display: none; flex-basis: 100%; width: 100%; max-height: 260px; overflow: auto;
+    background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.28); margin-top: -2px; z-index: 20;
+  }
+  .watchlist-suggestions.show { display: block; }
+  .watchlist-suggestion {
+    display: grid; grid-template-columns: 86px 1fr auto; gap: 10px; align-items: center;
+    padding: 9px 11px; cursor: pointer; border-bottom: 1px solid var(--border);
+  }
+  .watchlist-suggestion:last-child { border-bottom: none; }
+  .watchlist-suggestion:hover, .watchlist-suggestion.active { background: var(--surface); }
+  .watchlist-suggestion .sym { font-family: monospace; font-weight: 800; color: var(--blue); }
+  .watchlist-suggestion .company { color: var(--text); font-size: 12px; }
+  .watchlist-suggestion .source { color: var(--muted); font-size: 11px; white-space: nowrap; }
+  .watchlist-autosave-pill {
+    display: inline-flex; align-items: center; gap: 5px; border: 1px solid var(--green);
+    color: var(--green); border-radius: 999px; padding: 4px 10px; font-size: 11px;
+    background: rgba(46, 204, 113, 0.08); font-weight: 700;
+  }
   .watchlist-add-btn {
     background: var(--accent); color: #fff; border: 1px solid var(--accent);
     border-radius: 18px; padding: 7px 14px; font-size: 12px; font-weight: 700;
@@ -1353,8 +1374,8 @@ function checkPw(){
   <div id="tab-portfolio" class="tab-panel">
     <div class="toolbar">
       <h2>🎯 Joe's Watchlist</h2>
-      <span id="watchlist-dd-counter" class="dd-counter-pill">loading…</span>
-      <button class="sync-all-btn" id="save-changes-btn" onclick="syncAllToGitHub()">💾 Save Changes</button>
+      <span id="watchlist-dd-counter" class="dd-counter-pill">loading...</span>
+      <span class="watchlist-autosave-pill" id="watchlist-autosave-status">Auto-save on</span>
       <select id="watchlist-view" class="watchlist-control" onchange="setWatchlistView(this.value)">
         <option value="grouped">Group Mode</option>
         <option value="flat">Flat Mode</option>
@@ -1381,24 +1402,30 @@ function checkPw(){
       </div>
     </div>
     <div class="watchlist-add-panel">
-      <input id="watchlist-add-ticker" class="watchlist-add-input" placeholder="Ticker">
-      <input id="watchlist-add-name" class="watchlist-add-input name" placeholder="Company name / note">
+      <div class="watchlist-search-wrap">
+        <input id="watchlist-add-ticker" class="watchlist-add-input" placeholder="Ticker" autocomplete="off" oninput="handleWatchlistSearchInput('ticker')" onfocus="handleWatchlistSearchInput('ticker')" onkeydown="handleWatchlistSearchKey(event)" onblur="setTimeout(hideWatchlistSuggestions, 160)">
+      </div>
+      <div class="watchlist-search-wrap name">
+        <input id="watchlist-add-name" class="watchlist-add-input" placeholder="Company name" autocomplete="off" oninput="handleWatchlistSearchInput('name')" onfocus="handleWatchlistSearchInput('name')" onkeydown="handleWatchlistSearchKey(event)" onblur="setTimeout(hideWatchlistSuggestions, 160)">
+      </div>
       <select id="watchlist-add-bucket" class="watchlist-control">
         <option value="watching">Watching for Now</option>
         <option value="core-forever">Core Forever</option>
         <option value="opportunistic">Opportunistic Value</option>
+        <option value="innovation">20yr Innovation</option>
         <option value="value-with-risk">Value with Risk</option>
         <option value="pre-ipo">Pre-IPO</option>
         <option value="treasury-index">Treasury & Index Funds</option>
         <option value="uncategorized">Uncategorized</option>
       </select>
       <button class="watchlist-add-btn" onclick="addWatchlistStock()">Add Stock</button>
-      <span id="watchlist-live-status" class="watchlist-live-pill">Live data: checking…</span>
+      <span id="watchlist-live-status" class="watchlist-live-pill">Live data: checking...</span>
       <button class="filter-btn" onclick="loadLiveMarketData(true)">Refresh Quotes</button>
+      <div id="watchlist-add-suggestions" class="watchlist-suggestions"></div>
     </div>
     <div id="watchlist-container"><div class="no-data">Loading watchlist…</div></div>
     <div class="info-blurb" style="margin-top:14px">
-      Added stocks save in this browser today. Live quotes refresh from GitHub Pages data generated by the scheduled market-data job.
+      Watchlist changes auto-save in this browser as soon as you make them. Live quotes refresh from GitHub Pages data generated by the scheduled market-data job.
     </div>
   </div>
 
@@ -1856,7 +1883,7 @@ function getGithubToken() {
 let watchlistBucketsSHA = null;
 let watchlistBuckets = JSON.parse(localStorage.getItem('mose_watchlist_buckets_local') || '{}');
 let watchlistNotesSHA = null;
-let watchlistNotes = {};
+let watchlistNotes = JSON.parse(localStorage.getItem('mose_watchlist_notes_local') || '{}');
 let watchlistView = localStorage.getItem('mose_watchlist_view') || 'grouped';
 let watchlistSort = localStorage.getItem('mose_watchlist_sort') || 'priority';
 let watchlistGroup = localStorage.getItem('mose_watchlist_group') || 'bucket';
@@ -1880,19 +1907,37 @@ const RESEARCH_LABELS = {
 const WATCHLIST_BUCKETS = {
   'core-forever':    { label: '\uD83C\uDFF0 Core Forever (20+ years)',    color: '#2D5A27' },
   'opportunistic':   { label: '\uD83D\uDCC8 Opportunistic Value (10 years)', color: '#1B4F72' },
+  'innovation':      { label: '\uD83E\uDDEA 20yr Innovation',              color: '#5C4A8A' },
   'value-with-risk': { label: '\u26A1 Value with Risk',               color: '#7D4E00' },
   'pre-ipo':         { label: '\uD83D\uDD12 Pre-IPO',                       color: '#4A235A' },
   'treasury-index':  { label: '\uD83D\uDCB0 Treasury & Index Funds',        color: '#7D6608' },
   'watching':         { label: '\uD83D\uDC40 Watching for Now',                color: '#5B5B5B' },
   'uncategorized':   { label: '\u2B1C Uncategorized',                   color: '#3A3A3A' },
 };
-const BUCKET_ORDER = ['core-forever','opportunistic','value-with-risk','pre-ipo','treasury-index','watching','uncategorized'];
+const BUCKET_ORDER = ['core-forever','opportunistic','innovation','value-with-risk','pre-ipo','treasury-index','watching','uncategorized'];
+const BUCKET_ALIASES = {
+  core: 'core-forever',
+  'core forever': 'core-forever',
+  opp: 'opportunistic',
+  opportunistic: 'opportunistic',
+  inn: 'innovation',
+  innovation: 'innovation',
+  '20yr innovation': 'innovation',
+  'value': 'value-with-risk',
+  'value-risk': 'value-with-risk',
+  treasury: 'treasury-index',
+  index: 'treasury-index',
+  watching: 'watching',
+  uncategorized: 'uncategorized'
+};
+watchlistBuckets = normalizeBucketMap(watchlistBuckets);
+localStorage.setItem('mose_watchlist_buckets_local', JSON.stringify(watchlistBuckets));
 
 // ============================================================
 // DEEP DIVE REQUEST SYSTEM (GitHub-synced)
 // ============================================================
 let ddRequestsSHA = null;
-let ddRequestsData = { requests: [], lastChecked: null };
+let ddRequestsData = JSON.parse(localStorage.getItem('mose_dd_requests_local') || '{"requests":[],"lastChecked":null}');
 
 function getDDRequests() {
   return (ddRequestsData.requests || []).map(r => r.ticker || r);
@@ -2603,6 +2648,36 @@ function renderHeatmap() {
 // ============================================================
 // WATCHLIST — GITHUB BUCKET SYNC
 // ============================================================
+
+function normalizeBucket(bucket) {
+  const raw = String(bucket || '').trim().toLowerCase();
+  const direct = String(bucket || '').trim();
+  if (WATCHLIST_BUCKETS[direct]) return direct;
+  if (BUCKET_ALIASES[raw]) return BUCKET_ALIASES[raw];
+  return 'uncategorized';
+}
+
+function normalizeBucketMap(map) {
+  const normalized = {};
+  Object.entries(map || {}).forEach(([ticker, bucket]) => {
+    const key = canonicalTicker(ticker);
+    if (key) normalized[key] = normalizeBucket(bucket);
+  });
+  return normalized;
+}
+
+function saveWatchlistLocalState(message) {
+  watchlistBuckets = normalizeBucketMap(watchlistBuckets);
+  customWatchlist = customWatchlist.map(item => ({ ...item, ticker: canonicalTicker(item.ticker), bucket: normalizeBucket(item.bucket || watchlistBuckets[canonicalTicker(item.ticker)] || 'watching') }));
+  localStorage.setItem('mose_watchlist_buckets_local', JSON.stringify(watchlistBuckets));
+  localStorage.setItem('mose_custom_watchlist', JSON.stringify(customWatchlist));
+  localStorage.setItem('mose_watchlist_priority', JSON.stringify(watchlistPriority));
+  localStorage.setItem('mose_watchlist_notes_local', JSON.stringify(watchlistNotes));
+  localStorage.setItem('mose_research_items', JSON.stringify(researchItems));
+  localStorage.setItem('mose_dd_requests_local', JSON.stringify(ddRequestsData));
+  markSaved(message || 'Auto-saved');
+}
+
 async function loadWatchlistBuckets() {
   const token = getGithubToken();
   if (!token) { renderWatchlist(); return; }
@@ -2614,7 +2689,8 @@ async function loadWatchlistBuckets() {
       const file = await res.json();
       watchlistBucketsSHA = file.sha;
       const decoded = JSON.parse(atob(file.content.replace(/\n/g, '')));
-      watchlistBuckets = decoded;
+      watchlistBuckets = normalizeBucketMap({ ...decoded, ...watchlistBuckets });
+      localStorage.setItem('mose_watchlist_buckets_local', JSON.stringify(watchlistBuckets));
     }
   } catch(e) {
     console.warn('Could not load watchlist-buckets.json from GitHub:', e);
@@ -2672,11 +2748,11 @@ function promptGithubToken() {
 
 function onBucketChange(ticker, newBucket) {
   const key = canonicalTicker(ticker);
-  watchlistBuckets[key] = newBucket;
-  localStorage.setItem('mose_watchlist_buckets_local', JSON.stringify(watchlistBuckets));
+  const bucket = normalizeBucket(newBucket);
+  watchlistBuckets[key] = bucket;
   const custom = customWatchlist.find(p => canonicalTicker(p.ticker) === key);
-  if (custom) { custom.bucket = newBucket; saveCustomWatchlist(); }
-  markUnsaved();
+  if (custom) custom.bucket = bucket;
+  saveWatchlistLocalState(`Saved ${key} to ${WATCHLIST_BUCKETS[bucket].label.replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]|[\u2600-\u27BF]/g, '').trim()}`);
   if (watchlistView === 'grouped') renderWatchlist();
 }
 
@@ -2689,13 +2765,14 @@ function escapeAttr(str) {
 }
 
 function updateWatchlistNote(ticker, text) {
+  const key = canonicalTicker(ticker);
   const trimmed = text.trim();
   if (trimmed) {
-    watchlistNotes[ticker] = trimmed;
+    watchlistNotes[key] = trimmed;
   } else {
-    delete watchlistNotes[ticker];
+    delete watchlistNotes[key];
   }
-  markUnsaved();
+  saveWatchlistLocalState('Note saved');
 }
 
 async function loadWatchlistNotes() {
@@ -2708,7 +2785,8 @@ async function loadWatchlistNotes() {
     if (res.ok) {
       const file = await res.json();
       watchlistNotesSHA = file.sha;
-      watchlistNotes = JSON.parse(atob(file.content.replace(/\n/g, '')));
+      watchlistNotes = { ...JSON.parse(atob(file.content.replace(/\n/g, ''))), ...watchlistNotes };
+      localStorage.setItem('mose_watchlist_notes_local', JSON.stringify(watchlistNotes));
     }
   } catch(e) {
     console.warn('Could not load watchlist-notes.json from GitHub:', e);
@@ -2747,17 +2825,13 @@ async function saveWatchlistNotesToGitHub() {
 }
 
 function markUnsaved() {
-  const btn = document.getElementById('save-changes-btn');
-  if (btn) {
-    btn.textContent = '\uD83D\uDCBE Save Changes (unsaved)';
-    btn.classList.add('has-unsaved');
-  }
+  saveWatchlistLocalState('Auto-saved');
 }
-function markSaved() {
-  const btn = document.getElementById('save-changes-btn');
-  if (btn) {
-    btn.textContent = '\uD83D\uDCBE Save Changes';
-    btn.classList.remove('has-unsaved');
+function markSaved(message) {
+  const el = document.getElementById('watchlist-autosave-status');
+  if (el) {
+    el.textContent = message || 'Auto-saved';
+    el.classList.remove('stale');
   }
 }
 
@@ -2848,8 +2922,7 @@ function getPriority(ticker) {
 
 function setPriority(ticker, priority) {
   watchlistPriority[canonicalTicker(ticker)] = priority;
-  localStorage.setItem('mose_watchlist_priority', JSON.stringify(watchlistPriority));
-  markUnsaved();
+  saveWatchlistLocalState('Priority saved');
   renderWatchlist();
 }
 
@@ -2967,8 +3040,8 @@ function getReportForTicker(ticker) {
 }
 
 function getCandidateBucket(ticker, p) {
-  const defaultBucket = p && p.bucket && WATCHLIST_BUCKETS[p.bucket] ? p.bucket : 'uncategorized';
-  return watchlistBuckets[canonicalTicker(ticker)] || defaultBucket;
+  const defaultBucket = normalizeBucket(p && p.bucket ? p.bucket : 'uncategorized');
+  return normalizeBucket(watchlistBuckets[canonicalTicker(ticker)] || defaultBucket);
 }
 
 function getWatchlistStocks() {
@@ -2986,7 +3059,7 @@ function getWatchlistStocks() {
       ...p,
       ticker,
       name: p.name || existing.name || ticker,
-      bucket: p.bucket || existing.bucket || 'watching',
+      bucket: normalizeBucket(p.bucket || existing.bucket || 'watching'),
       note: p.note || existing.note || '',
       source: existing.source === 'base' ? 'base+custom' : 'custom',
       dateAdded: p.dateAdded || existing.dateAdded || ''
@@ -2996,28 +3069,145 @@ function getWatchlistStocks() {
 }
 
 function saveCustomWatchlist() {
-  localStorage.setItem('mose_custom_watchlist', JSON.stringify(customWatchlist));
+  saveWatchlistLocalState('Auto-saved');
+}
+
+let watchlistSuggestionSelection = -1;
+let watchlistSuggestionMatches = [];
+
+function upsertStockOption(map, ticker, name, source, bucket) {
+  const key = canonicalTicker(ticker);
+  if (!key || key === 'CASH' || key === 'MANAGED') return;
+  const existing = map.get(key) || { ticker: key, name: key, source: '', bucket: 'watching' };
+  const cleanName = String(name || existing.name || key).trim();
+  map.set(key, {
+    ticker: key,
+    name: cleanName || key,
+    source: existing.source || source || '',
+    bucket: normalizeBucket(bucket || existing.bucket || 'watching')
+  });
+}
+
+function buildStockSearchIndex() {
+  const map = new Map();
+  JOES_PORTFOLIO.forEach(p => upsertStockOption(map, p.ticker, p.name, 'Watchlist', p.bucket));
+  customWatchlist.forEach(p => upsertStockOption(map, p.ticker, p.name, 'Custom', p.bucket));
+  allDCF.forEach(d => upsertStockOption(map, d.ticker, d.company, 'DCF', 'watching'));
+  allHoldings.forEach(h => upsertStockOption(map, h.ticker, h.company, '13F', 'watching'));
+  Object.values(symbolSnapshots || {}).forEach(s => upsertStockOption(map, s.ticker, s.profile?.company || s.name, 'Snapshot', s.bucket));
+  Object.values(liveQuotes || {}).forEach(q => upsertStockOption(map, q.ticker || q.symbol, q.name || q.ticker, 'Live', 'watching'));
+  Object.values(reportMap || {}).forEach(r => upsertStockOption(map, r.ticker, r.company || r.title, 'Research', 'watching'));
+  return [...map.values()].sort((a, b) => a.ticker.localeCompare(b.ticker));
+}
+
+function findStockMatch(query) {
+  const q = String(query || '').trim().toLowerCase();
+  if (!q) return null;
+  const options = buildStockSearchIndex();
+  return options.find(o => o.ticker.toLowerCase() === q) ||
+    options.find(o => o.name.toLowerCase() === q) ||
+    options.find(o => o.ticker.toLowerCase().startsWith(q)) ||
+    options.find(o => o.name.toLowerCase().includes(q)) || null;
+}
+
+function renderWatchlistSuggestions(query) {
+  const menu = document.getElementById('watchlist-add-suggestions');
+  if (!menu) return;
+  const q = String(query || '').trim().toLowerCase();
+  if (!q) { hideWatchlistSuggestions(); return; }
+  watchlistSuggestionMatches = buildStockSearchIndex()
+    .map(o => ({ ...o, haystack: `${o.ticker} ${o.name}`.toLowerCase() }))
+    .filter(o => o.haystack.includes(q))
+    .sort((a, b) => {
+      const aExact = a.ticker.toLowerCase() === q || a.name.toLowerCase() === q;
+      const bExact = b.ticker.toLowerCase() === q || b.name.toLowerCase() === q;
+      const aStarts = a.ticker.toLowerCase().startsWith(q) || a.name.toLowerCase().startsWith(q);
+      const bStarts = b.ticker.toLowerCase().startsWith(q) || b.name.toLowerCase().startsWith(q);
+      return Number(bExact) - Number(aExact) || Number(bStarts) - Number(aStarts) || a.ticker.localeCompare(b.ticker);
+    })
+    .slice(0, 10);
+  watchlistSuggestionSelection = -1;
+  if (!watchlistSuggestionMatches.length) {
+    menu.innerHTML = `<div class="watchlist-suggestion"><span class="sym">No match</span><span class="company">Enter a ticker manually or try another company name</span><span class="source"></span></div>`;
+    menu.classList.add('show');
+    return;
+  }
+  menu.innerHTML = watchlistSuggestionMatches.map((o, i) => `<div class="watchlist-suggestion" data-idx="${i}" onmousedown="selectWatchlistSuggestion(${i})"><span class="sym">${escapeHtml(o.ticker)}</span><span class="company">${escapeHtml(o.name)}</span><span class="source">${escapeHtml(o.source || '')}</span></div>`).join('');
+  menu.classList.add('show');
+}
+
+function handleWatchlistSearchInput(source) {
+  const tickerEl = document.getElementById('watchlist-add-ticker');
+  const nameEl = document.getElementById('watchlist-add-name');
+  const query = source === 'name' ? nameEl?.value : tickerEl?.value;
+  renderWatchlistSuggestions(query);
+  const match = findStockMatch(query);
+  if (source === 'ticker' && match && nameEl && (!nameEl.value || nameEl.dataset.autofilled === 'true')) {
+    nameEl.value = match.name;
+    nameEl.dataset.autofilled = 'true';
+  }
+}
+
+function handleWatchlistSearchKey(event) {
+  const menu = document.getElementById('watchlist-add-suggestions');
+  if (!menu || !menu.classList.contains('show')) {
+    if (event.key === 'Enter') { event.preventDefault(); addWatchlistStock(); }
+    return;
+  }
+  if (event.key === 'ArrowDown') {
+    event.preventDefault();
+    watchlistSuggestionSelection = Math.min(watchlistSuggestionSelection + 1, watchlistSuggestionMatches.length - 1);
+  } else if (event.key === 'ArrowUp') {
+    event.preventDefault();
+    watchlistSuggestionSelection = Math.max(watchlistSuggestionSelection - 1, 0);
+  } else if (event.key === 'Enter') {
+    event.preventDefault();
+    if (watchlistSuggestionSelection >= 0) selectWatchlistSuggestion(watchlistSuggestionSelection);
+    else addWatchlistStock();
+  } else if (event.key === 'Escape') {
+    hideWatchlistSuggestions();
+  }
+  [...menu.querySelectorAll('.watchlist-suggestion')].forEach((el, idx) => el.classList.toggle('active', idx === watchlistSuggestionSelection));
+}
+
+function selectWatchlistSuggestion(index) {
+  const item = watchlistSuggestionMatches[index];
+  if (!item) return;
+  const tickerEl = document.getElementById('watchlist-add-ticker');
+  const nameEl = document.getElementById('watchlist-add-name');
+  if (tickerEl) tickerEl.value = item.ticker;
+  if (nameEl) { nameEl.value = item.name; nameEl.dataset.autofilled = 'true'; }
+  hideWatchlistSuggestions();
+}
+
+function hideWatchlistSuggestions() {
+  const menu = document.getElementById('watchlist-add-suggestions');
+  if (menu) menu.classList.remove('show');
 }
 
 function addWatchlistStock() {
   const tickerEl = document.getElementById('watchlist-add-ticker');
   const nameEl = document.getElementById('watchlist-add-name');
   const bucketEl = document.getElementById('watchlist-add-bucket');
-  const ticker = canonicalTicker((tickerEl?.value || '').trim());
-  if (!ticker) { showWatchlistToast('Enter a ticker first'); return; }
+  let ticker = canonicalTicker((tickerEl?.value || '').trim());
+  let name = (nameEl?.value || '').trim();
+  const typed = ticker || name;
+  const match = findStockMatch(typed);
+  if (!ticker && match) ticker = match.ticker;
+  if (!name && match) name = match.name;
+  if (!ticker) { showWatchlistToast('Type a ticker or choose a matching company'); return; }
+  if (!/^[A-Z0-9.^-]{1,12}$/.test(ticker)) { showWatchlistToast('Use a valid ticker symbol'); return; }
   if (getWatchlistStocks().find(p => canonicalTicker(p.ticker) === ticker)) {
     showWatchlistToast(`${ticker} is already on the watchlist`);
     return;
   }
-  const name = (nameEl?.value || '').trim() || ticker;
-  const bucket = bucketEl?.value || 'watching';
-  customWatchlist.push({ ticker, name, bucket, note: name, dateAdded: new Date().toISOString().slice(0, 10) });
+  const bucket = normalizeBucket(bucketEl?.value || match?.bucket || 'watching');
+  customWatchlist.push({ ticker, name: name || ticker, bucket, note: name || ticker, dateAdded: new Date().toISOString().slice(0, 10) });
   watchlistBuckets[ticker] = bucket;
-  saveCustomWatchlist();
-  localStorage.setItem('mose_watchlist_buckets_local', JSON.stringify(watchlistBuckets));
+  saveWatchlistLocalState(`Added ${ticker}`);
   if (tickerEl) tickerEl.value = '';
-  if (nameEl) nameEl.value = '';
-  markUnsaved();
+  if (nameEl) { nameEl.value = ''; nameEl.dataset.autofilled = ''; }
+  hideWatchlistSuggestions();
   showWatchlistToast(`Added ${ticker}`);
   renderWatchlist();
   renderCockpit();
@@ -3308,8 +3498,8 @@ function watchlistRowHtml(p, dcfMap, tickerToInvestors, joeOwns, candidateMap) {
   const rec = researchRecord(ticker, candidate);
   const investors = tickerToInvestors[ticker] || [];
   const owns = joeOwns[ticker];
-  const defaultBucket = (p.bucket && WATCHLIST_BUCKETS[p.bucket]) ? p.bucket : 'uncategorized';
-  const bucket = watchlistBuckets[ticker] || defaultBucket;
+  const defaultBucket = normalizeBucket(p.bucket || 'uncategorized');
+  const bucket = normalizeBucket(watchlistBuckets[ticker] || defaultBucket);
 
   const ownCell = owns && owns.shares > 0
     ? `<span class="i-own-yes">\u2705 ${owns.shares} sh${owns.value ? ' (~' + fmtDollar(owns.value) + ')' : ''}</span>`
