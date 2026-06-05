@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-05T22:09:18.313673+00:00",
+  "generated_at": "2026-06-05T23:59:17.402181+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -102,10 +102,7 @@
         "time": "22:00:19",
         "volume": 50826690.0
       },
-      "metrics": {
-        "week52High": 495.0,
-        "week52Low": 241.11
-      },
+      "metrics": {},
       "profile": {
         "company": null,
         "owned": null,
@@ -180,10 +177,7 @@
         "time": "22:00:22",
         "volume": 38813538.0
       },
-      "metrics": {
-        "week52High": 57.55,
-        "week52Low": 43.6649
-      },
+      "metrics": {},
       "profile": {
         "company": null,
         "owned": {
@@ -209,7 +203,10 @@
         "time": "22:00:21",
         "volume": 12625343.0
       },
-      "metrics": {},
+      "metrics": {
+        "week52High": 91.78,
+        "week52Low": 91.26
+      },
       "profile": {
         "company": null,
         "owned": null,
@@ -259,6 +256,8 @@
         "volume": 8457629.0
       },
       "metrics": {
+        "week52High": 516.85,
+        "week52Low": 455.185,
         "marketCap": 1012262699008,
         "peRatio": 15.735976789168278
       },
@@ -285,8 +284,6 @@
         "volume": 6306708.0
       },
       "metrics": {
-        "week52High": 214.71,
-        "week52Low": 136.7,
         "marketCap": 368919576576,
         "peRatio": 28.251885369532427
       },
@@ -362,6 +359,8 @@
         "volume": 199386.0
       },
       "metrics": {
+        "week52High": 1998.01,
+        "week52Low": 870.01,
         "marketCap": 23834101760,
         "peRatio": 42.07658157602663
       },
@@ -388,6 +387,8 @@
         "volume": 36628090.0
       },
       "metrics": {
+        "week52High": 408.61,
+        "week52Low": 162.0,
         "marketCap": 4166206881792,
         "peRatio": 34.11655874190564
       },
@@ -416,7 +417,10 @@
         "time": "22:00:18",
         "volume": 143156378.0
       },
-      "metrics": {},
+      "metrics": {
+        "week52High": 132.75,
+        "week52Low": 18.965
+      },
       "profile": {
         "company": null,
         "owned": null,
@@ -468,8 +472,6 @@
         "volume": 2099036.0
       },
       "metrics": {
-        "week52High": 71.99,
-        "week52Low": 30.26,
         "marketCap": 5427479040,
         "peRatio": 28.06547619047619
       },
@@ -495,7 +497,10 @@
         "time": "22:02:11",
         "volume": 4082645.0
       },
-      "metrics": {},
+      "metrics": {
+        "week52High": 1166.29,
+        "week52Low": 623.78
+      },
       "profile": {
         "company": null,
         "owned": null,
@@ -518,10 +523,7 @@
         "time": "22:00:22",
         "volume": 12686030.0
       },
-      "metrics": {
-        "week52High": 11.95,
-        "week52Low": 3.37
-      },
+      "metrics": {},
       "profile": {
         "company": null,
         "owned": null,
@@ -573,6 +575,8 @@
         "volume": 660398.0
       },
       "metrics": {
+        "week52High": 546.88,
+        "week52Low": 402.28,
         "marketCap": 79661187072,
         "peRatio": 32.33166189111748
       },
@@ -651,8 +655,6 @@
         "volume": 34435415.0
       },
       "metrics": {
-        "week52High": 555.45,
-        "week52Low": 356.28,
         "marketCap": 3155936149504,
         "peRatio": 26.092047589229804
       },
@@ -678,10 +680,7 @@
         "time": "22:00:19",
         "volume": 75672863.0
       },
-      "metrics": {
-        "week52High": 1089.29,
-        "week52Low": 103.38
-      },
+      "metrics": {},
       "profile": {
         "company": null,
         "owned": null,
@@ -1015,7 +1014,10 @@
         "time": "22:00:14",
         "volume": 1753021.0
       },
-      "metrics": {},
+      "metrics": {
+        "week52High": 50.66,
+        "week52Low": 50.39
+      },
       "profile": {
         "company": null,
         "owned": null,
@@ -1093,6 +1095,8 @@
         "volume": 16541400.0
       },
       "metrics": {
+        "week52High": 101.99,
+        "week52Low": 68.46,
         "marketCap": 153617776640,
         "peRatio": 14.949260042283296
       },
@@ -1221,10 +1225,13 @@
       "quote": {
         "ticker": "^GSPC",
         "price": 7383.7,
-        "change_pct": -2.015765168002555,
+        "change_pct": -2.039164698702468,
         "source": "stooq"
       },
-      "metrics": {},
+      "metrics": {
+        "week52High": 7620.9,
+        "week52Low": 5921.2
+      },
       "profile": {
         "vsExit": 12.01171134270848
       },
@@ -1237,13 +1244,10 @@
       "quote": {
         "ticker": "^DJI",
         "price": 50866.8,
-        "change_pct": -1.4146253539470437,
+        "change_pct": -1.4400310017438425,
         "source": "stooq"
       },
-      "metrics": {
-        "week52High": 51657.9,
-        "week52Low": 41981.14
-      },
+      "metrics": {},
       "profile": {
         "vsExit": 9.557093993494233
       },
@@ -1255,11 +1259,14 @@
       "type": "Index",
       "quote": {
         "ticker": "^IXIC",
-        "price": 25709.432,
-        "change_pct": -3.0629357904638046,
+        "price": 25709.43,
+        "change_pct": -3.1170546027202435,
         "source": "stooq"
       },
-      "metrics": {},
+      "metrics": {
+        "week52High": 27190.21,
+        "week52Low": 19226.21
+      },
       "profile": {
         "vsExit": null
       },
