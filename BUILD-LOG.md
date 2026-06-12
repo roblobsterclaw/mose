@@ -6,6 +6,21 @@
 
 ---
 
+## Session 5 — June 12, 2026
+**Goal:** Fix the dead quote pipeline, lock down exposed personal data, make watchlist buckets user-editable, and version the deep dives.
+
+**Diagnosis:** Stooq's keyless CSV endpoint started returning empty data June 5 and hard-404s since June 9; every scheduled run failed and the published snapshot had zero quotes. The old script also computed "change %" vs the day's open rather than the previous close, and silently committed empty data as success.
+
+**What was built:**
+- `scripts/update_live_market_data.py` rewritten against Yahoo Finance's v8 chart endpoint (no API key): previous-close change %, 52-week range from quote metadata, ~daily 1Y history refresh, custom Firebase-watchlist tickers included, exit anchors moved to `reference-data/exit-baseline.json`.
+- Failure policy: never overwrite good data with bad. On failure the script writes `pipeline-status.json` and exits non-zero; the dashboard shows a site-wide red/amber banner when quotes are stale, empty, or the pipeline reports an error.
+- Security: Truist account numbers removed from `joes-holdings.json` and the holdings UI; dashboard password stored as SHA-256 hash instead of plaintext. Remaining owner steps documented in `docs/SECURITY-LOCKDOWN.md` (history purge, private repo, Firebase rules, password rotation).
+- Watchlist buckets are now user-defined: create, rename, delete, and reorder (▲/▼) from the grouped view; definitions sync via Firebase with the rest of the state.
+- Deep dives are versioned: `research-library.json` may hold multiple reports per ticker; the library shows the latest with an expandable history timeline and deltas (intrinsic value, verdict, convergence score). Per-ticker monthly/quarterly refresh cadence resurfaces due tickers in the Needs Deep Dive lane. Protocol in `docs/DEEP-DIVES.md`.
+- Removed the permanently disabled GitHub Contents-API sync layer from `index.html`.
+
+---
+
 ## Session 4 — May 11, 2026
 **Goal:** Improve Watchlist sorting/grouping and add the first Research module without making Joe enter the same stock twice.
 
