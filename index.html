@@ -1376,6 +1376,7 @@ function checkPw(){
       <h2>🎯 Joe's Watchlist</h2>
       <span id="watchlist-dd-counter" class="dd-counter-pill">loading...</span>
       <span class="watchlist-autosave-pill" id="watchlist-autosave-status">Auto-save on</span>
+      <span id="mose-sync-status" title="Firebase sync (tap to force sync)" style="font-size:14px;margin-left:8px;cursor:pointer;" onclick="moseFbPut()">⏳</span>
       <select id="watchlist-view" class="watchlist-control" onchange="setWatchlistView(this.value)">
         <option value="grouped">Group Mode</option>
         <option value="flat">Flat Mode</option>
@@ -1939,6 +1940,125 @@ localStorage.setItem('mose_watchlist_buckets_local', JSON.stringify(watchlistBuc
 let ddRequestsSHA = null;
 let ddRequestsData = JSON.parse(localStorage.getItem('mose_dd_requests_local') || '{"requests":[],"lastChecked":null}');
 
+// ============================================================
+// FIREBASE REALTIME SYNC (REST API — same pattern as TTD dashboard)
+// iPhone <-> Mac live sync via https://jfl-ttd-default-rtdb.firebaseio.com/mose
+// ============================================================
+const MOSE_FB_URL = 'https://jfl-ttd-default-rtdb.firebaseio.com/mose';
+let moseSyncing = false, moseSyncPending = false, moseFbListening = false;
+
+function getMoseState() {
+  return {
+    buckets: watchlistBuckets,
+    notes: watchlistNotes,
+    priority: watchlistPriority,
+    customWatchlist: customWatchlist,
+    researchItems: researchItems,
+    ddRequests: ddRequestsData,
+    viewPrefs: { view: watchlistView, sort: watchlistSort, group: watchlistGroup },
+    lastUpdated: new Date().toISOString()
+  };
+}
+
+function hydrateMoseState(state) {
+  if (!state) return false;
+  let changed = false;
+  if (state.buckets && JSON.stringify(state.buckets) !== JSON.stringify(watchlistBuckets)) { watchlistBuckets = state.buckets; changed = true; }
+  if (state.notes && JSON.stringify(state.notes) !== JSON.stringify(watchlistNotes)) { watchlistNotes = state.notes; changed = true; }
+  if (state.priority && JSON.stringify(state.priority) !== JSON.stringify(watchlistPriority)) { watchlistPriority = state.priority; changed = true; }
+  if (state.customWatchlist && JSON.stringify(state.customWatchlist) !== JSON.stringify(customWatchlist)) { customWatchlist = state.customWatchlist; changed = true; }
+  if (state.researchItems && JSON.stringify(state.researchItems) !== JSON.stringify(researchItems)) { researchItems = state.researchItems; changed = true; }
+  if (state.ddRequests && JSON.stringify(state.ddRequests) !== JSON.stringify(ddRequestsData)) { ddRequestsData = state.ddRequests; changed = true; }
+  if (state.viewPrefs) {
+    if (state.viewPrefs.view) watchlistView = state.viewPrefs.view;
+    if (state.viewPrefs.sort) watchlistSort = state.viewPrefs.sort;
+    if (state.viewPrefs.group) watchlistGroup = state.viewPrefs.group;
+  }
+  return changed;
+}
+
+function setMoseSyncStatus(icon) {
+  const el = document.getElementById('mose-sync-status');
+  if (el) el.textContent = icon;
+}
+
+// Write to localStorage WITHOUT triggering Firebase (avoids echo loops)
+function saveLocalOnly() {
+  localStorage.setItem('mose_watchlist_buckets_local', JSON.stringify(watchlistBuckets));
+  localStorage.setItem('mose_watchlist_notes_local', JSON.stringify(watchlistNotes));
+  localStorage.setItem('mose_watchlist_priority', JSON.stringify(watchlistPriority));
+  localStorage.setItem('mose_custom_watchlist', JSON.stringify(customWatchlist));
+  localStorage.setItem('mose_research_items', JSON.stringify(researchItems));
+  localStorage.setItem('mose_dd_requests_local', JSON.stringify(ddRequestsData));
+  localStorage.setItem('mose_watchlist_view', watchlistView);
+  localStorage.setItem('mose_watchlist_sort', watchlistSort);
+  localStorage.setItem('mose_watchlist_group', watchlistGroup);
+}
+
+async function moseFbGet() {
+  try {
+    const r = await fetch(MOSE_FB_URL + '.json', { cache: 'no-store' });
+    if (!r.ok) return null;
+    return await r.json();
+  } catch { return null; }
+}
+
+async function moseFbPut() {
+  if (moseSyncing) { moseSyncPending = true; return; }
+  moseSyncing = true;
+  setMoseSyncStatus('⏳');
+  try {
+    const state = getMoseState();
+    const r = await fetch(MOSE_FB_URL + '.json', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(state)
+    });
+    setMoseSyncStatus(r.ok ? '✅' : '⚠️');
+  } catch { setMoseSyncStatus('⚠️'); }
+  moseSyncing = false;
+  if (moseSyncPending) { moseSyncPending = false; moseFbPut(); }
+}
+
+// Debounced version for frequent edits
+let moseFbPutTimer = null;
+function moseFbPutDebounced() {
+  clearTimeout(moseFbPutTimer);
+  moseFbPutTimer = setTimeout(moseFbPut, 800);
+}
+
+function moseFbListen() {
+  if (moseFbListening) return;
+  moseFbListening = true;
+  const es = new EventSource(MOSE_FB_URL + '.json');
+  // Firebase streams named events (put/patch) with a {path,data} envelope —
+  // NOT default 'message' events, so we listen for the named ones explicitly.
+  function handle(e) {
+    try {
+      const msg = JSON.parse(e.data);
+      if (!msg) return;
+      const state = (msg && typeof msg === 'object' && 'data' in msg && 'path' in msg) ? msg.data : msg;
+      if (!state || !state.lastUpdated) return;
+      if (hydrateMoseState(state)) {
+        saveLocalOnly();
+        renderWatchlist();
+        if (typeof renderResearchLibrary === 'function') renderResearchLibrary();
+        if (typeof updateDDCounter === 'function') updateDDCounter();
+        if (typeof renderCockpit === 'function') renderCockpit();
+        setMoseSyncStatus('✅');
+      }
+    } catch {}
+  }
+  es.addEventListener('put', handle);
+  es.addEventListener('patch', handle);
+  es.onerror = function() {
+    setMoseSyncStatus('⚠️');
+    try { es.close(); } catch {}
+    moseFbListening = false;
+    setTimeout(moseFbListen, 5000);
+  };
+}
+
 function getDDRequests() {
   return (ddRequestsData.requests || []).map(r => r.ticker || r);
 }
@@ -1973,33 +2093,8 @@ async function loadDDRequestsFromGitHub() {
   runAutoDeepDiveQueueIfReady();
 }
 
-async function saveDDRequestsToGitHub() {
-  showWatchlistToast('Saving\u2026');
-  try {
-    const jsonStr = JSON.stringify(ddRequestsData, null, 2);
-    const content = btoa(unescape(encodeURIComponent(jsonStr)));
-    const body = { message: 'Update deep-dive requests', content };
-    if (ddRequestsSHA) body.sha = ddRequestsSHA;
-    const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/data/deep-dive-requests.json`, {
-      method: 'PUT',
-      headers: {
-        'Authorization': `token ${getGithubToken()}`,
-        'Accept': 'application/vnd.github.v3+json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(body)
-    });
-    if (res.ok) {
-      const data = await res.json();
-      ddRequestsSHA = data.content.sha;
-      showWatchlistToast('\u2705 Saved');
-    } else {
-      showWatchlistToast('\u274C Save failed');
-    }
-  } catch(e) {
-    showWatchlistToast('\u274C Save error');
-  }
-}
+// DEAD GitHub sync \u2014 now routes to Firebase. (No callers; kept as a safe shim.)
+async function saveDDRequestsToGitHub() { return moseFbPut(); }
 
 function toggleDDRequest(ticker, el) {
   if (el.checked) {
@@ -2676,6 +2771,7 @@ function saveWatchlistLocalState(message) {
   localStorage.setItem('mose_research_items', JSON.stringify(researchItems));
   localStorage.setItem('mose_dd_requests_local', JSON.stringify(ddRequestsData));
   markSaved(message || 'Auto-saved');
+  moseFbPutDebounced();
 }
 
 async function loadWatchlistBuckets() {
@@ -2699,36 +2795,8 @@ async function loadWatchlistBuckets() {
 }
 
 let _saveTimer = null;
-async function saveWatchlistBucketsToGitHub() {
-  showWatchlistToast('Saving\u2026');
-  clearTimeout(_saveTimer);
-  _saveTimer = setTimeout(async () => {
-    try {
-      const jsonStr = JSON.stringify(watchlistBuckets, null, 2);
-      const content = btoa(unescape(encodeURIComponent(jsonStr)));
-      const body = { message: 'Update watchlist bucket assignments', content };
-      if (watchlistBucketsSHA) body.sha = watchlistBucketsSHA;
-      const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/data/watchlist-buckets.json`, {
-        method: 'PUT',
-        headers: {
-          'Authorization': `token ${getGithubToken()}`,
-          'Accept': 'application/vnd.github.v3+json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(body)
-      });
-      if (res.ok) {
-        const data = await res.json();
-        watchlistBucketsSHA = data.content.sha;
-        showWatchlistToast('\u2705 Saved');
-      } else {
-        showWatchlistToast('\u274C Save failed');
-      }
-    } catch(e) {
-      showWatchlistToast('\u274C Save error');
-    }
-  }, 500);
-}
+// DEAD GitHub sync \u2014 now routes to Firebase. (No callers; kept as a safe shim.)
+async function saveWatchlistBucketsToGitHub() { return moseFbPutDebounced(); }
 
 let _toastTimer = null;
 function showWatchlistToast(msg) {
@@ -2794,35 +2862,8 @@ async function loadWatchlistNotes() {
   renderWatchlist();
 }
 
-async function saveWatchlistNotesToGitHub() {
-  const token = getGithubToken();
-  if (!token) { showWatchlistToast('\u274C No token'); return; }
-  showWatchlistToast('Saving notes\u2026');
-  try {
-    const jsonStr = JSON.stringify(watchlistNotes, null, 2);
-    const content = btoa(unescape(encodeURIComponent(jsonStr)));
-    const body = { message: 'Update watchlist notes', content };
-    if (watchlistNotesSHA) body.sha = watchlistNotesSHA;
-    const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/data/watchlist-notes.json`, {
-      method: 'PUT',
-      headers: {
-        'Authorization': `token ${token}`,
-        'Accept': 'application/vnd.github.v3+json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(body)
-    });
-    if (res.ok) {
-      const data = await res.json();
-      watchlistNotesSHA = data.content.sha;
-      showWatchlistToast('\u2705 Notes saved');
-    } else {
-      showWatchlistToast('\u274C Notes save failed');
-    }
-  } catch(e) {
-    showWatchlistToast('\u274C Save error');
-  }
-}
+// DEAD GitHub sync \u2014 now routes to Firebase. (No callers; kept as a safe shim.)
+async function saveWatchlistNotesToGitHub() { return moseFbPutDebounced(); }
 
 function markUnsaved() {
   saveWatchlistLocalState('Auto-saved');
@@ -2835,59 +2876,15 @@ function markSaved(message) {
   }
 }
 
+// DEAD GitHub "Sync All" \u2014 now pushes the full state to Firebase instead.
 async function syncAllToGitHub() {
-  const token = getGithubToken();
-  if (!token) {
-    localStorage.setItem('mose_watchlist_buckets_local', JSON.stringify(watchlistBuckets));
-    saveCustomWatchlist();
-    saveResearchItems();
-    markSaved();
-    showWatchlistToast('\u2705 Saved in this browser');
-    return;
-  }
-  showWatchlistToast('\uD83D\uDCBE Saving\u2026');
-  let success = 0, failed = 0;
-
-  // Save buckets
-  try {
-    const jsonStr = JSON.stringify(watchlistBuckets, null, 2);
-    const content = btoa(unescape(encodeURIComponent(jsonStr)));
-    const body = { message: 'Sync All: buckets', content };
-    if (watchlistBucketsSHA) body.sha = watchlistBucketsSHA;
-    const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/data/watchlist-buckets.json`, {
-      method: 'PUT', headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
-      body: JSON.stringify(body)
-    });
-    if (res.ok) { const d = await res.json(); watchlistBucketsSHA = d.content.sha; success++; } else failed++;
-  } catch(e) { failed++; }
-
-  // Save deep-dive requests
-  try {
-    const jsonStr = JSON.stringify(ddRequestsData, null, 2);
-    const content = btoa(unescape(encodeURIComponent(jsonStr)));
-    const body = { message: 'Sync All: deep-dive requests', content };
-    if (ddRequestsSHA) body.sha = ddRequestsSHA;
-    const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/data/deep-dive-requests.json`, {
-      method: 'PUT', headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
-      body: JSON.stringify(body)
-    });
-    if (res.ok) { const d = await res.json(); ddRequestsSHA = d.content.sha; success++; } else failed++;
-  } catch(e) { failed++; }
-
-  // Save notes
-  try {
-    const jsonStr = JSON.stringify(watchlistNotes, null, 2);
-    const content = btoa(unescape(encodeURIComponent(jsonStr)));
-    const body = { message: 'Sync All: notes', content };
-    if (watchlistNotesSHA) body.sha = watchlistNotesSHA;
-    const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/data/watchlist-notes.json`, {
-      method: 'PUT', headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
-      body: JSON.stringify(body)
-    });
-    if (res.ok) { const d = await res.json(); watchlistNotesSHA = d.content.sha; success++; } else failed++;
-  } catch(e) { failed++; }
-
-  if (failed === 0) { markSaved(); showWatchlistToast('\u2705 All changes saved!'); } else { showWatchlistToast(`\u26A0\uFE0F ${success}/${success + failed} saved`); }
+  saveLocalOnly();
+  saveCustomWatchlist();
+  saveResearchItems();
+  showWatchlistToast('\uD83D\uDCBE Syncing\u2026');
+  await moseFbPut();
+  markSaved();
+  showWatchlistToast('\u2705 Synced to cloud');
 }
 
 function setWatchlistView(view, btn) {
@@ -2902,18 +2899,21 @@ function setWatchlistView(view, btn) {
   const viewEl = document.getElementById('watchlist-view');
   if (viewEl) viewEl.value = view;
   renderWatchlist();
+  moseFbPutDebounced();
 }
 
 function setWatchlistSort(sort) {
   watchlistSort = sort;
   localStorage.setItem('mose_watchlist_sort', sort);
   renderWatchlist();
+  moseFbPutDebounced();
 }
 
 function setWatchlistGroup(group) {
   watchlistGroup = group;
   localStorage.setItem('mose_watchlist_group', group);
   renderWatchlist();
+  moseFbPutDebounced();
 }
 
 function getPriority(ticker) {
@@ -4200,6 +4200,15 @@ async function hardRefreshAll() {
       loadSymbolData()
     ]);
     renderInvestors();
+    // Pull latest watchlist state from Firebase
+    const remote = await moseFbGet();
+    if (remote && remote.lastUpdated && hydrateMoseState(remote)) {
+      saveLocalOnly();
+      renderWatchlist();
+      if (typeof renderResearchLibrary === 'function') renderResearchLibrary();
+      if (typeof updateDDCounter === 'function') updateDDCounter();
+      setMoseSyncStatus('✅');
+    }
   } catch(e) { console.error('Hard refresh error', e); }
   if (btn) { btn.textContent = '✅ Done!'; setTimeout(() => { btn.textContent = '🔄 Hard Refresh'; btn.disabled = false; }, 2000); }
 }
@@ -4218,6 +4227,24 @@ window.addEventListener('DOMContentLoaded', () => {
   loadWatchlistNotes();
   loadDDRequestsFromGitHub();
   // Public build is view-only; GitHub write access is disabled.
+
+  // Firebase sync — load from cloud, seed if empty, then listen for live changes
+  (async function() {
+    const remote = await moseFbGet();
+    if (remote && remote.lastUpdated) {
+      hydrateMoseState(remote);
+      saveLocalOnly();
+      renderWatchlist();
+      if (typeof renderResearchLibrary === 'function') renderResearchLibrary();
+      if (typeof updateDDCounter === 'function') updateDDCounter();
+      if (typeof renderCockpit === 'function') renderCockpit();
+      setMoseSyncStatus('✅');
+    } else {
+      // First run or empty DB — seed Firebase from this device's localStorage
+      await moseFbPut();
+    }
+    moseFbListen();
+  })();
 
   // Auto-refresh
   setInterval(loadIndices, 5 * 60 * 1000);
