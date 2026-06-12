@@ -6,6 +6,30 @@
 
 ---
 
+## Session 5 — June 12, 2026
+**Goal:** Give Joe a mechanical market re-entry playbook after the April 2026 Truist→IBKR move, so the monthly buys happen like clockwork regardless of where the market is.
+
+**What was built:**
+- New **📅 Re-Entry Plan** tab with two plans:
+  - **IRA (IBKR) — 18-month tranche DCA**: remaining cash ÷ remaining months = base tranche; a drawdown ladder scales the order up (−5% → 1.5×, −10% → 2×, −15% → 2.5×, −20% → 3×). Each month's order is split across Watchlist buckets (Core 50 / Opportunistic 30 / Innovation 10 / Treasury 10 by default) with live tickers from those buckets shown on the buy ticket.
+  - **Joint Taxable ($344k) — opportunistic dip buyer**: holds cash until cumulative dip tiers trigger (−5% deploy 15%, −10% +25%, −15% +30%, −20% +30%), with the shopping list pulled live from the Watchlist buckets.
+- Drawdown is measured on the S&P 500 from a **ratcheting reference high** (auto-updates on new highs, manually overridable), plus a vs-April-exit readout (6591.90).
+- Big "buy ticket" cards show this month's exact dollar order and status (⏳ waiting / 🔔 BUY NOW / ✅ done), an 18-row schedule table, the active ladder rung highlighted, and a progress bar of deployed vs dry powder.
+- **Purchase log**: after placing an order at IBKR, Joe logs date/account/ticker/amount; remaining tranches recalculate, so skipped or partial months roll forward automatically.
+- Command Center now shows a Re-Entry banner card (next action for both accounts) that jumps to the tab.
+- All plan settings (totals, months, start, buy day, allocations, ladder multipliers, tier percentages) are editable in the UI; state persists to localStorage and syncs through the existing Firebase pipe (`reentry` key in the shared state blob).
+
+**Verification steps run:**
+- Embedded JavaScript syntax check for `index.html` (node --check)
+- Node smoke tests of the tranche math (at-high 1× $50k, −11% → 2× $100k; joint tiers trigger $137.6k at −11%; purchases roll the remainder forward)
+- Headless Chromium render of the cockpit banner and the full Re-Entry tab — no console errors
+
+**Known issues / next work:**
+- Live S&P quote currently comes from `indices-latest.json` / the Stooq job; per-ticker monthly-dip signals need price history (Stooq API key) before "GOOGL is down X% this month" alerts can be added.
+- IBKR API hookup still pending — purchases are logged manually for now by design.
+
+---
+
 ## Session 4 — May 11, 2026
 **Goal:** Improve Watchlist sorting/grouping and add the first Research module without making Joe enter the same stock twice.
 
