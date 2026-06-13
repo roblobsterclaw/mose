@@ -6,6 +6,30 @@
 
 ---
 
+## Session 6 — June 13, 2026
+**Goal:** Replace the "decide the timing for me" model with what Joe actually wants — a fixed per-stock dollar-goal tracker he reverts to, updated from IBKR position screenshots.
+
+**What was built:**
+- New **🎯 Buy Targets** tab — a goal tracker, not a timing engine. Each stock has a fixed dollar target decided today; Joe buys on his own schedule and the sheet shows how much of each he still needs.
+- **Two pools, kept separate:**
+  - **IRA — $1.15M combined** (his $950k + wife's $200k), tracked as one goal but executed per-account. Buckets: Forever 45% / S&P 35% (VOO) / For Now 20%, equal-weight within each bucket. His/hers are mirrors scaled to each account's total.
+  - **MOSE — $344k joint cash** (the former "Innovation" names), 70% to stocks ($240,800 split equally across 10 names) / 30% cash held back ($103,200). 100% separate from IRA totals.
+- Three views: **Combined IRA goal progress** (per stock, his+hers), **Your IRA** and **Her IRA** execution tables with editable Owned + "Buy More" order sizes, and the **MOSE** table. Plus a **Holdings outside the plan** section for tickers held but not in any bucket.
+- **Owned seeded from Joe's IBKR screenshot (acct U25747451):** GOOGL $18,044, AMZN $11,928, WMT $16,946, PLD $5,652 (flagged outside-plan). Wife's side left pending her screenshot.
+- **CSV export** button (account/bucket/ticker/target/owned/buy-more/%). Bucket names renamed to Joe's labels (Forever / S&P / For Now / MOSE).
+- All goals/pools/%s editable in-UI; state persists to localStorage and syncs via the shared Firebase blob (`targets` key). Cockpit/Re-Entry tabs untouched.
+
+**Verification steps run:**
+- Embedded JavaScript syntax check (node --check)
+- Node unit test of target math (his Forever $106,875, S&P $332,500, For Now $12,667; hers Forever $22,500; his deployed $46,918; MOSE $240,800/$103,200) and CSV export
+- Headless Chromium render of the full tab — tables, his/hers split, MOSE, outside-plan (PLD), WMT over-target flag all correct; no page errors
+
+**Known issues / next work:**
+- Wife's IRA Owned column is zero pending her positions screenshot (Joe is merging her accounts under one IBKR login / LTA).
+- Updating Owned from a screenshot is currently manual entry (or I edit the seed); fine until the IBKR API is connected.
+
+---
+
 ## Session 5 — June 12, 2026
 **Goal:** Give Joe a mechanical market re-entry playbook after the April 2026 Truist→IBKR move, so the monthly buys happen like clockwork regardless of where the market is.
 
