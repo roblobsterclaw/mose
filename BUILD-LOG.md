@@ -6,6 +6,76 @@
 
 ---
 
+## Session 7 — June 15, 2026
+**Goal:** Four Buy-Targets upgrades Joe greenlit, plus load his wife's IRA positions.
+
+**What was built:**
+- **Custom per-stock weights within a bucket** — new editable "% of Bucket" column in the Combined table. Setting one stock's % rebalances the others proportionally so the bucket always sums to 100% and its dollar goal stays exact. "Reset to equal" link per bucket. Single-ticker buckets (S&P/VOO) show a fixed 100%. Weights flow through to his/hers/combined and the CSV.
+- **"Buy More" in shares** — every order amount now shows `≈ N sh` at the live price in the his/hers/MOSE tables, and a "Buy More (sh)" column in the CSV.
+- **One-paste IBKR import** — collapsible "📥 Update from IBKR" panel: pick account, paste positions (`TICKER VALUE` or `TICKER SHARES PRICE`), Preview, Import. Forgiving parser ignores USD/Cash lines and handles $/comma formatting. Lands straight in the synced state (solves the Firebase-override problem for monthly updates).
+- **Progress history** — dated snapshots auto-captured on every import (plus a manual "Save snapshot now" button). Shows a sparkline of % of IRA goal deployed over time and a table with deployed $, %, MOSE deployed, and Δ since the prior snapshot.
+- **Wife's IRA loaded** from her IBKR screenshot (acct U25767390): AMZN $2,624, GOOGL $3,970, WMT $3,389 (~$190k still in SGOV/cash). Her side of the tracker is now live; combined IRA deployed = $56,901 (4.9%).
+- Bumped targets data to version 2 with a load-time normalizer (adds `weights`/`history` to any older saved state).
+
+**Verification steps run:**
+- Embedded JavaScript syntax check (node --check)
+- Node tests: weight rebalance (GOOGL→40% of Forever makes others 20% each, sum 100, targets recompute to $207k combined / $171k his); import parser (both formats, USD/Cash ignored); import-into-account + same-day snapshot dedup; wife data load
+- Headless Chromium render of the full upgraded tab — % of Bucket column, share hints, import panel, populated Her IRA, history, outside-plan (PLD); no page errors
+
+**Known issues / next work:**
+- Import overwrites listed tickers but doesn't zero a position that was fully sold — edit that cell to 0 if needed.
+- Still on the dev branch; not deployed live (holding per Joe until he gives the go-ahead).
+
+---
+
+## Session 6 — June 13, 2026
+**Goal:** Replace the "decide the timing for me" model with what Joe actually wants — a fixed per-stock dollar-goal tracker he reverts to, updated from IBKR position screenshots.
+
+**What was built:**
+- New **🎯 Buy Targets** tab — a goal tracker, not a timing engine. Each stock has a fixed dollar target decided today; Joe buys on his own schedule and the sheet shows how much of each he still needs.
+- **Two pools, kept separate:**
+  - **IRA — $1.15M combined** (his $950k + wife's $200k), tracked as one goal but executed per-account. Buckets: Forever 45% / S&P 35% (VOO) / For Now 20%, equal-weight within each bucket. His/hers are mirrors scaled to each account's total.
+  - **MOSE — $344k joint cash** (the former "Innovation" names), 70% to stocks ($240,800 split equally across 10 names) / 30% cash held back ($103,200). 100% separate from IRA totals.
+- Three views: **Combined IRA goal progress** (per stock, his+hers), **Your IRA** and **Her IRA** execution tables with editable Owned + "Buy More" order sizes, and the **MOSE** table. Plus a **Holdings outside the plan** section for tickers held but not in any bucket.
+- **Owned seeded from Joe's IBKR screenshot (acct U25747451):** GOOGL $18,044, AMZN $11,928, WMT $16,946, PLD $5,652 (flagged outside-plan). Wife's side left pending her screenshot.
+- **CSV export** button (account/bucket/ticker/target/owned/buy-more/%). Bucket names renamed to Joe's labels (Forever / S&P / For Now / MOSE).
+- All goals/pools/%s editable in-UI; state persists to localStorage and syncs via the shared Firebase blob (`targets` key). Cockpit/Re-Entry tabs untouched.
+
+**Verification steps run:**
+- Embedded JavaScript syntax check (node --check)
+- Node unit test of target math (his Forever $106,875, S&P $332,500, For Now $12,667; hers Forever $22,500; his deployed $46,918; MOSE $240,800/$103,200) and CSV export
+- Headless Chromium render of the full tab — tables, his/hers split, MOSE, outside-plan (PLD), WMT over-target flag all correct; no page errors
+
+**Known issues / next work:**
+- Wife's IRA Owned column is zero pending her positions screenshot (Joe is merging her accounts under one IBKR login / LTA).
+- Updating Owned from a screenshot is currently manual entry (or I edit the seed); fine until the IBKR API is connected.
+
+---
+
+## Session 5 — June 12, 2026
+**Goal:** Give Joe a mechanical market re-entry playbook after the April 2026 Truist→IBKR move, so the monthly buys happen like clockwork regardless of where the market is.
+
+**What was built:**
+- New **📅 Re-Entry Plan** tab with two plans:
+  - **IRA (IBKR) — 18-month tranche DCA**: remaining cash ÷ remaining months = base tranche; a drawdown ladder scales the order up (−5% → 1.5×, −10% → 2×, −15% → 2.5×, −20% → 3×). Each month's order is split across Watchlist buckets (Core 50 / Opportunistic 30 / Innovation 10 / Treasury 10 by default) with live tickers from those buckets shown on the buy ticket.
+  - **Joint Taxable ($344k) — opportunistic dip buyer**: holds cash until cumulative dip tiers trigger (−5% deploy 15%, −10% +25%, −15% +30%, −20% +30%), with the shopping list pulled live from the Watchlist buckets.
+- Drawdown is measured on the S&P 500 from a **ratcheting reference high** (auto-updates on new highs, manually overridable), plus a vs-April-exit readout (6591.90).
+- Big "buy ticket" cards show this month's exact dollar order and status (⏳ waiting / 🔔 BUY NOW / ✅ done), an 18-row schedule table, the active ladder rung highlighted, and a progress bar of deployed vs dry powder.
+- **Purchase log**: after placing an order at IBKR, Joe logs date/account/ticker/amount; remaining tranches recalculate, so skipped or partial months roll forward automatically.
+- Command Center now shows a Re-Entry banner card (next action for both accounts) that jumps to the tab.
+- All plan settings (totals, months, start, buy day, allocations, ladder multipliers, tier percentages) are editable in the UI; state persists to localStorage and syncs through the existing Firebase pipe (`reentry` key in the shared state blob).
+
+**Verification steps run:**
+- Embedded JavaScript syntax check for `index.html` (node --check)
+- Node smoke tests of the tranche math (at-high 1× $50k, −11% → 2× $100k; joint tiers trigger $137.6k at −11%; purchases roll the remainder forward)
+- Headless Chromium render of the cockpit banner and the full Re-Entry tab — no console errors
+
+**Known issues / next work:**
+- Live S&P quote currently comes from `indices-latest.json` / the Stooq job; per-ticker monthly-dip signals need price history (Stooq API key) before "GOOGL is down X% this month" alerts can be added.
+- IBKR API hookup still pending — purchases are logged manually for now by design.
+
+---
+
 ## Session 4 — May 11, 2026
 **Goal:** Improve Watchlist sorting/grouping and add the first Research module without making Joe enter the same stock twice.
 

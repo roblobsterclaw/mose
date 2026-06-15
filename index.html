@@ -360,6 +360,52 @@
   /* Info blurb */
   .info-blurb { font-size: 11px; color: var(--soft-text); margin-top: 16px; padding-top: 10px; border-top: 1px solid var(--border); font-weight: 600; }
 
+  /* ===== RE-ENTRY PLAN ===== */
+  .reentry-section { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; margin-bottom: 16px; }
+  .reentry-section h3 { font-size: 16px; color: var(--heading); margin-bottom: 4px; }
+  .reentry-section .sub { font-size: 12px; color: var(--muted); margin-bottom: 12px; font-weight: 600; }
+  .reentry-ticket { border: 2px solid var(--border); border-radius: 14px; padding: 18px 20px; margin-bottom: 16px; background: var(--surface); }
+  .reentry-ticket.due { border-color: var(--green); box-shadow: 0 0 16px rgba(46,160,67,0.28); }
+  .reentry-ticket.done { border-color: var(--border); opacity: 0.92; }
+  .reentry-ticket-status { display: inline-block; padding: 4px 12px; border-radius: 999px; font-size: 12px; font-weight: 800; letter-spacing: 0.4px; margin-bottom: 8px; }
+  .reentry-ticket-status.due { background: var(--green-bg); color: var(--green); border: 1px solid var(--green); }
+  .reentry-ticket-status.wait { background: var(--yellow-bg); color: var(--yellow); border: 1px solid var(--yellow); }
+  .reentry-ticket-status.done { background: var(--green-bg); color: var(--green); border: 1px solid var(--border); }
+  .reentry-ticket-status.idle { background: transparent; color: var(--muted); border: 1px solid var(--border); }
+  .reentry-amount { font-size: 36px; font-weight: 900; color: var(--accent); line-height: 1.1; }
+  .reentry-amount small { font-size: 14px; color: var(--muted); font-weight: 700; }
+  .reentry-bucket-grid { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+  .reentry-bucket-card { flex: 1 1 210px; border: 1px solid var(--border); border-left-width: 5px; border-radius: 10px; padding: 10px 12px; background: var(--bg); }
+  .reentry-bucket-card .amt { font-size: 20px; font-weight: 800; color: var(--text); }
+  .reentry-bucket-card .bk-label { font-size: 11px; font-weight: 700; color: var(--muted); margin-bottom: 2px; }
+  .reentry-bucket-card .tickers { font-size: 12px; margin-top: 6px; line-height: 1.7; color: var(--soft-text); }
+  .reentry-ladder tr.active-tier td { background: rgba(232,86,42,0.14); font-weight: 800; }
+  .reentry-input { background: var(--bg); border: 1px solid var(--border); color: var(--text); border-radius: 6px; padding: 5px 8px; width: 110px; font-family: inherit; font-size: 13px; }
+  .reentry-input.short { width: 64px; }
+  .reentry-form { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin: 10px 0 14px; }
+  .reentry-form select { background: var(--bg); border: 1px solid var(--border); color: var(--text); border-radius: 6px; padding: 5px 8px; font-family: inherit; font-size: 13px; }
+  .reentry-del-btn { background: transparent; border: 1px solid var(--border); color: var(--red); border-radius: 6px; cursor: pointer; padding: 2px 8px; font-weight: 800; }
+  .reentry-settings summary { cursor: pointer; font-size: 12px; font-weight: 800; color: var(--blue); margin-top: 10px; }
+  .reentry-settings-grid { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 10px; }
+  .reentry-settings-grid label { display: flex; flex-direction: column; gap: 4px; font-size: 11px; font-weight: 700; color: var(--muted); }
+  .reentry-progress-track { height: 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 999px; overflow: hidden; margin: 8px 0 4px; }
+  .reentry-progress-fill { height: 100%; background: linear-gradient(90deg, var(--green), #56d364); border-radius: 999px; }
+  .cockpit-reentry-card { display: block; border: 1.5px solid var(--accent); background: var(--surface); border-radius: 12px; padding: 12px 16px; margin-bottom: 16px; cursor: pointer; font-weight: 700; }
+  .cockpit-reentry-card:hover { background: rgba(232,86,42,0.08); }
+  .cockpit-reentry-card .crc-title { font-size: 13px; color: var(--accent); font-weight: 900; letter-spacing: 0.4px; margin-bottom: 4px; }
+
+  /* ===== BUY TARGETS ===== */
+  .targ-input { background: var(--bg); border: 1px solid var(--border); color: var(--text); border-radius: 6px; padding: 4px 8px; width: 108px; font-family: inherit; font-size: 13px; text-align: right; }
+  .targ-input:focus { border-color: var(--accent); outline: none; }
+  .targ-bar { display: inline-block; width: 64px; height: 8px; background: var(--bg); border: 1px solid var(--border); border-radius: 999px; overflow: hidden; vertical-align: middle; margin-right: 7px; }
+  .targ-bar-fill { display: block; height: 100%; background: linear-gradient(90deg, var(--green), #56d364); }
+  .targ-bucket-row td { background: rgba(255,255,255,0.05); font-weight: 800; color: var(--heading); font-size: 12px; letter-spacing: 0.3px; }
+  body.theme-light .targ-bucket-row td { background: rgba(0,0,0,0.05); }
+  .targ-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 980px) { .targ-grid { grid-template-columns: 1fr; } }
+  #tab-targets table td, #tab-targets table th { padding: 7px 10px; }
+  #tab-targets .reentry-section h3 { font-size: 15px; }
+
   /* ============================================================ */
   /* SUPER INVESTORS TAB */
   /* ============================================================ */
@@ -1072,6 +1118,8 @@ function checkPw(){
   <button class="tab-btn" onclick="switchTab('portfolio', this)">🎯 Joe's Watchlist</button>
   <button class="tab-btn" onclick="switchTab('investors', this)">🧠 Super Investors</button>
   <button class="tab-btn" onclick="switchTab('joeholdings', this)">💼 Joe's Holdings</button>
+  <button class="tab-btn" onclick="switchTab('targets', this)">🎯 Buy Targets</button>
+  <button class="tab-btn" onclick="switchTab('reentry', this)">📅 Re-Entry Plan</button>
   <button class="tab-btn" onclick="switchTab('research', this)">📄 Research Library</button>
 </div>
 
@@ -1100,6 +1148,8 @@ function checkPw(){
       <div class="cockpit-stat"><div class="num" id="pc-core-count">-</div><div class="label">Priority buckets</div><div class="sub">Core + opportunistic</div></div>
       <div class="cockpit-stat"><div class="num" id="pc-report-count">-</div><div class="label">Reports ready</div><div class="sub">Clickable deep dives</div></div>
     </div>
+
+    <div id="cockpit-reentry-banner"></div>
 
     <div class="toolbar">
       <h2>Highest-Rated Candidates</h2>
@@ -1519,6 +1569,127 @@ function checkPw(){
       Holdings from Joe Lynch's brokerage accounts. <span id="jh-data-note">Data as of March 31, 2026 (Truist statements)</span>.<br>
       ~$1.14M in SGOV/treasuries ready for April 30 deployment. Keli IRA managed by Truist — 40+ positions.<br>
       ⚠️ This is Joe's current state, not his target portfolio. See Joe's Watchlist tab for the April 30 plan.
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- TAB: BUY TARGETS (per-stock goal tracker) -->
+  <!-- ============================================================ -->
+  <div id="tab-targets" class="tab-panel">
+    <div class="toolbar">
+      <h2>🎯 Buy Targets — Goal Tracker</h2>
+      <span class="watchlist-autosave-pill">Auto-saves &amp; syncs</span>
+      <button class="csv-btn" onclick="targetsExportCSV()">⬇ Export CSV</button>
+      <button class="filter-btn" onclick="loadLiveMarketData(true)">↻ Refresh Quotes</button>
+    </div>
+
+    <div class="info-blurb" style="border:none;margin:0 0 14px;padding:0;font-size:12px">
+      Your fixed end-goal per stock, decided today. Buy on your own schedule (more on dips, less on rallies) — this just shows how much of each you still need. Send a fresh IBKR positions screenshot anytime and I'll update the Owned column.
+    </div>
+
+    <div class="stats-bar" id="targets-stats-bar"></div>
+
+    <details class="reentry-section" id="targets-import-section">
+      <summary style="cursor:pointer;font-weight:800;color:var(--heading);font-size:15px;list-style:none">📥 Update from IBKR <span style="font-weight:600;color:var(--muted);font-size:12px">— paste positions for one account (monthly refresh)</span></summary>
+      <div class="sub" style="margin-top:10px">Pick the account, paste your positions, Preview, then Import. Format: one per line — <code>TICKER VALUE</code> or <code>TICKER SHARES PRICE</code> (e.g. <code>AMZN 11 238.67</code>). Or just send me the screenshot and I'll hand you a block to paste. USD/Cash lines are ignored.</div>
+      <div class="reentry-form">
+        <select id="targets-import-acct" class="reentry-input" style="width:auto">
+          <option value="his">Joe's IRA</option>
+          <option value="hers">Wife's IRA</option>
+          <option value="mose">MOSE Joint</option>
+        </select>
+        <button class="filter-btn" onclick="targImportPreview()">Preview</button>
+        <button class="watchlist-add-btn" onclick="targImport()">Import → fill Owned</button>
+      </div>
+      <textarea id="targets-import-text" placeholder="AMZN 11 238.67&#10;GOOGL 11 360.88&#10;WMT 28 120.80" style="width:100%;min-height:88px;background:var(--bg);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:10px;font-family:inherit;font-size:13px"></textarea>
+      <div id="targets-import-preview" style="font-size:12px;color:var(--soft-text);margin-top:8px;line-height:1.7"></div>
+    </details>
+
+    <div class="reentry-section">
+      <h3>🎯 Combined IRA Goal Progress (his + hers)</h3>
+      <div class="sub">The number that matters: your end goal per stock across both IRAs combined, regardless of which account holds it. $1.15M total · Forever 45% / S&amp;P 35% / For Now 20%.</div>
+      <div id="targets-combined"></div>
+    </div>
+
+    <div class="targ-grid">
+      <div class="reentry-section">
+        <h3 id="targets-his-title">Your IRA</h3>
+        <div class="sub" id="targets-his-sub"></div>
+        <div id="targets-his"></div>
+      </div>
+      <div class="reentry-section">
+        <h3 id="targets-hers-title">Her IRA</h3>
+        <div class="sub" id="targets-hers-sub"></div>
+        <div id="targets-hers"></div>
+      </div>
+    </div>
+
+    <div class="reentry-section">
+      <h3>💎 MOSE — Joint Cash Account (margin of safety)</h3>
+      <div class="sub" id="targets-mose-sub"></div>
+      <div id="targets-mose"></div>
+    </div>
+
+    <div id="targets-history"></div>
+
+    <div id="targets-extra"></div>
+
+    <details class="reentry-settings reentry-section">
+      <summary>⚙️ Edit goals, pools &amp; allocations</summary>
+      <div id="targets-settings"></div>
+      <div class="info-blurb" style="border:none;margin-top:8px;padding-top:4px">
+        Changing the IRA totals or bucket %s re-spreads every per-stock goal automatically. To weight individual stocks inside a bucket, edit the "% of Bucket" column in the Combined table up top (the others rebalance to keep the bucket at 100%). To add/remove tickers, just tell me and I'll update the lists.
+      </div>
+    </details>
+
+    <div class="info-blurb">
+      How to use it: when you sit down to buy, work the <strong>Your IRA</strong> table (fill up to $950k) and the <strong>Her IRA</strong> table (fill up to $200k) — the "Buy More" column is your order size for each. The Combined table up top shows overall progress toward each stock's goal. MOSE is your separate $344k joint cash account and is never mixed into the IRA totals. Not financial advice — this is your own plan.
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- TAB: RE-ENTRY PLAN (18-month tranche DCA + dip buyer) -->
+  <!-- ============================================================ -->
+  <div id="tab-reentry" class="tab-panel">
+    <div class="toolbar">
+      <h2>📅 Market Re-Entry Plan</h2>
+      <span class="watchlist-autosave-pill">Auto-saves &amp; syncs across devices</span>
+      <button class="filter-btn" onclick="loadIndices()">↻ Refresh Market Data</button>
+    </div>
+
+    <div class="stats-bar" id="reentry-stats-bar"></div>
+
+    <div id="reentry-action"></div>
+
+    <div id="reentry-plans"></div>
+
+    <div class="reentry-section" id="reentry-log-section">
+      <h3>🧾 Purchase Log</h3>
+      <div class="sub">After you place an order at IBKR, log it here. The remaining tranches recalculate automatically — under-buying or skipping a month rolls forward into the months left.</div>
+      <div class="reentry-form">
+        <select id="reentry-buy-plan"></select>
+        <input type="date" class="reentry-input" id="reentry-buy-date">
+        <input class="reentry-input short" id="reentry-buy-ticker" placeholder="Ticker" style="text-transform:uppercase">
+        <input type="number" class="reentry-input" id="reentry-buy-amount" placeholder="Amount $">
+        <input class="reentry-input" id="reentry-buy-note" placeholder="Note (optional)" style="width:200px">
+        <button class="watchlist-add-btn" onclick="reentryAddPurchase()">＋ Log Purchase</button>
+      </div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Date</th><th>Account</th><th>Ticker</th><th>Amount</th><th>Note</th><th></th></tr></thead>
+        <tbody id="reentry-log-body"><tr><td colspan="6" class="no-data">No purchases logged yet.</td></tr></tbody>
+      </table></div>
+    </div>
+
+    <details class="reentry-settings reentry-section">
+      <summary>⚙️ Market Reference Settings</summary>
+      <div class="reentry-settings-grid" id="reentry-global-settings"></div>
+      <div class="info-blurb" style="border:none;margin-top:8px;padding-top:4px">
+        Reference high auto-ratchets up whenever the S&amp;P prints a new high in the data feed — drawdown is always measured from the peak since you exited. Override it manually if needed.
+      </div>
+    </details>
+
+    <div class="info-blurb">
+      How it works: the IRA plan divides what's left to deploy by the months remaining, so each month has a base tranche. When the S&amp;P is in a drawdown from its reference high, the buy ladder scales that month's order up (1.5×, 2×…), spending the cash faster while prices are lower. The Joint account stays in cash and only deploys when a dip tier triggers. Ticker menus come from your Watchlist buckets — keep curating them there. Not financial advice; this is Joe's own playbook.
     </div>
   </div>
 
@@ -1955,6 +2126,8 @@ function getMoseState() {
     customWatchlist: customWatchlist,
     researchItems: researchItems,
     ddRequests: ddRequestsData,
+    reentry: reentryData,
+    targets: targetsData,
     viewPrefs: { view: watchlistView, sort: watchlistSort, group: watchlistGroup },
     lastUpdated: new Date().toISOString()
   };
@@ -1969,6 +2142,8 @@ function hydrateMoseState(state) {
   if (state.customWatchlist && JSON.stringify(state.customWatchlist) !== JSON.stringify(customWatchlist)) { customWatchlist = state.customWatchlist; changed = true; }
   if (state.researchItems && JSON.stringify(state.researchItems) !== JSON.stringify(researchItems)) { researchItems = state.researchItems; changed = true; }
   if (state.ddRequests && JSON.stringify(state.ddRequests) !== JSON.stringify(ddRequestsData)) { ddRequestsData = state.ddRequests; changed = true; }
+  if (state.reentry && state.reentry.plans && JSON.stringify(state.reentry) !== JSON.stringify(reentryData)) { reentryData = state.reentry; changed = true; }
+  if (state.targets && state.targets.ira && JSON.stringify(state.targets) !== JSON.stringify(targetsData)) { targetsData = state.targets; changed = true; }
   if (state.viewPrefs) {
     if (state.viewPrefs.view) watchlistView = state.viewPrefs.view;
     if (state.viewPrefs.sort) watchlistSort = state.viewPrefs.sort;
@@ -1990,6 +2165,8 @@ function saveLocalOnly() {
   localStorage.setItem('mose_custom_watchlist', JSON.stringify(customWatchlist));
   localStorage.setItem('mose_research_items', JSON.stringify(researchItems));
   localStorage.setItem('mose_dd_requests_local', JSON.stringify(ddRequestsData));
+  localStorage.setItem('mose_reentry_local', JSON.stringify(reentryData));
+  localStorage.setItem('mose_targets_local', JSON.stringify(targetsData));
   localStorage.setItem('mose_watchlist_view', watchlistView);
   localStorage.setItem('mose_watchlist_sort', watchlistSort);
   localStorage.setItem('mose_watchlist_group', watchlistGroup);
@@ -2045,6 +2222,8 @@ function moseFbListen() {
         if (typeof renderResearchLibrary === 'function') renderResearchLibrary();
         if (typeof updateDDCounter === 'function') updateDDCounter();
         if (typeof renderCockpit === 'function') renderCockpit();
+        if (typeof renderReentry === 'function') renderReentry();
+        if (typeof renderTargets === 'function') renderTargets();
         setMoseSyncStatus('✅');
       }
     } catch {}
@@ -2182,6 +2361,7 @@ async function loadIndices() {
     const data = liveLoaded && liveMarketData && liveMarketData.indices && liveMarketData.indices.length
       ? { indices: liveMarketData.indices, generated: liveMarketData.generated_at }
       : fallback;
+    latestIndicesData = fallback && fallback.indices ? fallback : data;
     const idMap = {
       'S&P 500':      'idx-spx',
       'Dow Jones':    'idx-dji',
@@ -2222,6 +2402,7 @@ async function loadIndices() {
     document.getElementById('last-updated').textContent = data.generated
       ? `${new Date(data.generated).toLocaleTimeString()} quotes`
       : now.toLocaleTimeString();
+    if (typeof renderReentry === 'function') renderReentry();
   } catch(e) {
     document.getElementById('last-updated').textContent = 'Error loading indices';
   }
@@ -2242,6 +2423,7 @@ async function loadLiveMarketData(showToast) {
     renderWatchlist();
     renderCockpit();
     renderResearchQueue();
+    if (typeof renderReentry === 'function') renderReentry();
     if (showToast) showWatchlistToast(`Quotes refreshed: ${(data.quotes || []).length} tickers`);
     return true;
   } catch(e) {
@@ -4177,6 +4359,857 @@ document.addEventListener('click', event => {
 });
 
 // ============================================================
+// RE-ENTRY PLAN — 18-month tranche DCA (IRA) + dip-tier buyer (Joint)
+// Drawdown is measured on the S&P 500 from a ratcheting reference high.
+// State syncs through the same localStorage + Firebase pipe as the watchlist.
+// ============================================================
+let latestIndicesData = null; // fallback indices captured by loadIndices()
+
+const REENTRY_BUCKET_CHOICES = ['core-forever','opportunistic','innovation','value-with-risk','treasury-index'];
+
+function defaultReentryData() {
+  return {
+    version: 1,
+    settings: { referenceHigh: null, exitLevel: 6591.90 },
+    plans: [
+      {
+        id: 'ira',
+        label: '🏦 IRA (IBKR) — 18-Month Tranche Re-Entry',
+        mode: 'dca',
+        totalAmount: 900000,
+        months: 18,
+        startDate: '2026-06-01',
+        buyDay: 15,
+        allocations: { 'core-forever': 50, 'opportunistic': 30, 'innovation': 10, 'treasury-index': 10 },
+        ladder: [
+          { dd: 0,   mult: 1.0 },
+          { dd: -5,  mult: 1.5 },
+          { dd: -10, mult: 2.0 },
+          { dd: -15, mult: 2.5 },
+          { dd: -20, mult: 3.0 },
+        ]
+      },
+      {
+        id: 'joint',
+        label: '👫 Joint Taxable — Opportunistic Dip Buyer',
+        mode: 'dip',
+        totalAmount: 344000,
+        tiers: [
+          { dd: -5,  pct: 15 },
+          { dd: -10, pct: 25 },
+          { dd: -15, pct: 30 },
+          { dd: -20, pct: 30 },
+        ]
+      }
+    ],
+    purchases: []
+  };
+}
+
+let reentryData = (function() {
+  try {
+    const d = JSON.parse(localStorage.getItem('mose_reentry_local') || 'null');
+    if (d && Array.isArray(d.plans)) return d;
+  } catch {}
+  return defaultReentryData();
+})();
+
+function reentryFmt(n) { return '$' + Math.round(Number(n) || 0).toLocaleString('en-US'); }
+function reentryMonthKey(d) { return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0'); }
+function reentryMonthLabel(d) { return d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' }); }
+function reentryPlan(id) { return reentryData.plans.find(p => p.id === id); }
+function reentryPurchases(planId) { return (reentryData.purchases || []).filter(p => p.planId === planId); }
+function reentrySpent(planId) { return reentryPurchases(planId).reduce((s, p) => s + (Number(p.amount) || 0), 0); }
+
+function reentrySave() {
+  localStorage.setItem('mose_reentry_local', JSON.stringify(reentryData));
+  moseFbPutDebounced();
+  renderReentry();
+}
+
+function reentrySpxQuote() {
+  const live = ((liveMarketData && liveMarketData.indices) || []).find(i => i.name === 'S&P 500');
+  if (live && Number.isFinite(live.price)) return live;
+  const fb = ((latestIndicesData && latestIndicesData.indices) || []).find(i => i.name === 'S&P 500');
+  return (fb && Number.isFinite(fb.price)) ? fb : null;
+}
+
+function reentryMarket() {
+  const spx = reentrySpxQuote();
+  const s = reentryData.settings;
+  if (spx && (!s.referenceHigh || spx.price > s.referenceHigh)) {
+    s.referenceHigh = Math.round(spx.price * 100) / 100;
+    // Ratchet quietly — local only, no Firebase write storm on every quote refresh
+    localStorage.setItem('mose_reentry_local', JSON.stringify(reentryData));
+  }
+  const price = spx ? spx.price : null;
+  const dd = (price && s.referenceHigh) ? ((price - s.referenceHigh) / s.referenceHigh) * 100 : null;
+  const vsExit = (price && s.exitLevel) ? ((price - s.exitLevel) / s.exitLevel) * 100 : null;
+  return { price, dd, vsExit, changePct: spx ? spx.change_pct : null };
+}
+
+function reentryLadderRung(ladder, dd) {
+  const sorted = [...(ladder || [])].sort((a, b) => b.dd - a.dd);
+  let active = sorted[0] || { dd: 0, mult: 1 };
+  if (dd !== null) sorted.forEach(r => { if (dd <= r.dd) active = r; });
+  return active;
+}
+
+function computeDcaPlan(plan, market) {
+  const now = new Date();
+  const start = new Date(plan.startDate + 'T00:00:00');
+  const monthIdx = (now.getFullYear() - start.getFullYear()) * 12 + (now.getMonth() - start.getMonth());
+  const spent = reentrySpent(plan.id);
+  const remaining = Math.max(0, plan.totalAmount - spent);
+  const monthsLeft = Math.max(1, plan.months - Math.max(0, monthIdx));
+  const base = remaining / monthsLeft;
+  const rung = reentryLadderRung(plan.ladder, market.dd);
+  const target = Math.min(remaining, base * rung.mult);
+  const mk = reentryMonthKey(now);
+  const monthName = now.toLocaleDateString('en-US', { month: 'long' });
+  const spentThisMonth = reentryPurchases(plan.id)
+    .filter(p => (p.date || '').slice(0, 7) === mk)
+    .reduce((s, p) => s + (Number(p.amount) || 0), 0);
+  let status, statusClass;
+  if (remaining <= 0) { status = '🏁 Fully deployed'; statusClass = 'done'; }
+  else if (monthIdx < 0) { status = `⏳ Starts ${reentryMonthLabel(start)}`; statusClass = 'idle'; }
+  else if (monthIdx >= plan.months) { status = '⚠️ Past final month — deploy the remainder'; statusClass = 'due'; }
+  else if (spentThisMonth >= target * 0.95) { status = `✅ ${monthName} buy done`; statusClass = 'done'; }
+  else if (now.getDate() >= plan.buyDay) { status = `🔔 BUY NOW — ${monthName} order is due`; statusClass = 'due'; }
+  else { status = `⏳ Next buy: ${monthName} ${plan.buyDay}`; statusClass = 'wait'; }
+  return { monthIdx, spent, remaining, monthsLeft, base, rung, target, spentThisMonth, status, statusClass, start, monthName };
+}
+
+function computeDipPlan(plan, market) {
+  const spent = reentrySpent(plan.id);
+  const remaining = Math.max(0, plan.totalAmount - spent);
+  const high = reentryData.settings.referenceHigh;
+  const tiers = (plan.tiers || []).map(t => ({
+    dd: t.dd, pct: t.pct,
+    trigger: high ? high * (1 + t.dd / 100) : null,
+    amount: plan.totalAmount * t.pct / 100,
+    triggered: market.dd !== null && market.dd <= t.dd
+  })).sort((a, b) => b.dd - a.dd);
+  const triggeredTarget = tiers.filter(t => t.triggered).reduce((s, t) => s + t.amount, 0);
+  const dueNow = Math.max(0, Math.min(remaining, triggeredTarget - spent));
+  let status, statusClass;
+  if (remaining <= 0) { status = '🏁 Fully deployed'; statusClass = 'done'; }
+  else if (dueNow > 0) { status = '🔔 DIP TIER TRIGGERED — deploy now'; statusClass = 'due'; }
+  else if (spent > 0) { status = '✅ Triggered tiers filled — holding for next tier'; statusClass = 'done'; }
+  else { status = '🛡️ Holding cash — waiting for first dip tier'; statusClass = 'wait'; }
+  return { spent, remaining, tiers, triggeredTarget, dueNow, status, statusClass };
+}
+
+function reentryBucketTickers(bucket) {
+  return Object.keys(watchlistBuckets || {}).filter(t => watchlistBuckets[t] === bucket).sort();
+}
+
+function reentryTickerChip(t) {
+  const q = liveQuotes[canonicalTicker(t)];
+  if (q && Number.isFinite(q.price)) {
+    const chg = Number(q.change_pct) || 0;
+    const col = chg >= 0 ? 'var(--green)' : 'var(--red)';
+    return `<strong>${escapeHtml(t)}</strong> $${q.price.toFixed(2)} <span style="color:${col}">${chg >= 0 ? '+' : ''}${chg.toFixed(1)}%</span>`;
+  }
+  return `<strong>${escapeHtml(t)}</strong>`;
+}
+
+function reentryTickerList(buckets) {
+  const seen = new Set();
+  const out = [];
+  buckets.forEach(b => reentryBucketTickers(b).forEach(t => { if (!seen.has(t)) { seen.add(t); out.push(t); } }));
+  return out;
+}
+
+function gotoReentryTab() {
+  const btn = [...document.querySelectorAll('.tab-btn')].find(b => (b.getAttribute('onclick') || '').includes("'reentry'"));
+  if (btn) switchTab('reentry', btn);
+}
+
+function reentryUpdatePlan(id, field, value) {
+  const p = reentryPlan(id);
+  if (!p) return;
+  if (field === 'startDate') { if (value) p.startDate = value.slice(0, 7) + '-01'; }
+  else {
+    const n = Number(value);
+    if (!Number.isFinite(n) || n < 0) { renderReentry(); return; }
+    if (field === 'months') p.months = Math.max(1, Math.round(n));
+    else if (field === 'buyDay') p.buyDay = Math.min(28, Math.max(1, Math.round(n)));
+    else p[field] = n;
+  }
+  reentrySave();
+}
+
+function reentryUpdateAlloc(id, bucket, value) {
+  const p = reentryPlan(id);
+  const n = Number(value);
+  if (!p || !p.allocations || !Number.isFinite(n) || n < 0) { renderReentry(); return; }
+  if (n === 0) delete p.allocations[bucket]; else p.allocations[bucket] = n;
+  reentrySave();
+}
+
+function reentryUpdateLadder(id, idx, value) {
+  const p = reentryPlan(id);
+  const n = Number(value);
+  if (!p || !p.ladder || !p.ladder[idx] || !Number.isFinite(n) || n <= 0) { renderReentry(); return; }
+  p.ladder[idx].mult = n;
+  reentrySave();
+}
+
+function reentryUpdateTier(id, idx, value) {
+  const p = reentryPlan(id);
+  const n = Number(value);
+  if (!p || !p.tiers || !p.tiers[idx] || !Number.isFinite(n) || n < 0) { renderReentry(); return; }
+  p.tiers[idx].pct = n;
+  reentrySave();
+}
+
+function reentryUpdateSetting(field, value) {
+  const n = Number(value);
+  if (!Number.isFinite(n) || n <= 0) { renderReentry(); return; }
+  reentryData.settings[field] = n;
+  reentrySave();
+}
+
+function reentryAddPurchase() {
+  const planId = document.getElementById('reentry-buy-plan').value;
+  const date = document.getElementById('reentry-buy-date').value || new Date().toISOString().slice(0, 10);
+  const ticker = (document.getElementById('reentry-buy-ticker').value || '').trim().toUpperCase().replace(/[^A-Z0-9.\-]/g, '');
+  const amount = Number(document.getElementById('reentry-buy-amount').value);
+  const note = (document.getElementById('reentry-buy-note').value || '').trim();
+  if (!planId || !Number.isFinite(amount) || amount <= 0) { showWatchlistToast('Enter a valid purchase amount'); return; }
+  reentryData.purchases.push({ id: 'rp' + Date.now(), planId, date, ticker, amount, note });
+  document.getElementById('reentry-buy-ticker').value = '';
+  document.getElementById('reentry-buy-amount').value = '';
+  document.getElementById('reentry-buy-note').value = '';
+  reentrySave();
+  showWatchlistToast(`Logged ${reentryFmt(amount)}${ticker ? ' of ' + ticker : ''}`);
+}
+
+function reentryDeletePurchase(id) {
+  reentryData.purchases = (reentryData.purchases || []).filter(p => p.id !== id);
+  reentrySave();
+}
+
+function reentryBucketCardHtml(bucket, amount) {
+  const info = WATCHLIST_BUCKETS[bucket] || WATCHLIST_BUCKETS.uncategorized;
+  const tickers = reentryBucketTickers(bucket);
+  return `<div class="reentry-bucket-card" style="border-left-color:${info.color}">
+    <div class="bk-label">${info.label}</div>
+    <div class="amt">${reentryFmt(amount)}</div>
+    <div class="tickers">${tickers.length ? tickers.map(reentryTickerChip).join(' &nbsp;·&nbsp; ') : '<em>No tickers in this bucket — add some on the Watchlist tab</em>'}</div>
+  </div>`;
+}
+
+function reentryDcaTicketHtml(plan, c, market) {
+  const allocTotal = Object.values(plan.allocations || {}).reduce((s, v) => s + v, 0) || 1;
+  const bucketCards = Object.entries(plan.allocations || {})
+    .sort((a, b) => b[1] - a[1])
+    .map(([bk, pct]) => reentryBucketCardHtml(bk, c.target * pct / allocTotal))
+    .join('');
+  const ddTxt = market.dd !== null ? `S&P ${market.dd <= -0.05 ? 'down ' + Math.abs(market.dd).toFixed(1) + '% from the reference high' : 'at its reference high'}` : 'market data unavailable';
+  return `<div class="reentry-ticket ${c.statusClass === 'due' ? 'due' : (c.statusClass === 'done' ? 'done' : '')}">
+    <span class="reentry-ticket-status ${c.statusClass}">${c.status}</span>
+    <h3>${plan.label}</h3>
+    <div class="reentry-amount">${reentryFmt(Math.max(0, c.target - c.spentThisMonth))} <small>to buy this month · ${c.rung.mult}× base tranche of ${reentryFmt(c.base)} (${ddTxt})</small></div>
+    <div class="sub" style="margin-top:6px">
+      ${reentryFmt(c.remaining)} left to deploy over ${c.monthsLeft} month${c.monthsLeft !== 1 ? 's' : ''}
+      · month ${Math.min(plan.months, Math.max(1, c.monthIdx + 1))} of ${plan.months}
+      ${c.spentThisMonth ? ` · ${reentryFmt(c.spentThisMonth)} already bought this month` : ''}
+    </div>
+    <div class="reentry-bucket-grid">${bucketCards}</div>
+  </div>`;
+}
+
+function reentryDipTicketHtml(plan, c, market) {
+  const nextTier = c.tiers.find(t => !t.triggered);
+  const shopList = reentryTickerList(['core-forever', 'opportunistic', 'value-with-risk']);
+  const headline = c.dueNow > 0
+    ? `${reentryFmt(c.dueNow)} <small>to deploy now — drawdown tiers triggered at S&P ${market.price ? market.price.toFixed(0) : '—'}</small>`
+    : (nextTier && nextTier.trigger
+        ? `${reentryFmt(nextTier.amount)} <small>first/next tranche arms when S&P ≤ ${nextTier.trigger.toFixed(0)} (${Math.abs(nextTier.dd)}% below the high)</small>`
+        : `${reentryFmt(c.remaining)} <small>remaining</small>`);
+  return `<div class="reentry-ticket ${c.statusClass === 'due' ? 'due' : (c.statusClass === 'done' ? 'done' : '')}">
+    <span class="reentry-ticket-status ${c.statusClass}">${c.status}</span>
+    <h3>${plan.label}</h3>
+    <div class="reentry-amount">${headline}</div>
+    <div class="sub" style="margin-top:6px">${reentryFmt(c.remaining)} cash on the sidelines · ${reentryFmt(c.spent)} deployed of ${reentryFmt(plan.totalAmount)}</div>
+    <div class="tickers" style="font-size:12px;margin-top:10px;line-height:1.8;color:var(--soft-text)">
+      🛒 <strong>Shopping list (from your Watchlist buckets):</strong><br>
+      ${shopList.length ? shopList.map(reentryTickerChip).join(' &nbsp;·&nbsp; ') : '<em>Watchlist is empty — curate it on the Watchlist tab</em>'}
+    </div>
+  </div>`;
+}
+
+function reentryDcaScheduleHtml(plan, c) {
+  const evenSplit = plan.totalAmount / plan.months;
+  const nowKey = reentryMonthKey(new Date());
+  let rows = '';
+  for (let i = 0; i < plan.months; i++) {
+    const d = new Date(c.start.getFullYear(), c.start.getMonth() + i, 1);
+    const mk = reentryMonthKey(d);
+    const actual = reentryPurchases(plan.id).filter(p => (p.date || '').slice(0, 7) === mk).reduce((s, p) => s + (Number(p.amount) || 0), 0);
+    let st;
+    if (mk === nowKey) st = actual >= c.target * 0.95 ? '✅ done' : '🔔 this month';
+    else if (mk < nowKey) st = actual > 0 ? '✅ bought' : '⚠️ skipped → rolled forward';
+    else st = '—';
+    const hl = mk === nowKey ? ' style="background:rgba(46,160,67,0.10);font-weight:800"' : '';
+    rows += `<tr${hl}><td>${i + 1}</td><td>${reentryMonthLabel(d)} ${plan.buyDay}</td><td>${reentryFmt(evenSplit)}</td><td>${actual ? reentryFmt(actual) : '—'}</td><td>${st}</td></tr>`;
+  }
+  return `<div class="table-wrap"><table>
+    <thead><tr><th>#</th><th>Buy Date</th><th>Even Split</th><th>Actually Bought</th><th>Status</th></tr></thead>
+    <tbody>${rows}</tbody>
+  </table></div>
+  <div class="info-blurb" style="border:none;padding-top:6px">"Even Split" is the original level plan. The live order on the ticket above adapts: remaining cash ÷ remaining months × the drawdown multiplier.</div>`;
+}
+
+function reentryLadderHtml(plan, c, market) {
+  const high = reentryData.settings.referenceHigh;
+  const rows = plan.ladder.map((r, idx) => {
+    const active = c.rung && c.rung.dd === r.dd && c.rung.mult === r.mult;
+    const level = high ? (high * (1 + r.dd / 100)).toFixed(0) : '—';
+    const cond = r.dd === 0 ? 'Market at / near the high' : `S&P down ${Math.abs(r.dd)}%+ (≤ ${level})`;
+    return `<tr class="${active ? 'active-tier' : ''}">
+      <td>${active ? '👉 ' : ''}${cond}</td>
+      <td><input type="number" step="0.5" min="0.5" class="reentry-input short" value="${r.mult}" onchange="reentryUpdateLadder('${plan.id}', ${idx}, this.value)">×</td>
+      <td>${reentryFmt(Math.min(c.remaining, c.base * r.mult))}</td>
+    </tr>`;
+  }).join('');
+  return `<div class="table-wrap"><table class="reentry-ladder">
+    <thead><tr><th>If the market is…</th><th>Buy Multiple</th><th>That Month's Order</th></tr></thead>
+    <tbody>${rows}</tbody>
+  </table></div>`;
+}
+
+function reentryTiersHtml(plan, c) {
+  const rows = c.tiers.map((t, idx) => `<tr class="${t.triggered ? 'active-tier' : ''}">
+      <td>${t.triggered ? '🔔 ' : ''}S&P down ${Math.abs(t.dd)}%${t.trigger ? ` (≤ ${t.trigger.toFixed(0)})` : ''}</td>
+      <td><input type="number" step="5" min="0" class="reentry-input short" value="${t.pct}" onchange="reentryUpdateTier('${plan.id}', ${idx}, this.value)">%</td>
+      <td>${reentryFmt(t.amount)}</td>
+      <td>${t.triggered ? '<strong style="color:var(--green)">TRIGGERED</strong>' : 'waiting'}</td>
+    </tr>`).join('');
+  return `<div class="table-wrap"><table class="reentry-ladder">
+    <thead><tr><th>Trigger</th><th>Deploy % of Pot</th><th>Amount</th><th>Status</th></tr></thead>
+    <tbody>${rows}</tbody>
+  </table></div>
+  <div class="info-blurb" style="border:none;padding-top:6px">Tiers are cumulative: at −10% both the −5% and −10% tranches should be in the market. Logged purchases count against the triggered total.</div>`;
+}
+
+function reentryPlanSettingsHtml(plan) {
+  let fields = `
+    <label>Total to deploy ($)<input type="number" class="reentry-input" value="${plan.totalAmount}" onchange="reentryUpdatePlan('${plan.id}','totalAmount',this.value)"></label>`;
+  if (plan.mode === 'dca') {
+    fields += `
+    <label>Months<input type="number" class="reentry-input short" value="${plan.months}" onchange="reentryUpdatePlan('${plan.id}','months',this.value)"></label>
+    <label>Start month<input type="month" class="reentry-input" style="width:150px" value="${(plan.startDate || '').slice(0, 7)}" onchange="reentryUpdatePlan('${plan.id}','startDate',this.value)"></label>
+    <label>Buy day of month<input type="number" min="1" max="28" class="reentry-input short" value="${plan.buyDay}" onchange="reentryUpdatePlan('${plan.id}','buyDay',this.value)"></label>`;
+    fields += REENTRY_BUCKET_CHOICES.map(bk => {
+      const info = WATCHLIST_BUCKETS[bk];
+      return `<label>${info.label} %<input type="number" min="0" max="100" class="reentry-input short" value="${(plan.allocations && plan.allocations[bk]) || 0}" onchange="reentryUpdateAlloc('${plan.id}','${bk}',this.value)"></label>`;
+    }).join('');
+    const allocTotal = Object.values(plan.allocations || {}).reduce((s, v) => s + v, 0);
+    if (allocTotal !== 100) fields += `<span style="color:var(--yellow);font-size:12px;font-weight:800;align-self:center">⚠️ Allocations total ${allocTotal}% (amounts are scaled proportionally)</span>`;
+  }
+  return `<details class="reentry-settings"><summary>⚙️ Edit plan settings</summary><div class="reentry-settings-grid">${fields}</div></details>`;
+}
+
+function renderReentry() {
+  const statsBar = document.getElementById('reentry-stats-bar');
+  const market = reentryMarket();
+  const computed = reentryData.plans.map(p => ({
+    plan: p,
+    c: p.mode === 'dca' ? computeDcaPlan(p, market) : computeDipPlan(p, market)
+  }));
+
+  // — Cockpit banner (renders even when the tab is hidden)
+  const banner = document.getElementById('cockpit-reentry-banner');
+  if (banner) {
+    const lines = computed.map(({ plan, c }) => {
+      const urgent = c.statusClass === 'due';
+      const detail = plan.mode === 'dca'
+        ? `${c.status} · ${reentryFmt(Math.max(0, c.target - c.spentThisMonth))} this month (${c.rung.mult}× tranche)`
+        : `${c.status}${c.dueNow > 0 ? ' · ' + reentryFmt(c.dueNow) : ''}`;
+      return `<div style="font-size:13px;color:${urgent ? 'var(--green)' : 'var(--soft-text)'}">${plan.label.replace(/—.*$/, '').trim()}: ${detail}</div>`;
+    }).join('');
+    const anyDue = computed.some(({ c }) => c.statusClass === 'due');
+    banner.innerHTML = `<a class="cockpit-reentry-card" onclick="gotoReentryTab()">
+      <div class="crc-title">📅 RE-ENTRY PLAN${anyDue ? ' — 🔔 ACTION NEEDED' : ''}${market.dd !== null ? ` · S&P ${market.dd <= -0.05 ? Math.abs(market.dd).toFixed(1) + '% off the high' : 'at the high'}` : ''}</div>
+      ${lines}
+    </a>`;
+  }
+
+  if (!statsBar) return;
+
+  // — Stats bar
+  const totalRemaining = computed.reduce((s, x) => s + x.c.remaining, 0);
+  const totalPot = reentryData.plans.reduce((s, p) => s + p.totalAmount, 0);
+  const iraC = computed.find(x => x.plan.mode === 'dca');
+  const ddColor = market.dd !== null && market.dd <= -5 ? 'var(--green)' : 'var(--yellow)';
+  statsBar.innerHTML = `
+    <div class="stat-card"><div class="stat-val blue">${market.price ? market.price.toLocaleString('en-US', { maximumFractionDigits: 0 }) : '—'}</div><div class="stat-label">S&P 500 now</div></div>
+    <div class="stat-card"><div class="stat-val" style="color:${ddColor}">${market.dd !== null ? market.dd.toFixed(1) + '%' : '—'}</div><div class="stat-label">vs reference high (${reentryData.settings.referenceHigh ? Number(reentryData.settings.referenceHigh).toFixed(0) : '—'})</div></div>
+    <div class="stat-card"><div class="stat-val" style="color:${market.vsExit !== null && market.vsExit <= 0 ? 'var(--green)' : 'var(--red)'}">${market.vsExit !== null ? (market.vsExit >= 0 ? '+' : '') + market.vsExit.toFixed(1) + '%' : '—'}</div><div class="stat-label">vs April exit (${Number(reentryData.settings.exitLevel).toFixed(0)})</div></div>
+    <div class="stat-card"><div class="stat-val orange">${iraC ? iraC.c.rung.mult + '×' : '—'}</div><div class="stat-label">Active buy multiple</div></div>
+    <div class="stat-card"><div class="stat-val green">${reentryFmt(totalRemaining)}</div><div class="stat-label">Dry powder left (of ${reentryFmt(totalPot)})</div></div>`;
+
+  // — Action tickets
+  document.getElementById('reentry-action').innerHTML = computed.map(({ plan, c }) =>
+    plan.mode === 'dca' ? reentryDcaTicketHtml(plan, c, market) : reentryDipTicketHtml(plan, c, market)
+  ).join('');
+
+  // — Plan detail sections
+  document.getElementById('reentry-plans').innerHTML = computed.map(({ plan, c }) => {
+    const pctDone = plan.totalAmount > 0 ? Math.min(100, (c.spent / plan.totalAmount) * 100) : 0;
+    const body = plan.mode === 'dca'
+      ? reentryLadderHtml(plan, c, market) + reentryDcaScheduleHtml(plan, c)
+      : reentryTiersHtml(plan, c);
+    return `<div class="reentry-section">
+      <h3>${plan.label}</h3>
+      <div class="sub">${reentryFmt(c.spent)} deployed · ${reentryFmt(c.remaining)} to go (${pctDone.toFixed(0)}% in the market)</div>
+      <div class="reentry-progress-track"><div class="reentry-progress-fill" style="width:${pctDone.toFixed(1)}%"></div></div>
+      ${body}
+      ${reentryPlanSettingsHtml(plan)}
+    </div>`;
+  }).join('');
+
+  // — Purchase log
+  const planSel = document.getElementById('reentry-buy-plan');
+  const prevSel = planSel.value;
+  planSel.innerHTML = reentryData.plans.map(p => `<option value="${p.id}"${p.id === prevSel ? ' selected' : ''}>${p.label.replace(/—.*$/, '').trim()}</option>`).join('');
+  const dateInput = document.getElementById('reentry-buy-date');
+  if (!dateInput.value) dateInput.value = new Date().toISOString().slice(0, 10);
+  const logBody = document.getElementById('reentry-log-body');
+  const purchases = [...(reentryData.purchases || [])].sort((a, b) => (b.date || '').localeCompare(a.date || '') || (b.id || '').localeCompare(a.id || ''));
+  logBody.innerHTML = purchases.length
+    ? purchases.map(p => {
+        const plan = reentryPlan(p.planId);
+        return `<tr>
+          <td>${escapeHtml(p.date || '—')}</td>
+          <td>${plan ? escapeHtml(plan.label.replace(/—.*$/, '').trim()) : escapeHtml(p.planId)}</td>
+          <td><strong>${escapeHtml(p.ticker || '—')}</strong></td>
+          <td>${reentryFmt(p.amount)}</td>
+          <td>${escapeHtml(p.note || '')}</td>
+          <td><button class="reentry-del-btn" title="Delete" onclick="reentryDeletePurchase('${p.id}')">✕</button></td>
+        </tr>`;
+      }).join('')
+    : '<tr><td colspan="6" class="no-data">No purchases logged yet.</td></tr>';
+
+  // — Global market reference settings
+  document.getElementById('reentry-global-settings').innerHTML = `
+    <label>S&amp;P reference high (drawdown anchor)<input type="number" step="0.01" class="reentry-input" style="width:140px" value="${reentryData.settings.referenceHigh || ''}" onchange="reentryUpdateSetting('referenceHigh', this.value)"></label>
+    <label>S&amp;P level at April exit<input type="number" step="0.01" class="reentry-input" style="width:140px" value="${reentryData.settings.exitLevel || ''}" onchange="reentryUpdateSetting('exitLevel', this.value)"></label>`;
+}
+
+// ============================================================
+// BUY TARGETS — per-stock goal tracker (IRA his/hers mirror + MOSE joint)
+// Goals are fixed dollar targets per stock; Owned is updated from IBKR
+// position screenshots. Syncs through the same localStorage + Firebase pipe.
+// ============================================================
+function defaultTargetsData() {
+  return {
+    version: 2,
+    ira: {
+      total: 1150000,
+      accounts: {
+        his:  { label: "Joe's IRA",  total: 950000 },
+        hers: { label: "Wife's IRA", total: 200000 }
+      },
+      buckets: [
+        { id: 'forever', label: 'Forever',  pct: 45, tickers: ['AMZN', 'NVDA', 'BRK.B', 'GOOGL'], weights: {} },
+        { id: 'sp',      label: 'S&P 500',  pct: 35, tickers: ['VOO'], weights: {} },
+        { id: 'fornow',  label: 'For Now',  pct: 20, tickers: ['AXP', 'BABA', 'BAC', 'BN', 'CVX', 'MCO', 'MA', 'MELI', 'PGR', 'OXY', 'TSM', 'V', 'WMT', 'COST', 'UBER'], weights: {} }
+      ]
+    },
+    mose: {
+      label: 'MOSE — Joint Cash',
+      total: 344000,
+      stockPct: 70, // 70% deployed into stocks, 30% held as cash
+      tickers: ['AAPL', 'AMD', 'ASML', 'INTC', 'META', 'MSFT', 'MU', 'TSLA', 'SPCX', 'DASH']
+    },
+    // Owned market value, keyed "account|ticker". His from IBKR 2026-06-13; hers from IBKR 2026-06-15.
+    owned: {
+      'his|AMZN': 11928, 'his|GOOGL': 18044, 'his|WMT': 16946, 'his|PLD': 5652,
+      'hers|AMZN': 2624, 'hers|GOOGL': 3970, 'hers|WMT': 3389
+    },
+    history: [
+      { date: '2026-06-15', his: 46918, hers: 9983, mose: 0, iraGoal: 1150000, moseStockGoal: 240800 }
+    ]
+  };
+}
+
+let targetsData = (function() {
+  let d = null;
+  try { d = JSON.parse(localStorage.getItem('mose_targets_local') || 'null'); } catch {}
+  if (!(d && d.ira && d.ira.buckets)) d = defaultTargetsData();
+  d.ira.buckets.forEach(b => { if (!b.weights || typeof b.weights !== 'object') b.weights = {}; });
+  if (!Array.isArray(d.history)) d.history = [];
+  return d;
+})();
+
+function targOwned(acct, ticker) { return Number(targetsData.owned[acct + '|' + ticker]) || 0; }
+function targAllTickers() {
+  const s = new Set();
+  targetsData.ira.buckets.forEach(b => b.tickers.forEach(t => s.add(t)));
+  targetsData.mose.tickers.forEach(t => s.add(t));
+  return s;
+}
+
+// ---- Per-stock weighting within a bucket (default equal) ----
+function targWeight(bucket, ticker) {
+  const w = bucket.weights ? bucket.weights[ticker] : undefined;
+  return (Number.isFinite(w) && w >= 0) ? w : (100 / (bucket.tickers.length || 1));
+}
+function targWeightSum(bucket) { return bucket.tickers.reduce((s, t) => s + targWeight(bucket, t), 0) || 1; }
+function targStockPctOfBucket(bucket, ticker) { return targWeight(bucket, ticker) / targWeightSum(bucket) * 100; }
+function targStockTarget(acctTotal, bucket, ticker) {
+  return acctTotal * bucket.pct / 100 * targWeight(bucket, ticker) / targWeightSum(bucket);
+}
+
+function targetsSave() {
+  targetsData.ira.total = targetsData.ira.accounts.his.total + targetsData.ira.accounts.hers.total;
+  localStorage.setItem('mose_targets_local', JSON.stringify(targetsData));
+  moseFbPutDebounced();
+  renderTargets();
+}
+
+function targSetOwned(acct, ticker, val) {
+  const n = Number(val);
+  if (!Number.isFinite(n) || n < 0) { renderTargets(); return; }
+  if (n === 0) delete targetsData.owned[acct + '|' + ticker];
+  else targetsData.owned[acct + '|' + ticker] = n;
+  targetsSave();
+}
+
+// Set one stock's % of its bucket; rebalance the others proportionally so the bucket always sums to 100%.
+function targSetPctOfBucket(bucketId, ticker, val) {
+  const b = targetsData.ira.buckets.find(x => x.id === bucketId);
+  if (!b) return;
+  let pct = Number(val);
+  if (!Number.isFinite(pct) || pct < 0) { renderTargets(); return; }
+  pct = Math.min(100, pct);
+  if (b.tickers.length === 1) { b.weights = { [ticker]: 100 }; targetsSave(); return; }
+  const cur = {};
+  b.tickers.forEach(t => { cur[t] = targStockPctOfBucket(b, t); });
+  const others = b.tickers.filter(t => t !== ticker);
+  const othersSum = others.reduce((s, t) => s + cur[t], 0);
+  const remaining = 100 - pct;
+  const nw = { [ticker]: pct };
+  others.forEach(t => { nw[t] = othersSum > 0 ? remaining * cur[t] / othersSum : remaining / others.length; });
+  b.weights = nw;
+  targetsSave();
+}
+function targResetWeights(bucketId) {
+  const b = targetsData.ira.buckets.find(x => x.id === bucketId);
+  if (b) { b.weights = {}; targetsSave(); }
+}
+
+function targSetCfg(path, val) {
+  const n = Number(val);
+  if (!Number.isFinite(n) || n < 0) { renderTargets(); return; }
+  if (path === 'his.total') targetsData.ira.accounts.his.total = n;
+  else if (path === 'hers.total') targetsData.ira.accounts.hers.total = n;
+  else if (path === 'mose.total') targetsData.mose.total = n;
+  else if (path === 'mose.stockPct') targetsData.mose.stockPct = Math.min(100, n);
+  else if (path.startsWith('bucket.')) { const i = +path.split('.')[1]; if (targetsData.ira.buckets[i]) targetsData.ira.buckets[i].pct = n; }
+  targetsSave();
+}
+
+function targLivePrice(t) {
+  const q = liveQuotes[canonicalTicker(t)];
+  if (q && Number.isFinite(q.price)) {
+    const c = Number(q.change_pct) || 0;
+    return ` <span style="font-size:11px;color:var(--muted)">$${q.price.toFixed(2)} <span style="color:${c >= 0 ? 'var(--green)' : 'var(--red)'}">${c >= 0 ? '+' : ''}${c.toFixed(1)}%</span></span>`;
+  }
+  return '';
+}
+
+// "Buy More" as a share count at the live price, for copy-paste into the IBKR order ticket.
+function targShareHint(dollars, ticker) {
+  const q = liveQuotes[canonicalTicker(ticker)];
+  if (q && Number.isFinite(q.price) && q.price > 0 && dollars > 0.5) {
+    return ` <span style="color:var(--muted);font-weight:600;font-size:11px">≈ ${Math.round(dollars / q.price)} sh</span>`;
+  }
+  return '';
+}
+
+function targMoreCell(owned, target, ticker) {
+  const more = target - owned;
+  if (more <= 0.5) {
+    const over = -more;
+    return `<td style="color:var(--green);font-weight:700">✓ done${over > 0.5 ? ` <span style="color:var(--muted);font-weight:600">(+${reentryFmt(over)} over)</span>` : ''}</td>`;
+  }
+  return `<td style="font-weight:800">${reentryFmt(more)}${ticker ? targShareHint(more, ticker) : ''}</td>`;
+}
+
+function targPctCell(owned, target) {
+  const pct = target > 0 ? owned / target * 100 : 0;
+  const col = pct >= 100 ? 'var(--green)' : (pct >= 50 ? 'var(--yellow)' : 'var(--muted)');
+  return `<td style="white-space:nowrap"><span class="targ-bar"><span class="targ-bar-fill" style="width:${Math.min(100, pct)}%"></span></span><span style="color:${col};font-weight:700">${pct.toFixed(0)}%</span></td>`;
+}
+
+function targAcctTableHtml(acctKey) {
+  const acct = targetsData.ira.accounts[acctKey];
+  let html = `<div class="table-wrap"><table><thead><tr><th>Ticker</th><th>Target</th><th>Owned</th><th>Buy More</th><th>% to Goal</th></tr></thead><tbody>`;
+  let deployed = 0;
+  targetsData.ira.buckets.forEach(b => {
+    html += `<tr class="targ-bucket-row"><td colspan="5">${escapeHtml(b.label)} · ${b.pct}% · ${reentryFmt(acct.total * b.pct / 100)}</td></tr>`;
+    b.tickers.forEach(t => {
+      const tgt = targStockTarget(acct.total, b, t);
+      const owned = targOwned(acctKey, t); deployed += owned;
+      html += `<tr><td><strong>${escapeHtml(t)}</strong>${targLivePrice(t)}</td><td>${reentryFmt(tgt)}</td><td><input type="number" class="targ-input" value="${owned || ''}" placeholder="0" onchange="targSetOwned('${acctKey}','${t}',this.value)"></td>${targMoreCell(owned, tgt, t)}${targPctCell(owned, tgt)}</tr>`;
+    });
+  });
+  html += `</tbody></table></div>`;
+  return { html, deployed };
+}
+
+function targCombinedHtml() {
+  let html = `<div class="table-wrap"><table><thead><tr><th>Ticker</th><th>% of Bucket</th><th>Combined Goal</th><th>Owned (his+hers)</th><th>Remaining</th><th>% to Goal</th></tr></thead><tbody>`;
+  targetsData.ira.buckets.forEach(b => {
+    const bucketGoal = targetsData.ira.total * b.pct / 100;
+    html += `<tr class="targ-bucket-row"><td colspan="6">${escapeHtml(b.label)} · ${b.pct}% · goal ${reentryFmt(bucketGoal)}${b.tickers.length > 1 ? ` <a onclick="targResetWeights('${b.id}')" style="cursor:pointer;color:var(--blue);font-weight:600;font-size:11px;margin-left:8px">reset to equal</a>` : ''}</td></tr>`;
+    b.tickers.forEach(t => {
+      const tgt = targStockTarget(targetsData.ira.total, b, t);
+      const owned = targOwned('his', t) + targOwned('hers', t);
+      const pctCell = b.tickers.length === 1
+        ? `<td style="color:var(--muted)">100%</td>`
+        : `<td style="white-space:nowrap"><input type="number" step="0.5" class="targ-input" style="width:64px" value="${targStockPctOfBucket(b, t).toFixed(1)}" onchange="targSetPctOfBucket('${b.id}','${t}',this.value)">%</td>`;
+      html += `<tr><td><strong>${escapeHtml(t)}</strong>${targLivePrice(t)}</td>${pctCell}<td>${reentryFmt(tgt)}</td><td>${reentryFmt(owned)}</td>${targMoreCell(owned, tgt)}${targPctCell(owned, tgt)}</tr>`;
+    });
+  });
+  html += `</tbody></table></div>`;
+  return html;
+}
+
+function targMoseHtml() {
+  const m = targetsData.mose;
+  const budget = m.total * m.stockPct / 100;
+  const tgt = m.tickers.length ? budget / m.tickers.length : 0;
+  let html = `<div class="table-wrap"><table><thead><tr><th>Ticker</th><th>Target</th><th>Owned</th><th>Buy More</th><th>% to Goal</th></tr></thead><tbody>`;
+  let deployed = 0;
+  m.tickers.forEach(t => {
+    const owned = targOwned('mose', t); deployed += owned;
+    html += `<tr><td><strong>${escapeHtml(t)}</strong>${targLivePrice(t)}</td><td>${reentryFmt(tgt)}</td><td><input type="number" class="targ-input" value="${owned || ''}" placeholder="0" onchange="targSetOwned('mose','${t}',this.value)"></td>${targMoreCell(owned, tgt, t)}${targPctCell(owned, tgt)}</tr>`;
+  });
+  html += `</tbody></table></div>`;
+  return { html, deployed, budget, cash: m.total - budget };
+}
+
+// ---- Import positions pasted/parsed from IBKR ----
+function targParsePositions(text) {
+  const out = {};
+  (text || '').split(/[\n;]+/).forEach(line => {
+    line = line.trim();
+    if (!line) return;
+    const tm = line.match(/[A-Za-z][A-Za-z.\-]{0,7}/);
+    if (!tm) return;
+    const ticker = tm[0].toUpperCase().replace(/[.\-]+$/, '');
+    if (ticker === 'USD' || ticker === 'CASH') return;
+    const rest = line.slice(tm.index + tm[0].length);
+    const nums = (rest.match(/-?\d[\d,]*(\.\d+)?/g) || []).map(s => parseFloat(s.replace(/,/g, ''))).filter(n => Number.isFinite(n) && n > 0);
+    if (!nums.length) return;
+    out[ticker] = Math.round(nums.length === 1 ? nums[0] : nums[0] * nums[1]);
+  });
+  return out;
+}
+function targImportAcctLabel(acct) { return acct === 'mose' ? 'MOSE Joint' : (targetsData.ira.accounts[acct] ? targetsData.ira.accounts[acct].label : acct); }
+function targImportPreview() {
+  const parsed = targParsePositions(document.getElementById('targets-import-text').value);
+  const keys = Object.keys(parsed);
+  const el = document.getElementById('targets-import-preview');
+  el.innerHTML = keys.length
+    ? 'Will set Owned to: ' + keys.map(t => `<strong>${escapeHtml(t)}</strong> ${reentryFmt(parsed[t])}`).join(' &nbsp;·&nbsp; ')
+    : '<span style="color:var(--muted)">Nothing parsed yet — paste positions above, one per line.</span>';
+}
+function targImport() {
+  const acct = document.getElementById('targets-import-acct').value;
+  const parsed = targParsePositions(document.getElementById('targets-import-text').value);
+  const keys = Object.keys(parsed);
+  if (!keys.length) { showWatchlistToast('No positions found to import'); return; }
+  keys.forEach(t => { if (parsed[t] > 0) targetsData.owned[acct + '|' + t] = parsed[t]; });
+  targSnapshot();
+  targetsSave();
+  document.getElementById('targets-import-text').value = '';
+  document.getElementById('targets-import-preview').innerHTML = '';
+  showWatchlistToast(`Imported ${keys.length} position(s) into ${targImportAcctLabel(acct)}`);
+}
+
+// ---- Progress history (snapshots) ----
+function targCurrentSnapshot() {
+  let his = 0, hers = 0;
+  targetsData.ira.buckets.forEach(b => b.tickers.forEach(t => { his += targOwned('his', t); hers += targOwned('hers', t); }));
+  let mose = 0;
+  targetsData.mose.tickers.forEach(t => { mose += targOwned('mose', t); });
+  return { date: new Date().toISOString().slice(0, 10), his: Math.round(his), hers: Math.round(hers), mose: Math.round(mose), iraGoal: targetsData.ira.total, moseStockGoal: Math.round(targetsData.mose.total * targetsData.mose.stockPct / 100) };
+}
+function targSnapshot() {
+  const s = targCurrentSnapshot();
+  if (!Array.isArray(targetsData.history)) targetsData.history = [];
+  targetsData.history = targetsData.history.filter(h => h.date !== s.date);
+  targetsData.history.push(s);
+  targetsData.history.sort((a, b) => a.date.localeCompare(b.date));
+}
+function targSaveSnapshotManual() { targSnapshot(); targetsSave(); showWatchlistToast('Progress snapshot saved'); }
+function targSparkline(vals, w, h) {
+  if (!vals || vals.length < 2) return '';
+  const max = Math.max(...vals, 0.0001);
+  const pts = vals.map((v, i) => {
+    const x = i / (vals.length - 1) * w;
+    const y = h - (v / max) * (h - 4) - 2;
+    return `${x.toFixed(1)},${y.toFixed(1)}`;
+  }).join(' ');
+  return `<svg width="${w}" height="${h}"><polyline fill="none" stroke="var(--green)" stroke-width="2" points="${pts}"></polyline></svg>`;
+}
+function targHistoryHtml() {
+  const hist = (targetsData.history || []).slice().sort((a, b) => a.date.localeCompare(b.date));
+  let rows = '';
+  for (let i = hist.length - 1; i >= 0; i--) {
+    const s = hist[i];
+    const dep = s.his + s.hers;
+    const pct = s.iraGoal ? dep / s.iraGoal * 100 : 0;
+    const prev = i > 0 ? hist[i - 1] : null;
+    const delta = prev ? dep - (prev.his + prev.hers) : null;
+    const deltaCell = delta === null ? '<span style="color:var(--muted)">—</span>'
+      : (delta >= 0 ? `<span style="color:var(--green)">+${reentryFmt(delta)}</span>` : `<span style="color:var(--red)">${reentryFmt(delta)}</span>`);
+    rows += `<tr><td>${escapeHtml(s.date)}</td><td>${reentryFmt(dep)}</td><td>${pct.toFixed(1)}%</td><td>${reentryFmt(s.mose || 0)}</td><td>${deltaCell}</td></tr>`;
+  }
+  const pctVals = hist.map(s => s.iraGoal ? (s.his + s.hers) / s.iraGoal * 100 : 0);
+  const spark = targSparkline(pctVals, Math.min(440, Math.max(120, pctVals.length * 60)), 46);
+  return `<div class="reentry-section">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+      <h3 style="margin:0">📈 Progress History</h3>
+      <button class="filter-btn" onclick="targSaveSnapshotManual()">📸 Save snapshot now</button>
+    </div>
+    <div class="sub" style="margin-top:6px">IRA deployment over time — auto-captured on every import. ${hist.length} snapshot${hist.length !== 1 ? 's' : ''}.</div>
+    ${spark ? `<div style="margin:6px 0 10px">${spark}<span style="color:var(--muted);font-size:11px;margin-left:8px">% of IRA goal deployed</span></div>` : ''}
+    <div class="table-wrap"><table><thead><tr><th>Date</th><th>IRA Deployed</th><th>IRA %</th><th>MOSE Deployed</th><th>Δ since prev</th></tr></thead><tbody>${rows || '<tr><td colspan="5" class="no-data">No snapshots yet.</td></tr>'}</tbody></table></div>
+  </div>`;
+}
+
+function targExtraHtml() {
+  const all = targAllTickers();
+  const extras = Object.keys(targetsData.owned).filter(k => !all.has(k.split('|')[1]));
+  if (!extras.length) return '';
+  const rows = extras.map(k => {
+    const [acct, t] = k.split('|');
+    const lbl = targetsData.ira.accounts[acct] ? targetsData.ira.accounts[acct].label : (acct === 'mose' ? 'MOSE Joint' : acct);
+    return `<tr><td><strong>${escapeHtml(t)}</strong>${targLivePrice(t)}</td><td>${escapeHtml(lbl)}</td><td>${reentryFmt(targetsData.owned[k])}</td><td><button class="reentry-del-btn" title="Remove from tracker" onclick="targSetOwned('${acct}','${t}',0)">remove</button></td></tr>`;
+  }).join('');
+  return `<div class="reentry-section">
+    <h3>📎 Holdings outside the plan</h3>
+    <div class="sub">In your accounts but not in any target bucket — decide whether to keep, sell, or fold into a bucket (just tell me and I'll add it).</div>
+    <div class="table-wrap"><table><thead><tr><th>Ticker</th><th>Account</th><th>Value</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>
+  </div>`;
+}
+
+function renderTargetsSettings() {
+  const el = document.getElementById('targets-settings');
+  if (!el) return;
+  let h = `<div class="reentry-settings-grid">`;
+  h += `<label>Your IRA total<input type="number" class="reentry-input" value="${targetsData.ira.accounts.his.total}" onchange="targSetCfg('his.total',this.value)"></label>`;
+  h += `<label>Her IRA total<input type="number" class="reentry-input" value="${targetsData.ira.accounts.hers.total}" onchange="targSetCfg('hers.total',this.value)"></label>`;
+  targetsData.ira.buckets.forEach((b, i) => {
+    h += `<label>${escapeHtml(b.label)} %<input type="number" class="reentry-input short" value="${b.pct}" onchange="targSetCfg('bucket.${i}',this.value)"></label>`;
+  });
+  h += `<label>MOSE joint total<input type="number" class="reentry-input" value="${targetsData.mose.total}" onchange="targSetCfg('mose.total',this.value)"></label>`;
+  h += `<label>MOSE % to stocks<input type="number" class="reentry-input short" value="${targetsData.mose.stockPct}" onchange="targSetCfg('mose.stockPct',this.value)"></label>`;
+  h += `</div>`;
+  const sumPct = targetsData.ira.buckets.reduce((s, b) => s + b.pct, 0);
+  if (sumPct !== 100) h += `<div style="color:var(--yellow);font-size:12px;font-weight:800;margin-top:8px">⚠️ IRA bucket %s total ${sumPct}% (should be 100). Goals are still computed from the %s as entered.</div>`;
+  el.innerHTML = h;
+}
+
+function renderTargets() {
+  const sb = document.getElementById('targets-stats-bar');
+  if (!sb) return;
+  targetsData.ira.total = targetsData.ira.accounts.his.total + targetsData.ira.accounts.hers.total;
+
+  let iraOwned = 0;
+  targetsData.ira.buckets.forEach(b => b.tickers.forEach(t => { iraOwned += targOwned('his', t) + targOwned('hers', t); }));
+  const iraGoal = targetsData.ira.total;
+  const iraPct = iraGoal > 0 ? iraOwned / iraGoal * 100 : 0;
+
+  const m = targetsData.mose;
+  const moseBudget = m.total * m.stockPct / 100;
+  const moseCash = m.total - moseBudget;
+  let moseOwned = 0;
+  m.tickers.forEach(t => { moseOwned += targOwned('mose', t); });
+  const mosePct = moseBudget > 0 ? moseOwned / moseBudget * 100 : 0;
+
+  sb.innerHTML = `
+    <div class="stat-card"><div class="stat-val blue">${reentryFmt(iraGoal)}</div><div class="stat-label">IRA goal (his+hers)</div></div>
+    <div class="stat-card"><div class="stat-val green">${reentryFmt(iraOwned)}</div><div class="stat-label">IRA deployed · ${iraPct.toFixed(1)}%</div></div>
+    <div class="stat-card"><div class="stat-val orange">${reentryFmt(iraGoal - iraOwned)}</div><div class="stat-label">IRA left to buy</div></div>
+    <div class="stat-card"><div class="stat-val" style="color:var(--purple)">${reentryFmt(moseBudget)}</div><div class="stat-label">MOSE stock goal (${m.stockPct}%)</div></div>
+    <div class="stat-card"><div class="stat-val green">${reentryFmt(moseOwned)}</div><div class="stat-label">MOSE deployed · ${mosePct.toFixed(0)}%</div></div>
+    <div class="stat-card"><div class="stat-val yellow">${reentryFmt(moseCash)}</div><div class="stat-label">MOSE cash to hold (${100 - m.stockPct}%)</div></div>`;
+
+  document.getElementById('targets-combined').innerHTML = targCombinedHtml();
+
+  const his = targAcctTableHtml('his');
+  document.getElementById('targets-his').innerHTML = his.html;
+  document.getElementById('targets-his-title').textContent = `🧑 ${targetsData.ira.accounts.his.label} — ${reentryFmt(targetsData.ira.accounts.his.total)}`;
+  document.getElementById('targets-his-sub').innerHTML = `Deployed <strong>${reentryFmt(his.deployed)}</strong> · ${reentryFmt(Math.max(0, targetsData.ira.accounts.his.total - his.deployed))} left to put to work (sitting in SGOV/cash). Fill the "Buy More" column when you buy in this account.`;
+
+  const hers = targAcctTableHtml('hers');
+  document.getElementById('targets-hers').innerHTML = hers.html;
+  document.getElementById('targets-hers-title').textContent = `🧑‍🤝‍🧑 ${targetsData.ira.accounts.hers.label} — ${reentryFmt(targetsData.ira.accounts.hers.total)}`;
+  document.getElementById('targets-hers-sub').innerHTML = hers.deployed > 0
+    ? `Deployed <strong>${reentryFmt(hers.deployed)}</strong> · ${reentryFmt(Math.max(0, targetsData.ira.accounts.hers.total - hers.deployed))} left to put to work.`
+    : `⏳ <strong>Awaiting her IBKR positions.</strong> Targets are set; send her positions screenshot and I'll fill in Owned. Same buckets/%s as your account, scaled to ${reentryFmt(targetsData.ira.accounts.hers.total)}.`;
+
+  const mose = targMoseHtml();
+  document.getElementById('targets-mose').innerHTML = mose.html;
+  document.getElementById('targets-mose-sub').innerHTML = `Stock budget <strong>${reentryFmt(mose.budget)}</strong> (${m.stockPct}%) split equally across ${m.tickers.length} names · Cash held back <strong>${reentryFmt(mose.cash)}</strong> (${100 - m.stockPct}%) · Deployed ${reentryFmt(mose.deployed)}. <em>Kept 100% separate from the IRA totals — funded by the $344k non-IRA joint cash, bought only on a market downturn.</em>`;
+
+  document.getElementById('targets-history').innerHTML = targHistoryHtml();
+  document.getElementById('targets-extra').innerHTML = targExtraHtml();
+  renderTargetsSettings();
+}
+
+function targetsExportCSV() {
+  const sh = (dollars, t) => {
+    const q = liveQuotes[canonicalTicker(t)];
+    return (q && Number.isFinite(q.price) && q.price > 0 && dollars > 0.5) ? Math.round(dollars / q.price) : '';
+  };
+  const rows = [['Account', 'Bucket', 'Ticker', 'Target $', 'Owned $', 'Buy More $', 'Buy More (sh)', 'Pct to Goal']];
+  ['his', 'hers'].forEach(acct => {
+    const a = targetsData.ira.accounts[acct];
+    targetsData.ira.buckets.forEach(b => {
+      b.tickers.forEach(t => {
+        const tgt = targStockTarget(a.total, b, t);
+        const owned = targOwned(acct, t);
+        const more = Math.max(0, tgt - owned);
+        rows.push([a.label, b.label, t, Math.round(tgt), Math.round(owned), Math.round(more), sh(more, t), (tgt ? Math.round(owned / tgt * 100) : 0) + '%']);
+      });
+    });
+  });
+  const m = targetsData.mose;
+  const moseTgt = m.tickers.length ? m.total * m.stockPct / 100 / m.tickers.length : 0;
+  m.tickers.forEach(t => {
+    const owned = targOwned('mose', t);
+    const more = Math.max(0, moseTgt - owned);
+    rows.push(['MOSE Joint', 'MOSE', t, Math.round(moseTgt), Math.round(owned), Math.round(more), sh(more, t), (moseTgt ? Math.round(owned / moseTgt * 100) : 0) + '%']);
+  });
+  // Outside-the-plan holdings
+  const all = targAllTickers();
+  Object.keys(targetsData.owned).filter(k => !all.has(k.split('|')[1])).forEach(k => {
+    const [acct, t] = k.split('|');
+    const lbl = targetsData.ira.accounts[acct] ? targetsData.ira.accounts[acct].label : acct;
+    rows.push([lbl, 'OUTSIDE PLAN', t, 0, Math.round(targetsData.owned[k]), 0, '', 'n/a']);
+  });
+  const csv = rows.map(r => r.map(c => `"${String(c).replace(/"/g, '""')}"`).join(',')).join('\r\n');
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'mose-buy-targets-' + new Date().toISOString().slice(0, 10) + '.csv';
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  if (typeof showWatchlistToast === 'function') showWatchlistToast('Targets CSV downloaded');
+}
+
+// ============================================================
 // INIT
 // ============================================================
 async function hardRefreshAll() {
@@ -4207,6 +5240,8 @@ async function hardRefreshAll() {
       renderWatchlist();
       if (typeof renderResearchLibrary === 'function') renderResearchLibrary();
       if (typeof updateDDCounter === 'function') updateDDCounter();
+      renderReentry();
+      renderTargets();
       setMoseSyncStatus('✅');
     }
   } catch(e) { console.error('Hard refresh error', e); }
@@ -4226,6 +5261,8 @@ window.addEventListener('DOMContentLoaded', () => {
   loadWatchlistBuckets();
   loadWatchlistNotes();
   loadDDRequestsFromGitHub();
+  renderReentry();
+  renderTargets();
   // Public build is view-only; GitHub write access is disabled.
 
   // Firebase sync — load from cloud, seed if empty, then listen for live changes
@@ -4235,6 +5272,8 @@ window.addEventListener('DOMContentLoaded', () => {
       hydrateMoseState(remote);
       saveLocalOnly();
       renderWatchlist();
+      renderReentry();
+      renderTargets();
       if (typeof renderResearchLibrary === 'function') renderResearchLibrary();
       if (typeof updateDDCounter === 'function') updateDDCounter();
       if (typeof renderCockpit === 'function') renderCockpit();
