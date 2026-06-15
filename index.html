@@ -1589,6 +1589,22 @@ function checkPw(){
 
     <div class="stats-bar" id="targets-stats-bar"></div>
 
+    <details class="reentry-section" id="targets-import-section">
+      <summary style="cursor:pointer;font-weight:800;color:var(--heading);font-size:15px;list-style:none">📥 Update from IBKR <span style="font-weight:600;color:var(--muted);font-size:12px">— paste positions for one account (monthly refresh)</span></summary>
+      <div class="sub" style="margin-top:10px">Pick the account, paste your positions, Preview, then Import. Format: one per line — <code>TICKER VALUE</code> or <code>TICKER SHARES PRICE</code> (e.g. <code>AMZN 11 238.67</code>). Or just send me the screenshot and I'll hand you a block to paste. USD/Cash lines are ignored.</div>
+      <div class="reentry-form">
+        <select id="targets-import-acct" class="reentry-input" style="width:auto">
+          <option value="his">Joe's IRA</option>
+          <option value="hers">Wife's IRA</option>
+          <option value="mose">MOSE Joint</option>
+        </select>
+        <button class="filter-btn" onclick="targImportPreview()">Preview</button>
+        <button class="watchlist-add-btn" onclick="targImport()">Import → fill Owned</button>
+      </div>
+      <textarea id="targets-import-text" placeholder="AMZN 11 238.67&#10;GOOGL 11 360.88&#10;WMT 28 120.80" style="width:100%;min-height:88px;background:var(--bg);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:10px;font-family:inherit;font-size:13px"></textarea>
+      <div id="targets-import-preview" style="font-size:12px;color:var(--soft-text);margin-top:8px;line-height:1.7"></div>
+    </details>
+
     <div class="reentry-section">
       <h3>🎯 Combined IRA Goal Progress (his + hers)</h3>
       <div class="sub">The number that matters: your end goal per stock across both IRAs combined, regardless of which account holds it. $1.15M total · Forever 45% / S&amp;P 35% / For Now 20%.</div>
@@ -1614,13 +1630,15 @@ function checkPw(){
       <div id="targets-mose"></div>
     </div>
 
+    <div id="targets-history"></div>
+
     <div id="targets-extra"></div>
 
     <details class="reentry-settings reentry-section">
       <summary>⚙️ Edit goals, pools &amp; allocations</summary>
       <div id="targets-settings"></div>
       <div class="info-blurb" style="border:none;margin-top:8px;padding-top:4px">
-        Changing the IRA totals or bucket %s re-spreads every per-stock goal automatically (equal weight within each bucket). To add/remove tickers in a bucket, just tell me and I'll update the lists.
+        Changing the IRA totals or bucket %s re-spreads every per-stock goal automatically. To weight individual stocks inside a bucket, edit the "% of Bucket" column in the Combined table up top (the others rebalance to keep the bucket at 100%). To add/remove tickers, just tell me and I'll update the lists.
       </div>
     </details>
 
@@ -4789,7 +4807,7 @@ function renderReentry() {
 // ============================================================
 function defaultTargetsData() {
   return {
-    version: 1,
+    version: 2,
     ira: {
       total: 1150000,
       accounts: {
@@ -4797,9 +4815,9 @@ function defaultTargetsData() {
         hers: { label: "Wife's IRA", total: 200000 }
       },
       buckets: [
-        { id: 'forever', label: 'Forever',  pct: 45, tickers: ['AMZN', 'NVDA', 'BRK.B', 'GOOGL'] },
-        { id: 'sp',      label: 'S&P 500',  pct: 35, tickers: ['VOO'] },
-        { id: 'fornow',  label: 'For Now',  pct: 20, tickers: ['AXP', 'BABA', 'BAC', 'BN', 'CVX', 'MCO', 'MA', 'MELI', 'PGR', 'OXY', 'TSM', 'V', 'WMT', 'COST', 'UBER'] }
+        { id: 'forever', label: 'Forever',  pct: 45, tickers: ['AMZN', 'NVDA', 'BRK.B', 'GOOGL'], weights: {} },
+        { id: 'sp',      label: 'S&P 500',  pct: 35, tickers: ['VOO'], weights: {} },
+        { id: 'fornow',  label: 'For Now',  pct: 20, tickers: ['AXP', 'BABA', 'BAC', 'BN', 'CVX', 'MCO', 'MA', 'MELI', 'PGR', 'OXY', 'TSM', 'V', 'WMT', 'COST', 'UBER'], weights: {} }
       ]
     },
     mose: {
@@ -4808,28 +4826,43 @@ function defaultTargetsData() {
       stockPct: 70, // 70% deployed into stocks, 30% held as cash
       tickers: ['AAPL', 'AMD', 'ASML', 'INTC', 'META', 'MSFT', 'MU', 'TSLA', 'SPCX', 'DASH']
     },
-    // Owned market value, keyed "account|ticker". Seeded from Joe's IBKR screenshot 2026-06-13.
+    // Owned market value, keyed "account|ticker". His from IBKR 2026-06-13; hers from IBKR 2026-06-15.
     owned: {
-      'his|AMZN': 11928, 'his|GOOGL': 18044, 'his|WMT': 16946, 'his|PLD': 5652
-    }
+      'his|AMZN': 11928, 'his|GOOGL': 18044, 'his|WMT': 16946, 'his|PLD': 5652,
+      'hers|AMZN': 2624, 'hers|GOOGL': 3970, 'hers|WMT': 3389
+    },
+    history: [
+      { date: '2026-06-15', his: 46918, hers: 9983, mose: 0, iraGoal: 1150000, moseStockGoal: 240800 }
+    ]
   };
 }
 
 let targetsData = (function() {
-  try {
-    const d = JSON.parse(localStorage.getItem('mose_targets_local') || 'null');
-    if (d && d.ira && d.ira.buckets) return d;
-  } catch {}
-  return defaultTargetsData();
+  let d = null;
+  try { d = JSON.parse(localStorage.getItem('mose_targets_local') || 'null'); } catch {}
+  if (!(d && d.ira && d.ira.buckets)) d = defaultTargetsData();
+  d.ira.buckets.forEach(b => { if (!b.weights || typeof b.weights !== 'object') b.weights = {}; });
+  if (!Array.isArray(d.history)) d.history = [];
+  return d;
 })();
 
 function targOwned(acct, ticker) { return Number(targetsData.owned[acct + '|' + ticker]) || 0; }
-function targStockTarget(acctTotal, bucket) { return bucket.tickers.length ? acctTotal * bucket.pct / 100 / bucket.tickers.length : 0; }
 function targAllTickers() {
   const s = new Set();
   targetsData.ira.buckets.forEach(b => b.tickers.forEach(t => s.add(t)));
   targetsData.mose.tickers.forEach(t => s.add(t));
   return s;
+}
+
+// ---- Per-stock weighting within a bucket (default equal) ----
+function targWeight(bucket, ticker) {
+  const w = bucket.weights ? bucket.weights[ticker] : undefined;
+  return (Number.isFinite(w) && w >= 0) ? w : (100 / (bucket.tickers.length || 1));
+}
+function targWeightSum(bucket) { return bucket.tickers.reduce((s, t) => s + targWeight(bucket, t), 0) || 1; }
+function targStockPctOfBucket(bucket, ticker) { return targWeight(bucket, ticker) / targWeightSum(bucket) * 100; }
+function targStockTarget(acctTotal, bucket, ticker) {
+  return acctTotal * bucket.pct / 100 * targWeight(bucket, ticker) / targWeightSum(bucket);
 }
 
 function targetsSave() {
@@ -4845,6 +4878,29 @@ function targSetOwned(acct, ticker, val) {
   if (n === 0) delete targetsData.owned[acct + '|' + ticker];
   else targetsData.owned[acct + '|' + ticker] = n;
   targetsSave();
+}
+
+// Set one stock's % of its bucket; rebalance the others proportionally so the bucket always sums to 100%.
+function targSetPctOfBucket(bucketId, ticker, val) {
+  const b = targetsData.ira.buckets.find(x => x.id === bucketId);
+  if (!b) return;
+  let pct = Number(val);
+  if (!Number.isFinite(pct) || pct < 0) { renderTargets(); return; }
+  pct = Math.min(100, pct);
+  if (b.tickers.length === 1) { b.weights = { [ticker]: 100 }; targetsSave(); return; }
+  const cur = {};
+  b.tickers.forEach(t => { cur[t] = targStockPctOfBucket(b, t); });
+  const others = b.tickers.filter(t => t !== ticker);
+  const othersSum = others.reduce((s, t) => s + cur[t], 0);
+  const remaining = 100 - pct;
+  const nw = { [ticker]: pct };
+  others.forEach(t => { nw[t] = othersSum > 0 ? remaining * cur[t] / othersSum : remaining / others.length; });
+  b.weights = nw;
+  targetsSave();
+}
+function targResetWeights(bucketId) {
+  const b = targetsData.ira.buckets.find(x => x.id === bucketId);
+  if (b) { b.weights = {}; targetsSave(); }
 }
 
 function targSetCfg(path, val) {
@@ -4867,13 +4923,22 @@ function targLivePrice(t) {
   return '';
 }
 
-function targMoreCell(owned, target) {
+// "Buy More" as a share count at the live price, for copy-paste into the IBKR order ticket.
+function targShareHint(dollars, ticker) {
+  const q = liveQuotes[canonicalTicker(ticker)];
+  if (q && Number.isFinite(q.price) && q.price > 0 && dollars > 0.5) {
+    return ` <span style="color:var(--muted);font-weight:600;font-size:11px">≈ ${Math.round(dollars / q.price)} sh</span>`;
+  }
+  return '';
+}
+
+function targMoreCell(owned, target, ticker) {
   const more = target - owned;
   if (more <= 0.5) {
     const over = -more;
     return `<td style="color:var(--green);font-weight:700">✓ done${over > 0.5 ? ` <span style="color:var(--muted);font-weight:600">(+${reentryFmt(over)} over)</span>` : ''}</td>`;
   }
-  return `<td style="font-weight:800">${reentryFmt(more)}</td>`;
+  return `<td style="font-weight:800">${reentryFmt(more)}${ticker ? targShareHint(more, ticker) : ''}</td>`;
 }
 
 function targPctCell(owned, target) {
@@ -4887,11 +4952,11 @@ function targAcctTableHtml(acctKey) {
   let html = `<div class="table-wrap"><table><thead><tr><th>Ticker</th><th>Target</th><th>Owned</th><th>Buy More</th><th>% to Goal</th></tr></thead><tbody>`;
   let deployed = 0;
   targetsData.ira.buckets.forEach(b => {
-    const tgt = targStockTarget(acct.total, b);
     html += `<tr class="targ-bucket-row"><td colspan="5">${escapeHtml(b.label)} · ${b.pct}% · ${reentryFmt(acct.total * b.pct / 100)}</td></tr>`;
     b.tickers.forEach(t => {
+      const tgt = targStockTarget(acct.total, b, t);
       const owned = targOwned(acctKey, t); deployed += owned;
-      html += `<tr><td><strong>${escapeHtml(t)}</strong>${targLivePrice(t)}</td><td>${reentryFmt(tgt)}</td><td><input type="number" class="targ-input" value="${owned || ''}" placeholder="0" onchange="targSetOwned('${acctKey}','${t}',this.value)"></td>${targMoreCell(owned, tgt)}${targPctCell(owned, tgt)}</tr>`;
+      html += `<tr><td><strong>${escapeHtml(t)}</strong>${targLivePrice(t)}</td><td>${reentryFmt(tgt)}</td><td><input type="number" class="targ-input" value="${owned || ''}" placeholder="0" onchange="targSetOwned('${acctKey}','${t}',this.value)"></td>${targMoreCell(owned, tgt, t)}${targPctCell(owned, tgt)}</tr>`;
     });
   });
   html += `</tbody></table></div>`;
@@ -4899,13 +4964,17 @@ function targAcctTableHtml(acctKey) {
 }
 
 function targCombinedHtml() {
-  let html = `<div class="table-wrap"><table><thead><tr><th>Ticker</th><th>Combined Goal</th><th>Owned (his+hers)</th><th>Remaining</th><th>% to Goal</th></tr></thead><tbody>`;
+  let html = `<div class="table-wrap"><table><thead><tr><th>Ticker</th><th>% of Bucket</th><th>Combined Goal</th><th>Owned (his+hers)</th><th>Remaining</th><th>% to Goal</th></tr></thead><tbody>`;
   targetsData.ira.buckets.forEach(b => {
-    const tgt = targetsData.ira.total * b.pct / 100 / (b.tickers.length || 1);
-    html += `<tr class="targ-bucket-row"><td colspan="5">${escapeHtml(b.label)} · ${b.pct}% · goal ${reentryFmt(targetsData.ira.total * b.pct / 100)}</td></tr>`;
+    const bucketGoal = targetsData.ira.total * b.pct / 100;
+    html += `<tr class="targ-bucket-row"><td colspan="6">${escapeHtml(b.label)} · ${b.pct}% · goal ${reentryFmt(bucketGoal)}${b.tickers.length > 1 ? ` <a onclick="targResetWeights('${b.id}')" style="cursor:pointer;color:var(--blue);font-weight:600;font-size:11px;margin-left:8px">reset to equal</a>` : ''}</td></tr>`;
     b.tickers.forEach(t => {
+      const tgt = targStockTarget(targetsData.ira.total, b, t);
       const owned = targOwned('his', t) + targOwned('hers', t);
-      html += `<tr><td><strong>${escapeHtml(t)}</strong>${targLivePrice(t)}</td><td>${reentryFmt(tgt)}</td><td>${reentryFmt(owned)}</td>${targMoreCell(owned, tgt)}${targPctCell(owned, tgt)}</tr>`;
+      const pctCell = b.tickers.length === 1
+        ? `<td style="color:var(--muted)">100%</td>`
+        : `<td style="white-space:nowrap"><input type="number" step="0.5" class="targ-input" style="width:64px" value="${targStockPctOfBucket(b, t).toFixed(1)}" onchange="targSetPctOfBucket('${b.id}','${t}',this.value)">%</td>`;
+      html += `<tr><td><strong>${escapeHtml(t)}</strong>${targLivePrice(t)}</td>${pctCell}<td>${reentryFmt(tgt)}</td><td>${reentryFmt(owned)}</td>${targMoreCell(owned, tgt)}${targPctCell(owned, tgt)}</tr>`;
     });
   });
   html += `</tbody></table></div>`;
@@ -4920,10 +4989,101 @@ function targMoseHtml() {
   let deployed = 0;
   m.tickers.forEach(t => {
     const owned = targOwned('mose', t); deployed += owned;
-    html += `<tr><td><strong>${escapeHtml(t)}</strong>${targLivePrice(t)}</td><td>${reentryFmt(tgt)}</td><td><input type="number" class="targ-input" value="${owned || ''}" placeholder="0" onchange="targSetOwned('mose','${t}',this.value)"></td>${targMoreCell(owned, tgt)}${targPctCell(owned, tgt)}</tr>`;
+    html += `<tr><td><strong>${escapeHtml(t)}</strong>${targLivePrice(t)}</td><td>${reentryFmt(tgt)}</td><td><input type="number" class="targ-input" value="${owned || ''}" placeholder="0" onchange="targSetOwned('mose','${t}',this.value)"></td>${targMoreCell(owned, tgt, t)}${targPctCell(owned, tgt)}</tr>`;
   });
   html += `</tbody></table></div>`;
   return { html, deployed, budget, cash: m.total - budget };
+}
+
+// ---- Import positions pasted/parsed from IBKR ----
+function targParsePositions(text) {
+  const out = {};
+  (text || '').split(/[\n;]+/).forEach(line => {
+    line = line.trim();
+    if (!line) return;
+    const tm = line.match(/[A-Za-z][A-Za-z.\-]{0,7}/);
+    if (!tm) return;
+    const ticker = tm[0].toUpperCase().replace(/[.\-]+$/, '');
+    if (ticker === 'USD' || ticker === 'CASH') return;
+    const rest = line.slice(tm.index + tm[0].length);
+    const nums = (rest.match(/-?\d[\d,]*(\.\d+)?/g) || []).map(s => parseFloat(s.replace(/,/g, ''))).filter(n => Number.isFinite(n) && n > 0);
+    if (!nums.length) return;
+    out[ticker] = Math.round(nums.length === 1 ? nums[0] : nums[0] * nums[1]);
+  });
+  return out;
+}
+function targImportAcctLabel(acct) { return acct === 'mose' ? 'MOSE Joint' : (targetsData.ira.accounts[acct] ? targetsData.ira.accounts[acct].label : acct); }
+function targImportPreview() {
+  const parsed = targParsePositions(document.getElementById('targets-import-text').value);
+  const keys = Object.keys(parsed);
+  const el = document.getElementById('targets-import-preview');
+  el.innerHTML = keys.length
+    ? 'Will set Owned to: ' + keys.map(t => `<strong>${escapeHtml(t)}</strong> ${reentryFmt(parsed[t])}`).join(' &nbsp;·&nbsp; ')
+    : '<span style="color:var(--muted)">Nothing parsed yet — paste positions above, one per line.</span>';
+}
+function targImport() {
+  const acct = document.getElementById('targets-import-acct').value;
+  const parsed = targParsePositions(document.getElementById('targets-import-text').value);
+  const keys = Object.keys(parsed);
+  if (!keys.length) { showWatchlistToast('No positions found to import'); return; }
+  keys.forEach(t => { if (parsed[t] > 0) targetsData.owned[acct + '|' + t] = parsed[t]; });
+  targSnapshot();
+  targetsSave();
+  document.getElementById('targets-import-text').value = '';
+  document.getElementById('targets-import-preview').innerHTML = '';
+  showWatchlistToast(`Imported ${keys.length} position(s) into ${targImportAcctLabel(acct)}`);
+}
+
+// ---- Progress history (snapshots) ----
+function targCurrentSnapshot() {
+  let his = 0, hers = 0;
+  targetsData.ira.buckets.forEach(b => b.tickers.forEach(t => { his += targOwned('his', t); hers += targOwned('hers', t); }));
+  let mose = 0;
+  targetsData.mose.tickers.forEach(t => { mose += targOwned('mose', t); });
+  return { date: new Date().toISOString().slice(0, 10), his: Math.round(his), hers: Math.round(hers), mose: Math.round(mose), iraGoal: targetsData.ira.total, moseStockGoal: Math.round(targetsData.mose.total * targetsData.mose.stockPct / 100) };
+}
+function targSnapshot() {
+  const s = targCurrentSnapshot();
+  if (!Array.isArray(targetsData.history)) targetsData.history = [];
+  targetsData.history = targetsData.history.filter(h => h.date !== s.date);
+  targetsData.history.push(s);
+  targetsData.history.sort((a, b) => a.date.localeCompare(b.date));
+}
+function targSaveSnapshotManual() { targSnapshot(); targetsSave(); showWatchlistToast('Progress snapshot saved'); }
+function targSparkline(vals, w, h) {
+  if (!vals || vals.length < 2) return '';
+  const max = Math.max(...vals, 0.0001);
+  const pts = vals.map((v, i) => {
+    const x = i / (vals.length - 1) * w;
+    const y = h - (v / max) * (h - 4) - 2;
+    return `${x.toFixed(1)},${y.toFixed(1)}`;
+  }).join(' ');
+  return `<svg width="${w}" height="${h}"><polyline fill="none" stroke="var(--green)" stroke-width="2" points="${pts}"></polyline></svg>`;
+}
+function targHistoryHtml() {
+  const hist = (targetsData.history || []).slice().sort((a, b) => a.date.localeCompare(b.date));
+  let rows = '';
+  for (let i = hist.length - 1; i >= 0; i--) {
+    const s = hist[i];
+    const dep = s.his + s.hers;
+    const pct = s.iraGoal ? dep / s.iraGoal * 100 : 0;
+    const prev = i > 0 ? hist[i - 1] : null;
+    const delta = prev ? dep - (prev.his + prev.hers) : null;
+    const deltaCell = delta === null ? '<span style="color:var(--muted)">—</span>'
+      : (delta >= 0 ? `<span style="color:var(--green)">+${reentryFmt(delta)}</span>` : `<span style="color:var(--red)">${reentryFmt(delta)}</span>`);
+    rows += `<tr><td>${escapeHtml(s.date)}</td><td>${reentryFmt(dep)}</td><td>${pct.toFixed(1)}%</td><td>${reentryFmt(s.mose || 0)}</td><td>${deltaCell}</td></tr>`;
+  }
+  const pctVals = hist.map(s => s.iraGoal ? (s.his + s.hers) / s.iraGoal * 100 : 0);
+  const spark = targSparkline(pctVals, Math.min(440, Math.max(120, pctVals.length * 60)), 46);
+  return `<div class="reentry-section">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+      <h3 style="margin:0">📈 Progress History</h3>
+      <button class="filter-btn" onclick="targSaveSnapshotManual()">📸 Save snapshot now</button>
+    </div>
+    <div class="sub" style="margin-top:6px">IRA deployment over time — auto-captured on every import. ${hist.length} snapshot${hist.length !== 1 ? 's' : ''}.</div>
+    ${spark ? `<div style="margin:6px 0 10px">${spark}<span style="color:var(--muted);font-size:11px;margin-left:8px">% of IRA goal deployed</span></div>` : ''}
+    <div class="table-wrap"><table><thead><tr><th>Date</th><th>IRA Deployed</th><th>IRA %</th><th>MOSE Deployed</th><th>Δ since prev</th></tr></thead><tbody>${rows || '<tr><td colspan="5" class="no-data">No snapshots yet.</td></tr>'}</tbody></table></div>
+  </div>`;
 }
 
 function targExtraHtml() {
@@ -5002,19 +5162,25 @@ function renderTargets() {
   document.getElementById('targets-mose').innerHTML = mose.html;
   document.getElementById('targets-mose-sub').innerHTML = `Stock budget <strong>${reentryFmt(mose.budget)}</strong> (${m.stockPct}%) split equally across ${m.tickers.length} names · Cash held back <strong>${reentryFmt(mose.cash)}</strong> (${100 - m.stockPct}%) · Deployed ${reentryFmt(mose.deployed)}. <em>Kept 100% separate from the IRA totals — funded by the $344k non-IRA joint cash, bought only on a market downturn.</em>`;
 
+  document.getElementById('targets-history').innerHTML = targHistoryHtml();
   document.getElementById('targets-extra').innerHTML = targExtraHtml();
   renderTargetsSettings();
 }
 
 function targetsExportCSV() {
-  const rows = [['Account', 'Bucket', 'Ticker', 'Target $', 'Owned $', 'Buy More $', 'Pct to Goal']];
+  const sh = (dollars, t) => {
+    const q = liveQuotes[canonicalTicker(t)];
+    return (q && Number.isFinite(q.price) && q.price > 0 && dollars > 0.5) ? Math.round(dollars / q.price) : '';
+  };
+  const rows = [['Account', 'Bucket', 'Ticker', 'Target $', 'Owned $', 'Buy More $', 'Buy More (sh)', 'Pct to Goal']];
   ['his', 'hers'].forEach(acct => {
     const a = targetsData.ira.accounts[acct];
     targetsData.ira.buckets.forEach(b => {
-      const tgt = targStockTarget(a.total, b);
       b.tickers.forEach(t => {
+        const tgt = targStockTarget(a.total, b, t);
         const owned = targOwned(acct, t);
-        rows.push([a.label, b.label, t, Math.round(tgt), Math.round(owned), Math.round(Math.max(0, tgt - owned)), (tgt ? Math.round(owned / tgt * 100) : 0) + '%']);
+        const more = Math.max(0, tgt - owned);
+        rows.push([a.label, b.label, t, Math.round(tgt), Math.round(owned), Math.round(more), sh(more, t), (tgt ? Math.round(owned / tgt * 100) : 0) + '%']);
       });
     });
   });
@@ -5022,14 +5188,15 @@ function targetsExportCSV() {
   const moseTgt = m.tickers.length ? m.total * m.stockPct / 100 / m.tickers.length : 0;
   m.tickers.forEach(t => {
     const owned = targOwned('mose', t);
-    rows.push(['MOSE Joint', 'MOSE', t, Math.round(moseTgt), Math.round(owned), Math.round(Math.max(0, moseTgt - owned)), (moseTgt ? Math.round(owned / moseTgt * 100) : 0) + '%']);
+    const more = Math.max(0, moseTgt - owned);
+    rows.push(['MOSE Joint', 'MOSE', t, Math.round(moseTgt), Math.round(owned), Math.round(more), sh(more, t), (moseTgt ? Math.round(owned / moseTgt * 100) : 0) + '%']);
   });
   // Outside-the-plan holdings
   const all = targAllTickers();
   Object.keys(targetsData.owned).filter(k => !all.has(k.split('|')[1])).forEach(k => {
     const [acct, t] = k.split('|');
     const lbl = targetsData.ira.accounts[acct] ? targetsData.ira.accounts[acct].label : acct;
-    rows.push([lbl, 'OUTSIDE PLAN', t, 0, Math.round(targetsData.owned[k]), 0, 'n/a']);
+    rows.push([lbl, 'OUTSIDE PLAN', t, 0, Math.round(targetsData.owned[k]), 0, '', 'n/a']);
   });
   const csv = rows.map(r => r.map(c => `"${String(c).replace(/"/g, '""')}"`).join(',')).join('\r\n');
   const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });

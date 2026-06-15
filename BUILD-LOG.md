@@ -6,6 +6,28 @@
 
 ---
 
+## Session 7 — June 15, 2026
+**Goal:** Four Buy-Targets upgrades Joe greenlit, plus load his wife's IRA positions.
+
+**What was built:**
+- **Custom per-stock weights within a bucket** — new editable "% of Bucket" column in the Combined table. Setting one stock's % rebalances the others proportionally so the bucket always sums to 100% and its dollar goal stays exact. "Reset to equal" link per bucket. Single-ticker buckets (S&P/VOO) show a fixed 100%. Weights flow through to his/hers/combined and the CSV.
+- **"Buy More" in shares** — every order amount now shows `≈ N sh` at the live price in the his/hers/MOSE tables, and a "Buy More (sh)" column in the CSV.
+- **One-paste IBKR import** — collapsible "📥 Update from IBKR" panel: pick account, paste positions (`TICKER VALUE` or `TICKER SHARES PRICE`), Preview, Import. Forgiving parser ignores USD/Cash lines and handles $/comma formatting. Lands straight in the synced state (solves the Firebase-override problem for monthly updates).
+- **Progress history** — dated snapshots auto-captured on every import (plus a manual "Save snapshot now" button). Shows a sparkline of % of IRA goal deployed over time and a table with deployed $, %, MOSE deployed, and Δ since the prior snapshot.
+- **Wife's IRA loaded** from her IBKR screenshot (acct U25767390): AMZN $2,624, GOOGL $3,970, WMT $3,389 (~$190k still in SGOV/cash). Her side of the tracker is now live; combined IRA deployed = $56,901 (4.9%).
+- Bumped targets data to version 2 with a load-time normalizer (adds `weights`/`history` to any older saved state).
+
+**Verification steps run:**
+- Embedded JavaScript syntax check (node --check)
+- Node tests: weight rebalance (GOOGL→40% of Forever makes others 20% each, sum 100, targets recompute to $207k combined / $171k his); import parser (both formats, USD/Cash ignored); import-into-account + same-day snapshot dedup; wife data load
+- Headless Chromium render of the full upgraded tab — % of Bucket column, share hints, import panel, populated Her IRA, history, outside-plan (PLD); no page errors
+
+**Known issues / next work:**
+- Import overwrites listed tickers but doesn't zero a position that was fully sold — edit that cell to 0 if needed.
+- Still on the dev branch; not deployed live (holding per Joe until he gives the go-ahead).
+
+---
+
 ## Session 6 — June 13, 2026
 **Goal:** Replace the "decide the timing for me" model with what Joe actually wants — a fixed per-stock dollar-goal tracker he reverts to, updated from IBKR position screenshots.
 
