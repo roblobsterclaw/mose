@@ -5004,7 +5004,7 @@ function targNextTickerRow(row) {
 function targDragStart(ev, bucketId, ticker) {
   if (ev.button != null && ev.button !== 0) return; // primary button / touch only
   ev.preventDefault();
-  targDrag = { src: bucketId, ticker: ticker };
+  targDrag = { src: bucketId, ticker: ticker, lastX: ev.clientX, lastY: ev.clientY, scrollTimer: setInterval(targAutoScrollTick, 16) };
   document.body.style.userSelect = 'none';
   const ghost = document.createElement('div');
   ghost.id = 'targ-drag-ghost';
@@ -5015,24 +5015,44 @@ function targDragStart(ev, bucketId, ticker) {
   window.addEventListener('pointercancel', targDragCancel);
   targDragMove(ev);
 }
-function targDragMove(ev) {
-  if (!targDrag) return;
-  if (ev.cancelable) ev.preventDefault();
-  const ghost = document.getElementById('targ-drag-ghost');
-  if (ghost) { ghost.style.left = (ev.clientX + 12) + 'px'; ghost.style.top = (ev.clientY + 10) + 'px'; }
+function targUpdateDropTarget(x, y) {
   targClearDropMarks();
-  const el = document.elementFromPoint(ev.clientX, ev.clientY);
+  const el = document.elementFromPoint(x, y);
   if (!el) return;
   const row = el.closest('[data-targ-ticker]');
   if (row) {
     const r = row.getBoundingClientRect();
-    row.classList.add(ev.clientY > r.top + r.height / 2 ? 'targ-drop-after' : 'targ-drop-before');
+    row.classList.add(y > r.top + r.height / 2 ? 'targ-drop-after' : 'targ-drop-before');
   } else {
     const tb = el.closest('tbody[data-targ-bucket]');
     if (tb) tb.classList.add('targ-drop-into');
   }
 }
+// Auto-scroll the page when the pointer is near the top/bottom edge while dragging,
+// so a stock can be dragged between far-apart sections (e.g. MOSE at the bottom to an IRA bucket up top).
+function targAutoScrollTick() {
+  if (!targDrag) return;
+  const y = targDrag.lastY, margin = 90, speed = 16;
+  let dy = 0;
+  if (y < margin) dy = -speed;
+  else if (y > window.innerHeight - margin) dy = speed;
+  if (dy) {
+    window.scrollBy(0, dy);
+    const ghost = document.getElementById('targ-drag-ghost');
+    if (ghost) { ghost.style.left = (targDrag.lastX + 12) + 'px'; ghost.style.top = (y + 10) + 'px'; }
+    targUpdateDropTarget(targDrag.lastX, y);
+  }
+}
+function targDragMove(ev) {
+  if (!targDrag) return;
+  if (ev.cancelable) ev.preventDefault();
+  targDrag.lastX = ev.clientX; targDrag.lastY = ev.clientY;
+  const ghost = document.getElementById('targ-drag-ghost');
+  if (ghost) { ghost.style.left = (ev.clientX + 12) + 'px'; ghost.style.top = (ev.clientY + 10) + 'px'; }
+  targUpdateDropTarget(ev.clientX, ev.clientY);
+}
 function targFinishDrag() {
+  if (targDrag && targDrag.scrollTimer) clearInterval(targDrag.scrollTimer);
   window.removeEventListener('pointermove', targDragMove);
   window.removeEventListener('pointerup', targDragEnd);
   window.removeEventListener('pointercancel', targDragCancel);
@@ -5064,10 +5084,25 @@ function targDragEnd(ev) {
   if (anchorTicker === d.ticker) return; // dropped onto itself — no change
   targDropTicker(d.src, d.ticker, destBucket, anchorTicker);
 }
+// Resolve a bucket id to its ticker list. 'mose' is the separate joint-cash pool.
+function targListFor(id) {
+  if (id === 'mose') return { tickers: targetsData.mose.tickers, label: targetsData.mose.label, weights: null, mose: true };
+  const b = targetsData.ira.buckets.find(x => x.id === id);
+  return b ? { tickers: b.tickers, label: b.label, weights: b.weights, mose: false } : null;
+}
+// On a move across the IRA<->MOSE boundary, carry the owned $ to the destination's account key so nothing is orphaned.
+function targMigrateOwned(ticker, srcMose, destMose) {
+  if (srcMose === destMose) return; // same pool — owned keys stay valid
+  const srcAccts = srcMose ? ['mose'] : ['his', 'hers'];
+  const destAcct = destMose ? 'mose' : 'his';
+  let sum = 0;
+  srcAccts.forEach(a => { sum += targOwned(a, ticker); delete targetsData.owned[a + '|' + ticker]; });
+  if (sum > 0) targetsData.owned[destAcct + '|' + ticker] = (targetsData.owned[destAcct + '|' + ticker] || 0) + sum;
+}
 // Move/reorder a ticker. beforeTicker = insert before it in dest; null = append.
 function targDropTicker(srcId, ticker, destId, beforeTicker) {
-  const src = targetsData.ira.buckets.find(b => b.id === srcId);
-  const dest = targetsData.ira.buckets.find(b => b.id === destId);
+  const src = targListFor(srcId);
+  const dest = targListFor(destId);
   if (!src || !dest) return;
   const i = src.tickers.indexOf(ticker);
   if (i < 0) return;
@@ -5076,6 +5111,7 @@ function targDropTicker(srcId, ticker, destId, beforeTicker) {
   let idx = beforeTicker == null ? dest.tickers.length : dest.tickers.indexOf(beforeTicker);
   if (idx < 0) idx = dest.tickers.length;
   dest.tickers.splice(idx, 0, ticker);
+  if (srcId !== destId) targMigrateOwned(ticker, src.mose, dest.mose);
   targetsSave();
   if (srcId !== destId && typeof showWatchlistToast === 'function') {
     showWatchlistToast(`Moved ${ticker} → ${dest.label}`);
@@ -5086,11 +5122,12 @@ function targMoseHtml() {
   const m = targetsData.mose;
   const budget = m.total * m.stockPct / 100;
   const tgt = m.tickers.length ? budget / m.tickers.length : 0;
-  let html = `<div class="table-wrap"><table><thead><tr><th>Ticker</th><th>Target</th><th>Owned</th><th>Buy More</th><th>% to Goal</th></tr></thead><tbody>`;
+  let html = `<div class="table-wrap"><table><thead><tr><th></th><th>Ticker</th><th>Target</th><th>Owned</th><th>Buy More</th><th>% to Goal</th></tr></thead><tbody data-targ-bucket="mose">`;
+  html += `<tr class="targ-bucket-row"><td colspan="6">MOSE names · ${m.stockPct}% to stocks · ${reentryFmt(budget)} · ${m.tickers.length} name${m.tickers.length !== 1 ? 's' : ''} <span style="color:var(--muted);font-weight:600;font-size:11px;margin-left:6px">⠿ drag to reorder, or drop on an IRA bucket to move it (owned $ follows)</span></td></tr>`;
   let deployed = 0;
   m.tickers.forEach(t => {
     const owned = targOwned('mose', t); deployed += owned;
-    html += `<tr><td><strong>${escapeHtml(t)}</strong>${targLivePrice(t)}</td><td>${reentryFmt(tgt)}</td><td><input type="number" class="targ-input" value="${owned || ''}" placeholder="0" onchange="targSetOwned('mose','${t}',this.value)"></td>${targMoreCell(owned, tgt, t)}${targPctCell(owned, tgt)}</tr>`;
+    html += `<tr data-targ-bucket="mose" data-targ-ticker="${escapeHtml(t)}"><td class="targ-drag-handle" onpointerdown="targDragStart(event,'mose','${escapeHtml(t)}')" title="Drag to reorder or move buckets">⠿</td><td><strong>${escapeHtml(t)}</strong>${targLivePrice(t)}</td><td>${reentryFmt(tgt)}</td><td><input type="number" class="targ-input" value="${owned || ''}" placeholder="0" onchange="targSetOwned('mose','${t}',this.value)"></td>${targMoreCell(owned, tgt, t)}${targPctCell(owned, tgt)}</tr>`;
   });
   html += `</tbody></table></div>`;
   return { html, deployed, budget, cash: m.total - budget };

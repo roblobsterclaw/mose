@@ -6,6 +6,22 @@
 
 ---
 
+## Session 9 — June 16, 2026
+**Goal:** Extend drag-and-drop to the MOSE bucket, and add edge auto-scroll so far-apart sections can be reached.
+
+**What was built:**
+- **MOSE is now a drag participant** (`tbody data-targ-bucket="mose"` with handle rows). Reorder within MOSE, or drag a MOSE name onto an IRA bucket (and vice-versa) — works across the two separate tables via `elementFromPoint`.
+- **Cross-pool owned migration:** moving a stock across the IRA↔MOSE boundary carries its owned $ to the destination's account key (`his/hers` ⇄ `mose`) so nothing is silently orphaned; same-pool moves leave owned untouched. Generalized `targDropTicker` via a `targListFor(id)` helper that resolves `'mose'` or any IRA bucket.
+- **Edge auto-scroll during drag:** when the pointer nears the top/bottom of the viewport, the page scrolls (with the ghost + drop indicator tracking), so you can drag a MOSE name at the bottom up to an IRA bucket — essential on the phone.
+
+**Verification steps run:**
+- node --check; unit tests: AAPL MOSE→Forever (MOSE re-spreads to 9 @ $26,756, AAPL Forever target $103,500), WMT For Now→MOSE with owned migration ($16,946+$3,389 → mose|WMT $20,335, his/hers cleared), reorder within MOSE
+- Headless Chromium: cross-table drag on a tall viewport (AAPL MOSE→Forever) AND on a short viewport relying on auto-scroll — both moved the row, no page errors
+
+**Deploy:** merged to main and published to gh-pages (live).
+
+---
+
 ## Session 8 — June 16, 2026
 **Goal:** Drag-and-drop in the Buy Targets Combined table — reorder stocks and move them between buckets with automatic recalculation.
 
