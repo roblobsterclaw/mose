@@ -6,6 +6,18 @@
 
 ---
 
+## Session 6 — June 16, 2026
+**Goal:** Fix "Add Stock" search — it only matched the ~90 names MOSE already tracked, so listed companies (and private ones like Cursor/Cerebras) couldn't be found.
+
+**What was built:**
+- `reference-data/ticker-directory.json` — a NYSE/NASDAQ/AMEX symbol directory the search reads. Seeded now (~180 names from repo data + curated large/mid caps) and refreshed to the full ~10k SEC/Nasdaq listing by `scripts/build_ticker_directory.py`, wired into the weekly 13F workflow.
+- Watchlist search now merges tracked names (with bucket/source hints) and the full directory; tracked entries win on collisions. Name-only adds work (the old code silently refused them).
+- Pre-IPO / private add path: any typed name can be added as an unlisted company (🔒, no quote attempted). Cursor (private) and Cerebras (pre-IPO) are handled this way. Quote script skips `private` entries.
+
+**Owner action:** trigger the "Update 13F tracker" workflow once to replace the seed with the full SEC directory (the sandbox can't reach SEC/Nasdaq hosts).
+
+---
+
 ## Session 5 — June 12, 2026
 **Goal:** Fix the dead quote pipeline, lock down exposed personal data, make watchlist buckets user-editable, and version the deep dives.
 

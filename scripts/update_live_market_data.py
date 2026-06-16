@@ -165,7 +165,8 @@ def firebase_custom_tickers() -> list[str]:
         return []
     tickers = set()
     for item in state.get("customWatchlist") or []:
-        if isinstance(item, dict) and item.get("ticker"):
+        # Private / pre-IPO entries have no public ticker — never try to quote them.
+        if isinstance(item, dict) and item.get("ticker") and not item.get("private"):
             tickers.add(str(item["ticker"]).upper())
     for ticker in (state.get("buckets") or {}):
         tickers.add(str(ticker).upper())

@@ -550,6 +550,9 @@
   .watchlist-suggestion .sym { font-family: monospace; font-weight: 800; color: var(--blue); }
   .watchlist-suggestion .company { color: var(--text); font-size: 12px; }
   .watchlist-suggestion .source { color: var(--muted); font-size: 11px; white-space: nowrap; }
+  .watchlist-suggestion.private-add .sym { color: var(--accent); }
+  .watchlist-suggestion.private-add { border-top: 1px dashed var(--border); }
+  .private-tag { font-size: 10px; color: var(--muted); border: 1px solid var(--border); border-radius: 4px; padding: 1px 5px; margin-left: 6px; vertical-align: middle; }
   .watchlist-autosave-pill {
     display: inline-flex; align-items: center; gap: 5px; border: 1px solid var(--green);
     color: var(--green); border-radius: 999px; padding: 4px 10px; font-size: 11px;
@@ -3176,6 +3179,55 @@ function saveCustomWatchlist() {
 
 let watchlistSuggestionSelection = -1;
 let watchlistSuggestionMatches = [];
+// Full NYSE/NASDAQ/AMEX listing for "Add Stock" search. Seeded in
+// reference-data/ticker-directory.json and refreshed by the scheduled
+// scripts/build_ticker_directory.py job (SEC + Nasdaq Trader, ~10k symbols).
+let tickerDirectory = [];
+
+async function loadTickerDirectory() {
+  try {
+    const r = await fetch('reference-data/ticker-directory.json?v=' + Date.now());
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    const data = await r.json();
+    tickerDirectory = (data.symbols || []).map(s => ({
+      ticker: canonicalTicker(s.t || s.ticker),
+      name: s.n || s.name || s.t,
+      exchange: s.e || s.exchange || ''
+    })).filter(s => s.ticker);
+  } catch (e) {
+    console.warn('Ticker directory unavailable; search limited to tracked names:', e);
+    tickerDirectory = [];
+  }
+  renderWatchlistSuggestions(document.getElementById('watchlist-add-ticker')?.value
+    || document.getElementById('watchlist-add-name')?.value || '');
+}
+
+// Merge tracked names (with bucket/source hints) and the full market directory.
+// Tracked entries win on key collisions so their bucket/source are preserved.
+function searchAllStocks(query, limit = 10) {
+  const q = String(query || '').trim().toLowerCase();
+  if (!q) return [];
+  const seen = new Map();
+  const scored = [];
+  const consider = (o, fromDirectory) => {
+    if (seen.has(o.ticker)) return;
+    const ticker = o.ticker.toLowerCase();
+    const name = (o.name || '').toLowerCase();
+    if (!ticker.includes(q) && !name.includes(q)) return;
+    seen.set(o.ticker, true);
+    const exact = ticker === q || name === q ? 0 : 1;
+    const starts = ticker.startsWith(q) || name.startsWith(q) ? 0 : 1;
+    // Tracked names rank ahead of raw directory rows at equal relevance.
+    scored.push({ o, sort: [exact, starts, fromDirectory ? 1 : 0, o.ticker] });
+  };
+  buildStockSearchIndex().forEach(o => consider(o, false));
+  tickerDirectory.forEach(o => consider({ ticker: o.ticker, name: o.name, source: o.exchange || 'Listed', bucket: 'watching' }, true));
+  scored.sort((a, b) => {
+    for (let i = 0; i < 3; i++) { if (a.sort[i] !== b.sort[i]) return a.sort[i] - b.sort[i]; }
+    return a.sort[3].localeCompare(b.sort[3]);
+  });
+  return scored.slice(0, limit).map(s => s.o);
+}
 
 function upsertStockOption(map, ticker, name, source, bucket) {
   const key = canonicalTicker(ticker);
@@ -3205,7 +3257,10 @@ function buildStockSearchIndex() {
 function findStockMatch(query) {
   const q = String(query || '').trim().toLowerCase();
   if (!q) return null;
-  const options = buildStockSearchIndex();
+  // Tracked names first (carry bucket/source), then the full market directory.
+  const tracked = buildStockSearchIndex();
+  const directory = tickerDirectory.map(o => ({ ticker: o.ticker, name: o.name, source: o.exchange || 'Listed', bucket: 'watching' }));
+  const options = [...tracked, ...directory];
   return options.find(o => o.ticker.toLowerCase() === q) ||
     options.find(o => o.name.toLowerCase() === q) ||
     options.find(o => o.ticker.toLowerCase().startsWith(q)) ||
@@ -3215,26 +3270,23 @@ function findStockMatch(query) {
 function renderWatchlistSuggestions(query) {
   const menu = document.getElementById('watchlist-add-suggestions');
   if (!menu) return;
-  const q = String(query || '').trim().toLowerCase();
+  const raw = String(query || '').trim();
+  const q = raw.toLowerCase();
   if (!q) { hideWatchlistSuggestions(); return; }
-  watchlistSuggestionMatches = buildStockSearchIndex()
-    .map(o => ({ ...o, haystack: `${o.ticker} ${o.name}`.toLowerCase() }))
-    .filter(o => o.haystack.includes(q))
-    .sort((a, b) => {
-      const aExact = a.ticker.toLowerCase() === q || a.name.toLowerCase() === q;
-      const bExact = b.ticker.toLowerCase() === q || b.name.toLowerCase() === q;
-      const aStarts = a.ticker.toLowerCase().startsWith(q) || a.name.toLowerCase().startsWith(q);
-      const bStarts = b.ticker.toLowerCase().startsWith(q) || b.name.toLowerCase().startsWith(q);
-      return Number(bExact) - Number(aExact) || Number(bStarts) - Number(aStarts) || a.ticker.localeCompare(b.ticker);
-    })
-    .slice(0, 10);
+  watchlistSuggestionMatches = searchAllStocks(q, 10);
   watchlistSuggestionSelection = -1;
+  // Always offer a "private / pre-IPO" add for the typed text, so names that
+  // aren't publicly listed (e.g. Cursor) can still be tracked as notes.
+  const privateRow = `<div class="watchlist-suggestion private-add" onmousedown="addPrivateWatchlistStock()">
+      <span class="sym">＋ Pre-IPO</span>
+      <span class="company">Add "${escapeHtml(raw)}" as a private / unlisted company</span>
+      <span class="source">no quote</span></div>`;
   if (!watchlistSuggestionMatches.length) {
-    menu.innerHTML = `<div class="watchlist-suggestion"><span class="sym">No match</span><span class="company">Enter a ticker manually or try another company name</span><span class="source"></span></div>`;
+    menu.innerHTML = `<div class="watchlist-suggestion"><span class="sym">No listed match</span><span class="company">Not found on NYSE/NASDAQ — add it as private below</span><span class="source"></span></div>${privateRow}`;
     menu.classList.add('show');
     return;
   }
-  menu.innerHTML = watchlistSuggestionMatches.map((o, i) => `<div class="watchlist-suggestion" data-idx="${i}" onmousedown="selectWatchlistSuggestion(${i})"><span class="sym">${escapeHtml(o.ticker)}</span><span class="company">${escapeHtml(o.name)}</span><span class="source">${escapeHtml(o.source || '')}</span></div>`).join('');
+  menu.innerHTML = watchlistSuggestionMatches.map((o, i) => `<div class="watchlist-suggestion" data-idx="${i}" onmousedown="selectWatchlistSuggestion(${i})"><span class="sym">${escapeHtml(o.ticker)}</span><span class="company">${escapeHtml(o.name)}</span><span class="source">${escapeHtml(o.source || '')}</span></div>`).join('') + privateRow;
   menu.classList.add('show');
 }
 
@@ -3287,6 +3339,34 @@ function hideWatchlistSuggestions() {
   if (menu) menu.classList.remove('show');
 }
 
+// Derive a stable, unique key for a private/unlisted company from its name.
+function privateKeyFromName(name) {
+  let base = String(name || '').toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 12) || 'PRIVATE';
+  let key = base, n = 2;
+  const taken = new Set(getWatchlistStocks().map(p => canonicalTicker(p.ticker)));
+  while (taken.has(key)) { key = (base.slice(0, 10) + n++); }
+  return key;
+}
+
+// Add a private / pre-IPO company (no public ticker, no quote).
+function addPrivateWatchlistStock() {
+  const tickerEl = document.getElementById('watchlist-add-ticker');
+  const nameEl = document.getElementById('watchlist-add-name');
+  const name = (nameEl?.value || '').trim() || (tickerEl?.value || '').trim();
+  if (!name) { showWatchlistToast('Type a company name first'); return; }
+  const key = privateKeyFromName(name);
+  customWatchlist.push({ ticker: key, name, bucket: 'pre-ipo', note: name, private: true, dateAdded: new Date().toISOString().slice(0, 10) });
+  watchlistBuckets[key] = 'pre-ipo';
+  saveWatchlistLocalState(`Added ${name} (private)`);
+  if (tickerEl) tickerEl.value = '';
+  if (nameEl) { nameEl.value = ''; nameEl.dataset.autofilled = ''; }
+  hideWatchlistSuggestions();
+  showWatchlistToast(`Added ${name} as private / pre-IPO`);
+  renderWatchlist();
+  renderCockpit();
+  renderResearchQueue();
+}
+
 function addWatchlistStock() {
   const tickerEl = document.getElementById('watchlist-add-ticker');
   const nameEl = document.getElementById('watchlist-add-name');
@@ -3297,7 +3377,7 @@ function addWatchlistStock() {
   const match = findStockMatch(typed);
   if (!ticker && match) ticker = match.ticker;
   if (!name && match) name = match.name;
-  if (!ticker) { showWatchlistToast('Type a ticker or choose a matching company'); return; }
+  if (!ticker) { showWatchlistToast('No listed match — use ＋ Pre-IPO to add it as a private company'); return; }
   if (!/^[A-Z0-9.^-]{1,12}$/.test(ticker)) { showWatchlistToast('Use a valid ticker symbol'); return; }
   if (getWatchlistStocks().find(p => canonicalTicker(p.ticker) === ticker)) {
     showWatchlistToast(`${ticker} is already on the watchlist`);
@@ -3650,8 +3730,8 @@ function watchlistRowHtml(p, dcfMap, tickerToInvestors, joeOwns, candidateMap) {
 
   return `<tr>
     <td style="min-width:195px">${bucketSel}</td>
-    <td><span class="ticker">${ticker}</span></td>
-    <td style="font-size:13px">${p.name}</td>
+    <td><span class="ticker">${p.private ? '🔒' : ticker}</span></td>
+    <td style="font-size:13px">${escapeHtml(p.name)}${p.private ? ' <span class="private-tag">private</span>' : ''}</td>
     <td>${prioritySelect(ticker)}</td>
     <td class="i-own-cell">${ownCell}</td>
     <td class="notes-cell">${notesCell}</td>
@@ -4426,6 +4506,7 @@ window.addEventListener('DOMContentLoaded', () => {
   loadResearchLibrary();
   loadFilingTracker(false);
   loadSymbolData();
+  loadTickerDirectory();
   renderWatchlist();
   updateDDCounter();
 
