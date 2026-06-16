@@ -6,6 +6,23 @@
 
 ---
 
+## Session 8 — June 16, 2026
+**Goal:** Drag-and-drop in the Buy Targets Combined table — reorder stocks and move them between buckets with automatic recalculation.
+
+**What was built:**
+- **Drag-and-drop on the Combined IRA table:** each row has a ⠿ handle. Drag to reorder within a bucket, or drop onto another bucket (or one of its rows) to move the stock there. Buckets are now separate `<tbody data-targ-bucket>` drop zones; rows carry `data-targ-ticker`.
+- **Pointer-event implementation** (pointerdown/move/up + `touch-action:none`) so it works on both the Mac (mouse) and the iPhone (touch) — native HTML5 DnD would have been dead on iOS. Floating ghost label, drop-line indicator between rows, and bucket-highlight when hovering an empty area.
+- **Automatic recalc:** moving a ticker just edits `bucket.tickers`, so equal-weight (and the dollar goals) re-spread instantly across both IRAs, MOSE untouched. Moving a stock out of a bucket drops its custom weight from that bucket (remaining names renormalize to 100%); the stock takes a default weight in its new bucket. Owned values follow the ticker. Toast confirms cross-bucket moves.
+
+**Verification steps run:**
+- Embedded JavaScript syntax check (node --check)
+- Node unit tests: move MELI For Now→Forever (Forever→5 names @ $103,500, For Now→14 @ $16,429), reorder within a bucket, and weight renormalization after a weighted stock leaves (sum stays 100%)
+- Headless Chromium pointer-drag test: dragged MELI's handle onto Forever — row moved buckets, combined goal recomputed to $103,500, For Now lost it, no page errors
+
+**Deploy:** merged to main and published to gh-pages (live).
+
+---
+
 ## Session 7 — June 15, 2026
 **Goal:** Four Buy-Targets upgrades Joe greenlit, plus load his wife's IRA positions.
 
