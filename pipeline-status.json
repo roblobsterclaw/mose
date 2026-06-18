@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-12T00:00:00+00:00",
+  "generated_at": "2026-06-18T09:37:57.943367+00:00",
   "job": "update_live_market_data",
-  "status": "pending",
-  "detail": "Awaiting first run of the rebuilt Yahoo-based quote pipeline.",
-  "quote_count": 0,
+  "status": "ok",
+  "detail": "49 quotes, 5 indices published.",
+  "quote_count": 49,
   "errors": []
 }

@@ -1,22 +1,1572 @@
 {
-  "generated_at": "2026-06-08T02:40:13.624340+00:00",
+  "generated_at": "2026-06-18T09:37:57.830407+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
+    "AAPL": {
+      "ticker": "AAPL",
+      "name": "Apple",
+      "type": "Equity",
+      "bucket": "core",
+      "note": "Buffett 22%+, Gayner, Li Lu",
+      "quote": {
+        "ticker": "AAPL",
+        "symbol": "AAPL",
+        "price": 295.95,
+        "prev_close": 299.24,
+        "change_pct": -1.0994519449271556,
+        "date": "2026-06-17",
+        "time": "16:00:01",
+        "volume": 42329351,
+        "week52_high": 317.4,
+        "week52_low": 196.86
+      },
+      "metrics": {
+        "week52High": 317.4,
+        "week52Low": 196.86,
+        "marketCap": 3979469914112,
+        "peRatio": 37.50950570342205
+      },
+      "profile": {
+        "company": "Apple Inc.",
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "AMD": {
+      "ticker": "AMD",
+      "name": "Advanced Micro Devices",
+      "type": "Equity",
+      "bucket": "uncategorized",
+      "note": "MI300X competing with NVIDIA. #2 GPU maker.",
+      "quote": {
+        "ticker": "AMD",
+        "symbol": "AMD",
+        "price": 512.48,
+        "prev_close": 507.29,
+        "change_pct": 1.0230834433952962,
+        "date": "2026-06-17",
+        "time": "16:00:01",
+        "volume": 26052016,
+        "week52_high": 558.37,
+        "week52_low": 126.82
+      },
+      "metrics": {
+        "week52High": 558.37,
+        "week52Low": 126.82
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "AMZN": {
+      "ticker": "AMZN",
+      "name": "Amazon",
+      "type": "Equity",
+      "bucket": "core",
+      "note": "4 investors \u2014 Ackman 14%",
+      "quote": {
+        "ticker": "AMZN",
+        "symbol": "AMZN",
+        "price": 237.5,
+        "prev_close": 246.0,
+        "change_pct": -3.4552845528455287,
+        "date": "2026-06-17",
+        "time": "16:00:02",
+        "volume": 42359945,
+        "week52_high": 278.56,
+        "week52_low": 196.0
+      },
+      "metrics": {
+        "week52High": 278.56,
+        "week52Low": 196.0,
+        "marketCap": 2839014801408,
+        "peRatio": 33.07799442896936
+      },
+      "profile": {
+        "company": "Amazon.com, Inc.",
+        "owned": {
+          "shares": 105,
+          "value": 21869
+        },
+        "hasResearch": true
+      },
+      "source": "yahoo"
+    },
+    "ASM": {
+      "ticker": "ASM",
+      "name": "ASM",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "ASM",
+        "symbol": "ASM",
+        "price": 6.83,
+        "prev_close": 6.95,
+        "change_pct": -1.7266187050359725,
+        "date": "2026-06-17",
+        "time": "16:00:00",
+        "volume": 7201658,
+        "week52_high": 11.99,
+        "week52_low": 3.1
+      },
+      "metrics": {
+        "week52High": 11.99,
+        "week52Low": 3.1
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "AVGO": {
+      "ticker": "AVGO",
+      "name": "Broadcom Inc.",
+      "type": "Equity",
+      "bucket": "uncategorized",
+      "note": "AI networking + custom chips for Google/Meta. Picks and shovels play.",
+      "quote": {
+        "ticker": "AVGO",
+        "symbol": "AVGO",
+        "price": 392.9,
+        "prev_close": 376.71,
+        "change_pct": 4.297735658729526,
+        "date": "2026-06-17",
+        "time": "16:00:00",
+        "volume": 31408732,
+        "week52_high": 495.0,
+        "week52_low": 244.17
+      },
+      "metrics": {
+        "week52High": 495.0,
+        "week52Low": 244.17
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "AXP": {
+      "ticker": "AXP",
+      "name": "American Express",
+      "type": "Equity",
+      "bucket": "core",
+      "note": "Buffett + Guy Spier",
+      "quote": {
+        "ticker": "AXP",
+        "symbol": "AXP",
+        "price": 340.54,
+        "prev_close": 340.74,
+        "change_pct": -0.058695779773430955,
+        "date": "2026-06-17",
+        "time": "16:04:22",
+        "volume": 3307835,
+        "week52_high": 387.49,
+        "week52_low": 288.34
+      },
+      "metrics": {
+        "week52High": 387.49,
+        "week52Low": 288.34,
+        "marketCap": 214305079296,
+        "peRatio": 21.25717852684145
+      },
+      "profile": {
+        "company": "American Express Company",
+        "owned": null,
+        "hasResearch": true
+      },
+      "source": "yahoo"
+    },
+    "BABA": {
+      "ticker": "BABA",
+      "name": "Alibaba",
+      "type": "Equity",
+      "bucket": "opportunistic",
+      "note": "Li Lu + Pabrai, China deep value",
+      "quote": {
+        "ticker": "BABA",
+        "symbol": "BABA",
+        "price": 107.44,
+        "prev_close": 110.97,
+        "change_pct": -3.181039920699289,
+        "date": "2026-06-17",
+        "time": "16:02:26",
+        "volume": 13192297,
+        "week52_high": 192.67,
+        "week52_low": 103.71
+      },
+      "metrics": {
+        "week52High": 192.67,
+        "week52Low": 103.71,
+        "marketCap": 335146942464,
+        "peRatio": 18.91549295774648
+      },
+      "profile": {
+        "company": "Alibaba Group Holding Limited",
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "BAC": {
+      "ticker": "BAC",
+      "name": "Bank of America",
+      "type": "Equity",
+      "bucket": "opportunistic",
+      "note": "Current Truist holding",
+      "quote": {
+        "ticker": "BAC",
+        "symbol": "BAC",
+        "price": 56.53,
+        "prev_close": 56.84,
+        "change_pct": -0.5453905700211158,
+        "date": "2026-06-17",
+        "time": "16:00:03",
+        "volume": 40170400,
+        "week52_high": 57.98,
+        "week52_low": 44.75
+      },
+      "metrics": {
+        "week52High": 57.98,
+        "week52Low": 44.75
+      },
+      "profile": {
+        "company": null,
+        "owned": {
+          "shares": 117,
+          "value": 0
+        },
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "BIL": {
+      "ticker": "BIL",
+      "name": "SPDR Bloomberg 1-3 Month T-Bill ETF",
+      "type": "ETF",
+      "bucket": "treasury-index",
+      "note": "1-3 Month T-Bill ETF",
+      "quote": {
+        "ticker": "BIL",
+        "symbol": "BIL",
+        "price": 91.53,
+        "prev_close": 91.52,
+        "change_pct": 0.010926573426579017,
+        "date": "2026-06-17",
+        "time": "16:00:00",
+        "volume": 8043197,
+        "week52_high": 91.78,
+        "week52_low": 91.26
+      },
+      "metrics": {
+        "week52High": 91.78,
+        "week52Low": 91.26
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "BN": {
+      "ticker": "BN",
+      "name": "Brookfield Corporation",
+      "type": "Equity",
+      "bucket": "opportunistic",
+      "note": "Convergence 80 \u2014 Ackman 18%, Akre 13%, Gayner 5.7%",
+      "quote": {
+        "ticker": "BN",
+        "symbol": "BN",
+        "price": 44.74,
+        "prev_close": 45.67,
+        "change_pct": -2.03634771184585,
+        "date": "2026-06-17",
+        "time": "16:00:03",
+        "volume": 3960059,
+        "week52_high": 49.57,
+        "week52_low": 37.93
+      },
+      "metrics": {
+        "week52High": 49.57,
+        "week52Low": 37.93,
+        "marketCap": 101744623616,
+        "peRatio": 91.3061224489796
+      },
+      "profile": {
+        "company": "Brookfield Corporation",
+        "owned": null,
+        "hasResearch": true
+      },
+      "source": "yahoo"
+    },
+    "BRK-B": {
+      "ticker": "BRK-B",
+      "name": "Berkshire Hathaway",
+      "type": "Equity",
+      "bucket": "core",
+      "note": "The compounder of compounders",
+      "quote": {
+        "ticker": "BRK-B",
+        "symbol": "BRK-B",
+        "price": 491.28,
+        "prev_close": 494.95,
+        "change_pct": -0.7414890392969019,
+        "date": "2026-06-17",
+        "time": "16:05:03",
+        "volume": 5399581,
+        "week52_high": 516.85,
+        "week52_low": 455.19
+      },
+      "metrics": {
+        "week52High": 516.85,
+        "week52Low": 455.19,
+        "marketCap": 1012262699008,
+        "peRatio": 15.837524177949708
+      },
+      "profile": {
+        "company": "Berkshire Hathaway Inc.",
+        "owned": null,
+        "hasResearch": true
+      },
+      "source": "yahoo"
+    },
+    "CBRS": {
+      "ticker": "CBRS",
+      "name": "CBRS",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "CBRS",
+        "symbol": "CBRS",
+        "price": 213.67,
+        "prev_close": 212.25,
+        "change_pct": 0.6690223792697232,
+        "date": "2026-06-17",
+        "time": "16:00:01",
+        "volume": 4780963,
+        "week52_high": 386.34,
+        "week52_low": 196.73
+      },
+      "metrics": {
+        "week52High": 386.34,
+        "week52Low": 196.73
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "CVX": {
+      "ticker": "CVX",
+      "name": "Chevron",
+      "type": "Equity",
+      "bucket": "opportunistic",
+      "note": "Buffett 10% of Berkshire",
+      "quote": {
+        "ticker": "CVX",
+        "symbol": "CVX",
+        "price": 177.58,
+        "prev_close": 180.11,
+        "change_pct": -1.4046971295319532,
+        "date": "2026-06-17",
+        "time": "16:03:44",
+        "volume": 8421864,
+        "week52_high": 214.71,
+        "week52_low": 142.4
+      },
+      "metrics": {
+        "week52High": 214.71,
+        "week52Low": 142.4,
+        "marketCap": 368919576576,
+        "peRatio": 26.784313725490197
+      },
+      "profile": {
+        "company": "Chevron Corporation",
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "DE": {
+      "ticker": "DE",
+      "name": "Deere & Company (John Deere)",
+      "type": "Equity",
+      "bucket": "uncategorized",
+      "note": "AI/autonomous farming equipment. Precision agriculture. See & Spray technology. Robotics + AI in agriculture.",
+      "quote": {
+        "ticker": "DE",
+        "symbol": "DE",
+        "price": 588.47,
+        "prev_close": 585.29,
+        "change_pct": 0.5433204052691937,
+        "date": "2026-06-17",
+        "time": "16:00:03",
+        "volume": 970368,
+        "week52_high": 674.19,
+        "week52_low": 433.0
+      },
+      "metrics": {
+        "week52High": 674.19,
+        "week52Low": 433.0
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "DVA": {
+      "ticker": "DVA",
+      "name": "DaVita",
+      "type": "Equity",
+      "bucket": "opportunistic",
+      "note": "Buffett, DCF BUY signal",
+      "quote": {
+        "ticker": "DVA",
+        "symbol": "DVA",
+        "price": 210.58,
+        "prev_close": 208.98,
+        "change_pct": 0.7656235046416034,
+        "date": "2026-06-17",
+        "time": "16:00:03",
+        "volume": 422048,
+        "week52_high": 213.44,
+        "week52_low": 101.0
+      },
+      "metrics": {
+        "week52High": 213.44,
+        "week52Low": 101.0,
+        "marketCap": 10013648896,
+        "peRatio": 22.14300736067298
+      },
+      "profile": {
+        "company": "DaVita Inc.",
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "FICO": {
+      "ticker": "FICO",
+      "name": "Fair Isaac (FICO)",
+      "type": "Equity",
+      "bucket": "core",
+      "note": "Akre 9%, pricing power moat",
+      "quote": {
+        "ticker": "FICO",
+        "symbol": "FICO",
+        "price": 1126.84,
+        "prev_close": 1186.24,
+        "change_pct": -5.007418397626121,
+        "date": "2026-06-17",
+        "time": "16:00:03",
+        "volume": 327246,
+        "week52_high": 1998.01,
+        "week52_low": 870.01
+      },
+      "metrics": {
+        "week52High": 1998.01,
+        "week52Low": 870.01,
+        "marketCap": 23834101760,
+        "peRatio": 41.68849426563077
+      },
+      "profile": {
+        "company": "Fair Isaac Corporation",
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "GOOGL": {
+      "ticker": "GOOGL",
+      "name": "Alphabet (Google)",
+      "type": "Equity",
+      "bucket": "core",
+      "note": "#1 convergence \u2014 Li Lu 44%",
+      "quote": {
+        "ticker": "GOOGL",
+        "symbol": "GOOGL",
+        "price": 363.79,
+        "prev_close": 373.25,
+        "change_pct": -2.5344943067648975,
+        "date": "2026-06-17",
+        "time": "16:00:01",
+        "volume": 24169091,
+        "week52_high": 408.61,
+        "week52_low": 162.0
+      },
+      "metrics": {
+        "week52High": 408.61,
+        "week52Low": 162.0,
+        "marketCap": 4166206881792,
+        "peRatio": 33.653098982423685
+      },
+      "profile": {
+        "company": "Alphabet Inc.",
+        "owned": {
+          "shares": 95,
+          "value": 27318
+        },
+        "hasResearch": true
+      },
+      "source": "yahoo"
+    },
+    "INTC": {
+      "ticker": "INTC",
+      "name": "Intel Corporation",
+      "type": "Equity",
+      "bucket": "uncategorized",
+      "note": "New CEO Lip-Bu Tan. 282% off lows. Earnings Apr 23.",
+      "quote": {
+        "ticker": "INTC",
+        "symbol": "INTC",
+        "price": 121.1,
+        "prev_close": 117.05,
+        "change_pct": 3.460059803502774,
+        "date": "2026-06-17",
+        "time": "16:00:01",
+        "volume": 111050903,
+        "week52_high": 132.75,
+        "week52_low": 18.97
+      },
+      "metrics": {
+        "week52High": 132.75,
+        "week52Low": 18.97
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "IRBO": {
+      "ticker": "IRBO",
+      "name": "iShares Robotics and AI Multisector ETF",
+      "type": "ETF",
+      "bucket": "treasury-index",
+      "note": "iShares robotics + AI ETF. Broad AI/automation basket.",
+      "quote": {
+        "ticker": "IRBO",
+        "symbol": "IRBO",
+        "price": 31.51,
+        "prev_close": 31.61,
+        "change_pct": -0.31635558367604516,
+        "date": "2024-08-09",
+        "time": "16:00:00",
+        "volume": 86115,
+        "week52_high": 41.455,
+        "week52_low": 26.313
+      },
+      "metrics": {
+        "week52High": 41.455,
+        "week52Low": 26.313
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "KHC": {
+      "ticker": "KHC",
+      "name": "Kraft Heinz",
+      "type": "Equity",
+      "bucket": "opportunistic",
+      "note": "Buffett holding, deep value",
+      "quote": {
+        "ticker": "KHC",
+        "symbol": "KHC",
+        "price": 23.2,
+        "prev_close": 23.8,
+        "change_pct": -2.5210084033613507,
+        "date": "2026-06-17",
+        "time": "16:00:01",
+        "volume": 12606034,
+        "week52_high": 29.19,
+        "week52_low": 21.035
+      },
+      "metrics": {
+        "week52High": 29.19,
+        "week52Low": 21.035,
+        "marketCap": 25971361792,
+        "peRatio": -4.705882352941177
+      },
+      "profile": {
+        "company": "The Kraft Heinz Company",
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "KMX": {
+      "ticker": "KMX",
+      "name": "CarMax",
+      "type": "Equity",
+      "bucket": "opportunistic",
+      "note": "Akre holding, auto retail",
+      "quote": {
+        "ticker": "KMX",
+        "symbol": "KMX",
+        "price": 47.43,
+        "prev_close": 52.11,
+        "change_pct": -8.981001727115716,
+        "date": "2026-06-17",
+        "time": "16:04:08",
+        "volume": 9637457,
+        "week52_high": 71.99,
+        "week52_low": 30.26
+      },
+      "metrics": {
+        "week52High": 71.99,
+        "week52Low": 30.26,
+        "marketCap": 5427479040,
+        "peRatio": 28.232142857142858
+      },
+      "profile": {
+        "company": "CarMax, Inc.",
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "LLY": {
+      "ticker": "LLY",
+      "name": "Eli Lilly and Company",
+      "type": "Equity",
+      "bucket": "uncategorized",
+      "note": "Pharma giant. Partner with Google Isomorphic Labs on AI drug discovery. GLP-1 leader (Mounjaro/Zepbound).",
+      "quote": {
+        "ticker": "LLY",
+        "symbol": "LLY",
+        "price": 1112.0,
+        "prev_close": 1122.5,
+        "change_pct": -0.9354120267260578,
+        "date": "2026-06-17",
+        "time": "16:03:35",
+        "volume": 2381062,
+        "week52_high": 1182.73,
+        "week52_low": 623.78
+      },
+      "metrics": {
+        "week52High": 1182.73,
+        "week52Low": 623.78
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "LUMN": {
+      "ticker": "LUMN",
+      "name": "Lumen Technologies",
+      "type": "Equity",
+      "bucket": "uncategorized",
+      "note": "Fiber/network infrastructure. AI data center connectivity play.",
+      "quote": {
+        "ticker": "LUMN",
+        "symbol": "LUMN",
+        "price": 8.1,
+        "prev_close": 8.43,
+        "change_pct": -3.914590747330962,
+        "date": "2026-06-17",
+        "time": "16:00:02",
+        "volume": 10993309,
+        "week52_high": 11.95,
+        "week52_low": 3.37
+      },
+      "metrics": {
+        "week52High": 11.95,
+        "week52Low": 3.37
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "MA": {
+      "ticker": "MA",
+      "name": "Mastercard",
+      "type": "Equity",
+      "bucket": "core",
+      "note": "3 investors, Akre 19%",
+      "quote": {
+        "ticker": "MA",
+        "symbol": "MA",
+        "price": 492.99,
+        "prev_close": 501.33,
+        "change_pct": -1.6635748907904924,
+        "date": "2026-06-17",
+        "time": "16:00:03",
+        "volume": 1974907,
+        "week52_high": 601.77,
+        "week52_low": 464.52
+      },
+      "metrics": {
+        "week52High": 601.77,
+        "week52Low": 464.52,
+        "marketCap": 449940324352,
+        "peRatio": 29.805925030229748
+      },
+      "profile": {
+        "company": "Mastercard Incorporated",
+        "owned": null,
+        "hasResearch": true
+      },
+      "source": "yahoo"
+    },
+    "MCO": {
+      "ticker": "MCO",
+      "name": "Moody's Corporation",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "MCO",
+        "symbol": "MCO",
+        "price": 456.22,
+        "prev_close": 468.41,
+        "change_pct": -2.602420956000085,
+        "date": "2026-06-17",
+        "time": "16:00:02",
+        "volume": 1285333,
+        "week52_high": 546.88,
+        "week52_low": 402.28
+      },
+      "metrics": {
+        "week52High": 546.88,
+        "week52Low": 402.28,
+        "marketCap": 79661187072,
+        "peRatio": 32.68051575931232
+      },
+      "profile": {
+        "company": "Moody's Corporation",
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "MELI": {
+      "ticker": "MELI",
+      "name": "MercadoLibre, Inc.",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "MELI",
+        "symbol": "MELI",
+        "price": 1631.82,
+        "prev_close": 1674.08,
+        "change_pct": -2.5243715951447956,
+        "date": "2026-06-17",
+        "time": "16:00:01",
+        "volume": 455874,
+        "week52_high": 2645.22,
+        "week52_low": 1495.0
+      },
+      "metrics": {
+        "week52High": 2645.22,
+        "week52Low": 1495.0,
+        "marketCap": 93040484352,
+        "peRatio": 41.35377597567156
+      },
+      "profile": {
+        "company": "MercadoLibre, Inc.",
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "META": {
+      "ticker": "META",
+      "name": "Meta Platforms",
+      "type": "Equity",
+      "bucket": "inn",
+      "note": "Pabrai 27%, AI + social",
+      "quote": {
+        "ticker": "META",
+        "symbol": "META",
+        "price": 567.58,
+        "prev_close": 600.21,
+        "change_pct": -5.436430582629412,
+        "date": "2026-06-17",
+        "time": "16:00:01",
+        "volume": 19852778,
+        "week52_high": 796.25,
+        "week52_low": 520.26
+      },
+      "metrics": {
+        "week52High": 796.25,
+        "week52Low": 520.26,
+        "marketCap": 1713511989248,
+        "peRatio": 24.162622392507455
+      },
+      "profile": {
+        "company": "Meta Platforms, Inc.",
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "MSFT": {
+      "ticker": "MSFT",
+      "name": "Microsoft",
+      "type": "Equity",
+      "bucket": "inn",
+      "note": "Cloud + AI compounding",
+      "quote": {
+        "ticker": "MSFT",
+        "symbol": "MSFT",
+        "price": 378.91,
+        "prev_close": 393.83,
+        "change_pct": -3.788436635096351,
+        "date": "2026-06-17",
+        "time": "16:00:01",
+        "volume": 41193950,
+        "week52_high": 555.45,
+        "week52_low": 356.28
+      },
+      "metrics": {
+        "week52High": 555.45,
+        "week52Low": 356.28,
+        "marketCap": 3155936149504,
+        "peRatio": 23.726361928616157
+      },
+      "profile": {
+        "company": "Microsoft Corporation",
+        "owned": null,
+        "hasResearch": true
+      },
+      "source": "yahoo"
+    },
+    "MU": {
+      "ticker": "MU",
+      "name": "Micron Technology",
+      "type": "Equity",
+      "bucket": "uncategorized",
+      "note": "HBM memory \u2014 every AI chip needs it. US-listed memory play.",
+      "quote": {
+        "ticker": "MU",
+        "symbol": "MU",
+        "price": 1043.19,
+        "prev_close": 1020.76,
+        "change_pct": 2.197382342568289,
+        "date": "2026-06-17",
+        "time": "16:00:01",
+        "volume": 43963923,
+        "week52_high": 1110.4,
+        "week52_low": 103.38
+      },
+      "metrics": {
+        "week52High": 1110.4,
+        "week52Low": 103.38
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "NVDA": {
+      "ticker": "NVDA",
+      "name": "Nvidia",
+      "type": "Equity",
+      "bucket": "inn",
+      "note": "AI infrastructure play",
+      "quote": {
+        "ticker": "NVDA",
+        "symbol": "NVDA",
+        "price": 204.65,
+        "prev_close": 207.41,
+        "change_pct": -1.3306976519936313,
+        "date": "2026-06-17",
+        "time": "16:00:00",
+        "volume": 118585112,
+        "week52_high": 236.54,
+        "week52_low": 142.03
+      },
+      "metrics": {
+        "week52High": 236.54,
+        "week52Low": 142.03,
+        "marketCap": 5062002737152,
+        "peRatio": 41.85071574642127
+      },
+      "profile": {
+        "company": "NVIDIA Corporation",
+        "owned": {
+          "shares": 85,
+          "value": 14824
+        },
+        "hasResearch": true
+      },
+      "source": "yahoo"
+    },
+    "NVS": {
+      "ticker": "NVS",
+      "name": "Novartis AG",
+      "type": "Equity",
+      "bucket": "uncategorized",
+      "note": "Swiss pharma. Partner with Google Isomorphic Labs on AI drug discovery. Strong pipeline.",
+      "quote": {
+        "ticker": "NVS",
+        "symbol": "NVS",
+        "price": 150.88,
+        "prev_close": 150.93,
+        "change_pct": -0.03312794010469182,
+        "date": "2026-06-17",
+        "time": "16:00:02",
+        "volume": 1572885,
+        "week52_high": 170.46,
+        "week52_low": 112.34
+      },
+      "metrics": {
+        "week52High": 170.46,
+        "week52Low": 112.34
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "ORLY": {
+      "ticker": "ORLY",
+      "name": "O'Reilly Automotive, Inc.",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "ORLY",
+        "symbol": "ORLY",
+        "price": 88.4,
+        "prev_close": 90.68,
+        "change_pct": -2.514336127040142,
+        "date": "2026-06-17",
+        "time": "16:00:00",
+        "volume": 8089375,
+        "week52_high": 108.72,
+        "week52_low": 85.35
+      },
+      "metrics": {
+        "week52High": 108.72,
+        "week52Low": 85.35,
+        "marketCap": 78088298496,
+        "peRatio": 29.764309764309765
+      },
+      "profile": {
+        "company": "O'Reilly Automotive, Inc.",
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "OXY": {
+      "ticker": "OXY",
+      "name": "Occidental Petroleum",
+      "type": "Equity",
+      "bucket": "opportunistic",
+      "note": "Buffett + Li Lu energy bet",
+      "quote": {
+        "ticker": "OXY",
+        "symbol": "OXY",
+        "price": 53.04,
+        "prev_close": 53.67,
+        "change_pct": -1.1738401341531628,
+        "date": "2026-06-17",
+        "time": "16:00:02",
+        "volume": 8177002,
+        "week52_high": 67.45,
+        "week52_low": 38.8
+      },
+      "metrics": {
+        "week52High": 67.45,
+        "week52Low": 38.8,
+        "marketCap": 56645627904,
+        "peRatio": 39.288888888888884
+      },
+      "profile": {
+        "company": "Occidental Petroleum Corporation",
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "PGR": {
+      "ticker": "PGR",
+      "name": "The Progressive Corporation",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "PGR",
+        "symbol": "PGR",
+        "price": 204.42,
+        "prev_close": 204.66,
+        "change_pct": -0.11726766344181036,
+        "date": "2026-06-17",
+        "time": "16:00:02",
+        "volume": 3370995,
+        "week52_high": 267.93,
+        "week52_low": 189.2
+      },
+      "metrics": {
+        "week52High": 267.93,
+        "week52Low": 189.2,
+        "marketCap": 117400117248,
+        "peRatio": 10.630265210608423
+      },
+      "profile": {
+        "company": "The Progressive Corporation",
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "PLD": {
+      "ticker": "PLD",
+      "name": "Prologis",
+      "type": "Equity",
+      "bucket": "inn",
+      "note": "Current holding, logistics REIT",
+      "quote": {
+        "ticker": "PLD",
+        "symbol": "PLD",
+        "price": 140.94,
+        "prev_close": 146.12,
+        "change_pct": -3.5450314809745462,
+        "date": "2026-06-17",
+        "time": "16:03:57",
+        "volume": 4425647,
+        "week52_high": 150.18,
+        "week52_low": 103.41
+      },
+      "metrics": {
+        "week52High": 150.18,
+        "week52Low": 103.41,
+        "marketCap": 132469981184,
+        "peRatio": 39.47899159663866
+      },
+      "profile": {
+        "company": "Prologis, Inc.",
+        "owned": {
+          "shares": 38,
+          "value": 5023
+        },
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "PLTR": {
+      "ticker": "PLTR",
+      "name": "Palantir Technologies",
+      "type": "Equity",
+      "bucket": "uncategorized",
+      "note": "AI/data analytics for government + enterprise. Gotham + Foundry platforms. Peter Thiel founded.",
+      "quote": {
+        "ticker": "PLTR",
+        "symbol": "PLTR",
+        "price": 130.63,
+        "prev_close": 133.25,
+        "change_pct": -1.9662288930581646,
+        "date": "2026-06-17",
+        "time": "16:00:00",
+        "volume": 31031308,
+        "week52_high": 207.52,
+        "week52_low": 122.68
+      },
+      "metrics": {
+        "week52High": 207.52,
+        "week52Low": 122.68
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "RACE": {
+      "ticker": "RACE",
+      "name": "Ferrari",
+      "type": "Equity",
+      "bucket": "opportunistic",
+      "note": "Guy Spier 12%, luxury moat",
+      "quote": {
+        "ticker": "RACE",
+        "symbol": "RACE",
+        "price": 354.28,
+        "prev_close": 366.13,
+        "change_pct": -3.2365553218802128,
+        "date": "2026-06-17",
+        "time": "16:00:02",
+        "volume": 514840,
+        "week52_high": 519.1,
+        "week52_low": 312.51
+      },
+      "metrics": {
+        "week52High": 519.1,
+        "week52Low": 312.51
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "ROBO": {
+      "ticker": "ROBO",
+      "name": "Robo Global Robotics & Automation ETF",
+      "type": "ETF",
+      "bucket": "treasury-index",
+      "note": "Pure play robotics/AI/automation ETF. Global exposure.",
+      "quote": {
+        "ticker": "ROBO",
+        "symbol": "ROBO",
+        "price": 83.92,
+        "prev_close": 84.13,
+        "change_pct": -0.24961369309401374,
+        "date": "2026-06-17",
+        "time": "16:00:00",
+        "volume": 128980,
+        "week52_high": 90.51,
+        "week52_low": 55.84
+      },
+      "metrics": {
+        "week52High": 90.51,
+        "week52Low": 55.84
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "ROP": {
+      "ticker": "ROP",
+      "name": "Roper Technologies",
+      "type": "Equity",
+      "bucket": "opportunistic",
+      "note": "Akre 9.6%, DCF BUY signal",
+      "quote": {
+        "ticker": "ROP",
+        "symbol": "ROP",
+        "price": 329.97,
+        "prev_close": 337.33,
+        "change_pct": -2.181839741499409,
+        "date": "2026-06-17",
+        "time": "16:00:01",
+        "volume": 1299402,
+        "week52_high": 575.77,
+        "week52_low": 305.96
+      },
+      "metrics": {
+        "week52High": 575.77,
+        "week52Low": 305.96,
+        "marketCap": 36374581248,
+        "peRatio": 20.610243597751406
+      },
+      "profile": {
+        "company": "Roper Technologies, Inc.",
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "SGOV": {
+      "ticker": "SGOV",
+      "name": "iShares 0-3 Month Treasury Bond ETF",
+      "type": "ETF",
+      "bucket": "treasury-index",
+      "note": "Joe owns ~11,300 shares \u2014 yield adjusts in weeks",
+      "quote": {
+        "ticker": "SGOV",
+        "symbol": "SGOV",
+        "price": 100.55,
+        "prev_close": 100.54,
+        "change_pct": 0.009946290033808338,
+        "date": "2026-06-17",
+        "time": "16:00:13",
+        "volume": 15548969,
+        "week52_high": 100.74,
+        "week52_low": 100.27
+      },
+      "metrics": {
+        "week52High": 100.74,
+        "week52Low": 100.27
+      },
+      "profile": {
+        "company": null,
+        "owned": {
+          "shares": 11300,
+          "value": 1137458
+        },
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "STZ": {
+      "ticker": "STZ",
+      "name": "Constellation Brands",
+      "type": "Equity",
+      "bucket": "opportunistic",
+      "note": "Buffett new position 2025",
+      "quote": {
+        "ticker": "STZ",
+        "symbol": "STZ",
+        "price": 138.96,
+        "prev_close": 144.11,
+        "change_pct": -3.5736590104781105,
+        "date": "2026-06-17",
+        "time": "16:00:57",
+        "volume": 1948344,
+        "week52_high": 178.14,
+        "week52_low": 126.45
+      },
+      "metrics": {
+        "week52High": 178.14,
+        "week52Low": 126.45,
+        "marketCap": 26862960640,
+        "peRatio": 14.459937565036421
+      },
+      "profile": {
+        "company": "Constellation Brands, Inc.",
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "TFLO": {
+      "ticker": "TFLO",
+      "name": "iShares Treasury Floating Rate Bond ETF",
+      "type": "ETF",
+      "bucket": "treasury-index",
+      "note": "Floating rate treasury ETF",
+      "quote": {
+        "ticker": "TFLO",
+        "symbol": "TFLO",
+        "price": 50.56,
+        "prev_close": 50.56,
+        "change_pct": 0.0,
+        "date": "2026-06-17",
+        "time": "16:00:00",
+        "volume": 1101857,
+        "week52_high": 50.66,
+        "week52_low": 50.39
+      },
+      "metrics": {
+        "week52High": 50.66,
+        "week52Low": 50.39
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "TSLA": {
+      "ticker": "TSLA",
+      "name": "Tesla",
+      "type": "Equity",
+      "bucket": "inn",
+      "note": "20-year energy/AI bet",
+      "quote": {
+        "ticker": "TSLA",
+        "symbol": "TSLA",
+        "price": 396.38,
+        "prev_close": 404.66,
+        "change_pct": -2.046162210250588,
+        "date": "2026-06-17",
+        "time": "16:00:01",
+        "volume": 41080667,
+        "week52_high": 498.83,
+        "week52_low": 288.77
+      },
+      "metrics": {
+        "week52High": 498.83,
+        "week52Low": 288.77,
+        "marketCap": 1413278859264,
+        "peRatio": 363.65137614678895
+      },
+      "profile": {
+        "company": "Tesla, Inc.",
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "TSM": {
+      "ticker": "TSM",
+      "name": "Taiwan Semiconductor (TSMC)",
+      "type": "Equity",
+      "bucket": "uncategorized",
+      "note": "Makes 90%+ of worlds advanced chips. Taiwan risk.",
+      "quote": {
+        "ticker": "TSM",
+        "symbol": "TSM",
+        "price": 432.15,
+        "prev_close": 425.83,
+        "change_pct": 1.4841603456778512,
+        "date": "2026-06-17",
+        "time": "16:00:02",
+        "volume": 10883883,
+        "week52_high": 450.16,
+        "week52_low": 206.2
+      },
+      "metrics": {
+        "week52High": 450.16,
+        "week52Low": 206.2,
+        "marketCap": 2087318585344,
+        "peRatio": 37.030848329048844
+      },
+      "profile": {
+        "company": "Taiwan Semiconductor Manufacturing Company Limited",
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "UBER": {
+      "ticker": "UBER",
+      "name": "Uber Technologies, Inc.",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "UBER",
+        "symbol": "UBER",
+        "price": 70.91,
+        "prev_close": 73.25,
+        "change_pct": -3.1945392491467626,
+        "date": "2026-06-17",
+        "time": "16:00:03",
+        "volume": 12787561,
+        "week52_high": 101.99,
+        "week52_low": 67.19
+      },
+      "metrics": {
+        "week52High": 101.99,
+        "week52Low": 67.19,
+        "marketCap": 153617776640,
+        "peRatio": 14.991543340380547
+      },
+      "profile": {
+        "company": "Uber Technologies, Inc.",
+        "owned": null,
+        "hasResearch": true
+      },
+      "source": "yahoo"
+    },
+    "V": {
+      "ticker": "V",
+      "name": "Visa",
+      "type": "Equity",
+      "bucket": "core",
+      "note": "4 super investors, payment toll bridge",
+      "quote": {
+        "ticker": "V",
+        "symbol": "V",
+        "price": 330.38,
+        "prev_close": 333.12,
+        "change_pct": -0.8225264169068232,
+        "date": "2026-06-17",
+        "time": "16:00:02",
+        "volume": 5154454,
+        "week52_high": 359.66,
+        "week52_low": 293.89
+      },
+      "metrics": {
+        "week52High": 359.66,
+        "week52Low": 293.89,
+        "marketCap": 596574011392,
+        "peRatio": 31.050751879699245
+      },
+      "profile": {
+        "company": "Visa Inc.",
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "VOO": {
+      "ticker": "VOO",
+      "name": "Vanguard S&P 500 ETF",
+      "type": "ETF",
+      "bucket": "treasury-index",
+      "note": "S&P 500 index fund",
+      "quote": {
+        "ticker": "VOO",
+        "symbol": "VOO",
+        "price": 681.41,
+        "prev_close": 689.75,
+        "change_pct": -1.2091337441101895,
+        "date": "2026-06-17",
+        "time": "16:00:00",
+        "volume": 7437718,
+        "week52_high": 699.15,
+        "week52_low": 545.75
+      },
+      "metrics": {
+        "week52High": 699.15,
+        "week52Low": 545.75
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "VRSN": {
+      "ticker": "VRSN",
+      "name": "VeriSign",
+      "type": "Equity",
+      "bucket": "opportunistic",
+      "note": "Buffett, monopoly DNS",
+      "quote": {
+        "ticker": "VRSN",
+        "symbol": "VRSN",
+        "price": 264.92,
+        "prev_close": 273.87,
+        "change_pct": -3.2679738562091463,
+        "date": "2026-06-17",
+        "time": "16:00:01",
+        "volume": 612715,
+        "week52_high": 312.48,
+        "week52_low": 208.86
+      },
+      "metrics": {
+        "week52High": 312.48,
+        "week52Low": 208.86,
+        "marketCap": 24497201152,
+        "peRatio": 29.27292817679558
+      },
+      "profile": {
+        "company": "VeriSign, Inc.",
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "WMT": {
+      "ticker": "WMT",
+      "name": "Walmart",
+      "type": "Equity",
+      "bucket": "inn",
+      "note": "Current holding, retail fortress",
+      "quote": {
+        "ticker": "WMT",
+        "symbol": "WMT",
+        "price": 118.13,
+        "prev_close": 121.03,
+        "change_pct": -2.3961001404610474,
+        "date": "2026-06-17",
+        "time": "16:00:00",
+        "volume": 21641900,
+        "week52_high": 135.16,
+        "week52_low": 94.23
+      },
+      "metrics": {
+        "week52High": 135.16,
+        "week52Low": 94.23,
+        "marketCap": 1035591090176,
+        "peRatio": 43.27106227106227
+      },
+      "profile": {
+        "company": "Walmart Inc.",
+        "owned": {
+          "shares": 140,
+          "value": 17399
+        },
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "^GSPC": {
+      "ticker": "^GSPC",
+      "name": "S&P 500",
+      "type": "Index",
+      "quote": {
+        "ticker": "^GSPC",
+        "price": 7420.1,
+        "change_pct": -1.214828226617053,
+        "source": "yahoo"
+      },
+      "metrics": {},
+      "profile": {
+        "vsExit": 12.563904185439718
+      },
+      "source": "yahoo"
+    },
+    "^DJI": {
+      "ticker": "^DJI",
+      "name": "Dow Jones",
+      "type": "Index",
+      "quote": {
+        "ticker": "^DJI",
+        "price": 51492.55,
+        "change_pct": -0.9752369582345337,
+        "source": "yahoo"
+      },
+      "metrics": {},
+      "profile": {
+        "vsExit": 10.904836559695154
+      },
+      "source": "yahoo"
+    },
+    "^IXIC": {
+      "ticker": "^IXIC",
+      "name": "NASDAQ",
+      "type": "Index",
+      "quote": {
+        "ticker": "^IXIC",
+        "price": 26021.656,
+        "change_pct": -1.3447201022249402,
+        "source": "yahoo"
+      },
+      "metrics": {},
+      "profile": {
+        "vsExit": null
+      },
+      "source": "yahoo"
+    },
     "^RUT": {
       "ticker": "^RUT",
       "name": "Russell 2000",
       "type": "Index",
       "quote": {
         "ticker": "^RUT",
-        "price": 2787.0,
-        "change_pct": 0.43,
-        "source": "fallback-static"
+        "price": 2917.982,
+        "change_pct": -0.7218971148611816,
+        "source": "yahoo"
       },
       "metrics": {},
       "profile": {
         "vsExit": null
       },
-      "source": "fallback-static"
+      "source": "yahoo"
     },
     "^VIX": {
       "ticker": "^VIX",
@@ -24,15 +1574,15 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 18.71,
-        "change_pct": -3.11,
-        "source": "fallback-static"
+        "price": 17.1,
+        "change_pct": -7.266811279826463,
+        "source": "yahoo"
       },
       "metrics": {},
       "profile": {
         "vsExit": null
       },
-      "source": "fallback-static"
+      "source": "yahoo"
     }
   }
 }
