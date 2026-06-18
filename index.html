@@ -1617,6 +1617,7 @@ async function checkPw(){
       <h2>🎯 Buy Targets — Goal Tracker</h2>
       <span class="watchlist-autosave-pill">Auto-saves &amp; syncs</span>
       <button class="csv-btn" onclick="targetsExportCSV()">⬇ Export CSV</button>
+      <button class="csv-btn" onclick="targPrintBuyList()">🖨 Print buy list</button>
       <button class="filter-btn" onclick="loadLiveMarketData(true)">↻ Refresh Quotes</button>
     </div>
 
@@ -5953,6 +5954,94 @@ function targetsExportCSV() {
   document.body.appendChild(a); a.click(); a.remove();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
   if (typeof showWatchlistToast === 'function') showWatchlistToast('Buy-list CSV downloaded');
+}
+
+// One-click printable buy list: opens a clean landscape page (Combined IRA +
+// each account, each starting on its own page) and triggers the print dialog.
+function targPrintBuyList() {
+  const px = t => { const q = liveQuotes[canonicalTicker(t)]; return (q && Number.isFinite(q.price)) ? q.price : null; };
+  const sh = (d, t) => { const p = px(t); return (p && p > 0 && d > 0.5) ? Math.round(d / p) + ' sh' : ''; };
+  const pctStr = (num, den) => (den > 0 ? Math.round(num / den * 100) : 0) + '%';
+  const nameMap = {}; (tickerDirectory || []).forEach(d => { if (!nameMap[d.ticker]) nameMap[d.ticker] = d.name; });
+  const nameOf = t => nameMap[canonicalTicker(t)] || '';
+  const esc = s => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const m = targetsData.mose, moseBudget = m.total * m.stockPct / 100;
+  const moseTgt = m.tickers.length ? moseBudget / m.tickers.length : 0;
+  let iraOwned = 0; targetsData.ira.buckets.forEach(b => b.tickers.forEach(t => { iraOwned += targOwned('his', t) + targOwned('hers', t); }));
+
+  // Combined IRA sheet
+  let combined = `<table><thead><tr><th class="l">Ticker</th><th class="l">Name</th><th>Price</th><th>% Bkt</th><th>Combined Goal</th><th>Owned</th><th>Remaining</th><th>Buy This Month</th><th>Shares</th><th>Today</th><th>After Buy</th></tr></thead><tbody>`;
+  targetsData.ira.buckets.forEach(b => {
+    combined += `<tr class="bkt"><td class="l" colspan="11">${esc(b.label)} · ${b.pct}% · goal ${reentryFmt(targetsData.ira.total * b.pct / 100)} · ${b.tickers.length} names</td></tr>`;
+    let bg = 0, bo = 0, br = 0, bb = 0;
+    b.tickers.forEach(t => {
+      const goal = targStockTarget(targetsData.ira.total, b, t), owned = targOwned('his', t) + targOwned('hers', t);
+      const rem = Math.max(0, goal - owned), buy = targPlan('his', t) + targPlan('hers', t);
+      bg += goal; bo += owned; br += rem; bb += buy;
+      combined += `<tr><td class="l"><b>${esc(t)}</b></td><td class="l muted">${esc(nameOf(t))}</td><td>${px(t) ? '$' + px(t).toFixed(2) : ''}</td><td>${targStockPctOfBucket(b, t).toFixed(1)}%</td><td>${reentryFmt(goal)}</td><td>${reentryFmt(owned)}</td><td><b>${reentryFmt(rem)}</b></td><td>${buy ? reentryFmt(buy) : ''}</td><td class="muted">${sh(buy, t)}</td><td>${pctStr(buy, goal)}</td><td>${pctStr(owned + buy, goal)}</td></tr>`;
+    });
+    combined += `<tr class="sub"><td class="l" colspan="4">${esc(b.label)} subtotal</td><td>${reentryFmt(bg)}</td><td>${reentryFmt(bo)}</td><td>${reentryFmt(br)}</td><td>${reentryFmt(bb)}</td><td colspan="3"></td></tr>`;
+  });
+  combined += `</tbody></table>`;
+
+  // Per-account sheet builder
+  const acctSheet = (acctKey) => {
+    const a = targetsData.ira.accounts[acctKey];
+    let h = `<table><thead><tr><th class="l">Ticker</th><th class="l">Name</th><th>Price</th><th>Target</th><th>Owned</th><th>Remaining</th><th>Buy This Month</th><th>Shares</th><th>Today</th><th>After Buy</th></tr></thead><tbody>`;
+    targetsData.ira.buckets.forEach(b => {
+      h += `<tr class="bkt"><td class="l" colspan="10">${esc(b.label)} · ${b.pct}% · ${reentryFmt(a.total * b.pct / 100)}</td></tr>`;
+      b.tickers.forEach(t => {
+        const tgt = targStockTarget(a.total, b, t), owned = targOwned(acctKey, t);
+        const rem = Math.max(0, tgt - owned), buy = targPlan(acctKey, t);
+        h += `<tr><td class="l"><b>${esc(t)}</b></td><td class="l muted">${esc(nameOf(t))}</td><td>${px(t) ? '$' + px(t).toFixed(2) : ''}</td><td>${reentryFmt(tgt)}</td><td>${reentryFmt(owned)}</td><td><b>${reentryFmt(rem)}</b></td><td>${buy ? reentryFmt(buy) : ''}</td><td class="muted">${sh(buy, t)}</td><td>${pctStr(buy, tgt)}</td><td>${pctStr(owned + buy, tgt)}</td></tr>`;
+      });
+    });
+    return h + `</tbody></table>`;
+  };
+
+  // MOSE sheet
+  let mose = `<table><thead><tr><th class="l">Ticker</th><th class="l">Name</th><th>Price</th><th>Target</th><th>Owned</th><th>Remaining</th><th>Buy This Month</th><th>Shares</th><th>Today</th><th>After Buy</th></tr></thead><tbody>`;
+  m.tickers.forEach(t => {
+    const owned = targOwned('mose', t), rem = Math.max(0, moseTgt - owned), buy = targPlan('mose', t);
+    mose += `<tr><td class="l"><b>${esc(t)}</b></td><td class="l muted">${esc(nameOf(t))}</td><td>${px(t) ? '$' + px(t).toFixed(2) : ''}</td><td>${reentryFmt(moseTgt)}</td><td>${reentryFmt(owned)}</td><td><b>${reentryFmt(rem)}</b></td><td>${buy ? reentryFmt(buy) : ''}</td><td class="muted">${sh(buy, t)}</td><td>${pctStr(buy, moseTgt)}</td><td>${pctStr(owned + buy, moseTgt)}</td></tr>`;
+  });
+  mose += `</tbody></table>`;
+
+  const today = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+  const summary = `IRA goal ${reentryFmt(targetsData.ira.total)} · deployed ${reentryFmt(iraOwned)} · left ${reentryFmt(Math.max(0, targetsData.ira.total - iraOwned))} · MOSE stock goal ${reentryFmt(moseBudget)} (cash ${reentryFmt(m.total - moseBudget)})`;
+  const sheet = (title, sub, body) => `<div class="sheet"><h1>🦞 MOSE — Buy Targets</h1><div class="sub">${esc(today)} · ${esc(summary)}</div><h2>${esc(title)}</h2>${sub ? `<div class="sub">${esc(sub)}</div>` : ''}${body}</div>`;
+
+  const html = `<!DOCTYPE html><html><head><meta charset="utf-8"><title>MOSE Buy Targets — ${esc(today)}</title><style>
+    @page { size: landscape; margin: 0.4in; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #111; background: #fff; margin: 0; padding: 12px; }
+    .sheet { page-break-after: always; }
+    .sheet:last-child { page-break-after: auto; }
+    h1 { font-size: 17px; margin: 0; color: #c2410c; }
+    h2 { font-size: 14px; margin: 10px 0 4px; color: #1a3a6b; }
+    .sub { font-size: 10.5px; color: #555; margin: 2px 0 6px; }
+    table { width: 100%; border-collapse: collapse; font-size: 10.5px; }
+    th, td { border: 1px solid #c4c4c4; padding: 3px 6px; text-align: right; }
+    th { background: #e8edf7; color: #1a3a6b; }
+    th.l, td.l { text-align: left; }
+    tr.bkt td { background: #efefef; font-weight: 700; }
+    tr.sub td { background: #f7f7f7; font-weight: 700; }
+    .muted { color: #777; }
+    @media screen { body { max-width: 1100px; margin: 0 auto; } .noprint { margin: 10px 0; } }
+    @media print { .noprint { display: none; } }
+  </style></head><body>
+    <div class="noprint" style="text-align:right"><button onclick="window.print()" style="padding:8px 16px;font-size:14px;cursor:pointer">🖨 Print</button></div>
+    ${sheet('Combined IRA Goal (his + hers)', `$${(targetsData.ira.total).toLocaleString()} total`, combined)}
+    ${sheet(targetsData.ira.accounts.his.label, reentryFmt(targetsData.ira.accounts.his.total), acctSheet('his'))}
+    ${sheet(targetsData.ira.accounts.hers.label, reentryFmt(targetsData.ira.accounts.hers.total), acctSheet('hers'))}
+    ${sheet('MOSE Joint', `${reentryFmt(m.total)} · ${m.stockPct}% to stocks`, mose)}
+  </body></html>`;
+
+  const w = window.open('', '_blank');
+  if (!w) { showWatchlistToast('Allow pop-ups to open the print view'); return; }
+  w.document.write(html);
+  w.document.close();
+  setTimeout(() => { try { w.focus(); w.print(); } catch (e) {} }, 350);
 }
 
 // ============================================================
