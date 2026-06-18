@@ -3192,7 +3192,8 @@ async function loadTickerDirectory() {
     tickerDirectory = (data.symbols || []).map(s => ({
       ticker: canonicalTicker(s.t || s.ticker),
       name: s.n || s.name || s.t,
-      exchange: s.e || s.exchange || ''
+      exchange: s.e || s.exchange || '',
+      quoteSymbol: s.y || s.quoteSymbol || ''
     })).filter(s => s.ticker);
   } catch (e) {
     console.warn('Ticker directory unavailable; search limited to tracked names:', e);
@@ -3221,7 +3222,7 @@ function searchAllStocks(query, limit = 10) {
     scored.push({ o, sort: [exact, starts, fromDirectory ? 1 : 0, o.ticker] });
   };
   buildStockSearchIndex().forEach(o => consider(o, false));
-  tickerDirectory.forEach(o => consider({ ticker: o.ticker, name: o.name, source: o.exchange || 'Listed', bucket: 'watching' }, true));
+  tickerDirectory.forEach(o => consider({ ticker: o.ticker, name: o.name, source: o.exchange || 'Listed', bucket: 'watching', quoteSymbol: o.quoteSymbol || '' }, true));
   scored.sort((a, b) => {
     for (let i = 0; i < 3; i++) { if (a.sort[i] !== b.sort[i]) return a.sort[i] - b.sort[i]; }
     return a.sort[3].localeCompare(b.sort[3]);
@@ -3259,7 +3260,7 @@ function findStockMatch(query) {
   if (!q) return null;
   // Tracked names first (carry bucket/source), then the full market directory.
   const tracked = buildStockSearchIndex();
-  const directory = tickerDirectory.map(o => ({ ticker: o.ticker, name: o.name, source: o.exchange || 'Listed', bucket: 'watching' }));
+  const directory = tickerDirectory.map(o => ({ ticker: o.ticker, name: o.name, source: o.exchange || 'Listed', bucket: 'watching', quoteSymbol: o.quoteSymbol || '' }));
   const options = [...tracked, ...directory];
   return options.find(o => o.ticker.toLowerCase() === q) ||
     options.find(o => o.name.toLowerCase() === q) ||
@@ -3384,7 +3385,10 @@ function addWatchlistStock() {
     return;
   }
   const bucket = normalizeBucket(bucketEl?.value || match?.bucket || 'watching');
-  customWatchlist.push({ ticker, name: name || ticker, bucket, note: name || ticker, dateAdded: new Date().toISOString().slice(0, 10) });
+  const item = { ticker, name: name || ticker, bucket, note: name || ticker, dateAdded: new Date().toISOString().slice(0, 10) };
+  // Foreign listings quote under a different Yahoo symbol (e.g. CSU -> CSU.TO).
+  if (match && match.quoteSymbol && match.quoteSymbol.toUpperCase() !== ticker) item.quoteSymbol = match.quoteSymbol;
+  customWatchlist.push(item);
   watchlistBuckets[ticker] = bucket;
   saveWatchlistLocalState(`Added ${ticker}`);
   if (tickerEl) tickerEl.value = '';

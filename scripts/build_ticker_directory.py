@@ -43,6 +43,30 @@ EXCHANGE_NAMES = {
     "Z": "Cboe BZX", "V": "IEX",
 }
 
+# SEC company_tickers.json only covers US filers, so commonly-tracked non-US
+# listings (e.g. Constellation Software on the TSX) are missing. This curated
+# supplement is always merged in. The "y" field is the Yahoo Finance quote
+# symbol used by the quote job when it differs from the displayed ticker
+# (TSX names need a ".TO" suffix; US-listed ADRs do not).
+SUPPLEMENT = [
+    # ticker, name, exchange, yahoo_symbol (None = same as ticker)
+    ("CSU", "Constellation Software Inc.", "TSX", "CSU.TO"),
+    ("ATD", "Alimentation Couche-Tard Inc.", "TSX", "ATD.TO"),
+    ("CNR", "Canadian National Railway Company", "TSX", "CNR.TO"),
+    ("SHOP", "Shopify Inc.", "NYSE", None),
+    ("CBRS", "Cerebras Systems Inc.", "NASDAQ", None),
+    ("NVO", "Novo Nordisk A/S (ADR)", "NYSE", None),
+    ("TM", "Toyota Motor Corporation (ADR)", "NYSE", None),
+    ("SAP", "SAP SE (ADR)", "NYSE", None),
+    ("NVS", "Novartis AG (ADR)", "NYSE", None),
+    ("SONY", "Sony Group Corporation (ADR)", "NYSE", None),
+    ("RY", "Royal Bank of Canada", "NYSE", None),
+    ("TD", "Toronto-Dominion Bank", "NYSE", None),
+    ("RELX", "RELX PLC (ADR)", "NYSE", None),
+    ("LVMUY", "LVMH Moet Hennessy Louis Vuitton (ADR)", "OTC", None),
+    ("NSRGY", "Nestle S.A. (ADR)", "OTC", None),
+]
+
 
 def fetch(url: str, timeout: int = 30) -> bytes:
     req = urllib.request.Request(url, headers=HEADERS)
@@ -98,14 +122,22 @@ def main() -> int:
         return 1
 
     exchanges = load_exchange_map()
-    symbols = []
+    by_ticker: dict[str, dict] = {}
     for ticker, name in sorted(sec.items()):
         entry = {"t": ticker, "n": name}
         if ticker in exchanges:
             entry["e"] = exchanges[ticker]
-        symbols.append(entry)
+        by_ticker[ticker] = entry
 
-    source = "sec" + ("+nasdaqtrader" if exchanges else "")
+    # Merge the curated non-US supplement (added/overrides SEC where needed).
+    for ticker, name, exchange, yahoo in SUPPLEMENT:
+        entry = {"t": ticker, "n": name, "e": exchange}
+        if yahoo:
+            entry["y"] = yahoo
+        by_ticker[ticker] = entry
+
+    symbols = [by_ticker[t] for t in sorted(by_ticker)]
+    source = "sec" + ("+nasdaqtrader" if exchanges else "") + "+supplement"
     OUTPUT.write_text(json.dumps({
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "source": source,

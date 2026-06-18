@@ -12,7 +12,8 @@
 **What was built:**
 - `reference-data/ticker-directory.json` — a NYSE/NASDAQ/AMEX symbol directory the search reads. Seeded now (~180 names from repo data + curated large/mid caps) and refreshed to the full ~10k SEC/Nasdaq listing by `scripts/build_ticker_directory.py`, wired into the weekly 13F workflow.
 - Watchlist search now merges tracked names (with bucket/source hints) and the full directory; tracked entries win on collisions. Name-only adds work (the old code silently refused them).
-- Pre-IPO / private add path: any typed name can be added as an unlisted company (🔒, no quote attempted). Cursor (private) and Cerebras (pre-IPO) are handled this way. Quote script skips `private` entries.
+- Pre-IPO / private add path: any typed name can be added as an unlisted company (🔒, no quote attempted). Cursor (private) is handled this way. Quote script skips `private` entries.
+- Non-US listings: a curated supplement (Constellation Software CSU→CSU.TO, Cerebras CBRS, Couche-Tard ATD.TO, major ADRs) is merged into the directory, since SEC data is US-only. Foreign tickers carry a Yahoo quote symbol (`y`) so they quote correctly (e.g. CSU is fetched as CSU.TO).
 
 **Owner action:** trigger the "Update 13F tracker" workflow once to replace the seed with the full SEC directory (the sandbox can't reach SEC/Nasdaq hosts).
 

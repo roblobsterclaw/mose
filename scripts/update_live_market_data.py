@@ -45,6 +45,10 @@ HISTORY_MAX_AGE_HOURS = 20
 # a near-empty result means the source is broken, not that the market moved.
 MIN_QUOTES_TO_PUBLISH = 5
 
+# Populated from the synced watchlist: maps a displayed ticker to the Yahoo
+# symbol used to quote it when they differ (e.g. CSU -> CSU.TO).
+QUOTE_OVERRIDES: dict[str, str] = {}
+
 # Firebase Realtime DB holding the dashboard's synced state (custom watchlist
 # tickers added from the UI live there, not in index.html).
 MOSE_FB_URL = os.environ.get("MOSE_FB_URL", "https://jfl-ttd-default-rtdb.firebaseio.com/mose")
@@ -167,7 +171,11 @@ def firebase_custom_tickers() -> list[str]:
     for item in state.get("customWatchlist") or []:
         # Private / pre-IPO entries have no public ticker — never try to quote them.
         if isinstance(item, dict) and item.get("ticker") and not item.get("private"):
-            tickers.add(str(item["ticker"]).upper())
+            ticker = str(item["ticker"]).upper()
+            tickers.add(ticker)
+            # Foreign listings carry a Yahoo quote symbol (e.g. CSU -> CSU.TO).
+            if item.get("quoteSymbol"):
+                QUOTE_OVERRIDES[ticker] = str(item["quoteSymbol"]).upper()
     for ticker in (state.get("buckets") or {}):
         tickers.add(str(ticker).upper())
     return sorted(tickers)
@@ -299,10 +307,10 @@ def write_status(status: str, detail: str, quote_count: int, errors: list[str]) 
 
 
 def main() -> int:
-    tickers = watchlist_tickers()
+    tickers = watchlist_tickers()  # also fills QUOTE_OVERRIDES
     symbol_map = {}
     for ticker in tickers:
-        symbol = yahoo_symbol(ticker)
+        symbol = QUOTE_OVERRIDES.get(ticker) or yahoo_symbol(ticker)
         if symbol:
             symbol_map[symbol] = ticker
 
