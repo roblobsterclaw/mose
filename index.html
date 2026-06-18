@@ -480,6 +480,7 @@
   .si-cat-global  { background: #2d2208; color: var(--yellow); border-color: var(--yellow); }
   .si-cat-legend  { background: #0d2818; color: var(--green); border-color: var(--green); }
   .si-cat-other   { background: #1c2128; color: var(--muted); border-color: var(--border); }
+  .si-cat-ai      { background: #07313a; color: #22d3ee; border-color: #22d3ee; }
 
   .si-stocks { display: flex; flex-wrap: wrap; gap: 4px; }
   .si-ticker-badge {
@@ -1546,7 +1547,7 @@ async function checkPw(){
       <button class="filter-btn" onclick="setSIFilter('Quality Compounders', this)">⚙️ Quality Compounders</button>
       <button class="filter-btn" onclick="setSIFilter('Global / International', this)">🌍 Global</button>
       <button class="filter-btn" onclick="setSIFilter('Legends', this)">🏆 Legends</button>
-      <button class="filter-btn" onclick="setSIFilter('AI Builders', this)">🤖 AI Builders</button>
+      <button class="filter-btn" onclick="setSIFilter('AI & Growth', this)">🤖 AI &amp; Growth</button>
       <button class="filter-btn" onclick="setSIFilter('Other Notable', this)">⭐ Other</button>
     </div>
 
@@ -1815,8 +1816,16 @@ const INVESTORS_DATA = [
   { id:'greenwald',  name:'Bruce Greenwald',       fund:'Columbia University',         category:'Legends',               rating:null, source:'Public',  stocks:['ORCL','MSFT','SGENX'],                                        notes:'The Dean of Value Investing. Columbia professor — taught Ben Graham\'s course for decades.' },
   { id:'ackman',     name:'Bill Ackman',           fund:'Pershing Square',             category:'Other Notable',          rating:null, source:'13F',     stocks:['HLT','AMZN','HHH','CP','NKE','QSR','GOOG'],                  notes:'Activist investor. High conviction, concentrated positions. Famous for Herbalife short and pandemic bond trade.' },
   { id:'oleary',     name:'Kevin O\'Leary',        fund:'O\'Shares ETFs / OUSA',       category:'Other Notable',          rating:null, source:'Public',  stocks:['ENB','JNJ','V','GOOGL','MA','AAPL','ASML'],                   notes:'Mr. Wonderful. Dividend focused. Quality factor investing through OUSA ETF.' },
-  { id:'baker',      name:'Gavin Baker',           fund:'Atreides Management',         category:'AI Builders',            rating:null, source:'13F',     stocks:['NVDA'],                                                       notes:'NOT a true value investor — growth/tech. Ex-Fidelity tech-fund PM running Atreides (~$5B, public + late-stage private). One of the best-informed voices on the AI buildout: GPUs, compute, hyperscalers, and the model labs. Track him as an AI radar, not a margin-of-safety signal. Current holdings flow in from his 13F.' },
-  { id:'aschenbrenner', name:'Leopold Aschenbrenner', fund:'Situational Awareness LP', category:'AI Builders',         rating:null, source:'13F',     stocks:['NBIS'],                                                       notes:'NOT a true value investor — concentrated AGI thesis. Ex-OpenAI superalignment, author of the \'Situational Awareness\' essay; fund ~$13B. Thematic AI-race bets with heavy options use (notably large PUT positions vs NVDA/semis). Deeply up to date on who-is-who in AI; read as a thesis, not a buy signal. Holdings flow in from his 13F.' },
+  { id:'baker',      name:'Gavin Baker',           fund:'Atreides Management',         category:'AI & Growth',            rating:null, source:'13F',     stocks:['NVDA'],                                                       notes:'High-signal. NOT a true value investor — growth/tech. Ex-Fidelity tech-fund PM running Atreides (~$5B, public + late-stage private). One of the best-informed voices on the AI buildout: GPUs, compute, hyperscalers, and the model labs. AI radar, not a margin-of-safety signal. Holdings flow in from his 13F.' },
+  { id:'aschenbrenner', name:'Leopold Aschenbrenner', fund:'Situational Awareness LP', category:'AI & Growth',         rating:null, source:'13F',     stocks:['NBIS'],                                                       notes:'High-signal. NOT a true value investor — concentrated AGI thesis. Ex-OpenAI superalignment, author of the \'Situational Awareness\' essay; fund ~$13B. Thematic AI-race bets with heavy options use (notably large PUT positions vs NVDA/semis). Deeply current on who-is-who in AI; read as a thesis, not a buy signal. Holdings flow in from his 13F.' },
+  { id:'gerstner',   name:'Brad Gerstner',         fund:'Altimeter Capital',           category:'AI & Growth',            rating:null, source:'13F',     stocks:['NVDA','META','SNOW'],                                         notes:'High-signal. NOT a value investor — concentrated public + private tech growth. One of the loudest, best-connected AI bulls (compute, hyperscalers, model labs). AI radar, not a margin-of-safety signal.' },
+  { id:'laffont',    name:'Philippe Laffont',      fund:'Coatue Management',           category:'AI & Growth',            rating:null, source:'13F',     stocks:['NVDA','META','AMZN'],                                         notes:'High-signal. Tiger Cub running a tech-focused fund. NOT value — growth across AI, semis, and platforms. Tracks who-is-who in tech closely. Radar, not a buy signal.' },
+  { id:'wood',       name:'Cathie Wood',           fund:'ARK Investment Management',   category:'AI & Growth',            rating:null, source:'13F',     stocks:['TSLA','COIN'],                                                notes:'Track. NOT value — high-beta disruptive-innovation ETFs (AI, robotics, crypto, genomics). Early/thematic and volatile. Innovation radar, not margin of safety.' },
+  { id:'chamath',    name:'Chamath Palihapitiya',  fund:'Social Capital',              category:'AI & Growth',            rating:null, source:'13F',     stocks:[],                                                             notes:'Track. NOT value — concentrated tech/AI plus private bets (now a family office). 13F may be sparse since much exposure is private. Idea-flow radar, not a buy signal.' },
+  { id:'coleman',    name:'Chase Coleman',         fund:'Tiger Global Management',     category:'AI & Growth',            rating:null, source:'13F',     stocks:['GOOGL','MSFT','AMZN','NVDA'],                                 notes:'Track. Tiger Cub; large-cap tech + late-stage private growth. NOT value. Useful read on mega-cap AI/internet conviction.' },
+  { id:'niles',      name:'Dan Niles',             fund:'Niles Investment Management', category:'AI & Growth',            rating:null, source:'13F',     stocks:['NKE','META','AAPL','AMZN'],                                   notes:'Track. Tech/semis trader — thematic and tactical (uses puts/hedges). NOT value. Up to date on the AI/semis cycle; near-term radar, not a long-term buy signal.' },
+  { id:'halvorsen',  name:'Ole Andreas Halvorsen', fund:'Viking Global Investors',     category:'AI & Growth',            rating:null, source:'13F',     stocks:['V','TSM','SCHW'],                                             notes:'Track. Tiger Cub running a large long/short fund — more quality-growth than deep value. Broad, well-researched book across tech and financials.' },
+  { id:'whalerock',  name:'Whale Rock',            fund:'Whale Rock Capital Management',category:'AI & Growth',           rating:null, source:'13F',     stocks:[],                                                             notes:'Track. Tech-focused growth fund (Alexander Sacerdote). NOT value — AI, semis, software, internet. Radar on high-conviction tech, not margin of safety.' },
   { id:'joe',        name:'Joseph Lynch',          fund:'JFL & KL Fund',              category:'Other Notable',          rating:'Student of the Game 📚', source:'Boss', stocks:['PGR'],                                notes:'The man himself. Buffett/Munger disciple building a generational portfolio for his family. April 30, 2026 execution day.' },
 ];
 
@@ -1860,6 +1869,7 @@ const SI_CAT_MAP = {
   'Quality Compounders':    { cls: 'si-cat-quality',   label: '⚙️ Quality Compounders' },
   'Global / International': { cls: 'si-cat-global',    label: '🌍 Global' },
   'Legends':                { cls: 'si-cat-legend',    label: '🏆 Legend' },
+  'AI & Growth':            { cls: 'si-cat-ai',       label: '🤖 AI & Growth' },
   'Other Notable':          { cls: 'si-cat-other',     label: '⭐ Other' },
 };
 const SI_SRC_MAP = {
@@ -1902,7 +1912,7 @@ function renderInvestors() {
   }
 
   // Sort
-  const catOrder = ['BRK Inner Circle','Buffett Disciples','Deep Value / Contrarian','Quality Compounders','Global / International','Legends','AI Builders','Other Notable'];
+  const catOrder = ['BRK Inner Circle','Buffett Disciples','Deep Value / Contrarian','Quality Compounders','Global / International','Legends','AI & Growth','Other Notable'];
   data.sort((a, b) => {
     if (siSort === 'name') return a.name.localeCompare(b.name);
     if (siSort === 'rating') {
