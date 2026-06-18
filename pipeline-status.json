@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-18T17:04:59.210393+00:00",
+  "generated_at": "2026-06-18T18:37:49.003268+00:00",
   "job": "update_live_market_data",
   "status": "partial",
-  "detail": "51 quotes, 5 indices published. 3 symbol(s) failed.",
-  "quote_count": 51,
+  "detail": "55 quotes, 5 indices published. 3 symbol(s) failed.",
+  "quote_count": 55,
   "errors": [
     "CERE: HTTP Error 404: Not Found",
     "CORE: HTTP Error 404: Not Found",
