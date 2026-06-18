@@ -2248,7 +2248,7 @@ function hydrateMoseState(state) {
   if (state.researchCadence && JSON.stringify(state.researchCadence) !== JSON.stringify(researchCadence)) { researchCadence = state.researchCadence; changed = true; }
   if (state.ddRequests && JSON.stringify(state.ddRequests) !== JSON.stringify(ddRequestsData)) { ddRequestsData = state.ddRequests; changed = true; }
   if (state.reentry && state.reentry.plans && JSON.stringify(state.reentry) !== JSON.stringify(reentryData)) { reentryData = state.reentry; changed = true; }
-  if (state.targets && state.targets.ira && JSON.stringify(state.targets) !== JSON.stringify(targetsData)) { targetsData = state.targets; changed = true; }
+  if (state.targets && state.targets.ira && JSON.stringify(state.targets) !== JSON.stringify(targetsData)) { targetsData = migrateTargets(state.targets); changed = true; }
   if (state.viewPrefs) {
     if (state.viewPrefs.view) watchlistView = state.viewPrefs.view;
     if (state.viewPrefs.sort) watchlistSort = state.viewPrefs.sort;
@@ -5173,7 +5173,7 @@ function renderReentry() {
 // ============================================================
 function defaultTargetsData() {
   return {
-    version: 2,
+    version: 3,
     ira: {
       total: 1150000,
       accounts: {
@@ -5181,9 +5181,9 @@ function defaultTargetsData() {
         hers: { label: "Wife's IRA", total: 200000 }
       },
       buckets: [
-        { id: 'forever', label: 'Forever',  pct: 45, tickers: ['AMZN', 'NVDA', 'BRK.B', 'GOOGL'], weights: {} },
-        { id: 'sp',      label: 'S&P 500',  pct: 35, tickers: ['VOO'], weights: {} },
-        { id: 'fornow',  label: 'For Now',  pct: 20, tickers: ['AXP', 'BABA', 'BAC', 'BN', 'CVX', 'MCO', 'MA', 'MELI', 'PGR', 'OXY', 'TSM', 'V', 'WMT', 'COST', 'UBER'], weights: {} }
+        { id: 'forever', label: 'Forever',  pct: 50, tickers: ['AMZN', 'NVDA', 'BRK.B', 'GOOGL'], weights: {}, locked: {} },
+        { id: 'sp',      label: 'S&P 500',  pct: 25, tickers: ['VOO'], weights: {}, locked: {} },
+        { id: 'fornow',  label: 'For Now',  pct: 25, tickers: ['AXP', 'BABA', 'BAC', 'BN', 'CVX', 'MCO', 'MA', 'MELI', 'PGR', 'OXY', 'TSM', 'V', 'WMT', 'COST', 'UBER'], weights: {}, locked: {} }
       ]
     },
     mose: {
@@ -5207,10 +5207,25 @@ let targetsData = (function() {
   let d = null;
   try { d = JSON.parse(localStorage.getItem('mose_targets_local') || 'null'); } catch {}
   if (!(d && d.ira && d.ira.buckets)) d = defaultTargetsData();
-  d.ira.buckets.forEach(b => { if (!b.weights || typeof b.weights !== 'object') b.weights = {}; });
+  return migrateTargets(d);
+})();
+
+// Bring older saved/synced state up to date: v3 recalibrates the bucket split to
+// 50/25/25, and ensures every bucket has weights + locked maps.
+function migrateTargets(d) {
+  if (!d || !d.ira || !d.ira.buckets) return d;
+  if ((d.version || 0) < 3) {
+    const want = { forever: 50, sp: 25, fornow: 25 };
+    d.ira.buckets.forEach(b => { if (want[b.id] != null) b.pct = want[b.id]; });
+    d.version = 3;
+  }
+  d.ira.buckets.forEach(b => {
+    if (!b.weights || typeof b.weights !== 'object') b.weights = {};
+    if (!b.locked || typeof b.locked !== 'object') b.locked = {};
+  });
   if (!Array.isArray(d.history)) d.history = [];
   return d;
-})();
+}
 
 function targOwned(acct, ticker) { return Number(targetsData.owned[acct + '|' + ticker]) || 0; }
 function targAllTickers() {
@@ -5220,15 +5235,29 @@ function targAllTickers() {
   return s;
 }
 
-// ---- Per-stock weighting within a bucket (default equal) ----
-function targWeight(bucket, ticker) {
-  const w = bucket.weights ? bucket.weights[ticker] : undefined;
-  return (Number.isFinite(w) && w >= 0) ? w : (100 / (bucket.tickers.length || 1));
+// ---- Per-stock % of a bucket, with lock/pin ----
+// Locked stocks hold the exact % you set; unlocked stocks split whatever % is
+// left, equally. So pinning some names lets the rest recalibrate around them.
+function targClampPct(v) { v = Number(v); return (Number.isFinite(v) && v >= 0) ? Math.min(100, v) : 0; }
+function targIsLocked(bucket, ticker) { return !!(bucket.locked && bucket.locked[ticker]); }
+function targStockPctOfBucket(bucket, ticker) {
+  const tickers = bucket.tickers;
+  if (tickers.length <= 1) return 100;
+  const lockedTickers = tickers.filter(t => targIsLocked(bucket, t));
+  const unlocked = tickers.filter(t => !targIsLocked(bucket, t));
+  const lockedSum = lockedTickers.reduce((s, t) => s + targClampPct(bucket.weights[t]), 0);
+  if (!unlocked.length) {
+    // every name pinned — normalize the pins so the bucket still sums to 100%
+    return lockedSum > 0 ? targClampPct(bucket.weights[ticker]) / lockedSum * 100 : 100 / tickers.length;
+  }
+  if (targIsLocked(bucket, ticker)) {
+    return lockedSum > 100 ? targClampPct(bucket.weights[ticker]) / lockedSum * 100 : targClampPct(bucket.weights[ticker]);
+  }
+  const remaining = Math.max(0, 100 - lockedSum);
+  return remaining / unlocked.length;
 }
-function targWeightSum(bucket) { return bucket.tickers.reduce((s, t) => s + targWeight(bucket, t), 0) || 1; }
-function targStockPctOfBucket(bucket, ticker) { return targWeight(bucket, ticker) / targWeightSum(bucket) * 100; }
 function targStockTarget(acctTotal, bucket, ticker) {
-  return acctTotal * bucket.pct / 100 * targWeight(bucket, ticker) / targWeightSum(bucket);
+  return acctTotal * bucket.pct / 100 * targStockPctOfBucket(bucket, ticker) / 100;
 }
 
 function targetsSave() {
@@ -5246,27 +5275,35 @@ function targSetOwned(acct, ticker, val) {
   targetsSave();
 }
 
-// Set one stock's % of its bucket; rebalance the others proportionally so the bucket always sums to 100%.
+// Set & PIN one stock's % of its bucket. The edited stock holds that exact %;
+// the unlocked stocks absorb the change (they split the remaining %).
 function targSetPctOfBucket(bucketId, ticker, val) {
   const b = targetsData.ira.buckets.find(x => x.id === bucketId);
   if (!b) return;
   let pct = Number(val);
   if (!Number.isFinite(pct) || pct < 0) { renderTargets(); return; }
-  pct = Math.min(100, pct);
-  if (b.tickers.length === 1) { b.weights = { [ticker]: 100 }; targetsSave(); return; }
-  const cur = {};
-  b.tickers.forEach(t => { cur[t] = targStockPctOfBucket(b, t); });
-  const others = b.tickers.filter(t => t !== ticker);
-  const othersSum = others.reduce((s, t) => s + cur[t], 0);
-  const remaining = 100 - pct;
-  const nw = { [ticker]: pct };
-  others.forEach(t => { nw[t] = othersSum > 0 ? remaining * cur[t] / othersSum : remaining / others.length; });
-  b.weights = nw;
+  if (!b.locked) b.locked = {};
+  b.weights[ticker] = Math.min(100, pct);
+  b.locked[ticker] = true;   // editing a % pins it
+  targetsSave();
+}
+// Lock holds a stock at its current %; unlock releases it back into the split.
+function targToggleLock(bucketId, ticker) {
+  const b = targetsData.ira.buckets.find(x => x.id === bucketId);
+  if (!b) return;
+  if (!b.locked) b.locked = {};
+  if (b.locked[ticker]) {
+    delete b.locked[ticker];
+    delete b.weights[ticker];
+  } else {
+    b.weights[ticker] = targStockPctOfBucket(b, ticker);
+    b.locked[ticker] = true;
+  }
   targetsSave();
 }
 function targResetWeights(bucketId) {
   const b = targetsData.ira.buckets.find(x => x.id === bucketId);
-  if (b) { b.weights = {}; targetsSave(); }
+  if (b) { b.weights = {}; b.locked = {}; targetsSave(); }
 }
 
 function targSetCfg(path, val) {
@@ -5334,13 +5371,14 @@ function targCombinedHtml() {
   targetsData.ira.buckets.forEach(b => {
     const bucketGoal = targetsData.ira.total * b.pct / 100;
     html += `<tbody data-targ-bucket="${b.id}">`;
-    html += `<tr class="targ-bucket-row"><td colspan="7">${escapeHtml(b.label)} · ${b.pct}% · goal ${reentryFmt(bucketGoal)} · ${b.tickers.length} name${b.tickers.length !== 1 ? 's' : ''}${b.tickers.length > 1 ? ` <a onclick="targResetWeights('${b.id}')" style="cursor:pointer;color:var(--blue);font-weight:600;font-size:11px;margin-left:8px">reset to equal</a>` : ''} <span style="color:var(--muted);font-weight:600;font-size:11px;margin-left:6px">⠿ drag a row to reorder, or drop it on another bucket to move it</span></td></tr>`;
+    html += `<tr class="targ-bucket-row"><td colspan="7">${escapeHtml(b.label)} · ${b.pct}% · goal ${reentryFmt(bucketGoal)} · ${b.tickers.length} name${b.tickers.length !== 1 ? 's' : ''}${b.tickers.length > 1 ? ` <a onclick="targResetWeights('${b.id}')" style="cursor:pointer;color:var(--blue);font-weight:600;font-size:11px;margin-left:8px">reset to equal</a>` : ''} <span style="color:var(--muted);font-weight:600;font-size:11px;margin-left:6px">🔒 lock a % to hold it; unlocked names split the rest · ⠿ drag to reorder or move buckets</span></td></tr>`;
     b.tickers.forEach(t => {
       const tgt = targStockTarget(targetsData.ira.total, b, t);
       const owned = targOwned('his', t) + targOwned('hers', t);
+      const locked = targIsLocked(b, t);
       const pctCell = b.tickers.length === 1
         ? `<td style="color:var(--muted)">100%</td>`
-        : `<td style="white-space:nowrap"><input type="number" step="0.5" class="targ-input" style="width:64px" value="${targStockPctOfBucket(b, t).toFixed(1)}" onchange="targSetPctOfBucket('${b.id}','${t}',this.value)">%</td>`;
+        : `<td style="white-space:nowrap"><input type="number" step="0.5" class="targ-input" style="width:58px${locked ? ';border-color:var(--accent);color:var(--accent);font-weight:700' : ''}" value="${targStockPctOfBucket(b, t).toFixed(1)}" onchange="targSetPctOfBucket('${b.id}','${t}',this.value)">% <a onclick="targToggleLock('${b.id}','${escapeHtml(t)}')" title="${locked ? 'Locked — holds this %. Click to unlock and let it recalc.' : 'Click to lock this % so it holds while the others recalc.'}" style="cursor:pointer;margin-left:2px">${locked ? '🔒' : '🔓'}</a></td>`;
       html += `<tr data-targ-bucket="${b.id}" data-targ-ticker="${escapeHtml(t)}"><td class="targ-drag-handle" onpointerdown="targDragStart(event,'${b.id}','${escapeHtml(t)}')" title="Drag to reorder or move to another bucket">⠿</td><td><strong>${escapeHtml(t)}</strong>${targLivePrice(t)} <a onclick="targRemoveTicker('${b.id}','${escapeHtml(t)}')" title="Remove from bucket" style="cursor:pointer;color:var(--muted);margin-left:6px">✕</a></td>${pctCell}<td>${reentryFmt(tgt)}</td><td>${reentryFmt(owned)}</td>${targMoreCell(owned, tgt)}${targPctCell(owned, tgt)}</tr>`;
     });
     html += targAddRow(b.id, 7);
@@ -5447,9 +5485,9 @@ function targDragEnd(ev) {
 }
 // Resolve a bucket id to its ticker list. 'mose' is the separate joint-cash pool.
 function targListFor(id) {
-  if (id === 'mose') return { tickers: targetsData.mose.tickers, label: targetsData.mose.label, weights: null, mose: true };
+  if (id === 'mose') return { tickers: targetsData.mose.tickers, label: targetsData.mose.label, weights: null, locked: null, mose: true };
   const b = targetsData.ira.buckets.find(x => x.id === id);
-  return b ? { tickers: b.tickers, label: b.label, weights: b.weights, mose: false } : null;
+  return b ? { tickers: b.tickers, label: b.label, weights: b.weights, locked: b.locked, mose: false } : null;
 }
 // On a move across the IRA<->MOSE boundary, carry the owned $ to the destination's account key so nothing is orphaned.
 function targMigrateOwned(ticker, srcMose, destMose) {
@@ -5511,6 +5549,7 @@ function targRemoveTicker(bucketId, ticker) {
   if (i < 0) return;
   list.tickers.splice(i, 1);
   if (list.weights) delete list.weights[ticker];
+  if (list.locked) delete list.locked[ticker];
   ['his', 'hers', 'mose'].forEach(a => delete targetsData.owned[a + '|' + ticker]);
   targetsSave();
   showWatchlistToast(`Removed ${ticker} from ${list.label}`);
