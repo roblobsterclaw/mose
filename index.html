@@ -2108,6 +2108,7 @@ let watchlistSort = localStorage.getItem('mose_watchlist_sort') || 'priority';
 let watchlistGroup = localStorage.getItem('mose_watchlist_group') || 'bucket';
 let watchlistPriority = JSON.parse(localStorage.getItem('mose_watchlist_priority') || '{}');
 let customWatchlist = JSON.parse(localStorage.getItem('mose_custom_watchlist') || '[]');
+let watchlistRemoved = JSON.parse(localStorage.getItem('mose_watchlist_removed') || '[]'); // tickers removed from the watchlist (incl. base names)
 let researchItems = JSON.parse(localStorage.getItem('mose_research_items') || '{}');
 let cockpitFilter = 'top';
 let cockpitSortKey = null;   // null = natural order (by score)
@@ -2222,6 +2223,7 @@ function getMoseState() {
     notes: watchlistNotes,
     priority: watchlistPriority,
     customWatchlist: customWatchlist,
+    removed: watchlistRemoved,
     researchItems: researchItems,
     researchCadence: researchCadence,
     ddRequests: ddRequestsData,
@@ -2245,6 +2247,7 @@ function hydrateMoseState(state) {
   if (state.notes && JSON.stringify(state.notes) !== JSON.stringify(watchlistNotes)) { watchlistNotes = state.notes; changed = true; }
   if (state.priority && JSON.stringify(state.priority) !== JSON.stringify(watchlistPriority)) { watchlistPriority = state.priority; changed = true; }
   if (state.customWatchlist && JSON.stringify(state.customWatchlist) !== JSON.stringify(customWatchlist)) { customWatchlist = state.customWatchlist; changed = true; }
+  if (Array.isArray(state.removed) && JSON.stringify(state.removed) !== JSON.stringify(watchlistRemoved)) { watchlistRemoved = state.removed; changed = true; }
   if (state.researchItems && JSON.stringify(state.researchItems) !== JSON.stringify(researchItems)) { researchItems = state.researchItems; changed = true; }
   if (state.researchCadence && JSON.stringify(state.researchCadence) !== JSON.stringify(researchCadence)) { researchCadence = state.researchCadence; changed = true; }
   if (state.ddRequests && JSON.stringify(state.ddRequests) !== JSON.stringify(ddRequestsData)) { ddRequestsData = state.ddRequests; changed = true; }
@@ -2270,6 +2273,7 @@ function saveLocalOnly() {
   localStorage.setItem('mose_watchlist_notes_local', JSON.stringify(watchlistNotes));
   localStorage.setItem('mose_watchlist_priority', JSON.stringify(watchlistPriority));
   localStorage.setItem('mose_custom_watchlist', JSON.stringify(customWatchlist));
+  localStorage.setItem('mose_watchlist_removed', JSON.stringify(watchlistRemoved));
   localStorage.setItem('mose_research_items', JSON.stringify(researchItems));
   localStorage.setItem('mose_research_cadence', JSON.stringify(researchCadence));
   localStorage.setItem('mose_dd_requests_local', JSON.stringify(ddRequestsData));
@@ -3163,6 +3167,7 @@ function saveWatchlistLocalState(message) {
   localStorage.setItem('mose_watchlist_buckets_local', JSON.stringify(watchlistBuckets));
   localStorage.setItem('mose_bucket_defs', JSON.stringify(bucketDefs));
   localStorage.setItem('mose_custom_watchlist', JSON.stringify(customWatchlist));
+  localStorage.setItem('mose_watchlist_removed', JSON.stringify(watchlistRemoved));
   localStorage.setItem('mose_watchlist_priority', JSON.stringify(watchlistPriority));
   localStorage.setItem('mose_watchlist_notes_local', JSON.stringify(watchlistNotes));
   localStorage.setItem('mose_research_items', JSON.stringify(researchItems));
@@ -3354,7 +3359,8 @@ function computeJoeOwns() {
 }
 
 function canonicalTicker(ticker) {
-  const t = (ticker || '').toUpperCase();
+  let t = (ticker || '').toUpperCase().trim();
+  t = t.replace(/\.([A-Z])$/, '-$1');  // class shares: BRK.B -> BRK-B (matches the quote feed / Yahoo)
   if (t === 'GOOG') return 'GOOGL';
   if (t === 'BRK') return 'BRK-B';
   return t;
@@ -3413,7 +3419,24 @@ function getWatchlistStocks() {
       dateAdded: p.dateAdded || existing.dateAdded || ''
     });
   });
-  return [...merged.values()];
+  const removed = new Set((watchlistRemoved || []).map(canonicalTicker));
+  return [...merged.values()].filter(p => !removed.has(canonicalTicker(p.ticker)));
+}
+
+// Remove a stock from the watchlist (works for base + custom names; reversible by re-adding).
+function removeFromWatchlist(ticker) {
+  const key = canonicalTicker(ticker);
+  if (!key) return;
+  if (!confirm(`Remove ${key} from your watchlist?`)) return;
+  customWatchlist = customWatchlist.filter(p => canonicalTicker(p.ticker) !== key);
+  if (!watchlistRemoved.map(canonicalTicker).includes(key)) watchlistRemoved.push(key);
+  delete watchlistBuckets[key];
+  delete watchlistNotes[key];
+  delete watchlistPriority[key];
+  saveWatchlistLocalState(`Removed ${key} from watchlist`);
+  renderWatchlist();
+  renderCockpit();
+  renderResearchQueue();
 }
 
 function saveCustomWatchlist() {
@@ -3631,6 +3654,7 @@ function addWatchlistStock() {
   const item = { ticker, name: name || ticker, bucket, note: name || ticker, dateAdded: new Date().toISOString().slice(0, 10) };
   // Foreign listings quote under a different Yahoo symbol (e.g. CSU -> CSU.TO).
   if (match && match.quoteSymbol && match.quoteSymbol.toUpperCase() !== ticker) item.quoteSymbol = match.quoteSymbol;
+  watchlistRemoved = watchlistRemoved.filter(t => canonicalTicker(t) !== ticker);  // un-remove if re-adding
   customWatchlist.push(item);
   watchlistBuckets[ticker] = bucket;
   saveWatchlistLocalState(`Added ${ticker}`);
@@ -3991,7 +4015,7 @@ function watchlistRowHtml(p, dcfMap, tickerToInvestors, joeOwns, candidateMap) {
 
   return `<tr>
     <td style="min-width:195px">${bucketSel}</td>
-    <td><span class="ticker">${p.private ? '🔒' : ticker}</span></td>
+    <td><span class="ticker">${p.private ? '🔒' : ticker}</span> <a onclick="removeFromWatchlist('${ticker}')" title="Remove from watchlist" style="cursor:pointer;color:var(--muted);font-size:11px;margin-left:4px">✕</a></td>
     <td style="font-size:13px">${escapeHtml(p.name)}${p.private ? ' <span class="private-tag">private</span>' : ''}</td>
     <td>${prioritySelect(ticker)}</td>
     <td class="i-own-cell">${ownCell}</td>

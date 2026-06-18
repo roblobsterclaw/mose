@@ -158,8 +158,14 @@ def fetch_quotes(symbols: list[str]) -> tuple[dict[str, dict], list[str]]:
     return quotes, errors
 
 
+def _norm_ticker(t: str) -> str:
+    """Normalize class shares to the Yahoo form: BRK.B -> BRK-B."""
+    return re.sub(r"\.([A-Z])$", r"-\1", str(t or "").upper().strip())
+
+
 def firebase_custom_tickers() -> list[str]:
-    """Tickers Joe added from the dashboard UI (synced via Firebase)."""
+    """Tickers Joe tracks via the dashboard (synced via Firebase): custom
+    watchlist adds, watchlist bucket assignments, and every Buy Targets name."""
     try:
         state = http_get_json(MOSE_FB_URL + ".json", timeout=15)
     except Exception as exc:
@@ -171,14 +177,21 @@ def firebase_custom_tickers() -> list[str]:
     for item in state.get("customWatchlist") or []:
         # Private / pre-IPO entries have no public ticker — never try to quote them.
         if isinstance(item, dict) and item.get("ticker") and not item.get("private"):
-            ticker = str(item["ticker"]).upper()
+            ticker = _norm_ticker(item["ticker"])
             tickers.add(ticker)
             # Foreign listings carry a Yahoo quote symbol (e.g. CSU -> CSU.TO).
             if item.get("quoteSymbol"):
                 QUOTE_OVERRIDES[ticker] = str(item["quoteSymbol"]).upper()
     for ticker in (state.get("buckets") or {}):
-        tickers.add(str(ticker).upper())
-    return sorted(tickers)
+        tickers.add(_norm_ticker(ticker))
+    # Buy Targets names (IRA buckets + MOSE) so every planned buy gets a quote.
+    targets = state.get("targets") or {}
+    for b in ((targets.get("ira") or {}).get("buckets") or []):
+        for t in (b.get("tickers") or []):
+            tickers.add(_norm_ticker(t))
+    for t in ((targets.get("mose") or {}).get("tickers") or []):
+        tickers.add(_norm_ticker(t))
+    return sorted(t for t in tickers if t)
 
 
 def watchlist_tickers() -> list[str]:
