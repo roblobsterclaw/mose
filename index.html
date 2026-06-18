@@ -5223,7 +5223,8 @@ function migrateTargets(d) {
     if (!b.weights || typeof b.weights !== 'object') b.weights = {};
     if (!b.locked || typeof b.locked !== 'object') b.locked = {};
   });
-  if (!d.plan || typeof d.plan !== 'object') d.plan = {};   // this-month planned buys, keyed account|ticker
+  if (!d.plan || typeof d.plan !== 'object') d.plan = {};       // this-month planned buys, keyed account|ticker
+  if (!d.verify || typeof d.verify !== 'object') d.verify = {}; // accounts committed but awaiting IBKR confirmation
   if (!Array.isArray(d.history)) d.history = [];
   return d;
 }
@@ -5309,6 +5310,26 @@ function targClearPlan(acct) {
   Object.keys(targetsData.plan).forEach(k => { if (k.startsWith(acct + '|')) delete targetsData.plan[k]; });
   targetsSave();
 }
+// Commit this month's planned buys into Owned PROVISIONALLY, flagged pending
+// until the IBKR statement confirms (see targImport reconciliation).
+function targCommitMonth(acct) {
+  const keys = Object.keys(targetsData.plan || {}).filter(k => k.startsWith(acct + '|') && Number(targetsData.plan[k]) > 0);
+  if (!keys.length) { showWatchlistToast('Nothing planned to commit'); return; }
+  const label = targImportAcctLabel(acct);
+  if (!confirm(`Commit this month's buys to ${label}? Owned will go up provisionally and stay flagged "pending IBKR verification" until you paste your statement.`)) return;
+  let total = 0; const expected = {};
+  keys.forEach(k => {
+    const t = k.split('|')[1], buy = Number(targetsData.plan[k]) || 0;
+    targetsData.owned[k] = (Number(targetsData.owned[k]) || 0) + buy;
+    total += buy; expected[t] = Math.round(targetsData.owned[k]);
+    delete targetsData.plan[k];
+  });
+  if (!targetsData.verify) targetsData.verify = {};
+  targetsData.verify[acct] = { committedAt: new Date().toISOString().slice(0, 10), committed: Math.round(total), expected };
+  targSnapshot();
+  targetsSave();
+  showWatchlistToast(`Committed ${reentryFmt(total)} to ${label} — pending IBKR verification`);
+}
 // Generic progress gauge cell (value vs target).
 function targGaugeCell(value, target) {
   const pct = target > 0 ? value / target * 100 : 0;
@@ -5319,6 +5340,13 @@ function targGaugeCell(value, target) {
 function targPlanControls(acct) {
   let planned = 0;
   Object.keys(targetsData.plan || {}).forEach(k => { if (k.startsWith(acct + '|')) planned += Number(targetsData.plan[k]) || 0; });
+  const v = targetsData.verify && targetsData.verify[acct];
+  const commitBtn = planned > 0
+    ? `<button class="watchlist-add-btn" style="padding:4px 10px" onclick="targCommitMonth('${acct}')">Commit ${reentryFmt(planned)} → Owned</button>`
+    : '';
+  const pending = v
+    ? `<span style="color:var(--yellow);font-weight:700">⏳ Committed ${v.committedAt} (${reentryFmt(v.committed)}) — paste your IBKR statement to verify</span>`
+    : '';
   return `<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:4px 0 8px;font-size:12px">
     <strong style="color:var(--heading)">This month's buy:</strong>
     <span>auto-fill</span>
@@ -5326,7 +5354,9 @@ function targPlanControls(acct) {
     <span>% of each remaining</span>
     <button class="research-action-btn" onclick="targAutoFillPlan('${acct}', document.getElementById('targ-autofill-${acct}').value)">Apply</button>
     <a onclick="targClearPlan('${acct}')" style="cursor:pointer;color:var(--blue)">clear</a>
+    ${commitBtn}
     <span style="color:var(--muted)">or type amounts in the “Buy This Month” column · planned <strong style="color:var(--text)">${reentryFmt(planned)}</strong></span>
+    ${pending}
   </div>`;
 }
 
@@ -5672,11 +5702,25 @@ function targImport() {
   const keys = Object.keys(parsed);
   if (!keys.length) { showWatchlistToast('No positions found to import'); return; }
   keys.forEach(t => { if (parsed[t] > 0) targetsData.owned[acct + '|' + t] = parsed[t]; });
+
+  // Reconcile against a pending commit: IBKR is the source of truth; flag any
+  // committed name that isn't in the statement (a trade that may not have filled).
+  let reconNote = '';
+  const v = targetsData.verify && targetsData.verify[acct];
+  if (v) {
+    const expected = v.expected || {};
+    const missing = Object.keys(expected).filter(t => !(parsed[t] > 0));
+    delete targetsData.verify[acct];
+    reconNote = missing.length
+      ? ` · ⚠️ Verified vs IBKR — committed name(s) not in statement: <strong>${missing.join(', ')}</strong> (check the trade filled / right account).`
+      : ` · ✅ Verified vs IBKR — all committed positions present. Owned set to IBKR values.`;
+  }
+
   targSnapshot();
   targetsSave();
   document.getElementById('targets-import-text').value = '';
-  document.getElementById('targets-import-preview').innerHTML = '';
-  showWatchlistToast(`Imported ${keys.length} position(s) into ${targImportAcctLabel(acct)}`);
+  document.getElementById('targets-import-preview').innerHTML = `Imported ${keys.length} position(s) into ${targImportAcctLabel(acct)}.${reconNote}`;
+  showWatchlistToast(`Imported ${keys.length} into ${targImportAcctLabel(acct)}${v ? (reconNote.includes('✅') ? ' · verified ✅' : ' · check flagged ⚠️') : ''}`);
 }
 
 // ---- Progress history (snapshots) ----
