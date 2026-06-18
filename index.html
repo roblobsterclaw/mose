@@ -1546,6 +1546,7 @@ async function checkPw(){
       <button class="filter-btn" onclick="setSIFilter('Quality Compounders', this)">⚙️ Quality Compounders</button>
       <button class="filter-btn" onclick="setSIFilter('Global / International', this)">🌍 Global</button>
       <button class="filter-btn" onclick="setSIFilter('Legends', this)">🏆 Legends</button>
+      <button class="filter-btn" onclick="setSIFilter('AI Builders', this)">🤖 AI Builders</button>
       <button class="filter-btn" onclick="setSIFilter('Other Notable', this)">⭐ Other</button>
     </div>
 
@@ -1814,6 +1815,8 @@ const INVESTORS_DATA = [
   { id:'greenwald',  name:'Bruce Greenwald',       fund:'Columbia University',         category:'Legends',               rating:null, source:'Public',  stocks:['ORCL','MSFT','SGENX'],                                        notes:'The Dean of Value Investing. Columbia professor — taught Ben Graham\'s course for decades.' },
   { id:'ackman',     name:'Bill Ackman',           fund:'Pershing Square',             category:'Other Notable',          rating:null, source:'13F',     stocks:['HLT','AMZN','HHH','CP','NKE','QSR','GOOG'],                  notes:'Activist investor. High conviction, concentrated positions. Famous for Herbalife short and pandemic bond trade.' },
   { id:'oleary',     name:'Kevin O\'Leary',        fund:'O\'Shares ETFs / OUSA',       category:'Other Notable',          rating:null, source:'Public',  stocks:['ENB','JNJ','V','GOOGL','MA','AAPL','ASML'],                   notes:'Mr. Wonderful. Dividend focused. Quality factor investing through OUSA ETF.' },
+  { id:'baker',      name:'Gavin Baker',           fund:'Atreides Management',         category:'AI Builders',            rating:null, source:'13F',     stocks:['NVDA'],                                                       notes:'NOT a true value investor — growth/tech. Ex-Fidelity tech-fund PM running Atreides (~$5B, public + late-stage private). One of the best-informed voices on the AI buildout: GPUs, compute, hyperscalers, and the model labs. Track him as an AI radar, not a margin-of-safety signal. Current holdings flow in from his 13F.' },
+  { id:'aschenbrenner', name:'Leopold Aschenbrenner', fund:'Situational Awareness LP', category:'AI Builders',         rating:null, source:'13F',     stocks:['NBIS'],                                                       notes:'NOT a true value investor — concentrated AGI thesis. Ex-OpenAI superalignment, author of the \'Situational Awareness\' essay; fund ~$13B. Thematic AI-race bets with heavy options use (notably large PUT positions vs NVDA/semis). Deeply up to date on who-is-who in AI; read as a thesis, not a buy signal. Holdings flow in from his 13F.' },
   { id:'joe',        name:'Joseph Lynch',          fund:'JFL & KL Fund',              category:'Other Notable',          rating:'Student of the Game 📚', source:'Boss', stocks:['PGR'],                                notes:'The man himself. Buffett/Munger disciple building a generational portfolio for his family. April 30, 2026 execution day.' },
 ];
 
@@ -1899,7 +1902,7 @@ function renderInvestors() {
   }
 
   // Sort
-  const catOrder = ['BRK Inner Circle','Buffett Disciples','Deep Value / Contrarian','Quality Compounders','Global / International','Legends','Other Notable'];
+  const catOrder = ['BRK Inner Circle','Buffett Disciples','Deep Value / Contrarian','Quality Compounders','Global / International','Legends','AI Builders','Other Notable'];
   data.sort((a, b) => {
     if (siSort === 'name') return a.name.localeCompare(b.name);
     if (siSort === 'rating') {
