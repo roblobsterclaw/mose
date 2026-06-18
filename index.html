@@ -3434,7 +3434,7 @@ async function loadTickerDirectory() {
     tickerDirectory = (data.symbols || []).map(s => ({
       ticker: canonicalTicker(s.t || s.ticker),
       name: s.n || s.name || s.t,
-      exchange: s.e || s.exchange || '',
+      exchange: (s.e || s.exchange || '') + (s.f ? ' · ' + s.f : ''),
       quoteSymbol: s.y || s.quoteSymbol || ''
     })).filter(s => s.ticker);
   } catch (e) {

@@ -21,6 +21,7 @@ Output: reference-data/ticker-directory.json
 from __future__ import annotations
 
 import json
+import re
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
@@ -75,7 +76,7 @@ def fetch(url: str, timeout: int = 30) -> bytes:
 
 
 def load_sec_symbols() -> dict[str, str]:
-    """ticker -> company name from the SEC."""
+    """ticker -> company name from the SEC (clean operating-company names)."""
     data = json.loads(fetch(SEC_TICKERS_URL).decode("utf-8"))
     out: dict[str, str] = {}
     for row in data.values():
@@ -86,33 +87,70 @@ def load_sec_symbols() -> dict[str, str]:
     return out
 
 
-def load_exchange_map() -> dict[str, str]:
-    """ticker -> exchange label, best effort from Nasdaq Trader."""
-    exchanges: dict[str, str] = {}
-    # nasdaqlisted.txt: Symbol|Security Name|Market Category|Test Issue|...
+# Keep plain tickers and simple class shares (BRK.B); drop warrants/units/rights
+# and other suffixed junk that clutters an "add a stock" menu.
+SYMBOL_RE = re.compile(r"^[A-Z]{1,5}([.][A-Z])?$")
+DROP_SUFFIXES = {"W", "WS", "U", "R", "RT", "P", "WI"}
+
+
+def _valid_symbol(sym: str) -> bool:
+    if not SYMBOL_RE.match(sym):
+        return False
+    if "." in sym and sym.split(".")[1] in DROP_SUFFIXES:
+        return False
+    return True
+
+
+def load_listed() -> dict[str, dict]:
+    """Every listed security (stocks AND ETFs) from Nasdaq Trader's symbol
+    directories -> {ticker: {name, exchange, etf}}. This is what gives us ETF
+    coverage that SEC company_tickers.json lacks (VTV, VOO, NLR, ...)."""
+    listed: dict[str, dict] = {}
+
+    # nasdaqlisted.txt: Symbol|Security Name|Market Category|Test Issue|Financial Status|Round Lot|ETF|NextShares
     try:
-        text = fetch(NASDAQ_LISTED_URL).decode("utf-8")
-        for line in text.splitlines()[1:]:
-            cols = line.split("|")
-            if len(cols) > 3 and cols[3] == "N":  # not a test issue
-                sym = cols[0].strip().upper()
-                if sym and sym != "SYMBOL":
-                    exchanges[sym] = "NASDAQ"
+        for line in fetch(NASDAQ_LISTED_URL).decode("utf-8").splitlines()[1:]:
+            if line.startswith("File Creation Time"):
+                continue
+            c = line.split("|")
+            if len(c) < 7:
+                continue
+            sym = c[0].strip().upper()
+            if not sym or sym == "SYMBOL" or c[3].strip() == "Y":  # skip header / test issues
+                continue
+            if not _valid_symbol(sym):
+                continue
+            listed[sym] = {"name": c[1].strip(), "exchange": "NASDAQ", "etf": c[6].strip() == "Y"}
     except Exception as exc:
         print(f"nasdaqlisted.txt unavailable: {exc}")
-    # otherlisted.txt: ACT Symbol|Security Name|Exchange|...
+
+    # otherlisted.txt: ACT Symbol|Security Name|Exchange|CQS Symbol|ETF|Round Lot|Test Issue|NASDAQ Symbol
     try:
-        text = fetch(OTHER_LISTED_URL).decode("utf-8")
-        for line in text.splitlines()[1:]:
-            cols = line.split("|")
-            if len(cols) > 2:
-                sym = cols[0].strip().upper()
-                code = cols[2].strip().upper()
-                if sym and sym != "ACT SYMBOL":
-                    exchanges[sym] = EXCHANGE_NAMES.get(code, "NYSE")
+        for line in fetch(OTHER_LISTED_URL).decode("utf-8").splitlines()[1:]:
+            if line.startswith("File Creation Time"):
+                continue
+            c = line.split("|")
+            if len(c) < 7:
+                continue
+            sym = c[0].strip().upper()
+            if not sym or sym == "ACT SYMBOL" or c[6].strip() == "Y":  # skip header / test issues
+                continue
+            if not _valid_symbol(sym):
+                continue
+            listed[sym] = {"name": c[1].strip(), "exchange": EXCHANGE_NAMES.get(c[2].strip().upper(), "NYSE"), "etf": c[4].strip() == "Y"}
     except Exception as exc:
         print(f"otherlisted.txt unavailable: {exc}")
-    return exchanges
+
+    return listed
+
+
+def _clean_name(name: str) -> str:
+    # Trim the boilerplate Nasdaq tacks onto security names.
+    for sep in [" - Common Stock", " - Class", " Common Stock", " - Ordinary Shares"]:
+        i = name.find(sep)
+        if i > 0:
+            return name[:i].strip()
+    return name.strip()
 
 
 def main() -> int:
@@ -121,15 +159,25 @@ def main() -> int:
         print(f"ERROR: SEC returned only {len(sec)} symbols; keeping existing directory.")
         return 1
 
-    exchanges = load_exchange_map()
+    listed = load_listed()
     by_ticker: dict[str, dict] = {}
-    for ticker, name in sorted(sec.items()):
-        entry = {"t": ticker, "n": name}
-        if ticker in exchanges:
-            entry["e"] = exchanges[ticker]
+
+    # Base universe = every listed security (gives full ETF coverage). Prefer the
+    # cleaner SEC company name for non-ETFs; use the Nasdaq name for ETFs.
+    for ticker, info in listed.items():
+        name = sec.get(ticker) if (not info["etf"] and ticker in sec) else None
+        name = name or _clean_name(info["name"]) or ticker
+        entry = {"t": ticker, "n": name, "e": info["exchange"]}
+        if info["etf"]:
+            entry["f"] = "ETF"
         by_ticker[ticker] = entry
 
-    # Merge the curated non-US supplement (added/overrides SEC where needed).
+    # Add SEC-only tickers that aren't in the Nasdaq files (rare, but keep them).
+    for ticker, name in sec.items():
+        if ticker not in by_ticker and SYMBOL_RE.match(ticker):
+            by_ticker[ticker] = {"t": ticker, "n": name}
+
+    # Merge the curated non-US supplement (adds/overrides; carries Yahoo quote symbol).
     for ticker, name, exchange, yahoo in SUPPLEMENT:
         entry = {"t": ticker, "n": name, "e": exchange}
         if yahoo:
@@ -137,14 +185,16 @@ def main() -> int:
         by_ticker[ticker] = entry
 
     symbols = [by_ticker[t] for t in sorted(by_ticker)]
-    source = "sec" + ("+nasdaqtrader" if exchanges else "") + "+supplement"
+    etf_count = sum(1 for s in symbols if s.get("f") == "ETF")
+    source = ("sec+nasdaqtrader" if listed else "sec") + "+supplement"
     OUTPUT.write_text(json.dumps({
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "source": source,
         "count": len(symbols),
+        "etf_count": etf_count,
         "symbols": symbols,
     }, separators=(",", ":")) + "\n")
-    print(f"Wrote {len(symbols)} symbols to {OUTPUT.relative_to(ROOT)} (source: {source}).")
+    print(f"Wrote {len(symbols)} symbols ({etf_count} ETFs) to {OUTPUT.relative_to(ROOT)} (source: {source}).")
     return 0
 
 
