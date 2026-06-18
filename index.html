@@ -5223,6 +5223,7 @@ function migrateTargets(d) {
     if (!b.weights || typeof b.weights !== 'object') b.weights = {};
     if (!b.locked || typeof b.locked !== 'object') b.locked = {};
   });
+  if (!d.plan || typeof d.plan !== 'object') d.plan = {};   // this-month planned buys, keyed account|ticker
   if (!Array.isArray(d.history)) d.history = [];
   return d;
 }
@@ -5273,6 +5274,60 @@ function targSetOwned(acct, ticker, val) {
   if (n === 0) delete targetsData.owned[acct + '|' + ticker];
   else targetsData.owned[acct + '|' + ticker] = n;
   targetsSave();
+}
+
+// ---- This-month tranche plan (what to buy now, per account|ticker) ----
+function targPlan(acct, ticker) { return (targetsData.plan && Number(targetsData.plan[acct + '|' + ticker])) || 0; }
+function targSetPlan(acct, ticker, val) {
+  const n = Number(val);
+  if (!targetsData.plan) targetsData.plan = {};
+  if (!Number.isFinite(n) || n <= 0) delete targetsData.plan[acct + '|' + ticker];
+  else targetsData.plan[acct + '|' + ticker] = n;
+  targetsSave();
+}
+// Auto-fill: buy pct% of each stock's REMAINING gap (target − owned) this month.
+function targAutoFillPlan(acct, pctVal) {
+  const pct = Number(pctVal);
+  if (!Number.isFinite(pct) || pct < 0) { renderTargets(); return; }
+  if (!targetsData.plan) targetsData.plan = {};
+  const set = (t, target) => {
+    const buy = Math.round(Math.max(0, target - targOwned(acct, t)) * pct / 100);
+    if (buy > 0) targetsData.plan[acct + '|' + t] = buy; else delete targetsData.plan[acct + '|' + t];
+  };
+  if (acct === 'mose') {
+    const m = targetsData.mose, budget = m.total * m.stockPct / 100, tgt = m.tickers.length ? budget / m.tickers.length : 0;
+    m.tickers.forEach(t => set(t, tgt));
+  } else {
+    const a = targetsData.ira.accounts[acct];
+    targetsData.ira.buckets.forEach(b => b.tickers.forEach(t => set(t, targStockTarget(a.total, b, t))));
+  }
+  targetsSave();
+  showWatchlistToast(`This month = ${pct}% of each remaining`);
+}
+function targClearPlan(acct) {
+  if (!targetsData.plan) return;
+  Object.keys(targetsData.plan).forEach(k => { if (k.startsWith(acct + '|')) delete targetsData.plan[k]; });
+  targetsSave();
+}
+// Generic progress gauge cell (value vs target).
+function targGaugeCell(value, target) {
+  const pct = target > 0 ? value / target * 100 : 0;
+  const col = pct >= 100 ? 'var(--green)' : (pct >= 50 ? 'var(--yellow)' : 'var(--muted)');
+  return `<td style="white-space:nowrap"><span class="targ-bar"><span class="targ-bar-fill" style="width:${Math.min(100, pct)}%"></span></span><span style="color:${col};font-weight:700">${pct.toFixed(0)}%</span></td>`;
+}
+// Auto-fill control shown above each account table.
+function targPlanControls(acct) {
+  let planned = 0;
+  Object.keys(targetsData.plan || {}).forEach(k => { if (k.startsWith(acct + '|')) planned += Number(targetsData.plan[k]) || 0; });
+  return `<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:4px 0 8px;font-size:12px">
+    <strong style="color:var(--heading)">This month's buy:</strong>
+    <span>auto-fill</span>
+    <input type="number" id="targ-autofill-${acct}" class="targ-input" style="width:56px" placeholder="%" step="1">
+    <span>% of each remaining</span>
+    <button class="research-action-btn" onclick="targAutoFillPlan('${acct}', document.getElementById('targ-autofill-${acct}').value)">Apply</button>
+    <a onclick="targClearPlan('${acct}')" style="cursor:pointer;color:var(--blue)">clear</a>
+    <span style="color:var(--muted)">or type amounts in the “Buy This Month” column · planned <strong style="color:var(--text)">${reentryFmt(planned)}</strong></span>
+  </div>`;
 }
 
 // Set & PIN one stock's % of its bucket. The edited stock holds that exact %;
@@ -5352,14 +5407,15 @@ function targPctCell(owned, target) {
 
 function targAcctTableHtml(acctKey) {
   const acct = targetsData.ira.accounts[acctKey];
-  let html = `<div class="table-wrap"><table><thead><tr><th>Ticker</th><th>Target</th><th>Owned</th><th>Buy More</th><th>% to Goal</th></tr></thead><tbody>`;
+  let html = targPlanControls(acctKey) + `<div class="table-wrap"><table><thead><tr><th>Ticker</th><th>Target</th><th>Owned</th><th>Remaining</th><th>Buy This Month</th><th title="This month's purchase vs target">Today</th><th title="Owned + this month's buy vs target">After Buy</th></tr></thead><tbody>`;
   let deployed = 0;
   targetsData.ira.buckets.forEach(b => {
-    html += `<tr class="targ-bucket-row"><td colspan="5">${escapeHtml(b.label)} · ${b.pct}% · ${reentryFmt(acct.total * b.pct / 100)}</td></tr>`;
+    html += `<tr class="targ-bucket-row"><td colspan="7">${escapeHtml(b.label)} · ${b.pct}% · ${reentryFmt(acct.total * b.pct / 100)}</td></tr>`;
     b.tickers.forEach(t => {
       const tgt = targStockTarget(acct.total, b, t);
       const owned = targOwned(acctKey, t); deployed += owned;
-      html += `<tr><td><strong>${escapeHtml(t)}</strong>${targLivePrice(t)}</td><td>${reentryFmt(tgt)}</td><td><input type="number" class="targ-input" value="${owned || ''}" placeholder="0" onchange="targSetOwned('${acctKey}','${t}',this.value)"></td>${targMoreCell(owned, tgt, t)}${targPctCell(owned, tgt)}</tr>`;
+      const plan = targPlan(acctKey, t);
+      html += `<tr><td><strong>${escapeHtml(t)}</strong>${targLivePrice(t)}</td><td>${reentryFmt(tgt)}</td><td style="font-weight:700">${reentryFmt(owned)}</td>${targMoreCell(owned, tgt, t)}<td><input type="number" class="targ-input" value="${plan || ''}" placeholder="0" onchange="targSetPlan('${acctKey}','${t}',this.value)">${targShareHint(plan, t)}</td>${targGaugeCell(plan, tgt)}${targGaugeCell(owned + plan, tgt)}</tr>`;
     });
   });
   html += `</tbody></table></div>`;
@@ -5571,14 +5627,15 @@ function targMoseHtml() {
   const m = targetsData.mose;
   const budget = m.total * m.stockPct / 100;
   const tgt = m.tickers.length ? budget / m.tickers.length : 0;
-  let html = `<div class="table-wrap"><table><thead><tr><th></th><th>Ticker</th><th>Target</th><th>Owned</th><th>Buy More</th><th>% to Goal</th></tr></thead><tbody data-targ-bucket="mose">`;
-  html += `<tr class="targ-bucket-row"><td colspan="6">MOSE names · ${m.stockPct}% to stocks · ${reentryFmt(budget)} · ${m.tickers.length} name${m.tickers.length !== 1 ? 's' : ''} <span style="color:var(--muted);font-weight:600;font-size:11px;margin-left:6px">⠿ drag to reorder, or drop on an IRA bucket to move it (owned $ follows)</span></td></tr>`;
+  let html = targPlanControls('mose') + `<div class="table-wrap"><table><thead><tr><th></th><th>Ticker</th><th>Target</th><th>Owned</th><th>Remaining</th><th>Buy This Month</th><th title="This month's purchase vs target">Today</th><th title="Owned + this month's buy vs target">After Buy</th></tr></thead><tbody data-targ-bucket="mose">`;
+  html += `<tr class="targ-bucket-row"><td colspan="8">MOSE names · ${m.stockPct}% to stocks · ${reentryFmt(budget)} · ${m.tickers.length} name${m.tickers.length !== 1 ? 's' : ''} <span style="color:var(--muted);font-weight:600;font-size:11px;margin-left:6px">⠿ drag to reorder, or drop on an IRA bucket to move it (owned $ follows)</span></td></tr>`;
   let deployed = 0;
   m.tickers.forEach(t => {
     const owned = targOwned('mose', t); deployed += owned;
-    html += `<tr data-targ-bucket="mose" data-targ-ticker="${escapeHtml(t)}"><td class="targ-drag-handle" onpointerdown="targDragStart(event,'mose','${escapeHtml(t)}')" title="Drag to reorder or move buckets">⠿</td><td><strong>${escapeHtml(t)}</strong>${targLivePrice(t)} <a onclick="targRemoveTicker('mose','${escapeHtml(t)}')" title="Remove from bucket" style="cursor:pointer;color:var(--muted);margin-left:6px">✕</a></td><td>${reentryFmt(tgt)}</td><td><input type="number" class="targ-input" value="${owned || ''}" placeholder="0" onchange="targSetOwned('mose','${t}',this.value)"></td>${targMoreCell(owned, tgt, t)}${targPctCell(owned, tgt)}</tr>`;
+    const plan = targPlan('mose', t);
+    html += `<tr data-targ-bucket="mose" data-targ-ticker="${escapeHtml(t)}"><td class="targ-drag-handle" onpointerdown="targDragStart(event,'mose','${escapeHtml(t)}')" title="Drag to reorder or move buckets">⠿</td><td><strong>${escapeHtml(t)}</strong>${targLivePrice(t)} <a onclick="targRemoveTicker('mose','${escapeHtml(t)}')" title="Remove from bucket" style="cursor:pointer;color:var(--muted);margin-left:6px">✕</a></td><td>${reentryFmt(tgt)}</td><td style="font-weight:700">${reentryFmt(owned)}</td>${targMoreCell(owned, tgt, t)}<td><input type="number" class="targ-input" value="${plan || ''}" placeholder="0" onchange="targSetPlan('mose','${t}',this.value)">${targShareHint(plan, t)}</td>${targGaugeCell(plan, tgt)}${targGaugeCell(owned + plan, tgt)}</tr>`;
   });
-  html += targAddRow('mose', 6);
+  html += targAddRow('mose', 8);
   html += `</tbody></table></div>`;
   return { html, deployed, budget, cash: m.total - budget };
 }
@@ -5737,7 +5794,7 @@ function renderTargets() {
   const his = targAcctTableHtml('his');
   document.getElementById('targets-his').innerHTML = his.html;
   document.getElementById('targets-his-title').textContent = `🧑 ${targetsData.ira.accounts.his.label} — ${reentryFmt(targetsData.ira.accounts.his.total)}`;
-  document.getElementById('targets-his-sub').innerHTML = `Deployed <strong>${reentryFmt(his.deployed)}</strong> · ${reentryFmt(Math.max(0, targetsData.ira.accounts.his.total - his.deployed))} left to put to work (sitting in SGOV/cash). Fill the "Buy More" column when you buy in this account.`;
+  document.getElementById('targets-his-sub').innerHTML = `Deployed <strong>${reentryFmt(his.deployed)}</strong> · ${reentryFmt(Math.max(0, targetsData.ira.accounts.his.total - his.deployed))} left to put to work (SGOV/cash). Owned is set from IBKR (read-only); plan this month's tranche in "Buy This Month".`;
 
   const hers = targAcctTableHtml('hers');
   document.getElementById('targets-hers').innerHTML = hers.html;
