@@ -5857,37 +5857,94 @@ function renderTargets() {
 }
 
 function targetsExportCSV() {
-  const sh = (dollars, t) => {
-    const q = liveQuotes[canonicalTicker(t)];
-    return (q && Number.isFinite(q.price) && q.price > 0 && dollars > 0.5) ? Math.round(dollars / q.price) : '';
-  };
-  const rows = [['Account', 'Bucket', 'Ticker', 'Target $', 'Owned $', 'Buy More $', 'Buy More (sh)', 'Pct to Goal']];
+  const px = t => { const q = liveQuotes[canonicalTicker(t)]; return (q && Number.isFinite(q.price)) ? q.price : null; };
+  const sh = (dollars, t) => { const p = px(t); return (p && p > 0 && dollars > 0.5) ? Math.round(dollars / p) : ''; };
+  const dollar = n => Math.round(n || 0);
+  const pctStr = (num, den) => (den > 0 ? Math.round(num / den * 100) : 0) + '%';
+  const nameMap = {};
+  (tickerDirectory || []).forEach(d => { if (!nameMap[d.ticker]) nameMap[d.ticker] = d.name; });
+  const nameOf = t => nameMap[canonicalTicker(t)] || '';
+  const plan = (acct, t) => targPlan(acct, t);
+
+  const rows = [];
+  const blank = () => rows.push([]);
+  const sect = title => rows.push([title]);
+
+  const m = targetsData.mose;
+  const moseBudget = m.total * m.stockPct / 100;
+  let iraOwned = 0;
+  targetsData.ira.buckets.forEach(b => b.tickers.forEach(t => { iraOwned += targOwned('his', t) + targOwned('hers', t); }));
+
+  // ---- Title + summary ----
+  sect('MOSE — Buy Targets / Monthly Buy List');
+  rows.push(['Exported', new Date().toLocaleString()]);
+  rows.push(['IRA goal (his+hers)', dollar(targetsData.ira.total), 'Deployed', dollar(iraOwned), 'Left to buy', dollar(Math.max(0, targetsData.ira.total - iraOwned))]);
+  rows.push(['MOSE stock goal', dollar(moseBudget), 'Cash held', dollar(m.total - moseBudget), 'Split', `Forever ${targetsData.ira.buckets[0]?.pct}% / S&P ${targetsData.ira.buckets[1]?.pct}% / For Now ${targetsData.ira.buckets[2]?.pct}%`]);
+  blank();
+
+  // ---- Combined IRA (his + hers) ----
+  sect('COMBINED IRA GOAL (his + hers)');
+  rows.push(['Bucket', 'Ticker', 'Name', 'Price', '% of Bucket', 'Combined Goal', 'Owned (his+hers)', 'Remaining', 'Buy This Month', 'Buy (sh)', 'Today %', 'After Buy %']);
+  targetsData.ira.buckets.forEach(b => {
+    const bucketGoal = targetsData.ira.total * b.pct / 100;
+    rows.push([`${b.label} · ${b.pct}% · goal ${dollar(bucketGoal)} · ${b.tickers.length} names`]);
+    let bg = 0, bo = 0, br = 0, bb = 0;
+    b.tickers.forEach(t => {
+      const goal = targStockTarget(targetsData.ira.total, b, t);
+      const owned = targOwned('his', t) + targOwned('hers', t);
+      const rem = Math.max(0, goal - owned);
+      const buy = plan('his', t) + plan('hers', t);
+      bg += goal; bo += owned; br += rem; bb += buy;
+      rows.push([b.label, t, nameOf(t), px(t) ? px(t).toFixed(2) : '', targStockPctOfBucket(b, t).toFixed(1) + '%', dollar(goal), dollar(owned), dollar(rem), dollar(buy), sh(buy, t), pctStr(buy, goal), pctStr(owned + buy, goal)]);
+    });
+    rows.push([`${b.label} — subtotal`, '', '', '', '', dollar(bg), dollar(bo), dollar(br), dollar(bb), '', '', '']);
+  });
+  blank();
+
+  // ---- Per-account execution tables (his, hers) ----
   ['his', 'hers'].forEach(acct => {
     const a = targetsData.ira.accounts[acct];
+    sect(`${a.label.toUpperCase()} — ${dollar(a.total)}`);
+    rows.push(['Bucket', 'Ticker', 'Name', 'Price', 'Target', 'Owned', 'Remaining', 'Buy This Month', 'Buy (sh)', 'Today %', 'After Buy %']);
     targetsData.ira.buckets.forEach(b => {
+      rows.push([`${b.label} · ${b.pct}% · ${dollar(a.total * b.pct / 100)}`]);
       b.tickers.forEach(t => {
         const tgt = targStockTarget(a.total, b, t);
         const owned = targOwned(acct, t);
-        const more = Math.max(0, tgt - owned);
-        rows.push([a.label, b.label, t, Math.round(tgt), Math.round(owned), Math.round(more), sh(more, t), (tgt ? Math.round(owned / tgt * 100) : 0) + '%']);
+        const rem = Math.max(0, tgt - owned);
+        const buy = plan(acct, t);
+        rows.push([b.label, t, nameOf(t), px(t) ? px(t).toFixed(2) : '', dollar(tgt), dollar(owned), dollar(rem), dollar(buy), sh(buy, t), pctStr(buy, tgt), pctStr(owned + buy, tgt)]);
       });
     });
+    blank();
   });
-  const m = targetsData.mose;
-  const moseTgt = m.tickers.length ? m.total * m.stockPct / 100 / m.tickers.length : 0;
+
+  // ---- MOSE joint ----
+  const moseTgt = m.tickers.length ? moseBudget / m.tickers.length : 0;
+  sect(`MOSE JOINT — ${dollar(m.total)} · ${m.stockPct}% to stocks (${dollar(moseBudget)})`);
+  rows.push(['Ticker', 'Name', 'Price', 'Target', 'Owned', 'Remaining', 'Buy This Month', 'Buy (sh)', 'Today %', 'After Buy %']);
   m.tickers.forEach(t => {
     const owned = targOwned('mose', t);
-    const more = Math.max(0, moseTgt - owned);
-    rows.push(['MOSE Joint', 'MOSE', t, Math.round(moseTgt), Math.round(owned), Math.round(more), sh(more, t), (moseTgt ? Math.round(owned / moseTgt * 100) : 0) + '%']);
+    const rem = Math.max(0, moseTgt - owned);
+    const buy = plan('mose', t);
+    rows.push([t, nameOf(t), px(t) ? px(t).toFixed(2) : '', dollar(moseTgt), dollar(owned), dollar(rem), dollar(buy), sh(buy, t), pctStr(buy, moseTgt), pctStr(owned + buy, moseTgt)]);
   });
-  // Outside-the-plan holdings
+  blank();
+
+  // ---- Holdings outside the plan ----
   const all = targAllTickers();
-  Object.keys(targetsData.owned).filter(k => !all.has(k.split('|')[1])).forEach(k => {
-    const [acct, t] = k.split('|');
-    const lbl = targetsData.ira.accounts[acct] ? targetsData.ira.accounts[acct].label : acct;
-    rows.push([lbl, 'OUTSIDE PLAN', t, 0, Math.round(targetsData.owned[k]), 0, '', 'n/a']);
-  });
-  const csv = rows.map(r => r.map(c => `"${String(c).replace(/"/g, '""')}"`).join(',')).join('\r\n');
+  const outside = Object.keys(targetsData.owned).filter(k => !all.has(k.split('|')[1]) && targetsData.owned[k] > 0);
+  if (outside.length) {
+    sect('HOLDINGS OUTSIDE THE PLAN');
+    rows.push(['Account', 'Ticker', 'Name', 'Owned']);
+    outside.forEach(k => {
+      const [acct, t] = k.split('|');
+      const lbl = targetsData.ira.accounts[acct] ? targetsData.ira.accounts[acct].label : (acct === 'mose' ? 'MOSE Joint' : acct);
+      rows.push([lbl, t, nameOf(t), dollar(targetsData.owned[k])]);
+    });
+  }
+
+  const csv = rows.map(r => r.map(c => `"${String(c == null ? '' : c).replace(/"/g, '""')}"`).join(',')).join('\r\n');
   const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
@@ -5895,7 +5952,7 @@ function targetsExportCSV() {
   a.download = 'mose-buy-targets-' + new Date().toISOString().slice(0, 10) + '.csv';
   document.body.appendChild(a); a.click(); a.remove();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
-  if (typeof showWatchlistToast === 'function') showWatchlistToast('Targets CSV downloaded');
+  if (typeof showWatchlistToast === 'function') showWatchlistToast('Buy-list CSV downloaded');
 }
 
 // ============================================================
