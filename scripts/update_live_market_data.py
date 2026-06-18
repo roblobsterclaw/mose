@@ -2,17 +2,23 @@
 """Refresh MOSE live quote snapshot for GitHub Pages.
 
 The public app is static, so it cannot keep a server-side market feed open.
-This script writes live-quotes.json for the browser to poll. It uses Stooq's
-CSV endpoint because it works without API keys and is suitable for a lightweight
-watchlist snapshot.
+This script writes live-quotes.json for the browser to poll. Quotes come from
+Yahoo Finance's public v8 chart endpoint (no API key required). Stooq was the
+original source but its keyless CSV endpoint went dark in June 2026.
+
+Failure policy: this script must never overwrite good data with bad data.
+If the quote fetch fails or returns too few symbols, it writes
+pipeline-status.json describing the failure and exits non-zero, leaving the
+previous live-quotes.json / symbol-snapshots.json untouched.
 """
 
 from __future__ import annotations
 
-import csv
-import os
 import json
+import os
 import re
+import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
@@ -25,121 +31,173 @@ INDEX_HTML = ROOT / "index.html"
 OUTPUT = ROOT / "live-quotes.json"
 SNAPSHOT_OUTPUT = ROOT / "symbol-snapshots.json"
 HISTORY_OUTPUT = ROOT / "price-history.json"
-INDICES_FALLBACK = ROOT / "indices-latest.json"
+STATUS_OUTPUT = ROOT / "pipeline-status.json"
+EXIT_BASELINE_FILE = ROOT / "reference-data" / "exit-baseline.json"
 DCF_FILE = ROOT / "dcf-latest.json"
 RESEARCH_FILE = ROOT / "research-library.json"
 JOE_HOLDINGS_FILE = ROOT / "joes-holdings.json"
 
+YAHOO_CHART_URL = "https://query1.finance.yahoo.com/v8/finance/chart/{symbol}"
+USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) MOSE-dashboard/1.0"
+REQUEST_SPACING_SECONDS = 0.2
+HISTORY_MAX_AGE_HOURS = 20
+# Refuse to publish a snapshot if fewer than this many quotes came back —
+# a near-empty result means the source is broken, not that the market moved.
+MIN_QUOTES_TO_PUBLISH = 5
 
-INDEX_SYMBOLS = {
-    "S&P 500": ("^GSPC", "^SPX"),
-    "Dow Jones": ("^DJI", "^DJI"),
-    "NASDAQ": ("^IXIC", "^NDQ"),
-}
+# Populated from the synced watchlist: maps a displayed ticker to the Yahoo
+# symbol used to quote it when they differ (e.g. CSU -> CSU.TO).
+QUOTE_OVERRIDES: dict[str, str] = {}
+
+# Firebase Realtime DB holding the dashboard's synced state (custom watchlist
+# tickers added from the UI live there, not in index.html).
+MOSE_FB_URL = os.environ.get("MOSE_FB_URL", "https://jfl-ttd-default-rtdb.firebaseio.com/mose")
+
+INDICES = [
+    {"name": "S&P 500", "symbol": "^GSPC"},
+    {"name": "Dow Jones", "symbol": "^DJI"},
+    {"name": "NASDAQ", "symbol": "^IXIC"},
+    {"name": "Russell 2000", "symbol": "^RUT"},
+    {"name": "VIX", "symbol": "^VIX"},
+]
+
+SKIP_TICKERS = {"ANTHR", "CASH", "MANAGED"}
 
 
-def stooq_symbol(ticker: str) -> str | None:
+def yahoo_symbol(ticker: str) -> str | None:
     ticker = ticker.strip().upper()
-    if not ticker or ticker in {"ANTHR"}:
+    if not ticker or ticker in SKIP_TICKERS:
         return None
     if ticker.startswith("^"):
         return ticker
-    return f"{ticker}.US"
+    # Yahoo uses '-' for share classes (BRK-B), which matches MOSE tickers.
+    return ticker
 
 
-def fetch_stooq(symbols: list[str]) -> dict[str, dict]:
+def http_get_json(url: str, timeout: int = 25) -> dict:
+    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    with urllib.request.urlopen(req, timeout=timeout) as response:
+        return json.loads(response.read().decode("utf-8"))
+
+
+def fetch_yahoo_quote(symbol: str) -> dict | None:
+    """One symbol's latest price + previous close via the v8 chart endpoint."""
+    params = urllib.parse.urlencode({"range": "1d", "interval": "1d"})
+    url = YAHOO_CHART_URL.format(symbol=urllib.parse.quote(symbol)) + "?" + params
+    payload = http_get_json(url)
+    result = (payload.get("chart") or {}).get("result") or []
+    if not result:
+        return None
+    meta = result[0].get("meta") or {}
+    price = meta.get("regularMarketPrice")
+    prev_close = meta.get("chartPreviousClose") or meta.get("previousClose")
+    if price is None:
+        return None
+    change_pct = None
+    if prev_close:
+        change_pct = (price - prev_close) / prev_close * 100
+    market_time = meta.get("regularMarketTime")
+    stamp = (
+        datetime.fromtimestamp(market_time, tz=timezone.utc).astimezone(ZoneInfo("America/New_York"))
+        if market_time
+        else None
+    )
+    return {
+        "symbol": symbol,
+        "price": price,
+        "prev_close": prev_close,
+        "change_pct": change_pct,
+        "date": stamp.strftime("%Y-%m-%d") if stamp else None,
+        "time": stamp.strftime("%H:%M:%S") if stamp else None,
+        "volume": meta.get("regularMarketVolume"),
+        "week52_high": meta.get("fiftyTwoWeekHigh"),
+        "week52_low": meta.get("fiftyTwoWeekLow"),
+    }
+
+
+def fetch_yahoo_history(symbol: str, range_: str = "1y") -> list[dict]:
+    """Daily OHLCV bars for charts and 52-week math."""
+    params = urllib.parse.urlencode({"range": range_, "interval": "1d"})
+    url = YAHOO_CHART_URL.format(symbol=urllib.parse.quote(symbol)) + "?" + params
+    payload = http_get_json(url)
+    result = (payload.get("chart") or {}).get("result") or []
+    if not result:
+        return []
+    timestamps = result[0].get("timestamp") or []
+    quote = ((result[0].get("indicators") or {}).get("quote") or [{}])[0]
+    points = []
+    for i, ts in enumerate(timestamps):
+        close = (quote.get("close") or [None])[i] if i < len(quote.get("close") or []) else None
+        if close is None:
+            continue
+        day = datetime.fromtimestamp(ts, tz=timezone.utc).strftime("%Y-%m-%d")
+        points.append({
+            "date": day,
+            "open": (quote.get("open") or [None] * (i + 1))[i],
+            "high": (quote.get("high") or [None] * (i + 1))[i],
+            "low": (quote.get("low") or [None] * (i + 1))[i],
+            "close": close,
+            "volume": (quote.get("volume") or [None] * (i + 1))[i],
+        })
+    return points
+
+
+def fetch_quotes(symbols: list[str]) -> tuple[dict[str, dict], list[str]]:
     quotes: dict[str, dict] = {}
-    for start in range(0, len(symbols), 60):
-        chunk = symbols[start : start + 60]
-        encoded = urllib.parse.quote("+".join(chunk), safe="+.^-")
-        url = f"https://stooq.com/q/l/?s={encoded}&f=sd2t2ohlcv&h&e=csv"
-        with urllib.request.urlopen(url, timeout=25) as response:
-            rows = csv.DictReader(response.read().decode("utf-8").splitlines())
-            for row in rows:
-                close = parse_float(row.get("Close"))
-                open_ = parse_float(row.get("Open"))
-                if close is None:
-                    continue
-                change_pct = ((close - open_) / open_ * 100) if open_ else None
-                symbol = (row.get("Symbol") or "").upper()
-                quotes[symbol] = {
-                    "symbol": symbol,
-                    "price": close,
-                    "change_pct": change_pct,
-                    "date": row.get("Date"),
-                    "time": row.get("Time"),
-                    "volume": parse_float(row.get("Volume")),
-                }
-    return quotes
-
-
-def fetch_stooq_history(symbols: dict[str, str], years: int = 5) -> dict[str, list[dict]]:
-    """Fetch daily chart history when STOOQ_APIKEY is configured.
-
-    Stooq's history endpoint requires a user API key. Without it we still write
-    an empty, well-shaped file so the frontend and database migration can ship
-    without pretending we have 52-week history.
-    """
-    api_key = os.environ.get("STOOQ_APIKEY", "").strip()
-    if not api_key:
-        return {}
-    now = datetime.now(timezone.utc)
-    start = now.replace(year=now.year - years)
-    d1, d2 = start.strftime("%Y%m%d"), now.strftime("%Y%m%d")
-    histories: dict[str, list[dict]] = {}
-    for ticker, symbol in symbols.items():
-        encoded = urllib.parse.quote(symbol, safe=".^-")
-        url = f"https://stooq.com/q/d/l/?s={encoded}&d1={d1}&d2={d2}&i=d&apikey={api_key}"
+    errors: list[str] = []
+    for symbol in symbols:
         try:
-            with urllib.request.urlopen(url, timeout=25) as response:
-                rows = csv.DictReader(response.read().decode("utf-8").splitlines())
-                points = []
-                for row in rows:
-                    close = parse_float(row.get("Close"))
-                    if close is None:
-                        continue
-                    points.append({
-                        "date": row.get("Date"),
-                        "open": parse_float(row.get("Open")),
-                        "high": parse_float(row.get("High")),
-                        "low": parse_float(row.get("Low")),
-                        "close": close,
-                        "volume": parse_float(row.get("Volume")),
-                    })
-                if points:
-                    histories[ticker] = points
-        except Exception as exc:
-            print(f"history fetch failed for {ticker}: {exc}")
-    return histories
+            q = fetch_yahoo_quote(symbol)
+            if q:
+                quotes[symbol] = q
+            else:
+                errors.append(f"{symbol}: empty response")
+        except (urllib.error.URLError, urllib.error.HTTPError, json.JSONDecodeError, OSError) as exc:
+            errors.append(f"{symbol}: {exc}")
+        time.sleep(REQUEST_SPACING_SECONDS)
+    return quotes, errors
 
 
-def parse_float(value: str | None) -> float | None:
-    if value in (None, "", "N/D"):
-        return None
+def firebase_custom_tickers() -> list[str]:
+    """Tickers Joe added from the dashboard UI (synced via Firebase)."""
     try:
-        return float(value)
-    except ValueError:
-        return None
+        state = http_get_json(MOSE_FB_URL + ".json", timeout=15)
+    except Exception as exc:
+        print(f"firebase state fetch skipped: {exc}")
+        return []
+    if not isinstance(state, dict):
+        return []
+    tickers = set()
+    for item in state.get("customWatchlist") or []:
+        # Private / pre-IPO entries have no public ticker — never try to quote them.
+        if isinstance(item, dict) and item.get("ticker") and not item.get("private"):
+            ticker = str(item["ticker"]).upper()
+            tickers.add(ticker)
+            # Foreign listings carry a Yahoo quote symbol (e.g. CSU -> CSU.TO).
+            if item.get("quoteSymbol"):
+                QUOTE_OVERRIDES[ticker] = str(item["quoteSymbol"]).upper()
+    for ticker in (state.get("buckets") or {}):
+        tickers.add(str(ticker).upper())
+    return sorted(tickers)
 
 
 def watchlist_tickers() -> list[str]:
     html = INDEX_HTML.read_text()
     tickers = set(re.findall(r"ticker:\s*'([^']+)'", html))
-    tickers.update(re.findall(r'"ticker":\s*"([^"]+)"', (ROOT / "research-library.json").read_text()))
-    return sorted(tickers)
-
-
-def load_fallback_indices() -> dict[str, dict]:
-    if not INDICES_FALLBACK.exists():
-        return {}
-    data = json.loads(INDICES_FALLBACK.read_text())
-    return {item["name"]: item for item in data.get("indices", [])}
+    for report in load_json(RESEARCH_FILE, {}).get("reports", []):
+        if report.get("ticker"):
+            tickers.add(report["ticker"].upper())
+    tickers.update(firebase_custom_tickers())
+    return sorted(t for t in (s.strip().upper() for s in tickers) if t and t not in SKIP_TICKERS)
 
 
 def load_json(path: Path, default):
     if not path.exists():
         return default
-    return json.loads(path.read_text())
+    try:
+        return json.loads(path.read_text())
+    except json.JSONDecodeError:
+        return default
 
 
 def parse_static_watchlist() -> dict[str, dict]:
@@ -154,16 +212,18 @@ def parse_static_watchlist() -> dict[str, dict]:
     return rows
 
 
-def compute_history_metrics(points: list[dict]) -> dict:
-    if not points:
-        return {}
-    last_year = points[-252:] if len(points) > 252 else points
-    highs = [p.get("high") for p in last_year if p.get("high") is not None]
-    lows = [p.get("low") for p in last_year if p.get("low") is not None]
-    return {
-        "week52High": max(highs) if highs else None,
-        "week52Low": min(lows) if lows else None,
-    }
+def history_is_fresh() -> bool:
+    data = load_json(HISTORY_OUTPUT, {})
+    if not data.get("histories"):
+        return False
+    generated = data.get("generated_at")
+    if not generated:
+        return False
+    try:
+        age = datetime.now(timezone.utc) - datetime.fromisoformat(generated)
+    except ValueError:
+        return False
+    return age.total_seconds() < HISTORY_MAX_AGE_HOURS * 3600
 
 
 def build_symbol_snapshots(quotes: list[dict], indices: list[dict], histories: dict[str, list[dict]]) -> dict:
@@ -174,7 +234,7 @@ def build_symbol_snapshots(quotes: list[dict], indices: list[dict], histories: d
     for acct in load_json(JOE_HOLDINGS_FILE, {}).get("accounts", []):
         for h in acct.get("holdings", []):
             ticker = (h.get("ticker") or "").upper()
-            if not ticker or ticker in {"CASH", "MANAGED"}:
+            if not ticker or ticker in SKIP_TICKERS:
                 continue
             owned.setdefault(ticker, {"shares": 0, "value": 0})
             owned[ticker]["shares"] += h.get("shares") or 0
@@ -186,7 +246,10 @@ def build_symbol_snapshots(quotes: list[dict], indices: list[dict], histories: d
         row = watchlist.get(ticker, {})
         val = dcf.get(ticker, {})
         report = reports.get(ticker, {})
-        metrics = compute_history_metrics(histories.get(ticker, []))
+        metrics = {
+            "week52High": q.get("week52_high"),
+            "week52Low": q.get("week52_low"),
+        }
         if val.get("market_cap") is not None:
             metrics["marketCap"] = val.get("market_cap")
         if val.get("eps_ttm") and q.get("price"):
@@ -204,12 +267,11 @@ def build_symbol_snapshots(quotes: list[dict], indices: list[dict], histories: d
                 "owned": owned.get(ticker),
                 "hasResearch": bool(report.get("reportUrl")),
             },
-            "source": "stooq",
+            "source": "yahoo",
         }
 
     for idx in indices:
         ticker = idx["ticker"].upper()
-        metrics = compute_history_metrics(histories.get(ticker, []))
         symbols[ticker] = {
             "ticker": ticker,
             "name": idx["name"],
@@ -220,9 +282,9 @@ def build_symbol_snapshots(quotes: list[dict], indices: list[dict], histories: d
                 "change_pct": idx.get("change_pct"),
                 "source": idx.get("source"),
             },
-            "metrics": metrics,
+            "metrics": {},
             "profile": {"vsExit": idx.get("vs_exit")},
-            "source": idx.get("source") or "stooq",
+            "source": idx.get("source") or "yahoo",
         }
     return symbols
 
@@ -233,69 +295,89 @@ def market_status(now: datetime) -> str:
     return "open" if weekday_open and 9.5 <= hour < 16 else "closed"
 
 
-def main() -> None:
-    ticker_map: dict[str, str] = {}
-    history_symbol_map: dict[str, str] = {}
-    symbols = []
-    for ticker in watchlist_tickers():
-        symbol = stooq_symbol(ticker)
-        if not symbol:
-            continue
-        ticker_map[symbol] = ticker.upper()
-        history_symbol_map[ticker.upper()] = symbol
-        symbols.append(symbol)
-    for name, symbol in INDEX_SYMBOLS.values():
-        symbols.append(symbol)
-        history_symbol_map[name.upper()] = symbol
+def write_status(status: str, detail: str, quote_count: int, errors: list[str]) -> None:
+    STATUS_OUTPUT.write_text(json.dumps({
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "job": "update_live_market_data",
+        "status": status,
+        "detail": detail,
+        "quote_count": quote_count,
+        "errors": errors[:25],
+    }, indent=2) + "\n")
 
-    quotes_by_symbol = fetch_stooq(sorted(set(symbols)))
-    histories = fetch_stooq_history(history_symbol_map)
-    fallback_indices = load_fallback_indices()
+
+def main() -> int:
+    tickers = watchlist_tickers()  # also fills QUOTE_OVERRIDES
+    symbol_map = {}
+    for ticker in tickers:
+        symbol = QUOTE_OVERRIDES.get(ticker) or yahoo_symbol(ticker)
+        if symbol:
+            symbol_map[symbol] = ticker
+
+    index_symbols = [idx["symbol"] for idx in INDICES]
+    all_symbols = sorted(set(symbol_map)) + index_symbols
+    quotes_by_symbol, errors = fetch_quotes(all_symbols)
 
     quotes = []
-    for symbol, ticker in sorted(ticker_map.items(), key=lambda item: item[1]):
+    for symbol, ticker in sorted(symbol_map.items(), key=lambda item: item[1]):
         q = quotes_by_symbol.get(symbol)
-        if not q:
-            continue
-        quotes.append({"ticker": ticker, **q})
+        if q:
+            quotes.append({"ticker": ticker, **q})
 
+    if len(quotes) < MIN_QUOTES_TO_PUBLISH:
+        detail = (
+            f"Only {len(quotes)} of {len(symbol_map)} watchlist quotes returned; "
+            "refusing to overwrite the previous snapshot."
+        )
+        print(f"ERROR: {detail}")
+        for line in errors[:10]:
+            print(f"  {line}")
+        write_status("error", detail, len(quotes), errors)
+        return 1
+
+    exit_baseline = load_json(EXIT_BASELINE_FILE, {}).get("levels", {})
     indices = []
-    for name, (_, symbol) in INDEX_SYMBOLS.items():
-        q = quotes_by_symbol.get(symbol)
+    for idx in INDICES:
+        q = quotes_by_symbol.get(idx["symbol"])
         if not q:
             continue
-        fallback = fallback_indices.get(name, {})
-        vs_exit = None
-        if name == "S&P 500":
-            vs_exit = ((q["price"] - 6591.90) / 6591.90) * 100
-        elif name == "Dow Jones":
-            vs_exit = ((q["price"] - 46429.49) / 46429.49) * 100
+        baseline = exit_baseline.get(idx["name"])
+        vs_exit = ((q["price"] - baseline) / baseline * 100) if baseline else None
         indices.append({
-            "name": name,
-            "ticker": fallback.get("ticker", symbol),
+            "name": idx["name"],
+            "ticker": idx["symbol"],
             "price": q["price"],
             "change_pct": q["change_pct"] or 0,
             "vs_exit": vs_exit,
-            "source": "stooq",
+            "source": "yahoo",
         })
 
-    for name in ("Russell 2000", "VIX"):
-        if name in fallback_indices:
-            indices.append({**fallback_indices[name], "source": "fallback-static"})
+    histories: dict[str, list[dict]] = {}
+    if not history_is_fresh():
+        print("refreshing daily price history (1y) ...")
+        for symbol, ticker in sorted(symbol_map.items(), key=lambda item: item[1]):
+            try:
+                points = fetch_yahoo_history(symbol)
+                if points:
+                    histories[ticker] = points
+            except Exception as exc:
+                errors.append(f"history {ticker}: {exc}")
+            time.sleep(REQUEST_SPACING_SECONDS)
+    else:
+        histories = load_json(HISTORY_OUTPUT, {}).get("histories", {})
 
     now = datetime.now(timezone.utc)
     eastern_now = now.astimezone(ZoneInfo("America/New_York"))
     OUTPUT.write_text(json.dumps({
         "generated_at": now.isoformat(),
-        "source": "stooq",
+        "source": "yahoo",
         "market_status": market_status(eastern_now),
         "indices": indices,
         "quotes": quotes,
     }, indent=2) + "\n")
     HISTORY_OUTPUT.write_text(json.dumps({
         "generated_at": now.isoformat(),
-        "source": "stooq-history" if os.environ.get("STOOQ_APIKEY") else "not-configured",
-        "requires": "Set STOOQ_APIKEY in the scheduled job to populate 1Y/2Y/5Y daily histories.",
+        "source": "yahoo-history",
         "histories": histories,
     }, indent=2) + "\n")
     SNAPSHOT_OUTPUT.write_text(json.dumps({
@@ -304,6 +386,14 @@ def main() -> None:
         "symbols": build_symbol_snapshots(quotes, indices, histories),
     }, indent=2) + "\n")
 
+    status = "ok" if not errors else "partial"
+    detail = f"{len(quotes)} quotes, {len(indices)} indices published."
+    if errors:
+        detail += f" {len(errors)} symbol(s) failed."
+    write_status(status, detail, len(quotes), errors)
+    print(detail)
+    return 0
+
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

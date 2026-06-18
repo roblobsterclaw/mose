@@ -27,17 +27,19 @@ jobs:
         run: python scripts/pull_sec_13f_history.py --quarters 8
       - name: Build 13F tracker export
         run: python scripts/build_13f_tracker.py
+      - name: Refresh ticker directory (watchlist search)
+        run: python scripts/build_ticker_directory.py || echo "ticker directory refresh skipped"
       - name: Sync 13F tracker to Supabase
         if: env.SUPABASE_URL != '' && env.SUPABASE_SERVICE_ROLE_KEY != ''
         run: python scripts/sync_13f_tracker_to_supabase.py
       - name: Commit 13F tracker data
         run: |
-          if git diff --quiet filing-changes-latest.json data/sec-13f-filings.json; then
+          if git diff --quiet filing-changes-latest.json data/sec-13f-filings.json reference-data/ticker-directory.json; then
             echo "No 13F tracker changes"
           else
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add filing-changes-latest.json data/sec-13f-filings.json
+            git add filing-changes-latest.json data/sec-13f-filings.json reference-data/ticker-directory.json
             git commit -m "Update 13F tracker data"
             git push origin main
             git push origin HEAD:gh-pages --force

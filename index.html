@@ -545,6 +545,23 @@
     margin-top: 14px; display: flex; align-items: center; gap: 8px;
   }
   .bucket-count { background: rgba(255,255,255,0.18); border-radius: 10px; padding: 1px 7px; font-size: 11px; font-weight: 600; }
+  .bucket-tools { margin-left: auto; display: flex; gap: 4px; }
+  .bucket-tools button {
+    background: rgba(255,255,255,0.14); border: none; color: #fff; border-radius: 5px;
+    padding: 2px 7px; font-size: 11px; cursor: pointer; line-height: 1.4;
+  }
+  .bucket-tools button:hover:not(:disabled) { background: rgba(255,255,255,0.3); }
+  .bucket-tools button:disabled { opacity: 0.35; cursor: default; }
+  .bucket-add-btn {
+    margin-top: 14px; background: var(--surface); border: 1px dashed var(--border); color: var(--muted);
+    padding: 9px 16px; border-radius: 8px; cursor: pointer; font-size: 13px; width: 100%;
+  }
+  .bucket-add-btn:hover { border-color: var(--accent); color: var(--accent); }
+  #pipeline-banner {
+    padding: 10px 18px; font-size: 13px; font-weight: 600; text-align: center;
+    background: #5a1e1e; color: #ffd7d7; border-bottom: 1px solid #8b2635;
+  }
+  #pipeline-banner.warn { background: #4d3a08; color: #ffe9b0; border-bottom-color: #7d6608; }
   .bucket-dropdown {
     background: var(--surface); border: 1px solid var(--border); color: var(--text);
     padding: 3px 6px; border-radius: 6px; font-size: 11px; cursor: pointer; outline: none;
@@ -585,6 +602,9 @@
   .watchlist-suggestion .sym { font-family: monospace; font-weight: 800; color: var(--blue); }
   .watchlist-suggestion .company { color: var(--text); font-size: 12px; }
   .watchlist-suggestion .source { color: var(--muted); font-size: 11px; white-space: nowrap; }
+  .watchlist-suggestion.private-add .sym { color: var(--accent); }
+  .watchlist-suggestion.private-add { border-top: 1px dashed var(--border); }
+  .private-tag { font-size: 10px; color: var(--muted); border: 1px solid var(--border); border-radius: 4px; padding: 1px 5px; margin-left: 6px; vertical-align: middle; }
   .watchlist-autosave-pill {
     display: inline-flex; align-items: center; gap: 5px; border: 1px solid var(--green);
     color: var(--green); border-radius: 999px; padding: 4px 10px; font-size: 11px;
@@ -1066,10 +1086,17 @@
     document.getElementById('pw-gate').style.display='none';
   }
 })();
-function checkPw(){
+// SHA-256 hash of the password. To change it: run
+//   python3 -c "import hashlib;print(hashlib.sha256('NEWPASS'.encode()).hexdigest())"
+// and paste the result here. Note: this gate deters casual visitors only —
+// the data files on a public Pages site remain directly fetchable.
+var PW_HASH='81cbf4e1b0daeb7bcfbb88952b2739b9847530f9dcff1a59a3d3a439239b9dcf';
+async function checkPw(){
   var input=document.getElementById('pw-input');
   var err=document.getElementById('pw-err');
-  if(input.value==='soccer12'){
+  var buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(input.value));
+  var hash=Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+  if(hash===PW_HASH){
     sessionStorage.setItem('mose_auth','1');
     document.getElementById('pw-gate').style.display='none';
   } else {
@@ -1082,6 +1109,8 @@ function checkPw(){
   }
 }
 </script>
+
+<div id="pipeline-banner" style="display:none"></div>
 
 <!-- TOP BAR: Brand + Indices -->
 <div id="topbar">
@@ -1432,7 +1461,7 @@ function checkPw(){
       <h2>🎯 Joe's Watchlist</h2>
       <span id="watchlist-dd-counter" class="dd-counter-pill">loading...</span>
       <span class="watchlist-autosave-pill" id="watchlist-autosave-status">Auto-save on</span>
-      <span id="mose-sync-status" title="Firebase sync (tap to force sync)" style="font-size:14px;margin-left:8px;cursor:pointer;" onclick="moseFbPut()">⏳</span>
+      <span id="mose-sync-status" title="Firebase sync (tap to force sync)" style="font-size:14px;margin-left:8px;cursor:pointer;" onclick="syncAllToCloud()">⏳</span>
       <select id="watchlist-view" class="watchlist-control" onchange="setWatchlistView(this.value)">
         <option value="grouped">Group Mode</option>
         <option value="flat">Flat Mode</option>
@@ -2045,7 +2074,10 @@ let allHoldings = [];
 let allDCF = [];
 let allReports = [];
 let reportTickers = new Set();
-let reportMap = {};  // ticker -> report object
+let reportMap = {};      // ticker -> latest report object
+let reportHistory = {};  // ticker -> all report versions, newest first
+// Per-ticker deep-dive refresh cadence ('quarterly' default, or 'monthly').
+let researchCadence = JSON.parse(localStorage.getItem('mose_research_cadence') || '{}');
 let liveMarketData = null;
 let liveQuotes = {};
 let symbolSnapshots = {};
@@ -2053,14 +2085,10 @@ let priceHistoryData = {};
 let activeSymbolTicker = null;
 let activeSymbolRange = '1Y';
 
-// Watchlist state
-const GITHUB_REPO = 'roblobsterclaw/mose';
-function getGithubToken() {
-  return '';
-}
-let watchlistBucketsSHA = null;
+// Watchlist state — persisted to localStorage and synced via Firebase.
+// (The old GitHub Contents-API sync layer was removed; it was permanently
+// disabled and Firebase replaced it.)
 let watchlistBuckets = JSON.parse(localStorage.getItem('mose_watchlist_buckets_local') || '{}');
-let watchlistNotesSHA = null;
 let watchlistNotes = JSON.parse(localStorage.getItem('mose_watchlist_notes_local') || '{}');
 let watchlistView = localStorage.getItem('mose_watchlist_view') || 'grouped';
 let watchlistSort = localStorage.getItem('mose_watchlist_sort') || 'priority';
@@ -2082,17 +2110,45 @@ const RESEARCH_LABELS = {
   dismissed: 'Dismissed'
 };
 
-const WATCHLIST_BUCKETS = {
-  'core-forever':    { label: '\uD83C\uDFF0 Core Forever (20+ years)',    color: '#2D5A27' },
-  'opportunistic':   { label: '\uD83D\uDCC8 Opportunistic Value (10 years)', color: '#1B4F72' },
-  'innovation':      { label: '\uD83E\uDDEA 20yr Innovation',              color: '#5C4A8A' },
-  'value-with-risk': { label: '\u26A1 Value with Risk',               color: '#7D4E00' },
-  'pre-ipo':         { label: '\uD83D\uDD12 Pre-IPO',                       color: '#4A235A' },
-  'treasury-index':  { label: '\uD83D\uDCB0 Treasury & Index Funds',        color: '#7D6608' },
-  'watching':         { label: '\uD83D\uDC40 Watching for Now',                color: '#5B5B5B' },
-  'uncategorized':   { label: '\u2B1C Uncategorized',                   color: '#3A3A3A' },
-};
-const BUCKET_ORDER = ['core-forever','opportunistic','innovation','value-with-risk','pre-ipo','treasury-index','watching','uncategorized'];
+// Buckets are user-editable: create/rename/delete/reorder from the watchlist
+// header. bucketDefs is the source of truth (ordered array, synced via
+// Firebase); WATCHLIST_BUCKETS / BUCKET_ORDER are derived lookups kept under
+// their original names so existing render code keeps working.
+const DEFAULT_BUCKET_DEFS = [
+  { key: 'core-forever',    label: '\uD83C\uDFF0 Core Forever (20+ years)',       color: '#2D5A27' },
+  { key: 'opportunistic',   label: '\uD83D\uDCC8 Opportunistic Value (10 years)', color: '#1B4F72' },
+  { key: 'innovation',      label: '\uD83E\uDDEA 20yr Innovation',                color: '#5C4A8A' },
+  { key: 'value-with-risk', label: '\u26A1 Value with Risk',                      color: '#7D4E00' },
+  { key: 'pre-ipo',         label: '\uD83D\uDD12 Pre-IPO',                        color: '#4A235A' },
+  { key: 'treasury-index',  label: '\uD83D\uDCB0 Treasury & Index Funds',         color: '#7D6608' },
+  { key: 'watching',        label: '\uD83D\uDC40 Watching for Now',               color: '#5B5B5B' },
+  { key: 'uncategorized',   label: '\u2B1C Uncategorized',                        color: '#3A3A3A' },
+];
+const BUCKET_COLOR_PALETTE = ['#2D5A27','#1B4F72','#5C4A8A','#7D4E00','#4A235A','#7D6608','#8B2635','#1F6F6B','#5B5B5B'];
+let bucketDefs = loadBucketDefs();
+let WATCHLIST_BUCKETS = {};
+let BUCKET_ORDER = [];
+rebuildBucketLookups();
+
+function loadBucketDefs() {
+  try {
+    const stored = JSON.parse(localStorage.getItem('mose_bucket_defs') || 'null');
+    if (Array.isArray(stored) && stored.length && stored.every(d => d && d.key && d.label)) return stored;
+  } catch {}
+  return DEFAULT_BUCKET_DEFS.map(d => ({ ...d }));
+}
+
+function rebuildBucketLookups() {
+  if (!bucketDefs.some(d => d.key === 'uncategorized')) {
+    bucketDefs.push({ key: 'uncategorized', label: '\u2B1C Uncategorized', color: '#3A3A3A' });
+  }
+  WATCHLIST_BUCKETS = {};
+  BUCKET_ORDER = [];
+  bucketDefs.forEach(d => {
+    WATCHLIST_BUCKETS[d.key] = { label: d.label, color: d.color || '#5B5B5B' };
+    BUCKET_ORDER.push(d.key);
+  });
+}
 const BUCKET_ALIASES = {
   core: 'core-forever',
   'core forever': 'core-forever',
@@ -2114,7 +2170,6 @@ localStorage.setItem('mose_watchlist_buckets_local', JSON.stringify(watchlistBuc
 // ============================================================
 // DEEP DIVE REQUEST SYSTEM (GitHub-synced)
 // ============================================================
-let ddRequestsSHA = null;
 let ddRequestsData = JSON.parse(localStorage.getItem('mose_dd_requests_local') || '{"requests":[],"lastChecked":null}');
 
 // ============================================================
@@ -2127,10 +2182,12 @@ let moseSyncing = false, moseSyncPending = false, moseFbListening = false;
 function getMoseState() {
   return {
     buckets: watchlistBuckets,
+    bucketDefs: bucketDefs,
     notes: watchlistNotes,
     priority: watchlistPriority,
     customWatchlist: customWatchlist,
     researchItems: researchItems,
+    researchCadence: researchCadence,
     ddRequests: ddRequestsData,
     reentry: reentryData,
     targets: targetsData,
@@ -2142,11 +2199,18 @@ function getMoseState() {
 function hydrateMoseState(state) {
   if (!state) return false;
   let changed = false;
+  if (Array.isArray(state.bucketDefs) && state.bucketDefs.length && JSON.stringify(state.bucketDefs) !== JSON.stringify(bucketDefs)) {
+    bucketDefs = state.bucketDefs;
+    rebuildBucketLookups();
+    refreshBucketSelects();
+    changed = true;
+  }
   if (state.buckets && JSON.stringify(state.buckets) !== JSON.stringify(watchlistBuckets)) { watchlistBuckets = state.buckets; changed = true; }
   if (state.notes && JSON.stringify(state.notes) !== JSON.stringify(watchlistNotes)) { watchlistNotes = state.notes; changed = true; }
   if (state.priority && JSON.stringify(state.priority) !== JSON.stringify(watchlistPriority)) { watchlistPriority = state.priority; changed = true; }
   if (state.customWatchlist && JSON.stringify(state.customWatchlist) !== JSON.stringify(customWatchlist)) { customWatchlist = state.customWatchlist; changed = true; }
   if (state.researchItems && JSON.stringify(state.researchItems) !== JSON.stringify(researchItems)) { researchItems = state.researchItems; changed = true; }
+  if (state.researchCadence && JSON.stringify(state.researchCadence) !== JSON.stringify(researchCadence)) { researchCadence = state.researchCadence; changed = true; }
   if (state.ddRequests && JSON.stringify(state.ddRequests) !== JSON.stringify(ddRequestsData)) { ddRequestsData = state.ddRequests; changed = true; }
   if (state.reentry && state.reentry.plans && JSON.stringify(state.reentry) !== JSON.stringify(reentryData)) { reentryData = state.reentry; changed = true; }
   if (state.targets && state.targets.ira && JSON.stringify(state.targets) !== JSON.stringify(targetsData)) { targetsData = state.targets; changed = true; }
@@ -2166,10 +2230,12 @@ function setMoseSyncStatus(icon) {
 // Write to localStorage WITHOUT triggering Firebase (avoids echo loops)
 function saveLocalOnly() {
   localStorage.setItem('mose_watchlist_buckets_local', JSON.stringify(watchlistBuckets));
+  localStorage.setItem('mose_bucket_defs', JSON.stringify(bucketDefs));
   localStorage.setItem('mose_watchlist_notes_local', JSON.stringify(watchlistNotes));
   localStorage.setItem('mose_watchlist_priority', JSON.stringify(watchlistPriority));
   localStorage.setItem('mose_custom_watchlist', JSON.stringify(customWatchlist));
   localStorage.setItem('mose_research_items', JSON.stringify(researchItems));
+  localStorage.setItem('mose_research_cadence', JSON.stringify(researchCadence));
   localStorage.setItem('mose_dd_requests_local', JSON.stringify(ddRequestsData));
   localStorage.setItem('mose_reentry_local', JSON.stringify(reentryData));
   localStorage.setItem('mose_targets_local', JSON.stringify(targetsData));
@@ -2254,32 +2320,6 @@ function hasReport(ticker) {
   const r = reportMap[ticker];
   return !!(r && r.reportUrl && r.reportUrl.trim());
 }
-
-async function loadDDRequestsFromGitHub() {
-  const token = getGithubToken();
-  if (!token) { updateDDCounter(); return; }
-  try {
-    const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/data/deep-dive-requests.json`, {
-      headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json' }
-    });
-    if (res.ok) {
-      const file = await res.json();
-      ddRequestsSHA = file.sha;
-      ddRequestsData = JSON.parse(atob(file.content.replace(/\n/g, '')));
-      if (!Array.isArray(ddRequestsData.requests)) ddRequestsData.requests = [];
-    }
-  } catch(e) {
-    console.warn('Could not load deep-dive-requests.json from GitHub:', e);
-  }
-  updateDDCounter();
-  // Re-render watchlist so checkbox states reflect GitHub data
-  renderWatchlist();
-  renderCockpit();
-  runAutoDeepDiveQueueIfReady();
-}
-
-// DEAD GitHub sync \u2014 now routes to Firebase. (No callers; kept as a safe shim.)
-async function saveDDRequestsToGitHub() { return moseFbPut(); }
 
 function toggleDDRequest(ticker, el) {
   if (el.checked) {
@@ -2426,6 +2466,7 @@ async function loadLiveMarketData(showToast) {
       if (key && Number.isFinite(q.price)) liveQuotes[key] = q;
     });
     updateLiveStatus(data);
+    updatePipelineBanner(data);
     renderWatchlist();
     renderCockpit();
     renderResearchQueue();
@@ -2434,9 +2475,51 @@ async function loadLiveMarketData(showToast) {
     return true;
   } catch(e) {
     updateLiveStatus(null, e.message);
+    updatePipelineBanner(null, e.message);
     if (showToast) showWatchlistToast('Live quote refresh failed');
     return false;
   }
+}
+
+// Site-wide banner: tells Joe loudly when the quote pipeline is broken or
+// stale instead of silently showing old prices.
+async function updatePipelineBanner(data, fetchError) {
+  const el = document.getElementById('pipeline-banner');
+  if (!el) return;
+  let pipeline = null;
+  try {
+    const r = await fetch('pipeline-status.json?v=' + Date.now());
+    if (r.ok) pipeline = await r.json();
+  } catch {}
+
+  const problems = [];
+  let level = 'warn';
+  if (fetchError) {
+    problems.push(`Quote file could not be loaded (${fetchError}).`);
+    level = 'error';
+  } else if (data) {
+    const quoteCount = (data.quotes || []).length;
+    const ageMin = data.generated_at ? Math.round((Date.now() - new Date(data.generated_at).getTime()) / 60000) : null;
+    if (quoteCount === 0) {
+      problems.push('Quote snapshot contains no stock prices.');
+      level = 'error';
+    }
+    const staleLimit = data.market_status === 'open' ? 30 : 26 * 60;
+    if (ageMin !== null && ageMin > staleLimit) {
+      const ageStr = ageMin > 120 ? `${Math.round(ageMin / 60)}h` : `${ageMin}m`;
+      problems.push(`Prices are ${ageStr} old (last update ${new Date(data.generated_at).toLocaleString()}).`);
+      if (ageMin > 24 * 60) level = 'error';
+    }
+  }
+  if (pipeline && pipeline.status === 'error') {
+    problems.push(`Data pipeline error: ${pipeline.detail || 'see GitHub Actions logs.'}`);
+    level = 'error';
+  }
+
+  if (!problems.length) { el.style.display = 'none'; return; }
+  el.className = level === 'error' ? '' : 'warn';
+  el.textContent = `⚠️ ${problems.join(' ')}`;
+  el.style.display = 'block';
 }
 
 function updateLiveStatus(data, error) {
@@ -2936,8 +3019,78 @@ function normalizeBucket(bucket) {
   const raw = String(bucket || '').trim().toLowerCase();
   const direct = String(bucket || '').trim();
   if (WATCHLIST_BUCKETS[direct]) return direct;
-  if (BUCKET_ALIASES[raw]) return BUCKET_ALIASES[raw];
+  if (BUCKET_ALIASES[raw] && WATCHLIST_BUCKETS[BUCKET_ALIASES[raw]]) return BUCKET_ALIASES[raw];
   return 'uncategorized';
+}
+
+// ---- Bucket management (create / rename / delete / reorder) ----
+
+function saveBucketDefs(message) {
+  rebuildBucketLookups();
+  refreshBucketSelects();
+  saveWatchlistLocalState(message);
+  renderWatchlist();
+}
+
+function slugifyBucketKey(label) {
+  let base = String(label || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'bucket';
+  let key = base, n = 2;
+  while (WATCHLIST_BUCKETS[key]) { key = `${base}-${n++}`; }
+  return key;
+}
+
+function createBucket() {
+  const label = prompt('New bucket name:');
+  if (!label || !label.trim()) return;
+  const key = slugifyBucketKey(label);
+  const color = BUCKET_COLOR_PALETTE[(bucketDefs.length - 1) % BUCKET_COLOR_PALETTE.length];
+  // Keep Uncategorized at the bottom; insert new buckets just above it.
+  const uncatIdx = bucketDefs.findIndex(d => d.key === 'uncategorized');
+  const def = { key, label: label.trim(), color };
+  if (uncatIdx >= 0) bucketDefs.splice(uncatIdx, 0, def); else bucketDefs.push(def);
+  saveBucketDefs(`Bucket "${label.trim()}" created`);
+}
+
+function renameBucket(key) {
+  const def = bucketDefs.find(d => d.key === key);
+  if (!def) return;
+  const label = prompt('Rename bucket:', def.label);
+  if (!label || !label.trim() || label.trim() === def.label) return;
+  def.label = label.trim();
+  saveBucketDefs('Bucket renamed');
+}
+
+function deleteBucket(key) {
+  if (key === 'uncategorized') { showWatchlistToast('Uncategorized cannot be deleted'); return; }
+  const def = bucketDefs.find(d => d.key === key);
+  if (!def) return;
+  const affected = Object.keys(watchlistBuckets).filter(t => watchlistBuckets[t] === key);
+  const msg = affected.length
+    ? `Delete "${def.label}"? ${affected.length} stock(s) will move to Uncategorized.`
+    : `Delete empty bucket "${def.label}"?`;
+  if (!confirm(msg)) return;
+  affected.forEach(t => { watchlistBuckets[t] = 'uncategorized'; });
+  customWatchlist.forEach(p => { if (p.bucket === key) p.bucket = 'uncategorized'; });
+  bucketDefs = bucketDefs.filter(d => d.key !== key);
+  saveBucketDefs('Bucket deleted');
+}
+
+function moveBucket(key, dir) {
+  const idx = bucketDefs.findIndex(d => d.key === key);
+  const target = idx + dir;
+  if (idx < 0 || target < 0 || target >= bucketDefs.length) return;
+  [bucketDefs[idx], bucketDefs[target]] = [bucketDefs[target], bucketDefs[idx]];
+  saveBucketDefs('Bucket order updated');
+}
+
+// Rebuild the Add Stock bucket <select> (and keep current choice if possible)
+function refreshBucketSelects() {
+  const sel = document.getElementById('watchlist-add-bucket');
+  if (!sel) return;
+  const current = sel.value;
+  sel.innerHTML = BUCKET_ORDER.map(k =>
+    `<option value="${k}">${escapeHtml(WATCHLIST_BUCKETS[k].label)}</option>`).join('');
+  sel.value = WATCHLIST_BUCKETS[current] ? current : (WATCHLIST_BUCKETS['watching'] ? 'watching' : BUCKET_ORDER[0]);
 }
 
 function normalizeBucketMap(map) {
@@ -2953,38 +3106,16 @@ function saveWatchlistLocalState(message) {
   watchlistBuckets = normalizeBucketMap(watchlistBuckets);
   customWatchlist = customWatchlist.map(item => ({ ...item, ticker: canonicalTicker(item.ticker), bucket: normalizeBucket(item.bucket || watchlistBuckets[canonicalTicker(item.ticker)] || 'watching') }));
   localStorage.setItem('mose_watchlist_buckets_local', JSON.stringify(watchlistBuckets));
+  localStorage.setItem('mose_bucket_defs', JSON.stringify(bucketDefs));
   localStorage.setItem('mose_custom_watchlist', JSON.stringify(customWatchlist));
   localStorage.setItem('mose_watchlist_priority', JSON.stringify(watchlistPriority));
   localStorage.setItem('mose_watchlist_notes_local', JSON.stringify(watchlistNotes));
   localStorage.setItem('mose_research_items', JSON.stringify(researchItems));
+  localStorage.setItem('mose_research_cadence', JSON.stringify(researchCadence));
   localStorage.setItem('mose_dd_requests_local', JSON.stringify(ddRequestsData));
   markSaved(message || 'Auto-saved');
   moseFbPutDebounced();
 }
-
-async function loadWatchlistBuckets() {
-  const token = getGithubToken();
-  if (!token) { renderWatchlist(); return; }
-  try {
-    const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/data/watchlist-buckets.json`, {
-      headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json' }
-    });
-    if (res.ok) {
-      const file = await res.json();
-      watchlistBucketsSHA = file.sha;
-      const decoded = JSON.parse(atob(file.content.replace(/\n/g, '')));
-      watchlistBuckets = normalizeBucketMap({ ...decoded, ...watchlistBuckets });
-      localStorage.setItem('mose_watchlist_buckets_local', JSON.stringify(watchlistBuckets));
-    }
-  } catch(e) {
-    console.warn('Could not load watchlist-buckets.json from GitHub:', e);
-  }
-  renderWatchlist();
-}
-
-let _saveTimer = null;
-// DEAD GitHub sync \u2014 now routes to Firebase. (No callers; kept as a safe shim.)
-async function saveWatchlistBucketsToGitHub() { return moseFbPutDebounced(); }
 
 let _toastTimer = null;
 function showWatchlistToast(msg) {
@@ -2996,10 +3127,6 @@ function showWatchlistToast(msg) {
   if (!msg.includes('Saving')) {
     _toastTimer = setTimeout(() => t.classList.remove('show'), 2200);
   }
-}
-
-function promptGithubToken() {
-  showWatchlistToast('Public site is view-only');
 }
 
 function onBucketChange(ticker, newBucket) {
@@ -3031,28 +3158,6 @@ function updateWatchlistNote(ticker, text) {
   saveWatchlistLocalState('Note saved');
 }
 
-async function loadWatchlistNotes() {
-  const token = getGithubToken();
-  if (!token) return;
-  try {
-    const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/data/watchlist-notes.json`, {
-      headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json' }
-    });
-    if (res.ok) {
-      const file = await res.json();
-      watchlistNotesSHA = file.sha;
-      watchlistNotes = { ...JSON.parse(atob(file.content.replace(/\n/g, ''))), ...watchlistNotes };
-      localStorage.setItem('mose_watchlist_notes_local', JSON.stringify(watchlistNotes));
-    }
-  } catch(e) {
-    console.warn('Could not load watchlist-notes.json from GitHub:', e);
-  }
-  renderWatchlist();
-}
-
-// DEAD GitHub sync \u2014 now routes to Firebase. (No callers; kept as a safe shim.)
-async function saveWatchlistNotesToGitHub() { return moseFbPutDebounced(); }
-
 function markUnsaved() {
   saveWatchlistLocalState('Auto-saved');
 }
@@ -3064,8 +3169,8 @@ function markSaved(message) {
   }
 }
 
-// DEAD GitHub "Sync All" \u2014 now pushes the full state to Firebase instead.
-async function syncAllToGitHub() {
+// Manual "push everything to Firebase now" (used by the sync status icon).
+async function syncAllToCloud() {
   saveLocalOnly();
   saveCustomWatchlist();
   saveResearchItems();
@@ -3262,6 +3367,56 @@ function saveCustomWatchlist() {
 
 let watchlistSuggestionSelection = -1;
 let watchlistSuggestionMatches = [];
+// Full NYSE/NASDAQ/AMEX listing for "Add Stock" search. Seeded in
+// reference-data/ticker-directory.json and refreshed by the scheduled
+// scripts/build_ticker_directory.py job (SEC + Nasdaq Trader, ~10k symbols).
+let tickerDirectory = [];
+
+async function loadTickerDirectory() {
+  try {
+    const r = await fetch('reference-data/ticker-directory.json?v=' + Date.now());
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    const data = await r.json();
+    tickerDirectory = (data.symbols || []).map(s => ({
+      ticker: canonicalTicker(s.t || s.ticker),
+      name: s.n || s.name || s.t,
+      exchange: s.e || s.exchange || '',
+      quoteSymbol: s.y || s.quoteSymbol || ''
+    })).filter(s => s.ticker);
+  } catch (e) {
+    console.warn('Ticker directory unavailable; search limited to tracked names:', e);
+    tickerDirectory = [];
+  }
+  renderWatchlistSuggestions(document.getElementById('watchlist-add-ticker')?.value
+    || document.getElementById('watchlist-add-name')?.value || '');
+}
+
+// Merge tracked names (with bucket/source hints) and the full market directory.
+// Tracked entries win on key collisions so their bucket/source are preserved.
+function searchAllStocks(query, limit = 10) {
+  const q = String(query || '').trim().toLowerCase();
+  if (!q) return [];
+  const seen = new Map();
+  const scored = [];
+  const consider = (o, fromDirectory) => {
+    if (seen.has(o.ticker)) return;
+    const ticker = o.ticker.toLowerCase();
+    const name = (o.name || '').toLowerCase();
+    if (!ticker.includes(q) && !name.includes(q)) return;
+    seen.set(o.ticker, true);
+    const exact = ticker === q || name === q ? 0 : 1;
+    const starts = ticker.startsWith(q) || name.startsWith(q) ? 0 : 1;
+    // Tracked names rank ahead of raw directory rows at equal relevance.
+    scored.push({ o, sort: [exact, starts, fromDirectory ? 1 : 0, o.ticker] });
+  };
+  buildStockSearchIndex().forEach(o => consider(o, false));
+  tickerDirectory.forEach(o => consider({ ticker: o.ticker, name: o.name, source: o.exchange || 'Listed', bucket: 'watching', quoteSymbol: o.quoteSymbol || '' }, true));
+  scored.sort((a, b) => {
+    for (let i = 0; i < 3; i++) { if (a.sort[i] !== b.sort[i]) return a.sort[i] - b.sort[i]; }
+    return a.sort[3].localeCompare(b.sort[3]);
+  });
+  return scored.slice(0, limit).map(s => s.o);
+}
 
 function upsertStockOption(map, ticker, name, source, bucket) {
   const key = canonicalTicker(ticker);
@@ -3291,7 +3446,10 @@ function buildStockSearchIndex() {
 function findStockMatch(query) {
   const q = String(query || '').trim().toLowerCase();
   if (!q) return null;
-  const options = buildStockSearchIndex();
+  // Tracked names first (carry bucket/source), then the full market directory.
+  const tracked = buildStockSearchIndex();
+  const directory = tickerDirectory.map(o => ({ ticker: o.ticker, name: o.name, source: o.exchange || 'Listed', bucket: 'watching', quoteSymbol: o.quoteSymbol || '' }));
+  const options = [...tracked, ...directory];
   return options.find(o => o.ticker.toLowerCase() === q) ||
     options.find(o => o.name.toLowerCase() === q) ||
     options.find(o => o.ticker.toLowerCase().startsWith(q)) ||
@@ -3301,26 +3459,23 @@ function findStockMatch(query) {
 function renderWatchlistSuggestions(query) {
   const menu = document.getElementById('watchlist-add-suggestions');
   if (!menu) return;
-  const q = String(query || '').trim().toLowerCase();
+  const raw = String(query || '').trim();
+  const q = raw.toLowerCase();
   if (!q) { hideWatchlistSuggestions(); return; }
-  watchlistSuggestionMatches = buildStockSearchIndex()
-    .map(o => ({ ...o, haystack: `${o.ticker} ${o.name}`.toLowerCase() }))
-    .filter(o => o.haystack.includes(q))
-    .sort((a, b) => {
-      const aExact = a.ticker.toLowerCase() === q || a.name.toLowerCase() === q;
-      const bExact = b.ticker.toLowerCase() === q || b.name.toLowerCase() === q;
-      const aStarts = a.ticker.toLowerCase().startsWith(q) || a.name.toLowerCase().startsWith(q);
-      const bStarts = b.ticker.toLowerCase().startsWith(q) || b.name.toLowerCase().startsWith(q);
-      return Number(bExact) - Number(aExact) || Number(bStarts) - Number(aStarts) || a.ticker.localeCompare(b.ticker);
-    })
-    .slice(0, 10);
+  watchlistSuggestionMatches = searchAllStocks(q, 10);
   watchlistSuggestionSelection = -1;
+  // Always offer a "private / pre-IPO" add for the typed text, so names that
+  // aren't publicly listed (e.g. Cursor) can still be tracked as notes.
+  const privateRow = `<div class="watchlist-suggestion private-add" onmousedown="addPrivateWatchlistStock()">
+      <span class="sym">＋ Pre-IPO</span>
+      <span class="company">Add "${escapeHtml(raw)}" as a private / unlisted company</span>
+      <span class="source">no quote</span></div>`;
   if (!watchlistSuggestionMatches.length) {
-    menu.innerHTML = `<div class="watchlist-suggestion"><span class="sym">No match</span><span class="company">Enter a ticker manually or try another company name</span><span class="source"></span></div>`;
+    menu.innerHTML = `<div class="watchlist-suggestion"><span class="sym">No listed match</span><span class="company">Not found on NYSE/NASDAQ — add it as private below</span><span class="source"></span></div>${privateRow}`;
     menu.classList.add('show');
     return;
   }
-  menu.innerHTML = watchlistSuggestionMatches.map((o, i) => `<div class="watchlist-suggestion" data-idx="${i}" onmousedown="selectWatchlistSuggestion(${i})"><span class="sym">${escapeHtml(o.ticker)}</span><span class="company">${escapeHtml(o.name)}</span><span class="source">${escapeHtml(o.source || '')}</span></div>`).join('');
+  menu.innerHTML = watchlistSuggestionMatches.map((o, i) => `<div class="watchlist-suggestion" data-idx="${i}" onmousedown="selectWatchlistSuggestion(${i})"><span class="sym">${escapeHtml(o.ticker)}</span><span class="company">${escapeHtml(o.name)}</span><span class="source">${escapeHtml(o.source || '')}</span></div>`).join('') + privateRow;
   menu.classList.add('show');
 }
 
@@ -3373,6 +3528,34 @@ function hideWatchlistSuggestions() {
   if (menu) menu.classList.remove('show');
 }
 
+// Derive a stable, unique key for a private/unlisted company from its name.
+function privateKeyFromName(name) {
+  let base = String(name || '').toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 12) || 'PRIVATE';
+  let key = base, n = 2;
+  const taken = new Set(getWatchlistStocks().map(p => canonicalTicker(p.ticker)));
+  while (taken.has(key)) { key = (base.slice(0, 10) + n++); }
+  return key;
+}
+
+// Add a private / pre-IPO company (no public ticker, no quote).
+function addPrivateWatchlistStock() {
+  const tickerEl = document.getElementById('watchlist-add-ticker');
+  const nameEl = document.getElementById('watchlist-add-name');
+  const name = (nameEl?.value || '').trim() || (tickerEl?.value || '').trim();
+  if (!name) { showWatchlistToast('Type a company name first'); return; }
+  const key = privateKeyFromName(name);
+  customWatchlist.push({ ticker: key, name, bucket: 'pre-ipo', note: name, private: true, dateAdded: new Date().toISOString().slice(0, 10) });
+  watchlistBuckets[key] = 'pre-ipo';
+  saveWatchlistLocalState(`Added ${name} (private)`);
+  if (tickerEl) tickerEl.value = '';
+  if (nameEl) { nameEl.value = ''; nameEl.dataset.autofilled = ''; }
+  hideWatchlistSuggestions();
+  showWatchlistToast(`Added ${name} as private / pre-IPO`);
+  renderWatchlist();
+  renderCockpit();
+  renderResearchQueue();
+}
+
 function addWatchlistStock() {
   const tickerEl = document.getElementById('watchlist-add-ticker');
   const nameEl = document.getElementById('watchlist-add-name');
@@ -3383,14 +3566,17 @@ function addWatchlistStock() {
   const match = findStockMatch(typed);
   if (!ticker && match) ticker = match.ticker;
   if (!name && match) name = match.name;
-  if (!ticker) { showWatchlistToast('Type a ticker or choose a matching company'); return; }
+  if (!ticker) { showWatchlistToast('No listed match — use ＋ Pre-IPO to add it as a private company'); return; }
   if (!/^[A-Z0-9.^-]{1,12}$/.test(ticker)) { showWatchlistToast('Use a valid ticker symbol'); return; }
   if (getWatchlistStocks().find(p => canonicalTicker(p.ticker) === ticker)) {
     showWatchlistToast(`${ticker} is already on the watchlist`);
     return;
   }
   const bucket = normalizeBucket(bucketEl?.value || match?.bucket || 'watching');
-  customWatchlist.push({ ticker, name: name || ticker, bucket, note: name || ticker, dateAdded: new Date().toISOString().slice(0, 10) });
+  const item = { ticker, name: name || ticker, bucket, note: name || ticker, dateAdded: new Date().toISOString().slice(0, 10) };
+  // Foreign listings quote under a different Yahoo symbol (e.g. CSU -> CSU.TO).
+  if (match && match.quoteSymbol && match.quoteSymbol.toUpperCase() !== ticker) item.quoteSymbol = match.quoteSymbol;
+  customWatchlist.push(item);
   watchlistBuckets[ticker] = bucket;
   saveWatchlistLocalState(`Added ${ticker}`);
   if (tickerEl) tickerEl.value = '';
@@ -3736,8 +3922,8 @@ function watchlistRowHtml(p, dcfMap, tickerToInvestors, joeOwns, candidateMap) {
 
   return `<tr>
     <td style="min-width:195px">${bucketSel}</td>
-    <td><span class="ticker">${ticker}</span></td>
-    <td style="font-size:13px">${p.name}</td>
+    <td><span class="ticker">${p.private ? '🔒' : ticker}</span></td>
+    <td style="font-size:13px">${escapeHtml(p.name)}${p.private ? ' <span class="private-tag">private</span>' : ''}</td>
     <td>${prioritySelect(ticker)}</td>
     <td class="i-own-cell">${ownCell}</td>
     <td class="notes-cell">${notesCell}</td>
@@ -3837,7 +4023,15 @@ function renderWatchlist() {
     } : null);
     if (!group) return;
     const stocks = group.stocks;
-    html += `<div class="bucket-header-row" style="background:${group.color}">${group.label} <span class="bucket-count">${stocks.length}</span></div>`;
+    const isBucketMode = watchlistGroup === 'bucket';
+    const idx = BUCKET_ORDER.indexOf(key);
+    const tools = isBucketMode ? `<span class="bucket-tools">
+        <button onclick="moveBucket('${key}',-1)" title="Move bucket up" ${idx <= 0 ? 'disabled' : ''}>▲</button>
+        <button onclick="moveBucket('${key}',1)" title="Move bucket down" ${idx >= BUCKET_ORDER.length - 1 ? 'disabled' : ''}>▼</button>
+        <button onclick="renameBucket('${key}')" title="Rename bucket">✏️</button>
+        ${key !== 'uncategorized' ? `<button onclick="deleteBucket('${key}')" title="Delete bucket">✕</button>` : ''}
+      </span>` : '';
+    html += `<div class="bucket-header-row" style="background:${group.color}">${group.label} <span class="bucket-count">${stocks.length}</span>${tools}</div>`;
     if (stocks.length === 0) {
       html += `<div style="padding:12px 14px;color:var(--muted);font-size:13px;background:var(--surface);border:1px solid var(--border);border-top:none;border-radius:0 0 6px 6px">No stocks in this bucket yet</div>`;
     } else {
@@ -3846,6 +4040,9 @@ function renderWatchlist() {
     }
     html += '<div style="height:6px"></div>';
   });
+  if (watchlistGroup === 'bucket') {
+    html += `<button class="bucket-add-btn" onclick="createBucket()">＋ New Bucket</button>`;
+  }
   container.innerHTML = html;
 }
 
@@ -3921,7 +4118,7 @@ function renderJoeHoldings(data) {
       <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px">
         <div>
           <div style="font-size:14px;font-weight:700;color:${color}">${acct.label}</div>
-          <div style="font-size:11px;color:var(--muted)">${acct.custodian} · ${acct.type} · ${acct.account_number}</div>
+          <div style="font-size:11px;color:var(--muted)">${acct.custodian} · ${acct.type}</div>
         </div>
         <div style="font-size:16px;font-weight:800;color:var(--text)">${fmtDollar(acct.total_value)}</div>
       </div>
@@ -4015,20 +4212,29 @@ function renderResearchQueue() {
     .sort((a, b) => (PRIORITY_ORDER[getPriority(a.ticker)] ?? 3) - (PRIORITY_ORDER[getPriority(b.ticker)] ?? 3) || b.score - a.score || a.ticker.localeCompare(b.ticker));
 
   const needs = rows.filter(c => c.research.status === 'needs' || (c.investors.length >= 3 && c.score >= 60 && c.research.status === 'none'));
+  // Tickers whose latest deep dive is past its monthly/quarterly cadence get
+  // resurfaced here automatically until an update is requested.
+  const dueForUpdate = candidates
+    .map(c => ({ ...c, research: researchRecord(c.ticker, c), _due: reportDueInfo(c.ticker) }))
+    .filter(c => c.hasDive && c._due.due && c.research.status !== 'dismissed' && !requested.has(c.ticker));
   const queue = rows.filter(c => ['approved','researching','draft'].includes(c.research.status) || requested.has(c.ticker));
   const library = candidates.map(c => ({ ...c, research: researchRecord(c.ticker, c) })).filter(c => c.hasDive || c.research.status === 'reviewed');
 
   const setText = (id, value) => { const el = document.getElementById(id); if (el) el.textContent = value; };
-  setText('research-needs-count', needs.length);
+  setText('research-needs-count', needs.length + dueForUpdate.length);
   setText('research-queue-count', queue.length);
-  setText('research-library-count', library.length + allReports.length);
+  setText('research-library-count', library.length + Object.keys(reportHistory).length);
 
   const card = (c, lane) => {
     const rec = researchRecord(c.ticker, c);
     const drivers = c.drivers.length ? c.drivers.join(' · ') : `${c.investors.length} investors · score ${c.score}`;
-    const summary = rec.reason || (c.investors.length >= 3 ? `Auto-flagged: ${c.investors.length} investors and score ${c.score}.` : drivers);
+    const summary = c._due && c._due.due
+      ? `📅 ${c._due.cadence === 'monthly' ? 'Monthly' : 'Quarterly'} deep-dive refresh due — last report ${c._due.daysSince} days ago.`
+      : rec.reason || (c.investors.length >= 3 ? `Auto-flagged: ${c.investors.length} investors and score ${c.score}.` : drivers);
     const note = rec.notes || '';
-    const actions = lane === 'needs'
+    const actions = c._due && c._due.due
+      ? `<button class="research-action-btn primary" onclick="requestDDUpdate('${c.ticker}')">🔄 Request Update</button><button class="research-action-btn" onclick="setResearchStatus('${c.ticker}','dismissed','Refresh skipped this cycle.')">Skip</button>`
+      : lane === 'needs'
       ? `<button class="research-action-btn primary" onclick="setResearchStatus('${c.ticker}','approved','Approved from Research tab.')">Approve</button><button class="research-action-btn" onclick="setResearchStatus('${c.ticker}','dismissed','Dismissed from Research tab.')">Dismiss</button>`
       : lane === 'queue'
         ? `<button class="research-action-btn" onclick="setResearchStatus('${c.ticker}','researching','Research started.')">Researching</button><button class="research-action-btn warn" onclick="setResearchStatus('${c.ticker}','draft','Draft ready for review.')">Draft Ready</button><button class="research-action-btn good" onclick="setResearchStatus('${c.ticker}','reviewed','Saved to Research Library.')">Save to Library</button>`
@@ -4045,7 +4251,8 @@ function renderResearchQueue() {
     </div>`;
   };
 
-  needsEl.innerHTML = needs.length ? needs.map(c => card(c, 'needs')).join('') : '<div class="no-data">No auto deep-dive candidates right now.</div>';
+  const needsCards = [...dueForUpdate.map(c => card(c, 'needs')), ...needs.map(c => card(c, 'needs'))];
+  needsEl.innerHTML = needsCards.length ? needsCards.join('') : '<div class="no-data">No auto deep-dive candidates right now.</div>';
   queueEl.innerHTML = queue.length ? queue.map(c => card(c, 'queue')).join('') : '<div class="no-data">No research items queued yet. Approve a deep dive from Needs Deep Dive or Watchlist.</div>';
   libraryEl.innerHTML = library.length ? library.map(c => card(c, 'library')).join('') : '<div class="no-data">No saved local research yet. Completed report files appear below when available.</div>';
 }
@@ -4055,11 +4262,22 @@ async function loadResearchLibrary() {
     const res = await fetch('research-library.json?' + Date.now());
     const data = await res.json();
     allReports = data.reports || [];
+    // The library may hold multiple report versions per ticker (one per
+    // month/quarter). Newest first; reportMap always points at the latest.
+    reportHistory = {};
+    allReports.forEach(r => {
+      const key = canonicalTicker(r.ticker);
+      if (!reportHistory[key]) reportHistory[key] = [];
+      reportHistory[key].push(r);
+    });
+    Object.values(reportHistory).forEach(list =>
+      list.sort((a, b) => new Date(b.reportDate || 0) - new Date(a.reportDate || 0)));
     reportMap = {};
     reportTickers = new Set();
-    allReports.forEach(r => {
-      reportMap[r.ticker] = r;
-      if (r.reportUrl && r.reportUrl.trim()) reportTickers.add(r.ticker);
+    Object.entries(reportHistory).forEach(([key, list]) => {
+      reportMap[key] = list[0];
+      reportMap[list[0].ticker] = list[0];
+      if (list[0].reportUrl && list[0].reportUrl.trim()) reportTickers.add(list[0].ticker);
     });
     renderResearchQueue();
     renderResearchLibrary();
@@ -4072,6 +4290,67 @@ async function loadResearchLibrary() {
     document.getElementById('research-cards').innerHTML =
       `<div class="no-data">⚠️ Could not load research-library.json: ${e.message}</div>`;
   }
+}
+
+// ---- Deep-dive cadence (monthly/quarterly) and version history ----
+
+function getResearchCadence(ticker) {
+  return researchCadence[canonicalTicker(ticker)] || 'quarterly';
+}
+function setResearchCadence(ticker, value) {
+  researchCadence[canonicalTicker(ticker)] = value;
+  saveWatchlistLocalState(`${canonicalTicker(ticker)} deep-dive cadence: ${value}`);
+  renderResearchLibrary();
+  renderResearchQueue();
+}
+function cadenceLimitDays(cadence) {
+  return cadence === 'monthly' ? 31 : 92;
+}
+// Is the latest deep dive for this ticker older than its cadence allows?
+function reportDueInfo(ticker) {
+  const latest = reportMap[canonicalTicker(ticker)] || reportMap[ticker];
+  if (!latest || !latest.reportDate) return { due: false, daysSince: null, cadence: getResearchCadence(ticker) };
+  const daysSince = Math.floor((Date.now() - new Date(latest.reportDate).getTime()) / 86400000);
+  const cadence = getResearchCadence(ticker);
+  return { due: daysSince > cadenceLimitDays(cadence), daysSince, cadence };
+}
+
+function fmtReportDate(d) {
+  return d ? new Date(d).toLocaleDateString('en-US', {month:'short',day:'numeric',year:'numeric'}) : '—';
+}
+
+// Expandable timeline of past deep dives with change vs the previous one.
+function reportHistoryHtml(list) {
+  if (!list || list.length < 2) return '';
+  const rows = list.map((r, i) => {
+    const prev = list[i + 1]; // next item is the older report
+    let deltas = '';
+    if (prev) {
+      const parts = [];
+      if (r.intrinsicValue != null && prev.intrinsicValue != null) {
+        const pct = ((r.intrinsicValue - prev.intrinsicValue) / prev.intrinsicValue * 100);
+        const col = pct >= 0 ? 'var(--green)' : 'var(--red)';
+        parts.push(`IV $${prev.intrinsicValue} → $${r.intrinsicValue} <span style="color:${col}">(${pct >= 0 ? '+' : ''}${pct.toFixed(1)}%)</span>`);
+      }
+      if (r.verdictClass && prev.verdictClass && r.verdictClass !== prev.verdictClass) {
+        parts.push(`verdict ${prev.verdictClass.toUpperCase()} → ${r.verdictClass.toUpperCase()}`);
+      }
+      if (r.convergenceScore != null && prev.convergenceScore != null && r.convergenceScore !== prev.convergenceScore) {
+        parts.push(`score ${prev.convergenceScore} → ${r.convergenceScore}`);
+      }
+      deltas = parts.length ? `<span style="color:var(--muted)"> · ${parts.join(' · ')}</span>` : '';
+    }
+    const link = r.reportUrl ? `<a href="${r.reportUrl}" target="_blank" style="color:var(--blue)">open</a>` : '';
+    return `<div style="padding:6px 0;border-bottom:1px solid var(--border);font-size:12px">
+      <strong>${fmtReportDate(r.reportDate)}</strong>${i === 0 ? ' <span style="color:var(--green)">(latest)</span>' : ''}
+      ${r.intrinsicValue != null ? ` · IV $${r.intrinsicValue}` : ''}${r.mosPrice != null ? ` · MOS $${r.mosPrice}` : ''}
+      ${deltas} ${link}
+    </div>`;
+  }).join('');
+  return `<details style="margin-top:10px">
+    <summary style="cursor:pointer;font-size:12px;color:var(--blue)">📚 History — ${list.length} deep dives, compare over time</summary>
+    <div style="margin-top:6px;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:6px 10px">${rows}</div>
+  </details>`;
 }
 
 async function renderResearchLibrary() {
@@ -4088,7 +4367,11 @@ async function renderResearchLibrary() {
 
   const now = new Date();
 
-  container.innerHTML = allReports.map(r => {
+  // One card per ticker (latest report), sorted newest first.
+  const latestReports = Object.values(reportHistory).map(list => list[0])
+    .sort((a, b) => new Date(b.reportDate || 0) - new Date(a.reportDate || 0));
+
+  container.innerHTML = latestReports.map(r => {
     const dcf = dcfMap[r.ticker];
     const currentPrice = dcf ? dcf.current_price : null;
     const priceStr = currentPrice ? `$${currentPrice.toFixed(2)}` : '—';
@@ -4101,10 +4384,16 @@ async function renderResearchLibrary() {
     const signalColor = signal.includes('BUY') ? 'var(--green)' : signal.includes('FAIR') ? 'var(--yellow)' : signal.includes('OVER') ? 'var(--red)' : 'var(--muted)';
     const verdictColor = r.verdictClass === 'buy' ? 'var(--green)' : r.verdictClass === 'fair' ? 'var(--yellow)' : r.verdictClass === 'sell' ? 'var(--red)' : 'var(--muted)';
     const reportDate = r.reportDate ? new Date(r.reportDate) : null;
-    const formattedDate = reportDate ? reportDate.toLocaleDateString('en-US', {month:'short',day:'numeric',year:'numeric'}) : '—';
-    const daysSince = reportDate ? Math.floor((now - reportDate) / (1000 * 60 * 60 * 24)) : 0;
-    const isStale = daysSince > 90;
-    const staleBadge = isStale ? `<span class="stale-badge">⚠️ May need update (${daysSince}d)</span>` : '';
+    const formattedDate = fmtReportDate(r.reportDate);
+    const dueInfo = reportDueInfo(r.ticker);
+    const isStale = dueInfo.due;
+    const staleBadge = isStale ? `<span class="stale-badge">⚠️ ${dueInfo.cadence === 'monthly' ? 'Monthly' : 'Quarterly'} update due (${dueInfo.daysSince}d old)</span>` : '';
+    const history = reportHistory[canonicalTicker(r.ticker)] || [];
+    const versionBadge = history.length > 1 ? `<span style="font-size:11px;color:var(--muted);background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:2px 6px">${history.length} versions</span>` : '';
+    const cadenceSel = `<select class="watchlist-control" style="font-size:11px;padding:3px 6px" onchange="setResearchCadence('${r.ticker}', this.value)" title="How often this deep dive should be refreshed">
+        <option value="quarterly"${dueInfo.cadence === 'quarterly' ? ' selected' : ''}>Refresh: Quarterly</option>
+        <option value="monthly"${dueInfo.cadence === 'monthly' ? ' selected' : ''}>Refresh: Monthly</option>
+      </select>`;
     const updateBtnText = isRequested(r.ticker) ? '✅ Requested' : '🔄 Request Update';
     const updateBtnCls = isRequested(r.ticker) ? 'dd-request-btn requested' : 'dd-request-btn';
     const updateBtnDisabled = isRequested(r.ticker) ? 'disabled' : '';
@@ -4117,6 +4406,7 @@ async function renderResearchLibrary() {
           <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
             <span class="ticker" style="font-size:18px">${r.ticker}</span>
             <span style="font-size:11px;color:var(--muted);background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:2px 6px">${formattedDate}</span>
+            ${versionBadge}
             ${staleBadge}
           </div>
           <div style="font-size:13px;color:var(--muted);margin-top:4px">${r.company}</div>
@@ -4143,7 +4433,9 @@ async function renderResearchLibrary() {
           Open Full Report →
         </a>
         ${updateBtn}
+        ${cadenceSel}
       </div>
+      ${reportHistoryHtml(history)}
     </div>`;
   }).join('');
 }
@@ -5353,10 +5645,6 @@ function targetsExportCSV() {
 async function hardRefreshAll() {
   const btn = document.querySelector('.hard-refresh-btn');
   if (btn) { btn.textContent = '⏳ Refreshing…'; btn.disabled = true; }
-  // Clear GitHub SHA caches so data reloads fresh
-  ddRequestsSHA = null;
-  watchlistBucketsSHA = null;
-  watchlistNotesSHA = null;
   try {
     await Promise.all([
       loadIndices(),
@@ -5364,12 +5652,10 @@ async function hardRefreshAll() {
       loadDCF(),
       loadResearchLibrary(),
       loadFilingTracker(false),
-      loadWatchlistBuckets(),
-      loadWatchlistNotes(),
-      loadDDRequestsFromGitHub(),
       loadJoeHoldings(),
       loadSymbolData()
     ]);
+    updateDDCounter();
     renderInvestors();
     // Pull latest watchlist state from Firebase
     const remote = await moseFbGet();
@@ -5388,6 +5674,7 @@ async function hardRefreshAll() {
 
 window.addEventListener('DOMContentLoaded', () => {
   setTheme(localStorage.getItem('mose_theme') || 'dark');
+  refreshBucketSelects();
   loadIndices();
   loadHoldings();
   loadDCF();
@@ -5396,12 +5683,11 @@ window.addEventListener('DOMContentLoaded', () => {
   loadResearchLibrary();
   loadFilingTracker(false);
   loadSymbolData();
-  loadWatchlistBuckets();
-  loadWatchlistNotes();
-  loadDDRequestsFromGitHub();
+  loadTickerDirectory();
   renderReentry();
   renderTargets();
-  // Public build is view-only; GitHub write access is disabled.
+  renderWatchlist();
+  updateDDCounter();
 
   // Firebase sync — load from cloud, seed if empty, then listen for live changes
   (async function() {

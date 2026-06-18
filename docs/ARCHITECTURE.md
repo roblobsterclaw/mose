@@ -21,14 +21,35 @@ Build command:
 bash scripts/build_dashboard_data.sh
 ```
 
+## Live Quotes
+
+`scripts/update_live_market_data.py` runs on a GitHub Actions schedule and
+pulls quotes from Yahoo Finance's public v8 chart endpoint (Stooq's keyless
+endpoint died in June 2026). Key behaviors:
+
+- Change % is computed against the previous close (not the day's open).
+- 52-week high/low come from the quote metadata; 1-year daily history is
+  refreshed about once a day for the charts.
+- "vs exit" anchors live in `reference-data/exit-baseline.json`.
+- Custom tickers added from the dashboard UI are picked up via the synced
+  Firebase state, so they get quotes too.
+- The script never overwrites good data with bad: on failure it writes
+  `pipeline-status.json` and exits non-zero, and the dashboard shows a
+  site-wide banner when data is stale, empty, or the pipeline reports an error.
+
 ## Watchlist And Research
 
 The dashboard now treats watchlist and research as one shared ticker universe.
 
-- Watchlist controls are local-first and persist in `localStorage`.
+- Watchlist controls are local-first, persist in `localStorage`, and sync
+  across devices through Firebase Realtime DB.
+- Buckets are user-defined: create, rename, delete, and reorder them from the
+  grouped watchlist view (bucket definitions sync like the rest of the state).
 - Flat mode sorts by priority, ticker, date added, convergence, 52-week discount, Joe holdings first, or needs deep dive first.
 - Group mode groups by status, conviction, portfolio role, or investor overlap.
 - Research has three lanes: Needs Deep Dive, Research Queue, and Research Library.
+- Deep dives are versioned per ticker with a monthly/quarterly refresh cadence
+  and period-over-period comparison — see `docs/DEEP-DIVES.md`.
 - `research_items` and `research_reports` are in the database schema so this local workflow can be promoted into SQLite/Supabase storage later.
 
 ## Phase 3: Supabase Later
