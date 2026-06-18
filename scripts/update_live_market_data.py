@@ -144,17 +144,28 @@ def fetch_yahoo_history(symbol: str, range_: str = "1y") -> list[dict]:
 
 def fetch_quotes(symbols: list[str]) -> tuple[dict[str, dict], list[str]]:
     quotes: dict[str, dict] = {}
-    errors: list[str] = []
-    for symbol in symbols:
+
+    def attempt(symbol: str) -> bool:
         try:
             q = fetch_yahoo_quote(symbol)
             if q:
                 quotes[symbol] = q
-            else:
-                errors.append(f"{symbol}: empty response")
-        except (urllib.error.URLError, urllib.error.HTTPError, json.JSONDecodeError, OSError) as exc:
-            errors.append(f"{symbol}: {exc}")
+                return True
+        except (urllib.error.URLError, urllib.error.HTTPError, json.JSONDecodeError, OSError):
+            pass
+        return False
+
+    for symbol in symbols:
+        attempt(symbol)
         time.sleep(REQUEST_SPACING_SECONDS)
+
+    # Yahoo's per-symbol endpoint intermittently returns empty, leaving random
+    # blanks. Retry anything that didn't come back once, a little slower.
+    errors: list[str] = []
+    for symbol in [s for s in symbols if s not in quotes]:
+        time.sleep(0.4)
+        if not attempt(symbol):
+            errors.append(f"{symbol}: no data after retry")
     return quotes, errors
 
 
