@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-15T16:33:35.729790+00:00",
+  "generated_at": "2026-06-18T14:10:09.361151+00:00",
   "source": "SEC EDGAR submissions and Archives information tables",
   "quarters_requested": 8,
-  "investor_count": 17,
-  "filings_pulled": 130,
+  "investor_count": 19,
+  "filings_pulled": 144,
   "failed_investors": [],
   "investors": [
     {
@@ -249102,6 +249102,4806 @@
           ],
           "total_value": 770970997000.0,
           "num_holdings": 11
+        }
+      ],
+      "filing_errors": []
+    },
+    {
+      "name": "Gavin Baker",
+      "fund": "Atreides Management",
+      "tier": 2,
+      "cik": "1777813",
+      "source_type": "13F",
+      "filings": [
+        {
+          "form": "13F-HR",
+          "company": "Atreides Management, LP",
+          "cik": "1777813",
+          "filing_date": "2026-05-18",
+          "file_name": "edgar/data/1777813/0001777813-26-000006.txt",
+          "accession": "0001777813-26-000006",
+          "period_end": "2026-03-31",
+          "quarter": "2026-Q1",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/1777813/0001777813-26-000006.txt",
+          "holdings": [
+            {
+              "ticker": null,
+              "identifier": "CUSIP:04626A103",
+              "cusip": "04626A103",
+              "company": "ASTERA LABS INC",
+              "market_value": 368890255000.0,
+              "shares": 3365787.0,
+              "rank": 1,
+              "pct_portfolio": 8.9871
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:91332U101",
+              "cusip": "91332U101",
+              "company": "UNITY SOFTWARE INC",
+              "market_value": 271733965000.0,
+              "shares": 12385322.0,
+              "rank": 2,
+              "pct_portfolio": 6.6201
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:171779309",
+              "cusip": "171779309",
+              "company": "CIENA CORP",
+              "market_value": 262756782000.0,
+              "shares": 676807.0,
+              "rank": 3,
+              "pct_portfolio": 6.4014
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:595112103",
+              "cusip": "595112103",
+              "company": "MICRON TECHNOLOGY INC",
+              "market_value": 256902320000.0,
+              "shares": 760426.0,
+              "rank": 4,
+              "pct_portfolio": 6.2588
+            },
+            {
+              "ticker": "NVDA",
+              "identifier": "NVDA",
+              "cusip": "67066G104",
+              "company": "NVIDIA CORPORATION",
+              "market_value": 217754445000.0,
+              "shares": 1248592.0,
+              "rank": 5,
+              "pct_portfolio": 5.305
+            },
+            {
+              "ticker": "AMZN",
+              "identifier": "AMZN",
+              "cusip": "023135106",
+              "company": "AMAZON COM INC",
+              "market_value": 198597941000.0,
+              "shares": 953560.0,
+              "rank": 6,
+              "pct_portfolio": 4.8383
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:55024U109",
+              "cusip": "55024U109",
+              "company": "LUMENTUM HLDGS INC",
+              "market_value": 187910294000.0,
+              "shares": 267389.0,
+              "rank": 7,
+              "pct_portfolio": 4.578
+            },
+            {
+              "ticker": "GOOGL",
+              "identifier": "GOOGL",
+              "cusip": "02079K305",
+              "company": "ALPHABET INC",
+              "market_value": 159602414000.0,
+              "shares": 555023.0,
+              "rank": 8,
+              "pct_portfolio": 3.8883
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:19247G107",
+              "cusip": "19247G107",
+              "company": "COHERENT CORP",
+              "market_value": 150348385000.0,
+              "shares": 631159.0,
+              "rank": 9,
+              "pct_portfolio": 3.6629
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:278768106",
+              "cusip": "278768106",
+              "company": "ECHOSTAR CORP",
+              "market_value": 117110506000.0,
+              "shares": 1000346.0,
+              "rank": 10,
+              "pct_portfolio": 2.8531
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:90138F102",
+              "cusip": "90138F102",
+              "company": "TWILIO INC",
+              "market_value": 115955964000.0,
+              "shares": 921602.0,
+              "rank": 11,
+              "pct_portfolio": 2.825
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:94419L101",
+              "cusip": "94419L101",
+              "company": "WAYFAIR INC",
+              "market_value": 107625284000.0,
+              "shares": 1430997.0,
+              "rank": 12,
+              "pct_portfolio": 2.622
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:98980L101",
+              "cusip": "98980L101",
+              "company": "ZOOM COMMUNICATIONS INC",
+              "market_value": 105761486000.0,
+              "shares": 1315605.0,
+              "rank": 13,
+              "pct_portfolio": 2.5766
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G25457105",
+              "cusip": "G25457105",
+              "company": "CREDO TECHNOLOGY GROUP HOLDI",
+              "market_value": 102434042000.0,
+              "shares": 1091233.0,
+              "rank": 14,
+              "pct_portfolio": 2.4955
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:697435105",
+              "cusip": "697435105",
+              "company": "PALO ALTO NETWORKS INC",
+              "market_value": 90067295000.0,
+              "shares": 561797.0,
+              "rank": 15,
+              "pct_portfolio": 2.1943
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:253393102",
+              "cusip": "253393102",
+              "company": "DICKS SPORTING GOODS INC",
+              "market_value": 89732372000.0,
+              "shares": 452531.0,
+              "rank": 16,
+              "pct_portfolio": 2.1861
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:77311W101",
+              "cusip": "77311W101",
+              "company": "ROCKET COS INC",
+              "market_value": 87137995000.0,
+              "shares": 6114947.0,
+              "rank": 17,
+              "pct_portfolio": 2.1229
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:92840M102",
+              "cusip": "92840M102",
+              "company": "VISTRA CORP",
+              "market_value": 78741050000.0,
+              "shares": 523788.0,
+              "rank": 18,
+              "pct_portfolio": 1.9183
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:00971T101",
+              "cusip": "00971T101",
+              "company": "AKAMAI TECHNOLOGIES INC",
+              "market_value": 78423829000.0,
+              "shares": 682837.0,
+              "rank": 19,
+              "pct_portfolio": 1.9106
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:771049103",
+              "cusip": "771049103",
+              "company": "ROBLOX CORP",
+              "market_value": 78262242000.0,
+              "shares": 1383703.0,
+              "rank": 20,
+              "pct_portfolio": 1.9067
+            },
+            {
+              "ticker": "TSLA",
+              "identifier": "TSLA",
+              "cusip": "88160R101",
+              "company": "TESLA INC",
+              "market_value": 74645541000.0,
+              "shares": 200795.0,
+              "rank": 21,
+              "pct_portfolio": 1.8185
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:21873S108",
+              "cusip": "21873S108",
+              "company": "COREWEAVE INC",
+              "market_value": 62792146000.0,
+              "shares": 810535.0,
+              "rank": 22,
+              "pct_portfolio": 1.5298
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:M98068105",
+              "cusip": "M98068105",
+              "company": "WIX COM LTD",
+              "market_value": 58582789000.0,
+              "shares": 650414.0,
+              "rank": 23,
+              "pct_portfolio": 1.4272
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:443573100",
+              "cusip": "443573100",
+              "company": "HUBSPOT INC",
+              "market_value": 56659272000.0,
+              "shares": 232115.0,
+              "rank": 24,
+              "pct_portfolio": 1.3804
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:00827B106",
+              "cusip": "00827B106",
+              "company": "AFFIRM HLDGS INC",
+              "market_value": 54741658000.0,
+              "shares": 1194711.0,
+              "rank": 25,
+              "pct_portfolio": 1.3336
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:871607107",
+              "cusip": "871607107",
+              "company": "SYNOPSYS INC",
+              "market_value": 54288024000.0,
+              "shares": 136925.0,
+              "rank": 26,
+              "pct_portfolio": 1.3226
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:751212101",
+              "cusip": "751212101",
+              "company": "RALPH LAUREN CORP",
+              "market_value": 44318640000.0,
+              "shares": 128837.0,
+              "rank": 27,
+              "pct_portfolio": 1.0797
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:05464C101",
+              "cusip": "05464C101",
+              "company": "AXON ENTERPRISE INC",
+              "market_value": 43358726000.0,
+              "shares": 102095.0,
+              "rank": 28,
+              "pct_portfolio": 1.0563
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:974155103",
+              "cusip": "974155103",
+              "company": "WINGSTOP INC",
+              "market_value": 41888856000.0,
+              "shares": 270303.0,
+              "rank": 29,
+              "pct_portfolio": 1.0205
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:816850101",
+              "cusip": "816850101",
+              "company": "SEMTECH CORP",
+              "market_value": 41659925000.0,
+              "shares": 541812.0,
+              "rank": 30,
+              "pct_portfolio": 1.0149
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:00091G104",
+              "cusip": "00091G104",
+              "company": "ACV AUCTIONS INC",
+              "market_value": 41274140000.0,
+              "shares": 9734467.0,
+              "rank": 31,
+              "pct_portfolio": 1.0055
+            },
+            {
+              "ticker": "CODI",
+              "identifier": "CODI",
+              "cusip": "20464U100",
+              "company": "COMPASS INC",
+              "market_value": 40658205000.0,
+              "shares": 5561998.0,
+              "rank": 32,
+              "pct_portfolio": 0.9905
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:31488V107",
+              "cusip": "31488V107",
+              "company": "FERGUSON ENTERPRISES INC",
+              "market_value": 34138767000.0,
+              "shares": 146355.0,
+              "rank": 33,
+              "pct_portfolio": 0.8317
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:16935C109",
+              "cusip": "16935C109",
+              "company": "CHIME FINL INC",
+              "market_value": 30393808000.0,
+              "shares": 1622734.0,
+              "rank": 34,
+              "pct_portfolio": 0.7405
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:008073108",
+              "cusip": "008073108",
+              "company": "AEROVIRONMENT INC",
+              "market_value": 29594609000.0,
+              "shares": 161675.0,
+              "rank": 35,
+              "pct_portfolio": 0.721
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:458140100",
+              "cusip": "458140100",
+              "company": "INTEL CORP",
+              "market_value": 28851841000.0,
+              "shares": 653792.0,
+              "rank": 36,
+              "pct_portfolio": 0.7029
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:781154109",
+              "cusip": "781154109",
+              "company": "RUBRIK INC.",
+              "market_value": 27739252000.0,
+              "shares": 566454.0,
+              "rank": 37,
+              "pct_portfolio": 0.6758
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:M6191J100",
+              "cusip": "M6191J100",
+              "company": "JFROG LTD",
+              "market_value": 26045540000.0,
+              "shares": 554987.0,
+              "rank": 38,
+              "pct_portfolio": 0.6345
+            },
+            {
+              "ticker": "MA",
+              "identifier": "MA",
+              "cusip": "57636Q104",
+              "company": "MASTERCARD INCORPORATED",
+              "market_value": 24785135000.0,
+              "shares": 49604.0,
+              "rank": 39,
+              "pct_portfolio": 0.6038
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:023193105",
+              "cusip": "023193105",
+              "company": "AMBIQ MICRO INC",
+              "market_value": 21907867000.0,
+              "shares": 862175.0,
+              "rank": 40,
+              "pct_portfolio": 0.5337
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:833445109",
+              "cusip": "833445109",
+              "company": "SNOWFLAKE INC",
+              "market_value": 21841451000.0,
+              "shares": 144818.0,
+              "rank": 41,
+              "pct_portfolio": 0.5321
+            },
+            {
+              "ticker": "V",
+              "identifier": "V",
+              "cusip": "92826C839",
+              "company": "VISA INC",
+              "market_value": 21652776000.0,
+              "shares": 71641.0,
+              "rank": 42,
+              "pct_portfolio": 0.5275
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G39387108",
+              "cusip": "G39387108",
+              "company": "GLOBALFOUNDRIES INC",
+              "market_value": 21109897000.0,
+              "shares": 474593.0,
+              "rank": 43,
+              "pct_portfolio": 0.5143
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:775133101",
+              "cusip": "775133101",
+              "company": "ROGERS CORP",
+              "market_value": 19972503000.0,
+              "shares": 186085.0,
+              "rank": 44,
+              "pct_portfolio": 0.4866
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:654902204",
+              "cusip": "654902204",
+              "company": "NOKIA CORP",
+              "market_value": 19954854000.0,
+              "shares": 2481947.0,
+              "rank": 45,
+              "pct_portfolio": 0.4861
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:93403J106",
+              "cusip": "93403J106",
+              "company": "WARBY PARKER INC",
+              "market_value": 14474985000.0,
+              "shares": 686995.0,
+              "rank": 46,
+              "pct_portfolio": 0.3526
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:922417100",
+              "cusip": "922417100",
+              "company": "VEECO INSTRS INC DEL",
+              "market_value": 7920633000.0,
+              "shares": 233923.0,
+              "rank": 47,
+              "pct_portfolio": 0.193
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:N97284108",
+              "cusip": "N97284108",
+              "company": "NEBIUS GROUP N.V.",
+              "market_value": 6543936000.0,
+              "shares": 63068.0,
+              "rank": 48,
+              "pct_portfolio": 0.1594
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:29445S100",
+              "cusip": "29445S100",
+              "company": "EQUIPMENTSHARE COM INC",
+              "market_value": 4347589000.0,
+              "shares": 213431.0,
+              "rank": 49,
+              "pct_portfolio": 0.1059
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:M8744T106",
+              "cusip": "M8744T106",
+              "company": "TABOOLA.COM LTD",
+              "market_value": 2544471000.0,
+              "shares": 820797.0,
+              "rank": 50,
+              "pct_portfolio": 0.062
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:091947101",
+              "cusip": "091947101",
+              "company": "BITGO HOLDINGS INC",
+              "market_value": 239542000.0,
+              "shares": 29106.0,
+              "rank": 51,
+              "pct_portfolio": 0.0058
+            }
+          ],
+          "total_value": 4104676244000.0,
+          "num_holdings": 51
+        },
+        {
+          "form": "13F-HR",
+          "company": "Atreides Management, LP",
+          "cik": "1777813",
+          "filing_date": "2026-02-17",
+          "file_name": "edgar/data/1777813/0001777813-26-000003.txt",
+          "accession": "0001777813-26-000003",
+          "period_end": "2025-12-31",
+          "quarter": "2025-Q4",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/1777813/0001777813-26-000003.txt",
+          "holdings": [
+            {
+              "ticker": "NVDA",
+              "identifier": "NVDA",
+              "cusip": "67066G104",
+              "company": "NVIDIA CORPORATION",
+              "market_value": 359055582000.0,
+              "shares": 1925231.0,
+              "rank": 1,
+              "pct_portfolio": 7.6179
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:171779309",
+              "cusip": "171779309",
+              "company": "CIENA CORP",
+              "market_value": 334020150000.0,
+              "shares": 1428230.0,
+              "rank": 2,
+              "pct_portfolio": 7.0867
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:91332U101",
+              "cusip": "91332U101",
+              "company": "UNITY SOFTWARE INC",
+              "market_value": 292645641000.0,
+              "shares": 6625439.0,
+              "rank": 3,
+              "pct_portfolio": 6.2089
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:74624M102",
+              "cusip": "74624M102",
+              "company": "PURE STORAGE INC",
+              "market_value": 279946002000.0,
+              "shares": 4177675.0,
+              "rank": 4,
+              "pct_portfolio": 5.9394
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:04626A103",
+              "cusip": "04626A103",
+              "company": "ASTERA LABS INC",
+              "market_value": 268038234000.0,
+              "shares": 1611194.0,
+              "rank": 5,
+              "pct_portfolio": 5.6868
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:19247G107",
+              "cusip": "19247G107",
+              "company": "COHERENT CORP",
+              "market_value": 227989354000.0,
+              "shares": 1235246.0,
+              "rank": 6,
+              "pct_portfolio": 4.8371
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:595112103",
+              "cusip": "595112103",
+              "company": "MICRON TECHNOLOGY INC",
+              "market_value": 210894016000.0,
+              "shares": 738916.0,
+              "rank": 7,
+              "pct_portfolio": 4.4744
+            },
+            {
+              "ticker": "GOOGL",
+              "identifier": "GOOGL",
+              "cusip": "02079K305",
+              "company": "ALPHABET INC",
+              "market_value": 160988107000.0,
+              "shares": 514339.0,
+              "rank": 8,
+              "pct_portfolio": 3.4156
+            },
+            {
+              "ticker": "AMZN",
+              "identifier": "AMZN",
+              "cusip": "023135106",
+              "company": "AMAZON COM INC",
+              "market_value": 158757765000.0,
+              "shares": 687799.0,
+              "rank": 9,
+              "pct_portfolio": 3.3683
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:55024U109",
+              "cusip": "55024U109",
+              "company": "LUMENTUM HLDGS INC",
+              "market_value": 141098095000.0,
+              "shares": 382805.0,
+              "rank": 10,
+              "pct_portfolio": 2.9936
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:M98068105",
+              "cusip": "M98068105",
+              "company": "WIX COM LTD",
+              "market_value": 129598308000.0,
+              "shares": 1247457.0,
+              "rank": 11,
+              "pct_portfolio": 2.7496
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:37637K108",
+              "cusip": "37637K108",
+              "company": "GITLAB INC",
+              "market_value": 119235925000.0,
+              "shares": 3177083.0,
+              "rank": 12,
+              "pct_portfolio": 2.5298
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:833445109",
+              "cusip": "833445109",
+              "company": "SNOWFLAKE INC",
+              "market_value": 105019477000.0,
+              "shares": 478754.0,
+              "rank": 13,
+              "pct_portfolio": 2.2281
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:00827B106",
+              "cusip": "00827B106",
+              "company": "AFFIRM HLDGS INC",
+              "market_value": 103081159000.0,
+              "shares": 1384941.0,
+              "rank": 14,
+              "pct_portfolio": 2.187
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:90138F102",
+              "cusip": "90138F102",
+              "company": "TWILIO INC",
+              "market_value": 101978399000.0,
+              "shares": 716946.0,
+              "rank": 15,
+              "pct_portfolio": 2.1636
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:00091G104",
+              "cusip": "00091G104",
+              "company": "ACV AUCTIONS INC",
+              "market_value": 99542636000.0,
+              "shares": 12411800.0,
+              "rank": 16,
+              "pct_portfolio": 2.1119
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:278768106",
+              "cusip": "278768106",
+              "company": "ECHOSTAR CORP",
+              "market_value": 97947831000.0,
+              "shares": 901084.0,
+              "rank": 17,
+              "pct_portfolio": 2.0781
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:253393102",
+              "cusip": "253393102",
+              "company": "DICKS SPORTING GOODS INC",
+              "market_value": 97169219000.0,
+              "shares": 490828.0,
+              "rank": 18,
+              "pct_portfolio": 2.0616
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:974155103",
+              "cusip": "974155103",
+              "company": "WINGSTOP INC",
+              "market_value": 93012292000.0,
+              "shares": 390005.0,
+              "rank": 19,
+              "pct_portfolio": 1.9734
+            },
+            {
+              "ticker": "CODI",
+              "identifier": "CODI",
+              "cusip": "20464U100",
+              "company": "COMPASS INC",
+              "market_value": 92206697000.0,
+              "shares": 8723434.0,
+              "rank": 20,
+              "pct_portfolio": 1.9563
+            },
+            {
+              "ticker": "MSFT",
+              "identifier": "MSFT",
+              "cusip": "594918104",
+              "company": "MICROSOFT CORP",
+              "market_value": 87761554000.0,
+              "shares": 181468.0,
+              "rank": 21,
+              "pct_portfolio": 1.862
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:94419L101",
+              "cusip": "94419L101",
+              "company": "WAYFAIR INC",
+              "market_value": 87443454000.0,
+              "shares": 870864.0,
+              "rank": 22,
+              "pct_portfolio": 1.8552
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:81764X103",
+              "cusip": "81764X103",
+              "company": "SERVICETITAN INC",
+              "market_value": 84394115000.0,
+              "shares": 792433.0,
+              "rank": 23,
+              "pct_portfolio": 1.7905
+            },
+            {
+              "ticker": "TSLA",
+              "identifier": "TSLA",
+              "cusip": "88160R101",
+              "company": "TESLA INC",
+              "market_value": 83663660000.0,
+              "shares": 186035.0,
+              "rank": 24,
+              "pct_portfolio": 1.775
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:77311W101",
+              "cusip": "77311W101",
+              "company": "ROCKET COS INC",
+              "market_value": 69745620000.0,
+              "shares": 3602563.0,
+              "rank": 25,
+              "pct_portfolio": 1.4797
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:781154109",
+              "cusip": "781154109",
+              "company": "RUBRIK INC.",
+              "market_value": 68451818000.0,
+              "shares": 895029.0,
+              "rank": 26,
+              "pct_portfolio": 1.4523
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:718172109",
+              "cusip": "718172109",
+              "company": "PHILIP MORRIS INTL INC",
+              "market_value": 65083744000.0,
+              "shares": 405759.0,
+              "rank": 27,
+              "pct_portfolio": 1.3808
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:049468101",
+              "cusip": "049468101",
+              "company": "ATLASSIAN CORPORATION",
+              "market_value": 64569012000.0,
+              "shares": 398230.0,
+              "rank": 28,
+              "pct_portfolio": 1.3699
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:05464C101",
+              "cusip": "05464C101",
+              "company": "AXON ENTERPRISE INC",
+              "market_value": 59899009000.0,
+              "shares": 105469.0,
+              "rank": 29,
+              "pct_portfolio": 1.2708
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G6683N103",
+              "cusip": "G6683N103",
+              "company": "NU HLDGS LTD",
+              "market_value": 54789987000.0,
+              "shares": 3272998.0,
+              "rank": 30,
+              "pct_portfolio": 1.1624
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:816850101",
+              "cusip": "816850101",
+              "company": "SEMTECH CORP",
+              "market_value": 50963341000.0,
+              "shares": 691591.0,
+              "rank": 31,
+              "pct_portfolio": 1.0813
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:751212101",
+              "cusip": "751212101",
+              "company": "RALPH LAUREN CORP",
+              "market_value": 45107199000.0,
+              "shares": 127562.0,
+              "rank": 32,
+              "pct_portfolio": 0.957
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:21873S108",
+              "cusip": "21873S108",
+              "company": "COREWEAVE INC",
+              "market_value": 43403537000.0,
+              "shares": 606110.0,
+              "rank": 33,
+              "pct_portfolio": 0.9209
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:31488V107",
+              "cusip": "31488V107",
+              "company": "FERGUSON ENTERPRISES INC",
+              "market_value": 39609662000.0,
+              "shares": 177917.0,
+              "rank": 34,
+              "pct_portfolio": 0.8404
+            },
+            {
+              "ticker": "AZO",
+              "identifier": "AZO",
+              "cusip": "053332102",
+              "company": "AUTOZONE INC",
+              "market_value": 39409230000.0,
+              "shares": 11620.0,
+              "rank": 35,
+              "pct_portfolio": 0.8361
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:16935C109",
+              "cusip": "16935C109",
+              "company": "CHIME FINL INC",
+              "market_value": 37850344000.0,
+              "shares": 1503788.0,
+              "rank": 36,
+              "pct_portfolio": 0.803
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:81141R100",
+              "cusip": "81141R100",
+              "company": "SEA LTD",
+              "market_value": 35137753000.0,
+              "shares": 275439.0,
+              "rank": 37,
+              "pct_portfolio": 0.7455
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:771049103",
+              "cusip": "771049103",
+              "company": "ROBLOX CORP",
+              "market_value": 31566938000.0,
+              "shares": 389571.0,
+              "rank": 38,
+              "pct_portfolio": 0.6697
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:030111207",
+              "cusip": "030111207",
+              "company": "AMERICAN SUPERCONDUCTOR CORP",
+              "market_value": 30051875000.0,
+              "shares": 1044193.0,
+              "rank": 39,
+              "pct_portfolio": 0.6376
+            },
+            {
+              "ticker": "MA",
+              "identifier": "MA",
+              "cusip": "57636Q104",
+              "company": "MASTERCARD INCORPORATED",
+              "market_value": 26236503000.0,
+              "shares": 45958.0,
+              "rank": 40,
+              "pct_portfolio": 0.5566
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:M6191J100",
+              "cusip": "M6191J100",
+              "company": "JFROG LTD",
+              "market_value": 25251079000.0,
+              "shares": 404276.0,
+              "rank": 41,
+              "pct_portfolio": 0.5357
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:368736104",
+              "cusip": "368736104",
+              "company": "GENERAC HLDGS INC",
+              "market_value": 24923663000.0,
+              "shares": 182765.0,
+              "rank": 42,
+              "pct_portfolio": 0.5288
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:023193105",
+              "cusip": "023193105",
+              "company": "AMBIQ MICRO INC",
+              "market_value": 19847970000.0,
+              "shares": 696420.0,
+              "rank": 43,
+              "pct_portfolio": 0.4211
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:458140100",
+              "cusip": "458140100",
+              "company": "INTEL CORP",
+              "market_value": 17857017000.0,
+              "shares": 483930.0,
+              "rank": 44,
+              "pct_portfolio": 0.3789
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:775133101",
+              "cusip": "775133101",
+              "company": "ROGERS CORP",
+              "market_value": 15742714000.0,
+              "shares": 171920.0,
+              "rank": 45,
+              "pct_portfolio": 0.334
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:71377A103",
+              "cusip": "71377A103",
+              "company": "PERFORMANCE FOOD GROUP CO",
+              "market_value": 11321018000.0,
+              "shares": 125901.0,
+              "rank": 46,
+              "pct_portfolio": 0.2402
+            },
+            {
+              "ticker": "MELI",
+              "identifier": "MELI",
+              "cusip": "58733R102",
+              "company": "MERCADOLIBRE INC",
+              "market_value": 9066184000.0,
+              "shares": 4501.0,
+              "rank": 47,
+              "pct_portfolio": 0.1924
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:93403J106",
+              "cusip": "93403J106",
+              "company": "WARBY PARKER INC",
+              "market_value": 8565322000.0,
+              "shares": 393085.0,
+              "rank": 48,
+              "pct_portfolio": 0.1817
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:M8744T106",
+              "cusip": "M8744T106",
+              "company": "TABOOLA.COM LTD",
+              "market_value": 3403148000.0,
+              "shares": 738210.0,
+              "rank": 49,
+              "pct_portfolio": 0.0722
+            }
+          ],
+          "total_value": 4713341359000.0,
+          "num_holdings": 49
+        },
+        {
+          "form": "13F-HR",
+          "company": "Atreides Management, LP",
+          "cik": "1777813",
+          "filing_date": "2025-11-14",
+          "file_name": "edgar/data/1777813/0001777813-25-000008.txt",
+          "accession": "0001777813-25-000008",
+          "period_end": "2025-09-30",
+          "quarter": "2025-Q3",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/1777813/0001777813-25-000008.txt",
+          "holdings": [
+            {
+              "ticker": null,
+              "identifier": "CUSIP:74624M102",
+              "cusip": "74624M102",
+              "company": "PURE STORAGE INC",
+              "market_value": 343484893000.0,
+              "shares": 4098376.0,
+              "rank": 1,
+              "pct_portfolio": 8.9219
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:37637K108",
+              "cusip": "37637K108",
+              "company": "GITLAB INC",
+              "market_value": 246601349000.0,
+              "shares": 5470305.0,
+              "rank": 2,
+              "pct_portfolio": 6.4054
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:91332U101",
+              "cusip": "91332U101",
+              "company": "UNITY SOFTWARE INC",
+              "market_value": 244706582000.0,
+              "shares": 6111553.0,
+              "rank": 3,
+              "pct_portfolio": 6.3562
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:171779309",
+              "cusip": "171779309",
+              "company": "CIENA CORP",
+              "market_value": 204049292000.0,
+              "shares": 1400764.0,
+              "rank": 4,
+              "pct_portfolio": 5.3001
+            },
+            {
+              "ticker": "AMZN",
+              "identifier": "AMZN",
+              "cusip": "023135106",
+              "company": "AMAZON COM INC",
+              "market_value": 144671599000.0,
+              "shares": 658886.0,
+              "rank": 5,
+              "pct_portfolio": 3.7578
+            },
+            {
+              "ticker": "GOOGL",
+              "identifier": "GOOGL",
+              "cusip": "02079K305",
+              "company": "ALPHABET INC",
+              "market_value": 133768206000.0,
+              "shares": 550260.0,
+              "rank": 6,
+              "pct_portfolio": 3.4746
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:243537107",
+              "cusip": "243537107",
+              "company": "DECKERS OUTDOOR CORP",
+              "market_value": 126764807000.0,
+              "shares": 1250516.0,
+              "rank": 7,
+              "pct_portfolio": 3.2927
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:595112103",
+              "cusip": "595112103",
+              "company": "MICRON TECHNOLOGY INC",
+              "market_value": 121299805000.0,
+              "shares": 724957.0,
+              "rank": 8,
+              "pct_portfolio": 3.1507
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:443573100",
+              "cusip": "443573100",
+              "company": "HUBSPOT INC",
+              "market_value": 113878425000.0,
+              "shares": 243434.0,
+              "rank": 9,
+              "pct_portfolio": 2.958
+            },
+            {
+              "ticker": "NVDA",
+              "identifier": "NVDA",
+              "cusip": "67066G104",
+              "company": "NVIDIA CORPORATION",
+              "market_value": 107231817000.0,
+              "shares": 574723.0,
+              "rank": 10,
+              "pct_portfolio": 2.7853
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:253393102",
+              "cusip": "253393102",
+              "company": "DICKS SPORTING GOODS INC",
+              "market_value": 106973597000.0,
+              "shares": 481386.0,
+              "rank": 11,
+              "pct_portfolio": 2.7786
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:55024U109",
+              "cusip": "55024U109",
+              "company": "LUMENTUM HLDGS INC",
+              "market_value": 106893962000.0,
+              "shares": 656960.0,
+              "rank": 12,
+              "pct_portfolio": 2.7765
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:833445109",
+              "cusip": "833445109",
+              "company": "SNOWFLAKE INC",
+              "market_value": 105905875000.0,
+              "shares": 469545.0,
+              "rank": 13,
+              "pct_portfolio": 2.7509
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:771049103",
+              "cusip": "771049103",
+              "company": "ROBLOX CORP",
+              "market_value": 102090210000.0,
+              "shares": 737007.0,
+              "rank": 14,
+              "pct_portfolio": 2.6518
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:19247G107",
+              "cusip": "19247G107",
+              "company": "COHERENT CORP",
+              "market_value": 98432166000.0,
+              "shares": 913778.0,
+              "rank": 15,
+              "pct_portfolio": 2.5567
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:90138F102",
+              "cusip": "90138F102",
+              "company": "TWILIO INC",
+              "market_value": 96663219000.0,
+              "shares": 965763.0,
+              "rank": 16,
+              "pct_portfolio": 2.5108
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:461202103",
+              "cusip": "461202103",
+              "company": "INTUIT",
+              "market_value": 92314408000.0,
+              "shares": 135178.0,
+              "rank": 17,
+              "pct_portfolio": 2.3978
+            },
+            {
+              "ticker": "TSLA",
+              "identifier": "TSLA",
+              "cusip": "88160R101",
+              "company": "TESLA INC",
+              "market_value": 91862253000.0,
+              "shares": 206562.0,
+              "rank": 18,
+              "pct_portfolio": 2.3861
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:458140100",
+              "cusip": "458140100",
+              "company": "INTEL CORP",
+              "market_value": 87600291000.0,
+              "shares": 2611037.0,
+              "rank": 19,
+              "pct_portfolio": 2.2754
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:94419L101",
+              "cusip": "94419L101",
+              "company": "WAYFAIR INC",
+              "market_value": 76322659000.0,
+              "shares": 854390.0,
+              "rank": 20,
+              "pct_portfolio": 1.9825
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:26856L103",
+              "cusip": "26856L103",
+              "company": "E L F BEAUTY INC",
+              "market_value": 71320343000.0,
+              "shares": 538348.0,
+              "rank": 21,
+              "pct_portfolio": 1.8525
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:81764X103",
+              "cusip": "81764X103",
+              "company": "SERVICETITAN INC",
+              "market_value": 63142468000.0,
+              "shares": 626227.0,
+              "rank": 22,
+              "pct_portfolio": 1.6401
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:781154109",
+              "cusip": "781154109",
+              "company": "RUBRIK INC.",
+              "market_value": 61913852000.0,
+              "shares": 752752.0,
+              "rank": 23,
+              "pct_portfolio": 1.6082
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:007903107",
+              "cusip": "007903107",
+              "company": "ADVANCED MICRO DEVICES INC",
+              "market_value": 54904731000.0,
+              "shares": 339358.0,
+              "rank": 24,
+              "pct_portfolio": 1.4261
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:00091G104",
+              "cusip": "00091G104",
+              "company": "ACV AUCTIONS INC",
+              "market_value": 54611929000.0,
+              "shares": 5510790.0,
+              "rank": 25,
+              "pct_portfolio": 1.4185
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:31488V107",
+              "cusip": "31488V107",
+              "company": "FERGUSON ENTERPRISES INC",
+              "market_value": 49996898000.0,
+              "shares": 222624.0,
+              "rank": 26,
+              "pct_portfolio": 1.2987
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:049468101",
+              "cusip": "049468101",
+              "company": "ATLASSIAN CORPORATION",
+              "market_value": 48745391000.0,
+              "shares": 305231.0,
+              "rank": 27,
+              "pct_portfolio": 1.2661
+            },
+            {
+              "ticker": "META",
+              "identifier": "META",
+              "cusip": "30303M102",
+              "company": "META PLATFORMS INC",
+              "market_value": 48537377000.0,
+              "shares": 66093.0,
+              "rank": 28,
+              "pct_portfolio": 1.2607
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:816850101",
+              "cusip": "816850101",
+              "company": "SEMTECH CORP",
+              "market_value": 48452603000.0,
+              "shares": 678133.0,
+              "rank": 29,
+              "pct_portfolio": 1.2585
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:81141R100",
+              "cusip": "81141R100",
+              "company": "SEA LTD",
+              "market_value": 48288020000.0,
+              "shares": 270173.0,
+              "rank": 30,
+              "pct_portfolio": 1.2543
+            },
+            {
+              "ticker": "AZO",
+              "identifier": "AZO",
+              "cusip": "053332102",
+              "company": "AUTOZONE INC",
+              "market_value": 46883743000.0,
+              "shares": 10928.0,
+              "rank": 31,
+              "pct_portfolio": 1.2178
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:030111207",
+              "cusip": "030111207",
+              "company": "AMERICAN SUPERCONDUCTOR CORP",
+              "market_value": 45819088000.0,
+              "shares": 771495.0,
+              "rank": 32,
+              "pct_portfolio": 1.1901
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:718172109",
+              "cusip": "718172109",
+              "company": "PHILIP MORRIS INTL INC",
+              "market_value": 45269533000.0,
+              "shares": 279097.0,
+              "rank": 33,
+              "pct_portfolio": 1.1759
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G6683N103",
+              "cusip": "G6683N103",
+              "company": "NU HLDGS LTD",
+              "market_value": 40175318000.0,
+              "shares": 2509389.0,
+              "rank": 34,
+              "pct_portfolio": 1.0435
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:751212101",
+              "cusip": "751212101",
+              "company": "RALPH LAUREN CORP",
+              "market_value": 39226356000.0,
+              "shares": 125100.0,
+              "rank": 35,
+              "pct_portfolio": 1.0189
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:922280102",
+              "cusip": "922280102",
+              "company": "VARONIS SYS INC",
+              "market_value": 37839110000.0,
+              "shares": 658415.0,
+              "rank": 36,
+              "pct_portfolio": 0.9829
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:79589L106",
+              "cusip": "79589L106",
+              "company": "SAMSARA INC",
+              "market_value": 26492759000.0,
+              "shares": 711215.0,
+              "rank": 37,
+              "pct_portfolio": 0.6881
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:05464C101",
+              "cusip": "05464C101",
+              "company": "AXON ENTERPRISE INC",
+              "market_value": 26165872000.0,
+              "shares": 36461.0,
+              "rank": 38,
+              "pct_portfolio": 0.6797
+            },
+            {
+              "ticker": "MA",
+              "identifier": "MA",
+              "cusip": "57636Q104",
+              "company": "MASTERCARD INCORPORATED",
+              "market_value": 25635129000.0,
+              "shares": 45068.0,
+              "rank": 39,
+              "pct_portfolio": 0.6659
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:023193105",
+              "cusip": "023193105",
+              "company": "AMBIQ MICRO INC",
+              "market_value": 20474465000.0,
+              "shares": 684307.0,
+              "rank": 40,
+              "pct_portfolio": 0.5318
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:77311W101",
+              "cusip": "77311W101",
+              "company": "ROCKET COS INC",
+              "market_value": 19392733000.0,
+              "shares": 1000657.0,
+              "rank": 41,
+              "pct_portfolio": 0.5037
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:871607107",
+              "cusip": "871607107",
+              "company": "SYNOPSYS INC",
+              "market_value": 19181030000.0,
+              "shares": 38876.0,
+              "rank": 42,
+              "pct_portfolio": 0.4982
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:M6191J100",
+              "cusip": "M6191J100",
+              "company": "JFROG LTD",
+              "market_value": 18801559000.0,
+              "shares": 397244.0,
+              "rank": 43,
+              "pct_portfolio": 0.4884
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:338307101",
+              "cusip": "338307101",
+              "company": "FIVE9 INC",
+              "market_value": 17790654000.0,
+              "shares": 735151.0,
+              "rank": 44,
+              "pct_portfolio": 0.4621
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:12008R107",
+              "cusip": "12008R107",
+              "company": "BUILDERS FIRSTSOURCE INC",
+              "market_value": 16629923000.0,
+              "shares": 137154.0,
+              "rank": 45,
+              "pct_portfolio": 0.432
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:00827B106",
+              "cusip": "00827B106",
+              "company": "AFFIRM HLDGS INC",
+              "market_value": 15193697000.0,
+              "shares": 207905.0,
+              "rank": 46,
+              "pct_portfolio": 0.3947
+            },
+            {
+              "ticker": "MELI",
+              "identifier": "MELI",
+              "cusip": "58733R102",
+              "company": "MERCADOLIBRE INC",
+              "market_value": 13778598000.0,
+              "shares": 5896.0,
+              "rank": 47,
+              "pct_portfolio": 0.3579
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:775133101",
+              "cusip": "775133101",
+              "company": "ROGERS CORP",
+              "market_value": 13591706000.0,
+              "shares": 168925.0,
+              "rank": 48,
+              "pct_portfolio": 0.353
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:03831W108",
+              "cusip": "03831W108",
+              "company": "APPLOVIN CORP",
+              "market_value": 12486788000.0,
+              "shares": 17378.0,
+              "rank": 49,
+              "pct_portfolio": 0.3243
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G65163100",
+              "cusip": "G65163100",
+              "company": "JOBY AVIATION INC",
+              "market_value": 12418229000.0,
+              "shares": 769407.0,
+              "rank": 50,
+              "pct_portfolio": 0.3226
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:04626A103",
+              "cusip": "04626A103",
+              "company": "ASTERA LABS INC",
+              "market_value": 12149390000.0,
+              "shares": 62050.0,
+              "rank": 51,
+              "pct_portfolio": 0.3156
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:98954M200",
+              "cusip": "98954M200",
+              "company": "ZILLOW GROUP INC",
+              "market_value": 9099451000.0,
+              "shares": 118098.0,
+              "rank": 52,
+              "pct_portfolio": 0.2364
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:21873S108",
+              "cusip": "21873S108",
+              "company": "COREWEAVE INC",
+              "market_value": 8608412000.0,
+              "shares": 62904.0,
+              "rank": 53,
+              "pct_portfolio": 0.2236
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:M8744T106",
+              "cusip": "M8744T106",
+              "company": "TABOOLA.COM LTD",
+              "market_value": 2472250000.0,
+              "shares": 725000.0,
+              "rank": 54,
+              "pct_portfolio": 0.0642
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:36866J105",
+              "cusip": "36866J105",
+              "company": "GEMINI SPACE STA INC",
+              "market_value": 1677200000.0,
+              "shares": 70000.0,
+              "rank": 55,
+              "pct_portfolio": 0.0436
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:83542D300",
+              "cusip": "83542D300",
+              "company": "SONDER HOLDINGS INC",
+              "market_value": 1219877000.0,
+              "shares": 960533.0,
+              "rank": 56,
+              "pct_portfolio": 0.0317
+            }
+          ],
+          "total_value": 3849901897000.0,
+          "num_holdings": 56
+        },
+        {
+          "form": "13F-HR",
+          "company": "Atreides Management, LP",
+          "cik": "1777813",
+          "filing_date": "2025-08-14",
+          "file_name": "edgar/data/1777813/0001768757-25-000010.txt",
+          "accession": "0001768757-25-000010",
+          "period_end": "2025-06-30",
+          "quarter": "2025-Q2",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/1777813/0001768757-25-000010.txt",
+          "holdings": [
+            {
+              "ticker": null,
+              "identifier": "CUSIP:007903107",
+              "cusip": "007903107",
+              "company": "ADVANCED MICRO DEVICES INC",
+              "market_value": 246390052000.0,
+              "shares": 1736364.0,
+              "rank": 1,
+              "pct_portfolio": 6.8372
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:74624M102",
+              "cusip": "74624M102",
+              "company": "PURE STORAGE INC",
+              "market_value": 204552144000.0,
+              "shares": 3552486.0,
+              "rank": 2,
+              "pct_portfolio": 5.6762
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:37637K108",
+              "cusip": "37637K108",
+              "company": "GITLAB INC",
+              "market_value": 177652112000.0,
+              "shares": 3938198.0,
+              "rank": 3,
+              "pct_portfolio": 4.9298
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:253393102",
+              "cusip": "253393102",
+              "company": "DICKS SPORTING GOODS INC",
+              "market_value": 172715230000.0,
+              "shares": 873137.0,
+              "rank": 4,
+              "pct_portfolio": 4.7928
+            },
+            {
+              "ticker": "GOOGL",
+              "identifier": "GOOGL",
+              "cusip": "02079K305",
+              "company": "ALPHABET INC",
+              "market_value": 167569882000.0,
+              "shares": 950859.0,
+              "rank": 5,
+              "pct_portfolio": 4.65
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:55024U109",
+              "cusip": "55024U109",
+              "company": "LUMENTUM HLDGS INC",
+              "market_value": 167073749000.0,
+              "shares": 1757561.0,
+              "rank": 6,
+              "pct_portfolio": 4.6362
+            },
+            {
+              "ticker": "AMZN",
+              "identifier": "AMZN",
+              "cusip": "023135106",
+              "company": "AMAZON COM INC",
+              "market_value": 157624036000.0,
+              "shares": 718465.0,
+              "rank": 7,
+              "pct_portfolio": 4.374
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:91332U101",
+              "cusip": "91332U101",
+              "company": "UNITY SOFTWARE INC",
+              "market_value": 149341951000.0,
+              "shares": 6171155.0,
+              "rank": 8,
+              "pct_portfolio": 4.1442
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:00827B106",
+              "cusip": "00827B106",
+              "company": "AFFIRM HLDGS INC",
+              "market_value": 136750761000.0,
+              "shares": 1977882.0,
+              "rank": 9,
+              "pct_portfolio": 3.7948
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:833445109",
+              "cusip": "833445109",
+              "company": "SNOWFLAKE INC",
+              "market_value": 117651329000.0,
+              "shares": 525769.0,
+              "rank": 10,
+              "pct_portfolio": 3.2648
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:771049103",
+              "cusip": "771049103",
+              "company": "ROBLOX CORP",
+              "market_value": 110517018000.0,
+              "shares": 1050542.0,
+              "rank": 11,
+              "pct_portfolio": 3.0668
+            },
+            {
+              "ticker": "NVDA",
+              "identifier": "NVDA",
+              "cusip": "67066G104",
+              "company": "NVIDIA CORPORATION",
+              "market_value": 108983556000.0,
+              "shares": 689813.0,
+              "rank": 12,
+              "pct_portfolio": 3.0242
+            },
+            {
+              "ticker": "META",
+              "identifier": "META",
+              "cusip": "30303M102",
+              "company": "META PLATFORMS INC",
+              "market_value": 106530744000.0,
+              "shares": 144333.0,
+              "rank": 13,
+              "pct_portfolio": 2.9562
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:171779309",
+              "cusip": "171779309",
+              "company": "CIENA CORP",
+              "market_value": 102704988000.0,
+              "shares": 1262818.0,
+              "rank": 14,
+              "pct_portfolio": 2.85
+            },
+            {
+              "ticker": "TSLA",
+              "identifier": "TSLA",
+              "cusip": "88160R101",
+              "company": "TESLA INC",
+              "market_value": 102253801000.0,
+              "shares": 321897.0,
+              "rank": 15,
+              "pct_portfolio": 2.8375
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:90138F102",
+              "cusip": "90138F102",
+              "company": "TWILIO INC",
+              "market_value": 90820108000.0,
+              "shares": 730300.0,
+              "rank": 16,
+              "pct_portfolio": 2.5202
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:243537107",
+              "cusip": "243537107",
+              "company": "DECKERS OUTDOOR CORP",
+              "market_value": 87828008000.0,
+              "shares": 852120.0,
+              "rank": 17,
+              "pct_portfolio": 2.4372
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:04626A103",
+              "cusip": "04626A103",
+              "company": "ASTERA LABS INC",
+              "market_value": 86331479000.0,
+              "shares": 954783.0,
+              "rank": 18,
+              "pct_portfolio": 2.3957
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:00091G104",
+              "cusip": "00091G104",
+              "company": "ACV AUCTIONS INC",
+              "market_value": 76140475000.0,
+              "shares": 4694234.0,
+              "rank": 19,
+              "pct_portfolio": 2.1129
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:20717M103",
+              "cusip": "20717M103",
+              "company": "CONFLUENT INC",
+              "market_value": 75094520000.0,
+              "shares": 3012215.0,
+              "rank": 20,
+              "pct_portfolio": 2.0838
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:81764X103",
+              "cusip": "81764X103",
+              "company": "SERVICETITAN INC",
+              "market_value": 68678586000.0,
+              "shares": 640778.0,
+              "rank": 21,
+              "pct_portfolio": 1.9058
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:336433107",
+              "cusip": "336433107",
+              "company": "FIRST SOLAR INC",
+              "market_value": 65134031000.0,
+              "shares": 393464.0,
+              "rank": 22,
+              "pct_portfolio": 1.8074
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:31488V107",
+              "cusip": "31488V107",
+              "company": "FERGUSON ENTERPRISES INC",
+              "market_value": 64879919000.0,
+              "shares": 297956.0,
+              "rank": 23,
+              "pct_portfolio": 1.8004
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:26856L103",
+              "cusip": "26856L103",
+              "company": "E L F BEAUTY INC",
+              "market_value": 61479209000.0,
+              "shares": 494047.0,
+              "rank": 24,
+              "pct_portfolio": 1.706
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:98954M200",
+              "cusip": "98954M200",
+              "company": "ZILLOW GROUP INC",
+              "market_value": 59963360000.0,
+              "shares": 856008.0,
+              "rank": 25,
+              "pct_portfolio": 1.664
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:81141R100",
+              "cusip": "81141R100",
+              "company": "SEA LTD",
+              "market_value": 54552815000.0,
+              "shares": 341083.0,
+              "rank": 26,
+              "pct_portfolio": 1.5138
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:751212101",
+              "cusip": "751212101",
+              "company": "RALPH LAUREN CORP",
+              "market_value": 49171821000.0,
+              "shares": 179276.0,
+              "rank": 27,
+              "pct_portfolio": 1.3645
+            },
+            {
+              "ticker": "MELI",
+              "identifier": "MELI",
+              "cusip": "58733R102",
+              "company": "MERCADOLIBRE INC",
+              "market_value": 46844090000.0,
+              "shares": 17923.0,
+              "rank": 28,
+              "pct_portfolio": 1.2999
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:05464C101",
+              "cusip": "05464C101",
+              "company": "AXON ENTERPRISE INC",
+              "market_value": 43263177000.0,
+              "shares": 52254.0,
+              "rank": 29,
+              "pct_portfolio": 1.2005
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:781154109",
+              "cusip": "781154109",
+              "company": "RUBRIK INC.",
+              "market_value": 42221975000.0,
+              "shares": 471280.0,
+              "rank": 30,
+              "pct_portfolio": 1.1716
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:030111207",
+              "cusip": "030111207",
+              "company": "AMERICAN SUPERCONDUCTOR CORP",
+              "market_value": 40522564000.0,
+              "shares": 1104458.0,
+              "rank": 31,
+              "pct_portfolio": 1.1245
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G6683N103",
+              "cusip": "G6683N103",
+              "company": "NU HLDGS LTD",
+              "market_value": 37650204000.0,
+              "shares": 2744184.0,
+              "rank": 32,
+              "pct_portfolio": 1.0448
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:12008R107",
+              "cusip": "12008R107",
+              "company": "BUILDERS FIRSTSOURCE INC",
+              "market_value": 37591800000.0,
+              "shares": 322151.0,
+              "rank": 33,
+              "pct_portfolio": 1.0432
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:94419L101",
+              "cusip": "94419L101",
+              "company": "WAYFAIR INC",
+              "market_value": 37187781000.0,
+              "shares": 727176.0,
+              "rank": 34,
+              "pct_portfolio": 1.0319
+            },
+            {
+              "ticker": "MA",
+              "identifier": "MA",
+              "cusip": "57636Q104",
+              "company": "MASTERCARD INCORPORATED",
+              "market_value": 36293457000.0,
+              "shares": 64586.0,
+              "rank": 35,
+              "pct_portfolio": 1.0071
+            },
+            {
+              "ticker": "AZO",
+              "identifier": "AZO",
+              "cusip": "053332102",
+              "company": "AUTOZONE INC",
+              "market_value": 35860142000.0,
+              "shares": 9660.0,
+              "rank": 36,
+              "pct_portfolio": 0.9951
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:81730H109",
+              "cusip": "81730H109",
+              "company": "SENTINELONE INC",
+              "market_value": 34783568000.0,
+              "shares": 1902821.0,
+              "rank": 37,
+              "pct_portfolio": 0.9652
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:816850101",
+              "cusip": "816850101",
+              "company": "SEMTECH CORP",
+              "market_value": 29880017000.0,
+              "shares": 661941.0,
+              "rank": 38,
+              "pct_portfolio": 0.8292
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:338307101",
+              "cusip": "338307101",
+              "company": "FIVE9 INC",
+              "market_value": 25304632000.0,
+              "shares": 955613.0,
+              "rank": 39,
+              "pct_portfolio": 0.7022
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:21873S108",
+              "cusip": "21873S108",
+              "company": "COREWEAVE INC",
+              "market_value": 25203043000.0,
+              "shares": 154563.0,
+              "rank": 40,
+              "pct_portfolio": 0.6994
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:77311W101",
+              "cusip": "77311W101",
+              "company": "ROCKET COS INC",
+              "market_value": 24561036000.0,
+              "shares": 1732090.0,
+              "rank": 41,
+              "pct_portfolio": 0.6816
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:775133101",
+              "cusip": "775133101",
+              "company": "ROGERS CORP",
+              "market_value": 12888141000.0,
+              "shares": 188203.0,
+              "rank": 42,
+              "pct_portfolio": 0.3576
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G65163100",
+              "cusip": "G65163100",
+              "company": "JOBY AVIATION INC",
+              "market_value": 10550000000.0,
+              "shares": 1000000.0,
+              "rank": 43,
+              "pct_portfolio": 0.2928
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:595112103",
+              "cusip": "595112103",
+              "company": "MICRON TECHNOLOGY INC",
+              "market_value": 8686414000.0,
+              "shares": 70478.0,
+              "rank": 44,
+              "pct_portfolio": 0.241
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:M8744T106",
+              "cusip": "M8744T106",
+              "company": "TABOOLA.COM LTD",
+              "market_value": 2653500000.0,
+              "shares": 725000.0,
+              "rank": 45,
+              "pct_portfolio": 0.0736
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:83542D300",
+              "cusip": "83542D300",
+              "company": "SONDER HOLDINGS INC",
+              "market_value": 2593439000.0,
+              "shares": 960533.0,
+              "rank": 46,
+              "pct_portfolio": 0.072
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:92892B103",
+              "cusip": "92892B103",
+              "company": "VOYAGER TECHNOLOGIES INC",
+              "market_value": 392500000.0,
+              "shares": 10000.0,
+              "rank": 47,
+              "pct_portfolio": 0.0109
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:16935C109",
+              "cusip": "16935C109",
+              "company": "CHIME FINL INC",
+              "market_value": 345100000.0,
+              "shares": 10000.0,
+              "rank": 48,
+              "pct_portfolio": 0.0096
+            }
+          ],
+          "total_value": 3603662264000.0,
+          "num_holdings": 48
+        },
+        {
+          "form": "13F-HR",
+          "company": "Atreides Management, LP",
+          "cik": "1777813",
+          "filing_date": "2025-05-15",
+          "file_name": "edgar/data/1777813/0001777813-25-000005.txt",
+          "accession": "0001777813-25-000005",
+          "period_end": "2025-03-31",
+          "quarter": "2025-Q1",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/1777813/0001777813-25-000005.txt",
+          "holdings": [
+            {
+              "ticker": null,
+              "identifier": "CUSIP:04626A103",
+              "cusip": "04626A103",
+              "company": "ASTERA LABS INC",
+              "market_value": 277600593000.0,
+              "shares": 4652264.0,
+              "rank": 1,
+              "pct_portfolio": 10.0904
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:007903107",
+              "cusip": "007903107",
+              "company": "ADVANCED MICRO DEVICES INC",
+              "market_value": 216058419000.0,
+              "shares": 2102963.0,
+              "rank": 2,
+              "pct_portfolio": 7.8534
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:91332U101",
+              "cusip": "91332U101",
+              "company": "UNITY SOFTWARE INC",
+              "market_value": 184752408000.0,
+              "shares": 9430955.0,
+              "rank": 3,
+              "pct_portfolio": 6.7155
+            },
+            {
+              "ticker": "MSFT",
+              "identifier": "MSFT",
+              "cusip": "594918104",
+              "company": "MICROSOFT CORP",
+              "market_value": 157714853000.0,
+              "shares": 420136.0,
+              "rank": 4,
+              "pct_portfolio": 5.7327
+            },
+            {
+              "ticker": "META",
+              "identifier": "META",
+              "cusip": "30303M102",
+              "company": "META PLATFORMS INC",
+              "market_value": 138204788000.0,
+              "shares": 239789.0,
+              "rank": 5,
+              "pct_portfolio": 5.0235
+            },
+            {
+              "ticker": "AMZN",
+              "identifier": "AMZN",
+              "cusip": "023135106",
+              "company": "AMAZON COM INC",
+              "market_value": 131133090000.0,
+              "shares": 689231.0,
+              "rank": 6,
+              "pct_portfolio": 4.7665
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:243537107",
+              "cusip": "243537107",
+              "company": "DECKERS OUTDOOR CORP",
+              "market_value": 120608664000.0,
+              "shares": 1078693.0,
+              "rank": 7,
+              "pct_portfolio": 4.384
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:771049103",
+              "cusip": "771049103",
+              "company": "ROBLOX CORP",
+              "market_value": 117837432000.0,
+              "shares": 2021572.0,
+              "rank": 8,
+              "pct_portfolio": 4.2832
+            },
+            {
+              "ticker": "NVDA",
+              "identifier": "NVDA",
+              "cusip": "67066G104",
+              "company": "NVIDIA CORPORATION",
+              "market_value": 117660363000.0,
+              "shares": 1085628.0,
+              "rank": 9,
+              "pct_portfolio": 4.2768
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:55024U109",
+              "cusip": "55024U109",
+              "company": "LUMENTUM HLDGS INC",
+              "market_value": 116903521000.0,
+              "shares": 1875257.0,
+              "rank": 10,
+              "pct_portfolio": 4.2493
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:74967X103",
+              "cusip": "74967X103",
+              "company": "RH",
+              "market_value": 110951176000.0,
+              "shares": 473321.0,
+              "rank": 11,
+              "pct_portfolio": 4.0329
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:833445109",
+              "cusip": "833445109",
+              "company": "SNOWFLAKE INC",
+              "market_value": 88969784000.0,
+              "shares": 608715.0,
+              "rank": 12,
+              "pct_portfolio": 3.2339
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:90384S303",
+              "cusip": "90384S303",
+              "company": "ULTA BEAUTY INC",
+              "market_value": 79737478000.0,
+              "shares": 217541.0,
+              "rank": 13,
+              "pct_portfolio": 2.8983
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:595112103",
+              "cusip": "595112103",
+              "company": "MICRON TECHNOLOGY INC",
+              "market_value": 77318371000.0,
+              "shares": 889842.0,
+              "rank": 14,
+              "pct_portfolio": 2.8104
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:21873S108",
+              "cusip": "21873S108",
+              "company": "COREWEAVE INC",
+              "market_value": 69525000000.0,
+              "shares": 1875000.0,
+              "rank": 15,
+              "pct_portfolio": 2.5271
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:00091G104",
+              "cusip": "00091G104",
+              "company": "ACV AUCTIONS INC",
+              "market_value": 66660903000.0,
+              "shares": 4731079.0,
+              "rank": 16,
+              "pct_portfolio": 2.423
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:871607107",
+              "cusip": "871607107",
+              "company": "SYNOPSYS INC",
+              "market_value": 65394479000.0,
+              "shares": 152488.0,
+              "rank": 17,
+              "pct_portfolio": 2.377
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:81730H109",
+              "cusip": "81730H109",
+              "company": "SENTINELONE INC",
+              "market_value": 61045113000.0,
+              "shares": 3357817.0,
+              "rank": 18,
+              "pct_portfolio": 2.2189
+            },
+            {
+              "ticker": "TSLA",
+              "identifier": "TSLA",
+              "cusip": "88160R101",
+              "company": "TESLA INC",
+              "market_value": 50676665000.0,
+              "shares": 195542.0,
+              "rank": 19,
+              "pct_portfolio": 1.842
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:31488V107",
+              "cusip": "31488V107",
+              "company": "FERGUSON ENTERPRISES INC",
+              "market_value": 44877058000.0,
+              "shares": 280079.0,
+              "rank": 20,
+              "pct_portfolio": 1.6312
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:N14506104",
+              "cusip": "N14506104",
+              "company": "ELASTIC N V",
+              "market_value": 43979582000.0,
+              "shares": 493598.0,
+              "rank": 21,
+              "pct_portfolio": 1.5986
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:20717M103",
+              "cusip": "20717M103",
+              "company": "CONFLUENT INC",
+              "market_value": 38792473000.0,
+              "shares": 1654969.0,
+              "rank": 22,
+              "pct_portfolio": 1.4101
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:751212101",
+              "cusip": "751212101",
+              "company": "RALPH LAUREN CORP",
+              "market_value": 36783231000.0,
+              "shares": 166636.0,
+              "rank": 23,
+              "pct_portfolio": 1.337
+            },
+            {
+              "ticker": "MA",
+              "identifier": "MA",
+              "cusip": "57636Q104",
+              "company": "MASTERCARD INCORPORATED",
+              "market_value": 35959413000.0,
+              "shares": 65605.0,
+              "rank": 24,
+              "pct_portfolio": 1.3071
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:05464C101",
+              "cusip": "05464C101",
+              "company": "AXON ENTERPRISE INC",
+              "market_value": 33082781000.0,
+              "shares": 62901.0,
+              "rank": 25,
+              "pct_portfolio": 1.2025
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:60937P106",
+              "cusip": "60937P106",
+              "company": "MONGODB INC",
+              "market_value": 32432688000.0,
+              "shares": 184907.0,
+              "rank": 26,
+              "pct_portfolio": 1.1789
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:98954M200",
+              "cusip": "98954M200",
+              "company": "ZILLOW GROUP INC",
+              "market_value": 32158822000.0,
+              "shares": 469061.0,
+              "rank": 27,
+              "pct_portfolio": 1.1689
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G66721104",
+              "cusip": "G66721104",
+              "company": "NORWEGIAN CRUISE LINE HLDG L",
+              "market_value": 30781238000.0,
+              "shares": 1623483.0,
+              "rank": 28,
+              "pct_portfolio": 1.1189
+            },
+            {
+              "ticker": "GOOGL",
+              "identifier": "GOOGL",
+              "cusip": "02079K305",
+              "company": "ALPHABET INC",
+              "market_value": 29238867000.0,
+              "shares": 189077.0,
+              "rank": 29,
+              "pct_portfolio": 1.0628
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:94419L101",
+              "cusip": "94419L101",
+              "company": "WAYFAIR INC",
+              "market_value": 20789712000.0,
+              "shares": 649070.0,
+              "rank": 30,
+              "pct_portfolio": 0.7557
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:37637K108",
+              "cusip": "37637K108",
+              "company": "GITLAB INC",
+              "market_value": 19135016000.0,
+              "shares": 407128.0,
+              "rank": 31,
+              "pct_portfolio": 0.6955
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:338307101",
+              "cusip": "338307101",
+              "company": "FIVE9 INC",
+              "market_value": 16746011000.0,
+              "shares": 616796.0,
+              "rank": 32,
+              "pct_portfolio": 0.6087
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:75734B100",
+              "cusip": "75734B100",
+              "company": "REDDIT INC",
+              "market_value": 15353479000.0,
+              "shares": 146363.0,
+              "rank": 33,
+              "pct_portfolio": 0.5581
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:030111207",
+              "cusip": "030111207",
+              "company": "AMERICAN SUPERCONDUCTOR CORP",
+              "market_value": 14948086000.0,
+              "shares": 824040.0,
+              "rank": 34,
+              "pct_portfolio": 0.5433
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:00827B106",
+              "cusip": "00827B106",
+              "company": "AFFIRM HLDGS INC",
+              "market_value": 13893801000.0,
+              "shares": 307453.0,
+              "rank": 35,
+              "pct_portfolio": 0.505
+            },
+            {
+              "ticker": "ASML",
+              "identifier": "ASML",
+              "cusip": "N07059210",
+              "company": "ASML HOLDING N V",
+              "market_value": 13025318000.0,
+              "shares": 19657.0,
+              "rank": 36,
+              "pct_portfolio": 0.4735
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:90138F102",
+              "cusip": "90138F102",
+              "company": "TWILIO INC",
+              "market_value": 11294604000.0,
+              "shares": 115357.0,
+              "rank": 37,
+              "pct_portfolio": 0.4105
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:070830104",
+              "cusip": "070830104",
+              "company": "BATH & BODY WORKS INC",
+              "market_value": 9035360000.0,
+              "shares": 298000.0,
+              "rank": 38,
+              "pct_portfolio": 0.3284
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G65163100",
+              "cusip": "G65163100",
+              "company": "JOBY AVIATION INC",
+              "market_value": 6020000000.0,
+              "shares": 1000000.0,
+              "rank": 39,
+              "pct_portfolio": 0.2188
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:M8744T106",
+              "cusip": "M8744T106",
+              "company": "TABOOLA.COM LTD",
+              "market_value": 2138750000.0,
+              "shares": 725000.0,
+              "rank": 40,
+              "pct_portfolio": 0.0777
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:83542D300",
+              "cusip": "83542D300",
+              "company": "SONDER HOLDINGS INC",
+              "market_value": 1921066000.0,
+              "shares": 960533.0,
+              "rank": 41,
+              "pct_portfolio": 0.0698
+            }
+          ],
+          "total_value": 2751140456000.0,
+          "num_holdings": 41
+        },
+        {
+          "form": "13F-HR",
+          "company": "Atreides Management, LP",
+          "cik": "1777813",
+          "filing_date": "2025-02-14",
+          "file_name": "edgar/data/1777813/0001768757-25-000003.txt",
+          "accession": "0001768757-25-000003",
+          "period_end": "2024-12-31",
+          "quarter": "2024-Q4",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/1777813/0001768757-25-000003.txt",
+          "holdings": [
+            {
+              "ticker": null,
+              "identifier": "CUSIP:04626A103",
+              "cusip": "04626A103",
+              "company": "ASTERA LABS INC",
+              "market_value": 243264293000.0,
+              "shares": 1836650.0,
+              "rank": 1,
+              "pct_portfolio": 7.634
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:007903107",
+              "cusip": "007903107",
+              "company": "ADVANCED MICRO DEVICES INC",
+              "market_value": 232169251000.0,
+              "shares": 1922090.0,
+              "rank": 2,
+              "pct_portfolio": 7.2858
+            },
+            {
+              "ticker": "ASML",
+              "identifier": "ASML",
+              "cusip": "N07059210",
+              "company": "ASML HOLDING N V",
+              "market_value": 203513239000.0,
+              "shares": 293636.0,
+              "rank": 3,
+              "pct_portfolio": 6.3866
+            },
+            {
+              "ticker": "AMZN",
+              "identifier": "AMZN",
+              "cusip": "023135106",
+              "company": "AMAZON COM INC",
+              "market_value": 149346890000.0,
+              "shares": 680737.0,
+              "rank": 4,
+              "pct_portfolio": 4.6867
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:55024U109",
+              "cusip": "55024U109",
+              "company": "LUMENTUM HLDGS INC",
+              "market_value": 147359030000.0,
+              "shares": 1755319.0,
+              "rank": 5,
+              "pct_portfolio": 4.6244
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:90384S303",
+              "cusip": "90384S303",
+              "company": "ULTA BEAUTY INC",
+              "market_value": 143557780000.0,
+              "shares": 330071.0,
+              "rank": 6,
+              "pct_portfolio": 4.5051
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:00724F101",
+              "cusip": "00724F101",
+              "company": "ADOBE INC",
+              "market_value": 138319048000.0,
+              "shares": 311053.0,
+              "rank": 7,
+              "pct_portfolio": 4.3407
+            },
+            {
+              "ticker": "MSFT",
+              "identifier": "MSFT",
+              "cusip": "594918104",
+              "company": "MICROSOFT CORP",
+              "market_value": 134609397000.0,
+              "shares": 319358.0,
+              "rank": 8,
+              "pct_portfolio": 4.2243
+            },
+            {
+              "ticker": "TSLA",
+              "identifier": "TSLA",
+              "cusip": "88160R101",
+              "company": "TESLA INC",
+              "market_value": 124663389000.0,
+              "shares": 308695.0,
+              "rank": 9,
+              "pct_portfolio": 3.9121
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:833445109",
+              "cusip": "833445109",
+              "company": "SNOWFLAKE INC",
+              "market_value": 116852392000.0,
+              "shares": 756767.0,
+              "rank": 10,
+              "pct_portfolio": 3.667
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:74967X103",
+              "cusip": "74967X103",
+              "company": "RH",
+              "market_value": 110172532000.0,
+              "shares": 279917.0,
+              "rank": 11,
+              "pct_portfolio": 3.4574
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:00091G104",
+              "cusip": "00091G104",
+              "company": "ACV AUCTIONS INC",
+              "market_value": 108494251000.0,
+              "shares": 5022882.0,
+              "rank": 12,
+              "pct_portfolio": 3.4047
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:11135F101",
+              "cusip": "11135F101",
+              "company": "BROADCOM INC",
+              "market_value": 104941217000.0,
+              "shares": 452645.0,
+              "rank": 13,
+              "pct_portfolio": 3.2932
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:243537107",
+              "cusip": "243537107",
+              "company": "DECKERS OUTDOOR CORP",
+              "market_value": 97957212000.0,
+              "shares": 482334.0,
+              "rank": 14,
+              "pct_portfolio": 3.0741
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:855244109",
+              "cusip": "855244109",
+              "company": "STARBUCKS CORP",
+              "market_value": 89142855000.0,
+              "shares": 976908.0,
+              "rank": 15,
+              "pct_portfolio": 2.7974
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:91332U101",
+              "cusip": "91332U101",
+              "company": "UNITY SOFTWARE INC",
+              "market_value": 85911416000.0,
+              "shares": 3823383.0,
+              "rank": 16,
+              "pct_portfolio": 2.696
+            },
+            {
+              "ticker": "GOOGL",
+              "identifier": "GOOGL",
+              "cusip": "02079K305",
+              "company": "ALPHABET INC",
+              "market_value": 83977455000.0,
+              "shares": 443621.0,
+              "rank": 17,
+              "pct_portfolio": 2.6353
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:60937P106",
+              "cusip": "60937P106",
+              "company": "MONGODB INC",
+              "market_value": 81916294000.0,
+              "shares": 351859.0,
+              "rank": 18,
+              "pct_portfolio": 2.5707
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:81730H109",
+              "cusip": "81730H109",
+              "company": "SENTINELONE INC",
+              "market_value": 73300648000.0,
+              "shares": 3301831.0,
+              "rank": 19,
+              "pct_portfolio": 2.3003
+            },
+            {
+              "ticker": "SQ",
+              "identifier": "SQ",
+              "cusip": "852234103",
+              "company": "BLOCK INC",
+              "market_value": 61890398000.0,
+              "shares": 728208.0,
+              "rank": 20,
+              "pct_portfolio": 1.9422
+            },
+            {
+              "ticker": "CHTR",
+              "identifier": "CHTR",
+              "cusip": "16119P108",
+              "company": "CHARTER COMMUNICATIONS INC N",
+              "market_value": 60748442000.0,
+              "shares": 177228.0,
+              "rank": 21,
+              "pct_portfolio": 1.9064
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:N14506104",
+              "cusip": "N14506104",
+              "company": "ELASTIC N V",
+              "market_value": 54447234000.0,
+              "shares": 549528.0,
+              "rank": 22,
+              "pct_portfolio": 1.7086
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:31488V107",
+              "cusip": "31488V107",
+              "company": "FERGUSON ENTERPRISES INC",
+              "market_value": 52344546000.0,
+              "shares": 301576.0,
+              "rank": 23,
+              "pct_portfolio": 1.6427
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:20717M103",
+              "cusip": "20717M103",
+              "company": "CONFLUENT INC",
+              "market_value": 43345018000.0,
+              "shares": 1550251.0,
+              "rank": 24,
+              "pct_portfolio": 1.3602
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:654106103",
+              "cusip": "654106103",
+              "company": "NIKE INC",
+              "market_value": 40669750000.0,
+              "shares": 537462.0,
+              "rank": 25,
+              "pct_portfolio": 1.2763
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G6683N103",
+              "cusip": "G6683N103",
+              "company": "NU HLDGS LTD",
+              "market_value": 39472657000.0,
+              "shares": 3810102.0,
+              "rank": 26,
+              "pct_portfolio": 1.2387
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:751212101",
+              "cusip": "751212101",
+              "company": "RALPH LAUREN CORP",
+              "market_value": 38985497000.0,
+              "shares": 168783.0,
+              "rank": 27,
+              "pct_portfolio": 1.2234
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:94419L101",
+              "cusip": "94419L101",
+              "company": "WAYFAIR INC",
+              "market_value": 38718218000.0,
+              "shares": 873606.0,
+              "rank": 28,
+              "pct_portfolio": 1.215
+            },
+            {
+              "ticker": "MA",
+              "identifier": "MA",
+              "cusip": "57636Q104",
+              "company": "MASTERCARD INCORPORATED",
+              "market_value": 37548654000.0,
+              "shares": 71308.0,
+              "rank": 29,
+              "pct_portfolio": 1.1783
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:771049103",
+              "cusip": "771049103",
+              "company": "ROBLOX CORP",
+              "market_value": 35200057000.0,
+              "shares": 608366.0,
+              "rank": 30,
+              "pct_portfolio": 1.1046
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:518415104",
+              "cusip": "518415104",
+              "company": "LATTICE SEMICONDUCTOR CORP",
+              "market_value": 31780480000.0,
+              "shares": 560997.0,
+              "rank": 31,
+              "pct_portfolio": 0.9973
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:67059N108",
+              "cusip": "67059N108",
+              "company": "NUTANIX INC",
+              "market_value": 30966073000.0,
+              "shares": 506147.0,
+              "rank": 32,
+              "pct_portfolio": 0.9718
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:37637K108",
+              "cusip": "37637K108",
+              "company": "GITLAB INC",
+              "market_value": 26793185000.0,
+              "shares": 475478.0,
+              "rank": 33,
+              "pct_portfolio": 0.8408
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:65290E101",
+              "cusip": "65290E101",
+              "company": "NEXTRACKER INC",
+              "market_value": 23148111000.0,
+              "shares": 633674.0,
+              "rank": 34,
+              "pct_portfolio": 0.7264
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:595112103",
+              "cusip": "595112103",
+              "company": "MICRON TECHNOLOGY INC",
+              "market_value": 20247970000.0,
+              "shares": 240589.0,
+              "rank": 35,
+              "pct_portfolio": 0.6354
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:338307101",
+              "cusip": "338307101",
+              "company": "FIVE9 INC",
+              "market_value": 16184189000.0,
+              "shares": 398233.0,
+              "rank": 36,
+              "pct_portfolio": 0.5079
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G39387108",
+              "cusip": "G39387108",
+              "company": "GLOBALFOUNDRIES INC",
+              "market_value": 15666484000.0,
+              "shares": 365101.0,
+              "rank": 37,
+              "pct_portfolio": 0.4916
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:070830104",
+              "cusip": "070830104",
+              "company": "BATH & BODY WORKS INC",
+              "market_value": 13509251000.0,
+              "shares": 348446.0,
+              "rank": 38,
+              "pct_portfolio": 0.4239
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:00827B106",
+              "cusip": "00827B106",
+              "company": "AFFIRM HLDGS INC",
+              "market_value": 8782145000.0,
+              "shares": 144206.0,
+              "rank": 39,
+              "pct_portfolio": 0.2756
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G65163100",
+              "cusip": "G65163100",
+              "company": "JOBY AVIATION INC",
+              "market_value": 8130000000.0,
+              "shares": 1000000.0,
+              "rank": 40,
+              "pct_portfolio": 0.2551
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:512807306",
+              "cusip": "512807306",
+              "company": "LAM RESEARCH CORP",
+              "market_value": 6477586000.0,
+              "shares": 89680.0,
+              "rank": 41,
+              "pct_portfolio": 0.2033
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:171779309",
+              "cusip": "171779309",
+              "company": "CIENA CORP",
+              "market_value": 6356679000.0,
+              "shares": 74952.0,
+              "rank": 42,
+              "pct_portfolio": 0.1995
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:83542D300",
+              "cusip": "83542D300",
+              "company": "SONDER HOLDINGS INC",
+              "market_value": 3054495000.0,
+              "shares": 960533.0,
+              "rank": 43,
+              "pct_portfolio": 0.0959
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:M8744T106",
+              "cusip": "M8744T106",
+              "company": "TABOOLA.COM LTD",
+              "market_value": 2646250000.0,
+              "shares": 725000.0,
+              "rank": 44,
+              "pct_portfolio": 0.083
+            }
+          ],
+          "total_value": 3186581958000.0,
+          "num_holdings": 44
+        },
+        {
+          "form": "13F-HR",
+          "company": "Atreides Management, LP",
+          "cik": "1777813",
+          "filing_date": "2024-11-14",
+          "file_name": "edgar/data/1777813/0001777813-24-000010.txt",
+          "accession": "0001777813-24-000010",
+          "period_end": "2024-09-30",
+          "quarter": "2024-Q3",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/1777813/0001777813-24-000010.txt",
+          "holdings": [
+            {
+              "ticker": null,
+              "identifier": "CUSIP:04626A103",
+              "cusip": "04626A103",
+              "company": "ASTERA LABS INC",
+              "market_value": 375557191000.0,
+              "shares": 7168490.0,
+              "rank": 1,
+              "pct_portfolio": 12.6828
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:007903107",
+              "cusip": "007903107",
+              "company": "ADVANCED MICRO DEVICES INC",
+              "market_value": 338661120000.0,
+              "shares": 2064000.0,
+              "rank": 2,
+              "pct_portfolio": 11.4368
+            },
+            {
+              "ticker": "AMZN",
+              "identifier": "AMZN",
+              "cusip": "023135106",
+              "company": "AMAZON COM INC",
+              "market_value": 173493167000.0,
+              "shares": 931107.0,
+              "rank": 3,
+              "pct_portfolio": 5.859
+            },
+            {
+              "ticker": "TSLA",
+              "identifier": "TSLA",
+              "cusip": "88160R101",
+              "company": "TESLA INC",
+              "market_value": 148887092000.0,
+              "shares": 569075.0,
+              "rank": 4,
+              "pct_portfolio": 5.028
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:00724F101",
+              "cusip": "00724F101",
+              "company": "ADOBE INC",
+              "market_value": 145957004000.0,
+              "shares": 281890.0,
+              "rank": 5,
+              "pct_portfolio": 4.9291
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:171779309",
+              "cusip": "171779309",
+              "company": "CIENA CORP",
+              "market_value": 136681205000.0,
+              "shares": 2219211.0,
+              "rank": 6,
+              "pct_portfolio": 4.6158
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:N14506104",
+              "cusip": "N14506104",
+              "company": "ELASTIC N V",
+              "market_value": 129554837000.0,
+              "shares": 1687791.0,
+              "rank": 7,
+              "pct_portfolio": 4.3752
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:74967X103",
+              "cusip": "74967X103",
+              "company": "RH",
+              "market_value": 117443121000.0,
+              "shares": 351174.0,
+              "rank": 8,
+              "pct_portfolio": 3.9661
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:00091G104",
+              "cusip": "00091G104",
+              "company": "ACV AUCTIONS INC",
+              "market_value": 115564767000.0,
+              "shares": 5684445.0,
+              "rank": 9,
+              "pct_portfolio": 3.9027
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:55024U109",
+              "cusip": "55024U109",
+              "company": "LUMENTUM HLDGS INC",
+              "market_value": 107176657000.0,
+              "shares": 1691017.0,
+              "rank": 10,
+              "pct_portfolio": 3.6194
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:81141R100",
+              "cusip": "81141R100",
+              "company": "SEA LTD",
+              "market_value": 101299712000.0,
+              "shares": 1074456.0,
+              "rank": 11,
+              "pct_portfolio": 3.421
+            },
+            {
+              "ticker": "AAPL",
+              "identifier": "AAPL",
+              "cusip": "037833100",
+              "company": "APPLE INC",
+              "market_value": 99016845000.0,
+              "shares": 424965.0,
+              "rank": 12,
+              "pct_portfolio": 3.3439
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:243537107",
+              "cusip": "243537107",
+              "company": "DECKERS OUTDOOR CORP",
+              "market_value": 94257911000.0,
+              "shares": 591144.0,
+              "rank": 13,
+              "pct_portfolio": 3.1832
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:81730H109",
+              "cusip": "81730H109",
+              "company": "SENTINELONE INC",
+              "market_value": 90965464000.0,
+              "shares": 3802904.0,
+              "rank": 14,
+              "pct_portfolio": 3.072
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:94419L101",
+              "cusip": "94419L101",
+              "company": "WAYFAIR INC",
+              "market_value": 78120369000.0,
+              "shares": 1390537.0,
+              "rank": 15,
+              "pct_portfolio": 2.6382
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:751212101",
+              "cusip": "751212101",
+              "company": "RALPH LAUREN CORP",
+              "market_value": 73182241000.0,
+              "shares": 377481.0,
+              "rank": 16,
+              "pct_portfolio": 2.4714
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:90384S303",
+              "cusip": "90384S303",
+              "company": "ULTA BEAUTY INC",
+              "market_value": 73068954000.0,
+              "shares": 187780.0,
+              "rank": 17,
+              "pct_portfolio": 2.4676
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:33829M101",
+              "cusip": "33829M101",
+              "company": "FIVE BELOW INC",
+              "market_value": 68648922000.0,
+              "shares": 777011.0,
+              "rank": 18,
+              "pct_portfolio": 2.3183
+            },
+            {
+              "ticker": "MELI",
+              "identifier": "MELI",
+              "cusip": "58733R102",
+              "company": "MERCADOLIBRE INC",
+              "market_value": 58813278000.0,
+              "shares": 28662.0,
+              "rank": 19,
+              "pct_portfolio": 1.9862
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:20717M103",
+              "cusip": "20717M103",
+              "company": "CONFLUENT INC",
+              "market_value": 55166826000.0,
+              "shares": 2706910.0,
+              "rank": 20,
+              "pct_portfolio": 1.863
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:03027X100",
+              "cusip": "03027X100",
+              "company": "AMERICAN TOWER CORP NEW",
+              "market_value": 43287788000.0,
+              "shares": 186136.0,
+              "rank": 21,
+              "pct_portfolio": 1.4619
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:595112103",
+              "cusip": "595112103",
+              "company": "MICRON TECHNOLOGY INC",
+              "market_value": 40089101000.0,
+              "shares": 386550.0,
+              "rank": 22,
+              "pct_portfolio": 1.3538
+            },
+            {
+              "ticker": "MA",
+              "identifier": "MA",
+              "cusip": "57636Q104",
+              "company": "MASTERCARD INCORPORATED",
+              "market_value": 39839784000.0,
+              "shares": 80680.0,
+              "rank": 23,
+              "pct_portfolio": 1.3454
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:771049103",
+              "cusip": "771049103",
+              "company": "ROBLOX CORP",
+              "market_value": 39297790000.0,
+              "shares": 887885.0,
+              "rank": 24,
+              "pct_portfolio": 1.3271
+            },
+            {
+              "ticker": "GOOGL",
+              "identifier": "GOOGL",
+              "cusip": "02079K305",
+              "company": "ALPHABET INC",
+              "market_value": 36406894000.0,
+              "shares": 219517.0,
+              "rank": 25,
+              "pct_portfolio": 1.2295
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:824348106",
+              "cusip": "824348106",
+              "company": "SHERWIN WILLIAMS CO",
+              "market_value": 36118959000.0,
+              "shares": 94634.0,
+              "rank": 26,
+              "pct_portfolio": 1.2198
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:070830104",
+              "cusip": "070830104",
+              "company": "BATH & BODY WORKS INC",
+              "market_value": 30130118000.0,
+              "shares": 943926.0,
+              "rank": 27,
+              "pct_portfolio": 1.0175
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:37637K108",
+              "cusip": "37637K108",
+              "company": "GITLAB INC",
+              "market_value": 25604814000.0,
+              "shares": 496795.0,
+              "rank": 28,
+              "pct_portfolio": 0.8647
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G4124C109",
+              "cusip": "G4124C109",
+              "company": "GRAB HOLDINGS LIMITED",
+              "market_value": 25375287000.0,
+              "shares": 6677707.0,
+              "rank": 29,
+              "pct_portfolio": 0.8569
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:75734B100",
+              "cusip": "75734B100",
+              "company": "REDDIT INC",
+              "market_value": 22579578000.0,
+              "shares": 342530.0,
+              "rank": 30,
+              "pct_portfolio": 0.7625
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:00827B106",
+              "cusip": "00827B106",
+              "company": "AFFIRM HLDGS INC",
+              "market_value": 20404204000.0,
+              "shares": 499858.0,
+              "rank": 31,
+              "pct_portfolio": 0.6891
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:67059N108",
+              "cusip": "67059N108",
+              "company": "NUTANIX INC",
+              "market_value": 8289786000.0,
+              "shares": 139912.0,
+              "rank": 32,
+              "pct_portfolio": 0.28
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G65163100",
+              "cusip": "G65163100",
+              "company": "JOBY AVIATION INC",
+              "market_value": 5030000000.0,
+              "shares": 1000000.0,
+              "rank": 33,
+              "pct_portfolio": 0.1699
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:83542D300",
+              "cusip": "83542D300",
+              "company": "SONDER HOLDINGS INC",
+              "market_value": 4739066000.0,
+              "shares": 1012621.0,
+              "rank": 34,
+              "pct_portfolio": 0.16
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:M8744T106",
+              "cusip": "M8744T106",
+              "company": "TABOOLA.COM LTD",
+              "market_value": 2436000000.0,
+              "shares": 725000.0,
+              "rank": 35,
+              "pct_portfolio": 0.0823
+            }
+          ],
+          "total_value": 2961145852000.0,
+          "num_holdings": 35
+        },
+        {
+          "form": "13F-HR",
+          "company": "Atreides Management, LP",
+          "cik": "1777813",
+          "filing_date": "2024-08-14",
+          "file_name": "edgar/data/1777813/0001777813-24-000008.txt",
+          "accession": "0001777813-24-000008",
+          "period_end": "2024-06-30",
+          "quarter": "2024-Q2",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/1777813/0001777813-24-000008.txt",
+          "holdings": [
+            {
+              "ticker": null,
+              "identifier": "CUSIP:573874104",
+              "cusip": "573874104",
+              "company": "MARVELL TECHNOLOGY INC",
+              "market_value": 176972261000.0,
+              "shares": 2531792.0,
+              "rank": 1,
+              "pct_portfolio": 5.7793
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:171779309",
+              "cusip": "171779309",
+              "company": "CIENA CORP",
+              "market_value": 173077881000.0,
+              "shares": 3592318.0,
+              "rank": 2,
+              "pct_portfolio": 5.6522
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:007903107",
+              "cusip": "007903107",
+              "company": "ADVANCED MICRO DEVICES INC",
+              "market_value": 168736195000.0,
+              "shares": 1040233.0,
+              "rank": 3,
+              "pct_portfolio": 5.5104
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:04626A103",
+              "cusip": "04626A103",
+              "company": "ASTERA LABS INC",
+              "market_value": 167995668000.0,
+              "shares": 2776329.0,
+              "rank": 4,
+              "pct_portfolio": 5.4862
+            },
+            {
+              "ticker": "AMZN",
+              "identifier": "AMZN",
+              "cusip": "023135106",
+              "company": "AMAZON COM INC",
+              "market_value": 151429541000.0,
+              "shares": 783594.0,
+              "rank": 5,
+              "pct_portfolio": 4.9452
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:00724F101",
+              "cusip": "00724F101",
+              "company": "ADOBE INC",
+              "market_value": 145003718000.0,
+              "shares": 261014.0,
+              "rank": 6,
+              "pct_portfolio": 4.7353
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:00091G104",
+              "cusip": "00091G104",
+              "company": "ACV AUCTIONS INC",
+              "market_value": 142945498000.0,
+              "shares": 7832630.0,
+              "rank": 7,
+              "pct_portfolio": 4.6681
+            },
+            {
+              "ticker": "TSLA",
+              "identifier": "TSLA",
+              "cusip": "88160R101",
+              "company": "TESLA INC",
+              "market_value": 139051265000.0,
+              "shares": 702705.0,
+              "rank": 8,
+              "pct_portfolio": 4.541
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:070830104",
+              "cusip": "070830104",
+              "company": "BATH & BODY WORKS INC",
+              "market_value": 130402789000.0,
+              "shares": 3339380.0,
+              "rank": 9,
+              "pct_portfolio": 4.2585
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:42824C109",
+              "cusip": "42824C109",
+              "company": "HEWLETT PACKARD ENTERPRISE C",
+              "market_value": 126581421000.0,
+              "shares": 5979283.0,
+              "rank": 10,
+              "pct_portfolio": 4.1337
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:81141R100",
+              "cusip": "81141R100",
+              "company": "SEA LTD",
+              "market_value": 124215021000.0,
+              "shares": 1739219.0,
+              "rank": 11,
+              "pct_portfolio": 4.0565
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:N14506104",
+              "cusip": "N14506104",
+              "company": "ELASTIC N V",
+              "market_value": 122280335000.0,
+              "shares": 1073482.0,
+              "rank": 12,
+              "pct_portfolio": 3.9933
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:74624M102",
+              "cusip": "74624M102",
+              "company": "PURE STORAGE INC",
+              "market_value": 99341731000.0,
+              "shares": 1547138.0,
+              "rank": 13,
+              "pct_portfolio": 3.2442
+            },
+            {
+              "ticker": "GOOGL",
+              "identifier": "GOOGL",
+              "cusip": "02079K305",
+              "company": "ALPHABET INC",
+              "market_value": 97893785000.0,
+              "shares": 537435.0,
+              "rank": 14,
+              "pct_portfolio": 3.1969
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:595112103",
+              "cusip": "595112103",
+              "company": "MICRON TECHNOLOGY INC",
+              "market_value": 95609157000.0,
+              "shares": 726900.0,
+              "rank": 15,
+              "pct_portfolio": 3.1223
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:94419L101",
+              "cusip": "94419L101",
+              "company": "WAYFAIR INC",
+              "market_value": 81593664000.0,
+              "shares": 1547386.0,
+              "rank": 16,
+              "pct_portfolio": 2.6646
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:74967X103",
+              "cusip": "74967X103",
+              "company": "RH",
+              "market_value": 74798640000.0,
+              "shares": 306000.0,
+              "rank": 17,
+              "pct_portfolio": 2.4427
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:20717M103",
+              "cusip": "20717M103",
+              "company": "CONFLUENT INC",
+              "market_value": 74475989000.0,
+              "shares": 2522045.0,
+              "rank": 18,
+              "pct_portfolio": 2.4321
+            },
+            {
+              "ticker": "AAPL",
+              "identifier": "AAPL",
+              "cusip": "037833100",
+              "company": "APPLE INC",
+              "market_value": 68890221000.0,
+              "shares": 327083.0,
+              "rank": 19,
+              "pct_portfolio": 2.2497
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:55024U109",
+              "cusip": "55024U109",
+              "company": "LUMENTUM HLDGS INC",
+              "market_value": 66991778000.0,
+              "shares": 1315628.0,
+              "rank": 20,
+              "pct_portfolio": 2.1877
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:824348106",
+              "cusip": "824348106",
+              "company": "SHERWIN WILLIAMS CO",
+              "market_value": 66535267000.0,
+              "shares": 222951.0,
+              "rank": 21,
+              "pct_portfolio": 2.1728
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:23804L103",
+              "cusip": "23804L103",
+              "company": "DATADOG INC",
+              "market_value": 59486728000.0,
+              "shares": 458684.0,
+              "rank": 22,
+              "pct_portfolio": 1.9426
+            },
+            {
+              "ticker": "SQ",
+              "identifier": "SQ",
+              "cusip": "852234103",
+              "company": "BLOCK INC",
+              "market_value": 54301096000.0,
+              "shares": 842008.0,
+              "rank": 23,
+              "pct_portfolio": 1.7733
+            },
+            {
+              "ticker": "MA",
+              "identifier": "MA",
+              "cusip": "57636Q104",
+              "company": "MASTERCARD INCORPORATED",
+              "market_value": 52990816000.0,
+              "shares": 120117.0,
+              "rank": 24,
+              "pct_portfolio": 1.7305
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:751212101",
+              "cusip": "751212101",
+              "company": "RALPH LAUREN CORP",
+              "market_value": 51490748000.0,
+              "shares": 294132.0,
+              "rank": 25,
+              "pct_portfolio": 1.6815
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:79589L106",
+              "cusip": "79589L106",
+              "company": "SAMSARA INC",
+              "market_value": 49665274000.0,
+              "shares": 1473747.0,
+              "rank": 26,
+              "pct_portfolio": 1.6219
+            },
+            {
+              "ticker": "MELI",
+              "identifier": "MELI",
+              "cusip": "58733R102",
+              "company": "MERCADOLIBRE INC",
+              "market_value": 43730874000.0,
+              "shares": 26610.0,
+              "rank": 27,
+              "pct_portfolio": 1.4281
+            },
+            {
+              "ticker": "META",
+              "identifier": "META",
+              "cusip": "30303M102",
+              "company": "META PLATFORMS INC",
+              "market_value": 42158338000.0,
+              "shares": 83611.0,
+              "rank": 28,
+              "pct_portfolio": 1.3768
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:771049103",
+              "cusip": "771049103",
+              "company": "ROBLOX CORP",
+              "market_value": 38026387000.0,
+              "shares": 1021940.0,
+              "rank": 29,
+              "pct_portfolio": 1.2418
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G4124C109",
+              "cusip": "G4124C109",
+              "company": "GRAB HOLDINGS LIMITED",
+              "market_value": 35545312000.0,
+              "shares": 10012764.0,
+              "rank": 30,
+              "pct_portfolio": 1.1608
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:81730H109",
+              "cusip": "81730H109",
+              "company": "SENTINELONE INC",
+              "market_value": 33728626000.0,
+              "shares": 1602310.0,
+              "rank": 31,
+              "pct_portfolio": 1.1015
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:49845K101",
+              "cusip": "49845K101",
+              "company": "KLAVIYO INC",
+              "market_value": 22446076000.0,
+              "shares": 901811.0,
+              "rank": 32,
+              "pct_portfolio": 0.733
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:855244109",
+              "cusip": "855244109",
+              "company": "STARBUCKS CORP",
+              "market_value": 21834823000.0,
+              "shares": 280473.0,
+              "rank": 33,
+              "pct_portfolio": 0.7131
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:75734B100",
+              "cusip": "75734B100",
+              "company": "REDDIT INC",
+              "market_value": 18013274000.0,
+              "shares": 281942.0,
+              "rank": 34,
+              "pct_portfolio": 0.5883
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:03027X100",
+              "cusip": "03027X100",
+              "company": "AMERICAN TOWER CORP NEW",
+              "market_value": 14882510000.0,
+              "shares": 76564.0,
+              "rank": 35,
+              "pct_portfolio": 0.486
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:031652100",
+              "cusip": "031652100",
+              "company": "AMKOR TECHNOLOGY INC",
+              "market_value": 8499768000.0,
+              "shares": 212388.0,
+              "rank": 36,
+              "pct_portfolio": 0.2776
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:26142V105",
+              "cusip": "26142V105",
+              "company": "DRAFTKINGS INC NEW",
+              "market_value": 8250102000.0,
+              "shares": 216141.0,
+              "rank": 37,
+              "pct_portfolio": 0.2694
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G65163100",
+              "cusip": "G65163100",
+              "company": "JOBY AVIATION INC",
+              "market_value": 5100000000.0,
+              "shares": 1000000.0,
+              "rank": 38,
+              "pct_portfolio": 0.1665
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:83542D300",
+              "cusip": "83542D300",
+              "company": "SONDER HOLDINGS INC",
+              "market_value": 4688435000.0,
+              "shares": 1012621.0,
+              "rank": 39,
+              "pct_portfolio": 0.1531
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:M8744T106",
+              "cusip": "M8744T106",
+              "company": "TABOOLA.COM LTD",
+              "market_value": 2494000000.0,
+              "shares": 725000.0,
+              "rank": 40,
+              "pct_portfolio": 0.0814
+            }
+          ],
+          "total_value": 3062155012000.0,
+          "num_holdings": 40
+        }
+      ],
+      "filing_errors": []
+    },
+    {
+      "name": "Leopold Aschenbrenner",
+      "fund": "Situational Awareness LP",
+      "tier": 2,
+      "cik": "2045724",
+      "source_type": "13F",
+      "filings": [
+        {
+          "form": "13F-HR",
+          "company": "Situational Awareness LP",
+          "cik": "2045724",
+          "filing_date": "2026-05-18",
+          "file_name": "edgar/data/2045724/0002045724-26-000008.txt",
+          "accession": "0002045724-26-000008",
+          "period_end": "2026-03-31",
+          "quarter": "2026-Q1",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/2045724/0002045724-26-000008.txt",
+          "holdings": [
+            {
+              "ticker": null,
+              "identifier": "CUSIP:093712107",
+              "cusip": "093712107",
+              "company": "BLOOM ENERGY CORP",
+              "market_value": 878707930000.0,
+              "shares": 6485408.0,
+              "rank": 1,
+              "pct_portfolio": 22.7894
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:80004C200",
+              "cusip": "80004C200",
+              "company": "SANDISK CORP",
+              "market_value": 724363205000.0,
+              "shares": 1140119.0,
+              "rank": 2,
+              "pct_portfolio": 18.7865
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:21873S108",
+              "cusip": "21873S108",
+              "company": "COREWEAVE INC",
+              "market_value": 556073385000.0,
+              "shares": 7177919.0,
+              "rank": 3,
+              "pct_portfolio": 14.4218
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:Q4982L109",
+              "cusip": "Q4982L109",
+              "company": "IREN LIMITED",
+              "market_value": 401036064000.0,
+              "shares": 11698835.0,
+              "rank": 4,
+              "pct_portfolio": 10.4009
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:21874A106",
+              "cusip": "21874A106",
+              "company": "CORE SCIENTIFIC INC NEW",
+              "market_value": 389086756000.0,
+              "shares": 26008473.0,
+              "rank": 5,
+              "pct_portfolio": 10.091
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:038169207",
+              "cusip": "038169207",
+              "company": "APPLIED DIGITAL CORP",
+              "market_value": 319978118000.0,
+              "shares": 13478438.0,
+              "rank": 6,
+              "pct_portfolio": 8.2987
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:767292105",
+              "cusip": "767292105",
+              "company": "RIOT PLATFORMS INC",
+              "market_value": 142166413000.0,
+              "shares": 11502137.0,
+              "rank": 7,
+              "pct_portfolio": 3.6871
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:18452B209",
+              "cusip": "18452B209",
+              "company": "CLEANSPARK INC",
+              "market_value": 104469943000.0,
+              "shares": 12276139.0,
+              "rank": 8,
+              "pct_portfolio": 2.7094
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:83418M103",
+              "cusip": "83418M103",
+              "company": "SOLARIS ENERGY INFRAS INC",
+              "market_value": 62474687000.0,
+              "shares": 1105551.0,
+              "rank": 9,
+              "pct_portfolio": 1.6203
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:35834F104",
+              "cusip": "35834F104",
+              "company": "T1 ENERGY INC",
+              "market_value": 43900000000.0,
+              "shares": 10000000.0,
+              "rank": 10,
+              "pct_portfolio": 1.1386
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:09173B107",
+              "cusip": "09173B107",
+              "company": "BITFARMS LTD",
+              "market_value": 38757888000.0,
+              "shares": 19875840.0,
+              "rank": 11,
+              "pct_portfolio": 1.0052
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G11448100",
+              "cusip": "G11448100",
+              "company": "BITDEER TECHNOLOGIES GROUP",
+              "market_value": 29751243000.0,
+              "shares": 3439450.0,
+              "rank": 12,
+              "pct_portfolio": 0.7716
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:73933G202",
+              "cusip": "73933G202",
+              "company": "POWER SOLUTIONS INTL INC",
+              "market_value": 26318424000.0,
+              "shares": 432300.0,
+              "rank": 13,
+              "pct_portfolio": 0.6826
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G96115103",
+              "cusip": "G96115103",
+              "company": "WHITEFIBER INC",
+              "market_value": 20933016000.0,
+              "shares": 1757600.0,
+              "rank": 14,
+              "pct_portfolio": 0.5429
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:007903107",
+              "cusip": "007903107",
+              "company": "ADVANCED MICRO DEVICES INC",
+              "market_value": 20167643000.0,
+              "shares": 99138.0,
+              "rank": 15,
+              "pct_portfolio": 0.5231
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:05614L209",
+              "cusip": "05614L209",
+              "company": "BABCOCK & WILCOX ENTERPRISES",
+              "market_value": 19888791000.0,
+              "shares": 1353900.0,
+              "rank": 16,
+              "pct_portfolio": 0.5158
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:778920306",
+              "cusip": "778920306",
+              "company": "SHARONAI HOLDINGS INC",
+              "market_value": 18095535000.0,
+              "shares": 796108.0,
+              "rank": 17,
+              "pct_portfolio": 0.4693
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:74347M108",
+              "cusip": "74347M108",
+              "company": "PROPETRO HLDG CORP",
+              "market_value": 13117423000.0,
+              "shares": 910300.0,
+              "rank": 18,
+              "pct_portfolio": 0.3402
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:92189F676",
+              "cusip": "92189F676",
+              "company": "VANECK ETF TRUST",
+              "market_value": 10332630000.0,
+              "shares": 26950.0,
+              "rank": 19,
+              "pct_portfolio": 0.268
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:458140100",
+              "cusip": "458140100",
+              "company": "INTEL CORP",
+              "market_value": 8929441000.0,
+              "shares": 202344.0,
+              "rank": 20,
+              "pct_portfolio": 0.2316
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:874039100",
+              "cusip": "874039100",
+              "company": "TAIWAN SEMICONDUCTOR MANUFAC",
+              "market_value": 7577853000.0,
+              "shares": 22423.0,
+              "rank": 21,
+              "pct_portfolio": 0.1965
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:433921103",
+              "cusip": "433921103",
+              "company": "HIVE DIGITAL TECHNOLOGIES LT",
+              "market_value": 6443939000.0,
+              "shares": 3391547.0,
+              "rank": 22,
+              "pct_portfolio": 0.1671
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:N07059210",
+              "cusip": "N07059210",
+              "company": "ASML HLDG NV N Y REGISTRY",
+              "market_value": 6119405000.0,
+              "shares": 4633.0,
+              "rank": 23,
+              "pct_portfolio": 0.1587
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:595112103",
+              "cusip": "595112103",
+              "company": "MICRON TECHNOLOGY INC",
+              "market_value": 5865578000.0,
+              "shares": 17362.0,
+              "rank": 24,
+              "pct_portfolio": 0.1521
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:219350105",
+              "cusip": "219350105",
+              "company": "CORNING INC",
+              "market_value": 718330000.0,
+              "shares": 5283.0,
+              "rank": 25,
+              "pct_portfolio": 0.0186
+            },
+            {
+              "ticker": "NVDA",
+              "identifier": "NVDA",
+              "cusip": "67066G104",
+              "company": "NVIDIA CORPORATION",
+              "market_value": 497912000.0,
+              "shares": 2855.0,
+              "rank": 26,
+              "pct_portfolio": 0.0129
+            }
+          ],
+          "total_value": 3855771552000.0,
+          "num_holdings": 26
+        },
+        {
+          "form": "13F-HR",
+          "company": "Situational Awareness LP",
+          "cik": "2045724",
+          "filing_date": "2026-02-11",
+          "file_name": "edgar/data/2045724/0002045724-26-000002.txt",
+          "accession": "0002045724-26-000002",
+          "period_end": "2025-12-31",
+          "quarter": "2025-Q4",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/2045724/0002045724-26-000002.txt",
+          "holdings": [
+            {
+              "ticker": null,
+              "identifier": "CUSIP:093712107",
+              "cusip": "093712107",
+              "company": "BLOOM ENERGY CORP",
+              "market_value": 875505552000.0,
+              "shares": 10076022.0,
+              "rank": 1,
+              "pct_portfolio": 22.3706
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:55024U109",
+              "cusip": "55024U109",
+              "company": "LUMENTUM HLDGS INC",
+              "market_value": 478577256000.0,
+              "shares": 1298400.0,
+              "rank": 2,
+              "pct_portfolio": 12.2284
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:21873S108",
+              "cusip": "21873S108",
+              "company": "COREWEAVE INC",
+              "market_value": 436735927000.0,
+              "shares": 6098812.0,
+              "rank": 3,
+              "pct_portfolio": 11.1593
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:21874A106",
+              "cusip": "21874A106",
+              "company": "CORE SCIENTIFIC INC NEW",
+              "market_value": 418694320000.0,
+              "shares": 28756478.0,
+              "rank": 4,
+              "pct_portfolio": 10.6983
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:Q4982L109",
+              "cusip": "Q4982L109",
+              "company": "IREN LIMITED",
+              "market_value": 328622455000.0,
+              "shares": 8700621.0,
+              "rank": 5,
+              "pct_portfolio": 8.3968
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:038169207",
+              "cusip": "038169207",
+              "company": "APPLIED DIGITAL CORP",
+              "market_value": 278033751000.0,
+              "shares": 11339060.0,
+              "rank": 6,
+              "pct_portfolio": 7.1042
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:80004C200",
+              "cusip": "80004C200",
+              "company": "SANDISK CORP",
+              "market_value": 250245996000.0,
+              "shares": 1054200.0,
+              "rank": 7,
+              "pct_portfolio": 6.3942
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:17253J106",
+              "cusip": "17253J106",
+              "company": "CIPHER MINING INC",
+              "market_value": 154523813000.0,
+              "shares": 10469093.0,
+              "rank": 8,
+              "pct_portfolio": 3.9483
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:26884L109",
+              "cusip": "26884L109",
+              "company": "EQT CORP",
+              "market_value": 133047260000.0,
+              "shares": 2482225.0,
+              "rank": 9,
+              "pct_portfolio": 3.3996
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:19247G107",
+              "cusip": "19247G107",
+              "company": "COHERENT CORP",
+              "market_value": 88648971000.0,
+              "shares": 480300.0,
+              "rank": 10,
+              "pct_portfolio": 2.2651
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:83418M103",
+              "cusip": "83418M103",
+              "company": "SOLARIS ENERGY INFRAS INC",
+              "market_value": 85803005000.0,
+              "shares": 1866500.0,
+              "rank": 11,
+              "pct_portfolio": 2.1924
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:M87915274",
+              "cusip": "M87915274",
+              "company": "TOWER SEMICONDUCTOR LTD",
+              "market_value": 84895130000.0,
+              "shares": 723004.0,
+              "rank": 12,
+              "pct_portfolio": 2.1692
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:767292105",
+              "cusip": "767292105",
+              "company": "RIOT PLATFORMS INC",
+              "market_value": 78144759000.0,
+              "shares": 6167700.0,
+              "rank": 13,
+              "pct_portfolio": 1.9967
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:49427F108",
+              "cusip": "49427F108",
+              "company": "KILROY RLTY CORP",
+              "market_value": 49616149000.0,
+              "shares": 1327700.0,
+              "rank": 14,
+              "pct_portfolio": 1.2678
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:44812J104",
+              "cusip": "44812J104",
+              "company": "HUT 8 CORP",
+              "market_value": 39517588000.0,
+              "shares": 860200.0,
+              "rank": 15,
+              "pct_portfolio": 1.0097
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G96115103",
+              "cusip": "G96115103",
+              "company": "WHITEFIBER INC",
+              "market_value": 27770080000.0,
+              "shares": 1757600.0,
+              "rank": 16,
+              "pct_portfolio": 0.7096
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:73933G202",
+              "cusip": "73933G202",
+              "company": "POWER SOLUTIONS INTL INC",
+              "market_value": 24701622000.0,
+              "shares": 432300.0,
+              "rank": 17,
+              "pct_portfolio": 0.6312
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G11448100",
+              "cusip": "G11448100",
+              "company": "BITDEER TECHNOLOGIES GROUP",
+              "market_value": 20043480000.0,
+              "shares": 1788000.0,
+              "rank": 18,
+              "pct_portfolio": 0.5121
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:18452B209",
+              "cusip": "18452B209",
+              "company": "CLEANSPARK INC",
+              "market_value": 16600848000.0,
+              "shares": 1640400.0,
+              "rank": 19,
+              "pct_portfolio": 0.4242
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:09173B107",
+              "cusip": "09173B107",
+              "company": "BITFARMS LTD",
+              "market_value": 16208185000.0,
+              "shares": 6897100.0,
+              "rank": 20,
+              "pct_portfolio": 0.4141
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:53115L104",
+              "cusip": "53115L104",
+              "company": "LIBERTY ENERGY INC",
+              "market_value": 10470512000.0,
+              "shares": 567200.0,
+              "rank": 21,
+              "pct_portfolio": 0.2675
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:74347M108",
+              "cusip": "74347M108",
+              "company": "PROPETRO HLDG CORP",
+              "market_value": 8656953000.0,
+              "shares": 910300.0,
+              "rank": 22,
+              "pct_portfolio": 0.2212
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:05614L209",
+              "cusip": "05614L209",
+              "company": "BABCOCK & WILCOX ENTERPRISES",
+              "market_value": 8583726000.0,
+              "shares": 1353900.0,
+              "rank": 23,
+              "pct_portfolio": 0.2193
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:458140100",
+              "cusip": "458140100",
+              "company": "INTEL CORP",
+              "market_value": 37000.0,
+              "shares": 1.0,
+              "rank": 24,
+              "pct_portfolio": 0.0
+            }
+          ],
+          "total_value": 3913647375000.0,
+          "num_holdings": 24
+        },
+        {
+          "form": "13F-HR",
+          "company": "Situational Awareness LP",
+          "cik": "2045724",
+          "filing_date": "2025-11-14",
+          "file_name": "edgar/data/2045724/0002045724-25-000008.txt",
+          "accession": "0002045724-25-000008",
+          "period_end": "2025-09-30",
+          "quarter": "2025-Q3",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/2045724/0002045724-25-000008.txt",
+          "holdings": [
+            {
+              "ticker": null,
+              "identifier": "CUSIP:21873S108",
+              "cusip": "21873S108",
+              "company": "COREWEAVE INC",
+              "market_value": 563200154000.0,
+              "shares": 4115456.0,
+              "rank": 1,
+              "pct_portfolio": 25.1102
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:21874A106",
+              "cusip": "21874A106",
+              "company": "CORE SCIENTIFIC INC NEW",
+              "market_value": 362038780000.0,
+              "shares": 20180534.0,
+              "rank": 2,
+              "pct_portfolio": 16.1414
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:Q4982L109",
+              "cusip": "Q4982L109",
+              "company": "IREN LIMITED",
+              "market_value": 338854358000.0,
+              "shares": 7220421.0,
+              "rank": 3,
+              "pct_portfolio": 15.1078
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:92840M102",
+              "cusip": "92840M102",
+              "company": "VISTRA CORP",
+              "market_value": 252327327000.0,
+              "shares": 1287910.0,
+              "rank": 4,
+              "pct_portfolio": 11.25
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:038169207",
+              "cusip": "038169207",
+              "company": "APPLIED DIGITAL CORP",
+              "market_value": 139111716000.0,
+              "shares": 6064155.0,
+              "rank": 5,
+              "pct_portfolio": 6.2023
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:36317J209",
+              "cusip": "36317J209",
+              "company": "GALAXY DIGITAL INC.",
+              "market_value": 92554875000.0,
+              "shares": 2737500.0,
+              "rank": 6,
+              "pct_portfolio": 4.1265
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:17253JAA4",
+              "cusip": "17253JAA4",
+              "company": "CIPHER MINING INC",
+              "market_value": 72272807000.0,
+              "shares": 5740493.0,
+              "rank": 7,
+              "pct_portfolio": 3.2223
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:767292105",
+              "cusip": "767292105",
+              "company": "RIOT PLATFORMS INC",
+              "market_value": 68369062000.0,
+              "shares": 3592699.0,
+              "rank": 8,
+              "pct_portfolio": 3.0482
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:55024UAD1",
+              "cusip": "55024UAD1",
+              "company": "LUMENTUM HLDGS INC",
+              "market_value": 67947696000.0,
+              "shares": 417600.0,
+              "rank": 9,
+              "pct_portfolio": 3.0294
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:26884L109",
+              "cusip": "26884L109",
+              "company": "EQT CORP",
+              "market_value": 66262320000.0,
+              "shares": 1217386.0,
+              "rank": 10,
+              "pct_portfolio": 2.9543
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:83418M103",
+              "cusip": "83418M103",
+              "company": "SOLARIS ENERGY INFRAS INC",
+              "market_value": 45977491000.0,
+              "shares": 1150300.0,
+              "rank": 11,
+              "pct_portfolio": 2.0499
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:093712AH0",
+              "cusip": "093712AH0",
+              "company": "BLOOM ENERGY CORP",
+              "market_value": 43890344000.0,
+              "shares": 3048002.0,
+              "rank": 12,
+              "pct_portfolio": 1.9568
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:M87915274",
+              "cusip": "M87915274",
+              "company": "TOWER SEMICONDUCTOR LTD",
+              "market_value": 34024380000.0,
+              "shares": 470600.0,
+              "rank": 13,
+              "pct_portfolio": 1.517
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:44812J104",
+              "cusip": "44812J104",
+              "company": "HUT 8 CORP",
+              "market_value": 20851190000.0,
+              "shares": 599000.0,
+              "rank": 14,
+              "pct_portfolio": 0.9296
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:958102AT2",
+              "cusip": "958102AT2",
+              "company": "WESTERN DIGITAL CORP",
+              "market_value": 18347689000.0,
+              "shares": 152821.0,
+              "rank": 15,
+              "pct_portfolio": 0.818
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:19247G107",
+              "cusip": "19247G107",
+              "company": "COHERENT CORP",
+              "market_value": 16631968000.0,
+              "shares": 154400.0,
+              "rank": 16,
+              "pct_portfolio": 0.7415
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G11448100",
+              "cusip": "G11448100",
+              "company": "BITDEER TECHNOLOGIES GROUP",
+              "market_value": 15886864000.0,
+              "shares": 929600.0,
+              "rank": 17,
+              "pct_portfolio": 0.7083
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:80004C200",
+              "cusip": "80004C200",
+              "company": "SANDISK CORP",
+              "market_value": 12903000000.0,
+              "shares": 115000.0,
+              "rank": 18,
+              "pct_portfolio": 0.5753
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G7997R103",
+              "cusip": "G7997R103",
+              "company": "SEAGATE TECHNOLOGY HLDNGS PL",
+              "market_value": 11464726000.0,
+              "shares": 48567.0,
+              "rank": 19,
+              "pct_portfolio": 0.5112
+            }
+          ],
+          "total_value": 2242916747000.0,
+          "num_holdings": 19
+        },
+        {
+          "form": "13F-HR",
+          "company": "Situational Awareness LP",
+          "cik": "2045724",
+          "filing_date": "2025-08-14",
+          "file_name": "edgar/data/2045724/0002045724-25-000006.txt",
+          "accession": "0002045724-25-000006",
+          "period_end": "2025-06-30",
+          "quarter": "2025-Q2",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/2045724/0002045724-25-000006.txt",
+          "holdings": [
+            {
+              "ticker": null,
+              "identifier": "CUSIP:11135F101",
+              "cusip": "11135F101",
+              "company": "BROADCOM INC",
+              "market_value": 328466194000.0,
+              "shares": 1191606.0,
+              "rank": 1,
+              "pct_portfolio": 29.8701
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:92840M102",
+              "cusip": "92840M102",
+              "company": "VISTRA CORP",
+              "market_value": 246948438000.0,
+              "shares": 1274178.0,
+              "rank": 2,
+              "pct_portfolio": 22.4571
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:21874A106",
+              "cusip": "21874A106",
+              "company": "CORE SCIENTIFIC INC NEW",
+              "market_value": 136458229000.0,
+              "shares": 7994038.0,
+              "rank": 3,
+              "pct_portfolio": 12.4093
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:26884L109",
+              "cusip": "26884L109",
+              "company": "EQT CORP",
+              "market_value": 125116520000.0,
+              "shares": 2145345.0,
+              "rank": 4,
+              "pct_portfolio": 11.3779
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:21037T109",
+              "cusip": "21037T109",
+              "company": "CONSTELLATION ENERGY CORP",
+              "market_value": 103024992000.0,
+              "shares": 319200.0,
+              "rank": 5,
+              "pct_portfolio": 9.3689
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:Q4982L109",
+              "cusip": "Q4982L109",
+              "company": "IREN LIMITED",
+              "market_value": 93253595000.0,
+              "shares": 6400384.0,
+              "rank": 6,
+              "pct_portfolio": 8.4803
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:038169207",
+              "cusip": "038169207",
+              "company": "APPLIED DIGITAL CORP",
+              "market_value": 66379426000.0,
+              "shares": 6591800.0,
+              "rank": 7,
+              "pct_portfolio": 6.0364
+            }
+          ],
+          "total_value": 1099647394000.0,
+          "num_holdings": 7
+        },
+        {
+          "form": "13F-HR",
+          "company": "Situational Awareness LP",
+          "cik": "2045724",
+          "filing_date": "2025-05-14",
+          "file_name": "edgar/data/2045724/0002045724-25-000002.txt",
+          "accession": "0002045724-25-000002",
+          "period_end": "2025-03-31",
+          "quarter": "2025-Q1",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/2045724/0002045724-25-000002.txt",
+          "holdings": [
+            {
+              "ticker": null,
+              "identifier": "CUSIP:11135F101",
+              "cusip": "11135F101",
+              "company": "Broadcom Inc",
+              "market_value": 117201000000.0,
+              "shares": 700000.0,
+              "rank": 1,
+              "pct_portfolio": 21.4663
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:683344105",
+              "cusip": "683344105",
+              "company": "Onto Innovation Inc",
+              "market_value": 71192241000.0,
+              "shares": 586717.0,
+              "rank": 2,
+              "pct_portfolio": 13.0394
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:92840M102",
+              "cusip": "92840M102",
+              "company": "Vistra Corp",
+              "market_value": 61755354000.0,
+              "shares": 525846.0,
+              "rank": 3,
+              "pct_portfolio": 11.311
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:607828100",
+              "cusip": "607828100",
+              "company": "Modine Mfg Co",
+              "market_value": 55016242000.0,
+              "shares": 716824.0,
+              "rank": 4,
+              "pct_portfolio": 10.0767
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:26884L109",
+              "cusip": "26884L109",
+              "company": "EQT Corp",
+              "market_value": 52863535000.0,
+              "shares": 989398.0,
+              "rank": 5,
+              "pct_portfolio": 9.6824
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:21873S108",
+              "cusip": "21873S108",
+              "company": "CoreWeave Inc",
+              "market_value": 45423000000.0,
+              "shares": 1225000.0,
+              "rank": 6,
+              "pct_portfolio": 8.3196
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:21037T109",
+              "cusip": "21037T109",
+              "company": "Constellation Energy Corp",
+              "market_value": 36978942000.0,
+              "shares": 183400.0,
+              "rank": 7,
+              "pct_portfolio": 6.773
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:21874A106",
+              "cusip": "21874A106",
+              "company": "Core Scientific Inc New",
+              "market_value": 32736225000.0,
+              "shares": 4521578.0,
+              "rank": 8,
+              "pct_portfolio": 5.9959
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:87422Q109",
+              "cusip": "87422Q109",
+              "company": "Talen Energy Corp",
+              "market_value": 29630030000.0,
+              "shares": 148395.0,
+              "rank": 9,
+              "pct_portfolio": 5.427
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:038169207",
+              "cusip": "038169207",
+              "company": "Applied Digital Corp",
+              "market_value": 22680072000.0,
+              "shares": 4035600.0,
+              "rank": 10,
+              "pct_portfolio": 4.154
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:Q4982L109",
+              "cusip": "Q4982L109",
+              "company": "IREN Limited",
+              "market_value": 20499732000.0,
+              "shares": 3366130.0,
+              "rank": 11,
+              "pct_portfolio": 3.7547
+            }
+          ],
+          "total_value": 545976373000.0,
+          "num_holdings": 11
+        },
+        {
+          "form": "13F-HR",
+          "company": "Situational Awareness LP",
+          "cik": "2045724",
+          "filing_date": "2025-02-12",
+          "file_name": "edgar/data/2045724/0000935836-25-000120.txt",
+          "accession": "0000935836-25-000120",
+          "period_end": "2024-12-31",
+          "quarter": "2024-Q4",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/2045724/0000935836-25-000120.txt",
+          "holdings": [
+            {
+              "ticker": null,
+              "identifier": "CUSIP:573874104",
+              "cusip": "573874104",
+              "company": "MARVELL TECHNOLOGY INC",
+              "market_value": 86802213000.0,
+              "shares": 785896.0,
+              "rank": 1,
+              "pct_portfolio": 34.065
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:92840M102",
+              "cusip": "92840M102",
+              "company": "VISTRA CORP",
+              "market_value": 59063094000.0,
+              "shares": 428397.0,
+              "rank": 2,
+              "pct_portfolio": 23.1789
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:92537N108",
+              "cusip": "92537N108",
+              "company": "VERTIV HOLDINGS CO",
+              "market_value": 51709137000.0,
+              "shares": 455146.0,
+              "rank": 3,
+              "pct_portfolio": 20.2929
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:87422Q109",
+              "cusip": "87422Q109",
+              "company": "TALEN ENERGY CORP",
+              "market_value": 27979751000.0,
+              "shares": 138878.0,
+              "rank": 4,
+              "pct_portfolio": 10.9805
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:21037T109",
+              "cusip": "21037T109",
+              "company": "CONSTELLATION ENERGY CORP",
+              "market_value": 21565644000.0,
+              "shares": 96400.0,
+              "rank": 5,
+              "pct_portfolio": 8.4633
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:607828100",
+              "cusip": "607828100",
+              "company": "MODINE MFG CO",
+              "market_value": 7693926000.0,
+              "shares": 66367.0,
+              "rank": 6,
+              "pct_portfolio": 3.0194
+            }
+          ],
+          "total_value": 254813765000.0,
+          "num_holdings": 6
         }
       ],
       "filing_errors": []
