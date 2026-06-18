@@ -1821,7 +1821,6 @@ const INVESTORS_DATA = [
   { id:'gerstner',   name:'Brad Gerstner',         fund:'Altimeter Capital',           category:'AI & Growth',            rating:null, source:'13F',     stocks:['NVDA','META','SNOW'],                                         notes:'High-signal. NOT a value investor — concentrated public + private tech growth. One of the loudest, best-connected AI bulls (compute, hyperscalers, model labs). AI radar, not a margin-of-safety signal.' },
   { id:'laffont',    name:'Philippe Laffont',      fund:'Coatue Management',           category:'AI & Growth',            rating:null, source:'13F',     stocks:['NVDA','META','AMZN'],                                         notes:'High-signal. Tiger Cub running a tech-focused fund. NOT value — growth across AI, semis, and platforms. Tracks who-is-who in tech closely. Radar, not a buy signal.' },
   { id:'wood',       name:'Cathie Wood',           fund:'ARK Investment Management',   category:'AI & Growth',            rating:null, source:'13F',     stocks:['TSLA','COIN'],                                                notes:'Track. NOT value — high-beta disruptive-innovation ETFs (AI, robotics, crypto, genomics). Early/thematic and volatile. Innovation radar, not margin of safety.' },
-  { id:'chamath',    name:'Chamath Palihapitiya',  fund:'Social Capital',              category:'AI & Growth',            rating:null, source:'13F',     stocks:[],                                                             notes:'Track. NOT value — concentrated tech/AI plus private bets (now a family office). 13F may be sparse since much exposure is private. Idea-flow radar, not a buy signal.' },
   { id:'coleman',    name:'Chase Coleman',         fund:'Tiger Global Management',     category:'AI & Growth',            rating:null, source:'13F',     stocks:['GOOGL','MSFT','AMZN','NVDA'],                                 notes:'Track. Tiger Cub; large-cap tech + late-stage private growth. NOT value. Useful read on mega-cap AI/internet conviction.' },
   { id:'niles',      name:'Dan Niles',             fund:'Niles Investment Management', category:'AI & Growth',            rating:null, source:'13F',     stocks:['NKE','META','AAPL','AMZN'],                                   notes:'Track. Tech/semis trader — thematic and tactical (uses puts/hedges). NOT value. Up to date on the AI/semis cycle; near-term radar, not a long-term buy signal.' },
   { id:'halvorsen',  name:'Ole Andreas Halvorsen', fund:'Viking Global Investors',     category:'AI & Growth',            rating:null, source:'13F',     stocks:['V','TSM','SCHW'],                                             notes:'Track. Tiger Cub running a large long/short fund — more quality-growth than deep value. Broad, well-researched book across tech and financials.' },
@@ -5286,8 +5285,9 @@ function targCombinedHtml() {
       const pctCell = b.tickers.length === 1
         ? `<td style="color:var(--muted)">100%</td>`
         : `<td style="white-space:nowrap"><input type="number" step="0.5" class="targ-input" style="width:64px" value="${targStockPctOfBucket(b, t).toFixed(1)}" onchange="targSetPctOfBucket('${b.id}','${t}',this.value)">%</td>`;
-      html += `<tr data-targ-bucket="${b.id}" data-targ-ticker="${escapeHtml(t)}"><td class="targ-drag-handle" onpointerdown="targDragStart(event,'${b.id}','${escapeHtml(t)}')" title="Drag to reorder or move to another bucket">⠿</td><td><strong>${escapeHtml(t)}</strong>${targLivePrice(t)}</td>${pctCell}<td>${reentryFmt(tgt)}</td><td>${reentryFmt(owned)}</td>${targMoreCell(owned, tgt)}${targPctCell(owned, tgt)}</tr>`;
+      html += `<tr data-targ-bucket="${b.id}" data-targ-ticker="${escapeHtml(t)}"><td class="targ-drag-handle" onpointerdown="targDragStart(event,'${b.id}','${escapeHtml(t)}')" title="Drag to reorder or move to another bucket">⠿</td><td><strong>${escapeHtml(t)}</strong>${targLivePrice(t)} <a onclick="targRemoveTicker('${b.id}','${escapeHtml(t)}')" title="Remove from bucket" style="cursor:pointer;color:var(--muted);margin-left:6px">✕</a></td>${pctCell}<td>${reentryFmt(tgt)}</td><td>${reentryFmt(owned)}</td>${targMoreCell(owned, tgt)}${targPctCell(owned, tgt)}</tr>`;
     });
+    html += targAddRow(b.id, 7);
     html += `</tbody>`;
   });
   html += `</table></div>`;
@@ -5423,6 +5423,55 @@ function targDropTicker(srcId, ticker, destId, beforeTicker) {
   }
 }
 
+// ---- Add a stock to a bucket from a dropdown ----
+// Eligible = tickers on the watchlist OR held by any tracked super investor
+// (so the menu stays scoped to names Joe actually follows, now and in future).
+function targAddOptions(bucketId) {
+  const list = targListFor(bucketId);
+  const have = new Set((list ? list.tickers : []).map(canonicalTicker));
+  const opts = new Set();
+  if (typeof getWatchlistStocks === 'function') {
+    getWatchlistStocks().forEach(p => { if (!p.private) { const t = canonicalTicker(p.ticker); if (t) opts.add(t); } });
+  }
+  (allHoldings || []).forEach(h => { const t = canonicalTicker(h.ticker); if (t) opts.add(t); });
+  return [...opts].filter(t => !have.has(t) && /^[A-Z][A-Z.\-]{0,6}$/.test(t)).sort();
+}
+
+function targAddTicker(bucketId, ticker) {
+  ticker = canonicalTicker(ticker);
+  if (!ticker) return;
+  const list = targListFor(bucketId);
+  if (!list) return;
+  if (list.tickers.includes(ticker)) { showWatchlistToast(`${ticker} is already in ${list.label}`); return; }
+  list.tickers.push(ticker);           // no explicit weight → bucket re-spreads equally on save
+  targetsSave();                        // recalculates % of bucket + dollar goals and re-renders
+  showWatchlistToast(`Added ${ticker} → ${list.label}`);
+}
+
+function targRemoveTicker(bucketId, ticker) {
+  const list = targListFor(bucketId);
+  if (!list) return;
+  const i = list.tickers.indexOf(ticker);
+  if (i < 0) return;
+  list.tickers.splice(i, 1);
+  if (list.weights) delete list.weights[ticker];
+  ['his', 'hers', 'mose'].forEach(a => delete targetsData.owned[a + '|' + ticker]);
+  targetsSave();
+  showWatchlistToast(`Removed ${ticker} from ${list.label}`);
+}
+
+// "＋ Add stock" row appended inside each bucket's <tbody>. cols = table column count.
+function targAddRow(bucketId, cols) {
+  const opts = targAddOptions(bucketId);
+  const inner = opts.length
+    ? `<select class="targ-input" style="width:auto;min-width:150px" onchange="targAddTicker('${bucketId}', this.value); this.value='';">
+         <option value="">＋ Add stock…</option>${opts.map(t => `<option value="${t}">${t}</option>`).join('')}
+       </select>
+       <span style="color:var(--muted);font-size:11px;margin-left:6px">from your watchlist + super-investor holdings</span>`
+    : `<span style="color:var(--muted);font-size:11px">＋ All eligible stocks already in this bucket</span>`;
+  return `<tr class="targ-add-row"><td></td><td colspan="${cols - 1}">${inner}</td></tr>`;
+}
+
 function targMoseHtml() {
   const m = targetsData.mose;
   const budget = m.total * m.stockPct / 100;
@@ -5432,8 +5481,9 @@ function targMoseHtml() {
   let deployed = 0;
   m.tickers.forEach(t => {
     const owned = targOwned('mose', t); deployed += owned;
-    html += `<tr data-targ-bucket="mose" data-targ-ticker="${escapeHtml(t)}"><td class="targ-drag-handle" onpointerdown="targDragStart(event,'mose','${escapeHtml(t)}')" title="Drag to reorder or move buckets">⠿</td><td><strong>${escapeHtml(t)}</strong>${targLivePrice(t)}</td><td>${reentryFmt(tgt)}</td><td><input type="number" class="targ-input" value="${owned || ''}" placeholder="0" onchange="targSetOwned('mose','${t}',this.value)"></td>${targMoreCell(owned, tgt, t)}${targPctCell(owned, tgt)}</tr>`;
+    html += `<tr data-targ-bucket="mose" data-targ-ticker="${escapeHtml(t)}"><td class="targ-drag-handle" onpointerdown="targDragStart(event,'mose','${escapeHtml(t)}')" title="Drag to reorder or move buckets">⠿</td><td><strong>${escapeHtml(t)}</strong>${targLivePrice(t)} <a onclick="targRemoveTicker('mose','${escapeHtml(t)}')" title="Remove from bucket" style="cursor:pointer;color:var(--muted);margin-left:6px">✕</a></td><td>${reentryFmt(tgt)}</td><td><input type="number" class="targ-input" value="${owned || ''}" placeholder="0" onchange="targSetOwned('mose','${t}',this.value)"></td>${targMoreCell(owned, tgt, t)}${targPctCell(owned, tgt)}</tr>`;
   });
+  html += targAddRow('mose', 6);
   html += `</tbody></table></div>`;
   return { html, deployed, budget, cash: m.total - budget };
 }
