@@ -1147,12 +1147,12 @@ async function checkPw(){
 <!-- TAB BAR -->
 <div class="tab-bar">
   <button class="tab-btn active" onclick="switchTab('cockpit', this)">Command Center</button>
+  <button class="tab-btn" onclick="switchTab('investors', this)">🧠 Super Investors</button>
   <button class="tab-btn" onclick="switchTab('holdings', this)">📊 Holdings Tracker</button>
   <button class="tab-btn" onclick="switchTab('dcf', this)">📐 DCF Valuations</button>
   <button class="tab-btn" onclick="switchTab('heatmap', this)">🔥 Convergence Heat Map</button>
   <button class="tab-btn" onclick="switchTab('filings', this)">13F Tracker</button>
   <button class="tab-btn" onclick="switchTab('portfolio', this)">🎯 Joe's Watchlist</button>
-  <button class="tab-btn" onclick="switchTab('investors', this)">🧠 Super Investors</button>
   <button class="tab-btn" onclick="switchTab('joeholdings', this)">💼 Joe's Holdings</button>
   <button class="tab-btn" onclick="switchTab('targets', this)">🎯 Buy Targets</button>
   <button class="tab-btn" onclick="switchTab('reentry', this)">📅 Re-Entry Plan</button>
@@ -1201,20 +1201,20 @@ async function checkPw(){
       <table id="cockpit-table">
         <thead>
           <tr>
-            <th>Rank</th>
-            <th>Ticker</th>
-            <th>Company</th>
-            <th>Score</th>
-            <th>Action</th>
-            <th>Bucket</th>
-            <th>Investors</th>
-            <th>Max Conviction</th>
-            <th>Trend</th>
-            <th>Price</th>
-            <th>Base IV</th>
-            <th>MOS</th>
-            <th>Deep Dive</th>
-            <th>Why It Ranks</th>
+            <th style="cursor:default">Rank</th>
+            <th onclick="sortCockpit('ticker')">Ticker<span class="sort-arrow"></span></th>
+            <th onclick="sortCockpit('name')">Company<span class="sort-arrow"></span></th>
+            <th onclick="sortCockpit('score')">Score<span class="sort-arrow"></span></th>
+            <th onclick="sortCockpit('action')">Action<span class="sort-arrow"></span></th>
+            <th onclick="sortCockpit('bucket')">Bucket<span class="sort-arrow"></span></th>
+            <th onclick="sortCockpit('investors')">Investors<span class="sort-arrow"></span></th>
+            <th onclick="sortCockpit('maxPct')">Max Conviction<span class="sort-arrow"></span></th>
+            <th onclick="sortCockpit('trend')">Trend<span class="sort-arrow"></span></th>
+            <th onclick="sortCockpit('price')">Price<span class="sort-arrow"></span></th>
+            <th onclick="sortCockpit('iv')">Base IV<span class="sort-arrow"></span></th>
+            <th onclick="sortCockpit('mos')">MOS<span class="sort-arrow"></span></th>
+            <th style="cursor:default">Deep Dive</th>
+            <th style="cursor:default">Why It Ranks</th>
           </tr>
         </thead>
         <tbody id="cockpit-body">
@@ -2109,6 +2109,29 @@ let watchlistPriority = JSON.parse(localStorage.getItem('mose_watchlist_priority
 let customWatchlist = JSON.parse(localStorage.getItem('mose_custom_watchlist') || '[]');
 let researchItems = JSON.parse(localStorage.getItem('mose_research_items') || '{}');
 let cockpitFilter = 'top';
+let cockpitSortKey = null;   // null = natural order (by score)
+let cockpitSortDir = -1;
+function sortCockpit(key) {
+  if (cockpitSortKey === key) cockpitSortDir *= -1;
+  else { cockpitSortKey = key; cockpitSortDir = -1; }
+  renderCockpit();
+}
+function cockpitSortVal(c, key) {
+  switch (key) {
+    case 'ticker': return c.ticker || '';
+    case 'name': return c.name || '';
+    case 'score': return c.score || 0;
+    case 'action': return c.action || '';
+    case 'bucket': return BUCKET_ORDER.indexOf(c.bucket);
+    case 'investors': return c.investors ? c.investors.length : 0;
+    case 'maxPct': return c.maxPct || 0;
+    case 'trend': return (c.adding || 0) - (c.trimming || 0);
+    case 'price': return c.valuation ? c.valuation.price : null;
+    case 'iv': return c.valuation ? c.valuation.iv : null;
+    case 'mos': return c.valuation ? c.valuation.mos : null;
+    default: return 0;
+  }
+}
 let autoDeepDiveQueueRan = false;
 let joeHoldingsData = null;
 const PRIORITY_ORDER = { High: 0, Medium: 1, Low: 2, None: 3 };
@@ -2972,6 +2995,14 @@ function sortDCF(key) {
 // ============================================================
 // HEATMAP RENDER
 // ============================================================
+let heatmapSortKey = 'conv';   // 'ticker' | 'company' | 'conv' | 'inv:<Investor Name>'
+let heatmapSortDir = -1;
+function sortHeatmap(key) {
+  if (heatmapSortKey === key) heatmapSortDir *= -1;
+  else { heatmapSortKey = key; heatmapSortDir = (key === 'ticker' || key === 'company') ? 1 : -1; }
+  renderHeatmap();
+}
+
 function renderHeatmap() {
   if (!allHoldings.length) return;
 
@@ -2990,23 +3021,34 @@ function renderHeatmap() {
     convergenceMap[h.ticker]++;
   });
 
-  // Sort tickers by convergence desc
-  const tickers = Object.keys(tickerMap).sort((a, b) => convergenceMap[b] - convergenceMap[a]);
+  // Rows, sorted by the active column (default: convergence desc)
+  const rows = Object.keys(tickerMap).map(t => ({ ticker: t, company: tickerMap[t].company || '', conv: convergenceMap[t], info: tickerMap[t] }));
+  rows.sort((a, b) => {
+    let va, vb;
+    if (heatmapSortKey === 'ticker') return heatmapSortDir * a.ticker.localeCompare(b.ticker);
+    if (heatmapSortKey === 'company') return heatmapSortDir * a.company.localeCompare(b.company);
+    if (heatmapSortKey === 'conv') { va = a.conv; vb = b.conv; }
+    else if (heatmapSortKey.startsWith('inv:')) {
+      const inv = heatmapSortKey.slice(4);
+      va = a.info[inv]; vb = b.info[inv];
+    }
+    return heatmapSortDir * (((va ?? -Infinity)) - ((vb ?? -Infinity))) || a.ticker.localeCompare(b.ticker);
+  });
 
-  // Header
+  const arrowCls = key => heatmapSortKey === key ? (heatmapSortDir > 0 ? ' sort-asc' : ' sort-desc') : '';
   const thead = document.getElementById('heatmap-head');
   thead.innerHTML = '<tr>' +
-    '<th>Ticker</th>' +
-    '<th>Company</th>' +
-    '<th>Conv.</th>' +
-    investors.map(inv => `<th>${inv.split(' ').slice(-1)[0]}</th>`).join('') +
+    `<th class="${arrowCls('ticker').trim()}" onclick="sortHeatmap('ticker')">Ticker<span class="sort-arrow"></span></th>` +
+    `<th class="${arrowCls('company').trim()}" onclick="sortHeatmap('company')">Company<span class="sort-arrow"></span></th>` +
+    `<th class="${arrowCls('conv').trim()}" onclick="sortHeatmap('conv')">Conv.<span class="sort-arrow"></span></th>` +
+    investors.map(inv => {
+      const k = 'inv:' + inv;
+      return `<th class="${arrowCls(k).trim()}" onclick="sortHeatmap('inv:${inv.replace(/'/g, "\\'")}')" title="${escapeHtml(inv)}">${escapeHtml(inv.split(' ').slice(-1)[0])}<span class="sort-arrow"></span></th>`;
+    }).join('') +
     '</tr>';
 
-  // Body
   const tbody = document.getElementById('heatmap-body');
-  tbody.innerHTML = tickers.map(ticker => {
-    const info = tickerMap[ticker];
-    const conv = convergenceMap[ticker];
+  tbody.innerHTML = rows.map(({ ticker, company, conv, info }) => {
     const cells = investors.map(inv => {
       const pct = info[inv];
       if (pct === null || pct === undefined) return `<td><span class="heat-cell heat-none">—</span></td>`;
@@ -3016,7 +3058,7 @@ function renderHeatmap() {
     const convColor = conv >= 3 ? 'color:var(--accent)' : conv === 2 ? 'color:var(--yellow)' : 'color:var(--muted)';
     return `<tr>
       <td><span class="ticker">${ticker}</span></td>
-      <td style="font-size:12px;color:var(--muted)">${info.company}</td>
+      <td style="font-size:12px;color:var(--muted)">${company}</td>
       <td><span class="conv-badge"><span class="cb-num" style="${convColor}">${conv}</span> inv</span></td>
       ${cells}
     </tr>`;
@@ -3841,6 +3883,14 @@ function renderCockpit() {
   if (cockpitFilter === 'owned') data = all.filter(c => c.owns && c.owns.shares > 0);
   if (cockpitFilter === 'top') data = all.slice(0, 35);
 
+  if (cockpitSortKey) {
+    data = [...data].sort((a, b) => {
+      const va = cockpitSortVal(a, cockpitSortKey), vb = cockpitSortVal(b, cockpitSortKey);
+      if (typeof va === 'string') return cockpitSortDir * va.localeCompare(vb);
+      return cockpitSortDir * ((va ?? -Infinity) - (vb ?? -Infinity));
+    });
+  }
+
   if (!data.length) {
     body.innerHTML = '<tr><td colspan="14" class="no-data">No candidates match this view yet.</td></tr>';
     return;
@@ -3875,6 +3925,12 @@ function renderCockpit() {
       <td>${drivers}</td>
     </tr>`;
   }).join('');
+
+  const cockpitKeys = [null,'ticker','name','score','action','bucket','investors','maxPct','trend','price','iv','mos',null,null];
+  document.querySelectorAll('#cockpit-table thead th').forEach((th, i) => {
+    th.classList.remove('sort-asc', 'sort-desc');
+    if (cockpitKeys[i] && cockpitKeys[i] === cockpitSortKey) th.classList.add(cockpitSortDir > 0 ? 'sort-asc' : 'sort-desc');
+  });
 }
 
 function watchlistRowHtml(p, dcfMap, tickerToInvestors, joeOwns, candidateMap) {
