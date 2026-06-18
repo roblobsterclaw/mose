@@ -1,8 +1,12 @@
 {
-  "generated_at": "2026-06-18T10:05:21.132444+00:00",
+  "generated_at": "2026-06-18T13:56:12.575583+00:00",
   "job": "update_live_market_data",
-  "status": "ok",
-  "detail": "49 quotes, 5 indices published.",
-  "quote_count": 49,
-  "errors": []
+  "status": "partial",
+  "detail": "51 quotes, 5 indices published. 3 symbol(s) failed.",
+  "quote_count": 51,
+  "errors": [
+    "CERE: HTTP Error 404: Not Found",
+    "CORE: HTTP Error 404: Not Found",
+    "MARV: HTTP Error 404: Not Found"
+  ]
 }
