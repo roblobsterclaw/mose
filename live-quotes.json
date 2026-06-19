@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T14:43:02.705383+00:00",
+  "generated_at": "2026-06-19T16:26:05.335445+00:00",
   "source": "yahoo",
   "market_status": "open",
   "indices": [
@@ -31,15 +31,15 @@
       "name": "Russell 2000",
       "ticker": "^RUT",
       "price": 2979.765,
-      "change_pct": 2.1173194351438736,
+      "change_pct": 2.117389426932325,
       "vs_exit": null,
       "source": "yahoo"
     },
     {
       "name": "VIX",
       "ticker": "^VIX",
-      "price": 16.84,
-      "change_pct": -8.676789587852502,
+      "price": 16.78,
+      "change_pct": -9.002169197396963,
       "vs_exit": null,
       "source": "yahoo"
     }
@@ -228,12 +228,12 @@
     {
       "ticker": "CSU",
       "symbol": "CSU.TO",
-      "price": 2770.52,
+      "price": 2752.7,
       "prev_close": 2749.99,
-      "change_pct": 0.7465481692660774,
+      "change_pct": 0.09854581289386641,
       "date": "2026-06-19",
-      "time": "10:18:51",
-      "volume": 41124,
+      "time": "12:17:24",
+      "volume": 42735,
       "week52_high": 5060.7,
       "week52_low": 2196.0
     },
