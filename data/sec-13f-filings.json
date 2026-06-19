@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-18T18:22:51.383180+00:00",
+  "generated_at": "2026-06-19T16:17:35.436996+00:00",
   "source": "SEC EDGAR submissions and Archives information tables",
   "quarters_requested": 8,
-  "investor_count": 26,
-  "filings_pulled": 194,
+  "investor_count": 27,
+  "filings_pulled": 202,
   "failed_investors": [],
   "investors": [
     {
@@ -303532,6 +303532,3146 @@
           ],
           "total_value": 7054853933000.0,
           "num_holdings": 39
+        }
+      ],
+      "filing_errors": []
+    },
+    {
+      "name": "Terry Smith",
+      "fund": "Fundsmith LLP",
+      "tier": 1,
+      "cik": "1569205",
+      "source_type": "13F",
+      "filings": [
+        {
+          "form": "13F-HR",
+          "company": "Fundsmith LLP",
+          "cik": "1569205",
+          "filing_date": "2026-05-15",
+          "file_name": "edgar/data/1569205/0001569205-26-000005.txt",
+          "accession": "0001569205-26-000005",
+          "period_end": "2026-03-31",
+          "quarter": "2026-Q1",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/1569205/0001569205-26-000005.txt",
+          "holdings": [
+            {
+              "ticker": "MAR",
+              "identifier": "MAR",
+              "cusip": "571903202",
+              "company": "MARRIOTT INTL INC NEW",
+              "market_value": 1102511105000.0,
+              "shares": 3370872.0,
+              "rank": 1,
+              "pct_portfolio": 8.5947
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:863667101",
+              "cusip": "863667101",
+              "company": "STRYKER CORPORATION",
+              "market_value": 1005950683000.0,
+              "shares": 3061416.0,
+              "rank": 2,
+              "pct_portfolio": 7.842
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:941848103",
+              "cusip": "941848103",
+              "company": "WATERS CORP",
+              "market_value": 956555935000.0,
+              "shares": 3212075.0,
+              "rank": 3,
+              "pct_portfolio": 7.4569
+            },
+            {
+              "ticker": "V",
+              "identifier": "V",
+              "cusip": "92826C839",
+              "company": "VISA INC",
+              "market_value": 938180162000.0,
+              "shares": 3104090.0,
+              "rank": 4,
+              "pct_portfolio": 7.3137
+            },
+            {
+              "ticker": "GOOGL",
+              "identifier": "GOOGL",
+              "cusip": "02079K305",
+              "company": "ALPHABET INC",
+              "market_value": 850084297000.0,
+              "shares": 2956198.0,
+              "rank": 5,
+              "pct_portfolio": 6.6269
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:718172109",
+              "cusip": "718172109",
+              "company": "PHILIP MORRIS INTL INC",
+              "market_value": 845410370000.0,
+              "shares": 5113163.0,
+              "rank": 6,
+              "pct_portfolio": 6.5905
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:45168D104",
+              "cusip": "45168D104",
+              "company": "IDEXX LABS INC",
+              "market_value": 823610496000.0,
+              "shares": 1465786.0,
+              "rank": 7,
+              "pct_portfolio": 6.4205
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:053015103",
+              "cusip": "053015103",
+              "company": "AUTOMATIC DATA PROCESSING IN",
+              "market_value": 783280234000.0,
+              "shares": 3855105.0,
+              "rank": 8,
+              "pct_portfolio": 6.1061
+            },
+            {
+              "ticker": "MSFT",
+              "identifier": "MSFT",
+              "cusip": "594918104",
+              "company": "MICROSOFT CORP",
+              "market_value": 769856245000.0,
+              "shares": 2079737.0,
+              "rank": 9,
+              "pct_portfolio": 6.0015
+            },
+            {
+              "ticker": "META",
+              "identifier": "META",
+              "cusip": "30303M102",
+              "company": "META PLATFORMS INC",
+              "market_value": 755998279000.0,
+              "shares": 1321375.0,
+              "rank": 10,
+              "pct_portfolio": 5.8935
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:592688105",
+              "cusip": "592688105",
+              "company": "METTLER TOLEDO INTERNATIONAL",
+              "market_value": 717012379000.0,
+              "shares": 568516.0,
+              "rank": 11,
+              "pct_portfolio": 5.5895
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:171340102",
+              "cusip": "171340102",
+              "company": "CHURCH & DWIGHT CO INC",
+              "market_value": 619785527000.0,
+              "shares": 6641508.0,
+              "rank": 12,
+              "pct_portfolio": 4.8316
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:742718109",
+              "cusip": "742718109",
+              "company": "PROCTER & GAMBLE CO",
+              "market_value": 606635578000.0,
+              "shares": 4199914.0,
+              "rank": 13,
+              "pct_portfolio": 4.7291
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:882508104",
+              "cusip": "882508104",
+              "company": "TEXAS INSTRS INC",
+              "market_value": 509253293000.0,
+              "shares": 2623124.0,
+              "rank": 14,
+              "pct_portfolio": 3.9699
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:34959E109",
+              "cusip": "34959E109",
+              "company": "FORTINET INC",
+              "market_value": 503123481000.0,
+              "shares": 6156675.0,
+              "rank": 15,
+              "pct_portfolio": 3.9221
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:98978V103",
+              "cusip": "98978V103",
+              "company": "ZOETIS INC",
+              "market_value": 458366249000.0,
+              "shares": 3877559.0,
+              "rank": 16,
+              "pct_portfolio": 3.5732
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:68902V107",
+              "cusip": "68902V107",
+              "company": "OTIS WORLDWIDE CORP",
+              "market_value": 210554426000.0,
+              "shares": 2731635.0,
+              "rank": 17,
+              "pct_portfolio": 1.6414
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:55354G100",
+              "cusip": "55354G100",
+              "company": "MSCI INC",
+              "market_value": 34921380000.0,
+              "shares": 64788.0,
+              "rank": 18,
+              "pct_portfolio": 0.2722
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:775711104",
+              "cusip": "775711104",
+              "company": "ROLLINS INC",
+              "market_value": 33110728000.0,
+              "shares": 619935.0,
+              "rank": 19,
+              "pct_portfolio": 0.2581
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:58506Q109",
+              "cusip": "58506Q109",
+              "company": "MEDPACE HLDGS INC",
+              "market_value": 30092547000.0,
+              "shares": 62668.0,
+              "rank": 20,
+              "pct_portfolio": 0.2346
+            },
+            {
+              "ticker": "VRSN",
+              "identifier": "VRSN",
+              "cusip": "92343E102",
+              "company": "VERISIGN INC",
+              "market_value": 28180664000.0,
+              "shares": 113467.0,
+              "rank": 21,
+              "pct_portfolio": 0.2197
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:70432V102",
+              "cusip": "70432V102",
+              "company": "PAYCOM SOFTWARE INC",
+              "market_value": 26672804000.0,
+              "shares": 219457.0,
+              "rank": 22,
+              "pct_portfolio": 0.2079
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:189054109",
+              "cusip": "189054109",
+              "company": "CLOROX CO DEL",
+              "market_value": 26655398000.0,
+              "shares": 257217.0,
+              "rank": 23,
+              "pct_portfolio": 0.2078
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:92537N108",
+              "cusip": "92537N108",
+              "company": "VERTIV HOLDINGS CO",
+              "market_value": 22866427000.0,
+              "shares": 91254.0,
+              "rank": 24,
+              "pct_portfolio": 0.1783
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:67059N108",
+              "cusip": "67059N108",
+              "company": "NUTANIX INC",
+              "market_value": 21946670000.0,
+              "shares": 577392.0,
+              "rank": 25,
+              "pct_portfolio": 0.1711
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:056525108",
+              "cusip": "056525108",
+              "company": "BADGER METER INC",
+              "market_value": 21708504000.0,
+              "shares": 142491.0,
+              "rank": 26,
+              "pct_portfolio": 0.1692
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:14888U101",
+              "cusip": "14888U101",
+              "company": "CATALYST PHARMACEUTICALS INC",
+              "market_value": 20919402000.0,
+              "shares": 844887.0,
+              "rank": 27,
+              "pct_portfolio": 0.1631
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:74758T303",
+              "cusip": "74758T303",
+              "company": "QUALYS INC",
+              "market_value": 19860864000.0,
+              "shares": 226077.0,
+              "rank": 28,
+              "pct_portfolio": 0.1548
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:26622P107",
+              "cusip": "26622P107",
+              "company": "DOXIMITY INC",
+              "market_value": 16118614000.0,
+              "shares": 691786.0,
+              "rank": 29,
+              "pct_portfolio": 0.1257
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:562750109",
+              "cusip": "562750109",
+              "company": "MANHATTAN ASSOCIATES INC",
+              "market_value": 16092611000.0,
+              "shares": 120888.0,
+              "rank": 30,
+              "pct_portfolio": 0.1255
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:630402105",
+              "cusip": "630402105",
+              "company": "NAPCO SEC TECHNOLOGIES INC",
+              "market_value": 15109846000.0,
+              "shares": 383596.0,
+              "rank": 31,
+              "pct_portfolio": 0.1178
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:000899104",
+              "cusip": "000899104",
+              "company": "ADMA BIOLOGICS INC",
+              "market_value": 14861932000.0,
+              "shares": 1649493.0,
+              "rank": 32,
+              "pct_portfolio": 0.1159
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:78573M104",
+              "cusip": "78573M104",
+              "company": "SABRE CORP",
+              "market_value": 13069985000.0,
+              "shares": 9013783.0,
+              "rank": 33,
+              "pct_portfolio": 0.1019
+            },
+            {
+              "ticker": "HD",
+              "identifier": "HD",
+              "cusip": "437076102",
+              "company": "HOME DEPOT INC",
+              "market_value": 9409872000.0,
+              "shares": 28611.0,
+              "rank": 34,
+              "pct_portfolio": 0.0734
+            }
+          ],
+          "total_value": 12827766987000.0,
+          "num_holdings": 34
+        },
+        {
+          "form": "13F-HR",
+          "company": "Fundsmith LLP",
+          "cik": "1569205",
+          "filing_date": "2026-02-17",
+          "file_name": "edgar/data/1569205/0001569205-26-000002.txt",
+          "accession": "0001569205-26-000002",
+          "period_end": "2025-12-31",
+          "quarter": "2025-Q4",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/1569205/0001569205-26-000002.txt",
+          "holdings": [
+            {
+              "ticker": null,
+              "identifier": "CUSIP:941848103",
+              "cusip": "941848103",
+              "company": "WATERS CORP",
+              "market_value": 1351426784000.0,
+              "shares": 3557978.0,
+              "rank": 1,
+              "pct_portfolio": 7.8957
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:863667101",
+              "cusip": "863667101",
+              "company": "STRYKER CORPORATION",
+              "market_value": 1296049491000.0,
+              "shares": 3687511.0,
+              "rank": 2,
+              "pct_portfolio": 7.5721
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:45168D104",
+              "cusip": "45168D104",
+              "company": "IDEXX LABS INC",
+              "market_value": 1269193959000.0,
+              "shares": 1876035.0,
+              "rank": 3,
+              "pct_portfolio": 7.4152
+            },
+            {
+              "ticker": "V",
+              "identifier": "V",
+              "cusip": "92826C839",
+              "company": "VISA INC",
+              "market_value": 1239649026000.0,
+              "shares": 3534684.0,
+              "rank": 4,
+              "pct_portfolio": 7.2426
+            },
+            {
+              "ticker": "MAR",
+              "identifier": "MAR",
+              "cusip": "571903202",
+              "company": "MARRIOTT INTL INC NEW",
+              "market_value": 1234732552000.0,
+              "shares": 3979927.0,
+              "rank": 5,
+              "pct_portfolio": 7.2139
+            },
+            {
+              "ticker": "GOOGL",
+              "identifier": "GOOGL",
+              "cusip": "02079K305",
+              "company": "ALPHABET INC",
+              "market_value": 1095036447000.0,
+              "shares": 3498519.0,
+              "rank": 6,
+              "pct_portfolio": 6.3977
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:053015103",
+              "cusip": "053015103",
+              "company": "AUTOMATIC DATA PROCESSING IN",
+              "market_value": 1074698966000.0,
+              "shares": 4177969.0,
+              "rank": 7,
+              "pct_portfolio": 6.2789
+            },
+            {
+              "ticker": "MSFT",
+              "identifier": "MSFT",
+              "cusip": "594918104",
+              "company": "MICROSOFT CORP",
+              "market_value": 1005915575000.0,
+              "shares": 2079971.0,
+              "rank": 8,
+              "pct_portfolio": 5.877
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:718172109",
+              "cusip": "718172109",
+              "company": "PHILIP MORRIS INTL INC",
+              "market_value": 982385359000.0,
+              "shares": 6124597.0,
+              "rank": 9,
+              "pct_portfolio": 5.7395
+            },
+            {
+              "ticker": "META",
+              "identifier": "META",
+              "cusip": "30303M102",
+              "company": "META PLATFORMS INC",
+              "market_value": 900058459000.0,
+              "shares": 1363539.0,
+              "rank": 10,
+              "pct_portfolio": 5.2586
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:592688105",
+              "cusip": "592688105",
+              "company": "METTLER TOLEDO INTERNATIONAL",
+              "market_value": 809337054000.0,
+              "shares": 580507.0,
+              "rank": 11,
+              "pct_portfolio": 4.7285
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:742718109",
+              "cusip": "742718109",
+              "company": "PROCTER AND GAMBLE CO",
+              "market_value": 608787759000.0,
+              "shares": 4248048.0,
+              "rank": 12,
+              "pct_portfolio": 3.5568
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:171340102",
+              "cusip": "171340102",
+              "company": "CHURCH AND DWIGHT CO INC",
+              "market_value": 564176675000.0,
+              "shares": 6728404.0,
+              "rank": 13,
+              "pct_portfolio": 3.2962
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:34959E109",
+              "cusip": "34959E109",
+              "company": "FORTINET INC",
+              "market_value": 517436434000.0,
+              "shares": 6516011.0,
+              "rank": 14,
+              "pct_portfolio": 3.0231
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:98978V103",
+              "cusip": "98978V103",
+              "company": "ZOETIS INC",
+              "market_value": 490799033000.0,
+              "shares": 3900803.0,
+              "rank": 15,
+              "pct_portfolio": 2.8675
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:882508104",
+              "cusip": "882508104",
+              "company": "TEXAS INSTRS INC",
+              "market_value": 455160036000.0,
+              "shares": 2623552.0,
+              "rank": 16,
+              "pct_portfolio": 2.6593
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:461202103",
+              "cusip": "461202103",
+              "company": "INTUIT",
+              "market_value": 414422538000.0,
+              "shares": 625619.0,
+              "rank": 17,
+              "pct_portfolio": 2.4212
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:654106103",
+              "cusip": "654106103",
+              "company": "NIKE INC",
+              "market_value": 367618232000.0,
+              "shares": 5770181.0,
+              "rank": 18,
+              "pct_portfolio": 2.1478
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:68902V107",
+              "cusip": "68902V107",
+              "company": "OTIS WORLDWIDE CORP",
+              "market_value": 271866393000.0,
+              "shares": 3112380.0,
+              "rank": 19,
+              "pct_portfolio": 1.5884
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:55354G100",
+              "cusip": "55354G100",
+              "company": "MSCI INC",
+              "market_value": 95594319000.0,
+              "shares": 166619.0,
+              "rank": 20,
+              "pct_portfolio": 0.5585
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:775711104",
+              "cusip": "775711104",
+              "company": "ROLLINS INC",
+              "market_value": 88747313000.0,
+              "shares": 1478629.0,
+              "rank": 21,
+              "pct_portfolio": 0.5185
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:74758T303",
+              "cusip": "74758T303",
+              "company": "QUALYS INC",
+              "market_value": 86093417000.0,
+              "shares": 647806.0,
+              "rank": 22,
+              "pct_portfolio": 0.503
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:70432V102",
+              "cusip": "70432V102",
+              "company": "PAYCOM SOFTWARE INC",
+              "market_value": 83414283000.0,
+              "shares": 523433.0,
+              "rank": 23,
+              "pct_portfolio": 0.4873
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:M7518J104",
+              "cusip": "M7518J104",
+              "company": "ODDITY TECH LTD",
+              "market_value": 83340030000.0,
+              "shares": 2074167.0,
+              "rank": 24,
+              "pct_portfolio": 0.4869
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:14888U101",
+              "cusip": "14888U101",
+              "company": "CATALYST PHARMACEUTICALS INC",
+              "market_value": 78511255000.0,
+              "shares": 3363807.0,
+              "rank": 25,
+              "pct_portfolio": 0.4587
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:630402105",
+              "cusip": "630402105",
+              "company": "NAPCO SEC TECHNOLOGIES INC",
+              "market_value": 74220037000.0,
+              "shares": 1779857.0,
+              "rank": 26,
+              "pct_portfolio": 0.4336
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:26622P107",
+              "cusip": "26622P107",
+              "company": "DOXIMITY INC",
+              "market_value": 73062089000.0,
+              "shares": 1650002.0,
+              "rank": 27,
+              "pct_portfolio": 0.4269
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:67059N108",
+              "cusip": "67059N108",
+              "company": "NUTANIX INC",
+              "market_value": 71185297000.0,
+              "shares": 1377158.0,
+              "rank": 28,
+              "pct_portfolio": 0.4159
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:92537N108",
+              "cusip": "92537N108",
+              "company": "VERTIV HOLDINGS CO",
+              "market_value": 66577037000.0,
+              "shares": 410944.0,
+              "rank": 29,
+              "pct_portfolio": 0.389
+            },
+            {
+              "ticker": "VRSN",
+              "identifier": "VRSN",
+              "cusip": "92343E102",
+              "company": "VERISIGN INC",
+              "market_value": 65750530000.0,
+              "shares": 270634.0,
+              "rank": 30,
+              "pct_portfolio": 0.3841
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:189054109",
+              "cusip": "189054109",
+              "company": "CLOROX CO DEL",
+              "market_value": 61858903000.0,
+              "shares": 613497.0,
+              "rank": 31,
+              "pct_portfolio": 0.3614
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:562750109",
+              "cusip": "562750109",
+              "company": "MANHATTAN ASSOCIATES INC",
+              "market_value": 49970819000.0,
+              "shares": 288332.0,
+              "rank": 32,
+              "pct_portfolio": 0.292
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:384109104",
+              "cusip": "384109104",
+              "company": "GRACO INC",
+              "market_value": 47461942000.0,
+              "shares": 579016.0,
+              "rank": 33,
+              "pct_portfolio": 0.2773
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:58506Q109",
+              "cusip": "58506Q109",
+              "company": "MEDPACE HLDGS INC",
+              "market_value": 46373756000.0,
+              "shares": 82567.0,
+              "rank": 34,
+              "pct_portfolio": 0.2709
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:000899104",
+              "cusip": "000899104",
+              "company": "ADMA BIOLOGICS INC",
+              "market_value": 38341465000.0,
+              "shares": 2102054.0,
+              "rank": 35,
+              "pct_portfolio": 0.224
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:78573M104",
+              "cusip": "78573M104",
+              "company": "SABRE CORP",
+              "market_value": 29238769000.0,
+              "shares": 21499095.0,
+              "rank": 36,
+              "pct_portfolio": 0.1708
+            },
+            {
+              "ticker": "HD",
+              "identifier": "HD",
+              "cusip": "437076102",
+              "company": "HOME DEPOT INC",
+              "market_value": 27598885000.0,
+              "shares": 80206.0,
+              "rank": 37,
+              "pct_portfolio": 0.1612
+            }
+          ],
+          "total_value": 17116090918000.0,
+          "num_holdings": 37
+        },
+        {
+          "form": "13F-HR",
+          "company": "Fundsmith LLP",
+          "cik": "1569205",
+          "filing_date": "2025-11-14",
+          "file_name": "edgar/data/1569205/0001569205-25-000004.txt",
+          "accession": "0001569205-25-000004",
+          "period_end": "2025-09-30",
+          "quarter": "2025-Q3",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/1569205/0001569205-25-000004.txt",
+          "holdings": [
+            {
+              "ticker": null,
+              "identifier": "CUSIP:863667101",
+              "cusip": "863667101",
+              "company": "STRYKER CORPORATION",
+              "market_value": 1697263283000.0,
+              "shares": 4591293.0,
+              "rank": 1,
+              "pct_portfolio": 8.5741
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:45168D104",
+              "cusip": "45168D104",
+              "company": "IDEXX LABS INC",
+              "market_value": 1667794873000.0,
+              "shares": 2610457.0,
+              "rank": 2,
+              "pct_portfolio": 8.4252
+            },
+            {
+              "ticker": "GOOGL",
+              "identifier": "GOOGL",
+              "cusip": "02079K305",
+              "company": "ALPHABET INC",
+              "market_value": 1528941471000.0,
+              "shares": 6289352.0,
+              "rank": 3,
+              "pct_portfolio": 7.7238
+            },
+            {
+              "ticker": "MSFT",
+              "identifier": "MSFT",
+              "cusip": "594918104",
+              "company": "MICROSOFT CORP",
+              "market_value": 1338055974000.0,
+              "shares": 2583369.0,
+              "rank": 4,
+              "pct_portfolio": 6.7595
+            },
+            {
+              "ticker": "V",
+              "identifier": "V",
+              "cusip": "92826C839",
+              "company": "VISA INC",
+              "market_value": 1315793224000.0,
+              "shares": 3854336.0,
+              "rank": 5,
+              "pct_portfolio": 6.647
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:053015103",
+              "cusip": "053015103",
+              "company": "AUTOMATIC DATA PROCESSING IN",
+              "market_value": 1265455481000.0,
+              "shares": 4311603.0,
+              "rank": 6,
+              "pct_portfolio": 6.3927
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:941848103",
+              "cusip": "941848103",
+              "company": "WATERS CORP",
+              "market_value": 1185897855000.0,
+              "shares": 3955498.0,
+              "rank": 7,
+              "pct_portfolio": 5.9908
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:718172109",
+              "cusip": "718172109",
+              "company": "PHILIP MORRIS INTL INC",
+              "market_value": 1165916957000.0,
+              "shares": 7188144.0,
+              "rank": 8,
+              "pct_portfolio": 5.8899
+            },
+            {
+              "ticker": "META",
+              "identifier": "META",
+              "cusip": "30303M102",
+              "company": "META PLATFORMS INC",
+              "market_value": 1144651668000.0,
+              "shares": 1558664.0,
+              "rank": 9,
+              "pct_portfolio": 5.7825
+            },
+            {
+              "ticker": "MAR",
+              "identifier": "MAR",
+              "cusip": "571903202",
+              "company": "MARRIOTT INTL INC NEW",
+              "market_value": 1101217931000.0,
+              "shares": 4228298.0,
+              "rank": 10,
+              "pct_portfolio": 5.563
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:592688105",
+              "cusip": "592688105",
+              "company": "METTLER TOLEDO INTERNATIONAL",
+              "market_value": 725092757000.0,
+              "shares": 590654.0,
+              "rank": 11,
+              "pct_portfolio": 3.663
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:34959E109",
+              "cusip": "34959E109",
+              "company": "FORTINET INC",
+              "market_value": 707961335000.0,
+              "shares": 8420092.0,
+              "rank": 12,
+              "pct_portfolio": 3.5764
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:742718109",
+              "cusip": "742718109",
+              "company": "PROCTER AND GAMBLE CO",
+              "market_value": 703262196000.0,
+              "shares": 4577040.0,
+              "rank": 13,
+              "pct_portfolio": 3.5527
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:171340102",
+              "cusip": "171340102",
+              "company": "CHURCH & DWIGHT CO INC",
+              "market_value": 595414654000.0,
+              "shares": 6794644.0,
+              "rank": 14,
+              "pct_portfolio": 3.0079
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:68902V107",
+              "cusip": "68902V107",
+              "company": "OTIS WORLDWIDE CORP",
+              "market_value": 532044976000.0,
+              "shares": 5819151.0,
+              "rank": 15,
+              "pct_portfolio": 2.6877
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:98978V103",
+              "cusip": "98978V103",
+              "company": "ZOETIS INC",
+              "market_value": 528965968000.0,
+              "shares": 3615131.0,
+              "rank": 16,
+              "pct_portfolio": 2.6722
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:882508104",
+              "cusip": "882508104",
+              "company": "TEXAS INSTRS INC",
+              "market_value": 500091196000.0,
+              "shares": 2721881.0,
+              "rank": 17,
+              "pct_portfolio": 2.5263
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:654106103",
+              "cusip": "654106103",
+              "company": "NIKE INC",
+              "market_value": 427408850000.0,
+              "shares": 6129483.0,
+              "rank": 18,
+              "pct_portfolio": 2.1592
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:461202103",
+              "cusip": "461202103",
+              "company": "INTUIT",
+              "market_value": 412789047000.0,
+              "shares": 604456.0,
+              "rank": 19,
+              "pct_portfolio": 2.0853
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:74758T303",
+              "cusip": "74758T303",
+              "company": "QUALYS INC",
+              "market_value": 115240771000.0,
+              "shares": 870859.0,
+              "rank": 20,
+              "pct_portfolio": 0.5822
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:70432V102",
+              "cusip": "70432V102",
+              "company": "PAYCOM SOFTWARE INC",
+              "market_value": 108947345000.0,
+              "shares": 523433.0,
+              "rank": 21,
+              "pct_portfolio": 0.5504
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:26622P107",
+              "cusip": "26622P107",
+              "company": "DOXIMITY INC",
+              "market_value": 99187304000.0,
+              "shares": 1355944.0,
+              "rank": 22,
+              "pct_portfolio": 0.5011
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:55354G100",
+              "cusip": "55354G100",
+              "company": "MSCI INC",
+              "market_value": 94541287000.0,
+              "shares": 166619.0,
+              "rank": 23,
+              "pct_portfolio": 0.4776
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:92537N108",
+              "cusip": "92537N108",
+              "company": "VERTIV HOLDINGS CO",
+              "market_value": 89226147000.0,
+              "shares": 591450.0,
+              "rank": 24,
+              "pct_portfolio": 0.4507
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:M7518J104",
+              "cusip": "M7518J104",
+              "company": "ODDITY TECH LTD",
+              "market_value": 88276359000.0,
+              "shares": 1416956.0,
+              "rank": 25,
+              "pct_portfolio": 0.4459
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:775711104",
+              "cusip": "775711104",
+              "company": "ROLLINS INC",
+              "market_value": 86854667000.0,
+              "shares": 1478629.0,
+              "rank": 26,
+              "pct_portfolio": 0.4388
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:384109104",
+              "cusip": "384109104",
+              "company": "GRACO INC",
+              "market_value": 76510303000.0,
+              "shares": 900545.0,
+              "rank": 27,
+              "pct_portfolio": 0.3865
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:630402105",
+              "cusip": "630402105",
+              "company": "NAPCO SEC TECHNOLOGIES INC",
+              "market_value": 76444858000.0,
+              "shares": 1779857.0,
+              "rank": 28,
+              "pct_portfolio": 0.3862
+            },
+            {
+              "ticker": "VRSN",
+              "identifier": "VRSN",
+              "cusip": "92343E102",
+              "company": "VERISIGN INC",
+              "market_value": 75661147000.0,
+              "shares": 270634.0,
+              "rank": 29,
+              "pct_portfolio": 0.3822
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:189054109",
+              "cusip": "189054109",
+              "company": "CLOROX CO DEL",
+              "market_value": 75644180000.0,
+              "shares": 613497.0,
+              "rank": 30,
+              "pct_portfolio": 0.3821
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:14888U101",
+              "cusip": "14888U101",
+              "company": "CATALYST PHARMACEUTICALS INC",
+              "market_value": 66266998000.0,
+              "shares": 3363807.0,
+              "rank": 31,
+              "pct_portfolio": 0.3348
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:58506Q109",
+              "cusip": "58506Q109",
+              "company": "MEDPACE HLDGS INC",
+              "market_value": 65574424000.0,
+              "shares": 127537.0,
+              "rank": 32,
+              "pct_portfolio": 0.3313
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:562750109",
+              "cusip": "562750109",
+              "company": "MANHATTAN ASSOCIATES INC",
+              "market_value": 59102293000.0,
+              "shares": 288332.0,
+              "rank": 33,
+              "pct_portfolio": 0.2986
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:78573M104",
+              "cusip": "78573M104",
+              "company": "SABRE CORP",
+              "market_value": 39343344000.0,
+              "shares": 21499095.0,
+              "rank": 34,
+              "pct_portfolio": 0.1988
+            },
+            {
+              "ticker": "HD",
+              "identifier": "HD",
+              "cusip": "437076102",
+              "company": "HOME DEPOT INC",
+              "market_value": 34384423000.0,
+              "shares": 84860.0,
+              "rank": 35,
+              "pct_portfolio": 0.1737
+            }
+          ],
+          "total_value": 19795225546000.0,
+          "num_holdings": 35
+        },
+        {
+          "form": "13F-HR",
+          "company": "Fundsmith LLP",
+          "cik": "1569205",
+          "filing_date": "2025-08-14",
+          "file_name": "edgar/data/1569205/0001801547-25-000008.txt",
+          "accession": "0001801547-25-000008",
+          "period_end": "2025-06-30",
+          "quarter": "2025-Q2",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/1569205/0001801547-25-000008.txt",
+          "holdings": [
+            {
+              "ticker": "META",
+              "identifier": "META",
+              "cusip": "30303M102",
+              "company": "META PLATFORMS INC",
+              "market_value": 2634060164000.0,
+              "shares": 3568752.0,
+              "rank": 1,
+              "pct_portfolio": 11.4442
+            },
+            {
+              "ticker": "MSFT",
+              "identifier": "MSFT",
+              "cusip": "594918104",
+              "company": "MICROSOFT CORP",
+              "market_value": 2457955992000.0,
+              "shares": 4941509.0,
+              "rank": 2,
+              "pct_portfolio": 10.6791
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:863667101",
+              "cusip": "863667101",
+              "company": "STRYKER CORPORATION",
+              "market_value": 1850364279000.0,
+              "shares": 4677007.0,
+              "rank": 3,
+              "pct_portfolio": 8.0393
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:718172109",
+              "cusip": "718172109",
+              "company": "PHILIP MORRIS INTL INC",
+              "market_value": 1652683135000.0,
+              "shares": 9074195.0,
+              "rank": 4,
+              "pct_portfolio": 7.1804
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:45168D104",
+              "cusip": "45168D104",
+              "company": "IDEXX LABS INC",
+              "market_value": 1415556262000.0,
+              "shares": 2639289.0,
+              "rank": 5,
+              "pct_portfolio": 6.1502
+            },
+            {
+              "ticker": "V",
+              "identifier": "V",
+              "cusip": "92826C839",
+              "company": "VISA INC",
+              "market_value": 1368387909000.0,
+              "shares": 3854071.0,
+              "rank": 6,
+              "pct_portfolio": 5.9452
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:053015103",
+              "cusip": "053015103",
+              "company": "AUTOMATIC DATA PROCESSING IN",
+              "market_value": 1345271332000.0,
+              "shares": 4362099.0,
+              "rank": 7,
+              "pct_portfolio": 5.8448
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:941848103",
+              "cusip": "941848103",
+              "company": "WATERS CORP",
+              "market_value": 1259478379000.0,
+              "shares": 3608407.0,
+              "rank": 8,
+              "pct_portfolio": 5.4721
+            },
+            {
+              "ticker": "GOOGL",
+              "identifier": "GOOGL",
+              "cusip": "02079K305",
+              "company": "ALPHABET INC",
+              "market_value": 1198972698000.0,
+              "shares": 6803454.0,
+              "rank": 9,
+              "pct_portfolio": 5.2092
+            },
+            {
+              "ticker": "MAR",
+              "identifier": "MAR",
+              "cusip": "571903202",
+              "company": "MARRIOTT INTL INC NEW",
+              "market_value": 1157481213000.0,
+              "shares": 4236599.0,
+              "rank": 10,
+              "pct_portfolio": 5.0289
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:34959E109",
+              "cusip": "34959E109",
+              "company": "FORTINET INC",
+              "market_value": 889989231000.0,
+              "shares": 8418362.0,
+              "rank": 11,
+              "pct_portfolio": 3.8667
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:742718109",
+              "cusip": "742718109",
+              "company": "PROCTER AND GAMBLE CO",
+              "market_value": 728455650000.0,
+              "shares": 4572280.0,
+              "rank": 12,
+              "pct_portfolio": 3.1649
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:592688105",
+              "cusip": "592688105",
+              "company": "METTLER TOLEDO INTERNATIONAL",
+              "market_value": 693128265000.0,
+              "shares": 590037.0,
+              "rank": 13,
+              "pct_portfolio": 3.0114
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:171340102",
+              "cusip": "171340102",
+              "company": "CHURCH & DWIGHT CO INC",
+              "market_value": 655882416000.0,
+              "shares": 6824289.0,
+              "rank": 14,
+              "pct_portfolio": 2.8496
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:68902V107",
+              "cusip": "68902V107",
+              "company": "OTIS WORLDWIDE CORP",
+              "market_value": 576212332000.0,
+              "shares": 5819151.0,
+              "rank": 15,
+              "pct_portfolio": 2.5035
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:882508104",
+              "cusip": "882508104",
+              "company": "TEXAS INSTRS INC",
+              "market_value": 564786610000.0,
+              "shares": 2720290.0,
+              "rank": 16,
+              "pct_portfolio": 2.4538
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:98978V103",
+              "cusip": "98978V103",
+              "company": "ZOETIS INC",
+              "market_value": 449889394000.0,
+              "shares": 2884831.0,
+              "rank": 17,
+              "pct_portfolio": 1.9546
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:654106103",
+              "cusip": "654106103",
+              "company": "NIKE INC",
+              "market_value": 435438472000.0,
+              "shares": 6129483.0,
+              "rank": 18,
+              "pct_portfolio": 1.8919
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:461202103",
+              "cusip": "461202103",
+              "company": "INTUIT",
+              "market_value": 290273160000.0,
+              "shares": 368540.0,
+              "rank": 19,
+              "pct_portfolio": 1.2612
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:M7518J104",
+              "cusip": "M7518J104",
+              "company": "ODDITY TECH LTD",
+              "market_value": 106937669000.0,
+              "shares": 1416956.0,
+              "rank": 20,
+              "pct_portfolio": 0.4646
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:74758T303",
+              "cusip": "74758T303",
+              "company": "QUALYS INC",
+              "market_value": 102666668000.0,
+              "shares": 718602.0,
+              "rank": 21,
+              "pct_portfolio": 0.4461
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:55354G100",
+              "cusip": "55354G100",
+              "company": "MSCI INC",
+              "market_value": 96095842000.0,
+              "shares": 166619.0,
+              "rank": 22,
+              "pct_portfolio": 0.4175
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:70432V102",
+              "cusip": "70432V102",
+              "company": "PAYCOM SOFTWARE INC",
+              "market_value": 95686214000.0,
+              "shares": 413510.0,
+              "rank": 23,
+              "pct_portfolio": 0.4157
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:169905106",
+              "cusip": "169905106",
+              "company": "CHOICE HOTELS INTL INC",
+              "market_value": 93116217000.0,
+              "shares": 733892.0,
+              "rank": 24,
+              "pct_portfolio": 0.4046
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:92537N108",
+              "cusip": "92537N108",
+              "company": "VERTIV HOLDINGS CO",
+              "market_value": 93087362000.0,
+              "shares": 724923.0,
+              "rank": 25,
+              "pct_portfolio": 0.4044
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:775711104",
+              "cusip": "775711104",
+              "company": "ROLLINS INC",
+              "market_value": 83424248000.0,
+              "shares": 1478629.0,
+              "rank": 26,
+              "pct_portfolio": 0.3625
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:26622P107",
+              "cusip": "26622P107",
+              "company": "DOXIMITY INC",
+              "market_value": 83173605000.0,
+              "shares": 1355944.0,
+              "rank": 27,
+              "pct_portfolio": 0.3614
+            },
+            {
+              "ticker": "VRSN",
+              "identifier": "VRSN",
+              "cusip": "92343E102",
+              "company": "VERISIGN INC",
+              "market_value": 78159099000.0,
+              "shares": 270634.0,
+              "rank": 28,
+              "pct_portfolio": 0.3396
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:384109104",
+              "cusip": "384109104",
+              "company": "GRACO INC",
+              "market_value": 77419854000.0,
+              "shares": 900545.0,
+              "rank": 29,
+              "pct_portfolio": 0.3364
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:189054109",
+              "cusip": "189054109",
+              "company": "CLOROX CO DEL",
+              "market_value": 73662585000.0,
+              "shares": 613497.0,
+              "rank": 30,
+              "pct_portfolio": 0.32
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:78573M104",
+              "cusip": "78573M104",
+              "company": "SABRE CORP",
+              "market_value": 67937140000.0,
+              "shares": 21499095.0,
+              "rank": 31,
+              "pct_portfolio": 0.2952
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:14888U101",
+              "cusip": "14888U101",
+              "company": "CATALYST PHARMACEUTICALS INC",
+              "market_value": 58787166000.0,
+              "shares": 2709086.0,
+              "rank": 32,
+              "pct_portfolio": 0.2554
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:562750109",
+              "cusip": "562750109",
+              "company": "MANHATTAN ASSOCIATES INC",
+              "market_value": 56936920000.0,
+              "shares": 288332.0,
+              "rank": 33,
+              "pct_portfolio": 0.2474
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:30214U102",
+              "cusip": "30214U102",
+              "company": "EXPONENT INC",
+              "market_value": 55794922000.0,
+              "shares": 746820.0,
+              "rank": 34,
+              "pct_portfolio": 0.2424
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:92345Y106",
+              "cusip": "92345Y106",
+              "company": "VERISK ANALYTICS INC",
+              "market_value": 54884743000.0,
+              "shares": 176195.0,
+              "rank": 35,
+              "pct_portfolio": 0.2385
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:58506Q109",
+              "cusip": "58506Q109",
+              "company": "MEDPACE HLDGS INC",
+              "market_value": 40028763000.0,
+              "shares": 127537.0,
+              "rank": 36,
+              "pct_portfolio": 0.1739
+            },
+            {
+              "ticker": "HD",
+              "identifier": "HD",
+              "cusip": "437076102",
+              "company": "HOME DEPOT INC",
+              "market_value": 30565677000.0,
+              "shares": 83367.0,
+              "rank": 37,
+              "pct_portfolio": 0.1328
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:630402105",
+              "cusip": "630402105",
+              "company": "NAPCO SEC TECHNOLOGIES INC",
+              "market_value": 28351337000.0,
+              "shares": 954912.0,
+              "rank": 38,
+              "pct_portfolio": 0.1232
+            },
+            {
+              "ticker": "MA",
+              "identifier": "MA",
+              "cusip": "57636Q104",
+              "company": "MASTERCARD INCORPORATED",
+              "market_value": 15544946000.0,
+              "shares": 27663.0,
+              "rank": 39,
+              "pct_portfolio": 0.0675
+            }
+          ],
+          "total_value": 23016527870000.0,
+          "num_holdings": 39
+        },
+        {
+          "form": "13F-HR",
+          "company": "Fundsmith LLP",
+          "cik": "1569205",
+          "filing_date": "2025-05-15",
+          "file_name": "edgar/data/1569205/0001520023-25-000003.txt",
+          "accession": "0001520023-25-000003",
+          "period_end": "2025-03-31",
+          "quarter": "2025-Q1",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/1569205/0001520023-25-000003.txt",
+          "holdings": [
+            {
+              "ticker": "META",
+              "identifier": "META",
+              "cusip": "30303M102",
+              "company": "META PLATFORMS INC",
+              "market_value": 2238464663000.0,
+              "shares": 3883796.0,
+              "rank": 1,
+              "pct_portfolio": 10.1866
+            },
+            {
+              "ticker": "MSFT",
+              "identifier": "MSFT",
+              "cusip": "594918104",
+              "company": "MICROSOFT CORP",
+              "market_value": 2015905113000.0,
+              "shares": 5370162.0,
+              "rank": 2,
+              "pct_portfolio": 9.1738
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:863667101",
+              "cusip": "863667101",
+              "company": "STRYKER CORPORATION",
+              "market_value": 1887004861000.0,
+              "shares": 5069187.0,
+              "rank": 3,
+              "pct_portfolio": 8.5872
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:718172109",
+              "cusip": "718172109",
+              "company": "PHILIP MORRIS INTL INC",
+              "market_value": 1715219237000.0,
+              "shares": 10805892.0,
+              "rank": 4,
+              "pct_portfolio": 7.8055
+            },
+            {
+              "ticker": "V",
+              "identifier": "V",
+              "cusip": "92826C839",
+              "company": "VISA INC",
+              "market_value": 1449861431000.0,
+              "shares": 4137024.0,
+              "rank": 5,
+              "pct_portfolio": 6.5979
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:053015103",
+              "cusip": "053015103",
+              "company": "AUTOMATIC DATA PROCESSING IN",
+              "market_value": 1379131561000.0,
+              "shares": 4513899.0,
+              "rank": 6,
+              "pct_portfolio": 6.276
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:941848103",
+              "cusip": "941848103",
+              "company": "WATERS CORP",
+              "market_value": 1331716018000.0,
+              "shares": 3613197.0,
+              "rank": 7,
+              "pct_portfolio": 6.0602
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:45168D104",
+              "cusip": "45168D104",
+              "company": "IDEXX LABS INC",
+              "market_value": 1112166603000.0,
+              "shares": 2648331.0,
+              "rank": 8,
+              "pct_portfolio": 5.0611
+            },
+            {
+              "ticker": "GOOGL",
+              "identifier": "GOOGL",
+              "cusip": "02079K305",
+              "company": "ALPHABET INC",
+              "market_value": 1058234458000.0,
+              "shares": 6843213.0,
+              "rank": 9,
+              "pct_portfolio": 4.8157
+            },
+            {
+              "ticker": "MAR",
+              "identifier": "MAR",
+              "cusip": "571903202",
+              "company": "MARRIOTT INTL INC NEW",
+              "market_value": 1012721592000.0,
+              "shares": 4251560.0,
+              "rank": 10,
+              "pct_portfolio": 4.6086
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:34959E109",
+              "cusip": "34959E109",
+              "company": "FORTINET INC",
+              "market_value": 820427830000.0,
+              "shares": 8523040.0,
+              "rank": 11,
+              "pct_portfolio": 3.7335
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:742718109",
+              "cusip": "742718109",
+              "company": "PROCTER AND GAMBLE CO",
+              "market_value": 787409591000.0,
+              "shares": 4620406.0,
+              "rank": 12,
+              "pct_portfolio": 3.5833
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:171340102",
+              "cusip": "171340102",
+              "company": "CHURCH & DWIGHT CO INC",
+              "market_value": 753839734000.0,
+              "shares": 6847486.0,
+              "rank": 13,
+              "pct_portfolio": 3.4305
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:592688105",
+              "cusip": "592688105",
+              "company": "METTLER TOLEDO INTERNATIONAL",
+              "market_value": 697726503000.0,
+              "shares": 590838.0,
+              "rank": 14,
+              "pct_portfolio": 3.1751
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:68902V107",
+              "cusip": "68902V107",
+              "company": "OTIS WORLDWIDE CORP",
+              "market_value": 605447258000.0,
+              "shares": 5866737.0,
+              "rank": 15,
+              "pct_portfolio": 2.7552
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:882508104",
+              "cusip": "882508104",
+              "company": "TEXAS INSTRS INC",
+              "market_value": 489828416000.0,
+              "shares": 2725812.0,
+              "rank": 16,
+              "pct_portfolio": 2.2291
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:98978V103",
+              "cusip": "98978V103",
+              "company": "ZOETIS INC",
+              "market_value": 419279085000.0,
+              "shares": 2546487.0,
+              "rank": 17,
+              "pct_portfolio": 1.908
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:654106103",
+              "cusip": "654106103",
+              "company": "NIKE INC",
+              "market_value": 389489729000.0,
+              "shares": 6135629.0,
+              "rank": 18,
+              "pct_portfolio": 1.7725
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:115637209",
+              "cusip": "115637209",
+              "company": "BROWN FORMAN CORP",
+              "market_value": 327109681000.0,
+              "shares": 9637881.0,
+              "rank": 19,
+              "pct_portfolio": 1.4886
+            },
+            {
+              "ticker": "VRSN",
+              "identifier": "VRSN",
+              "cusip": "92343E102",
+              "company": "VERISIGN INC",
+              "market_value": 144714785000.0,
+              "shares": 570035.0,
+              "rank": 20,
+              "pct_portfolio": 0.6586
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:461202103",
+              "cusip": "461202103",
+              "company": "INTUIT",
+              "market_value": 111517776000.0,
+              "shares": 181628.0,
+              "rank": 21,
+              "pct_portfolio": 0.5075
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:92345Y106",
+              "cusip": "92345Y106",
+              "company": "VERISK ANALYTICS INC",
+              "market_value": 98400315000.0,
+              "shares": 330624.0,
+              "rank": 22,
+              "pct_portfolio": 0.4478
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:169905106",
+              "cusip": "169905106",
+              "company": "CHOICE HOTELS INTL INC",
+              "market_value": 97446180000.0,
+              "shares": 733892.0,
+              "rank": 23,
+              "pct_portfolio": 0.4434
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:384109104",
+              "cusip": "384109104",
+              "company": "GRACO INC",
+              "market_value": 95171420000.0,
+              "shares": 1139641.0,
+              "rank": 24,
+              "pct_portfolio": 0.4331
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:55354G100",
+              "cusip": "55354G100",
+              "company": "MSCI INC",
+              "market_value": 94223045000.0,
+              "shares": 166619.0,
+              "rank": 25,
+              "pct_portfolio": 0.4288
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:74758T303",
+              "cusip": "74758T303",
+              "company": "QUALYS INC",
+              "market_value": 90493550000.0,
+              "shares": 718602.0,
+              "rank": 26,
+              "pct_portfolio": 0.4118
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:70432V102",
+              "cusip": "70432V102",
+              "company": "PAYCOM SOFTWARE INC",
+              "market_value": 90343665000.0,
+              "shares": 413510.0,
+              "rank": 27,
+              "pct_portfolio": 0.4111
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:189054109",
+              "cusip": "189054109",
+              "company": "CLOROX CO DEL",
+              "market_value": 90337433000.0,
+              "shares": 613497.0,
+              "rank": 28,
+              "pct_portfolio": 0.4111
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:775711104",
+              "cusip": "775711104",
+              "company": "ROLLINS INC",
+              "market_value": 86313627000.0,
+              "shares": 1597513.0,
+              "rank": 29,
+              "pct_portfolio": 0.3928
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:M7518J104",
+              "cusip": "M7518J104",
+              "company": "ODDITY TECH LTD",
+              "market_value": 69871735000.0,
+              "shares": 1615158.0,
+              "rank": 30,
+              "pct_portfolio": 0.318
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:26622P107",
+              "cusip": "26622P107",
+              "company": "DOXIMITY INC",
+              "market_value": 69048852000.0,
+              "shares": 1189882.0,
+              "rank": 31,
+              "pct_portfolio": 0.3142
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:30214U102",
+              "cusip": "30214U102",
+              "company": "EXPONENT INC",
+              "market_value": 67804826000.0,
+              "shares": 836477.0,
+              "rank": 32,
+              "pct_portfolio": 0.3086
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:78573M104",
+              "cusip": "78573M104",
+              "company": "SABRE CORP",
+              "market_value": 60412457000.0,
+              "shares": 21499095.0,
+              "rank": 33,
+              "pct_portfolio": 0.2749
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:294429105",
+              "cusip": "294429105",
+              "company": "EQUIFAX INC",
+              "market_value": 57359598000.0,
+              "shares": 235505.0,
+              "rank": 34,
+              "pct_portfolio": 0.261
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:14888U101",
+              "cusip": "14888U101",
+              "company": "CATALYST PHARMACEUTICALS INC",
+              "market_value": 52168395000.0,
+              "shares": 2151274.0,
+              "rank": 35,
+              "pct_portfolio": 0.2374
+            },
+            {
+              "ticker": "HD",
+              "identifier": "HD",
+              "cusip": "437076102",
+              "company": "HOME DEPOT INC",
+              "market_value": 42049597000.0,
+              "shares": 114736.0,
+              "rank": 36,
+              "pct_portfolio": 0.1914
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:58506Q109",
+              "cusip": "58506Q109",
+              "company": "MEDPACE HLDGS INC",
+              "market_value": 38859249000.0,
+              "shares": 127537.0,
+              "rank": 37,
+              "pct_portfolio": 0.1768
+            },
+            {
+              "ticker": "MA",
+              "identifier": "MA",
+              "cusip": "57636Q104",
+              "company": "MASTERCARD INCORPORATED",
+              "market_value": 27106726000.0,
+              "shares": 49454.0,
+              "rank": 38,
+              "pct_portfolio": 0.1234
+            }
+          ],
+          "total_value": 21974626595000.0,
+          "num_holdings": 38
+        },
+        {
+          "form": "13F-HR",
+          "company": "Fundsmith LLP",
+          "cik": "1569205",
+          "filing_date": "2025-02-14",
+          "file_name": "edgar/data/1569205/0001520023-25-000002.txt",
+          "accession": "0001520023-25-000002",
+          "period_end": "2024-12-31",
+          "quarter": "2024-Q4",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/1569205/0001520023-25-000002.txt",
+          "holdings": [
+            {
+              "ticker": "META",
+              "identifier": "META",
+              "cusip": "30303M102",
+              "company": "META PLATFORMS INC",
+              "market_value": 2670717210000.0,
+              "shares": 4561352.0,
+              "rank": 1,
+              "pct_portfolio": 11.385
+            },
+            {
+              "ticker": "MSFT",
+              "identifier": "MSFT",
+              "cusip": "594918104",
+              "company": "MICROSOFT CORP",
+              "market_value": 2607834410000.0,
+              "shares": 6187033.0,
+              "rank": 2,
+              "pct_portfolio": 11.117
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:863667101",
+              "cusip": "863667101",
+              "company": "STRYKER CORPORATION",
+              "market_value": 1920498419000.0,
+              "shares": 5333977.0,
+              "rank": 3,
+              "pct_portfolio": 8.1869
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:053015103",
+              "cusip": "053015103",
+              "company": "AUTOMATIC DATA PROCESSING IN",
+              "market_value": 1467663914000.0,
+              "shares": 5013712.0,
+              "rank": 4,
+              "pct_portfolio": 6.2565
+            },
+            {
+              "ticker": "V",
+              "identifier": "V",
+              "cusip": "92826C839",
+              "company": "VISA INC",
+              "market_value": 1460916075000.0,
+              "shares": 4622567.0,
+              "rank": 5,
+              "pct_portfolio": 6.2277
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:718172109",
+              "cusip": "718172109",
+              "company": "PHILIP MORRIS INTL INC",
+              "market_value": 1353356811000.0,
+              "shares": 11245175.0,
+              "rank": 6,
+              "pct_portfolio": 5.7692
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:941848103",
+              "cusip": "941848103",
+              "company": "WATERS CORP",
+              "market_value": 1348334972000.0,
+              "shares": 3634522.0,
+              "rank": 7,
+              "pct_portfolio": 5.7478
+            },
+            {
+              "ticker": "GOOGL",
+              "identifier": "GOOGL",
+              "cusip": "02079K305",
+              "company": "ALPHABET INC",
+              "market_value": 1296379025000.0,
+              "shares": 6848278.0,
+              "rank": 8,
+              "pct_portfolio": 5.5263
+            },
+            {
+              "ticker": "MAR",
+              "identifier": "MAR",
+              "cusip": "571903202",
+              "company": "MARRIOTT INTL INC NEW",
+              "market_value": 1186984540000.0,
+              "shares": 4255340.0,
+              "rank": 9,
+              "pct_portfolio": 5.06
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:45168D104",
+              "cusip": "45168D104",
+              "company": "IDEXX LABS INC",
+              "market_value": 1100930771000.0,
+              "shares": 2662855.0,
+              "rank": 10,
+              "pct_portfolio": 4.6932
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:713448108",
+              "cusip": "713448108",
+              "company": "PEPSICO INC",
+              "market_value": 861218725000.0,
+              "shares": 5663677.0,
+              "rank": 11,
+              "pct_portfolio": 3.6713
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:34959E109",
+              "cusip": "34959E109",
+              "company": "FORTINET INC",
+              "market_value": 805954365000.0,
+              "shares": 8530423.0,
+              "rank": 12,
+              "pct_portfolio": 3.4357
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:742718109",
+              "cusip": "742718109",
+              "company": "PROCTER AND GAMBLE CO",
+              "market_value": 775611936000.0,
+              "shares": 4626376.0,
+              "rank": 13,
+              "pct_portfolio": 3.3064
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:592688105",
+              "cusip": "592688105",
+              "company": "METTLER TOLEDO INTERNATIONAL",
+              "market_value": 723751654000.0,
+              "shares": 591455.0,
+              "rank": 14,
+              "pct_portfolio": 3.0853
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:171340102",
+              "cusip": "171340102",
+              "company": "CHURCH & DWIGHT CO INC",
+              "market_value": 718009140000.0,
+              "shares": 6857121.0,
+              "rank": 15,
+              "pct_portfolio": 3.0608
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:68902V107",
+              "cusip": "68902V107",
+              "company": "OTIS WORLDWIDE CORP",
+              "market_value": 552583218000.0,
+              "shares": 5966777.0,
+              "rank": 16,
+              "pct_portfolio": 2.3556
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:654106103",
+              "cusip": "654106103",
+              "company": "NIKE INC",
+              "market_value": 464283046000.0,
+              "shares": 6135629.0,
+              "rank": 17,
+              "pct_portfolio": 1.9792
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:115637209",
+              "cusip": "115637209",
+              "company": "BROWN FORMAN CORP",
+              "market_value": 366046720000.0,
+              "shares": 9637881.0,
+              "rank": 18,
+              "pct_portfolio": 1.5604
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:882508104",
+              "cusip": "882508104",
+              "company": "TEXAS INSTRS INC",
+              "market_value": 318885131000.0,
+              "shares": 1700630.0,
+              "rank": 19,
+              "pct_portfolio": 1.3594
+            },
+            {
+              "ticker": "VRSN",
+              "identifier": "VRSN",
+              "cusip": "92343E102",
+              "company": "VERISIGN INC",
+              "market_value": 129246520000.0,
+              "shares": 624500.0,
+              "rank": 20,
+              "pct_portfolio": 0.551
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:92345Y106",
+              "cusip": "92345Y106",
+              "company": "VERISK ANALYTICS INC",
+              "market_value": 115042980000.0,
+              "shares": 417685.0,
+              "rank": 21,
+              "pct_portfolio": 0.4904
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:169905106",
+              "cusip": "169905106",
+              "company": "CHOICE HOTELS INTL INC",
+              "market_value": 104197986000.0,
+              "shares": 733892.0,
+              "rank": 22,
+              "pct_portfolio": 0.4442
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:55354G100",
+              "cusip": "55354G100",
+              "company": "MSCI INC",
+              "market_value": 99973066000.0,
+              "shares": 166619.0,
+              "rank": 23,
+              "pct_portfolio": 0.4262
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:189054109",
+              "cusip": "189054109",
+              "company": "CLOROX CO DEL",
+              "market_value": 99638048000.0,
+              "shares": 613497.0,
+              "rank": 24,
+              "pct_portfolio": 0.4247
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:384109104",
+              "cusip": "384109104",
+              "company": "GRACO INC",
+              "market_value": 96060340000.0,
+              "shares": 1139641.0,
+              "rank": 25,
+              "pct_portfolio": 0.4095
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:294429105",
+              "cusip": "294429105",
+              "company": "EQUIFAX INC",
+              "market_value": 92594141000.0,
+              "shares": 363328.0,
+              "rank": 26,
+              "pct_portfolio": 0.3947
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:78573M104",
+              "cusip": "78573M104",
+              "company": "SABRE CORP",
+              "market_value": 78471697000.0,
+              "shares": 21499095.0,
+              "rank": 27,
+              "pct_portfolio": 0.3345
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:74758T303",
+              "cusip": "74758T303",
+              "company": "QUALYS INC",
+              "market_value": 76841822000.0,
+              "shares": 548009.0,
+              "rank": 28,
+              "pct_portfolio": 0.3276
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:45167R104",
+              "cusip": "45167R104",
+              "company": "IDEX CORP",
+              "market_value": 75867834000.0,
+              "shares": 362501.0,
+              "rank": 29,
+              "pct_portfolio": 0.3234
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:30214U102",
+              "cusip": "30214U102",
+              "company": "EXPONENT INC",
+              "market_value": 74530101000.0,
+              "shares": 836477.0,
+              "rank": 30,
+              "pct_portfolio": 0.3177
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:775711104",
+              "cusip": "775711104",
+              "company": "ROLLINS INC",
+              "market_value": 74044728000.0,
+              "shares": 1597513.0,
+              "rank": 31,
+              "pct_portfolio": 0.3156
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:M7518J104",
+              "cusip": "M7518J104",
+              "company": "ODDITY TECH LTD",
+              "market_value": 67868939000.0,
+              "shares": 1615158.0,
+              "rank": 32,
+              "pct_portfolio": 0.2893
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:70432V102",
+              "cusip": "70432V102",
+              "company": "PAYCOM SOFTWARE INC",
+              "market_value": 66125577000.0,
+              "shares": 322611.0,
+              "rank": 33,
+              "pct_portfolio": 0.2819
+            },
+            {
+              "ticker": "HD",
+              "identifier": "HD",
+              "cusip": "437076102",
+              "company": "HOME DEPOT INC",
+              "market_value": 56652115000.0,
+              "shares": 145639.0,
+              "rank": 34,
+              "pct_portfolio": 0.2415
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:58506Q109",
+              "cusip": "58506Q109",
+              "company": "MEDPACE HLDGS INC",
+              "market_value": 42371618000.0,
+              "shares": 127537.0,
+              "rank": 35,
+              "pct_portfolio": 0.1806
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:26622P107",
+              "cusip": "26622P107",
+              "company": "DOXIMITY INC",
+              "market_value": 37933702000.0,
+              "shares": 710502.0,
+              "rank": 36,
+              "pct_portfolio": 0.1617
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:98978V103",
+              "cusip": "98978V103",
+              "company": "ZOETIS INC",
+              "market_value": 37038714000.0,
+              "shares": 227329.0,
+              "rank": 37,
+              "pct_portfolio": 0.1579
+            },
+            {
+              "ticker": "MA",
+              "identifier": "MA",
+              "cusip": "57636Q104",
+              "company": "MASTERCARD INCORPORATED",
+              "market_value": 33717857000.0,
+              "shares": 64033.0,
+              "rank": 38,
+              "pct_portfolio": 0.1437
+            }
+          ],
+          "total_value": 23458177867000.0,
+          "num_holdings": 38
+        },
+        {
+          "form": "13F-HR",
+          "company": "Fundsmith LLP",
+          "cik": "1569205",
+          "filing_date": "2024-11-14",
+          "file_name": "edgar/data/1569205/0001520023-24-000040.txt",
+          "accession": "0001520023-24-000040",
+          "period_end": "2024-09-30",
+          "quarter": "2024-Q3",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/1569205/0001520023-24-000040.txt",
+          "holdings": [
+            {
+              "ticker": "MSFT",
+              "identifier": "MSFT",
+              "cusip": "594918104",
+              "company": "MICROSOFT CORP",
+              "market_value": 2969188333000.0,
+              "shares": 6900275.0,
+              "rank": 1,
+              "pct_portfolio": 11.7459
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:30303M102",
+              "cusip": "30303M102",
+              "company": "META PLATFORMS INC-CLASS A",
+              "market_value": 2788563608000.0,
+              "shares": 4871364.0,
+              "rank": 2,
+              "pct_portfolio": 11.0314
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:863667101",
+              "cusip": "863667101",
+              "company": "STRYKER CORP",
+              "market_value": 1927979954000.0,
+              "shares": 5336821.0,
+              "rank": 3,
+              "pct_portfolio": 7.627
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:053015103",
+              "cusip": "053015103",
+              "company": "AUTOMATIC DATA PROCESSING",
+              "market_value": 1541889749000.0,
+              "shares": 5571820.0,
+              "rank": 4,
+              "pct_portfolio": 6.0996
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:92826C839",
+              "cusip": "92826C839",
+              "company": "VISA INC CLASS A SHARES",
+              "market_value": 1525101183000.0,
+              "shares": 5546831.0,
+              "rank": 5,
+              "pct_portfolio": 6.0332
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:718172109",
+              "cusip": "718172109",
+              "company": "PHILIP MORRIS INTERNATIONAL",
+              "market_value": 1458336803000.0,
+              "shares": 12012659.0,
+              "rank": 6,
+              "pct_portfolio": 5.7691
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:45168D104",
+              "cusip": "45168D104",
+              "company": "IDEXX LABORATORIES INC",
+              "market_value": 1345987926000.0,
+              "shares": 2664162.0,
+              "rank": 7,
+              "pct_portfolio": 5.3247
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:941848103",
+              "cusip": "941848103",
+              "company": "WATERS CORP",
+              "market_value": 1312158580000.0,
+              "shares": 3645999.0,
+              "rank": 8,
+              "pct_portfolio": 5.1908
+            },
+            {
+              "ticker": "GOOGL",
+              "identifier": "GOOGL",
+              "cusip": "02079K305",
+              "company": "ALPHABET CL A ORD",
+              "market_value": 1136418629000.0,
+              "shares": 6852087.0,
+              "rank": 9,
+              "pct_portfolio": 4.4956
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:571903202",
+              "cusip": "571903202",
+              "company": "MARRIOTT INTERNATIONAL  CL A",
+              "market_value": 1060690433000.0,
+              "shares": 4266655.0,
+              "rank": 10,
+              "pct_portfolio": 4.196
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:713448108",
+              "cusip": "713448108",
+              "company": "PEPSICO INC",
+              "market_value": 976084959000.0,
+              "shares": 5739988.0,
+              "rank": 11,
+              "pct_portfolio": 3.8613
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:592688105",
+              "cusip": "592688105",
+              "company": "METTLER TOLEDO ORD",
+              "market_value": 887700924000.0,
+              "shares": 591919.0,
+              "rank": 12,
+              "pct_portfolio": 3.5117
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:742718109",
+              "cusip": "742718109",
+              "company": "PROCTER & GAMBLE ORD",
+              "market_value": 802474050000.0,
+              "shares": 4633222.0,
+              "rank": 13,
+              "pct_portfolio": 3.1745
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:34959E109",
+              "cusip": "34959E109",
+              "company": "FORTINET ORD",
+              "market_value": 784673622000.0,
+              "shares": 10118293.0,
+              "rank": 14,
+              "pct_portfolio": 3.1041
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:171340102",
+              "cusip": "171340102",
+              "company": "CHURCH AND DWIGHT ORD",
+              "market_value": 720764198000.0,
+              "shares": 6882775.0,
+              "rank": 15,
+              "pct_portfolio": 2.8513
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:68902V107",
+              "cusip": "68902V107",
+              "company": "OTIS WORLDWIDE ORD",
+              "market_value": 638319238000.0,
+              "shares": 6141228.0,
+              "rank": 16,
+              "pct_portfolio": 2.5252
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:654106103",
+              "cusip": "654106103",
+              "company": "NIKE INC CL B",
+              "market_value": 556875181000.0,
+              "shares": 6299493.0,
+              "rank": 17,
+              "pct_portfolio": 2.203
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:115637209",
+              "cusip": "115637209",
+              "company": "BROWN FORMAN CORP CLASS B",
+              "market_value": 492516944000.0,
+              "shares": 10010507.0,
+              "rank": 18,
+              "pct_portfolio": 1.9484
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:037833100",
+              "cusip": "037833100",
+              "company": "Apple",
+              "market_value": 363151237000.0,
+              "shares": 1558589.0,
+              "rank": 19,
+              "pct_portfolio": 1.4366
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:882508104",
+              "cusip": "882508104",
+              "company": "TEXAS INSTRUMENTS INC",
+              "market_value": 351299139000.0,
+              "shares": 1700630.0,
+              "rank": 20,
+              "pct_portfolio": 1.3897
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:579780206",
+              "cusip": "579780206",
+              "company": "MCCORMICK & CO NON VTG SHRS",
+              "market_value": 142227321000.0,
+              "shares": 1728157.0,
+              "rank": 21,
+              "pct_portfolio": 0.5626
+            },
+            {
+              "ticker": "VRSN",
+              "identifier": "VRSN",
+              "cusip": "92343E102",
+              "company": "VERISIGN INC",
+              "market_value": 118630020000.0,
+              "shares": 624500.0,
+              "rank": 22,
+              "pct_portfolio": 0.4693
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:92345Y106",
+              "cusip": "92345Y106",
+              "company": "VERISK ANALYTICS INC",
+              "market_value": 111922873000.0,
+              "shares": 417685.0,
+              "rank": 23,
+              "pct_portfolio": 0.4428
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:294429105",
+              "cusip": "294429105",
+              "company": "EQUIFAX INC",
+              "market_value": 106767566000.0,
+              "shares": 363328.0,
+              "rank": 24,
+              "pct_portfolio": 0.4224
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:189054109",
+              "cusip": "189054109",
+              "company": "CLOROX COMPANY",
+              "market_value": 99944796000.0,
+              "shares": 613497.0,
+              "rank": 25,
+              "pct_portfolio": 0.3954
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:384109104",
+              "cusip": "384109104",
+              "company": "GRACO ORD",
+              "market_value": 99729984000.0,
+              "shares": 1139641.0,
+              "rank": 26,
+              "pct_portfolio": 0.3945
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:55354G100",
+              "cusip": "55354G100",
+              "company": "MSCI INC",
+              "market_value": 97127214000.0,
+              "shares": 166619.0,
+              "rank": 27,
+              "pct_portfolio": 0.3842
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:30214U102",
+              "cusip": "30214U102",
+              "company": "EXPONENT INC",
+              "market_value": 96429069000.0,
+              "shares": 836477.0,
+              "rank": 28,
+              "pct_portfolio": 0.3815
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:169905106",
+              "cusip": "169905106",
+              "company": "CHOICE HOTELS INTERNATIONAL ORD",
+              "market_value": 95626128000.0,
+              "shares": 733892.0,
+              "rank": 29,
+              "pct_portfolio": 0.3783
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:775711104",
+              "cusip": "775711104",
+              "company": "ROLLINS ORD",
+              "market_value": 80802208000.0,
+              "shares": 1597513.0,
+              "rank": 30,
+              "pct_portfolio": 0.3196
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:78573M104",
+              "cusip": "78573M104",
+              "company": "SABRE CORP",
+              "market_value": 78901679000.0,
+              "shares": 21499095.0,
+              "rank": 31,
+              "pct_portfolio": 0.3121
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:45167R104",
+              "cusip": "45167R104",
+              "company": "IDEX ORD",
+              "market_value": 77756465000.0,
+              "shares": 362501.0,
+              "rank": 32,
+              "pct_portfolio": 0.3076
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:192422103",
+              "cusip": "192422103",
+              "company": "COGNEX CORP",
+              "market_value": 77204178000.0,
+              "shares": 1906276.0,
+              "rank": 33,
+              "pct_portfolio": 0.3054
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:74758T303",
+              "cusip": "74758T303",
+              "company": "QUALYS INC",
+              "market_value": 70397236000.0,
+              "shares": 548009.0,
+              "rank": 34,
+              "pct_portfolio": 0.2785
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:M7518J104",
+              "cusip": "M7518J104",
+              "company": "ODDITY TECH LTD",
+              "market_value": 65220080000.0,
+              "shares": 1615158.0,
+              "rank": 35,
+              "pct_portfolio": 0.258
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:437076102",
+              "cusip": "437076102",
+              "company": "HOME DEPOT ORD",
+              "market_value": 59894638000.0,
+              "shares": 147815.0,
+              "rank": 36,
+              "pct_portfolio": 0.2369
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:70432V102",
+              "cusip": "70432V102",
+              "company": "PAYCOM SOFTWARE INC",
+              "market_value": 53737314000.0,
+              "shares": 322611.0,
+              "rank": 37,
+              "pct_portfolio": 0.2126
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:98978V103",
+              "cusip": "98978V103",
+              "company": "ZOETIS CL A ORD",
+              "market_value": 45079246000.0,
+              "shares": 230726.0,
+              "rank": 38,
+              "pct_portfolio": 0.1783
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:57636Q104",
+              "cusip": "57636Q104",
+              "company": "MASTERCARD CL A ORD",
+              "market_value": 32092062000.0,
+              "shares": 64990.0,
+              "rank": 39,
+              "pct_portfolio": 0.127
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:580135101",
+              "cusip": "580135101",
+              "company": "MCDONALD S ORD",
+              "market_value": 28746658000.0,
+              "shares": 94403.0,
+              "rank": 40,
+              "pct_portfolio": 0.1137
+            }
+          ],
+          "total_value": 25278411425000.0,
+          "num_holdings": 40
+        },
+        {
+          "form": "13F-HR",
+          "company": "Fundsmith LLP",
+          "cik": "1569205",
+          "filing_date": "2024-08-14",
+          "file_name": "edgar/data/1569205/0001520023-24-000030.txt",
+          "accession": "0001520023-24-000030",
+          "period_end": "2024-06-30",
+          "quarter": "2024-Q2",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/1569205/0001520023-24-000030.txt",
+          "holdings": [
+            {
+              "ticker": "MSFT",
+              "identifier": "MSFT",
+              "cusip": "594918104",
+              "company": "MICROSOFT CORP",
+              "market_value": 3191497874000.0,
+              "shares": 7140615.0,
+              "rank": 1,
+              "pct_portfolio": 13.0056
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:30303M102",
+              "cusip": "30303M102",
+              "company": "META PLATFORMS INC-CLASS A",
+              "market_value": 2456239156000.0,
+              "shares": 4871364.0,
+              "rank": 2,
+              "pct_portfolio": 10.0093
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:863667101",
+              "cusip": "863667101",
+              "company": "STRYKER CORP",
+              "market_value": 1822468826000.0,
+              "shares": 5356264.0,
+              "rank": 3,
+              "pct_portfolio": 7.4267
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:718172109",
+              "cusip": "718172109",
+              "company": "PHILIP MORRIS INTERNATIONAL",
+              "market_value": 1466695512000.0,
+              "shares": 14474445.0,
+              "rank": 4,
+              "pct_portfolio": 5.9769
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:92826C839",
+              "cusip": "92826C839",
+              "company": "VISA INC CLASS A SHARES",
+              "market_value": 1457369924000.0,
+              "shares": 5552520.0,
+              "rank": 5,
+              "pct_portfolio": 5.9389
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:053015103",
+              "cusip": "053015103",
+              "company": "AUTOMATIC DATA PROCESSING",
+              "market_value": 1333265293000.0,
+              "shares": 5585761.0,
+              "rank": 6,
+              "pct_portfolio": 5.4331
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:45168D104",
+              "cusip": "45168D104",
+              "company": "IDEXX LABORATORIES INC",
+              "market_value": 1297507142000.0,
+              "shares": 2663192.0,
+              "rank": 7,
+              "pct_portfolio": 5.2874
+            },
+            {
+              "ticker": "GOOGL",
+              "identifier": "GOOGL",
+              "cusip": "02079K305",
+              "company": "ALPHABET CL A ORD",
+              "market_value": 1247592527000.0,
+              "shares": 6849259.0,
+              "rank": 8,
+              "pct_portfolio": 5.084
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:941848103",
+              "cusip": "941848103",
+              "company": "WATERS CORP",
+              "market_value": 1060229034000.0,
+              "shares": 3654450.0,
+              "rank": 9,
+              "pct_portfolio": 4.3205
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:571903202",
+              "cusip": "571903202",
+              "company": "MARRIOTT INTERNATIONAL  CL A",
+              "market_value": 1031030824000.0,
+              "shares": 4264511.0,
+              "rank": 10,
+              "pct_portfolio": 4.2015
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:713448108",
+              "cusip": "713448108",
+              "company": "PEPSICO INC",
+              "market_value": 950176079000.0,
+              "shares": 5761087.0,
+              "rank": 11,
+              "pct_portfolio": 3.872
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:592688105",
+              "cusip": "592688105",
+              "company": "METTLER TOLEDO ORD",
+              "market_value": 826779304000.0,
+              "shares": 591575.0,
+              "rank": 12,
+              "pct_portfolio": 3.3692
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:742718109",
+              "cusip": "742718109",
+              "company": "PROCTER & GAMBLE ORD",
+              "market_value": 766419193000.0,
+              "shares": 4647218.0,
+              "rank": 13,
+              "pct_portfolio": 3.1232
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:171340102",
+              "cusip": "171340102",
+              "company": "CHURCH AND DWIGHT ORD",
+              "market_value": 716881467000.0,
+              "shares": 6914366.0,
+              "rank": 14,
+              "pct_portfolio": 2.9213
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:579780206",
+              "cusip": "579780206",
+              "company": "MCCORMICK & CO NON VTG SHRS",
+              "market_value": 712840377000.0,
+              "shares": 10048497.0,
+              "rank": 15,
+              "pct_portfolio": 2.9049
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:34959E109",
+              "cusip": "34959E109",
+              "company": "FORTINET ORD",
+              "market_value": 619916969000.0,
+              "shares": 10285664.0,
+              "rank": 16,
+              "pct_portfolio": 2.5262
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:68902V107",
+              "cusip": "68902V107",
+              "company": "OTIS WORLDWIDE ORD",
+              "market_value": 590870640000.0,
+              "shares": 6138278.0,
+              "rank": 17,
+              "pct_portfolio": 2.4078
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:115637209",
+              "cusip": "115637209",
+              "company": "BROWN FORMAN CORP CLASS B",
+              "market_value": 481082656000.0,
+              "shares": 11138751.0,
+              "rank": 18,
+              "pct_portfolio": 1.9604
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:654106103",
+              "cusip": "654106103",
+              "company": "NIKE INC CL B",
+              "market_value": 474792787000.0,
+              "shares": 6299493.0,
+              "rank": 19,
+              "pct_portfolio": 1.9348
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:037833100",
+              "cusip": "037833100",
+              "company": "Apple",
+              "market_value": 328270015000.0,
+              "shares": 1558589.0,
+              "rank": 20,
+              "pct_portfolio": 1.3377
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:882508104",
+              "cusip": "882508104",
+              "company": "TEXAS INSTRUMENTS INC",
+              "market_value": 300506248000.0,
+              "shares": 1544781.0,
+              "rank": 21,
+              "pct_portfolio": 1.2246
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:92345Y106",
+              "cusip": "92345Y106",
+              "company": "VERISK ANALYTICS INC",
+              "market_value": 125084947000.0,
+              "shares": 464051.0,
+              "rank": 22,
+              "pct_portfolio": 0.5097
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:294429105",
+              "cusip": "294429105",
+              "company": "EQUIFAX INC",
+              "market_value": 111140512000.0,
+              "shares": 458387.0,
+              "rank": 23,
+              "pct_portfolio": 0.4529
+            },
+            {
+              "ticker": "VRSN",
+              "identifier": "VRSN",
+              "cusip": "92343E102",
+              "company": "VERISIGN INC",
+              "market_value": 111036100000.0,
+              "shares": 624500.0,
+              "rank": 24,
+              "pct_portfolio": 0.4525
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:30214U102",
+              "cusip": "30214U102",
+              "company": "EXPONENT INC",
+              "market_value": 96841482000.0,
+              "shares": 1018098.0,
+              "rank": 25,
+              "pct_portfolio": 0.3946
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:384109104",
+              "cusip": "384109104",
+              "company": "GRACO ORD",
+              "market_value": 90350738000.0,
+              "shares": 1139641.0,
+              "rank": 26,
+              "pct_portfolio": 0.3682
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:192422103",
+              "cusip": "192422103",
+              "company": "COGNEX CORP",
+              "market_value": 89137466000.0,
+              "shares": 1906276.0,
+              "rank": 27,
+              "pct_portfolio": 0.3632
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:169905106",
+              "cusip": "169905106",
+              "company": "CHOICE HOTELS INTERNATIONAL ORD",
+              "market_value": 87333148000.0,
+              "shares": 733892.0,
+              "rank": 28,
+              "pct_portfolio": 0.3559
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:55354G100",
+              "cusip": "55354G100",
+              "company": "MSCI INC",
+              "market_value": 80268703000.0,
+              "shares": 166619.0,
+              "rank": 29,
+              "pct_portfolio": 0.3271
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:74758T303",
+              "cusip": "74758T303",
+              "company": "QUALYS INC",
+              "market_value": 78146083000.0,
+              "shares": 548009.0,
+              "rank": 30,
+              "pct_portfolio": 0.3185
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:775711104",
+              "cusip": "775711104",
+              "company": "ROLLINS ORD",
+              "market_value": 77942659000.0,
+              "shares": 1597513.0,
+              "rank": 31,
+              "pct_portfolio": 0.3176
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:189054109",
+              "cusip": "189054109",
+              "company": "CLOROX COMPANY",
+              "market_value": 77816013000.0,
+              "shares": 570206.0,
+              "rank": 32,
+              "pct_portfolio": 0.3171
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:45167R104",
+              "cusip": "45167R104",
+              "company": "IDEX ORD",
+              "market_value": 72935201000.0,
+              "shares": 362501.0,
+              "rank": 33,
+              "pct_portfolio": 0.2972
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:M7518J104",
+              "cusip": "M7518J104",
+              "company": "ODDITY TECH LTD",
+              "market_value": 63411103000.0,
+              "shares": 1615158.0,
+              "rank": 34,
+              "pct_portfolio": 0.2584
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:78573M104",
+              "cusip": "78573M104",
+              "company": "SABRE CORP",
+              "market_value": 57402584000.0,
+              "shares": 21499095.0,
+              "rank": 35,
+              "pct_portfolio": 0.2339
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:437076102",
+              "cusip": "437076102",
+              "company": "HOME DEPOT ORD",
+              "market_value": 50327888000.0,
+              "shares": 146200.0,
+              "rank": 36,
+              "pct_portfolio": 0.2051
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:70432V102",
+              "cusip": "70432V102",
+              "company": "PAYCOM SOFTWARE INC",
+              "market_value": 46146277000.0,
+              "shares": 322611.0,
+              "rank": 37,
+              "pct_portfolio": 0.188
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:98978V103",
+              "cusip": "98978V103",
+              "company": "ZOETIS CL A ORD",
+              "market_value": 39561619000.0,
+              "shares": 228205.0,
+              "rank": 38,
+              "pct_portfolio": 0.1612
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:57636Q104",
+              "cusip": "57636Q104",
+              "company": "MASTERCARD CL A ORD",
+              "market_value": 28357765000.0,
+              "shares": 64280.0,
+              "rank": 39,
+              "pct_portfolio": 0.1156
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:580135101",
+              "cusip": "580135101",
+              "company": "MCDONALD S ORD",
+              "market_value": 23794666000.0,
+              "shares": 93371.0,
+              "rank": 40,
+              "pct_portfolio": 0.097
+            }
+          ],
+          "total_value": 24539466801000.0,
+          "num_holdings": 40
         }
       ],
       "filing_errors": []
