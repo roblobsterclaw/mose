@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T16:26:05.439889+00:00",
+  "generated_at": "2026-06-19T16:48:28.891853+00:00",
   "job": "update_live_market_data",
   "status": "partial",
-  "detail": "62 quotes, 5 indices published. 2 symbol(s) failed.",
-  "quote_count": 62,
+  "detail": "65 quotes, 5 indices published. 2 symbol(s) failed.",
+  "quote_count": 65,
   "errors": [
     "CORE: no data after retry",
     "MARV: no data after retry"

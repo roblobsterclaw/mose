@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T16:26:05.335445+00:00",
+  "generated_at": "2026-06-19T16:48:28.786527+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -28,6 +28,35 @@
       },
       "profile": {
         "company": "Apple Inc.",
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "AIPO": {
+      "ticker": "AIPO",
+      "name": "AIPO",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "AIPO",
+        "symbol": "AIPO",
+        "price": 34.0,
+        "prev_close": 32.72,
+        "change_pct": 3.911980440097803,
+        "date": "2026-06-18",
+        "time": "16:00:02",
+        "volume": 1226784,
+        "week52_high": 34.212,
+        "week52_low": 19.17
+      },
+      "metrics": {
+        "week52High": 34.212,
+        "week52Low": 19.17
+      },
+      "profile": {
+        "company": null,
         "owned": null,
         "hasResearch": false
       },
@@ -475,7 +504,7 @@
         "change_pct": 0.09854581289386641,
         "date": "2026-06-19",
         "time": "12:17:24",
-        "volume": 42735,
+        "volume": 42787,
         "week52_high": 5060.7,
         "week52_low": 2196.0
       },
@@ -1494,6 +1523,35 @@
       },
       "source": "yahoo"
     },
+    "SCHD": {
+      "ticker": "SCHD",
+      "name": "SCHD",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "SCHD",
+        "symbol": "SCHD",
+        "price": 31.86,
+        "prev_close": 31.93,
+        "change_pct": -0.21922956467272248,
+        "date": "2026-06-18",
+        "time": "16:00:00",
+        "volume": 20606177,
+        "week52_high": 32.92,
+        "week52_low": 26.16
+      },
+      "metrics": {
+        "week52High": 32.92,
+        "week52Low": 26.16
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "SGOV": {
       "ticker": "SGOV",
       "name": "iShares 0-3 Month Treasury Bond ETF",
@@ -1791,6 +1849,35 @@
       "metrics": {
         "week52High": 699.15,
         "week52Low": 545.75
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "VPU": {
+      "ticker": "VPU",
+      "name": "VPU",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "VPU",
+        "symbol": "VPU",
+        "price": 193.95,
+        "prev_close": 192.6,
+        "change_pct": 0.7009345794392494,
+        "date": "2026-06-18",
+        "time": "16:00:00",
+        "volume": 252657,
+        "week52_high": 206.1,
+        "week52_low": 173.75
+      },
+      "metrics": {
+        "week52High": 206.1,
+        "week52Low": 173.75
       },
       "profile": {
         "company": null,

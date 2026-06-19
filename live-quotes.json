@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T16:26:05.335445+00:00",
+  "generated_at": "2026-06-19T16:48:28.786527+00:00",
   "source": "yahoo",
   "market_status": "open",
   "indices": [
@@ -56,6 +56,18 @@
       "volume": 76701676,
       "week52_high": 317.4,
       "week52_low": 196.86
+    },
+    {
+      "ticker": "AIPO",
+      "symbol": "AIPO",
+      "price": 34.0,
+      "prev_close": 32.72,
+      "change_pct": 3.911980440097803,
+      "date": "2026-06-18",
+      "time": "16:00:02",
+      "volume": 1226784,
+      "week52_high": 34.212,
+      "week52_low": 19.17
     },
     {
       "ticker": "AMD",
@@ -233,7 +245,7 @@
       "change_pct": 0.09854581289386641,
       "date": "2026-06-19",
       "time": "12:17:24",
-      "volume": 42735,
+      "volume": 42787,
       "week52_high": 5060.7,
       "week52_low": 2196.0
     },
@@ -634,6 +646,18 @@
       "week52_low": 305.96
     },
     {
+      "ticker": "SCHD",
+      "symbol": "SCHD",
+      "price": 31.86,
+      "prev_close": 31.93,
+      "change_pct": -0.21922956467272248,
+      "date": "2026-06-18",
+      "time": "16:00:00",
+      "volume": 20606177,
+      "week52_high": 32.92,
+      "week52_low": 26.16
+    },
+    {
       "ticker": "SGOV",
       "symbol": "SGOV",
       "price": 100.59,
@@ -752,6 +776,18 @@
       "volume": 12564575,
       "week52_high": 699.15,
       "week52_low": 545.75
+    },
+    {
+      "ticker": "VPU",
+      "symbol": "VPU",
+      "price": 193.95,
+      "prev_close": 192.6,
+      "change_pct": 0.7009345794392494,
+      "date": "2026-06-18",
+      "time": "16:00:00",
+      "volume": 252657,
+      "week52_high": 206.1,
+      "week52_low": 173.75
     },
     {
       "ticker": "VRSN",
