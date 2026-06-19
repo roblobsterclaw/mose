@@ -5209,7 +5209,7 @@ function renderReentry() {
 // ============================================================
 function defaultTargetsData() {
   return {
-    version: 3,
+    version: 4,
     ira: {
       total: 1150000,
       accounts: {
@@ -5218,8 +5218,8 @@ function defaultTargetsData() {
       },
       buckets: [
         { id: 'forever', label: 'Forever',  pct: 50, tickers: ['AMZN', 'NVDA', 'BRK.B', 'GOOGL'], weights: {}, locked: {} },
-        { id: 'sp',      label: 'S&P 500',  pct: 25, tickers: ['VOO'], weights: {}, locked: {} },
-        { id: 'fornow',  label: 'For Now',  pct: 25, tickers: ['AXP', 'BABA', 'BAC', 'BN', 'CVX', 'MCO', 'MA', 'MELI', 'PGR', 'OXY', 'TSM', 'V', 'WMT', 'COST', 'UBER'], weights: {}, locked: {} }
+        { id: 'sp',      label: 'S&P 500',  pct: 20, tickers: ['VOO'], weights: {}, locked: {} },
+        { id: 'fornow',  label: 'For Now',  pct: 30, tickers: ['AXP', 'BABA', 'BAC', 'BN', 'CVX', 'MCO', 'MA', 'MELI', 'PGR', 'OXY', 'TSM', 'V', 'WMT', 'COST', 'UBER'], weights: {}, locked: {} }
       ]
     },
     mose: {
@@ -5254,6 +5254,11 @@ function migrateTargets(d) {
     const want = { forever: 50, sp: 25, fornow: 25 };
     d.ira.buckets.forEach(b => { if (want[b.id] != null) b.pct = want[b.id]; });
     d.version = 3;
+  }
+  if ((d.version || 0) < 4) {
+    const want = { sp: 20, fornow: 30 };  // Forever stays 50
+    d.ira.buckets.forEach(b => { if (want[b.id] != null) b.pct = want[b.id]; });
+    d.version = 4;
   }
   d.ira.buckets.forEach(b => {
     if (!b.weights || typeof b.weights !== 'object') b.weights = {};
