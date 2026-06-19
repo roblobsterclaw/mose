@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T00:20:29.405563+00:00",
+  "generated_at": "2026-06-19T06:08:47.342735+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -687,11 +687,11 @@
         "date": "2026-06-18",
         "time": "16:00:03",
         "volume": 3625115,
-        "week52_high": 364.64,
+        "week52_high": 364.7,
         "week52_low": 236.51
       },
       "metrics": {
-        "week52High": 364.64,
+        "week52High": 364.7,
         "week52Low": 236.51,
         "marketCap": 297358524416,
         "peRatio": 44.42732919254658
@@ -1692,11 +1692,11 @@
         "date": "2026-06-18",
         "time": "16:00:03",
         "volume": 16178928,
-        "week52_high": 465.2,
+        "week52_high": 465.22,
         "week52_low": 206.2
       },
       "metrics": {
-        "week52High": 465.2,
+        "week52High": 465.22,
         "week52Low": 206.2,
         "marketCap": 2087318585344,
         "peRatio": 39.598971722365036
@@ -1948,7 +1948,7 @@
       "quote": {
         "ticker": "^RUT",
         "price": 2979.765,
-        "change_pct": 1.3801374523679932,
+        "change_pct": 2.117389426932325,
         "source": "yahoo"
       },
       "metrics": {},
@@ -1964,7 +1964,7 @@
       "quote": {
         "ticker": "^VIX",
         "price": 16.4,
-        "change_pct": -0.06093845216332457,
+        "change_pct": -11.062906724511945,
         "source": "yahoo"
       },
       "metrics": {},
