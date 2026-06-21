@@ -2295,12 +2295,16 @@ function saveLocalOnly() {
   localStorage.setItem('mose_watchlist_group', watchlistGroup);
 }
 
+// Returns the cloud state object, null if the DB is genuinely empty, or
+// undefined if the read FAILED (network/HTTP). Callers must NOT treat a failed
+// read as "empty" — doing so previously let a device overwrite good cloud data
+// with local defaults.
 async function moseFbGet() {
   try {
     const r = await fetch(MOSE_FB_URL + '.json', { cache: 'no-store' });
-    if (!r.ok) return null;
+    if (!r.ok) return undefined;
     return await r.json();
-  } catch { return null; }
+  } catch { return undefined; }
 }
 
 async function moseFbPut() {
@@ -5207,20 +5211,35 @@ function renderReentry() {
 // Goals are fixed dollar targets per stock; Owned is updated from IBKR
 // position screenshots. Syncs through the same localStorage + Firebase pipe.
 // ============================================================
+// Canonical Buy Targets buckets — Joe's real configuration, used both as the
+// default and as the v5 recovery (a sync bug overwrote the cloud copy with the
+// stripped-down old defaults; this restores the full lists + pinned weights).
+let _targetsRepaired = false;
+function canonTargetsBuckets() {
+  return [
+    { id: 'forever', label: 'Forever',  pct: 50,
+      tickers: ['AMZN', 'GOOGL', 'BRK.B', 'NVDA', 'MELI', 'MCO', 'SPGI', 'V', 'BN'],
+      weights: { AMZN: 18, GOOGL: 18, NVDA: 6 }, locked: { AMZN: true, GOOGL: true, NVDA: true } },
+    { id: 'sp',      label: 'S&P 500',  pct: 20,
+      tickers: ['VOO', 'VTV', 'IDGT', 'NLR', 'QQQ'],
+      weights: { VOO: 50, VTV: 25, IDGT: 10, NLR: 10, QQQ: 5 },
+      locked: { VOO: true, VTV: true, IDGT: true, NLR: true, QQQ: true } },
+    { id: 'fornow',  label: 'For Now',  pct: 30,
+      tickers: ['AXP', 'BABA', 'CVX', 'MA', 'PGR', 'OXY', 'TSM', 'WMT', 'COST', 'UBER', 'COF', 'GE', 'CVNA', 'CODI', 'CP'],
+      weights: {}, locked: {} }
+  ];
+}
+
 function defaultTargetsData() {
   return {
-    version: 4,
+    version: 5,
     ira: {
       total: 1150000,
       accounts: {
         his:  { label: "Joe's IRA",  total: 950000 },
         hers: { label: "Wife's IRA", total: 200000 }
       },
-      buckets: [
-        { id: 'forever', label: 'Forever',  pct: 50, tickers: ['AMZN', 'NVDA', 'BRK.B', 'GOOGL'], weights: {}, locked: {} },
-        { id: 'sp',      label: 'S&P 500',  pct: 20, tickers: ['VOO'], weights: {}, locked: {} },
-        { id: 'fornow',  label: 'For Now',  pct: 30, tickers: ['AXP', 'BABA', 'BAC', 'BN', 'CVX', 'MCO', 'MA', 'MELI', 'PGR', 'OXY', 'TSM', 'V', 'WMT', 'COST', 'UBER'], weights: {}, locked: {} }
-      ]
+      buckets: canonTargetsBuckets()
     },
     mose: {
       label: 'MOSE — Joint Cash',
@@ -5259,6 +5278,13 @@ function migrateTargets(d) {
     const want = { sp: 20, fornow: 30 };  // Forever stays 50
     d.ira.buckets.forEach(b => { if (want[b.id] != null) b.pct = want[b.id]; });
     d.version = 4;
+  }
+  if ((d.version || 0) < 5) {
+    // One-time repair: a load-time sync bug overwrote the cloud copy with the
+    // stripped-down old defaults. Restore the full bucket lists + pinned weights.
+    d.ira.buckets = canonTargetsBuckets();
+    d.version = 5;
+    _targetsRepaired = true;
   }
   d.ira.buckets.forEach(b => {
     if (!b.weights || typeof b.weights !== 'object') b.weights = {};
@@ -6137,7 +6163,11 @@ window.addEventListener('DOMContentLoaded', () => {
   // Firebase sync — load from cloud, seed if empty, then listen for live changes
   (async function() {
     const remote = await moseFbGet();
-    if (remote && remote.lastUpdated) {
+    if (remote === undefined) {
+      // Cloud read FAILED — never overwrite it from here. Keep local state and
+      // let the live listener / next user edit reconcile when it's reachable.
+      setMoseSyncStatus('⚠️');
+    } else if (remote && remote.lastUpdated) {
       hydrateMoseState(remote);
       saveLocalOnly();
       renderWatchlist();
@@ -6147,8 +6177,11 @@ window.addEventListener('DOMContentLoaded', () => {
       if (typeof updateDDCounter === 'function') updateDDCounter();
       if (typeof renderCockpit === 'function') renderCockpit();
       setMoseSyncStatus('✅');
+      // If the v5 repair restored buckets that the cloud had lost, push the
+      // fix back so every device heals.
+      if (_targetsRepaired) { _targetsRepaired = false; moseFbPut(); }
     } else {
-      // First run or empty DB — seed Firebase from this device's localStorage
+      // Genuinely empty DB (HTTP ok, null body) — safe to seed.
       await moseFbPut();
     }
     moseFbListen();
