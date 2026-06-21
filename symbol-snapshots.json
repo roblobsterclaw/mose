@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T16:28:16.449160+00:00",
+  "generated_at": "2026-06-21T17:10:06.971868+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -399,6 +399,68 @@
       },
       "source": "yahoo"
     },
+    "CODI": {
+      "ticker": "CODI",
+      "name": "Compass Diversified",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "CODI",
+        "symbol": "CODI",
+        "price": 10.11,
+        "prev_close": 9.92,
+        "change_pct": 1.9153225806451561,
+        "date": "2026-06-18",
+        "time": "16:00:02",
+        "volume": 722400,
+        "week52_high": 12.64,
+        "week52_low": 4.58
+      },
+      "metrics": {
+        "week52High": 12.64,
+        "week52Low": 4.58,
+        "marketCap": 864461248,
+        "peRatio": -2.7851239669421486
+      },
+      "profile": {
+        "company": "Compass Diversified",
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "COF": {
+      "ticker": "COF",
+      "name": "Capital One Financial Corporation",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "COF",
+        "symbol": "COF",
+        "price": 201.53,
+        "prev_close": 200.87,
+        "change_pct": 0.3285707173793979,
+        "date": "2026-06-18",
+        "time": "16:00:03",
+        "volume": 4275786,
+        "week52_high": 259.64,
+        "week52_low": 174.24
+      },
+      "metrics": {
+        "week52High": 259.64,
+        "week52Low": 174.24,
+        "marketCap": 121378750464,
+        "peRatio": 62.00923076923077
+      },
+      "profile": {
+        "company": "Capital One Financial Corporation",
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "COST": {
       "ticker": "COST",
       "name": "Costco Wholesale Corporation",
@@ -430,6 +492,37 @@
       },
       "source": "yahoo"
     },
+    "CP": {
+      "ticker": "CP",
+      "name": "Canadian Pacific Kansas City Limited",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "CP",
+        "symbol": "CP",
+        "price": 86.03,
+        "prev_close": 85.61,
+        "change_pct": 0.49059689288634706,
+        "date": "2026-06-18",
+        "time": "16:00:02",
+        "volume": 2270923,
+        "week52_high": 91.52,
+        "week52_low": 68.42
+      },
+      "metrics": {
+        "week52High": 91.52,
+        "week52Low": 68.42,
+        "marketCap": 77966712832,
+        "peRatio": 26.06969696969697
+      },
+      "profile": {
+        "company": "Canadian Pacific Kansas City Limited",
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "CSU": {
       "ticker": "CSU",
       "name": "CSU",
@@ -454,6 +547,37 @@
       },
       "profile": {
         "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "CVNA": {
+      "ticker": "CVNA",
+      "name": "Carvana Co.",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "CVNA",
+        "symbol": "CVNA",
+        "price": 66.56,
+        "prev_close": 62.86,
+        "change_pct": 5.886096086541526,
+        "date": "2026-06-18",
+        "time": "16:04:40",
+        "volume": 14471869,
+        "week52_high": 97.378,
+        "week52_low": 54.464
+      },
+      "metrics": {
+        "week52High": 97.378,
+        "week52Low": 54.464,
+        "marketCap": 58495893504,
+        "peRatio": 7.858323494687131
+      },
+      "profile": {
+        "company": "Carvana Co.",
         "owned": null,
         "hasResearch": false
       },
@@ -672,6 +796,35 @@
           "value": 27318
         },
         "hasResearch": true
+      },
+      "source": "yahoo"
+    },
+    "IDGT": {
+      "ticker": "IDGT",
+      "name": "IDGT",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "IDGT",
+        "symbol": "IDGT",
+        "price": 123.92,
+        "prev_close": 122.4,
+        "change_pct": 1.2418300653594738,
+        "date": "2026-06-18",
+        "time": "16:00:00",
+        "volume": 14834,
+        "week52_high": 133.05,
+        "week52_low": 80.08
+      },
+      "metrics": {
+        "week52High": 133.05,
+        "week52Low": 80.08
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
       },
       "source": "yahoo"
     },
@@ -1037,6 +1190,35 @@
       },
       "source": "yahoo"
     },
+    "NLR": {
+      "ticker": "NLR",
+      "name": "NLR",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "NLR",
+        "symbol": "NLR",
+        "price": 126.94,
+        "prev_close": 124.65,
+        "change_pct": 1.8371440032089787,
+        "date": "2026-06-18",
+        "time": "16:00:00",
+        "volume": 464144,
+        "week52_high": 168.12,
+        "week52_low": 104.05
+      },
+      "metrics": {
+        "week52High": 168.12,
+        "week52Low": 104.05
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "NVDA": {
       "ticker": "NVDA",
       "name": "Nvidia",
@@ -1285,6 +1467,35 @@
       },
       "source": "yahoo"
     },
+    "QQQ": {
+      "ticker": "QQQ",
+      "name": "QQQ",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "QQQ",
+        "symbol": "QQQ",
+        "price": 740.62,
+        "prev_close": 722.51,
+        "change_pct": 2.50653970187264,
+        "date": "2026-06-18",
+        "time": "16:00:01",
+        "volume": 50154595,
+        "week52_high": 748.65,
+        "week52_low": 523.65
+      },
+      "metrics": {
+        "week52High": 748.65,
+        "week52Low": 523.65
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "RACE": {
       "ticker": "RACE",
       "name": "Ferrari",
@@ -1459,6 +1670,37 @@
       },
       "profile": {
         "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "SPGI": {
+      "ticker": "SPGI",
+      "name": "S&P Global Inc.",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "SPGI",
+        "symbol": "SPGI",
+        "price": 410.92,
+        "prev_close": 418.02,
+        "change_pct": -1.698483326156635,
+        "date": "2026-06-18",
+        "time": "16:00:02",
+        "volume": 1436893,
+        "week52_high": 579.05,
+        "week52_low": 381.61
+      },
+      "metrics": {
+        "week52High": 579.05,
+        "week52Low": 381.61,
+        "marketCap": 130512855040,
+        "peRatio": 27.99182561307902
+      },
+      "profile": {
+        "company": "S&P Global Inc.",
         "owned": null,
         "hasResearch": false
       },
@@ -1703,6 +1945,35 @@
       },
       "profile": {
         "company": "VeriSign, Inc.",
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "VTV": {
+      "ticker": "VTV",
+      "name": "VTV",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "VTV",
+        "symbol": "VTV",
+        "price": 216.5,
+        "prev_close": 216.09,
+        "change_pct": 0.1897357582488762,
+        "date": "2026-06-18",
+        "time": "16:00:00",
+        "volume": 2129563,
+        "week52_high": 219.93,
+        "week52_low": 172.6
+      },
+      "metrics": {
+        "week52High": 219.93,
+        "week52Low": 172.6
+      },
+      "profile": {
+        "company": null,
         "owned": null,
         "hasResearch": false
       },
