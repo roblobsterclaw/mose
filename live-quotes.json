@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T11:43:45.863832+00:00",
+  "generated_at": "2026-06-21T13:13:27.657035+00:00",
   "source": "yahoo",
   "market_status": "closed",
   "indices": [
@@ -23,7 +23,7 @@
       "name": "NASDAQ",
       "ticker": "^IXIC",
       "price": 26517.932,
-      "change_pct": 1.9071653241438657,
+      "change_pct": 1.906993009680382,
       "vs_exit": null,
       "source": "yahoo"
     },
@@ -538,6 +538,18 @@
       "week52_low": 122.68
     },
     {
+      "ticker": "POWR",
+      "symbol": "POWR",
+      "price": 27.66,
+      "prev_close": 27.32,
+      "change_pct": 1.2445095168374811,
+      "date": "2026-06-18",
+      "time": "16:00:00",
+      "volume": 129122,
+      "week52_high": 28.44,
+      "week52_low": 23.18
+    },
+    {
       "ticker": "RACE",
       "symbol": "RACE",
       "price": 362.13,
@@ -584,6 +596,18 @@
       "volume": 18199144,
       "week52_high": 100.74,
       "week52_low": 100.27
+    },
+    {
+      "ticker": "SMH",
+      "symbol": "SMH",
+      "price": 659.88,
+      "prev_close": 623.97003,
+      "change_pct": 5.755079294433427,
+      "date": "2026-06-18",
+      "time": "16:00:01",
+      "volume": 11229715,
+      "week52_high": 663.8,
+      "week52_low": 257.12
     },
     {
       "ticker": "SPCX",
