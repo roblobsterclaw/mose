@@ -5519,6 +5519,62 @@ function targAcctTableHtml(acctKey) {
   return { html, deployed };
 }
 
+// Brief one-line business descriptions for the stock-info hover/tap on the
+// Combined IRA table. Keyed by canonical ticker; falls back to the company name.
+const STOCK_INFO = {
+  'AMZN': 'Amazon — online retail marketplace plus AWS cloud computing, advertising, and devices.',
+  'GOOGL': 'Alphabet (Google) — Search & ads, YouTube, Android, Google Cloud, and AI (Gemini).',
+  'BRK-B': "Berkshire Hathaway — Buffett's holding company: insurance (GEICO), BNSF railroad, energy, and large equity stakes.",
+  'NVDA': 'NVIDIA — the dominant maker of AI / data-center GPUs and accelerated computing.',
+  'MELI': "MercadoLibre — Latin America's largest e-commerce platform plus fintech (Mercado Pago).",
+  'MCO': "Moody's — credit ratings and analytics; a tollbooth duopoly with S&P.",
+  'SPGI': 'S&P Global — credit ratings, market data and indices (the S&P 500), and analytics.',
+  'V': 'Visa — global payments network that earns a fee on card transactions.',
+  'BN': 'Brookfield Corporation — global alternative-asset manager: real estate, infrastructure, renewables, private equity.',
+  'VOO': 'Vanguard S&P 500 ETF — tracks the 500 largest US companies; ultra-low fee.',
+  'VTV': 'Vanguard Value ETF — basket of large-cap US value stocks.',
+  'IDGT': 'iShares U.S. Digital Infrastructure & Real Estate ETF — data centers, cell towers, comms REITs.',
+  'NLR': 'VanEck Uranium & Nuclear ETF — nuclear utilities, uranium miners, and reactor technology.',
+  'QQQ': 'Invesco QQQ — tracks the Nasdaq-100 (largest non-financial Nasdaq names; tech-heavy).',
+  'AXP': 'American Express — premium card network and lender to affluent consumers.',
+  'BABA': 'Alibaba — China e-commerce (Taobao/Tmall) plus Alibaba Cloud.',
+  'CVX': 'Chevron — integrated oil & gas major (production + refining) with a large dividend.',
+  'MA': 'Mastercard — global payments network; with Visa, a payments duopoly.',
+  'PGR': 'Progressive — leading US auto insurer; data-driven pricing, direct + agency.',
+  'OXY': 'Occidental Petroleum — oil & gas producer (Permian Basin) plus chemicals; Buffett-backed.',
+  'TSM': "Taiwan Semiconductor — world's largest contract chipmaker (foundry for Apple, NVIDIA).",
+  'WMT': 'Walmart — largest US retailer; growing e-commerce and advertising.',
+  'COST': 'Costco — membership warehouse club; profit driven by loyal members and fees.',
+  'UBER': 'Uber — global ride-hailing and delivery (Uber Eats) platform.',
+  'COF': 'Capital One — consumer and credit-card bank (acquiring Discover).',
+  'GE': 'GE Aerospace — jet engines and services for commercial and defense aviation.',
+  'CVNA': 'Carvana — online used-car retailer (buy, sell, and finance).',
+  'CODI': 'Compass Diversified — owns a portfolio of niche branded and industrial businesses.',
+  'CP': 'Canadian Pacific Kansas City — the only single-line railroad spanning Canada, the US, and Mexico.'
+};
+function stockDisplayName(t) {
+  t = canonicalTicker(t);
+  const d = (tickerDirectory || []).find(x => x.ticker === t);
+  return d ? d.name : t;
+}
+function stockDesc(t) { return STOCK_INFO[canonicalTicker(t)] || ''; }
+function stockBlurb(t) { const n = stockDisplayName(t), d = stockDesc(t); return d ? `${n} — ${d}` : n; }
+function showStockInfo(t) {
+  t = canonicalTicker(t);
+  let el = document.getElementById('stock-info-pop');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'stock-info-pop';
+    el.style.cssText = 'position:fixed;top:70px;left:50%;transform:translateX(-50%);max-width:440px;width:calc(100% - 32px);background:var(--surface);border:1px solid var(--accent);border-radius:10px;padding:14px 16px;box-shadow:0 8px 30px rgba(0,0,0,.45);z-index:9999;display:none;font-size:13px;color:var(--text)';
+    el.addEventListener('click', () => { el.style.display = 'none'; });
+    document.body.appendChild(el);
+  }
+  el.innerHTML = `<div style="font-weight:800;color:var(--accent);font-size:15px">${escapeHtml(t)} <span style="color:var(--muted);font-weight:600;font-size:12px">${escapeHtml(stockDisplayName(t))}</span></div>`
+    + `<div style="margin-top:6px;line-height:1.5">${escapeHtml(stockDesc(t) || 'No description on file yet — but the name is above.')}</div>`
+    + `<div style="margin-top:10px;font-size:11px;color:var(--muted)">tap anywhere on this box to close</div>`;
+  el.style.display = 'block';
+}
+
 function targCombinedHtml() {
   let html = `<div class="table-wrap"><table><thead><tr><th></th><th>Ticker</th><th>% of Bucket</th><th>Combined Goal</th><th>Owned (his+hers)</th><th>Remaining</th><th>% to Goal</th></tr></thead>`;
   targetsData.ira.buckets.forEach(b => {
@@ -5532,7 +5588,7 @@ function targCombinedHtml() {
       const pctCell = b.tickers.length === 1
         ? `<td style="color:var(--muted)">100%</td>`
         : `<td style="white-space:nowrap"><input type="number" step="0.5" class="targ-input" style="width:58px${locked ? ';border-color:var(--accent);color:var(--accent);font-weight:700' : ''}" value="${targStockPctOfBucket(b, t).toFixed(1)}" onchange="targSetPctOfBucket('${b.id}','${t}',this.value)">% <a onclick="targToggleLock('${b.id}','${escapeHtml(t)}')" title="${locked ? 'Locked — holds this %. Click to unlock and let it recalc.' : 'Click to lock this % so it holds while the others recalc.'}" style="cursor:pointer;margin-left:2px">${locked ? '🔒' : '🔓'}</a></td>`;
-      html += `<tr data-targ-bucket="${b.id}" data-targ-ticker="${escapeHtml(t)}"><td class="targ-drag-handle" onpointerdown="targDragStart(event,'${b.id}','${escapeHtml(t)}')" title="Drag to reorder or move to another bucket">⠿</td><td><strong>${escapeHtml(t)}</strong>${targLivePrice(t)} <a onclick="targRemoveTicker('${b.id}','${escapeHtml(t)}')" title="Remove from bucket" style="cursor:pointer;color:var(--muted);margin-left:6px">✕</a></td>${pctCell}<td>${reentryFmt(tgt)}</td><td>${reentryFmt(owned)}</td>${targMoreCell(owned, tgt)}${targPctCell(owned, tgt)}</tr>`;
+      html += `<tr data-targ-bucket="${b.id}" data-targ-ticker="${escapeHtml(t)}"><td class="targ-drag-handle" onpointerdown="targDragStart(event,'${b.id}','${escapeHtml(t)}')" title="Drag to reorder or move to another bucket">⠿</td><td><strong title="${escapeAttr(stockBlurb(t))}">${escapeHtml(t)}</strong> <a onclick="showStockInfo('${escapeHtml(t)}')" title="What is ${escapeHtml(t)}?" style="cursor:pointer;color:var(--blue);margin-left:2px;font-size:12px">ⓘ</a>${targLivePrice(t)} <a onclick="targRemoveTicker('${b.id}','${escapeHtml(t)}')" title="Remove from bucket" style="cursor:pointer;color:var(--muted);margin-left:6px">✕</a></td>${pctCell}<td>${reentryFmt(tgt)}</td><td>${reentryFmt(owned)}</td>${targMoreCell(owned, tgt)}${targPctCell(owned, tgt)}</tr>`;
     });
     html += targAddRow(b.id, 7);
     html += `</tbody>`;
