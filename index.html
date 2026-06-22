@@ -408,6 +408,15 @@
   /* ===== BUY TARGETS ===== */
   .targ-input { background: var(--bg); border: 1px solid var(--border); color: var(--text); border-radius: 6px; padding: 4px 8px; width: 108px; font-family: inherit; font-size: 13px; text-align: right; }
   .targ-input:focus { border-color: var(--accent); outline: none; }
+  .targ-add-suggest {
+    position: fixed; z-index: 9998; display: none; max-height: 280px; overflow-y: auto;
+    background: var(--surface); border: 1px solid var(--accent); border-radius: 8px;
+    box-shadow: 0 8px 26px rgba(0,0,0,0.4);
+  }
+  .targ-sug-item { padding: 7px 11px; font-size: 12.5px; cursor: pointer; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  .targ-sug-item:last-child { border-bottom: none; }
+  .targ-sug-item:hover { background: rgba(232,86,42,0.14); }
+  .targ-sug-item .muted { color: var(--muted); }
   .targ-bar { display: inline-block; width: 64px; height: 8px; background: var(--bg); border: 1px solid var(--border); border-radius: 999px; overflow: hidden; vertical-align: middle; margin-right: 7px; }
   .targ-bar-fill { display: block; height: 100%; background: linear-gradient(90deg, var(--green), #56d364); }
   .targ-bucket-row td { background: rgba(255,255,255,0.05); font-weight: 800; color: var(--heading); font-size: 12px; letter-spacing: 0.3px; }
@@ -5781,11 +5790,49 @@ function targRemoveTicker(bucketId, ticker) {
 // "＋ Add stock" row appended inside each bucket's <tbody>. cols = table column count.
 function targAddRow(bucketId, cols) {
   return `<tr class="targ-add-row"><td></td><td colspan="${cols - 1}">
-    <input type="text" id="targ-add-${bucketId}" class="targ-input" style="width:200px" placeholder="＋ Add ticker or company…" autocomplete="off"
-      onkeydown="if(event.key==='Enter'){event.preventDefault();targAddTyped('${bucketId}', this.value); this.value='';}">
-    <button class="research-action-btn" onclick="var i=document.getElementById('targ-add-${bucketId}');targAddTyped('${bucketId}', i.value);i.value='';">Add</button>
+    <input type="text" id="targ-add-${bucketId}" class="targ-input" style="width:210px" placeholder="＋ Add ticker or company…" autocomplete="off"
+      oninput="targAddSuggest('${bucketId}', this.value)"
+      onblur="targHideSuggest()"
+      onkeydown="if(event.key==='Enter'){event.preventDefault();targAddTyped('${bucketId}', this.value); this.value=''; targHideSuggest();}">
+    <button class="research-action-btn" onclick="var i=document.getElementById('targ-add-${bucketId}');targAddTyped('${bucketId}', i.value);i.value='';targHideSuggest();">Add</button>
     <span style="color:var(--muted);font-size:11px;margin-left:6px">finds any US-listed stock or ETF — no need to add it to the watchlist first</span>
   </td></tr>`;
+}
+
+// ---- Autocomplete for the Buy Targets add box (full-market, like the watchlist) ----
+function targSuggestBox() {
+  let b = document.getElementById('targ-add-suggest');
+  if (!b) {
+    b = document.createElement('div');
+    b.id = 'targ-add-suggest';
+    b.className = 'targ-add-suggest';
+    document.body.appendChild(b);
+  }
+  return b;
+}
+function targAddSuggest(bucketId, value) {
+  const box = targSuggestBox();
+  const q = (value || '').trim();
+  const input = document.getElementById('targ-add-' + bucketId);
+  if (!q || !input) { box.style.display = 'none'; return; }
+  const matches = (typeof searchAllStocks === 'function') ? searchAllStocks(q, 8) : [];
+  box.innerHTML = matches.length
+    ? matches.map(o => `<div class="targ-sug-item" onmousedown="targAddPick('${bucketId}','${escapeHtml(o.ticker)}')"><b>${escapeHtml(o.ticker)}</b> <span class="muted">${escapeHtml(o.name)}</span><span class="muted" style="float:right">${escapeHtml(o.source || '')}</span></div>`).join('')
+    : `<div class="targ-sug-item muted" onmousedown="targAddPick('${bucketId}','${escapeHtml(q.toUpperCase())}')">No list match — tap to add "${escapeHtml(q.toUpperCase())}" as a ticker</div>`;
+  const r = input.getBoundingClientRect();
+  box.style.left = r.left + 'px';
+  box.style.top = (r.bottom + 2) + 'px';
+  box.style.width = Math.max(r.width, 300) + 'px';
+  box.style.display = 'block';
+}
+function targAddPick(bucketId, ticker) {
+  const box = document.getElementById('targ-add-suggest'); if (box) box.style.display = 'none';
+  const input = document.getElementById('targ-add-' + bucketId); if (input) input.value = '';
+  targAddTyped(bucketId, ticker);
+}
+function targHideSuggest() {
+  const box = document.getElementById('targ-add-suggest');
+  if (box) setTimeout(() => { box.style.display = 'none'; }, 180);
 }
 
 // Add a stock to a bucket from typed text — resolves against the full ticker
