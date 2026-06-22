@@ -5278,7 +5278,20 @@ let targetsData = (function() {
 // Bring older saved/synced state up to date: v3 recalibrates the bucket split to
 // 50/25/25, and ensures every bucket has weights + locked maps.
 function migrateTargets(d) {
-  if (!d || !d.ira || !d.ira.buckets) return d;
+  if (!d || typeof d !== 'object') d = defaultTargetsData();
+  // --- Shape guards: a malformed value here must never blank the page ---
+  if (!d.ira || typeof d.ira !== 'object') d.ira = {};
+  if (!d.ira.accounts || typeof d.ira.accounts !== 'object') d.ira.accounts = {};
+  if (!d.ira.accounts.his || typeof d.ira.accounts.his !== 'object') d.ira.accounts.his = { label: "Joe's IRA", total: 950000 };
+  if (!d.ira.accounts.hers || typeof d.ira.accounts.hers !== 'object') d.ira.accounts.hers = { label: "Wife's IRA", total: 200000 };
+  if (typeof d.ira.accounts.his.total !== 'number') d.ira.accounts.his.total = 950000;
+  if (typeof d.ira.accounts.hers.total !== 'number') d.ira.accounts.hers.total = 200000;
+  if (!Array.isArray(d.ira.buckets) || !d.ira.buckets.length) d.ira.buckets = canonTargetsBuckets();
+  if (!d.mose || typeof d.mose !== 'object') d.mose = { label: 'MOSE — Joint Cash', total: 344000, stockPct: 70, tickers: [] };
+  if (!Array.isArray(d.mose.tickers)) d.mose.tickers = [];
+  if (typeof d.mose.total !== 'number') d.mose.total = 344000;
+  if (typeof d.mose.stockPct !== 'number') d.mose.stockPct = 70;
+  if (!d.owned || typeof d.owned !== 'object') d.owned = {};
   if ((d.version || 0) < 3) {
     const want = { forever: 50, sp: 25, fornow: 25 };
     d.ira.buckets.forEach(b => { if (want[b.id] != null) b.pct = want[b.id]; });
@@ -5310,8 +5323,11 @@ function migrateTargets(d) {
     _targetsRepaired = true;  // push the new bucket/split to the cloud so all devices get it
   }
   d.ira.buckets.forEach(b => {
+    if (!Array.isArray(b.tickers)) b.tickers = [];
     if (!b.weights || typeof b.weights !== 'object') b.weights = {};
     if (!b.locked || typeof b.locked !== 'object') b.locked = {};
+    if (typeof b.pct !== 'number') b.pct = 0;
+    if (!b.label) b.label = b.id || 'Bucket';
   });
   if (!d.plan || typeof d.plan !== 'object') d.plan = {};       // this-month planned buys, keyed account|ticker
   if (!d.verify || typeof d.verify !== 'object') d.verify = {}; // accounts committed but awaiting IBKR confirmation
@@ -6004,6 +6020,22 @@ function renderTargetsSettings() {
 }
 
 function renderTargets() {
+  try {
+    _renderTargetsBody();
+  } catch (e) {
+    console.error('renderTargets failed', e);
+    const c = document.getElementById('targets-combined');
+    if (c) c.innerHTML = `<div style="padding:18px;color:var(--text)">⚠️ Couldn't display Buy Targets — <strong>your data is safe</strong>. <button class="watchlist-add-btn" style="margin-left:8px" onclick="targRepairAndRender()">Restore my buckets</button><div style="color:var(--muted);font-size:12px;margin-top:8px">${escapeHtml(e.message || '')}</div></div>`;
+  }
+}
+// One-click recovery if a render ever fails: normalize the data shape and re-render.
+function targRepairAndRender() {
+  targetsData = migrateTargets(targetsData);
+  if (!Array.isArray(targetsData.ira.buckets) || !targetsData.ira.buckets.length) targetsData.ira.buckets = canonTargetsBuckets();
+  targetsSave();
+  showWatchlistToast('Buy Targets restored');
+}
+function _renderTargetsBody() {
   const sb = document.getElementById('targets-stats-bar');
   if (!sb) return;
   targetsData.ira.total = targetsData.ira.accounts.his.total + targetsData.ira.accounts.hers.total;
