@@ -5220,19 +5220,20 @@ function canonTargetsBuckets() {
     { id: 'forever', label: 'Forever',  pct: 50,
       tickers: ['AMZN', 'GOOGL', 'BRK.B', 'NVDA', 'MELI', 'MCO', 'SPGI', 'V', 'BN'],
       weights: { AMZN: 18, GOOGL: 18, NVDA: 6 }, locked: { AMZN: true, GOOGL: true, NVDA: true } },
-    { id: 'sp',      label: 'S&P 500',  pct: 20,
+    { id: 'sp',      label: 'S&P 500',  pct: 15,
       tickers: ['VOO', 'VTV', 'IDGT', 'NLR', 'QQQ'],
       weights: { VOO: 50, VTV: 25, IDGT: 10, NLR: 10, QQQ: 5 },
       locked: { VOO: true, VTV: true, IDGT: true, NLR: true, QQQ: true } },
-    { id: 'fornow',  label: 'For Now',  pct: 30,
+    { id: 'fornow',  label: 'For Now',  pct: 25,
       tickers: ['AXP', 'BABA', 'CVX', 'MA', 'PGR', 'OXY', 'TSM', 'WMT', 'COST', 'UBER', 'COF', 'GE', 'CVNA', 'CODI', 'CP'],
-      weights: {}, locked: {} }
+      weights: {}, locked: {} },
+    { id: 'aistack', label: 'AI Stack Trade', pct: 10, tickers: [], weights: {}, locked: {} }
   ];
 }
 
 function defaultTargetsData() {
   return {
-    version: 5,
+    version: 6,
     ira: {
       total: 1150000,
       accounts: {
@@ -5285,6 +5286,19 @@ function migrateTargets(d) {
     d.ira.buckets = canonTargetsBuckets();
     d.version = 5;
     _targetsRepaired = true;
+  }
+  if ((d.version || 0) < 6) {
+    // Move 5% from S&P and 5% from For Now into a new "AI Stack Trade" bucket
+    // (10%). Surgical — existing bucket tickers are preserved.
+    const sp = d.ira.buckets.find(b => b.id === 'sp'); if (sp) sp.pct = 15;
+    const fn = d.ira.buckets.find(b => b.id === 'fornow'); if (fn) fn.pct = 25;
+    if (!d.ira.buckets.some(b => b.id === 'aistack')) {
+      const ai = { id: 'aistack', label: 'AI Stack Trade', pct: 10, tickers: [], weights: {}, locked: {} };
+      const i = d.ira.buckets.findIndex(b => b.id === 'fornow');
+      if (i >= 0) d.ira.buckets.splice(i + 1, 0, ai); else d.ira.buckets.push(ai);
+    }
+    d.version = 6;
+    _targetsRepaired = true;  // push the new bucket/split to the cloud so all devices get it
   }
   d.ira.buckets.forEach(b => {
     if (!b.weights || typeof b.weights !== 'object') b.weights = {};
@@ -5766,14 +5780,25 @@ function targRemoveTicker(bucketId, ticker) {
 
 // "＋ Add stock" row appended inside each bucket's <tbody>. cols = table column count.
 function targAddRow(bucketId, cols) {
-  const opts = targAddOptions(bucketId);
-  const inner = opts.length
-    ? `<select class="targ-input" style="width:auto;min-width:150px" onchange="targAddTicker('${bucketId}', this.value); this.value='';">
-         <option value="">＋ Add stock…</option>${opts.map(t => `<option value="${t}">${t}</option>`).join('')}
-       </select>
-       <span style="color:var(--muted);font-size:11px;margin-left:6px">from your watchlist + super-investor holdings</span>`
-    : `<span style="color:var(--muted);font-size:11px">＋ All eligible stocks already in this bucket</span>`;
-  return `<tr class="targ-add-row"><td></td><td colspan="${cols - 1}">${inner}</td></tr>`;
+  return `<tr class="targ-add-row"><td></td><td colspan="${cols - 1}">
+    <input type="text" id="targ-add-${bucketId}" class="targ-input" style="width:200px" placeholder="＋ Add ticker or company…" autocomplete="off"
+      onkeydown="if(event.key==='Enter'){event.preventDefault();targAddTyped('${bucketId}', this.value); this.value='';}">
+    <button class="research-action-btn" onclick="var i=document.getElementById('targ-add-${bucketId}');targAddTyped('${bucketId}', i.value);i.value='';">Add</button>
+    <span style="color:var(--muted);font-size:11px;margin-left:6px">finds any US-listed stock or ETF — no need to add it to the watchlist first</span>
+  </td></tr>`;
+}
+
+// Add a stock to a bucket from typed text — resolves against the full ticker
+// directory (same search the watchlist uses), so any listed name works on the fly.
+function targAddTyped(bucketId, value) {
+  value = (value || '').trim();
+  if (!value) return;
+  const match = findStockMatch(value);
+  const ticker = match ? match.ticker : canonicalTicker(value);
+  if (!ticker || !/^[A-Z0-9.^-]{1,12}$/.test(ticker)) { showWatchlistToast('Type a valid ticker or company name'); return; }
+  const list = targListFor(bucketId);
+  if (list && list.tickers.includes(ticker)) { showWatchlistToast(`${ticker} is already in ${list.label}`); return; }
+  targAddTicker(bucketId, ticker);
 }
 
 function targMoseHtml() {
