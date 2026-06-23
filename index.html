@@ -5551,7 +5551,7 @@ function targAcctTableHtml(acctKey) {
       const tgt = targStockTarget(acct.total, b, t);
       const owned = targOwned(acctKey, t); deployed += owned;
       const plan = targPlan(acctKey, t);
-      html += `<tr><td><strong>${escapeHtml(t)}</strong>${targLivePrice(t)}</td><td>${reentryFmt(tgt)}</td><td style="font-weight:700">${reentryFmt(owned)}</td>${targMoreCell(owned, tgt, t)}<td><input type="number" class="targ-input" value="${plan || ''}" placeholder="0" onchange="targSetPlan('${acctKey}','${t}',this.value)">${targShareHint(plan, t)}</td>${targGaugeCell(plan, tgt)}${targGaugeCell(owned + plan, tgt)}</tr>`;
+      html += `<tr><td><strong title="${escapeAttr(stockBlurb(t))}">${escapeHtml(t)}</strong> <a onclick="showStockInfo('${escapeHtml(t)}')" title="What is ${escapeHtml(t)}?" style="cursor:pointer;color:var(--blue);margin-left:2px;font-size:12px">ⓘ</a>${targLivePrice(t)}</td><td>${reentryFmt(tgt)}</td><td style="font-weight:700">${reentryFmt(owned)}</td>${targMoreCell(owned, tgt, t)}<td><input type="number" class="targ-input" value="${plan || ''}" placeholder="0" onchange="targSetPlan('${acctKey}','${t}',this.value)">${targShareHint(plan, t)}</td>${targGaugeCell(plan, tgt)}${targGaugeCell(owned + plan, tgt)}</tr>`;
     });
   });
   html += `</tbody></table></div>`;
@@ -5931,7 +5931,7 @@ function targMoseHtml() {
   m.tickers.forEach(t => {
     const owned = targOwned('mose', t); deployed += owned;
     const plan = targPlan('mose', t);
-    html += `<tr data-targ-bucket="mose" data-targ-ticker="${escapeHtml(t)}"><td class="targ-drag-handle" onpointerdown="targDragStart(event,'mose','${escapeHtml(t)}')" title="Drag to reorder or move buckets">⠿</td><td><strong>${escapeHtml(t)}</strong>${targLivePrice(t)} <a onclick="targRemoveTicker('mose','${escapeHtml(t)}')" title="Remove from bucket" style="cursor:pointer;color:var(--muted);margin-left:6px">✕</a></td><td>${reentryFmt(tgt)}</td><td style="font-weight:700">${reentryFmt(owned)}</td>${targMoreCell(owned, tgt, t)}<td><input type="number" class="targ-input" value="${plan || ''}" placeholder="0" onchange="targSetPlan('mose','${t}',this.value)">${targShareHint(plan, t)}</td>${targGaugeCell(plan, tgt)}${targGaugeCell(owned + plan, tgt)}</tr>`;
+    html += `<tr data-targ-bucket="mose" data-targ-ticker="${escapeHtml(t)}"><td class="targ-drag-handle" onpointerdown="targDragStart(event,'mose','${escapeHtml(t)}')" title="Drag to reorder or move buckets">⠿</td><td><strong title="${escapeAttr(stockBlurb(t))}">${escapeHtml(t)}</strong> <a onclick="showStockInfo('${escapeHtml(t)}')" title="What is ${escapeHtml(t)}?" style="cursor:pointer;color:var(--blue);margin-left:2px;font-size:12px">ⓘ</a>${targLivePrice(t)} <a onclick="targRemoveTicker('mose','${escapeHtml(t)}')" title="Remove from bucket" style="cursor:pointer;color:var(--muted);margin-left:6px">✕</a></td><td>${reentryFmt(tgt)}</td><td style="font-weight:700">${reentryFmt(owned)}</td>${targMoreCell(owned, tgt, t)}<td><input type="number" class="targ-input" value="${plan || ''}" placeholder="0" onchange="targSetPlan('mose','${t}',this.value)">${targShareHint(plan, t)}</td>${targGaugeCell(plan, tgt)}${targGaugeCell(owned + plan, tgt)}</tr>`;
   });
   html += targAddRow('mose', 8);
   html += `</tbody></table></div>`;
