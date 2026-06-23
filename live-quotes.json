@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T10:54:49.920290+00:00",
+  "generated_at": "2026-06-23T12:23:39.923883+00:00",
   "source": "yahoo",
   "market_status": "closed",
   "indices": [
@@ -38,8 +38,8 @@
     {
       "name": "VIX",
       "ticker": "^VIX",
-      "price": 20.0,
-      "change_pct": 15.740740740740733,
+      "price": 19.55,
+      "change_pct": 19.207317073170746,
       "vs_exit": null,
       "source": "yahoo"
     }
@@ -274,18 +274,6 @@
       "week52_low": 136.03
     },
     {
-      "ticker": "CODI",
-      "symbol": "CODI",
-      "price": 10.33,
-      "prev_close": 10.11,
-      "change_pct": 2.1760633036597494,
-      "date": "2026-06-22",
-      "time": "16:00:02",
-      "volume": 1072459,
-      "week52_high": 12.64,
-      "week52_low": 4.58
-    },
-    {
       "ticker": "COF",
       "symbol": "COF",
       "price": 200.7,
@@ -466,16 +454,16 @@
       "week52_low": 166.13
     },
     {
-      "ticker": "IDGT",
-      "symbol": "IDGT",
-      "price": 125.95,
-      "prev_close": 123.92,
-      "change_pct": 1.6381536475145266,
+      "ticker": "IFNNF",
+      "symbol": "IFNNF",
+      "price": 98.75,
+      "prev_close": 92.0,
+      "change_pct": 7.336956521739131,
       "date": "2026-06-22",
       "time": "16:00:00",
-      "volume": 38203,
-      "week52_high": 133.05,
-      "week52_low": 81.06
+      "volume": 350,
+      "week52_high": 103.5,
+      "week52_low": 36.21
     },
     {
       "ticker": "INTC",
@@ -646,6 +634,18 @@
       "week52_low": 88.49
     },
     {
+      "ticker": "MRVL",
+      "symbol": "MRVL",
+      "price": 307.86,
+      "prev_close": 310.58,
+      "change_pct": -0.8757807972180986,
+      "date": "2026-06-22",
+      "time": "16:00:01",
+      "volume": 46596718,
+      "week52_high": 329.88,
+      "week52_low": 61.44
+    },
+    {
       "ticker": "MSFT",
       "symbol": "MSFT",
       "price": 367.34,
@@ -680,18 +680,6 @@
       "volume": 47957880,
       "week52_high": 1213.56,
       "week52_low": 103.38
-    },
-    {
-      "ticker": "NLR",
-      "symbol": "NLR",
-      "price": 124.55,
-      "prev_close": 126.94,
-      "change_pct": -1.8827792657948643,
-      "date": "2026-06-22",
-      "time": "16:00:00",
-      "volume": 439505,
-      "week52_high": 168.12,
-      "week52_low": 104.05
     },
     {
       "ticker": "NVDA",
@@ -980,6 +968,18 @@
       "volume": 2310107,
       "week52_high": 223.83,
       "week52_low": 36.65
+    },
+    {
+      "ticker": "TXN",
+      "symbol": "TXN",
+      "price": 332.28,
+      "prev_close": 322.86,
+      "change_pct": 2.9176732949265807,
+      "date": "2026-06-22",
+      "time": "16:00:00",
+      "volume": 8707798,
+      "week52_high": 334.03,
+      "week52_low": 152.73
     },
     {
       "ticker": "UBER",
