@@ -2442,8 +2442,10 @@ let filingChangeFilter = 'all';
 function switchTab(name, btn) {
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById('tab-' + name).classList.add('active');
+  if (!btn) btn = [...document.querySelectorAll('.tab-btn')].find(b => (b.getAttribute('onclick') || '').includes(`'${name}'`));
+  if (btn) btn.classList.add('active');
+  const panel = document.getElementById('tab-' + name);
+  if (panel) panel.classList.add('active');
 }
 
 function setTheme(theme) {
@@ -6313,7 +6315,10 @@ function targPrintBuyList() {
     @media screen { body { max-width: 1100px; margin: 0 auto; } .noprint { margin: 10px 0; } }
     @media print { .noprint { display: none; } }
   </style></head><body>
-    <div class="noprint" style="text-align:right"><button onclick="window.print()" style="padding:8px 16px;font-size:14px;cursor:pointer">🖨 Print</button></div>
+    <div class="noprint" style="display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:8px">
+      <div style="font-size:13px;color:#444;line-height:1.4">💡 For one page per sheet, set <b>Two-sided → Off (1-sided)</b> in the print dialog — in Chrome it's under <b>More settings</b>. (Browsers can't change a printer's two-sided default automatically.)</div>
+      <button onclick="window.print()" style="padding:8px 18px;font-size:14px;cursor:pointer;white-space:nowrap">🖨 Print</button>
+    </div>
     ${sheet('Combined IRA Goal (his + hers)', `$${(targetsData.ira.total).toLocaleString()} total`, combined)}
     ${sheet(targetsData.ira.accounts.his.label, reentryFmt(targetsData.ira.accounts.his.total), acctSheet('his'))}
     ${sheet(targetsData.ira.accounts.hers.label, reentryFmt(targetsData.ira.accounts.hers.total), acctSheet('hers'))}
@@ -6362,6 +6367,7 @@ async function hardRefreshAll() {
 
 window.addEventListener('DOMContentLoaded', () => {
   setTheme(localStorage.getItem('mose_theme') || 'dark');
+  switchTab('targets');   // open on Buy Targets by default
   refreshBucketSelects();
   loadIndices();
   loadHoldings();
