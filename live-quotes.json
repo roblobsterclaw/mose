@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-24T10:14:04.891413+00:00",
+  "generated_at": "2026-06-24T13:12:01.389644+00:00",
   "source": "yahoo",
   "market_status": "closed",
   "indices": [
@@ -38,8 +38,8 @@
     {
       "name": "VIX",
       "ticker": "^VIX",
-      "price": 19.25,
-      "change_pct": -1.2314007183170776,
+      "price": 19.08,
+      "change_pct": 10.416666666666648,
       "vs_exit": null,
       "source": "yahoo"
     }
@@ -175,7 +175,7 @@
       "time": "16:03:21",
       "volume": 11288493,
       "week52_high": 192.67,
-      "week52_low": 101.84
+      "week52_low": 101.83
     },
     {
       "ticker": "BAC",
