@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-24T02:14:37.204472+00:00",
+  "generated_at": "2026-06-24T06:37:10.429021+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -259,11 +259,11 @@
         "time": "16:00:00",
         "volume": 28723565,
         "week52_high": 495.0,
-        "week52_low": 258.77
+        "week52_low": 262.66
       },
       "metrics": {
         "week52High": 495.0,
-        "week52Low": 258.77
+        "week52Low": 262.66
       },
       "profile": {
         "company": null,
@@ -1038,10 +1038,10 @@
       "quote": {
         "ticker": "IFNNF",
         "symbol": "IFNNF",
-        "price": 98.75,
-        "prev_close": 92.0,
-        "change_pct": 7.336956521739131,
-        "date": "2026-06-22",
+        "price": 92.2,
+        "prev_close": 98.75,
+        "change_pct": -6.632911392405061,
+        "date": "2026-06-23",
         "time": "16:00:00",
         "volume": 350,
         "week52_high": 103.5,
@@ -2646,7 +2646,7 @@
       "quote": {
         "ticker": "^RUT",
         "price": 2975.481,
-        "change_pct": -0.14393728375008005,
+        "change_pct": -0.9625549194514668,
         "source": "yahoo"
       },
       "metrics": {},
@@ -2662,7 +2662,7 @@
       "quote": {
         "ticker": "^VIX",
         "price": 19.49,
-        "change_pct": 18.841463414634145,
+        "change_pct": 12.789351851851835,
         "source": "yahoo"
       },
       "metrics": {},
