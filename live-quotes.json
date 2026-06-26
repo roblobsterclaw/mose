@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-26T00:04:13.432105+00:00",
+  "generated_at": "2026-06-26T05:03:19.149263+00:00",
   "source": "yahoo",
   "market_status": "closed",
   "indices": [
@@ -31,7 +31,7 @@
       "name": "Russell 2000",
       "ticker": "^RUT",
       "price": 3007.858,
-      "change_pct": 1.0881605656902469,
+      "change_pct": 0.7107676545136179,
       "vs_exit": null,
       "source": "yahoo"
     },
@@ -39,7 +39,7 @@
       "name": "VIX",
       "ticker": "^VIX",
       "price": 18.89,
-      "change_pct": -3.0785017957927034,
+      "change_pct": 1.3955984970477808,
       "vs_exit": null,
       "source": "yahoo"
     }
@@ -175,7 +175,7 @@
       "time": "16:03:33",
       "volume": 20109618,
       "week52_high": 192.67,
-      "week52_low": 94.72
+      "week52_low": 94.71
     },
     {
       "ticker": "BAC",
@@ -186,7 +186,7 @@
       "date": "2026-06-25",
       "time": "16:00:02",
       "volume": 26909358,
-      "week52_high": 59.195,
+      "week52_high": 59.2,
       "week52_low": 44.75
     },
     {
@@ -199,7 +199,7 @@
       "time": "16:00:02",
       "volume": 13046153,
       "week52_high": 351.28,
-      "week52_low": 21.5
+      "week52_low": 21.52
     },
     {
       "ticker": "BIL",
@@ -451,15 +451,15 @@
       "time": "16:00:01",
       "volume": 42597335,
       "week52_high": 408.61,
-      "week52_low": 169.94
+      "week52_low": 171.73
     },
     {
       "ticker": "IFNNF",
       "symbol": "IFNNF",
-      "price": 87.95,
-      "prev_close": 92.2,
-      "change_pct": -4.609544468546638,
-      "date": "2026-06-24",
+      "price": 94.78,
+      "prev_close": 87.95,
+      "change_pct": 7.765776009096075,
+      "date": "2026-06-25",
       "time": "16:00:00",
       "volume": 300,
       "week52_high": 103.5,
@@ -763,7 +763,7 @@
       "time": "16:00:00",
       "volume": 59167305,
       "week52_high": 207.52,
-      "week52_low": 106.375
+      "week52_low": 106.37
     },
     {
       "ticker": "POWR",
@@ -787,7 +787,7 @@
       "time": "16:00:00",
       "volume": 48613709,
       "week52_high": 748.65,
-      "week52_low": 541.52
+      "week52_low": 544.54
     },
     {
       "ticker": "RACE",
@@ -823,7 +823,7 @@
       "time": "16:00:00",
       "volume": 266851,
       "week52_high": 90.51,
-      "week52_low": 58.356
+      "week52_low": 59.16
     },
     {
       "ticker": "ROP",
@@ -1027,7 +1027,7 @@
       "time": "16:00:00",
       "volume": 26245557,
       "week52_high": 699.15,
-      "week52_low": 560.96
+      "week52_low": 563.21
     },
     {
       "ticker": "VRSN",
@@ -1050,7 +1050,7 @@
       "date": "2026-06-25",
       "time": "16:00:00",
       "volume": 3177188,
-      "week52_high": 222.155,
+      "week52_high": 222.16,
       "week52_low": 174.35
     },
     {
@@ -1063,7 +1063,7 @@
       "time": "16:00:01",
       "volume": 11690257,
       "week52_high": 799.87,
-      "week52_low": 62.53
+      "week52_low": 62.65
     },
     {
       "ticker": "WMT",
