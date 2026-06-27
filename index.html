@@ -408,6 +408,11 @@
   /* ===== BUY TARGETS ===== */
   .targ-input { background: var(--bg); border: 1px solid var(--border); color: var(--text); border-radius: 6px; padding: 4px 8px; width: 108px; font-family: inherit; font-size: 13px; text-align: right; }
   .targ-input:focus { border-color: var(--accent); outline: none; }
+  .targ-drop {
+    border: 2px dashed var(--border); border-radius: 10px; padding: 16px; margin: 8px 0;
+    text-align: center; color: var(--muted); font-size: 13px; cursor: pointer; transition: all .15s;
+  }
+  .targ-drop:hover, .targ-drop.drag { border-color: var(--accent); color: var(--text); background: rgba(232,86,42,0.06); }
   .targ-add-suggest {
     position: fixed; z-index: 9998; display: none; max-height: 280px; overflow-y: auto;
     background: var(--surface); border: 1px solid var(--accent); border-radius: 8px;
@@ -1659,6 +1664,15 @@ async function checkPw(){
         <button class="filter-btn" onclick="targImportPreview()">Preview</button>
         <button class="watchlist-add-btn" onclick="targImport()">Import → fill Owned</button>
       </div>
+      <div id="targets-drop" class="targ-drop"
+        ondragover="event.preventDefault(); this.classList.add('drag')"
+        ondragleave="this.classList.remove('drag')"
+        ondrop="targDropFiles(event)"
+        onclick="document.getElementById('targets-file').click()">
+        📄 <strong>Drag your IBKR statement here</strong> (PDF or CSV) for the account selected above — or click to choose a file. You'll see a Preview before anything saves.
+      </div>
+      <input type="file" id="targets-file" accept=".pdf,.csv,.txt" style="display:none" onchange="targFilePicked(this.files)">
+      <div style="font-size:11px;color:var(--muted);margin:6px 0 2px">…or paste positions manually:</div>
       <textarea id="targets-import-text" placeholder="AMZN 11 238.67&#10;GOOGL 11 360.88&#10;WMT 28 120.80" style="width:100%;min-height:88px;background:var(--bg);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:10px;font-family:inherit;font-size:13px"></textarea>
       <div id="targets-import-preview" style="font-size:12px;color:var(--soft-text);margin-top:8px;line-height:1.7"></div>
     </details>
@@ -5337,7 +5351,10 @@ function migrateTargets(d) {
   return d;
 }
 
-function targOwned(acct, ticker) { return Number(targetsData.owned[acct + '|' + ticker]) || 0; }
+function targOwned(acct, ticker) {
+  const o = targetsData.owned || {};
+  return Number(o[acct + '|' + ticker]) || Number(o[acct + '|' + canonicalTicker(ticker)]) || 0;
+}
 function targAllTickers() {
   const s = new Set();
   targetsData.ira.buckets.forEach(b => b.tickers.forEach(t => s.add(t)));
@@ -5941,6 +5958,119 @@ function targMoseHtml() {
 }
 
 // ---- Import positions pasted/parsed from IBKR ----
+// ---- Drag-and-drop IBKR statement import (PDF or CSV), with a Preview step ----
+let targPendingImport = null;
+let _pdfjsLib = null;
+
+function loadScript(src) {
+  return new Promise((resolve, reject) => {
+    const s = document.createElement('script');
+    s.src = src; s.onload = resolve; s.onerror = () => reject(new Error('Could not load ' + src));
+    document.head.appendChild(s);
+  });
+}
+async function ensurePdfJs() {
+  if (_pdfjsLib) return _pdfjsLib;
+  await loadScript('https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js');
+  if (!window.pdfjsLib) throw new Error('PDF reader failed to load — check your internet connection.');
+  window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  _pdfjsLib = window.pdfjsLib;
+  return _pdfjsLib;
+}
+// Reconstruct text rows from a PDF (group items by their y-position into lines).
+async function pdfToRows(buf) {
+  const lib = await ensurePdfJs();
+  const pdf = await lib.getDocument({ data: buf }).promise;
+  const lines = [];
+  for (let p = 1; p <= pdf.numPages; p++) {
+    const tc = await (await pdf.getPage(p)).getTextContent();
+    const rows = {};
+    tc.items.forEach(it => { if (it.str && it.str.trim()) { const y = Math.round(it.transform[5]); (rows[y] = rows[y] || []).push(it); } });
+    Object.keys(rows).map(Number).sort((a, b) => b - a).forEach(y => {
+      const line = rows[y].sort((a, b) => a.transform[4] - b.transform[4]).map(it => it.str).join(' ').replace(/\s+/g, ' ').trim();
+      if (line) lines.push(line);
+    });
+  }
+  return lines;
+}
+// Pull ticker -> market value from the "Open Position Summary" rows.
+const TARG_IMPORT_EXCL = new Set(['USD', 'EUR', 'CAD', 'GBP', 'CASH', 'SGOV', 'TOTAL', 'OTHER', 'ETF', 'ETFS', 'NET', 'LONG', 'SHORT', 'BASE']);
+function parseRowsForPositions(lines) {
+  let s = lines.findIndex(l => /LONG POSITIONS AS OF|Open Position/i.test(l));
+  let e = lines.findIndex((l, idx) => idx > (s >= 0 ? s : 0) && /^Concentration\b/i.test(l));
+  const seg = lines.slice(s >= 0 ? s : 0, e > s ? e : undefined);
+  const numTok = t => /^-?[\d,]+(\.\d+)?$/.test(t);
+  const pos = {};
+  seg.forEach(line => {
+    const toks = line.split(' ');
+    if (!/^[A-Z]{1,5}$/.test(toks[0]) || TARG_IMPORT_EXCL.has(toks[0])) return;
+    let ticker = toks[0];
+    if (/^[A-Z]$/.test(toks[1] || '')) ticker = toks[0] + '-' + toks[1];
+    const nums = toks.filter(numTok).map(t => parseFloat(t.replace(/,/g, '')));
+    if (nums.length < 3) return;                 // skip summary/non-position rows
+    const value = nums[nums.length - 1];         // last column is the position value
+    if (value > 0) pos[canonicalTicker(ticker)] = Math.round(value);
+  });
+  return pos;
+}
+// Parse an IBKR CSV "Open Positions" section -> ticker: value.
+function parseCsvPositions(text) {
+  const pos = {};
+  let symI = -1, valI = -1;
+  text.split(/\r?\n/).forEach(raw => {
+    const c = raw.split(',').map(x => x.replace(/^"|"$/g, '').trim());
+    if (/open positions/i.test(c[0] || '') && /header/i.test(c[1] || '')) {
+      symI = c.findIndex(x => /^symbol$/i.test(x));
+      valI = c.findIndex(x => /^(value|position value|current value|market value)$/i.test(x));
+    } else if (/open positions/i.test(c[0] || '') && /^data$/i.test(c[1] || '') && symI >= 0 && valI >= 0) {
+      const sym = canonicalTicker((c[symI] || '').toUpperCase());
+      const val = parseFloat((c[valI] || '').replace(/[^0-9.\-]/g, ''));
+      if (sym && val > 0 && !TARG_IMPORT_EXCL.has(sym)) pos[sym] = Math.round(val);
+    }
+  });
+  return pos;
+}
+function targDropFiles(e) { e.preventDefault(); const z = document.getElementById('targets-drop'); if (z) z.classList.remove('drag'); targHandleFiles(e.dataTransfer.files); }
+function targFilePicked(files) { targHandleFiles(files); }
+async function targHandleFiles(files) {
+  if (!files || !files.length) return;
+  const file = files[0];
+  const prev = document.getElementById('targets-import-preview');
+  prev.innerHTML = '⏳ Reading ' + escapeHtml(file.name) + ' …';
+  try {
+    let parsed = {};
+    if (/\.pdf$/i.test(file.name) || file.type === 'application/pdf') {
+      parsed = parseRowsForPositions(await pdfToRows(await file.arrayBuffer()));
+    } else {
+      const text = await file.text();
+      parsed = parseCsvPositions(text);
+      if (!Object.keys(parsed).length) parsed = targParsePositions(text);
+    }
+    targShowParsedPreview(parsed, file.name);
+  } catch (err) {
+    prev.innerHTML = '⚠️ Could not read <strong>' + escapeHtml(file.name) + '</strong>: ' + escapeHtml(err.message) + '. Try the PortfolioAnalyst statement (or paste manually below).';
+  }
+}
+function targShowParsedPreview(parsed, name) {
+  targPendingImport = parsed;
+  const acct = document.getElementById('targets-import-acct').value;
+  const keys = Object.keys(parsed).sort();
+  const prev = document.getElementById('targets-import-preview');
+  if (!keys.length) {
+    prev.innerHTML = '⚠️ No positions found in <strong>' + escapeHtml(name) + '</strong>. Make sure it\'s the PortfolioAnalyst statement (it has an "Open Position Summary"), or a CSV with an "Open Positions" section.';
+    return;
+  }
+  const total = keys.reduce((s, k) => s + parsed[k], 0);
+  prev.innerHTML = `<div style="margin-bottom:6px"><strong>${keys.length} positions</strong> read from ${escapeHtml(name)} · total ${reentryFmt(total)} → will set Owned for <strong>${escapeHtml(targImportAcctLabel(acct))}</strong>. Review, then confirm:</div>`
+    + `<div style="max-height:150px;overflow:auto;font-size:12px;line-height:1.7;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:8px 10px">${keys.map(k => `${escapeHtml(k)} <strong>${reentryFmt(parsed[k])}</strong>`).join(' &nbsp;·&nbsp; ')}</div>`
+    + `<button class="watchlist-add-btn" style="margin-top:8px" onclick="targApplyPending()">✅ Import these → ${escapeHtml(targImportAcctLabel(acct))}</button>`;
+}
+function targApplyPending() {
+  if (!targPendingImport || !Object.keys(targPendingImport).length) { showWatchlistToast('Nothing to import'); return; }
+  targApplyPositions(document.getElementById('targets-import-acct').value, targPendingImport);
+  targPendingImport = null;
+}
+
 function targParsePositions(text) {
   const out = {};
   (text || '').split(/[\n;]+/).forEach(line => {
@@ -5968,10 +6098,14 @@ function targImportPreview() {
 }
 function targImport() {
   const acct = document.getElementById('targets-import-acct').value;
-  const parsed = targParsePositions(document.getElementById('targets-import-text').value);
-  const keys = Object.keys(parsed);
+  targApplyPositions(acct, targParsePositions(document.getElementById('targets-import-text').value));
+}
+
+// Shared apply path for both the manual paste and the drag-and-drop importer.
+function targApplyPositions(acct, parsed) {
+  const keys = Object.keys(parsed || {});
   if (!keys.length) { showWatchlistToast('No positions found to import'); return; }
-  keys.forEach(t => { if (parsed[t] > 0) targetsData.owned[acct + '|' + t] = parsed[t]; });
+  keys.forEach(t => { if (parsed[t] > 0) targetsData.owned[acct + '|' + canonicalTicker(t)] = parsed[t]; });
 
   // Reconcile against a pending commit: IBKR is the source of truth; flag any
   // committed name that isn't in the statement (a trade that may not have filled).
@@ -5979,7 +6113,8 @@ function targImport() {
   const v = targetsData.verify && targetsData.verify[acct];
   if (v) {
     const expected = v.expected || {};
-    const missing = Object.keys(expected).filter(t => !(parsed[t] > 0));
+    const has = t => parsed[t] > 0 || parsed[canonicalTicker(t)] > 0;
+    const missing = Object.keys(expected).filter(t => !has(t));
     delete targetsData.verify[acct];
     reconNote = missing.length
       ? ` · ⚠️ Verified vs IBKR — committed name(s) not in statement: <strong>${missing.join(', ')}</strong> (check the trade filled / right account).`
@@ -5988,7 +6123,7 @@ function targImport() {
 
   targSnapshot();
   targetsSave();
-  document.getElementById('targets-import-text').value = '';
+  const ta = document.getElementById('targets-import-text'); if (ta) ta.value = '';
   document.getElementById('targets-import-preview').innerHTML = `Imported ${keys.length} position(s) into ${targImportAcctLabel(acct)}.${reconNote}`;
   showWatchlistToast(`Imported ${keys.length} into ${targImportAcctLabel(acct)}${v ? (reconNote.includes('✅') ? ' · verified ✅' : ' · check flagged ⚠️') : ''}`);
 }
