@@ -1772,6 +1772,12 @@ async function checkPw(){
     <div class="toolbar">
       <h2>📄 Deep-Dive Research Library</h2>
       <span style="font-size:12px;color:var(--muted)">Full intrinsic value analysis · Owner Earnings method · Buffett/Munger framework</span>
+      <button class="watchlist-add-btn" style="margin-left:auto" onclick="requestAllDDUpdates()">🔄 Update All Reports</button>
+    </div>
+    <div class="info-blurb" style="margin:0 0 12px;font-size:12px;border-color:var(--accent)">
+      <strong>How updates work:</strong> "Update All" (or a stock's 🔄 Request Update) flags it for a fresh deep dive and shows it in the queue below.
+      The reports are written by Claude — once you've queued the ones you want, tell me "generate the queued research" and I'll publish full deep dives here.
+      <span id="dd-queue-status" style="color:var(--accent);font-weight:700"></span>
     </div>
 
     <div class="stats-bar">
@@ -2423,6 +2429,29 @@ function requestDDUpdate(ticker) {
   const btn = document.querySelector(`[data-update-ticker="${ticker}"]`);
   if (btn) { btn.textContent = '✅ Requested'; btn.classList.add('requested'); btn.disabled = true; }
 }
+// Queue every watched/reported stock for a fresh deep dive.
+function requestAllDDUpdates() {
+  const tickers = new Set();
+  (typeof getWatchlistStocks === 'function' ? getWatchlistStocks() : []).forEach(p => { const t = canonicalTicker(p.ticker); if (t && !p.private) tickers.add(t); });
+  (allReports || []).forEach(r => { const t = canonicalTicker(r.ticker); if (t) tickers.add(t); });
+  let added = 0;
+  tickers.forEach(t => {
+    if (!ddRequestsData.requests.find(r => canonicalTicker(r.ticker || r) === t)) {
+      ddRequestsData.requests.push({ ticker: t, requestedAt: new Date().toISOString(), status: 'requested' });
+      added++;
+    }
+  });
+  markUnsaved();
+  updateDDCounter();
+  renderCockpit();
+  renderResearchQueue();
+  if (typeof renderResearchLibrary === 'function') renderResearchLibrary();
+  const status = document.getElementById('dd-queue-status');
+  const total = (ddRequestsData.requests || []).filter(r => (r.status || 'requested') === 'requested').length;
+  if (status) status.textContent = ` · Queued ${added} new (${total} awaiting a deep dive). Tell me to "generate the queued research".`;
+  showWatchlistToast(`Queued ${added} stock(s) for a deep dive — ${total} now awaiting research`);
+}
+
 function runAutoDeepDiveQueueIfReady() {
   if (autoDeepDiveQueueRan || !allHoldings.length || !allDCF.length || !allReports.length) return;
   autoDeepDiveQueueRan = true;
