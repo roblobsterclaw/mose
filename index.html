@@ -408,6 +408,9 @@
   /* ===== BUY TARGETS ===== */
   .targ-input { background: var(--bg); border: 1px solid var(--border); color: var(--text); border-radius: 6px; padding: 4px 8px; width: 108px; font-family: inherit; font-size: 13px; text-align: right; }
   .targ-input:focus { border-color: var(--accent); outline: none; }
+  .research-industry { color: var(--accent); font-size: 13px; text-transform: uppercase; letter-spacing: .8px; margin: 22px 0 10px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+  .research-industry:first-child { margin-top: 0; }
+  .research-industry-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
   .targ-drop {
     border: 2px dashed var(--border); border-radius: 10px; padding: 16px; margin: 8px 0;
     text-align: center; color: var(--muted); font-size: 13px; cursor: pointer; transition: all .15s;
@@ -1792,8 +1795,8 @@ async function checkPw(){
       <div id="research-pending" style="margin-top:12px"></div>
     </div>
 
-    <h3 style="margin:20px 0 10px">📄 Deep Dives</h3>
-    <div id="research-cards" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;margin-bottom:20px">
+    <h3 style="margin:20px 0 10px">📄 Deep Dives — by Industry</h3>
+    <div id="research-cards" style="margin-bottom:20px">
       <div class="no-data">Loading research library…</div>
     </div>
 
@@ -4559,6 +4562,19 @@ function reportHistoryHtml(list) {
   </details>`;
 }
 
+// Broad-industry buckets for grouping the Research Library.
+const INDUSTRY = {
+  AAPL:'Technology', MSFT:'Technology', NVDA:'Technology', AVGO:'Technology', AMD:'Technology', ASML:'Technology', INTC:'Technology', MU:'Technology', TSM:'Technology', ARM:'Technology', SMH:'Technology', PLTR:'Technology', MDB:'Technology', CBRS:'Technology', CIEN:'Technology', CLS:'Technology', COHR:'Technology', FN:'Technology', MKSI:'Technology', MTSI:'Technology', SITM:'Technology', TSEM:'Technology', TTMI:'Technology', VIAV:'Technology', WDC:'Technology', LRCX:'Technology', AEIS:'Technology', APP:'Technology', KVYO:'Technology', FROG:'Technology',
+  GOOGL:'Communication Services', GOOG:'Communication Services', META:'Communication Services', NFLX:'Communication Services', RBLX:'Communication Services',
+  V:'Financials', MA:'Financials', AXP:'Financials', 'BRK-B':'Financials', BN:'Financials', MCO:'Financials', SPGI:'Financials', COF:'Financials', PGR:'Financials', BAC:'Financials', FICO:'Financials', CODI:'Financials',
+  AMZN:'Consumer', COST:'Consumer', WMT:'Consumer', MELI:'Consumer', BABA:'Consumer', UBER:'Consumer', CVNA:'Consumer', RACE:'Consumer', KMX:'Consumer', ORLY:'Consumer', DASH:'Consumer', STZ:'Consumer', KHC:'Consumer',
+  LLY:'Healthcare', NVS:'Healthcare', DVA:'Healthcare',
+  CVX:'Energy', OXY:'Energy', NLR:'Energy',
+  GE:'Industrials', CP:'Industrials', DE:'Industrials', PLD:'Industrials', ROP:'Industrials',
+  VOO:'Index / ETF', VTV:'Index / ETF', QQQ:'Index / ETF', IDGT:'Index / ETF', SGOV:'Index / ETF', BIL:'Index / ETF', TFLO:'Index / ETF', IRBO:'Index / ETF', ROBO:'Index / ETF', SPCX:'Index / ETF', POWR:'Index / ETF'
+};
+function researchIndustry(t) { return INDUSTRY[canonicalTicker(t)] || 'Other'; }
+
 async function renderResearchLibrary() {
   const container = document.getElementById('research-cards');
   renderResearchQueue();
@@ -4578,7 +4594,7 @@ async function renderResearchLibrary() {
   const latestReports = Object.values(reportHistory).map(list => list[0])
     .sort((a, b) => new Date(b.reportDate || 0) - new Date(a.reportDate || 0));
 
-  container.innerHTML = latestReports.map(r => {
+  const researchCardOf = (r) => {
     const dcf = dcfMap[r.ticker];
     const currentPrice = dcf ? dcf.current_price : null;
     const priceStr = currentPrice ? `$${currentPrice.toFixed(2)}` : '—';
@@ -4644,7 +4660,15 @@ async function renderResearchLibrary() {
       </div>
       ${reportHistoryHtml(history)}
     </div>`;
-  }).join('');
+  };
+  // Group the deep-dive cards by broad industry.
+  const order = ['Technology', 'Communication Services', 'Financials', 'Consumer', 'Healthcare', 'Energy', 'Industrials', 'Index / ETF', 'Other'];
+  const groups = {};
+  latestReports.forEach(r => { const ind = researchIndustry(r.ticker); (groups[ind] = groups[ind] || []).push(r); });
+  container.innerHTML = order.filter(ind => groups[ind] && groups[ind].length).map(ind =>
+    `<h4 class="research-industry">${escapeHtml(ind)} <span style="color:var(--muted);font-weight:600;font-size:13px">${groups[ind].length}</span></h4>`
+    + `<div class="research-industry-grid">${groups[ind].map(researchCardOf).join('')}</div>`
+  ).join('');
 }
 
 // ============================================================
