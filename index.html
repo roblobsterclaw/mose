@@ -1775,38 +1775,24 @@ async function checkPw(){
       <button class="watchlist-add-btn" style="margin-left:auto" onclick="requestAllDDUpdates()">🔄 Update All Reports</button>
     </div>
     <div class="info-blurb" style="margin:0 0 12px;font-size:12px;border-color:var(--accent)">
-      <strong>How updates work:</strong> "Update All" (or a stock's 🔄 Request Update) flags it for a fresh deep dive and shows it in the queue below.
-      The reports are written by Claude — once you've queued the ones you want, tell me "generate the queued research" and I'll publish full deep dives here.
+      <strong>How it works:</strong> Every stock here gets a full deep dive. Add one below (or hit a report's 🔄 to refresh it) — it lands in <strong>Pending</strong>, then tell me "generate the queued research" and I'll publish the deep dive.
       <span id="dd-queue-status" style="color:var(--accent);font-weight:700"></span>
     </div>
 
-    <div class="stats-bar">
-      <div class="stat-card"><div class="stat-val orange" id="research-needs-count">—</div><div class="stat-label">Needs Deep Dive</div></div>
-      <div class="stat-card"><div class="stat-val blue" id="research-queue-count">—</div><div class="stat-label">Research Queue</div></div>
-      <div class="stat-card"><div class="stat-val green" id="research-library-count">—</div><div class="stat-label">Library</div></div>
-    </div>
-
-    <div class="research-lane">
-      <h3>Needs Deep Dive</h3>
-      <div id="research-needs" class="research-mini-grid">
-        <div class="no-data">Loading deep-dive candidates…</div>
+    <div class="reentry-section">
+      <h3 style="margin-top:0">➕ Request a Deep Dive</h3>
+      <div class="sub">Add any watchlist stock — or type a ticker/company. It goes to Pending below; I publish the full deep dive when you tell me to.</div>
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px">
+        <input type="text" id="research-add" class="targ-input" style="width:230px" placeholder="Add ticker or company…" autocomplete="off"
+          oninput="researchAddSuggest(this.value)" onblur="targHideSuggest()"
+          onkeydown="if(event.key==='Enter'){event.preventDefault();researchAddStock(this.value);this.value='';targHideSuggest();}">
+        <button class="watchlist-add-btn" onclick="var i=document.getElementById('research-add');researchAddStock(i.value);i.value='';targHideSuggest();">Add</button>
+        <span style="font-size:12px;color:var(--muted)">finds any US-listed stock or ETF</span>
       </div>
+      <div id="research-pending" style="margin-top:12px"></div>
     </div>
 
-    <div class="research-lane">
-      <h3>Research Queue</h3>
-      <div id="research-queue" class="research-mini-grid">
-        <div class="no-data">Loading research queue…</div>
-      </div>
-    </div>
-
-    <div class="research-lane">
-      <h3>Research Library</h3>
-      <div id="research-local-library" class="research-mini-grid">
-        <div class="no-data">Loading saved research…</div>
-      </div>
-    </div>
-
+    <h3 style="margin:20px 0 10px">📄 Deep Dives</h3>
     <div id="research-cards" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;margin-bottom:20px">
       <div class="no-data">Loading research library…</div>
     </div>
@@ -2429,6 +2415,64 @@ function requestDDUpdate(ticker) {
   const btn = document.querySelector(`[data-update-ticker="${ticker}"]`);
   if (btn) { btn.textContent = '✅ Requested'; btn.classList.add('requested'); btn.disabled = true; }
 }
+// ---- Add a stock to the Research page for a deep dive ----
+function researchAddSuggest(value) {
+  const box = targSuggestBox();
+  const q = (value || '').trim();
+  const input = document.getElementById('research-add');
+  if (!q || !input) { box.style.display = 'none'; return; }
+  const matches = (typeof searchAllStocks === 'function') ? searchAllStocks(q, 8) : [];
+  box.innerHTML = matches.length
+    ? matches.map(o => `<div class="targ-sug-item" onmousedown="researchAddPick('${escapeHtml(o.ticker)}')"><b>${escapeHtml(o.ticker)}</b> <span class="muted">${escapeHtml(o.name)}</span></div>`).join('')
+    : `<div class="targ-sug-item muted" onmousedown="researchAddPick('${escapeHtml(q.toUpperCase())}')">Add "${escapeHtml(q.toUpperCase())}" for a deep dive</div>`;
+  const r = input.getBoundingClientRect();
+  box.style.left = r.left + 'px'; box.style.top = (r.bottom + 2) + 'px'; box.style.width = Math.max(r.width, 300) + 'px'; box.style.display = 'block';
+}
+function researchAddPick(t) {
+  const b = document.getElementById('targ-add-suggest'); if (b) b.style.display = 'none';
+  const i = document.getElementById('research-add'); if (i) i.value = '';
+  researchAddStock(t);
+}
+function researchAddStock(value) {
+  value = (value || '').trim(); if (!value) return;
+  const match = findStockMatch(value);
+  const ticker = match ? match.ticker : canonicalTicker(value);
+  if (!ticker || !/^[A-Z0-9.^-]{1,12}$/.test(ticker)) { showWatchlistToast('Type a valid ticker or company'); return; }
+  if (reportTickers.has(ticker)) { showWatchlistToast(`${ticker} already has a deep dive — use its 🔄 to refresh`); return; }
+  if (!ddRequestsData.requests.find(r => canonicalTicker(r.ticker || r) === ticker)) {
+    ddRequestsData.requests.push({ ticker, requestedAt: new Date().toISOString(), status: 'requested' });
+  }
+  markUnsaved();
+  updateDDCounter();
+  renderResearchPending();
+  if (typeof renderResearchQueue === 'function') renderResearchQueue();
+  showWatchlistToast(`Added ${ticker} — pending deep dive`);
+}
+function researchRemovePending(t) {
+  t = canonicalTicker(t);
+  ddRequestsData.requests = (ddRequestsData.requests || []).filter(r => canonicalTicker(r.ticker || r) !== t);
+  markUnsaved();
+  updateDDCounter();
+  renderResearchPending();
+}
+// Pending = requested stocks that don't yet have a published deep dive.
+function renderResearchPending() {
+  const el = document.getElementById('research-pending');
+  if (!el) return;
+  const seen = new Set();
+  const pending = (ddRequestsData.requests || [])
+    .map(r => canonicalTicker(r.ticker || r))
+    .filter(t => t && !reportTickers.has(t) && !seen.has(t) && seen.add(t));
+  if (!pending.length) {
+    el.innerHTML = '<div class="no-data" style="padding:8px;text-align:left">No pending requests. Add a stock above to request a deep dive.</div>';
+    return;
+  }
+  el.innerHTML = '<div style="font-size:12px;color:var(--muted);margin-bottom:6px">⏳ Pending deep dives — tell me <strong>"generate the queued research"</strong>:</div>'
+    + '<div style="display:flex;flex-wrap:wrap;gap:8px">'
+    + pending.map(t => `<span style="display:inline-flex;align-items:center;gap:6px;border:1px solid var(--border);background:var(--surface);border-radius:999px;padding:5px 12px;font-weight:700">${escapeHtml(t)} <a onclick="researchRemovePending('${escapeHtml(t)}')" title="Remove" style="cursor:pointer;color:var(--muted)">✕</a></span>`).join('')
+    + '</div>';
+}
+
 // Queue every watched/reported stock for a fresh deep dive.
 function requestAllDDUpdates() {
   const tickers = new Set();
@@ -4518,6 +4562,7 @@ function reportHistoryHtml(list) {
 async function renderResearchLibrary() {
   const container = document.getElementById('research-cards');
   renderResearchQueue();
+  renderResearchPending();
   if (!allReports.length) {
     container.innerHTML = '<div class="no-data">No deep-dive reports yet.</div>';
     return;
