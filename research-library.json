@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-06-28T16:00:00+00:00",
+  "generated_at": "2026-06-28T17:30:00+00:00",
   "reports": [
+    {
+      "ticker": "AMZN",
+      "company": "Amazon.com, Inc.",
+      "reportDate": "2026-06-28",
+      "intrinsicValue": 110,
+      "mosPrice": 83,
+      "currentPrice": 232.69,
+      "verdict": "WATCH — elite business but priced for execution. Owner-earnings model flags overvalued (~$110 IV) yet 11 elite investors own it (Ackman 17%, Klarman 13%) underwriting AWS/ads margin expansion. Accumulate on weakness toward ~$190-200; no margin of safety at $233.",
+      "verdictClass": "fair",
+      "superInvestors": [
+        "Bill Ackman 17.4%",
+        "Seth Klarman 12.7%",
+        "Chase Coleman 9.1%",
+        "Brad Gerstner 7.6%",
+        "Dan Niles 5.7%",
+        "Philippe Laffont 5.7%",
+        "Whale Rock 4.9%",
+        "Gavin Baker 4.8%",
+        "Tom Gayner 3.5%"
+      ],
+      "convergenceScore": 72,
+      "reportUrl": "https://roblobsterclaw.github.io/mose/deep-dives/amzn-deep-dive-2026-06-28.html"
+    },
     {
       "ticker": "GOOGL",
       "company": "Alphabet Inc.",
