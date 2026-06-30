@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-30T10:25:26.257749+00:00",
+  "generated_at": "2026-06-30T13:04:16.512648+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -18,11 +18,11 @@
         "time": "16:00:01",
         "volume": 63825743,
         "week52_high": 317.4,
-        "week52_low": 199.26
+        "week52_low": 201.5
       },
       "metrics": {
         "week52High": 317.4,
-        "week52Low": 199.26,
+        "week52Low": 201.5,
         "marketCap": 3979469914112,
         "peRatio": 35.70849176172371
       },
@@ -771,11 +771,11 @@
         "time": "16:03:56",
         "volume": 8628635,
         "week52_high": 214.71,
-        "week52_low": 142.4
+        "week52_low": 142.51
       },
       "metrics": {
         "week52High": 214.71,
-        "week52Low": 142.4,
+        "week52Low": 142.51,
         "marketCap": 368919576576,
         "peRatio": 25.41025641025641
       },
@@ -1734,11 +1734,11 @@
         "date": "2026-06-29",
         "time": "16:00:02",
         "volume": 2465250,
-        "week52_high": 267.93,
+        "week52_high": 267.0,
         "week52_low": 189.2
       },
       "metrics": {
-        "week52High": 267.93,
+        "week52High": 267.0,
         "week52Low": 189.2,
         "marketCap": 117400117248,
         "peRatio": 11.433177327093084
@@ -2455,11 +2455,11 @@
         "time": "16:00:00",
         "volume": 4804524,
         "week52_high": 699.15,
-        "week52_low": 565.38
+        "week52_low": 565.8
       },
       "metrics": {
         "week52High": 699.15,
-        "week52Low": 565.38
+        "week52Low": 565.8
       },
       "profile": {
         "company": null,
@@ -2661,8 +2661,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 17.59,
-        "change_pct": -0.33994334277619676,
+        "price": 17.62,
+        "change_pct": -4.291146116241169,
         "source": "yahoo"
       },
       "metrics": {},
