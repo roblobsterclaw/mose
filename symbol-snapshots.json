@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-02T10:43:19.681459+00:00",
+  "generated_at": "2026-07-02T12:53:37.161595+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -259,11 +259,11 @@
         "time": "16:00:01",
         "volume": 23621758,
         "week52_high": 495.0,
-        "week52_low": 262.73
+        "week52_low": 269.58
       },
       "metrics": {
         "week52High": 495.0,
-        "week52Low": 262.73
+        "week52Low": 269.58
       },
       "profile": {
         "company": null,
@@ -382,11 +382,11 @@
         "time": "16:00:03",
         "volume": 15540282,
         "week52_high": 351.28,
-        "week52_low": 21.88
+        "week52_low": 22.81
       },
       "metrics": {
         "week52High": 351.28,
-        "week52Low": 21.88
+        "week52Low": 22.81
       },
       "profile": {
         "company": null,
@@ -560,11 +560,11 @@
         "time": "16:00:02",
         "volume": 1134126,
         "week52_high": 474.03,
-        "week52_low": 147.0
+        "week52_low": 152.43
       },
       "metrics": {
         "week52High": 474.03,
-        "week52Low": 147.0
+        "week52Low": 152.43
       },
       "profile": {
         "company": null,
@@ -771,11 +771,11 @@
         "time": "16:04:10",
         "volume": 9129880,
         "week52_high": 214.71,
-        "week52_low": 145.47
+        "week52_low": 145.58
       },
       "metrics": {
         "week52High": 214.71,
-        "week52Low": 145.47,
+        "week52Low": 145.58,
         "marketCap": 368919576576,
         "peRatio": 24.990950226244344
       },
@@ -1726,11 +1726,11 @@
         "time": "16:00:00",
         "volume": 134672012,
         "week52_high": 236.54,
-        "week52_low": 152.97
+        "week52_low": 157.34
       },
       "metrics": {
         "week52High": 236.54,
-        "week52Low": 152.97,
+        "week52Low": 157.34,
         "marketCap": 5062002737152,
         "peRatio": 40.40490797546013
       },
@@ -1850,11 +1850,11 @@
         "date": "2026-07-01",
         "time": "16:00:02",
         "volume": 3622056,
-        "week52_high": 263.83,
+        "week52_high": 261.66,
         "week52_low": 189.2
       },
       "metrics": {
-        "week52High": 263.83,
+        "week52High": 261.66,
         "week52Low": 189.2,
         "marketCap": 117400117248,
         "peRatio": 11.71606864274571
@@ -1974,11 +1974,11 @@
         "time": "16:00:00",
         "volume": 38884823,
         "week52_high": 748.65,
-        "week52_low": 546.12
+        "week52_low": 549.58
       },
       "metrics": {
         "week52High": 748.65,
-        "week52Low": 546.12
+        "week52Low": 549.58
       },
       "profile": {
         "company": null,
@@ -2182,11 +2182,11 @@
         "time": "16:00:00",
         "volume": 12964369,
         "week52_high": 671.83,
-        "week52_low": 274.66
+        "week52_low": 278.55
       },
       "metrics": {
         "week52High": 671.83,
-        "week52Low": 274.66
+        "week52Low": 278.55
       },
       "profile": {
         "company": null,
@@ -2331,11 +2331,11 @@
         "time": "16:00:00",
         "volume": 1155014,
         "week52_high": 319.94,
-        "week52_low": 42.25
+        "week52_low": 43.12
       },
       "metrics": {
         "week52High": 319.94,
-        "week52Low": 42.25
+        "week52Low": 43.12
       },
       "profile": {
         "company": null,
@@ -2571,11 +2571,11 @@
         "time": "16:00:00",
         "volume": 7659051,
         "week52_high": 699.15,
-        "week52_low": 566.81
+        "week52_low": 567.98
       },
       "metrics": {
         "week52High": 699.15,
-        "week52Low": 566.81
+        "week52Low": 567.98
       },
       "profile": {
         "company": null,
@@ -2660,11 +2660,11 @@
         "time": "16:00:00",
         "volume": 7778844,
         "week52_high": 799.87,
-        "week52_low": 63.01
+        "week52_low": 63.67
       },
       "metrics": {
         "week52High": 799.87,
-        "week52Low": 63.01
+        "week52Low": 63.67
       },
       "profile": {
         "company": null,
@@ -2777,8 +2777,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 16.77,
-        "change_pct": 1.084990958408678,
+        "price": 16.06,
+        "change_pct": -3.1946955997588975,
         "source": "yahoo"
       },
       "metrics": {},

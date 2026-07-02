@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-02T10:43:19.681459+00:00",
+  "generated_at": "2026-07-02T12:53:37.161595+00:00",
   "source": "yahoo",
   "market_status": "closed",
   "indices": [
@@ -38,8 +38,8 @@
     {
       "name": "VIX",
       "ticker": "^VIX",
-      "price": 16.77,
-      "change_pct": 1.084990958408678,
+      "price": 16.06,
+      "change_pct": -3.1946955997588975,
       "vs_exit": null,
       "source": "yahoo"
     }
@@ -151,7 +151,7 @@
       "time": "16:00:01",
       "volume": 23621758,
       "week52_high": 495.0,
-      "week52_low": 262.73
+      "week52_low": 269.58
     },
     {
       "ticker": "AXP",
@@ -199,7 +199,7 @@
       "time": "16:00:03",
       "volume": 15540282,
       "week52_high": 351.28,
-      "week52_low": 21.88
+      "week52_low": 22.81
     },
     {
       "ticker": "BIL",
@@ -271,7 +271,7 @@
       "time": "16:00:02",
       "volume": 1134126,
       "week52_high": 474.03,
-      "week52_low": 147.0
+      "week52_low": 152.43
     },
     {
       "ticker": "COF",
@@ -355,7 +355,7 @@
       "time": "16:04:10",
       "volume": 9129880,
       "week52_high": 214.71,
-      "week52_low": 145.47
+      "week52_low": 145.58
     },
     {
       "ticker": "DASH",
@@ -739,7 +739,7 @@
       "time": "16:00:00",
       "volume": 134672012,
       "week52_high": 236.54,
-      "week52_low": 152.97
+      "week52_low": 157.34
     },
     {
       "ticker": "NVS",
@@ -786,7 +786,7 @@
       "date": "2026-07-01",
       "time": "16:00:02",
       "volume": 3622056,
-      "week52_high": 263.83,
+      "week52_high": 261.66,
       "week52_low": 189.2
     },
     {
@@ -835,7 +835,7 @@
       "time": "16:00:00",
       "volume": 38884823,
       "week52_high": 748.65,
-      "week52_low": 546.12
+      "week52_low": 549.58
     },
     {
       "ticker": "RACE",
@@ -919,7 +919,7 @@
       "time": "16:00:00",
       "volume": 12964369,
       "week52_high": 671.83,
-      "week52_low": 274.66
+      "week52_low": 278.55
     },
     {
       "ticker": "SPCX",
@@ -979,7 +979,7 @@
       "time": "16:00:00",
       "volume": 1155014,
       "week52_high": 319.94,
-      "week52_low": 42.25
+      "week52_low": 43.12
     },
     {
       "ticker": "TSLA",
@@ -1075,7 +1075,7 @@
       "time": "16:00:00",
       "volume": 7659051,
       "week52_high": 699.15,
-      "week52_low": 566.81
+      "week52_low": 567.98
     },
     {
       "ticker": "VRSN",
@@ -1111,7 +1111,7 @@
       "time": "16:00:00",
       "volume": 7778844,
       "week52_high": 799.87,
-      "week52_low": 63.01
+      "week52_low": 63.67
     },
     {
       "ticker": "WMT",
