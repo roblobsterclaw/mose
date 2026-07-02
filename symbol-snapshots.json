@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-02T12:53:37.161595+00:00",
+  "generated_at": "2026-07-02T13:10:54.786107+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -35,7 +35,7 @@
     },
     "AEIS": {
       "ticker": "AEIS",
-      "name": "AEIS",
+      "name": "Advanced Energy Industries, Inc.",
       "type": "Equity",
       "bucket": null,
       "note": null,
@@ -56,9 +56,9 @@
         "week52Low": 128.4
       },
       "profile": {
-        "company": null,
+        "company": "Advanced Energy Industries, Inc.",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -85,9 +85,9 @@
         "week52Low": 133.5
       },
       "profile": {
-        "company": null,
+        "company": "Advanced Micro Devices, Inc.",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -127,7 +127,7 @@
     },
     "APP": {
       "ticker": "APP",
-      "name": "APP",
+      "name": "AppLovin Corporation",
       "type": "Equity",
       "bucket": null,
       "note": null,
@@ -148,15 +148,15 @@
         "week52Low": 325.58
       },
       "profile": {
-        "company": null,
+        "company": "AppLovin Corporation",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
     "ARM": {
       "ticker": "ARM",
-      "name": "ARM",
+      "name": "Arm Holdings plc",
       "type": "Equity",
       "bucket": null,
       "note": null,
@@ -177,15 +177,15 @@
         "week52Low": 100.02
       },
       "profile": {
-        "company": null,
+        "company": "Arm Holdings plc",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
     "ASM": {
       "ticker": "ASM",
-      "name": "ASM",
+      "name": "Avino Silver & Gold Mines Ltd.",
       "type": "Equity",
       "bucket": null,
       "note": null,
@@ -206,9 +206,9 @@
         "week52Low": 3.1
       },
       "profile": {
-        "company": null,
+        "company": "Avino Silver & Gold Mines Ltd.",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -266,9 +266,9 @@
         "week52Low": 269.58
       },
       "profile": {
-        "company": null,
+        "company": "Broadcom Inc.",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -357,18 +357,18 @@
         "week52Low": 44.75
       },
       "profile": {
-        "company": null,
+        "company": "Bank of America Corporation",
         "owned": {
           "shares": 117,
           "value": 0
         },
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
     "BE": {
       "ticker": "BE",
-      "name": "BE",
+      "name": "Bloom Energy Corporation",
       "type": "Equity",
       "bucket": null,
       "note": null,
@@ -389,9 +389,9 @@
         "week52Low": 22.81
       },
       "profile": {
-        "company": null,
+        "company": "Bloom Energy Corporation",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -488,7 +488,7 @@
     },
     "CBRS": {
       "ticker": "CBRS",
-      "name": "CBRS",
+      "name": "Cerebras Systems, Inc.",
       "type": "Equity",
       "bucket": null,
       "note": null,
@@ -509,15 +509,15 @@
         "week52Low": 160.81
       },
       "profile": {
-        "company": null,
+        "company": "Cerebras Systems, Inc.",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
     "CIEN": {
       "ticker": "CIEN",
-      "name": "CIEN",
+      "name": "Ciena Corporation",
       "type": "Equity",
       "bucket": null,
       "note": null,
@@ -538,15 +538,15 @@
         "week52Low": 76.89
       },
       "profile": {
-        "company": null,
+        "company": "Ciena Corporation",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
     "CLS": {
       "ticker": "CLS",
-      "name": "CLS",
+      "name": "Celestica Inc.",
       "type": "Equity",
       "bucket": null,
       "note": null,
@@ -567,9 +567,9 @@
         "week52Low": 152.43
       },
       "profile": {
-        "company": null,
+        "company": "Celestica Inc.",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -606,7 +606,7 @@
     },
     "COHR": {
       "ticker": "COHR",
-      "name": "COHR",
+      "name": "Coherent Corp.",
       "type": "Equity",
       "bucket": null,
       "note": null,
@@ -627,9 +627,9 @@
         "week52Low": 84.35
       },
       "profile": {
-        "company": null,
+        "company": "Coherent Corp.",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -691,13 +691,13 @@
       "profile": {
         "company": "Canadian Pacific Kansas City Limited",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
     "CSU": {
       "ticker": "CSU",
-      "name": "CSU",
+      "name": "Constellation Software Inc.",
       "type": "Equity",
       "bucket": null,
       "note": null,
@@ -718,9 +718,9 @@
         "week52Low": 2196.0
       },
       "profile": {
-        "company": null,
+        "company": "Constellation Software Inc.",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -751,7 +751,7 @@
       "profile": {
         "company": "Carvana Co.",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -788,7 +788,7 @@
     },
     "DASH": {
       "ticker": "DASH",
-      "name": "DASH",
+      "name": "DoorDash, Inc.",
       "type": "Equity",
       "bucket": null,
       "note": null,
@@ -809,9 +809,9 @@
         "week52Low": 143.3
       },
       "profile": {
-        "company": null,
+        "company": "DoorDash, Inc.",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -838,9 +838,9 @@
         "week52Low": 433.0
       },
       "profile": {
-        "company": null,
+        "company": "Deere & Company",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -871,7 +871,7 @@
       "profile": {
         "company": "DaVita Inc.",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -902,13 +902,13 @@
       "profile": {
         "company": "Fair Isaac Corporation",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
     "FN": {
       "ticker": "FN",
-      "name": "FN",
+      "name": "Fabrinet",
       "type": "Equity",
       "bucket": null,
       "note": null,
@@ -929,15 +929,15 @@
         "week52Low": 272.49
       },
       "profile": {
-        "company": null,
+        "company": "Fabrinet",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
     "FROG": {
       "ticker": "FROG",
-      "name": "FROG",
+      "name": "JFrog Ltd.",
       "type": "Equity",
       "bucket": null,
       "note": null,
@@ -958,9 +958,9 @@
         "week52Low": 34.05
       },
       "profile": {
-        "company": null,
+        "company": "JFrog Ltd.",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -1089,7 +1089,7 @@
     },
     "IFNNF": {
       "ticker": "IFNNF",
-      "name": "IFNNF",
+      "name": "Infineon Technologies AG",
       "type": "Equity",
       "bucket": null,
       "note": null,
@@ -1110,9 +1110,9 @@
         "week52Low": 36.21
       },
       "profile": {
-        "company": null,
+        "company": "Infineon Technologies AG",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -1139,9 +1139,9 @@
         "week52Low": 18.97
       },
       "profile": {
-        "company": null,
+        "company": "Intel Corporation",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -1201,7 +1201,7 @@
       "profile": {
         "company": "The Kraft Heinz Company",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -1232,13 +1232,13 @@
       "profile": {
         "company": "CarMax, Inc.",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
     "KVYO": {
       "ticker": "KVYO",
-      "name": "KVYO",
+      "name": "Klaviyo, Inc.",
       "type": "Equity",
       "bucket": null,
       "note": null,
@@ -1259,9 +1259,9 @@
         "week52Low": 12.53
       },
       "profile": {
-        "company": null,
+        "company": "Klaviyo, Inc.",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -1288,15 +1288,15 @@
         "week52Low": 623.78
       },
       "profile": {
-        "company": null,
+        "company": "Eli Lilly and Company",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
     "LRCX": {
       "ticker": "LRCX",
-      "name": "LRCX",
+      "name": "Lam Research Corporation",
       "type": "Equity",
       "bucket": null,
       "note": null,
@@ -1317,9 +1317,9 @@
         "week52Low": 90.94
       },
       "profile": {
-        "company": null,
+        "company": "Lam Research Corporation",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -1346,9 +1346,9 @@
         "week52Low": 3.37
       },
       "profile": {
-        "company": null,
+        "company": "Lumen Technologies, Inc.",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -1416,7 +1416,7 @@
     },
     "MDB": {
       "ticker": "MDB",
-      "name": "MDB",
+      "name": "MongoDB, Inc.",
       "type": "Equity",
       "bucket": null,
       "note": null,
@@ -1437,9 +1437,9 @@
         "week52Low": 198.47
       },
       "profile": {
-        "company": null,
+        "company": "MongoDB, Inc.",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -1536,7 +1536,7 @@
     },
     "MKSI": {
       "ticker": "MKSI",
-      "name": "MKSI",
+      "name": "MKS Instruments, Inc.",
       "type": "Equity",
       "bucket": null,
       "note": null,
@@ -1557,15 +1557,15 @@
         "week52Low": 88.49
       },
       "profile": {
-        "company": null,
+        "company": "MKS Instruments, Inc.",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
     "MRVL": {
       "ticker": "MRVL",
-      "name": "MRVL",
+      "name": "Marvell Technology, Inc.",
       "type": "Equity",
       "bucket": null,
       "note": null,
@@ -1586,9 +1586,9 @@
         "week52Low": 61.44
       },
       "profile": {
-        "company": null,
+        "company": "Marvell Technology, Inc.",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -1625,7 +1625,7 @@
     },
     "MTSI": {
       "ticker": "MTSI",
-      "name": "MTSI",
+      "name": "MACOM Technology Solutions",
       "type": "Equity",
       "bucket": null,
       "note": null,
@@ -1646,9 +1646,9 @@
         "week52Low": 118.16
       },
       "profile": {
-        "company": null,
+        "company": "MACOM Technology Solutions",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -1675,9 +1675,9 @@
         "week52Low": 103.38
       },
       "profile": {
-        "company": null,
+        "company": "Micron Technology, Inc.",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -1767,9 +1767,9 @@
         "week52Low": 112.34
       },
       "profile": {
-        "company": null,
+        "company": "Novartis AG",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -1800,7 +1800,7 @@
       "profile": {
         "company": "O'Reilly Automotive, Inc.",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -1896,7 +1896,7 @@
           "shares": 38,
           "value": 5023
         },
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -1923,9 +1923,9 @@
         "week52Low": 106.37
       },
       "profile": {
-        "company": null,
+        "company": "Palantir Technologies Inc.",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -2010,15 +2010,15 @@
         "week52Low": 312.51
       },
       "profile": {
-        "company": null,
+        "company": "Ferrari N.V.",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
     "RBLX": {
       "ticker": "RBLX",
-      "name": "RBLX",
+      "name": "Roblox Corporation",
       "type": "Equity",
       "bucket": null,
       "note": null,
@@ -2039,9 +2039,9 @@
         "week52Low": 40.15
       },
       "profile": {
-        "company": null,
+        "company": "Roblox Corporation",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -2101,7 +2101,7 @@
       "profile": {
         "company": "Roper Technologies, Inc.",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -2139,7 +2139,7 @@
     },
     "SITM": {
       "ticker": "SITM",
-      "name": "SITM",
+      "name": "SiTime Corporation",
       "type": "Equity",
       "bucket": null,
       "note": null,
@@ -2160,9 +2160,9 @@
         "week52Low": 186.49
       },
       "profile": {
-        "company": null,
+        "company": "SiTime Corporation",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -2282,7 +2282,7 @@
       "profile": {
         "company": "Constellation Brands, Inc.",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -2317,7 +2317,7 @@
     },
     "TSEM": {
       "ticker": "TSEM",
-      "name": "TSEM",
+      "name": "Tower Semiconductor Ltd.",
       "type": "Equity",
       "bucket": null,
       "note": null,
@@ -2338,9 +2338,9 @@
         "week52Low": 43.12
       },
       "profile": {
-        "company": null,
+        "company": "Tower Semiconductor Ltd.",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -2408,7 +2408,7 @@
     },
     "TTMI": {
       "ticker": "TTMI",
-      "name": "TTMI",
+      "name": "TTM Technologies, Inc.",
       "type": "Equity",
       "bucket": null,
       "note": null,
@@ -2429,15 +2429,15 @@
         "week52Low": 39.2
       },
       "profile": {
-        "company": null,
+        "company": "TTM Technologies, Inc.",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
     "TXN": {
       "ticker": "TXN",
-      "name": "TXN",
+      "name": "Texas Instruments Incorporated",
       "type": "Equity",
       "bucket": null,
       "note": null,
@@ -2458,9 +2458,9 @@
         "week52Low": 152.73
       },
       "profile": {
-        "company": null,
+        "company": "Texas Instruments Incorporated",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -2528,7 +2528,7 @@
     },
     "VIAV": {
       "ticker": "VIAV",
-      "name": "VIAV",
+      "name": "Viavi Solutions Inc.",
       "type": "Equity",
       "bucket": null,
       "note": null,
@@ -2549,9 +2549,9 @@
         "week52Low": 9.62
       },
       "profile": {
-        "company": null,
+        "company": "Viavi Solutions Inc.",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -2611,7 +2611,7 @@
       "profile": {
         "company": "VeriSign, Inc.",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -2646,7 +2646,7 @@
     },
     "WDC": {
       "ticker": "WDC",
-      "name": "WDC",
+      "name": "Western Digital Corporation",
       "type": "Equity",
       "bucket": null,
       "note": null,
@@ -2667,9 +2667,9 @@
         "week52Low": 63.67
       },
       "profile": {
-        "company": null,
+        "company": "Western Digital Corporation",
         "owned": null,
-        "hasResearch": false
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -2777,8 +2777,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 16.06,
-        "change_pct": -3.1946955997588975,
+        "price": 16.13,
+        "change_pct": -2.772754671488854,
         "source": "yahoo"
       },
       "metrics": {},
