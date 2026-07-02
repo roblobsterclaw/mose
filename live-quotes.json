@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-02T00:01:20.370671+00:00",
+  "generated_at": "2026-07-02T04:53:15.866321+00:00",
   "source": "yahoo",
   "market_status": "closed",
   "indices": [
@@ -30,8 +30,8 @@
     {
       "name": "Russell 2000",
       "ticker": "^RUT",
-      "price": 3012.5896,
-      "change_pct": -0.3894236123179866,
+      "price": 3012.59,
+      "change_pct": -0.3895026071545395,
       "vs_exit": null,
       "source": "yahoo"
     },
@@ -390,7 +390,7 @@
       "date": "2026-07-01",
       "time": "16:00:02",
       "volume": 629592,
-      "week52_high": 229.79,
+      "week52_high": 229.8,
       "week52_low": 101.0
     },
     {
@@ -481,10 +481,10 @@
       "ticker": "IFNNF",
       "symbol": "IFNNF",
       "price": 88.15,
-      "prev_close": 87.45,
-      "change_pct": 0.8004574042309923,
+      "prev_close": 92.24,
+      "change_pct": -4.434084995663476,
       "date": "2026-07-01",
-      "time": "11:08:04",
+      "time": "16:00:00",
       "volume": 100,
       "week52_high": 103.5,
       "week52_low": 36.21
@@ -942,8 +942,8 @@
       "date": "2026-07-01",
       "time": "16:00:03",
       "volume": 3911169,
-      "week52_high": 579.05,
-      "week52_low": 381.61
+      "week52_high": 547.824,
+      "week52_low": 361.031
     },
     {
       "ticker": "STZ",
