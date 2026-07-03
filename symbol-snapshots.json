@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T11:26:09.076729+00:00",
+  "generated_at": "2026-07-03T13:42:45.677266+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -141,11 +141,11 @@
         "time": "16:00:01",
         "volume": 5989267,
         "week52_high": 745.61,
-        "week52_low": 325.58
+        "week52_low": 332.32
       },
       "metrics": {
         "week52High": 745.61,
-        "week52Low": 325.58
+        "week52Low": 332.32
       },
       "profile": {
         "company": "AppLovin Corporation",
@@ -382,11 +382,11 @@
         "time": "16:00:03",
         "volume": 15663975,
         "week52_high": 351.28,
-        "week52_low": 22.81
+        "week52_low": 23.75
       },
       "metrics": {
         "week52High": 351.28,
-        "week52Low": 22.81
+        "week52Low": 23.75
       },
       "profile": {
         "company": "Bloom Energy Corporation",
@@ -704,12 +704,12 @@
       "quote": {
         "ticker": "CSU",
         "symbol": "CSU.TO",
-        "price": 2778.82,
-        "prev_close": 2670.0,
-        "change_pct": 4.075655430711617,
-        "date": "2026-07-02",
-        "time": "16:00:01",
-        "volume": 94165,
+        "price": 2810.99,
+        "prev_close": 2778.82,
+        "change_pct": 1.157685636349228,
+        "date": "2026-07-03",
+        "time": "09:30:00",
+        "volume": 1070,
         "week52_high": 5060.7,
         "week52_low": 2196.0
       },
@@ -1220,11 +1220,11 @@
         "date": "2026-07-02",
         "time": "16:00:02",
         "volume": 2328022,
-        "week52_high": 71.99,
+        "week52_high": 70.01,
         "week52_low": 30.26
       },
       "metrics": {
-        "week52High": 71.99,
+        "week52High": 70.01,
         "week52Low": 30.26,
         "marketCap": 5427479040,
         "peRatio": 30.345238095238095
@@ -1850,11 +1850,11 @@
         "date": "2026-07-02",
         "time": "16:00:02",
         "volume": 2097110,
-        "week52_high": 261.66,
+        "week52_high": 260.1,
         "week52_low": 189.2
       },
       "metrics": {
-        "week52High": 261.66,
+        "week52High": 260.1,
         "week52Low": 189.2,
         "marketCap": 117400117248,
         "peRatio": 12.075923036921477
@@ -2777,8 +2777,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 16.0,
-        "change_pct": -0.928792569659434,
+        "price": 15.93,
+        "change_pct": -1.3622291021671757,
         "source": "yahoo"
       },
       "metrics": {},
