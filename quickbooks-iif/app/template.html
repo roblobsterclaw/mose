@@ -40,6 +40,11 @@
   .muted{color:var(--muted)} .mono{font-family:ui-monospace,Menlo,Consolas,monospace}
   .hidden{display:none}
   ul.rev{margin:8px 0 0;padding-left:18px} ul.rev li{margin:3px 0}
+  .ask input{padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card);
+    color:var(--ink);font-size:14px;min-width:150px}
+  .ask label{font-size:12.5px;color:var(--muted);display:block}
+  .ask .row{margin-top:10px;display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end}
+  .err{color:var(--bad);font-size:13px;margin-top:6px;min-height:1px}
   footer{color:var(--muted);font-size:12.5px;text-align:center;margin-top:8px}
 </style>
 </head>
@@ -100,12 +105,27 @@ const BANK_ACCOUNTS = {
   "437-7181733": { bank:"1000", label:"valet-box" },
   // "123-4567890": { bank:"1050", label:"savings" },
 };
-const DEFAULT_BANK = "1000";   // used (with a warning) for an unmapped account
+const DEFAULT_BANK = "1000";
 function bankRefFor(number){
   if (ACCOUNT_REF_STYLE === "number") return number;
   for (const k in ACCOUNTS){ const [n,nm]=ACCOUNTS[k];
     if (n===number) return ACCOUNT_REF_STYLE==="number_name" ? n+" "+DOT+" "+nm : nm; }
   return number;
+}
+
+// Mappings the staff enter for unfamiliar statements are remembered on THIS
+// computer, so the app asks once per TD account and never again.
+const LS_KEY = "td_iif_bank_map";
+let USER_MAP = {};
+try { USER_MAP = JSON.parse(localStorage.getItem(LS_KEY) || "{}"); } catch(e) { USER_MAP = {}; }
+function resolveBank(acctNum){
+  const info = USER_MAP[acctNum] || BANK_ACCOUNTS[acctNum];
+  if (info) return { bank:info.bank, label:info.label, known:true };
+  return { bank:DEFAULT_BANK, label:"td-"+((acctNum||"unknown").replace(/-/g,"")), known:false };
+}
+function saveMapping(acctNum, bank, label, persist){
+  USER_MAP[acctNum] = { bank, label };
+  if (persist){ try { localStorage.setItem(LS_KEY, JSON.stringify(USER_MAP)); } catch(e){} }
 }
 
 // [regex on UPPER-CASED description, account KEY, needs review]  first match wins
@@ -164,11 +184,7 @@ function parseMeta(lines){
   meta.beginning=grab("Beginning Balance");
   meta.ending=grab("Ending Balance");
   const acc=text.match(/Primary Account #:\s*\n?\s*([0-9][0-9-]{5,})/);
-  meta.account_number=acc?acc[1]:null;
-  const info=BANK_ACCOUNTS[meta.account_number];
-  meta.bank=info?info.bank:DEFAULT_BANK;
-  meta.bank_known=!!info;
-  meta.label=info?info.label:("td-"+((meta.account_number||"unknown").replace(/-/g,"")));
+  meta.account_number=acc?acc[1]:null;   // bank resolved at render time (live map)
   return meta;
 }
 
@@ -284,74 +300,126 @@ const $=id=>document.getElementById(id);
 const fmt=n=>n.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});
 const esc=s=>String(s).replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
 
-// process ONE file, rendering into the given card element
+const PENDING=[];   // cards waiting on a bank-account answer: {card,file,parsed,acctNum}
+
+// process ONE file: read, parse, then either ask for the bank or render the result
 async function processInto(card, file){
   const status=card.querySelector(".st"), body=card.querySelector(".bd");
-  status.innerHTML=`<span class="muted">Reading <b>${esc(file.name)}</b> …</span>`;
+  status.innerHTML=`<span class="muted">Reading <b>${esc(file.name)}</b> …</span>`; body.innerHTML="";
+  let parsed;
   try{
     const buf=await file.arrayBuffer();
     const lines=await extractLines(buf);
-    const {meta,txns,printed}=parseStatement(lines);
-    if(!txns.length) throw new Error("No transactions found — is this a TD Business Convenience Plus PDF?");
-    const problems=reconcile(meta,txns,printed);
-    const {byAcct,review}=summarize(meta,txns);
-
-    const acctLabel=(meta.account_number||"unknown")+" → QuickBooks bank "+meta.bank;
-    let html=`<div class="muted" style="margin-bottom:8px">${esc(file.name)}</div>`;
-    html+=`<table><tr><th>Statement period</th><td class="num">${esc(meta.period)}</td></tr>`+
-          `<tr><th>TD account</th><td class="num mono">${esc(acctLabel)}</td></tr>`+
-          `<tr><th>Transactions</th><td class="num">${txns.length}</td></tr>`+
-          (meta.beginning!=null?`<tr><th>Beginning balance</th><td class="num">${fmt(meta.beginning)}</td></tr>`:"")+
-          (meta.ending!=null?`<tr><th>Ending balance</th><td class="num">${fmt(meta.ending)}</td></tr>`:"")+
-          `</table>`;
-
-    if(!meta.bank_known){
-      html+=`<div class="banner warn"><b>Unmapped bank account.</b> This statement is for TD account `+
-            `${esc(meta.account_number||"unknown")}, which isn't set up yet, so it was posted to bank `+
-            `${meta.bank} by default. Confirm that's the right QuickBooks account before importing.</div>`;
-    }
-
-    html+=`<h3 style="margin:16px 0 2px">Posted to accounts (net)</h3><table>`;
-    Object.keys(byAcct).sort().forEach(a=>{ const [c,tot]=byAcct[a];
-      html+=`<tr><td class="mono">${a}</td><td class="num">${c}</td><td class="num">${fmt(tot)}</td></tr>`; });
-    html+=`</table>`;
-
-    if(review.length){
-      html+=`<div class="banner warn"><b>${review.length} line(s) need review in QuickBooks</b>`+
-            ` (posted to a suspense account — reclassify after import):<ul class="rev">`;
-      review.forEach(r=>{ html+=`<li>${r.date} &nbsp; <span class="mono">${fmt(r.amount)}</span> → ${r.account}`+
-            `<br><span class="muted">${esc(r.desc)}</span></li>`; });
-      html+=`</ul></div>`;
-    }
-
-    if(problems.length){
-      status.innerHTML=`<span class="pill bad">Reconciliation FAILED — no file created</span>`;
-      html+=`<div class="banner bad"><b>Doesn't tie out to the statement — do not import:</b><ul>`+
-            problems.map(p=>`<li>${esc(p)}</li>`).join("")+`</ul>Send this statement to your accountant.</div>`;
-      body.innerHTML=html; return;
-    }
-
-    status.innerHTML=`<span class="pill ok">Reconciled ✓</span>`;
-    html+=`<div class="banner ok"><b>Import this file ONCE.</b> It covers ${esc(meta.period)} for account `+
-          `${esc(meta.account_number||"?")}. Importing a month already in QuickBooks duplicates every row.</div>`;
-
-    const iif=buildIIF(txns,bankRefFor(meta.bank));
-    const url=URL.createObjectURL(new Blob([iif],{type:"text/plain"}));
-    const name=`${meta.label}-${meta.period_slug}.iif`;
-    html+=`<p style="margin-top:14px"><a class="btn" href="${url}" download="${name}">Download ${name}</a></p>`;
-    body.innerHTML=html;
+    parsed=parseStatement(lines);
+    if(!parsed.txns.length) throw new Error("No transactions found — is this a TD Business Convenience Plus PDF?");
   }catch(err){
     status.innerHTML=`<span class="pill bad">Error</span>`;
     body.innerHTML=`<div class="muted" style="margin-bottom:8px">${esc(file.name)}</div>`+
                    `<div class="banner bad">${esc(err.message||err)}</div>`;
+    return;
   }
+  const bank=resolveBank(parsed.meta.account_number);
+  if(!bank.known){ renderPrompt(card,file,parsed); return; }
+  renderResult(card,file,parsed,bank);
+}
+
+// ask which QuickBooks account an unfamiliar statement belongs to
+function renderPrompt(card,file,parsed){
+  const acctNum=parsed.meta.account_number||"unknown";
+  const uid="m"+Math.random().toString(36).slice(2,8);
+  card.querySelector(".st").innerHTML=`<span class="pill bad">Which QuickBooks account?</span>`;
+  card.querySelector(".bd").innerHTML=
+    `<div class="muted" style="margin-bottom:8px">${esc(file.name)}</div>`+
+    `<div class="banner warn ask">We don't recognize <b>TD account ${esc(acctNum)}</b> `+
+      `(statement period ${esc(parsed.meta.period)}).<br>`+
+      `Which QuickBooks cash/bank account should its transactions post to?`+
+      `<div class="row">`+
+        `<div><label for="${uid}b">QuickBooks account number</label>`+
+          `<input id="${uid}b" placeholder="e.g. 1000"></div>`+
+        `<div><label for="${uid}l">Short name for the file (optional)</label>`+
+          `<input id="${uid}l" placeholder="e.g. money-market"></div>`+
+        `<button id="${uid}go" class="btn">Convert</button>`+
+      `</div>`+
+      `<label style="margin-top:8px"><input type="checkbox" id="${uid}s" checked> `+
+        `Remember this account on this computer</label>`+
+      `<div class="err" id="${uid}e"></div>`+
+    `</div>`;
+  const q=s=>card.querySelector("#"+uid+s);
+  q("go").addEventListener("click",()=>{
+    const bank=(q("b").value||"").trim();
+    if(!/^[A-Za-z0-9][A-Za-z0-9 .\-]*$/.test(bank)){
+      q("e").textContent="Enter the QuickBooks account number from your chart of accounts (e.g. 1000).";
+      return;
+    }
+    let label=(q("l").value||"").trim()
+                .replace(/[^A-Za-z0-9._-]+/g,"-").replace(/-{2,}/g,"-").replace(/^[-_.]+|[-_.]+$/g,"");
+    if(!label) label="td-"+acctNum.replace(/-/g,"");
+    saveMapping(acctNum, bank, label, q("s").checked);
+    reprocessAccount(acctNum);   // convert this card + any others for the same account
+  });
+  PENDING.push({card,file,parsed,acctNum});
+}
+
+function reprocessAccount(acctNum){
+  const todo=PENDING.filter(p=>p.acctNum===acctNum);
+  for(let i=PENDING.length-1;i>=0;i--){ if(PENDING[i].acctNum===acctNum) PENDING.splice(i,1); }
+  const bank=resolveBank(acctNum);
+  for(const p of todo) renderResult(p.card,p.file,p.parsed,bank);
+}
+
+// render the converted result (summary, reconciliation, download) for a known bank
+function renderResult(card,file,parsed,bank){
+  const {meta,txns,printed}=parsed;
+  meta.bank=bank.bank; meta.label=bank.label;
+  const status=card.querySelector(".st"), body=card.querySelector(".bd");
+  const problems=reconcile(meta,txns,printed);
+  const {byAcct,review}=summarize(meta,txns);
+
+  const acctLabel=(meta.account_number||"unknown")+" → QuickBooks bank "+meta.bank;
+  let html=`<div class="muted" style="margin-bottom:8px">${esc(file.name)}</div>`;
+  html+=`<table><tr><th>Statement period</th><td class="num">${esc(meta.period)}</td></tr>`+
+        `<tr><th>TD account</th><td class="num mono">${esc(acctLabel)}</td></tr>`+
+        `<tr><th>Transactions</th><td class="num">${txns.length}</td></tr>`+
+        (meta.beginning!=null?`<tr><th>Beginning balance</th><td class="num">${fmt(meta.beginning)}</td></tr>`:"")+
+        (meta.ending!=null?`<tr><th>Ending balance</th><td class="num">${fmt(meta.ending)}</td></tr>`:"")+
+        `</table>`;
+
+  html+=`<h3 style="margin:16px 0 2px">Posted to accounts (net)</h3><table>`;
+  Object.keys(byAcct).sort().forEach(a=>{ const [c,tot]=byAcct[a];
+    html+=`<tr><td class="mono">${a}</td><td class="num">${c}</td><td class="num">${fmt(tot)}</td></tr>`; });
+  html+=`</table>`;
+
+  if(review.length){
+    html+=`<div class="banner warn"><b>${review.length} line(s) need review in QuickBooks</b>`+
+          ` (posted to a suspense account — reclassify after import):<ul class="rev">`;
+    review.forEach(r=>{ html+=`<li>${r.date} &nbsp; <span class="mono">${fmt(r.amount)}</span> → ${r.account}`+
+          `<br><span class="muted">${esc(r.desc)}</span></li>`; });
+    html+=`</ul></div>`;
+  }
+
+  if(problems.length){
+    status.innerHTML=`<span class="pill bad">Reconciliation FAILED — no file created</span>`;
+    html+=`<div class="banner bad"><b>Doesn't tie out to the statement — do not import:</b><ul>`+
+          problems.map(p=>`<li>${esc(p)}</li>`).join("")+`</ul>Send this statement to your accountant.</div>`;
+    body.innerHTML=html; return;
+  }
+
+  status.innerHTML=`<span class="pill ok">Reconciled ✓</span>`;
+  html+=`<div class="banner ok"><b>Import this file ONCE.</b> It covers ${esc(meta.period)} for account `+
+        `${esc(meta.account_number||"?")}. Importing a month already in QuickBooks duplicates every row.</div>`;
+
+  const iif=buildIIF(txns,bankRefFor(meta.bank));
+  const url=URL.createObjectURL(new Blob([iif],{type:"text/plain"}));
+  const name=`${meta.label}-${meta.period_slug}.iif`;
+  html+=`<p style="margin-top:14px"><a class="btn" href="${url}" download="${name}">Download ${name}</a></p>`;
+  body.innerHTML=html;
 }
 
 async function handleFiles(fileList){
   const pdfs=[...fileList].filter(f=>/\.pdf$/i.test(f.name));
   if(!pdfs.length) return;
   const results=$("results");
-  results.innerHTML="";
+  results.innerHTML=""; PENDING.length=0;
   if(pdfs.length>1){
     const note=document.createElement("div");
     note.className="banner ok"; note.style.marginBottom="14px";

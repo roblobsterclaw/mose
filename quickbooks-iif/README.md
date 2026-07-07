@@ -64,17 +64,31 @@ statement and files it to the matching QuickBooks bank account, named
 `<label>-<period>.iif` (e.g. `valet-box-2026-07.iif`). So you can drop a mix of
 accounts and months together and get correctly separated files.
 
-To add another TD account, add a row to the `BANK_ACCOUNTS` map — it lives near
-the top of both `td_to_iif.py` and `app/template.html`:
+**The browser app learns the accounts as you go.** The first time it sees an
+unfamiliar TD account, that statement's card asks *“Which QuickBooks cash/bank
+account should this post to?”* — you type the account number (from your chart of
+accounts, e.g. `1050`) and an optional short name, click **Convert**, and it's
+done. With **Remember this account** ticked (the default), the answer is saved
+on that computer, so it never asks again for that account — every future
+statement for it converts automatically. Nothing gets misfiled to a default;
+you decide once, when you actually know the answer.
+
+> The remembered list lives in that browser on that computer. If you set the app
+> up on several machines, each learns the accounts the first time it sees them
+> (or tell me the mappings and I'll bake them in so they're known everywhere).
+
+To pre-load accounts (so they're known before the first statement, on every
+copy), add rows to the `BANK_ACCOUNTS` map near the top of both `td_to_iif.py`
+and `app/template.html`, then rerun `python3 app/build.py`:
 
 ```
 "123-4567890": { bank: "1050", label: "savings" },   // TD acct# -> QB bank #
 ```
 
-Until an account is mapped, its statements still convert but post to the default
-bank (`1000`) with a visible **“unmapped account”** warning, so nothing is
-silently misfiled. Right now only `437-7181733 → 1000 (valet-box)` is mapped —
-send me the account number and QuickBooks bank account for any others.
+The Python command-line tool doesn't prompt; an unmapped account there still
+converts but posts to the default bank (`1000`) with an **“unmapped account”**
+warning. Right now `437-7181733 → 1000 (valet-box)` is the only pre-loaded
+account.
 
 Either way, the tool **refuses to produce a file unless every section subtotal
 and the ending balance on the statement reconcile to the penny.** That guard is
