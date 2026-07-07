@@ -21,16 +21,60 @@ byte-for-byte against the Python tool).
 1. Put **`TD-to-IIF.html`** somewhere handy on the QuickBooks computer (Desktop
    is fine). It's one self-contained file.
 2. Double-click it — it opens in your web browser.
-3. Drag a TD statement PDF onto the page (or click to choose one).
-4. It shows the reconciliation check and a category breakdown. If everything
-   ties out, a **Download** button appears — click it to save the `.iif`.
-5. Import that `.iif` into QuickBooks (see below), **once**.
+3. Drag one or more TD statement PDFs onto the page (or click to choose files).
+4. Each statement gets its own result card with the reconciliation check and a
+   category breakdown. If it ties out, a **Download** button appears — click it
+   to save that statement's `.iif`.
+5. Import each `.iif` into QuickBooks (see below), **once**.
 
 Everything runs locally in the browser — no internet, no upload, no Python. If a
-statement doesn't reconcile, the app shows why and does **not** offer a download.
+statement doesn't reconcile, that card shows why and offers **no** download.
+
+### ⚠️ How to give it to staff (important)
+
+`TD-to-IIF.html` is a program, not a web page — it must be **saved to the
+computer and opened from there**. Do **not** email a link to it and click the
+link: a forwarded/preview link points back to a server the staff aren't logged
+into (so it errors), and email previews block the code it needs to run.
+
+Do this instead:
+
+- **Save the actual file** onto each computer that needs it — put it on a shared
+  network drive, or copy it to each Desktop, or hand it over on a USB stick.
+- Open it by **double-clicking the saved file** (it opens in Chrome/Edge). If
+  Windows shows a blue "Windows protected your PC" box, click **More info →
+  Run anyway** — that warning is just because the file came from outside; the
+  app runs entirely offline and sends nothing anywhere.
+- If double-click opens the wrong program, right-click → **Open with → Chrome**
+  (or Edge).
 
 To rebuild `TD-to-IIF.html` after changing the app (`app/template.html`) or the
 account mapping, run `python3 app/build.py`.
+
+## Multiple statements and multiple bank accounts
+
+**Several months at once:** drop them all together (browser app), or pass them
+all on the command line (`python3 td_to_iif.py jun.pdf jul.pdf aug.pdf`). Each
+statement is converted **independently** into its own `.iif` — import each once.
+They are never merged into one file, so a problem with one month can't affect
+another, and you keep the one-month-one-import safety.
+
+**Different bank accounts:** the tool reads the **Primary Account #** off each
+statement and files it to the matching QuickBooks bank account, named
+`<label>-<period>.iif` (e.g. `valet-box-2026-07.iif`). So you can drop a mix of
+accounts and months together and get correctly separated files.
+
+To add another TD account, add a row to the `BANK_ACCOUNTS` map — it lives near
+the top of both `td_to_iif.py` and `app/template.html`:
+
+```
+"123-4567890": { bank: "1050", label: "savings" },   // TD acct# -> QB bank #
+```
+
+Until an account is mapped, its statements still convert but post to the default
+bank (`1000`) with a visible **“unmapped account”** warning, so nothing is
+silently misfiled. Right now only `437-7181733 → 1000 (valet-box)` is mapped —
+send me the account number and QuickBooks bank account for any others.
 
 Either way, the tool **refuses to produce a file unless every section subtotal
 and the ending balance on the statement reconcile to the penny.** That guard is

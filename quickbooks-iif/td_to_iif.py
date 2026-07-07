@@ -85,6 +85,20 @@ ACCOUNTS = {
 }
 
 
+# Which QuickBooks BANK account each TD statement belongs to, keyed by the
+# "Primary Account #" printed on the statement. This is how the tool tells
+# different bank accounts apart and files each to the right place. `label` is
+# used in the output filename. Add a row for every TD account you have.
+BANK_ACCOUNTS = {
+    "437-7181733": {"bank": "1000", "label": "valet-box"},
+    # "123-4567890": {"bank": "1050", "label": "savings"},
+}
+# Fallback for a statement whose account number isn't in the map above: still
+# produce a file (so nobody is blocked), but post it to this bank account and
+# flag it loudly so someone confirms the mapping.
+DEFAULT_BANK = "1000"
+
+
 def acct(key):
     """Render the account reference in the configured style."""
     num, name, _ = ACCOUNTS[key]
@@ -319,6 +333,18 @@ def _parse_meta(lines):
 
     meta["beginning"] = grab("Beginning Balance")
     meta["ending"] = grab("Ending Balance")
+
+    # which TD account this statement is for, and the QB bank account it maps to
+    acc = re.search(r"Primary Account #:\s*\n?\s*([0-9][0-9-]{5,})", text)
+    meta["account_number"] = acc.group(1) if acc else None
+    info = BANK_ACCOUNTS.get(meta["account_number"])
+    meta["bank"] = info["bank"] if info else DEFAULT_BANK
+    meta["bank_known"] = info is not None
+    if info:
+        meta["label"] = info["label"]
+    else:
+        digits = (meta["account_number"] or "unknown").replace("-", "")
+        meta["label"] = f"td-{digits}"
     return meta
 
 
@@ -384,7 +410,9 @@ def _used_account_keys(txns):
     return keys
 
 
-def build_iif(txns):
+def build_iif(txns, bank_ref=None):
+    if bank_ref is None:
+        bank_ref = BANK_ACCOUNT
     rows = []
 
     if EMIT_ACCNT_BLOCK:
@@ -409,7 +437,7 @@ def build_iif(txns):
         bank_amt = amt if t["inflow"] else -amt          # bank side
         offset_amt = -bank_amt                            # category side nets to zero
 
-        rows.append(["TRNS", ttype, t["date"], BANK_ACCOUNT, "",
+        rows.append(["TRNS", ttype, t["date"], bank_ref, "",
                      f"{bank_amt:.2f}", docnum, memo, "N"])
         rows.append(["SPL", ttype, t["date"], account, "",
                      f"{offset_amt:.2f}", "", memo, "N"])
@@ -475,6 +503,11 @@ def convert(pdf_path, out_path=None, preview=False):
     summary = build_summary(meta, txns)
     print(summary)
 
+    acct_line = f"TD account {meta.get('account_number','?')} -> QuickBooks bank {meta['bank']}"
+    if not meta["bank_known"]:
+        acct_line += "  ** UNMAPPED ACCOUNT — confirm this bank is correct **"
+    print(acct_line + "\n")
+
     if problems:
         print("RECONCILIATION FAILED — file NOT written:", file=sys.stderr)
         for p in problems:
@@ -492,21 +525,49 @@ def convert(pdf_path, out_path=None, preview=False):
         return
 
     if out_path is None:
-        # name by statement period so each month is one deterministic file
-        out_path = str(Path(pdf_path).with_name(f"valet-box-{meta['period_slug']}.iif"))
-    write_iif(build_iif(txns), out_path)
+        # name by account label + statement period so each account/month is one
+        # deterministic file (e.g. valet-box-2026-06.iif)
+        out_path = str(Path(pdf_path).with_name(
+            f"{meta['label']}-{meta['period_slug']}.iif"))
+    write_iif(build_iif(txns, acct_ref_for_bank(meta["bank"])), out_path)
     Path(out_path).with_suffix(".summary.txt").write_text(summary)
     print(f"Wrote {out_path}")
     print(f"Wrote {Path(out_path).with_suffix('.summary.txt')}")
 
 
+def acct_ref_for_bank(bank_number):
+    """The bank account may be any number (multiple TD accounts); render it in
+    the configured reference style."""
+    if ACCOUNT_REF_STYLE == "number":
+        return bank_number
+    # fall back to the registered Cash name/number_name if we know it
+    for _k, (num, name, _t) in ACCOUNTS.items():
+        if num == bank_number:
+            return f"{num} {DOT} {name}" if ACCOUNT_REF_STYLE == "number_name" else name
+    return bank_number
+
+
 def main():
-    ap = argparse.ArgumentParser(description="Convert a TD Bank PDF statement to a QuickBooks IIF file.")
-    ap.add_argument("pdf", help="path to the TD Bank PDF statement")
-    ap.add_argument("-o", "--output", help="output .iif path (default: alongside the PDF)")
-    ap.add_argument("--preview", action="store_true", help="parse and print the summary, but do not write a file")
+    ap = argparse.ArgumentParser(description="Convert TD Bank PDF statements to QuickBooks IIF files.")
+    ap.add_argument("pdf", nargs="+", help="one or more TD Bank PDF statements")
+    ap.add_argument("-o", "--output", help="output .iif path (only valid with a single PDF)")
+    ap.add_argument("--preview", action="store_true", help="parse and print the summary, but do not write files")
     args = ap.parse_args()
-    convert(args.pdf, args.output, args.preview)
+    if args.output and len(args.pdf) > 1:
+        ap.error("-o/--output can only be used with a single PDF; "
+                 "with several PDFs each is named automatically by account + month")
+    failures = 0
+    for pdf in args.pdf:
+        if len(args.pdf) > 1:
+            print("\n" + "=" * 66 + f"\n{pdf}\n" + "=" * 66)
+        try:
+            convert(pdf, args.output, args.preview)
+        except SystemExit as e:
+            # keep going through the batch; remember that something failed
+            if e.code not in (0, None):
+                failures += 1
+    if failures:
+        sys.exit(f"\n{failures} statement(s) did not convert — see messages above.")
 
 
 if __name__ == "__main__":

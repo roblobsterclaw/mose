@@ -50,18 +50,15 @@
     nothing is uploaded, the PDF never leaves this computer.</p>
 
   <div id="drop" class="card">
-    <h2>Drag a TD statement PDF here</h2>
-    <p>…or click to choose a file</p>
-    <input id="file" type="file" accept="application/pdf" class="hidden">
+    <h2>Drag one or more TD statement PDFs here</h2>
+    <p>…or click to choose files. You can drop several months (or accounts) at once.</p>
+    <input id="file" type="file" accept="application/pdf" multiple class="hidden">
   </div>
 
-  <div id="result" class="card hidden">
-    <div id="status"></div>
-    <div id="body"></div>
-    <p style="margin-top:18px"><a id="download" class="btn" download>Download IIF file</a></p>
-  </div>
+  <div id="results"></div>
 
-  <footer>Runs entirely offline. Import the downloaded .iif once (File → Utilities → Import → IIF Files).</footer>
+  <footer>Runs entirely offline — PDFs never leave this computer. Import each .iif once
+    (File → Utilities → Import → IIF Files).</footer>
 </div>
 
 <!-- pdf.js library (vendored, offline) -->
@@ -95,6 +92,20 @@ function acct(key){
   if (ACCOUNT_REF_STYLE === "number") return num;
   if (ACCOUNT_REF_STYLE === "number_name") return num+" "+DOT+" "+name;
   return name;
+}
+
+// Which QuickBooks bank account each TD statement belongs to, keyed by the
+// "Primary Account #" on the statement. Add a row per TD account you have.
+const BANK_ACCOUNTS = {
+  "437-7181733": { bank:"1000", label:"valet-box" },
+  // "123-4567890": { bank:"1050", label:"savings" },
+};
+const DEFAULT_BANK = "1000";   // used (with a warning) for an unmapped account
+function bankRefFor(number){
+  if (ACCOUNT_REF_STYLE === "number") return number;
+  for (const k in ACCOUNTS){ const [n,nm]=ACCOUNTS[k];
+    if (n===number) return ACCOUNT_REF_STYLE==="number_name" ? n+" "+DOT+" "+nm : nm; }
+  return number;
 }
 
 // [regex on UPPER-CASED description, account KEY, needs review]  first match wins
@@ -152,6 +163,12 @@ function parseMeta(lines){
   };
   meta.beginning=grab("Beginning Balance");
   meta.ending=grab("Ending Balance");
+  const acc=text.match(/Primary Account #:\s*\n?\s*([0-9][0-9-]{5,})/);
+  meta.account_number=acc?acc[1]:null;
+  const info=BANK_ACCOUNTS[meta.account_number];
+  meta.bank=info?info.bank:DEFAULT_BANK;
+  meta.bank_known=!!info;
+  meta.label=info?info.label:("td-"+((meta.account_number||"unknown").replace(/-/g,"")));
   return meta;
 }
 
@@ -214,7 +231,8 @@ function reconcile(meta,txns,printed){
   return problems;
 }
 
-function buildIIF(txns){
+function buildIIF(txns,bankRef){
+  bankRef = bankRef || acct("BANK");
   const rows=[];
   rows.push(["!TRNS","TRNSTYPE","DATE","ACCNT","NAME","AMOUNT","DOCNUM","MEMO","CLEAR"]);
   rows.push(["!SPL","TRNSTYPE","DATE","ACCNT","NAME","AMOUNT","DOCNUM","MEMO","CLEAR"]);
@@ -225,7 +243,7 @@ function buildIIF(txns){
     const docnum=(t.section==="checks"&&t.serial)?t.serial:"";
     const memo=review?("REVIEW: "+t.desc):t.desc;
     const bank=t.inflow?t.amount:-t.amount;
-    rows.push(["TRNS",ttype,t.date,acct("BANK"),"",bank.toFixed(2),docnum,memo,"N"]);
+    rows.push(["TRNS",ttype,t.date,bankRef,"",bank.toFixed(2),docnum,memo,"N"]);
     rows.push(["SPL",ttype,t.date,account,"",(-bank).toFixed(2),"",memo,"N"]);
     rows.push(["ENDTRNS"]);
   }
@@ -264,75 +282,100 @@ async function extractLines(arrayBuffer){
 
 const $=id=>document.getElementById(id);
 const fmt=n=>n.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});
+const esc=s=>String(s).replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
 
-async function handleFile(file){
-  const result=$("result"), status=$("status"), body=$("body"), dl=$("download");
-  result.classList.remove("hidden"); dl.classList.add("hidden");
-  status.innerHTML=`<span class="muted">Reading <b>${file.name}</b> …</span>`; body.innerHTML="";
+// process ONE file, rendering into the given card element
+async function processInto(card, file){
+  const status=card.querySelector(".st"), body=card.querySelector(".bd");
+  status.innerHTML=`<span class="muted">Reading <b>${esc(file.name)}</b> …</span>`;
   try{
     const buf=await file.arrayBuffer();
     const lines=await extractLines(buf);
     const {meta,txns,printed}=parseStatement(lines);
-    if(!txns.length){ throw new Error("No transactions found — is this a TD Business Convenience Plus PDF?"); }
+    if(!txns.length) throw new Error("No transactions found — is this a TD Business Convenience Plus PDF?");
     const problems=reconcile(meta,txns,printed);
     const {byAcct,review}=summarize(meta,txns);
 
-    let html="";
-    html+=`<table><tr><th>Statement period</th><td class="num">${meta.period}</td></tr>`+
+    const acctLabel=(meta.account_number||"unknown")+" → QuickBooks bank "+meta.bank;
+    let html=`<div class="muted" style="margin-bottom:8px">${esc(file.name)}</div>`;
+    html+=`<table><tr><th>Statement period</th><td class="num">${esc(meta.period)}</td></tr>`+
+          `<tr><th>TD account</th><td class="num mono">${esc(acctLabel)}</td></tr>`+
           `<tr><th>Transactions</th><td class="num">${txns.length}</td></tr>`+
           (meta.beginning!=null?`<tr><th>Beginning balance</th><td class="num">${fmt(meta.beginning)}</td></tr>`:"")+
           (meta.ending!=null?`<tr><th>Ending balance</th><td class="num">${fmt(meta.ending)}</td></tr>`:"")+
           `</table>`;
 
-    html+=`<h3 style="margin:18px 0 2px">Posted to accounts (net)</h3><table>`;
-    Object.keys(byAcct).sort().forEach(a=>{
-      const [c,tot]=byAcct[a];
-      html+=`<tr><td class="mono">${a}</td><td class="num">${c}</td><td class="num">${fmt(tot)}</td></tr>`;
-    });
+    if(!meta.bank_known){
+      html+=`<div class="banner warn"><b>Unmapped bank account.</b> This statement is for TD account `+
+            `${esc(meta.account_number||"unknown")}, which isn't set up yet, so it was posted to bank `+
+            `${meta.bank} by default. Confirm that's the right QuickBooks account before importing.</div>`;
+    }
+
+    html+=`<h3 style="margin:16px 0 2px">Posted to accounts (net)</h3><table>`;
+    Object.keys(byAcct).sort().forEach(a=>{ const [c,tot]=byAcct[a];
+      html+=`<tr><td class="mono">${a}</td><td class="num">${c}</td><td class="num">${fmt(tot)}</td></tr>`; });
     html+=`</table>`;
 
     if(review.length){
       html+=`<div class="banner warn"><b>${review.length} line(s) need review in QuickBooks</b>`+
             ` (posted to a suspense account — reclassify after import):<ul class="rev">`;
-      review.forEach(r=>{ html+=`<li>${r.date} &nbsp; <span class="mono">${fmt(r.amount)}</span> → ${r.account}<br><span class="muted">${r.desc}</span></li>`; });
+      review.forEach(r=>{ html+=`<li>${r.date} &nbsp; <span class="mono">${fmt(r.amount)}</span> → ${r.account}`+
+            `<br><span class="muted">${esc(r.desc)}</span></li>`; });
       html+=`</ul></div>`;
     }
 
     if(problems.length){
-      status.innerHTML=`<span class="pill bad">Reconciliation FAILED</span>`;
-      html+=`<div class="banner bad"><b>This file was NOT created because it doesn't tie out to the statement:</b><ul>`+
-            problems.map(p=>`<li>${p}</li>`).join("")+`</ul>Please send this statement to your accountant — do not import.</div>`;
-      body.innerHTML=html; dl.classList.add("hidden");
-      return;
+      status.innerHTML=`<span class="pill bad">Reconciliation FAILED — no file created</span>`;
+      html+=`<div class="banner bad"><b>Doesn't tie out to the statement — do not import:</b><ul>`+
+            problems.map(p=>`<li>${esc(p)}</li>`).join("")+`</ul>Send this statement to your accountant.</div>`;
+      body.innerHTML=html; return;
     }
 
-    status.innerHTML=`<span class="pill ok">Reconciled ✓ every section and the ending balance tie out</span>`;
-    html+=`<div class="banner ok"><b>Import this file ONCE.</b> It covers ${meta.period}. `+
-          `Importing a month already in QuickBooks duplicates every transaction.</div>`;
-    body.innerHTML=html;
+    status.innerHTML=`<span class="pill ok">Reconciled ✓</span>`;
+    html+=`<div class="banner ok"><b>Import this file ONCE.</b> It covers ${esc(meta.period)} for account `+
+          `${esc(meta.account_number||"?")}. Importing a month already in QuickBooks duplicates every row.</div>`;
 
-    const iif=buildIIF(txns);
-    const blob=new Blob([iif],{type:"text/plain"});
-    dl.href=URL.createObjectURL(blob);
-    dl.download=`valet-box-${meta.period_slug}.iif`;
-    dl.textContent=`Download ${dl.download}`;
-    dl.classList.remove("hidden");
+    const iif=buildIIF(txns,bankRefFor(meta.bank));
+    const url=URL.createObjectURL(new Blob([iif],{type:"text/plain"}));
+    const name=`${meta.label}-${meta.period_slug}.iif`;
+    html+=`<p style="margin-top:14px"><a class="btn" href="${url}" download="${name}">Download ${name}</a></p>`;
+    body.innerHTML=html;
   }catch(err){
     status.innerHTML=`<span class="pill bad">Error</span>`;
-    body.innerHTML=`<div class="banner bad">${err.message||err}</div>`;
+    body.innerHTML=`<div class="muted" style="margin-bottom:8px">${esc(file.name)}</div>`+
+                   `<div class="banner bad">${esc(err.message||err)}</div>`;
   }
 }
 
-// wire up drop zone + file picker
+async function handleFiles(fileList){
+  const pdfs=[...fileList].filter(f=>/\.pdf$/i.test(f.name));
+  if(!pdfs.length) return;
+  const results=$("results");
+  results.innerHTML="";
+  if(pdfs.length>1){
+    const note=document.createElement("div");
+    note.className="banner ok"; note.style.marginBottom="14px";
+    note.innerHTML=`Converting <b>${pdfs.length}</b> statements. Each becomes its own IIF file — `+
+                   `import each one once, into the account it names.`;
+    results.appendChild(note);
+  }
+  // one card per file; process sequentially so the PDF engine isn't overloaded
+  for(const f of pdfs){
+    const card=document.createElement("div");
+    card.className="card";
+    card.innerHTML=`<div class="st"></div><div class="bd"></div>`;
+    results.appendChild(card);
+    await processInto(card, f);
+  }
+}
+
+// wire up drop zone + file picker (both support multiple files)
 const drop=$("drop"), fileInput=$("file");
 drop.addEventListener("click",()=>fileInput.click());
-fileInput.addEventListener("change",e=>{ if(e.target.files[0]) handleFile(e.target.files[0]); });
+fileInput.addEventListener("change",e=>handleFiles(e.target.files));
 ["dragenter","dragover"].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add("hot");}));
 ["dragleave","drop"].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove("hot");}));
-drop.addEventListener("drop",e=>{
-  const f=e.dataTransfer.files[0];
-  if(f && /\.pdf$/i.test(f.name)) handleFile(f);
-});
+drop.addEventListener("drop",e=>handleFiles(e.dataTransfer.files));
 </script>
 </body>
 </html>
