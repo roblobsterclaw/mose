@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TD Statement → QuickBooks IIF</title>
+<style>
+  :root{
+    --bg:#f4f6f8; --card:#ffffff; --ink:#1c2530; --muted:#63707e;
+    --line:#e3e8ee; --brand:#0a7d3b; --brand-ink:#fff;
+    --ok:#0a7d3b; --okbg:#e7f5ec; --bad:#b3261e; --badbg:#fdecea;
+    --warn:#8a5a00; --warnbg:#fdf3e2;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#12171d; --card:#1b222b; --ink:#e8edf2; --muted:#9aa7b4;
+      --line:#2a333d; --okbg:#123322; --badbg:#3a1512; --warnbg:#332708; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);padding:24px}
+  .wrap{max-width:840px;margin:0 auto}
+  h1{font-size:22px;margin:0 0 4px}
+  .sub{color:var(--muted);margin:0 0 20px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:18px}
+  #drop{border:2px dashed var(--line);border-radius:14px;padding:46px 20px;text-align:center;
+    cursor:pointer;transition:.15s;background:var(--card)}
+  #drop.hot{border-color:var(--brand);background:var(--okbg)}
+  #drop h2{margin:0 0 6px;font-size:18px}
+  #drop p{margin:0;color:var(--muted)}
+  .btn{display:inline-block;background:var(--brand);color:var(--brand-ink);border:0;border-radius:10px;
+    padding:12px 20px;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none}
+  .btn[disabled]{opacity:.5;cursor:not-allowed}
+  .pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12.5px;font-weight:600}
+  .pill.ok{background:var(--okbg);color:var(--ok)} .pill.bad{background:var(--badbg);color:var(--bad)}
+  table{width:100%;border-collapse:collapse;margin-top:6px;font-size:14px}
+  th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line)}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+  .banner{border-radius:10px;padding:12px 14px;margin:14px 0;font-size:14px}
+  .banner.ok{background:var(--okbg)} .banner.bad{background:var(--badbg)} .banner.warn{background:var(--warnbg)}
+  .muted{color:var(--muted)} .mono{font-family:ui-monospace,Menlo,Consolas,monospace}
+  .hidden{display:none}
+  ul.rev{margin:8px 0 0;padding-left:18px} ul.rev li{margin:3px 0}
+  footer{color:var(--muted);font-size:12.5px;text-align:center;margin-top:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>TD Statement → QuickBooks IIF</h1>
+  <p class="sub">Drop a TD Bank PDF statement below. It's converted right here in your browser —
+    nothing is uploaded, the PDF never leaves this computer.</p>
+
+  <div id="drop" class="card">
+    <h2>Drag a TD statement PDF here</h2>
+    <p>…or click to choose a file</p>
+    <input id="file" type="file" accept="application/pdf" class="hidden">
+  </div>
+
+  <div id="result" class="card hidden">
+    <div id="status"></div>
+    <div id="body"></div>
+    <p style="margin-top:18px"><a id="download" class="btn" download>Download IIF file</a></p>
+  </div>
+
+  <footer>Runs entirely offline. Import the downloaded .iif once (File → Utilities → Import → IIF Files).</footer>
+</div>
+
+<!-- pdf.js library (vendored, offline) -->
+<script>/*__PDFJS_LIB__*/</script>
+<!-- pdf.js worker source, read as text and run from a blob URL so it works from a local file -->
+<script type="text/plain" id="pdfworker">/*__PDFJS_WORKER__*/</script>
+
+<script>
+/* ============================================================================
+   Converter core — a faithful port of td_to_iif.py. Keep the two in sync.
+   ==========================================================================*/
+const DOT = "·";
+const ACCOUNT_REF_STYLE = "number";   // "number" | "name" | "number_name"
+
+// KEY -> [number, exact name, IIF type]
+const ACCOUNTS = {
+  BANK:         ["1000","Cash","BANK"],
+  RENTAL:       ["4000","8' SB rental","INC"],
+  INSURANCE:    ["6007","Insurance","EXP"],
+  BANK_CHARGES: ["6021","Bank charges","EXP"],
+  PAYROLL_FEE:  ["6023","Payroll fee","EXP"],
+  ADVERTISING:  ["6003","Advertising 1","EXP"],
+  OFFICE:       ["6018","Office","EXP"],
+  MGMT_FEES:    ["6016","Management fees","EXP"],
+  TRUCKS_EQUIP: ["1510","Trucks & Equip","FIXASSET"],
+  TOYOTA_NOTE:  ["2100","Note payable - Toyota Credit","OCLIAB"],
+  SUSPENSE:     ["2300","Other current liabilities","OCLIAB"],
+};
+function acct(key){
+  const [num,name] = ACCOUNTS[key];
+  if (ACCOUNT_REF_STYLE === "number") return num;
+  if (ACCOUNT_REF_STYLE === "number_name") return num+" "+DOT+" "+name;
+  return name;
+}
+
+// [regex on UPPER-CASED description, account KEY, needs review]  first match wins
+const RULES = [
+  [/GLOBAL PAYMENTS.*GLOBAL DEP/, "RENTAL",       false],
+  [/\bDEPOSIT\b/,                 "RENTAL",       false],
+  [/GLOBAL PAYMENTS.*GLOBAL STL/, "BANK_CHARGES", false],
+  [/UTICA MUTUAL/,                "INSURANCE",    false],
+  [/ADP PAYROLL FEES/,            "PAYROLL_FEE",  false],
+  [/TOYOTA/,                      "TOYOTA_NOTE",  false],
+  [/ACH BATCH CHARGE/,            "BANK_CHARGES", false],
+  [/CHASE CREDIT/,                "OFFICE",       false],
+  [/\bAMEX\b/,                    "ADVERTISING",  false],
+  [/TRUIST/,                      "MGMT_FEES",    false],
+  [/CHECK #1328\b/,               "TRUCKS_EQUIP", false], // per-statement check pin
+];
+const FALLBACK = ["SUSPENSE", true];
+function categorize(desc){
+  const up = desc.toUpperCase();
+  for (const [re,key,rev] of RULES){ if (re.test(up)) return [acct(key), rev, key]; }
+  return [acct(FALLBACK[0]), FALLBACK[1], FALLBACK[0]];
+}
+
+const MONEY_RE=/^\d{1,3}(?:,\d{3})*\.\d{2}$/;
+const DATE_RE=/^\d{2}\/\d{2}$/;
+const INT_RE=/^\d+$/;
+const SECTION_HEADERS={"Deposits":"deposits","Electronic Deposits":"electronic_deposits",
+  "Checks Paid":"checks","Electronic Payments":"electronic_payments","Other Withdrawals":"other_withdrawals"};
+const INFLOW=new Set(["deposits","electronic_deposits"]);
+const COLMARK=new Set(["POSTING DATE","SERIAL NO."]);
+const SKIP=new Set(["POSTING DATE","DESCRIPTION","AMOUNT","DATE","SERIAL NO.","DAILY ACCOUNT ACTIVITY"]);
+const money=s=>parseFloat(s.replace(/,/g,""));
+
+function matchSectionHeader(line,lines,idx){
+  let key = SECTION_HEADERS[line];
+  if (key===undefined && line.indexOf("Electronic Deposits")===0) key="electronic_deposits";
+  if (key===undefined) return null;
+  for (let j=idx+1;j<Math.min(idx+5,lines.length);j++){ if (COLMARK.has(lines[j])) return key; }
+  return null;
+}
+
+function parseMeta(lines){
+  const text=lines.join("\n");
+  const months={Jan:1,Feb:2,Mar:3,Apr:4,May:5,Jun:6,Jul:7,Aug:8,Sep:9,Oct:10,Nov:11,Dec:12};
+  const meta={start_month:1,start_year:2000,end_year:2000,period:"unknown",period_slug:"unknown-period"};
+  const p=text.match(/([A-Z][a-z]{2})\s+(\d{2})\s+(\d{4})\s*-\s*([A-Z][a-z]{2})\s+(\d{2})\s+(\d{4})/);
+  if(p){
+    meta.start_month=months[p[1]]||1; meta.start_year=+p[3]; meta.end_year=+p[6];
+    meta.period=p[1]+" "+p[3];
+    meta.period_slug=String(meta.start_year).padStart(4,"0")+"-"+String(meta.start_month).padStart(2,"0");
+  }
+  const grab=label=>{
+    const m=text.match(new RegExp(label.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"\\s*\\n?\\s*([\\d,]+\\.\\d{2})"));
+    return m?money(m[1]):null;
+  };
+  meta.beginning=grab("Beginning Balance");
+  meta.ending=grab("Ending Balance");
+  return meta;
+}
+
+function fullDate(mmdd,meta){
+  const [mm,dd]=mmdd.split("/");
+  const year=(+mm>=meta.start_month)?meta.start_year:meta.end_year;
+  return mm+"/"+dd+"/"+year;
+}
+
+function parseStatement(lines){
+  const meta=parseMeta(lines);
+  const txns=[]; const printed={};
+  let section=null, rec=null;
+  const finalize=()=>{
+    if(rec && rec.amount!=null){
+      let desc=rec.parts.join(" ").replace(/\s+/g," ").trim();
+      if(section==="checks") desc=("Check #"+(rec.serial||"")).trim();
+      txns.push({section, date:fullDate(rec.date,meta), desc,
+        serial:rec.serial, amount:rec.amount, inflow:INFLOW.has(section)});
+    }
+    rec=null;
+  };
+  for(let i=0;i<lines.length;i++){
+    const line=lines[i];
+    const hk=matchSectionHeader(line,lines,i);
+    if(hk){ finalize(); section=hk; continue; }
+    if(section===null) continue;
+    if(line.indexOf("Subtotal:")===0){
+      finalize();
+      if(i+1<lines.length && MONEY_RE.test(lines[i+1])){ printed[section]=money(lines[i+1]); i++; }
+      section=null; continue;
+    }
+    if(SKIP.has(line)||line.indexOf("No. Checks")===0||line.indexOf("*Indicates")===0) continue;
+    if(DATE_RE.test(line)){ finalize(); rec={date:line,parts:[],serial:null,amount:null}; continue; }
+    if(rec){
+      if(MONEY_RE.test(line)){ rec.amount=money(line); finalize(); }   // amount closes the record
+      else if(INT_RE.test(line)){ rec.serial=line; rec.parts.push(line); }
+      else rec.parts.push(line);
+    }
+  }
+  finalize();
+  return {meta,txns,printed};
+}
+
+function reconcile(meta,txns,printed){
+  const problems=[]; const sums={};
+  for(const t of txns) sums[t.section]=Math.round(((sums[t.section]||0)+t.amount)*100)/100;
+  for(const s in printed){
+    const got=Math.round((sums[s]||0)*100)/100;
+    if(Math.abs(got-printed[s])>0.005)
+      problems.push(`Section '${s}': parsed ${got.toFixed(2)} but statement says ${printed[s].toFixed(2)}`);
+  }
+  if(meta.beginning!=null && meta.ending!=null){
+    let inf=0,outf=0;
+    for(const t of txns){ if(t.inflow) inf+=t.amount; else outf+=t.amount; }
+    const comp=Math.round((meta.beginning+inf-outf)*100)/100;
+    if(Math.abs(comp-meta.ending)>0.005)
+      problems.push(`Balance check: begin ${meta.beginning.toFixed(2)} + in ${inf.toFixed(2)} - out ${outf.toFixed(2)} = ${comp.toFixed(2)}, statement ending ${meta.ending.toFixed(2)}`);
+  }
+  return problems;
+}
+
+function buildIIF(txns){
+  const rows=[];
+  rows.push(["!TRNS","TRNSTYPE","DATE","ACCNT","NAME","AMOUNT","DOCNUM","MEMO","CLEAR"]);
+  rows.push(["!SPL","TRNSTYPE","DATE","ACCNT","NAME","AMOUNT","DOCNUM","MEMO","CLEAR"]);
+  rows.push(["!ENDTRNS"]);
+  for(const t of txns){
+    const [account,review]=categorize(t.desc);
+    const ttype=t.inflow?"DEPOSIT":"CHECK";
+    const docnum=(t.section==="checks"&&t.serial)?t.serial:"";
+    const memo=review?("REVIEW: "+t.desc):t.desc;
+    const bank=t.inflow?t.amount:-t.amount;
+    rows.push(["TRNS",ttype,t.date,acct("BANK"),"",bank.toFixed(2),docnum,memo,"N"]);
+    rows.push(["SPL",ttype,t.date,account,"",(-bank).toFixed(2),"",memo,"N"]);
+    rows.push(["ENDTRNS"]);
+  }
+  return rows.map(r=>r.join("\t")).join("\r\n")+"\r\n";
+}
+
+function summarize(meta,txns){
+  const byAcct={}; const review=[];
+  for(const t of txns){
+    const [account,rev]=categorize(t.desc);
+    const signed=t.inflow?t.amount:-t.amount;
+    if(!byAcct[account]) byAcct[account]=[0,0];
+    byAcct[account][0]++; byAcct[account][1]=Math.round((byAcct[account][1]+signed)*100)/100;
+    if(rev) review.push({date:t.date,account,amount:signed,desc:t.desc});
+  }
+  return {byAcct,review};
+}
+
+/* ============================================================================
+   PDF text extraction + UI glue
+   ==========================================================================*/
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+  URL.createObjectURL(new Blob([document.getElementById("pdfworker").textContent],
+                               {type:"application/javascript"}));
+
+async function extractLines(arrayBuffer){
+  const doc=await pdfjsLib.getDocument({data:arrayBuffer,isEvalSupported:false}).promise;
+  const lines=[];
+  for(let p=1;p<=doc.numPages;p++){
+    const page=await doc.getPage(p);
+    const tc=await page.getTextContent();
+    for(const it of tc.items){ const s=(it.str||"").trim(); if(s) lines.push(s); }
+  }
+  return lines;
+}
+
+const $=id=>document.getElementById(id);
+const fmt=n=>n.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});
+
+async function handleFile(file){
+  const result=$("result"), status=$("status"), body=$("body"), dl=$("download");
+  result.classList.remove("hidden"); dl.classList.add("hidden");
+  status.innerHTML=`<span class="muted">Reading <b>${file.name}</b> …</span>`; body.innerHTML="";
+  try{
+    const buf=await file.arrayBuffer();
+    const lines=await extractLines(buf);
+    const {meta,txns,printed}=parseStatement(lines);
+    if(!txns.length){ throw new Error("No transactions found — is this a TD Business Convenience Plus PDF?"); }
+    const problems=reconcile(meta,txns,printed);
+    const {byAcct,review}=summarize(meta,txns);
+
+    let html="";
+    html+=`<table><tr><th>Statement period</th><td class="num">${meta.period}</td></tr>`+
+          `<tr><th>Transactions</th><td class="num">${txns.length}</td></tr>`+
+          (meta.beginning!=null?`<tr><th>Beginning balance</th><td class="num">${fmt(meta.beginning)}</td></tr>`:"")+
+          (meta.ending!=null?`<tr><th>Ending balance</th><td class="num">${fmt(meta.ending)}</td></tr>`:"")+
+          `</table>`;
+
+    html+=`<h3 style="margin:18px 0 2px">Posted to accounts (net)</h3><table>`;
+    Object.keys(byAcct).sort().forEach(a=>{
+      const [c,tot]=byAcct[a];
+      html+=`<tr><td class="mono">${a}</td><td class="num">${c}</td><td class="num">${fmt(tot)}</td></tr>`;
+    });
+    html+=`</table>`;
+
+    if(review.length){
+      html+=`<div class="banner warn"><b>${review.length} line(s) need review in QuickBooks</b>`+
+            ` (posted to a suspense account — reclassify after import):<ul class="rev">`;
+      review.forEach(r=>{ html+=`<li>${r.date} &nbsp; <span class="mono">${fmt(r.amount)}</span> → ${r.account}<br><span class="muted">${r.desc}</span></li>`; });
+      html+=`</ul></div>`;
+    }
+
+    if(problems.length){
+      status.innerHTML=`<span class="pill bad">Reconciliation FAILED</span>`;
+      html+=`<div class="banner bad"><b>This file was NOT created because it doesn't tie out to the statement:</b><ul>`+
+            problems.map(p=>`<li>${p}</li>`).join("")+`</ul>Please send this statement to your accountant — do not import.</div>`;
+      body.innerHTML=html; dl.classList.add("hidden");
+      return;
+    }
+
+    status.innerHTML=`<span class="pill ok">Reconciled ✓ every section and the ending balance tie out</span>`;
+    html+=`<div class="banner ok"><b>Import this file ONCE.</b> It covers ${meta.period}. `+
+          `Importing a month already in QuickBooks duplicates every transaction.</div>`;
+    body.innerHTML=html;
+
+    const iif=buildIIF(txns);
+    const blob=new Blob([iif],{type:"text/plain"});
+    dl.href=URL.createObjectURL(blob);
+    dl.download=`valet-box-${meta.period_slug}.iif`;
+    dl.textContent=`Download ${dl.download}`;
+    dl.classList.remove("hidden");
+  }catch(err){
+    status.innerHTML=`<span class="pill bad">Error</span>`;
+    body.innerHTML=`<div class="banner bad">${err.message||err}</div>`;
+  }
+}
+
+// wire up drop zone + file picker
+const drop=$("drop"), fileInput=$("file");
+drop.addEventListener("click",()=>fileInput.click());
+fileInput.addEventListener("change",e=>{ if(e.target.files[0]) handleFile(e.target.files[0]); });
+["dragenter","dragover"].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add("hot");}));
+["dragleave","drop"].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove("hot");}));
+drop.addEventListener("drop",e=>{
+  const f=e.dataTransfer.files[0];
+  if(f && /\.pdf$/i.test(f.name)) handleFile(f);
+});
+</script>
+</body>
+</html>

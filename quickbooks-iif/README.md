@@ -4,11 +4,33 @@ Turns a **TD Business Convenience Plus** PDF statement (the Valet Box / Surfbox
 TD Valet account) into an **`.IIF` file** that **QuickBooks Desktop Pro 2024**
 imports directly — so nobody has to key transactions in by hand every month.
 
-There are two ways to use it:
+There are three ways to use it:
 
-1. **The drop-a-PDF app** (for staff) — leave a watcher running; drop a PDF in a
-   folder; an `.iif` pops out. No command line.
-2. **The command line** (for one-offs / testing).
+1. **The browser app — `TD-to-IIF.html`** (recommended for staff). Double-click
+   it, drag the PDF onto the page, download the `.iif`. No install, no command
+   line, works offline, and the PDF never leaves the computer. See below.
+2. **The drop-a-PDF folder watcher** (Python) — leave it running; drop a PDF in
+   the `inbox/` folder; an `.iif` pops out.
+3. **The command line** (Python, for one-offs / testing).
+
+All three produce the **same** IIF file (the browser app's output is verified
+byte-for-byte against the Python tool).
+
+## Using it — the browser app (easiest, nothing to install)
+
+1. Put **`TD-to-IIF.html`** somewhere handy on the QuickBooks computer (Desktop
+   is fine). It's one self-contained file.
+2. Double-click it — it opens in your web browser.
+3. Drag a TD statement PDF onto the page (or click to choose one).
+4. It shows the reconciliation check and a category breakdown. If everything
+   ties out, a **Download** button appears — click it to save the `.iif`.
+5. Import that `.iif` into QuickBooks (see below), **once**.
+
+Everything runs locally in the browser — no internet, no upload, no Python. If a
+statement doesn't reconcile, the app shows why and does **not** offer a download.
+
+To rebuild `TD-to-IIF.html` after changing the app (`app/template.html`) or the
+account mapping, run `python3 app/build.py`.
 
 Either way, the tool **refuses to produce a file unless every section subtotal
 and the ending balance on the statement reconcile to the penny.** That guard is
