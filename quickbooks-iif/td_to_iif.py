@@ -50,19 +50,21 @@ except ImportError:
 DOT = "·"  # the "·" QuickBooks shows between an account number and its name
 
 # How to write account references in the IIF file:
-#   "name"        -> "Cash"          (the account's real NAME; what QB matches on
-#                                      when account numbers are enabled)
+#   "number"      -> "1000"          (the account NUMBER alone)
+#   "name"        -> "Cash"          (the account's real NAME)
 #   "number_name" -> "1000 · Cash"   (the number+name display string)
-# QuickBooks Desktop 2024's importer matches on the NAME, so "name" is the
-# correct, reliable choice. ("number_name" made every transaction fail because
-# no account is literally named "1000 · Cash".)
-ACCOUNT_REF_STYLE = "name"
+# This company file has account numbers enabled, and QuickBooks Desktop 2024
+# resolves the ACCNT field by number. "number" is the proven, reliable choice
+# (it matches the format of the statements that already import for this file).
+# Do NOT use "number_name": the "·" is only a display separator, and no account
+# is literally named "1000 · Cash", so every row fails to resolve.
+ACCOUNT_REF_STYLE = "number"
 
-# Emit an !ACCNT block that declares every account used, with its number and
-# type. This guarantees each account resolves on import (matched if it already
-# exists, created with the right type if it somehow doesn't) so transactions
-# can't fail on an unresolved account.
-EMIT_ACCNT_BLOCK = True
+# QuickBooks Desktop 2024's IIF importer rejects an !ACCNT header that contains
+# an ACCNTNUM column ("ACCNTNUM is not a valid column name for record ACCNT"),
+# and that one error aborts the WHOLE import. The accounts already exist in the
+# chart, so we don't declare them at all — we just reference them by number.
+EMIT_ACCNT_BLOCK = False
 
 # Account registry:  KEY -> (number, exact name, IIF account type)
 # The NAME must match your chart of accounts exactly. IIF type codes:
@@ -86,6 +88,8 @@ ACCOUNTS = {
 def acct(key):
     """Render the account reference in the configured style."""
     num, name, _ = ACCOUNTS[key]
+    if ACCOUNT_REF_STYLE == "number":
+        return num
     if ACCOUNT_REF_STYLE == "number_name":
         return f"{num} {DOT} {name}"
     return name

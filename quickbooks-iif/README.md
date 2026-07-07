@@ -145,14 +145,15 @@ Open `td_to_iif.py` and edit two short tables near the top:
 
 - **Format:** tab-delimited `TRNS` / `SPL` / `ENDTRNS` blocks — the transaction
   IIF dialect QuickBooks Desktop expects.
-- **Account references:** accounts are referenced by their **bare name**
-  (`Cash`, `Office`, …) — the string QuickBooks matches on when account numbers
-  are enabled — and the file opens with an `!ACCNT` block declaring each account
-  with its number and type so every account resolves on import. (Referencing the
-  display form `1000 · Cash` instead makes the 2024 importer fail every row,
-  because no account is literally *named* that.) To switch styles, see
+- **Account references:** accounts are referenced by their **number** (`1000`,
+  `4000`, `6021`, …). This company file has account numbers enabled, and the
+  2024 importer resolves accounts by number cleanly. There is **no `!ACCNT`
+  block** — the accounts already exist, and a declared `!ACCNT` header with an
+  `ACCNTNUM` column is rejected by the 2024 importer (`ACCNTNUM is not a valid
+  column name`), which aborts the entire import. To change styles, see
   `ACCOUNT_REF_STYLE` / `EMIT_ACCNT_BLOCK` at the top of `td_to_iif.py`.
-- **Encoding:** written as Windows-1252 (ANSI) with CRLF line endings.
+- **Encoding:** pure ASCII, CRLF line endings — nothing for QuickBooks to
+  choke on.
 - **Signs:** deposits post `+` to `1000 · Cash`; checks/ACH debits post `−`. Each
   block nets to zero, so the register always balances.
 - **Transaction types:** money in = `DEPOSIT`; money out (checks and ACH debits)
