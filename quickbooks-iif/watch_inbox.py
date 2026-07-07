@@ -51,8 +51,16 @@ def _stable(path, checks=2, gap=0.6):
 def process(pdf):
     for d in (OUTPUT, PROCESSED, FAILED):
         d.mkdir(exist_ok=True)
-    stem = pdf.stem
-    iif_path = OUTPUT / f"{stem}.iif"
+    # Name the output by the statement's own period (e.g. valet-box-2026-07.iif)
+    # rather than the PDF's filename. Re-dropping the same month overwrites the
+    # same file instead of making "june (2).iif", so staff can't accidentally
+    # end up with two importable copies of one month.
+    try:
+        meta, _txns, _ = converter.parse_statement(str(pdf))
+        slug = meta.get("period_slug", pdf.stem)
+    except Exception:
+        slug = pdf.stem
+    iif_path = OUTPUT / f"valet-box-{slug}.iif"
     print(f"\n[{time.strftime('%H:%M:%S')}] Converting {pdf.name} ...")
     try:
         converter.convert(str(pdf), str(iif_path))

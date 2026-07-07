@@ -90,6 +90,48 @@ python td_to_iif.py statement.pdf --preview       # show the summary, write noth
 
 ---
 
+## ⚠️ Import each month exactly once (avoiding duplicates)
+
+**QuickBooks IIF import does not check whether a transaction already exists.**
+If a month is imported twice — or is included in another file you also import —
+every transaction in that month is created a second time. There is no built-in
+"skip duplicates" for IIF (that only exists for Bank Feeds).
+
+The June 2026 duplication happened this way: an earlier year-to-date "FULL" file
+already contained all 45 June transactions, and then the June-only file was
+imported on top — so June posted twice.
+
+Rules that keep it from happening again:
+
+1. **One statement = one file = one import.** This tool produces a single file
+   per statement (June from the June PDF, July from the July PDF). Import each
+   once and never re-import a month.
+2. **Don't import cumulative / year-to-date files anymore.** Because Jan–June are
+   already in QuickBooks, going forward import **only the new month** each time.
+3. Output files are now named by the statement's own period
+   (`valet-box-2026-07.iif`), so re-running a month overwrites its file instead
+   of quietly creating a second copy. The tool also prints an **IMPORT THIS FILE
+   ONCE** banner with the period it covers.
+4. **Always back up the company file right before importing** — that backup is
+   your one-click undo if anything doubles up.
+
+### Fixing the June duplication
+
+Every June transaction is currently in QuickBooks twice. Two ways to clean it:
+
+- **Easiest — restore the backup** you made right before importing the June-only
+  file. That removes those 45 in one step and leaves the original set. Then fix
+  the one item below.
+- **If you can't restore** — in the `1000 · Cash` register, each June line now
+  appears twice. Delete one copy of each. The copies from this tool have a
+  **blank Payee** (description is in the Memo); the older copies have the Payee
+  filled in — so delete whichever set you don't want to keep.
+
+**One categorization fix either way:** the older file booked **check #1328
+($19,500) to `6018 · Office`**, but you asked for **`1510 · Trucks & Equip`**.
+Whichever copy you keep, make sure that check ends up in `1510`. (Files produced
+by this tool already put it in `1510`.)
+
 ## How transactions are categorized
 
 The offsetting account for each transaction is chosen by the rules in

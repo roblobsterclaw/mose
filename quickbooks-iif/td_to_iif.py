@@ -301,12 +301,17 @@ def _parse_meta(lines):
     months = {m: i for i, m in enumerate(
         ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
          "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], start=1)}
-    meta = {"start_month": 1, "start_year": 2000, "end_year": 2000, "period": "unknown"}
+    meta = {"start_month": 1, "start_year": 2000, "end_year": 2000,
+            "period": "unknown", "period_slug": "unknown-period"}
     if period:
         meta["start_month"] = months.get(period.group(1), 1)
         meta["start_year"] = int(period.group(3))
         meta["end_year"] = int(period.group(6))
         meta["period"] = f"{period.group(1)} {period.group(3)}"
+        # deterministic slug like "2026-06" so each statement month maps to ONE
+        # output filename — re-running the same month overwrites instead of
+        # silently producing a second file that could be imported twice.
+        meta["period_slug"] = f"{meta['start_year']:04d}-{meta['start_month']:02d}"
 
     def grab(label):
         m = re.search(re.escape(label) + r"\s*\n?\s*([\d,]+\.\d{2})", text)
@@ -477,11 +482,18 @@ def convert(pdf_path, out_path=None, preview=False):
         sys.exit(2)
     print("Reconciliation OK — every section and the ending balance tie out.\n")
 
+    print("+" + "-" * 62 + "+")
+    print(f"| IMPORT THIS FILE ONCE.  It covers {meta.get('period','?'):<26} |")
+    print("| IIF import does NOT check for existing transactions, so       |")
+    print("| importing a month already in QuickBooks DUPLICATES every row. |")
+    print("+" + "-" * 62 + "+\n")
+
     if preview:
         return
 
     if out_path is None:
-        out_path = str(Path(pdf_path).with_suffix(".iif"))
+        # name by statement period so each month is one deterministic file
+        out_path = str(Path(pdf_path).with_name(f"valet-box-{meta['period_slug']}.iif"))
     write_iif(build_iif(txns), out_path)
     Path(out_path).with_suffix(".summary.txt").write_text(summary)
     print(f"Wrote {out_path}")
