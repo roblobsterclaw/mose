@@ -1,0 +1,12 @@
+# transient working files — don't track dropped PDFs or generated output,
+# except the committed June 2026 sample deliverable
+__pycache__/
+inbox/*.pdf
+processed/*.pdf
+failed/*.pdf
+output/*
+!output/valet-box-2026-06.iif
+!output/valet-box-2026-06.summary.txt
+!inbox/.gitkeep
+!processed/.gitkeep
+!failed/.gitkeep
