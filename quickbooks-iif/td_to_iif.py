@@ -47,21 +47,62 @@ except ImportError:
 # MIDDOT is the "·" character (Unicode U+00B7). Keep it; the file is written as
 # Windows-1252 so QuickBooks reads it as a single byte.
 # ---------------------------------------------------------------------------
-DOT = "·"  # ·
+DOT = "·"  # the "·" QuickBooks shows between an account number and its name
 
-BANK_ACCOUNT = f"1000 {DOT} Cash"  # the TD checking account inside QuickBooks
+# How to write account references in the IIF file:
+#   "name"        -> "Cash"          (the account's real NAME; what QB matches on
+#                                      when account numbers are enabled)
+#   "number_name" -> "1000 · Cash"   (the number+name display string)
+# QuickBooks Desktop 2024's importer matches on the NAME, so "name" is the
+# correct, reliable choice. ("number_name" made every transaction fail because
+# no account is literally named "1000 · Cash".)
+ACCOUNT_REF_STYLE = "name"
 
-RENTAL_INCOME = f"4000 {DOT} 8' SB rental"
-INSURANCE     = f"6007 {DOT} Insurance"
-BANK_CHARGES  = f"6021 {DOT} Bank charges"
-PAYROLL_FEE   = f"6023 {DOT} Payroll fee"
-ADVERTISING   = f"6003 {DOT} Advertising 1"    # Amex payments
-OFFICE        = f"6018 {DOT} Office"            # Chase credit-card payments
-MGMT_FEES     = f"6016 {DOT} Management fees"   # recurring Truist WEBXFR transfers
-TRUCKS_EQUIP  = f"1510 {DOT} Trucks & Equip"    # check #1328 (equipment purchase)
-TOYOTA_NOTE   = f"2100 {DOT} Note payable - Toyota Credit"
+# Emit an !ACCNT block that declares every account used, with its number and
+# type. This guarantees each account resolves on import (matched if it already
+# exists, created with the right type if it somehow doesn't) so transactions
+# can't fail on an unresolved account.
+EMIT_ACCNT_BLOCK = True
+
+# Account registry:  KEY -> (number, exact name, IIF account type)
+# The NAME must match your chart of accounts exactly. IIF type codes:
+#   BANK=Bank  INC=Income  EXP=Expense  FIXASSET=Fixed Asset
+#   OCLIAB=Other Current Liability
+ACCOUNTS = {
+    "BANK":         ("1000", "Cash",                        "BANK"),
+    "RENTAL":       ("4000", "8' SB rental",                "INC"),
+    "INSURANCE":    ("6007", "Insurance",                   "EXP"),
+    "BANK_CHARGES": ("6021", "Bank charges",                "EXP"),
+    "PAYROLL_FEE":  ("6023", "Payroll fee",                 "EXP"),
+    "ADVERTISING":  ("6003", "Advertising 1",               "EXP"),  # Amex
+    "OFFICE":       ("6018", "Office",                      "EXP"),  # Chase
+    "MGMT_FEES":    ("6016", "Management fees",             "EXP"),  # Truist
+    "TRUCKS_EQUIP": ("1510", "Trucks & Equip",             "FIXASSET"),  # chk 1328
+    "TOYOTA_NOTE":  ("2100", "Note payable - Toyota Credit", "OCLIAB"),
+    "SUSPENSE":     ("2300", "Other current liabilities",   "OCLIAB"),
+}
+
+
+def acct(key):
+    """Render the account reference in the configured style."""
+    num, name, _ = ACCOUNTS[key]
+    if ACCOUNT_REF_STYLE == "number_name":
+        return f"{num} {DOT} {name}"
+    return name
+
+
+BANK_ACCOUNT  = acct("BANK")  # the TD checking account inside QuickBooks
+RENTAL_INCOME = acct("RENTAL")
+INSURANCE     = acct("INSURANCE")
+BANK_CHARGES  = acct("BANK_CHARGES")
+PAYROLL_FEE   = acct("PAYROLL_FEE")
+ADVERTISING   = acct("ADVERTISING")    # Amex payments
+OFFICE        = acct("OFFICE")         # Chase credit-card payments
+MGMT_FEES     = acct("MGMT_FEES")      # recurring Truist WEBXFR transfers
+TRUCKS_EQUIP  = acct("TRUCKS_EQUIP")   # check #1328 (equipment purchase)
+TOYOTA_NOTE   = acct("TOYOTA_NOTE")
 # Suspense / "ask my accountant" bucket for anything we can't confidently book.
-SUSPENSE      = f"2300 {DOT} Other current liabilities"
+SUSPENSE      = acct("SUSPENSE")
 
 
 # ---------------------------------------------------------------------------
@@ -321,8 +362,29 @@ def trns_type(t):
     return "CHECK"  # checks and ACH debits both post as a decrease in the register
 
 
+def _used_account_keys(txns):
+    keys = {"BANK"}
+    name_to_key = {v[1]: k for k, v in ACCOUNTS.items()}
+    for t in txns:
+        account, _ = categorize(t["desc"])
+        # `account` is a rendered ref; map it back to its registry key
+        for k, (num, name, _typ) in ACCOUNTS.items():
+            if account in (name, f"{num} {DOT} {name}"):
+                keys.add(k)
+                break
+    return keys
+
+
 def build_iif(txns):
     rows = []
+
+    if EMIT_ACCNT_BLOCK:
+        rows.append(["!ACCNT", "NAME", "ACCNTTYPE", "ACCNTNUM"])
+        for key in ACCOUNTS:  # preserves declared order
+            if key in _used_account_keys(txns):
+                num, name, typ = ACCOUNTS[key]
+                rows.append(["ACCNT", acct(key), typ, num])
+
     rows.append(["!TRNS", "TRNSTYPE", "DATE", "ACCNT", "NAME", "AMOUNT", "DOCNUM", "MEMO", "CLEAR"])
     rows.append(["!SPL", "TRNSTYPE", "DATE", "ACCNT", "NAME", "AMOUNT", "DOCNUM", "MEMO", "CLEAR"])
     rows.append(["!ENDTRNS"])
