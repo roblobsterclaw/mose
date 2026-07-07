@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T02:51:41.456342+00:00",
+  "generated_at": "2026-07-07T06:36:59.480288+00:00",
   "source": "yahoo",
   "market_status": "closed",
   "indices": [
@@ -30,8 +30,8 @@
     {
       "name": "Russell 2000",
       "ticker": "^RUT",
-      "price": 3009.5413,
-      "change_pct": 0.4482778738727331,
+      "price": 3009.541,
+      "change_pct": 0.4482812713818932,
       "vs_exit": null,
       "source": "yahoo"
     },
@@ -39,7 +39,7 @@
       "name": "VIX",
       "ticker": "^VIX",
       "price": 15.57,
-      "change_pct": -1.5180265654648968,
+      "change_pct": -3.591331269349835,
       "vs_exit": null,
       "source": "yahoo"
     }
@@ -481,10 +481,10 @@
       "ticker": "IFNNF",
       "symbol": "IFNNF",
       "price": 88.7,
-      "prev_close": 86.0,
-      "change_pct": 3.139534883720933,
+      "prev_close": 85.5,
+      "change_pct": 3.7426900584795355,
       "date": "2026-07-06",
-      "time": "10:17:09",
+      "time": "16:00:00",
       "volume": 280,
       "week52_high": 103.5,
       "week52_low": 36.21
