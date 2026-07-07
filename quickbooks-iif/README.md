@@ -103,35 +103,32 @@ The offsetting account for each transaction is chosen by the rules in
 | `UTICA MUTUAL INS` | `6007 · Insurance` |
 | `ADP PAYROLL FEES` | `6023 · Payroll fee` |
 | `ACH BATCH CHARGE` (SBIB) | `6021 · Bank charges` |
-| `TOYOTA COMMERCIA` | `2100 · Note payable - Toyota` ⚠️ verify name |
-| `CHASE CREDIT CRD EPAY` | `2300 · Other current liabilities` — **REVIEW** |
-| `AMEX EPAYMENT` | `2300 · Other current liabilities` — **REVIEW** |
-| `TRUIST … WEBXFR TRANSFER` | `2300 · Other current liabilities` — **REVIEW** |
-| Checks (e.g. #1328) | `2300 · Other current liabilities` — **REVIEW** |
+| `TOYOTA COMMERCIA` | `2100 · Note payable - Toyota Credit` |
+| `CHASE CREDIT CRD EPAY` | `6018 · Office` |
+| `AMEX EPAYMENT` | `6003 · Advertising 1` |
+| `TRUIST … WEBXFR TRANSFER` | `6016 · Management fees` |
+| Check #1328 (equipment) | `1510 · Trucks & Equip` |
+| Any other check | `2300 · Other current liabilities` — **REVIEW** |
 | Anything unrecognized | `2300 · Other current liabilities` — **REVIEW** |
 
-`2300 · Other current liabilities` is used as a **suspense / “ask my accountant”
-bucket**. Everything landing there is tagged `REVIEW:` in its memo and listed in
-the summary, so after import you open the `2300` register, find the `REVIEW:`
-lines, and reclassify each to the right account. Amounts, dates, and full bank
-descriptions are already there — no re-keying, just re-pointing the account.
+`2300 · Other current liabilities` is the **suspense / “ask my accountant”
+bucket** for anything the tool can’t confidently book (mainly checks, which vary
+month to month). Anything landing there is tagged `REVIEW:` in its memo and
+listed in the summary, so after import you open the `2300` register, find the
+`REVIEW:` lines, and reclassify each. Amounts, dates, and full bank descriptions
+are already there — no re-keying, just re-pointing the account. For June, every
+line was categorized and nothing was flagged.
 
-### Two things to confirm before you rely on this monthly
+### Checks need a one-line pin each month
 
-1. **`2100 · Note payable - Toyota`** — the account name is cut off in the chart
-   export as *“Note payable - Toyota Cr…”*. Open the account in QuickBooks, copy
-   its exact full name, and paste it into `TOYOTA_NOTE` near the top of
-   `td_to_iif.py`. If it doesn’t match exactly, the import creates a duplicate
-   account.
-2. **The REVIEW items** — decide how you actually want these booked and I can
-   turn them into automatic rules so they stop hitting suspense:
-   - **Chase / Amex** credit-card payments — if you track those cards as
-     liabilities in QuickBooks, they should pay down those accounts. Your current
-     chart has no credit-card accounts, which is why they go to suspense.
-   - **Truist `WEBXFR` transfers** — recurring `$1,495`. If this is a loan/lease
-     payment, rent, or a transfer to another account, tell me the target account.
-   - **Check #1328 ($19,500)** — large; needs a payee/account each month if
-     recurring.
+Checks can’t be categorized from the statement alone (the bank only prints the
+check number). Unpinned checks go to `2300` **REVIEW** so you classify them in
+QuickBooks. If a check recurs or you want it pre-categorized, add a line to the
+`RULES` table, e.g. check #1328 was pinned to `1510 · Trucks & Equip`:
+
+```python
+(r"CHECK #1328\b", TRUCKS_EQUIP, False),
+```
 
 ### Changing the mapping
 

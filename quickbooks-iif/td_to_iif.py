@@ -55,10 +55,11 @@ RENTAL_INCOME = f"4000 {DOT} 8' SB rental"
 INSURANCE     = f"6007 {DOT} Insurance"
 BANK_CHARGES  = f"6021 {DOT} Bank charges"
 PAYROLL_FEE   = f"6023 {DOT} Payroll fee"
-# NOTE: the Toyota account name is truncated on the chart PDF as
-# "Note payable - Toyota Cr...". Verify the exact full name in QuickBooks and
-# fix the string below if needed, or the Toyota payment will create a duplicate.
-TOYOTA_NOTE   = f"2100 {DOT} Note payable - Toyota Cr"
+ADVERTISING   = f"6003 {DOT} Advertising 1"    # Amex payments
+OFFICE        = f"6018 {DOT} Office"            # Chase credit-card payments
+MGMT_FEES     = f"6016 {DOT} Management fees"   # recurring Truist WEBXFR transfers
+TRUCKS_EQUIP  = f"1510 {DOT} Trucks & Equip"    # check #1328 (equipment purchase)
+TOYOTA_NOTE   = f"2100 {DOT} Note payable - Toyota Credit"
 # Suspense / "ask my accountant" bucket for anything we can't confidently book.
 SUSPENSE      = f"2300 {DOT} Other current liabilities"
 
@@ -79,13 +80,18 @@ RULES = [
     (r"GLOBAL PAYMENTS.*GLOBAL STL", BANK_CHARGES,  False),  # merchant fees
     (r"UTICA MUTUAL",                INSURANCE,     False),
     (r"ADP PAYROLL FEES",            PAYROLL_FEE,   False),
-    (r"TOYOTA",                      TOYOTA_NOTE,   True),    # verify acct name
+    (r"TOYOTA",                      TOYOTA_NOTE,   False),
     (r"ACH BATCH CHARGE",            BANK_CHARGES,  False),
-    (r"CHASE CREDIT",                SUSPENSE,      True),    # credit-card payment
-    (r"\bAMEX\b",                    SUSPENSE,      True),    # credit-card payment
-    (r"TRUIST",                      SUSPENSE,      True),    # recurring transfer
+    (r"CHASE CREDIT",                OFFICE,        False),   # Chase card payment
+    (r"\bAMEX\b",                    ADVERTISING,   False),   # Amex card payment
+    (r"TRUIST",                      MGMT_FEES,     False),   # recurring transfer
+    # --- per-statement check overrides -------------------------------------
+    # Checks can't be auto-categorized from the statement alone, so unmatched
+    # checks fall through to REVIEW below. Add a line here to pin a known check
+    # to its account, e.g. check #1328 was a Trucks & Equipment purchase.
+    (r"CHECK #1328\b",               TRUCKS_EQUIP,  False),
 ]
-# Anything that matches no rule falls through to this (e.g. the $19,500 check).
+# Anything that matches no rule falls through to this (e.g. an un-pinned check).
 FALLBACK = (SUSPENSE, True)
 
 
