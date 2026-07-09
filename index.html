@@ -1524,13 +1524,14 @@ async function checkPw(){
         <input id="watchlist-add-name" class="watchlist-add-input" placeholder="Company name" autocomplete="off" oninput="handleWatchlistSearchInput('name')" onfocus="handleWatchlistSearchInput('name')" onkeydown="handleWatchlistSearchKey(event)" onblur="setTimeout(hideWatchlistSuggestions, 160)">
       </div>
       <select id="watchlist-add-bucket" class="watchlist-control">
-        <option value="watching">Watching for Now</option>
-        <option value="core-forever">Core Forever</option>
-        <option value="opportunistic">Opportunistic Value</option>
-        <option value="innovation">20yr Innovation</option>
-        <option value="value-with-risk">Value with Risk</option>
-        <option value="pre-ipo">Pre-IPO</option>
-        <option value="treasury-index">Treasury & Index Funds</option>
+        <option value="forever">Forever compounders</option>
+        <option value="toll">Toll booths</option>
+        <option value="hard">Hard assets</option>
+        <option value="aicore">AI core</option>
+        <option value="aibench">AI bench</option>
+        <option value="opp">Opportunistic</option>
+        <option value="radar">Radar</option>
+        <option value="dry">Dry powder</option>
         <option value="uncategorized">Uncategorized</option>
       </select>
       <button class="watchlist-add-btn" onclick="addWatchlistStock()">Add Stock</button>
@@ -1661,8 +1662,8 @@ async function checkPw(){
       <div class="reentry-form">
         <select id="targets-import-acct" class="reentry-input" style="width:auto">
           <option value="his">Joe's IRA</option>
-          <option value="hers">Wife's IRA</option>
-          <option value="mose">MOSE Joint</option>
+          <option value="hers">Keli's IRA</option>
+          <option value="joint">Joint Cash</option>
         </select>
         <button class="filter-btn" onclick="targImportPreview()">Preview</button>
         <button class="watchlist-add-btn" onclick="targImport()">Import → fill Owned</button>
@@ -1700,9 +1701,9 @@ async function checkPw(){
     </div>
 
     <div class="reentry-section">
-      <h3>💎 MOSE — Joint Cash Account (margin of safety)</h3>
-      <div class="sub" id="targets-mose-sub"></div>
-      <div id="targets-mose"></div>
+      <h3 id="targets-joint-title">💎 Joint Cash</h3>
+      <div class="sub" id="targets-joint-sub"></div>
+      <div id="targets-joint"></div>
     </div>
 
     <div id="targets-history"></div>
@@ -1718,7 +1719,7 @@ async function checkPw(){
     </details>
 
     <div class="info-blurb">
-      How to use it: when you sit down to buy, work the <strong>Your IRA</strong> table (fill up to $950k) and the <strong>Her IRA</strong> table (fill up to $200k) — the "Buy More" column is your order size for each. The Combined table up top shows overall progress toward each stock's goal. MOSE is your separate $344k joint cash account and is never mixed into the IRA totals. Not financial advice — this is your own plan.
+      How to use it: one shared set of 8 buckets feeds all three accounts. When you sit down to buy, each account (<strong>Joe's IRA</strong>, <strong>Keli's IRA</strong>, <strong>Joint Cash</strong>) shows its own dollar target per stock — scaled to that account's size — plus a "Buy This Month" order size. The Combined table up top rolls up the two IRAs. Print the buy list (below) to get the per-account order sheet you take into IBKR. IRAs and the joint cash account stay legally separate; this just lets you plan them as one. Not financial advice — this is your own plan.
     </div>
   </div>
 
@@ -2042,43 +2043,43 @@ const JOE_EXIT = { SPX: 6591.90, DJI: 46429.49 };
 // Sourced from convergence report + April 30 update + MOSE.md context
 const JOES_PORTFOLIO = [
   // Core Forever Holdings (~40% allocation)
-  { ticker: 'BRK-B', name: 'Berkshire Hathaway', bucket: 'core', note: 'The compounder of compounders' },
-  { ticker: 'GOOGL', name: 'Alphabet (Google)', bucket: 'core', note: '#1 convergence — Li Lu 44%' },
-  { ticker: 'V',     name: 'Visa', bucket: 'core', note: '4 super investors, payment toll bridge' },
-  { ticker: 'MA',    name: 'Mastercard', bucket: 'core', note: '3 investors, Akre 19%' },
-  { ticker: 'MCO',   name: "Moody's Corp", bucket: 'core', note: 'Buffett + Akre + Hohn' },
-  { ticker: 'AAPL',  name: 'Apple', bucket: 'core', note: 'Buffett 22%+, Gayner, Li Lu' },
-  { ticker: 'AMZN',  name: 'Amazon', bucket: 'core', note: '4 investors — Ackman 14%' },
-  { ticker: 'AXP',   name: 'American Express', bucket: 'core', note: 'Buffett + Guy Spier' },
-  { ticker: 'FICO',  name: 'Fair Isaac (FICO)', bucket: 'core', note: 'Akre 9%, pricing power moat' },
-  { ticker: 'PGR',   name: 'Progressive Insurance', bucket: 'core', note: "Joe's conviction pick" },
+  { ticker: 'BRK-B', name: 'Berkshire Hathaway', bucket: 'forever', note: 'The compounder of compounders' },
+  { ticker: 'GOOGL', name: 'Alphabet (Google)', bucket: 'forever', note: '#1 convergence — Li Lu 44%' },
+  { ticker: 'V',     name: 'Visa', bucket: 'forever', note: '4 super investors, payment toll bridge' },
+  { ticker: 'MA',    name: 'Mastercard', bucket: 'forever', note: '3 investors, Akre 19%' },
+  { ticker: 'MCO',   name: "Moody's Corp", bucket: 'forever', note: 'Buffett + Akre + Hohn' },
+  { ticker: 'AAPL',  name: 'Apple', bucket: 'forever', note: 'Buffett 22%+, Gayner, Li Lu' },
+  { ticker: 'AMZN',  name: 'Amazon', bucket: 'forever', note: '4 investors — Ackman 14%' },
+  { ticker: 'AXP',   name: 'American Express', bucket: 'forever', note: 'Buffett + Guy Spier' },
+  { ticker: 'FICO',  name: 'Fair Isaac (FICO)', bucket: 'forever', note: 'Akre 9%, pricing power moat' },
+  { ticker: 'PGR',   name: 'Progressive Insurance', bucket: 'forever', note: "Joe's conviction pick" },
   // Opportunistic Value (5-7yr horizon)
-  { ticker: 'OXY',   name: 'Occidental Petroleum', bucket: 'opportunistic', note: 'Buffett + Li Lu energy bet' },
-  { ticker: 'CVX',   name: 'Chevron', bucket: 'opportunistic', note: 'Buffett 10% of Berkshire' },
-  { ticker: 'KHC',   name: 'Kraft Heinz', bucket: 'opportunistic', note: 'Buffett holding, deep value' },
-  { ticker: 'DVA',   name: 'DaVita', bucket: 'opportunistic', note: 'Buffett, DCF BUY signal' },
-  { ticker: 'VRSN',  name: 'VeriSign', bucket: 'opportunistic', note: 'Buffett, monopoly DNS' },
-  { ticker: 'ROP',   name: 'Roper Technologies', bucket: 'opportunistic', note: 'Akre 9.6%, DCF BUY signal' },
-  { ticker: 'ORLY',  name: "O'Reilly Automotive", bucket: 'opportunistic', note: 'Akre 12%, auto parts compounder' },
-  { ticker: 'KMX',   name: 'CarMax', bucket: 'opportunistic', note: 'Akre holding, auto retail' },
-  { ticker: 'STZ',   name: 'Constellation Brands', bucket: 'opportunistic', note: 'Buffett new position 2025' },
-  { ticker: 'BABA',  name: 'Alibaba', bucket: 'opportunistic', note: 'Li Lu + Pabrai, China deep value' },
-  { ticker: 'MELI',  name: 'MercadoLibre', bucket: 'opportunistic', note: "LatAm Amazon — Joe's conviction" },
-  { ticker: 'BN',    name: 'Brookfield Corporation', bucket: 'opportunistic', note: 'Convergence 80 — Ackman 18%, Akre 13%, Gayner 5.7%' },
-  { ticker: 'BAC',   name: 'Bank of America', bucket: 'opportunistic', note: 'Current Truist holding' },
-  { ticker: 'RACE',  name: 'Ferrari', bucket: 'opportunistic', note: 'Guy Spier 12%, luxury moat' },
+  { ticker: 'OXY',   name: 'Occidental Petroleum', bucket: 'opp', note: 'Buffett + Li Lu energy bet' },
+  { ticker: 'CVX',   name: 'Chevron', bucket: 'opp', note: 'Buffett 10% of Berkshire' },
+  { ticker: 'KHC',   name: 'Kraft Heinz', bucket: 'opp', note: 'Buffett holding, deep value' },
+  { ticker: 'DVA',   name: 'DaVita', bucket: 'opp', note: 'Buffett, DCF BUY signal' },
+  { ticker: 'VRSN',  name: 'VeriSign', bucket: 'opp', note: 'Buffett, monopoly DNS' },
+  { ticker: 'ROP',   name: 'Roper Technologies', bucket: 'opp', note: 'Akre 9.6%, DCF BUY signal' },
+  { ticker: 'ORLY',  name: "O'Reilly Automotive", bucket: 'opp', note: 'Akre 12%, auto parts compounder' },
+  { ticker: 'KMX',   name: 'CarMax', bucket: 'opp', note: 'Akre holding, auto retail' },
+  { ticker: 'STZ',   name: 'Constellation Brands', bucket: 'opp', note: 'Buffett new position 2025' },
+  { ticker: 'BABA',  name: 'Alibaba', bucket: 'opp', note: 'Li Lu + Pabrai, China deep value' },
+  { ticker: 'MELI',  name: 'MercadoLibre', bucket: 'opp', note: "LatAm Amazon — Joe's conviction" },
+  { ticker: 'BN',    name: 'Brookfield Corporation', bucket: 'opp', note: 'Convergence 80 — Ackman 18%, Akre 13%, Gayner 5.7%' },
+  { ticker: 'BAC',   name: 'Bank of America', bucket: 'opp', note: 'Current Truist holding' },
+  { ticker: 'RACE',  name: 'Ferrari', bucket: 'opp', note: 'Guy Spier 12%, luxury moat' },
   // 20-Year Innovation Holdings (~12% total, 0.6% each)
-  { ticker: 'NVDA',  name: 'Nvidia', bucket: 'inn', note: 'AI infrastructure play' },
-  { ticker: 'TSLA',  name: 'Tesla', bucket: 'inn', note: '20-year energy/AI bet' },
-  { ticker: 'MSFT',  name: 'Microsoft', bucket: 'inn', note: 'Cloud + AI compounding' },
-  { ticker: 'WMT',   name: 'Walmart', bucket: 'inn', note: 'Current holding, retail fortress' },
-  { ticker: 'PLD',   name: 'Prologis', bucket: 'inn', note: 'Current holding, logistics REIT' },
-  { ticker: 'META',  name: 'Meta Platforms', bucket: 'inn', note: 'Pabrai 27%, AI + social' },
+  { ticker: 'NVDA',  name: 'Nvidia', bucket: 'opp', note: 'AI infrastructure play' },
+  { ticker: 'TSLA',  name: 'Tesla', bucket: 'opp', note: '20-year energy/AI bet' },
+  { ticker: 'MSFT',  name: 'Microsoft', bucket: 'opp', note: 'Cloud + AI compounding' },
+  { ticker: 'WMT',   name: 'Walmart', bucket: 'opp', note: 'Current holding, retail fortress' },
+  { ticker: 'PLD',   name: 'Prologis', bucket: 'opp', note: 'Current holding, logistics REIT' },
+  { ticker: 'META',  name: 'Meta Platforms', bucket: 'opp', note: 'Pabrai 27%, AI + social' },
   // Treasury & Index Funds
-  { ticker: 'SGOV', name: 'iShares 0-3 Month Treasury Bond ETF', bucket: 'treasury-index', note: 'Joe owns ~11,300 shares — yield adjusts in weeks' },
-  { ticker: 'TFLO', name: 'iShares Treasury Floating Rate Bond ETF', bucket: 'treasury-index', note: 'Floating rate treasury ETF' },
-  { ticker: 'BIL',  name: 'SPDR Bloomberg 1-3 Month T-Bill ETF', bucket: 'treasury-index', note: '1-3 Month T-Bill ETF' },
-  { ticker: 'VOO',  name: 'Vanguard S&P 500 ETF', bucket: 'treasury-index', note: 'S&P 500 index fund' },
+  { ticker: 'SGOV', name: 'iShares 0-3 Month Treasury Bond ETF', bucket: 'dry', note: 'Joe owns ~11,300 shares — yield adjusts in weeks' },
+  { ticker: 'TFLO', name: 'iShares Treasury Floating Rate Bond ETF', bucket: 'dry', note: 'Floating rate treasury ETF' },
+  { ticker: 'BIL',  name: 'SPDR Bloomberg 1-3 Month T-Bill ETF', bucket: 'dry', note: '1-3 Month T-Bill ETF' },
+  { ticker: 'VOO',  name: 'Vanguard S&P 500 ETF', bucket: 'dry', note: 'S&P 500 index fund' },
   // Added April 20
   { ticker: 'TSM',  name: 'Taiwan Semiconductor (TSMC)', bucket: 'uncategorized', note: 'Makes 90%+ of worlds advanced chips. Taiwan risk.' },
   { ticker: 'INTC', name: 'Intel Corporation', bucket: 'uncategorized', note: 'New CEO Lip-Bu Tan. 282% off lows. Earnings Apr 23.' },
@@ -2086,9 +2087,9 @@ const JOES_PORTFOLIO = [
   { ticker: 'AVGO', name: 'Broadcom Inc.', bucket: 'uncategorized', note: 'AI networking + custom chips for Google/Meta. Picks and shovels play.' },
   { ticker: 'AMD',  name: 'Advanced Micro Devices', bucket: 'uncategorized', note: 'MI300X competing with NVIDIA. #2 GPU maker.' },
   { ticker: 'MU',   name: 'Micron Technology', bucket: 'uncategorized', note: 'HBM memory — every AI chip needs it. US-listed memory play.' },
-  { ticker: 'ANTHR', name: 'Anthropic (PRE-IPO)', bucket: 'pre-ipo', note: 'PRE-IPO. $61.5B valuation. $30B+ invested ($10B Google, $8B Amazon). Plan to buy 5% allocation. ACTION: Look into EquityZen (equityzen.com) and Forge Global (FRGE) for pre-IPO access. Rob runs on this.' },
-  { ticker: 'ROBO', name: 'Robo Global Robotics & Automation ETF', bucket: 'treasury-index', note: 'Pure play robotics/AI/automation ETF. Global exposure.' },
-  { ticker: 'IRBO', name: 'iShares Robotics and AI Multisector ETF', bucket: 'treasury-index', note: 'iShares robotics + AI ETF. Broad AI/automation basket.' },
+  { ticker: 'ANTHR', name: 'Anthropic (PRE-IPO)', bucket: 'opp', note: 'PRE-IPO. $61.5B valuation. $30B+ invested ($10B Google, $8B Amazon). Plan to buy 5% allocation. ACTION: Look into EquityZen (equityzen.com) and Forge Global (FRGE) for pre-IPO access. Rob runs on this.' },
+  { ticker: 'ROBO', name: 'Robo Global Robotics & Automation ETF', bucket: 'dry', note: 'Pure play robotics/AI/automation ETF. Global exposure.' },
+  { ticker: 'IRBO', name: 'iShares Robotics and AI Multisector ETF', bucket: 'dry', note: 'iShares robotics + AI ETF. Broad AI/automation basket.' },
   { ticker: 'PLTR', name: 'Palantir Technologies', bucket: 'uncategorized', note: 'AI/data analytics for government + enterprise. Gotham + Foundry platforms. Peter Thiel founded.' },
   { ticker: 'LLY',  name: 'Eli Lilly and Company', bucket: 'uncategorized', note: 'Pharma giant. Partner with Google Isomorphic Labs on AI drug discovery. GLP-1 leader (Mounjaro/Zepbound).' },
   { ticker: 'NVS',  name: 'Novartis AG', bucket: 'uncategorized', note: 'Swiss pharma. Partner with Google Isomorphic Labs on AI drug discovery. Strong pipeline.' },
@@ -2180,15 +2181,17 @@ const RESEARCH_LABELS = {
 // header. bucketDefs is the source of truth (ordered array, synced via
 // Firebase); WATCHLIST_BUCKETS / BUCKET_ORDER are derived lookups kept under
 // their original names so existing render code keeps working.
+// Aligned with the Buy Targets buckets so the same 8 names appear everywhere.
 const DEFAULT_BUCKET_DEFS = [
-  { key: 'core-forever',    label: '\uD83C\uDFF0 Core Forever (20+ years)',       color: '#2D5A27' },
-  { key: 'opportunistic',   label: '\uD83D\uDCC8 Opportunistic Value (10 years)', color: '#1B4F72' },
-  { key: 'innovation',      label: '\uD83E\uDDEA 20yr Innovation',                color: '#5C4A8A' },
-  { key: 'value-with-risk', label: '\u26A1 Value with Risk',                      color: '#7D4E00' },
-  { key: 'pre-ipo',         label: '\uD83D\uDD12 Pre-IPO',                        color: '#4A235A' },
-  { key: 'treasury-index',  label: '\uD83D\uDCB0 Treasury & Index Funds',         color: '#7D6608' },
-  { key: 'watching',        label: '\uD83D\uDC40 Watching for Now',               color: '#5B5B5B' },
-  { key: 'uncategorized',   label: '\u2B1C Uncategorized',                        color: '#3A3A3A' },
+  { key: 'forever',       label: '\uD83C\uDFF0 Forever compounders', color: '#2D5A27' },
+  { key: 'toll',          label: '\uD83D\uDEE3\uFE0F Toll booths',   color: '#1F6F6B' },
+  { key: 'hard',          label: '\uD83C\uDFD7\uFE0F Hard assets',   color: '#7D4E00' },
+  { key: 'aicore',        label: '\uD83E\uDD16 AI core',             color: '#1B4F72' },
+  { key: 'aibench',       label: '\uD83D\uDD2C AI bench',            color: '#5C4A8A' },
+  { key: 'opp',           label: '\uD83D\uDCC8 Opportunistic',       color: '#8B2635' },
+  { key: 'radar',         label: '\uD83D\uDC40 Radar',               color: '#5B5B5B' },
+  { key: 'dry',           label: '\uD83D\uDCB0 Dry powder',          color: '#7D6608' },
+  { key: 'uncategorized', label: '\u2B1C Uncategorized',            color: '#3A3A3A' },
 ];
 const BUCKET_COLOR_PALETTE = ['#2D5A27','#1B4F72','#5C4A8A','#7D4E00','#4A235A','#7D6608','#8B2635','#1F6F6B','#5B5B5B'];
 let bucketDefs = loadBucketDefs();
@@ -2215,19 +2218,37 @@ function rebuildBucketLookups() {
     BUCKET_ORDER.push(d.key);
   });
 }
+// Old bucket keys migrate into the new 8-bucket taxonomy so existing
+// watchlist assignments are preserved rather than orphaned.
 const BUCKET_ALIASES = {
-  core: 'core-forever',
-  'core forever': 'core-forever',
-  opp: 'opportunistic',
-  opportunistic: 'opportunistic',
-  inn: 'innovation',
-  innovation: 'innovation',
-  '20yr innovation': 'innovation',
-  'value': 'value-with-risk',
-  'value-risk': 'value-with-risk',
-  treasury: 'treasury-index',
-  index: 'treasury-index',
-  watching: 'watching',
+  core: 'forever',
+  'core forever': 'forever',
+  'core-forever': 'forever',
+  forever: 'forever',
+  toll: 'toll',
+  'toll-booths': 'toll',
+  hard: 'hard',
+  'hard-assets': 'hard',
+  aicore: 'aicore',
+  'ai-core': 'aicore',
+  aibench: 'aibench',
+  'ai-bench': 'aibench',
+  opp: 'opp',
+  opportunistic: 'opp',
+  inn: 'opp',
+  innovation: 'opp',
+  '20yr innovation': 'opp',
+  'value': 'opp',
+  'value-risk': 'opp',
+  'value-with-risk': 'opp',
+  'pre-ipo': 'opp',
+  radar: 'radar',
+  watching: 'radar',
+  dry: 'dry',
+  'dry-powder': 'dry',
+  treasury: 'dry',
+  index: 'dry',
+  'treasury-index': 'dry',
   uncategorized: 'uncategorized'
 };
 watchlistBuckets = normalizeBucketMap(watchlistBuckets);
@@ -3604,7 +3625,7 @@ function searchAllStocks(query, limit = 10) {
     scored.push({ o, sort: [exact, starts, fromDirectory ? 1 : 0, o.ticker] });
   };
   buildStockSearchIndex().forEach(o => consider(o, false));
-  tickerDirectory.forEach(o => consider({ ticker: o.ticker, name: o.name, source: o.exchange || 'Listed', bucket: 'watching', quoteSymbol: o.quoteSymbol || '' }, true));
+  tickerDirectory.forEach(o => consider({ ticker: o.ticker, name: o.name, source: o.exchange || 'Listed', bucket: 'radar', quoteSymbol: o.quoteSymbol || '' }, true));
   scored.sort((a, b) => {
     for (let i = 0; i < 3; i++) { if (a.sort[i] !== b.sort[i]) return a.sort[i] - b.sort[i]; }
     return a.sort[3].localeCompare(b.sort[3]);
@@ -3615,7 +3636,7 @@ function searchAllStocks(query, limit = 10) {
 function upsertStockOption(map, ticker, name, source, bucket) {
   const key = canonicalTicker(ticker);
   if (!key || key === 'CASH' || key === 'MANAGED') return;
-  const existing = map.get(key) || { ticker: key, name: key, source: '', bucket: 'watching' };
+  const existing = map.get(key) || { ticker: key, name: key, source: '', bucket: 'radar' };
   const cleanName = String(name || existing.name || key).trim();
   map.set(key, {
     ticker: key,
@@ -3642,7 +3663,7 @@ function findStockMatch(query) {
   if (!q) return null;
   // Tracked names first (carry bucket/source), then the full market directory.
   const tracked = buildStockSearchIndex();
-  const directory = tickerDirectory.map(o => ({ ticker: o.ticker, name: o.name, source: o.exchange || 'Listed', bucket: 'watching', quoteSymbol: o.quoteSymbol || '' }));
+  const directory = tickerDirectory.map(o => ({ ticker: o.ticker, name: o.name, source: o.exchange || 'Listed', bucket: 'radar', quoteSymbol: o.quoteSymbol || '' }));
   const options = [...tracked, ...directory];
   return options.find(o => o.ticker.toLowerCase() === q) ||
     options.find(o => o.name.toLowerCase() === q) ||
@@ -3738,8 +3759,8 @@ function addPrivateWatchlistStock() {
   const name = (nameEl?.value || '').trim() || (tickerEl?.value || '').trim();
   if (!name) { showWatchlistToast('Type a company name first'); return; }
   const key = privateKeyFromName(name);
-  customWatchlist.push({ ticker: key, name, bucket: 'pre-ipo', note: name, private: true, dateAdded: new Date().toISOString().slice(0, 10) });
-  watchlistBuckets[key] = 'pre-ipo';
+  customWatchlist.push({ ticker: key, name, bucket: 'radar', note: name, private: true, dateAdded: new Date().toISOString().slice(0, 10) });
+  watchlistBuckets[key] = 'radar';
   saveWatchlistLocalState(`Added ${name} (private)`);
   if (tickerEl) tickerEl.value = '';
   if (nameEl) { nameEl.value = ''; nameEl.dataset.autofilled = ''; }
@@ -3833,7 +3854,7 @@ function buildPurchaseCandidates() {
     const val = getValuationForTicker(ticker, dcfMap);
     const report = getReportForTicker(ticker);
     const bucket = getCandidateBucket(ticker, p);
-    const isPriorityBucket = bucket === 'core-forever' || bucket === 'opportunistic' || (p && (p.bucket === 'core' || p.bucket === 'opportunistic'));
+    const isPriorityBucket = bucket === 'forever' || bucket === 'opp' || (p && (p.bucket === 'forever' || p.bucket === 'opp'));
     const hasDive = !!(report && report.reportUrl && report.reportUrl.trim());
     const owns = joeOwns[ticker];
 
@@ -4009,7 +4030,7 @@ function renderCockpit() {
   const all = buildPurchaseCandidates();
   const ready = all.filter(c => c.score >= 80);
   const needsDive = all.filter(c => c.score >= 70 && !c.hasDive);
-  const priority = all.filter(c => c.bucket === 'core-forever' || c.bucket === 'opportunistic');
+  const priority = all.filter(c => c.bucket === 'forever' || c.bucket === 'opp');
 
   const setText = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
   setText('pc-ready-count', ready.length);
@@ -4894,7 +4915,7 @@ document.addEventListener('click', event => {
 // ============================================================
 let latestIndicesData = null; // fallback indices captured by loadIndices()
 
-const REENTRY_BUCKET_CHOICES = ['core-forever','opportunistic','innovation','value-with-risk','treasury-index'];
+const REENTRY_BUCKET_CHOICES = ['forever','toll','hard','aicore','opp','dry'];
 
 function defaultReentryData() {
   return {
@@ -4909,7 +4930,7 @@ function defaultReentryData() {
         months: 18,
         startDate: '2026-06-01',
         buyDay: 15,
-        allocations: { 'core-forever': 50, 'opportunistic': 30, 'innovation': 10, 'treasury-index': 10 },
+        allocations: { 'forever': 50, 'toll': 15, 'hard': 15, 'dry': 20 },
         ladder: [
           { dd: 0,   mult: 1.0 },
           { dd: -5,  mult: 1.5 },
@@ -5152,7 +5173,7 @@ function reentryDcaTicketHtml(plan, c, market) {
 
 function reentryDipTicketHtml(plan, c, market) {
   const nextTier = c.tiers.find(t => !t.triggered);
-  const shopList = reentryTickerList(['core-forever', 'opportunistic', 'value-with-risk']);
+  const shopList = reentryTickerList(['forever', 'toll', 'hard', 'aicore', 'opp']);
   const headline = c.dueNow > 0
     ? `${reentryFmt(c.dueNow)} <small>to deploy now — drawdown tiers triggered at S&P ${market.price ? market.price.toFixed(0) : '—'}</small>`
     : (nextTier && nextTier.trigger
@@ -5339,37 +5360,45 @@ function renderReentry() {
 // stripped-down old defaults; this restores the full lists + pinned weights).
 let _targetsRepaired = false;
 function canonTargetsBuckets() {
+  // One shared set of 8 buckets. All three accounts (Joe's IRA, Keli's IRA,
+  // Joint Cash) draw from these same buckets; each account's dollar target for a
+  // stock is its own size × bucket% × the stock's share of the bucket. Bucket %s
+  // are starting points — editable in-app.
   return [
-    { id: 'forever', label: 'Forever',  pct: 50,
-      tickers: ['AMZN', 'GOOGL', 'BRK.B', 'NVDA', 'MELI', 'MCO', 'SPGI', 'V', 'BN'],
-      weights: { AMZN: 18, GOOGL: 18, NVDA: 6 }, locked: { AMZN: true, GOOGL: true, NVDA: true } },
-    { id: 'sp',      label: 'S&P 500',  pct: 15,
-      tickers: ['VOO', 'VTV', 'IDGT', 'NLR', 'QQQ'],
-      weights: { VOO: 50, VTV: 25, IDGT: 10, NLR: 10, QQQ: 5 },
-      locked: { VOO: true, VTV: true, IDGT: true, NLR: true, QQQ: true } },
-    { id: 'fornow',  label: 'For Now',  pct: 25,
-      tickers: ['AXP', 'BABA', 'CVX', 'MA', 'PGR', 'OXY', 'TSM', 'WMT', 'COST', 'UBER', 'COF', 'GE', 'CVNA', 'CODI', 'CP'],
-      weights: {}, locked: {} },
-    { id: 'aistack', label: 'AI Stack Trade', pct: 10, tickers: [], weights: {}, locked: {} }
+    { id: 'forever', label: 'Forever compounders', pct: 35,
+      tickers: ['GOOGL', 'AMZN', 'BRK.B', 'AAPL', 'MSFT', 'META', 'COST', 'MELI', 'CSU', 'WMT'],
+      weights: { GOOGL: 15, AMZN: 15 }, locked: { GOOGL: true, AMZN: true } },
+    { id: 'toll', label: 'Toll booths', pct: 10,
+      tickers: ['V', 'MA', 'AXP', 'MCO', 'SPGI', 'PGR'], weights: {}, locked: {} },
+    { id: 'hard', label: 'Hard assets', pct: 10,
+      tickers: ['BN', 'PLD', 'CP', 'CVX', 'OXY', 'GE', 'HON', 'NLR'], weights: {}, locked: {} },
+    { id: 'aicore', label: 'AI core', pct: 8,
+      tickers: ['AVGO', 'LRCX', 'TSM', 'ASML', 'NVDA', 'SMH'], weights: {}, locked: {} },
+    { id: 'aibench', label: 'AI bench', pct: 4,
+      tickers: ['COHR', 'CIEN', 'FN', 'CLS', 'MKSI', 'MTSI', 'AEIS', 'TTMI', 'VIAV', 'SITM', 'WDC', 'TSEM', 'CBRS', 'MU', 'INTC', 'ARM', 'AMD'], weights: {}, locked: {} },
+    { id: 'opp', label: 'Opportunistic', pct: 8,
+      tickers: ['UBER', 'APP', 'MDB', 'DASH', 'RBLX', 'FROG', 'KVYO', 'BABA', 'CVNA', 'TSLA', 'SPCX', 'CODI', 'MBGL', 'BE'], weights: {}, locked: {} },
+    { id: 'radar', label: 'Radar', pct: 5,
+      tickers: ['LLY', 'DE', 'ROP', 'FICO', 'VRSN', 'ORLY', 'TXN', 'RACE'], weights: {}, locked: {} },
+    { id: 'dry', label: 'Dry powder', pct: 20,
+      tickers: ['VOO', 'VTV', 'QQQ', 'IDGT', 'SGOV'],
+      weights: { SGOV: 40, VOO: 30 }, locked: { SGOV: true } }
   ];
 }
 
 function defaultTargetsData() {
   return {
-    version: 6,
+    version: 7,
+    // `ira` is the shared container for all three accounts + the one bucket set.
+    // (Name kept for backward-compat; it holds Joint too now.)
     ira: {
       total: 1150000,
       accounts: {
-        his:  { label: "Joe's IRA",  total: 950000 },
-        hers: { label: "Wife's IRA", total: 200000 }
+        his:   { label: "Joe's IRA",  total: 950000 },
+        hers:  { label: "Keli's IRA", total: 200000 },
+        joint: { label: 'Joint Cash', total: 344000 }
       },
       buckets: canonTargetsBuckets()
-    },
-    mose: {
-      label: 'MOSE — Joint Cash',
-      total: 344000,
-      stockPct: 70, // 70% deployed into stocks, 30% held as cash
-      tickers: ['AAPL', 'AMD', 'ASML', 'INTC', 'META', 'MSFT', 'MU', 'TSLA', 'SPCX', 'DASH']
     },
     // Owned market value, keyed "account|ticker". His from IBKR 2026-06-13; hers from IBKR 2026-06-15.
     owned: {
@@ -5377,10 +5406,13 @@ function defaultTargetsData() {
       'hers|AMZN': 2624, 'hers|GOOGL': 3970, 'hers|WMT': 3389
     },
     history: [
-      { date: '2026-06-15', his: 46918, hers: 9983, mose: 0, iraGoal: 1150000, moseStockGoal: 240800 }
+      { date: '2026-06-15', his: 46918, hers: 9983, joint: 0, iraGoal: 1150000 }
     ]
   };
 }
+// The three accounts, in display order. Single source of truth for the render,
+// print, CSV, and import so no account gets special-cased or missed.
+const TARG_ACCTS = ['his', 'hers', 'joint'];
 
 let targetsData = (function() {
   let d = null;
@@ -5397,14 +5429,12 @@ function migrateTargets(d) {
   if (!d.ira || typeof d.ira !== 'object') d.ira = {};
   if (!d.ira.accounts || typeof d.ira.accounts !== 'object') d.ira.accounts = {};
   if (!d.ira.accounts.his || typeof d.ira.accounts.his !== 'object') d.ira.accounts.his = { label: "Joe's IRA", total: 950000 };
-  if (!d.ira.accounts.hers || typeof d.ira.accounts.hers !== 'object') d.ira.accounts.hers = { label: "Wife's IRA", total: 200000 };
+  if (!d.ira.accounts.hers || typeof d.ira.accounts.hers !== 'object') d.ira.accounts.hers = { label: "Keli's IRA", total: 200000 };
+  if (!d.ira.accounts.joint || typeof d.ira.accounts.joint !== 'object') d.ira.accounts.joint = { label: 'Joint Cash', total: (d.mose && typeof d.mose.total === 'number') ? d.mose.total : 344000 };
   if (typeof d.ira.accounts.his.total !== 'number') d.ira.accounts.his.total = 950000;
   if (typeof d.ira.accounts.hers.total !== 'number') d.ira.accounts.hers.total = 200000;
+  if (typeof d.ira.accounts.joint.total !== 'number') d.ira.accounts.joint.total = 344000;
   if (!Array.isArray(d.ira.buckets) || !d.ira.buckets.length) d.ira.buckets = canonTargetsBuckets();
-  if (!d.mose || typeof d.mose !== 'object') d.mose = { label: 'MOSE — Joint Cash', total: 344000, stockPct: 70, tickers: [] };
-  if (!Array.isArray(d.mose.tickers)) d.mose.tickers = [];
-  if (typeof d.mose.total !== 'number') d.mose.total = 344000;
-  if (typeof d.mose.stockPct !== 'number') d.mose.stockPct = 70;
   if (!d.owned || typeof d.owned !== 'object') d.owned = {};
   if ((d.version || 0) < 3) {
     const want = { forever: 50, sp: 25, fornow: 25 };
@@ -5436,6 +5466,33 @@ function migrateTargets(d) {
     d.version = 6;
     _targetsRepaired = true;  // push the new bucket/split to the cloud so all devices get it
   }
+  if ((d.version || 0) < 7) {
+    // Unify on one shared 8-bucket taxonomy across all three accounts, and
+    // promote the Joint account from a separate flat list to a full account
+    // that shares the buckets. Owned/plan/verify keyed "mose|..." move to
+    // "joint|...". No owned dollars are lost.
+    d.ira.accounts.hers.label = "Keli's IRA";
+    if (!d.ira.accounts.joint) d.ira.accounts.joint = { label: 'Joint Cash', total: (d.mose && d.mose.total) || 344000 };
+    d.ira.accounts.joint.label = 'Joint Cash';
+    const remap = obj => {
+      if (!obj || typeof obj !== 'object') return;
+      Object.keys(obj).forEach(k => {
+        if (k.indexOf('mose|') === 0) {
+          const nk = 'joint|' + k.slice(5);
+          obj[nk] = (Number(obj[nk]) || 0) + obj[k];
+          delete obj[k];
+        }
+      });
+    };
+    remap(d.owned); remap(d.plan);
+    if (d.verify && d.verify.mose) { d.verify.joint = d.verify.mose; delete d.verify.mose; }
+    // Full taxonomy change (4 buckets -> 8), so install the canonical set.
+    // Owned is keyed by account|ticker, so it survives the bucket reshuffle.
+    d.ira.buckets = canonTargetsBuckets();
+    delete d.mose;  // no longer a separate flat list
+    d.version = 7;
+    _targetsRepaired = true;
+  }
   d.ira.buckets.forEach(b => {
     if (!Array.isArray(b.tickers)) b.tickers = [];
     if (!b.weights || typeof b.weights !== 'object') b.weights = {};
@@ -5456,7 +5513,6 @@ function targOwned(acct, ticker) {
 function targAllTickers() {
   const s = new Set();
   targetsData.ira.buckets.forEach(b => b.tickers.forEach(t => s.add(t)));
-  targetsData.mose.tickers.forEach(t => s.add(t));
   return s;
 }
 
@@ -5518,13 +5574,8 @@ function targAutoFillPlan(acct, pctVal) {
     const buy = Math.round(Math.max(0, target - targOwned(acct, t)) * pct / 100);
     if (buy > 0) targetsData.plan[acct + '|' + t] = buy; else delete targetsData.plan[acct + '|' + t];
   };
-  if (acct === 'mose') {
-    const m = targetsData.mose, budget = m.total * m.stockPct / 100, tgt = m.tickers.length ? budget / m.tickers.length : 0;
-    m.tickers.forEach(t => set(t, tgt));
-  } else {
-    const a = targetsData.ira.accounts[acct];
-    targetsData.ira.buckets.forEach(b => b.tickers.forEach(t => set(t, targStockTarget(a.total, b, t))));
-  }
+  const a = targetsData.ira.accounts[acct];
+  if (a) targetsData.ira.buckets.forEach(b => b.tickers.forEach(t => set(t, targStockTarget(a.total, b, t))));
   targetsSave();
   showWatchlistToast(`This month = ${pct}% of each remaining`);
 }
@@ -5619,8 +5670,7 @@ function targSetCfg(path, val) {
   if (!Number.isFinite(n) || n < 0) { renderTargets(); return; }
   if (path === 'his.total') targetsData.ira.accounts.his.total = n;
   else if (path === 'hers.total') targetsData.ira.accounts.hers.total = n;
-  else if (path === 'mose.total') targetsData.mose.total = n;
-  else if (path === 'mose.stockPct') targetsData.mose.stockPct = Math.min(100, n);
+  else if (path === 'joint.total') targetsData.ira.accounts.joint.total = n;
   else if (path.startsWith('bucket.')) { const i = +path.split('.')[1]; if (targetsData.ira.buckets[i]) targetsData.ira.buckets[i].pct = n; }
   targetsSave();
 }
@@ -5905,20 +5955,11 @@ function targDragEnd(ev) {
   if (anchorTicker === d.ticker) return; // dropped onto itself — no change
   targDropTicker(d.src, d.ticker, destBucket, anchorTicker);
 }
-// Resolve a bucket id to its ticker list. 'mose' is the separate joint-cash pool.
+// Resolve a bucket id to its ticker list. Buckets are shared across all three
+// accounts; owned is keyed by account|ticker, so a bucket move never orphans it.
 function targListFor(id) {
-  if (id === 'mose') return { tickers: targetsData.mose.tickers, label: targetsData.mose.label, weights: null, locked: null, mose: true };
   const b = targetsData.ira.buckets.find(x => x.id === id);
-  return b ? { tickers: b.tickers, label: b.label, weights: b.weights, locked: b.locked, mose: false } : null;
-}
-// On a move across the IRA<->MOSE boundary, carry the owned $ to the destination's account key so nothing is orphaned.
-function targMigrateOwned(ticker, srcMose, destMose) {
-  if (srcMose === destMose) return; // same pool — owned keys stay valid
-  const srcAccts = srcMose ? ['mose'] : ['his', 'hers'];
-  const destAcct = destMose ? 'mose' : 'his';
-  let sum = 0;
-  srcAccts.forEach(a => { sum += targOwned(a, ticker); delete targetsData.owned[a + '|' + ticker]; });
-  if (sum > 0) targetsData.owned[destAcct + '|' + ticker] = (targetsData.owned[destAcct + '|' + ticker] || 0) + sum;
+  return b ? { tickers: b.tickers, label: b.label, weights: b.weights, locked: b.locked } : null;
 }
 // Move/reorder a ticker. beforeTicker = insert before it in dest; null = append.
 function targDropTicker(srcId, ticker, destId, beforeTicker) {
@@ -5932,7 +5973,6 @@ function targDropTicker(srcId, ticker, destId, beforeTicker) {
   let idx = beforeTicker == null ? dest.tickers.length : dest.tickers.indexOf(beforeTicker);
   if (idx < 0) idx = dest.tickers.length;
   dest.tickers.splice(idx, 0, ticker);
-  if (srcId !== destId) targMigrateOwned(ticker, src.mose, dest.mose);
   targetsSave();
   if (srcId !== destId && typeof showWatchlistToast === 'function') {
     showWatchlistToast(`Moved ${ticker} → ${dest.label}`);
@@ -5972,7 +6012,7 @@ function targRemoveTicker(bucketId, ticker) {
   list.tickers.splice(i, 1);
   if (list.weights) delete list.weights[ticker];
   if (list.locked) delete list.locked[ticker];
-  ['his', 'hers', 'mose'].forEach(a => delete targetsData.owned[a + '|' + ticker]);
+  TARG_ACCTS.forEach(a => delete targetsData.owned[a + '|' + ticker]);
   targetsSave();
   showWatchlistToast(`Removed ${ticker} from ${list.label}`);
 }
@@ -6038,22 +6078,6 @@ function targAddTyped(bucketId, value) {
   targAddTicker(bucketId, ticker);
 }
 
-function targMoseHtml() {
-  const m = targetsData.mose;
-  const budget = m.total * m.stockPct / 100;
-  const tgt = m.tickers.length ? budget / m.tickers.length : 0;
-  let html = targPlanControls('mose') + `<div class="table-wrap"><table><thead><tr><th></th><th>Ticker</th><th>Target</th><th>Owned</th><th>Remaining</th><th>Buy This Month</th><th title="This month's purchase vs target">Today</th><th title="Owned + this month's buy vs target">After Buy</th></tr></thead><tbody data-targ-bucket="mose">`;
-  html += `<tr class="targ-bucket-row"><td colspan="8">MOSE names · ${m.stockPct}% to stocks · ${reentryFmt(budget)} · ${m.tickers.length} name${m.tickers.length !== 1 ? 's' : ''} <span style="color:var(--muted);font-weight:600;font-size:11px;margin-left:6px">⠿ drag to reorder, or drop on an IRA bucket to move it (owned $ follows)</span></td></tr>`;
-  let deployed = 0;
-  m.tickers.forEach(t => {
-    const owned = targOwned('mose', t); deployed += owned;
-    const plan = targPlan('mose', t);
-    html += `<tr data-targ-bucket="mose" data-targ-ticker="${escapeHtml(t)}"><td class="targ-drag-handle" onpointerdown="targDragStart(event,'mose','${escapeHtml(t)}')" title="Drag to reorder or move buckets">⠿</td><td><strong title="${escapeAttr(stockBlurb(t))}">${escapeHtml(t)}</strong> <a onclick="showStockInfo('${escapeHtml(t)}')" title="What is ${escapeHtml(t)}?" style="cursor:pointer;color:var(--blue);margin-left:2px;font-size:12px">ⓘ</a>${targLivePrice(t)} <a onclick="targRemoveTicker('mose','${escapeHtml(t)}')" title="Remove from bucket" style="cursor:pointer;color:var(--muted);margin-left:6px">✕</a></td><td>${reentryFmt(tgt)}</td><td style="font-weight:700">${reentryFmt(owned)}</td>${targMoreCell(owned, tgt, t)}<td><input type="number" class="targ-input" value="${plan || ''}" placeholder="0" onchange="targSetPlan('mose','${t}',this.value)">${targShareHint(plan, t)}</td>${targGaugeCell(plan, tgt)}${targGaugeCell(owned + plan, tgt)}</tr>`;
-  });
-  html += targAddRow('mose', 8);
-  html += `</tbody></table></div>`;
-  return { html, deployed, budget, cash: m.total - budget };
-}
 
 // ---- Import positions pasted/parsed from IBKR ----
 // ---- Drag-and-drop IBKR statement import (PDF or CSV), with a Preview step ----
@@ -6185,7 +6209,7 @@ function targParsePositions(text) {
   });
   return out;
 }
-function targImportAcctLabel(acct) { return acct === 'mose' ? 'MOSE Joint' : (targetsData.ira.accounts[acct] ? targetsData.ira.accounts[acct].label : acct); }
+function targImportAcctLabel(acct) { return targetsData.ira.accounts[acct] ? targetsData.ira.accounts[acct].label : acct; }
 function targImportPreview() {
   const parsed = targParsePositions(document.getElementById('targets-import-text').value);
   const keys = Object.keys(parsed);
@@ -6228,11 +6252,9 @@ function targApplyPositions(acct, parsed) {
 
 // ---- Progress history (snapshots) ----
 function targCurrentSnapshot() {
-  let his = 0, hers = 0;
-  targetsData.ira.buckets.forEach(b => b.tickers.forEach(t => { his += targOwned('his', t); hers += targOwned('hers', t); }));
-  let mose = 0;
-  targetsData.mose.tickers.forEach(t => { mose += targOwned('mose', t); });
-  return { date: new Date().toISOString().slice(0, 10), his: Math.round(his), hers: Math.round(hers), mose: Math.round(mose), iraGoal: targetsData.ira.total, moseStockGoal: Math.round(targetsData.mose.total * targetsData.mose.stockPct / 100) };
+  let his = 0, hers = 0, joint = 0;
+  targetsData.ira.buckets.forEach(b => b.tickers.forEach(t => { his += targOwned('his', t); hers += targOwned('hers', t); joint += targOwned('joint', t); }));
+  return { date: new Date().toISOString().slice(0, 10), his: Math.round(his), hers: Math.round(hers), joint: Math.round(joint), iraGoal: targetsData.ira.total, jointGoal: Math.round(targetsData.ira.accounts.joint.total) };
 }
 function targSnapshot() {
   const s = targCurrentSnapshot();
@@ -6263,7 +6285,7 @@ function targHistoryHtml() {
     const delta = prev ? dep - (prev.his + prev.hers) : null;
     const deltaCell = delta === null ? '<span style="color:var(--muted)">—</span>'
       : (delta >= 0 ? `<span style="color:var(--green)">+${reentryFmt(delta)}</span>` : `<span style="color:var(--red)">${reentryFmt(delta)}</span>`);
-    rows += `<tr><td>${escapeHtml(s.date)}</td><td>${reentryFmt(dep)}</td><td>${pct.toFixed(1)}%</td><td>${reentryFmt(s.mose || 0)}</td><td>${deltaCell}</td></tr>`;
+    rows += `<tr><td>${escapeHtml(s.date)}</td><td>${reentryFmt(dep)}</td><td>${pct.toFixed(1)}%</td><td>${reentryFmt(s.joint || s.mose || 0)}</td><td>${deltaCell}</td></tr>`;
   }
   const pctVals = hist.map(s => s.iraGoal ? (s.his + s.hers) / s.iraGoal * 100 : 0);
   const spark = targSparkline(pctVals, Math.min(440, Math.max(120, pctVals.length * 60)), 46);
@@ -6274,7 +6296,7 @@ function targHistoryHtml() {
     </div>
     <div class="sub" style="margin-top:6px">IRA deployment over time — auto-captured on every import. ${hist.length} snapshot${hist.length !== 1 ? 's' : ''}.</div>
     ${spark ? `<div style="margin:6px 0 10px">${spark}<span style="color:var(--muted);font-size:11px;margin-left:8px">% of IRA goal deployed</span></div>` : ''}
-    <div class="table-wrap"><table><thead><tr><th>Date</th><th>IRA Deployed</th><th>IRA %</th><th>MOSE Deployed</th><th>Δ since prev</th></tr></thead><tbody>${rows || '<tr><td colspan="5" class="no-data">No snapshots yet.</td></tr>'}</tbody></table></div>
+    <div class="table-wrap"><table><thead><tr><th>Date</th><th>IRA Deployed</th><th>IRA %</th><th>Joint Deployed</th><th>Δ since prev</th></tr></thead><tbody>${rows || '<tr><td colspan="5" class="no-data">No snapshots yet.</td></tr>'}</tbody></table></div>
   </div>`;
 }
 
@@ -6284,7 +6306,7 @@ function targExtraHtml() {
   if (!extras.length) return '';
   const rows = extras.map(k => {
     const [acct, t] = k.split('|');
-    const lbl = targetsData.ira.accounts[acct] ? targetsData.ira.accounts[acct].label : (acct === 'mose' ? 'MOSE Joint' : acct);
+    const lbl = targetsData.ira.accounts[acct] ? targetsData.ira.accounts[acct].label : acct;
     return `<tr><td><strong>${escapeHtml(t)}</strong>${targLivePrice(t)}</td><td>${escapeHtml(lbl)}</td><td>${reentryFmt(targetsData.owned[k])}</td><td><button class="reentry-del-btn" title="Remove from tracker" onclick="targSetOwned('${acct}','${t}',0)">remove</button></td></tr>`;
   }).join('');
   return `<div class="reentry-section">
@@ -6298,16 +6320,15 @@ function renderTargetsSettings() {
   const el = document.getElementById('targets-settings');
   if (!el) return;
   let h = `<div class="reentry-settings-grid">`;
-  h += `<label>Your IRA total<input type="number" class="reentry-input" value="${targetsData.ira.accounts.his.total}" onchange="targSetCfg('his.total',this.value)"></label>`;
-  h += `<label>Her IRA total<input type="number" class="reentry-input" value="${targetsData.ira.accounts.hers.total}" onchange="targSetCfg('hers.total',this.value)"></label>`;
+  h += `<label>Joe's IRA total<input type="number" class="reentry-input" value="${targetsData.ira.accounts.his.total}" onchange="targSetCfg('his.total',this.value)"></label>`;
+  h += `<label>Keli's IRA total<input type="number" class="reentry-input" value="${targetsData.ira.accounts.hers.total}" onchange="targSetCfg('hers.total',this.value)"></label>`;
+  h += `<label>Joint Cash total<input type="number" class="reentry-input" value="${targetsData.ira.accounts.joint.total}" onchange="targSetCfg('joint.total',this.value)"></label>`;
   targetsData.ira.buckets.forEach((b, i) => {
     h += `<label>${escapeHtml(b.label)} %<input type="number" class="reentry-input short" value="${b.pct}" onchange="targSetCfg('bucket.${i}',this.value)"></label>`;
   });
-  h += `<label>MOSE joint total<input type="number" class="reentry-input" value="${targetsData.mose.total}" onchange="targSetCfg('mose.total',this.value)"></label>`;
-  h += `<label>MOSE % to stocks<input type="number" class="reentry-input short" value="${targetsData.mose.stockPct}" onchange="targSetCfg('mose.stockPct',this.value)"></label>`;
   h += `</div>`;
   const sumPct = targetsData.ira.buckets.reduce((s, b) => s + b.pct, 0);
-  if (sumPct !== 100) h += `<div style="color:var(--yellow);font-size:12px;font-weight:800;margin-top:8px">⚠️ IRA bucket %s total ${sumPct}% (should be 100). Goals are still computed from the %s as entered.</div>`;
+  if (sumPct !== 100) h += `<div style="color:var(--yellow);font-size:12px;font-weight:800;margin-top:8px">⚠️ Bucket %s total ${sumPct}% (should be 100). Goals are still computed from the %s as entered.</div>`;
   el.innerHTML = h;
 }
 
@@ -6332,43 +6353,40 @@ function _renderTargetsBody() {
   if (!sb) return;
   targetsData.ira.total = targetsData.ira.accounts.his.total + targetsData.ira.accounts.hers.total;
 
-  let iraOwned = 0;
-  targetsData.ira.buckets.forEach(b => b.tickers.forEach(t => { iraOwned += targOwned('his', t) + targOwned('hers', t); }));
+  const acctOwned = a => { let o = 0; targetsData.ira.buckets.forEach(b => b.tickers.forEach(t => { o += targOwned(a, t); })); return o; };
+  const hisTot = targetsData.ira.accounts.his.total, hersTot = targetsData.ira.accounts.hers.total, jointTot = targetsData.ira.accounts.joint.total;
+  const grandGoal = hisTot + hersTot + jointTot;
+  const grandOwned = acctOwned('his') + acctOwned('hers') + acctOwned('joint');
+  const grandPct = grandGoal > 0 ? grandOwned / grandGoal * 100 : 0;
+  const iraOwned = acctOwned('his') + acctOwned('hers');
   const iraGoal = targetsData.ira.total;
-  const iraPct = iraGoal > 0 ? iraOwned / iraGoal * 100 : 0;
-
-  const m = targetsData.mose;
-  const moseBudget = m.total * m.stockPct / 100;
-  const moseCash = m.total - moseBudget;
-  let moseOwned = 0;
-  m.tickers.forEach(t => { moseOwned += targOwned('mose', t); });
-  const mosePct = moseBudget > 0 ? moseOwned / moseBudget * 100 : 0;
 
   sb.innerHTML = `
-    <div class="stat-card"><div class="stat-val blue">${reentryFmt(iraGoal)}</div><div class="stat-label">IRA goal (his+hers)</div></div>
-    <div class="stat-card"><div class="stat-val green">${reentryFmt(iraOwned)}</div><div class="stat-label">IRA deployed · ${iraPct.toFixed(1)}%</div></div>
-    <div class="stat-card"><div class="stat-val orange">${reentryFmt(iraGoal - iraOwned)}</div><div class="stat-label">IRA left to buy</div></div>
-    <div class="stat-card"><div class="stat-val" style="color:var(--purple)">${reentryFmt(moseBudget)}</div><div class="stat-label">MOSE stock goal (${m.stockPct}%)</div></div>
-    <div class="stat-card"><div class="stat-val green">${reentryFmt(moseOwned)}</div><div class="stat-label">MOSE deployed · ${mosePct.toFixed(0)}%</div></div>
-    <div class="stat-card"><div class="stat-val yellow">${reentryFmt(moseCash)}</div><div class="stat-label">MOSE cash to hold (${100 - m.stockPct}%)</div></div>`;
+    <div class="stat-card"><div class="stat-val blue">${reentryFmt(grandGoal)}</div><div class="stat-label">All accounts goal</div></div>
+    <div class="stat-card"><div class="stat-val green">${reentryFmt(grandOwned)}</div><div class="stat-label">Deployed · ${grandPct.toFixed(1)}%</div></div>
+    <div class="stat-card"><div class="stat-val orange">${reentryFmt(grandGoal - grandOwned)}</div><div class="stat-label">Left to buy</div></div>
+    <div class="stat-card"><div class="stat-val" style="color:var(--purple)">${reentryFmt(hisTot)}</div><div class="stat-label">Joe's IRA</div></div>
+    <div class="stat-card"><div class="stat-val" style="color:var(--purple)">${reentryFmt(hersTot)}</div><div class="stat-label">Keli's IRA</div></div>
+    <div class="stat-card"><div class="stat-val yellow">${reentryFmt(jointTot)}</div><div class="stat-label">Joint Cash</div></div>`;
 
   document.getElementById('targets-combined').innerHTML = targCombinedHtml();
 
   const his = targAcctTableHtml('his');
   document.getElementById('targets-his').innerHTML = his.html;
-  document.getElementById('targets-his-title').textContent = `🧑 ${targetsData.ira.accounts.his.label} — ${reentryFmt(targetsData.ira.accounts.his.total)}`;
-  document.getElementById('targets-his-sub').innerHTML = `Deployed <strong>${reentryFmt(his.deployed)}</strong> · ${reentryFmt(Math.max(0, targetsData.ira.accounts.his.total - his.deployed))} left to put to work (SGOV/cash). Owned is set from IBKR (read-only); plan this month's tranche in "Buy This Month".`;
+  document.getElementById('targets-his-title').textContent = `🧑 ${targetsData.ira.accounts.his.label} — ${reentryFmt(hisTot)}`;
+  document.getElementById('targets-his-sub').innerHTML = `Deployed <strong>${reentryFmt(his.deployed)}</strong> · ${reentryFmt(Math.max(0, hisTot - his.deployed))} left to put to work (SGOV/cash). Owned is set from IBKR; plan this month's tranche in "Buy This Month".`;
 
   const hers = targAcctTableHtml('hers');
   document.getElementById('targets-hers').innerHTML = hers.html;
-  document.getElementById('targets-hers-title').textContent = `🧑‍🤝‍🧑 ${targetsData.ira.accounts.hers.label} — ${reentryFmt(targetsData.ira.accounts.hers.total)}`;
+  document.getElementById('targets-hers-title').textContent = `🧑‍🤝‍🧑 ${targetsData.ira.accounts.hers.label} — ${reentryFmt(hersTot)}`;
   document.getElementById('targets-hers-sub').innerHTML = hers.deployed > 0
-    ? `Deployed <strong>${reentryFmt(hers.deployed)}</strong> · ${reentryFmt(Math.max(0, targetsData.ira.accounts.hers.total - hers.deployed))} left to put to work.`
-    : `⏳ <strong>Awaiting her IBKR positions.</strong> Targets are set; send her positions screenshot and I'll fill in Owned. Same buckets/%s as your account, scaled to ${reentryFmt(targetsData.ira.accounts.hers.total)}.`;
+    ? `Deployed <strong>${reentryFmt(hers.deployed)}</strong> · ${reentryFmt(Math.max(0, hersTot - hers.deployed))} left to put to work.`
+    : `⏳ <strong>Awaiting Keli's IBKR positions.</strong> Same buckets/%s as Joe's, scaled to ${reentryFmt(hersTot)}. Import her positions above to fill in Owned.`;
 
-  const mose = targMoseHtml();
-  document.getElementById('targets-mose').innerHTML = mose.html;
-  document.getElementById('targets-mose-sub').innerHTML = `Stock budget <strong>${reentryFmt(mose.budget)}</strong> (${m.stockPct}%) split equally across ${m.tickers.length} names · Cash held back <strong>${reentryFmt(mose.cash)}</strong> (${100 - m.stockPct}%) · Deployed ${reentryFmt(mose.deployed)}. <em>Kept 100% separate from the IRA totals — funded by the $344k non-IRA joint cash, bought only on a market downturn.</em>`;
+  const joint = targAcctTableHtml('joint');
+  document.getElementById('targets-joint').innerHTML = joint.html;
+  document.getElementById('targets-joint-title').textContent = `💎 ${targetsData.ira.accounts.joint.label} — ${reentryFmt(jointTot)}`;
+  document.getElementById('targets-joint-sub').innerHTML = `Deployed <strong>${reentryFmt(joint.deployed)}</strong> · ${reentryFmt(Math.max(0, jointTot - joint.deployed))} left to put to work. Same 8 buckets as the IRAs, scaled to the ${reentryFmt(jointTot)} joint cash — legally separate, planned as one.`;
 
   document.getElementById('targets-history').innerHTML = targHistoryHtml();
   document.getElementById('targets-extra').innerHTML = targExtraHtml();
@@ -6389,20 +6407,20 @@ function targetsExportCSV() {
   const blank = () => rows.push([]);
   const sect = title => rows.push([title]);
 
-  const m = targetsData.mose;
-  const moseBudget = m.total * m.stockPct / 100;
-  let iraOwned = 0;
-  targetsData.ira.buckets.forEach(b => b.tickers.forEach(t => { iraOwned += targOwned('his', t) + targOwned('hers', t); }));
+  const acctTot = a => targetsData.ira.accounts[a].total;
+  const grandGoal = acctTot('his') + acctTot('hers') + acctTot('joint');
+  let grandOwned = 0;
+  targetsData.ira.buckets.forEach(b => b.tickers.forEach(t => { grandOwned += targOwned('his', t) + targOwned('hers', t) + targOwned('joint', t); }));
 
   // ---- Title + summary ----
   sect('MOSE — Buy Targets / Monthly Buy List');
   rows.push(['Exported', new Date().toLocaleString()]);
-  rows.push(['IRA goal (his+hers)', dollar(targetsData.ira.total), 'Deployed', dollar(iraOwned), 'Left to buy', dollar(Math.max(0, targetsData.ira.total - iraOwned))]);
-  rows.push(['MOSE stock goal', dollar(moseBudget), 'Cash held', dollar(m.total - moseBudget), 'Split', `Forever ${targetsData.ira.buckets[0]?.pct}% / S&P ${targetsData.ira.buckets[1]?.pct}% / For Now ${targetsData.ira.buckets[2]?.pct}%`]);
+  rows.push(['All accounts goal', dollar(grandGoal), 'Deployed', dollar(grandOwned), 'Left to buy', dollar(Math.max(0, grandGoal - grandOwned))]);
+  rows.push(['Accounts', `Joe's IRA ${dollar(acctTot('his'))}`, `Keli's IRA ${dollar(acctTot('hers'))}`, `Joint Cash ${dollar(acctTot('joint'))}`, 'Buckets', targetsData.ira.buckets.map(b => `${b.label} ${b.pct}%`).join(' / ')]);
   blank();
 
   // ---- Combined IRA (his + hers) ----
-  sect('COMBINED IRA GOAL (his + hers)');
+  sect('COMBINED IRA GOAL (Joe + Keli)');
   rows.push(['Bucket', 'Ticker', 'Name', 'Price', '% of Bucket', 'Combined Goal', 'Owned (his+hers)', 'Remaining', 'Buy This Month', 'Buy (sh)', 'Today %', 'After Buy %']);
   targetsData.ira.buckets.forEach(b => {
     const bucketGoal = targetsData.ira.total * b.pct / 100;
@@ -6420,8 +6438,8 @@ function targetsExportCSV() {
   });
   blank();
 
-  // ---- Per-account execution tables (his, hers) ----
-  ['his', 'hers'].forEach(acct => {
+  // ---- Per-account execution tables (Joe's IRA, Keli's IRA, Joint Cash) ----
+  TARG_ACCTS.forEach(acct => {
     const a = targetsData.ira.accounts[acct];
     sect(`${a.label.toUpperCase()} — ${dollar(a.total)}`);
     rows.push(['Bucket', 'Ticker', 'Name', 'Price', 'Target', 'Owned', 'Remaining', 'Buy This Month', 'Buy (sh)', 'Today %', 'After Buy %']);
@@ -6438,18 +6456,6 @@ function targetsExportCSV() {
     blank();
   });
 
-  // ---- MOSE joint ----
-  const moseTgt = m.tickers.length ? moseBudget / m.tickers.length : 0;
-  sect(`MOSE JOINT — ${dollar(m.total)} · ${m.stockPct}% to stocks (${dollar(moseBudget)})`);
-  rows.push(['Ticker', 'Name', 'Price', 'Target', 'Owned', 'Remaining', 'Buy This Month', 'Buy (sh)', 'Today %', 'After Buy %']);
-  m.tickers.forEach(t => {
-    const owned = targOwned('mose', t);
-    const rem = Math.max(0, moseTgt - owned);
-    const buy = plan('mose', t);
-    rows.push([t, nameOf(t), px(t) ? px(t).toFixed(2) : '', dollar(moseTgt), dollar(owned), dollar(rem), dollar(buy), sh(buy, t), pctStr(buy, moseTgt), pctStr(owned + buy, moseTgt)]);
-  });
-  blank();
-
   // ---- Holdings outside the plan ----
   const all = targAllTickers();
   const outside = Object.keys(targetsData.owned).filter(k => !all.has(k.split('|')[1]) && targetsData.owned[k] > 0);
@@ -6458,7 +6464,7 @@ function targetsExportCSV() {
     rows.push(['Account', 'Ticker', 'Name', 'Owned']);
     outside.forEach(k => {
       const [acct, t] = k.split('|');
-      const lbl = targetsData.ira.accounts[acct] ? targetsData.ira.accounts[acct].label : (acct === 'mose' ? 'MOSE Joint' : acct);
+      const lbl = targetsData.ira.accounts[acct] ? targetsData.ira.accounts[acct].label : acct;
       rows.push([lbl, t, nameOf(t), dollar(targetsData.owned[k])]);
     });
   }
@@ -6483,8 +6489,9 @@ function targPrintBuyList() {
   const nameMap = {}; (tickerDirectory || []).forEach(d => { if (!nameMap[d.ticker]) nameMap[d.ticker] = d.name; });
   const nameOf = t => nameMap[canonicalTicker(t)] || '';
   const esc = s => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-  const m = targetsData.mose, moseBudget = m.total * m.stockPct / 100;
-  const moseTgt = m.tickers.length ? moseBudget / m.tickers.length : 0;
+  const acctTot = a => targetsData.ira.accounts[a].total;
+  const grandGoal = acctTot('his') + acctTot('hers') + acctTot('joint');
+  let grandOwned = 0; targetsData.ira.buckets.forEach(b => b.tickers.forEach(t => { grandOwned += targOwned('his', t) + targOwned('hers', t) + targOwned('joint', t); }));
   let iraOwned = 0; targetsData.ira.buckets.forEach(b => b.tickers.forEach(t => { iraOwned += targOwned('his', t) + targOwned('hers', t); }));
 
   // Combined IRA sheet
@@ -6517,16 +6524,8 @@ function targPrintBuyList() {
     return h + `</tbody></table>`;
   };
 
-  // MOSE sheet
-  let mose = `<table><thead><tr><th class="l">Ticker</th><th class="l">Name</th><th>Price</th><th>Target</th><th>Owned</th><th>Remaining</th><th>Buy This Month</th><th>Shares</th><th>Today</th><th>After Buy</th></tr></thead><tbody>`;
-  m.tickers.forEach(t => {
-    const owned = targOwned('mose', t), rem = Math.max(0, moseTgt - owned), buy = targPlan('mose', t);
-    mose += `<tr><td class="l"><b>${esc(t)}</b></td><td class="l muted">${esc(nameOf(t))}</td><td>${px(t) ? '$' + px(t).toFixed(2) : ''}</td><td>${reentryFmt(moseTgt)}</td><td>${reentryFmt(owned)}</td><td><b>${reentryFmt(rem)}</b></td><td>${buy ? reentryFmt(buy) : ''}</td><td class="muted">${sh(buy, t)}</td><td>${pctStr(buy, moseTgt)}</td><td>${pctStr(owned + buy, moseTgt)}</td></tr>`;
-  });
-  mose += `</tbody></table>`;
-
   const today = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-  const summary = `IRA goal ${reentryFmt(targetsData.ira.total)} · deployed ${reentryFmt(iraOwned)} · left ${reentryFmt(Math.max(0, targetsData.ira.total - iraOwned))} · MOSE stock goal ${reentryFmt(moseBudget)} (cash ${reentryFmt(m.total - moseBudget)})`;
+  const summary = `All accounts ${reentryFmt(grandGoal)} · deployed ${reentryFmt(grandOwned)} · left ${reentryFmt(Math.max(0, grandGoal - grandOwned))} — Joe ${reentryFmt(acctTot('his'))} · Keli ${reentryFmt(acctTot('hers'))} · Joint ${reentryFmt(acctTot('joint'))}`;
   const sheet = (title, sub, body) => `<div class="sheet"><h1>🦞 MOSE — Buy Targets</h1><div class="sub">${esc(today)} · ${esc(summary)}</div><h2>${esc(title)}</h2>${sub ? `<div class="sub">${esc(sub)}</div>` : ''}${body}</div>`;
 
   const html = `<!DOCTYPE html><html><head><meta charset="utf-8"><title>MOSE Buy Targets — ${esc(today)}</title><style>
@@ -6552,10 +6551,10 @@ function targPrintBuyList() {
       <div style="font-size:13px;color:#444;line-height:1.4">💡 For one page per sheet, set <b>Two-sided → Off (1-sided)</b> in the print dialog — in Chrome it's under <b>More settings</b>. (Browsers can't change a printer's two-sided default automatically.)</div>
       <button onclick="window.print()" style="padding:8px 18px;font-size:14px;cursor:pointer;white-space:nowrap">🖨 Print</button>
     </div>
-    ${sheet('Combined IRA Goal (his + hers)', `$${(targetsData.ira.total).toLocaleString()} total`, combined)}
+    ${sheet('Combined IRA Goal (Joe + Keli)', `$${(targetsData.ira.total).toLocaleString()} total`, combined)}
     ${sheet(targetsData.ira.accounts.his.label, reentryFmt(targetsData.ira.accounts.his.total), acctSheet('his'))}
     ${sheet(targetsData.ira.accounts.hers.label, reentryFmt(targetsData.ira.accounts.hers.total), acctSheet('hers'))}
-    ${sheet('MOSE Joint', `${reentryFmt(m.total)} · ${m.stockPct}% to stocks`, mose)}
+    ${sheet(targetsData.ira.accounts.joint.label, reentryFmt(targetsData.ira.accounts.joint.total), acctSheet('joint'))}
   </body></html>`;
 
   const w = window.open('', '_blank');
