@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10T10:14:20.686897+00:00",
+  "generated_at": "2026-07-10T13:03:17.940986+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -560,11 +560,11 @@
         "time": "16:02:50",
         "volume": 1250496,
         "week52_high": 474.03,
-        "week52_low": 152.92
+        "week52_low": 153.11
       },
       "metrics": {
         "week52High": 474.03,
-        "week52Low": 152.92
+        "week52Low": 153.11
       },
       "profile": {
         "company": "Celestica Inc.",
@@ -1009,11 +1009,11 @@
         "time": "16:00:02",
         "volume": 2340435,
         "week52_high": 382.97,
-        "week52_low": 246.75
+        "week52_low": 251.4
       },
       "metrics": {
         "week52High": 382.97,
-        "week52Low": 246.75,
+        "week52Low": 251.4,
         "marketCap": 297358524416,
         "peRatio": 44.601242236024845
       },
@@ -1040,11 +1040,11 @@
         "time": "16:00:01",
         "volume": 24092965,
         "week52_high": 408.61,
-        "week52_low": 174.38
+        "week52_low": 176.48
       },
       "metrics": {
         "week52High": 408.61,
-        "week52Low": 174.38,
+        "week52Low": 176.48,
         "marketCap": 4166206881792,
         "peRatio": 33.199814986123954
       },
@@ -1220,11 +1220,11 @@
         "date": "2026-07-09",
         "time": "16:00:02",
         "volume": 1160779,
-        "week52_high": 67.53,
+        "week52_high": 66.4,
         "week52_low": 30.26
       },
       "metrics": {
-        "week52High": 67.53,
+        "week52High": 66.4,
         "week52Low": 30.26,
         "marketCap": 5427479040,
         "peRatio": 30.363095238095237
@@ -1726,11 +1726,11 @@
         "time": "16:00:00",
         "volume": 130728739,
         "week52_high": 236.54,
-        "week52_low": 161.61
+        "week52_low": 162.02
       },
       "metrics": {
         "week52High": 236.54,
-        "week52Low": 161.61,
+        "week52Low": 162.02,
         "marketCap": 5062002737152,
         "peRatio": 41.468302658486714
       },
@@ -2777,8 +2777,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 15.99,
-        "change_pct": 0.9469696969696992,
+        "price": 15.78,
+        "change_pct": -0.3787878787878819,
         "source": "yahoo"
       },
       "metrics": {},
