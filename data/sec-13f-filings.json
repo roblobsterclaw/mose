@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-06T14:46:37.527128+00:00",
+  "generated_at": "2026-07-10T15:09:01.325749+00:00",
   "source": "SEC EDGAR submissions and Archives information tables",
   "quarters_requested": 8,
-  "investor_count": 27,
-  "filings_pulled": 201,
+  "investor_count": 28,
+  "filings_pulled": 209,
   "failed_investors": [],
   "investors": [
     {
@@ -305497,6 +305497,3586 @@
           ],
           "total_value": 24539466801000.0,
           "num_holdings": 40
+        }
+      ],
+      "filing_errors": []
+    },
+    {
+      "name": "Daniel Loeb",
+      "fund": "Third Point",
+      "tier": 1,
+      "cik": "1040273",
+      "source_type": "13F",
+      "filings": [
+        {
+          "form": "13F-HR",
+          "company": "Third Point LLC",
+          "cik": "1040273",
+          "filing_date": "2026-05-15",
+          "file_name": "edgar/data/1040273/0001040273-26-000002.txt",
+          "accession": "0001040273-26-000002",
+          "period_end": "2026-03-31",
+          "quarter": "2026-Q1",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/1040273/0001040273-26-000002.txt",
+          "holdings": [
+            {
+              "ticker": "AMZN",
+              "identifier": "AMZN",
+              "cusip": "023135106",
+              "company": "AMAZON COM INC",
+              "market_value": 404043800000.0,
+              "shares": 1940000.0,
+              "rank": 1,
+              "pct_portfolio": 19.3991
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:879433829",
+              "cusip": "879433829",
+              "company": "TELEPHONE & DATA SYS INC",
+              "market_value": 277860000000.0,
+              "shares": 6600000.0,
+              "rank": 2,
+              "pct_portfolio": 13.3407
+            },
+            {
+              "ticker": "CRH",
+              "identifier": "CRH",
+              "cusip": "G25508105",
+              "company": "CRH PLC",
+              "market_value": 199728000000.0,
+              "shares": 1900000.0,
+              "rank": 3,
+              "pct_portfolio": 9.5894
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:88023U101",
+              "cusip": "88023U101",
+              "company": "SOMNIGROUP INTERNATIONAL INC",
+              "market_value": 167855244000.0,
+              "shares": 2270769.0,
+              "rank": 4,
+              "pct_portfolio": 8.0591
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:144285103",
+              "cusip": "144285103",
+              "company": "CARPENTER TECHNOLOGY CORP",
+              "market_value": 122186500000.0,
+              "shares": 310000.0,
+              "rank": 5,
+              "pct_portfolio": 5.8665
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:576323109",
+              "cusip": "576323109",
+              "company": "MASTEC INC",
+              "market_value": 102956800000.0,
+              "shares": 320000.0,
+              "rank": 6,
+              "pct_portfolio": 4.9432
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:235851102",
+              "cusip": "235851102",
+              "company": "DANAHER CORP DEL",
+              "market_value": 99540000000.0,
+              "shares": 525000.0,
+              "rank": 7,
+              "pct_portfolio": 4.7792
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:874039100",
+              "cusip": "874039100",
+              "company": "TAIWAN SEMICONDUCTOR MANUFAC",
+              "market_value": 92936250000.0,
+              "shares": 275000.0,
+              "rank": 8,
+              "pct_portfolio": 4.4621
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:00187Y100",
+              "cusip": "00187Y100",
+              "company": "API GROUP CORP",
+              "market_value": 82255600000.0,
+              "shares": 2030000.0,
+              "rank": 9,
+              "pct_portfolio": 3.9493
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:538034109",
+              "cusip": "538034109",
+              "company": "LIVE NATION ENTERTAINMENT IN",
+              "market_value": 70917150000.0,
+              "shares": 465000.0,
+              "rank": 10,
+              "pct_portfolio": 3.4049
+            },
+            {
+              "ticker": "META",
+              "identifier": "META",
+              "cusip": "30303M102",
+              "company": "META PLATFORMS INC",
+              "market_value": 51491700000.0,
+              "shares": 90000.0,
+              "rank": 11,
+              "pct_portfolio": 2.4722
+            },
+            {
+              "ticker": "GOOGL",
+              "identifier": "GOOGL",
+              "cusip": "02079K305",
+              "company": "ALPHABET INC",
+              "market_value": 50323000000.0,
+              "shares": 175000.0,
+              "rank": 12,
+              "pct_portfolio": 2.4161
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:78463V107",
+              "cusip": "78463V107",
+              "company": "SPDR GOLD TR",
+              "market_value": 40877550000.0,
+              "shares": 95000.0,
+              "rank": 13,
+              "pct_portfolio": 1.9626
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:44812J104",
+              "cusip": "44812J104",
+              "company": "HUT 8 CORP",
+              "market_value": 40791200000.0,
+              "shares": 869563.0,
+              "rank": 14,
+              "pct_portfolio": 1.9585
+            },
+            {
+              "ticker": "NVDA",
+              "identifier": "NVDA",
+              "cusip": "67066G104",
+              "company": "NVIDIA CORPORATION",
+              "market_value": 33136000000.0,
+              "shares": 190000.0,
+              "rank": 15,
+              "pct_portfolio": 1.5909
+            },
+            {
+              "ticker": "TDG",
+              "identifier": "TDG",
+              "cusip": "893641100",
+              "company": "TRANSDIGM GROUP INC",
+              "market_value": 28974000000.0,
+              "shares": 25000.0,
+              "rank": 16,
+              "pct_portfolio": 1.3911
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:655844108",
+              "cusip": "655844108",
+              "company": "NORFOLK SOUTHN CORP",
+              "market_value": 28700000000.0,
+              "shares": 100000.0,
+              "rank": 17,
+              "pct_portfolio": 1.378
+            },
+            {
+              "ticker": "COF",
+              "identifier": "COF",
+              "cusip": "14040H105",
+              "company": "CAPITAL ONE FINL CORP",
+              "market_value": 25540200000.0,
+              "shares": 140000.0,
+              "rank": 18,
+              "pct_portfolio": 1.2262
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:907818108",
+              "cusip": "907818108",
+              "company": "UNION PAC CORP",
+              "market_value": 24262000000.0,
+              "shares": 100000.0,
+              "rank": 19,
+              "pct_portfolio": 1.1649
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:092667104",
+              "cusip": "092667104",
+              "company": "STRATA CRITICAL MEDICAL INC",
+              "market_value": 20900000000.0,
+              "shares": 5000000.0,
+              "rank": 20,
+              "pct_portfolio": 1.0035
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:482480100",
+              "cusip": "482480100",
+              "company": "KLA CORP",
+              "market_value": 16196510000.0,
+              "shares": 11000.0,
+              "rank": 21,
+              "pct_portfolio": 0.7776
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:512807306",
+              "cusip": "512807306",
+              "company": "LAM RESEARCH CORP",
+              "market_value": 16024500000.0,
+              "shares": 75000.0,
+              "rank": 22,
+              "pct_portfolio": 0.7694
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:N07059210",
+              "cusip": "N07059210",
+              "company": "ASML HLDG NV",
+              "market_value": 15849960000.0,
+              "shares": 12000.0,
+              "rank": 23,
+              "pct_portfolio": 0.761
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:11135F101",
+              "cusip": "11135F101",
+              "company": "BROADCOM INC",
+              "market_value": 15475500000.0,
+              "shares": 50000.0,
+              "rank": 24,
+              "pct_portfolio": 0.743
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:92189F676",
+              "cusip": "92189F676",
+              "company": "VANECK ETF TRUST",
+              "market_value": 15336000000.0,
+              "shares": 40000.0,
+              "rank": 25,
+              "pct_portfolio": 0.7363
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G8068L108",
+              "cusip": "G8068L108",
+              "company": "SHARKNINJA INC",
+              "market_value": 13820903000.0,
+              "shares": 130509.0,
+              "rank": 26,
+              "pct_portfolio": 0.6636
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:42806J148",
+              "cusip": "42806J148",
+              "company": "HERTZ GLOBAL HLDGS INC",
+              "market_value": 9051600000.0,
+              "shares": 3970000.0,
+              "rank": 27,
+              "pct_portfolio": 0.4346
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:82835W108",
+              "cusip": "82835W108",
+              "company": "ARS PHARMACEUTICALS INC",
+              "market_value": 8030000000.0,
+              "shares": 1000000.0,
+              "rank": 28,
+              "pct_portfolio": 0.3855
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:051774107",
+              "cusip": "051774107",
+              "company": "AURORA INNOVATION INC",
+              "market_value": 4253748000.0,
+              "shares": 1032463.0,
+              "rank": 29,
+              "pct_portfolio": 0.2042
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:343928107",
+              "cusip": "343928107",
+              "company": "FLYEXCLUSIVE INC",
+              "market_value": 2309720000.0,
+              "shares": 1022000.0,
+              "rank": 30,
+              "pct_portfolio": 0.1109
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:62548M209",
+              "cusip": "62548M209",
+              "company": "CLARITEV CORPORATION",
+              "market_value": 718960000.0,
+              "shares": 44000.0,
+              "rank": 31,
+              "pct_portfolio": 0.0345
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:051774115",
+              "cusip": "051774115",
+              "company": "AURORA INNOVATION INC",
+              "market_value": 365165000.0,
+              "shares": 1835000.0,
+              "rank": 32,
+              "pct_portfolio": 0.0175
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:343928115",
+              "cusip": "343928115",
+              "company": "FLYEXCLUSIVE INC",
+              "market_value": 88200000.0,
+              "shares": 367499.0,
+              "rank": 33,
+              "pct_portfolio": 0.0042
+            }
+          ],
+          "total_value": 2082795760000.0,
+          "num_holdings": 33
+        },
+        {
+          "form": "13F-HR",
+          "company": "Third Point LLC",
+          "cik": "1040273",
+          "filing_date": "2026-02-17",
+          "file_name": "edgar/data/1040273/0001040273-26-000001.txt",
+          "accession": "0001040273-26-000001",
+          "period_end": "2025-12-31",
+          "quarter": "2025-Q4",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/1040273/0001040273-26-000001.txt",
+          "holdings": [
+            {
+              "ticker": null,
+              "identifier": "CUSIP:69331C108",
+              "cusip": "69331C108",
+              "company": "PG&E CORP",
+              "market_value": 551201000000.0,
+              "shares": 34300000.0,
+              "rank": 1,
+              "pct_portfolio": 7.577
+            },
+            {
+              "ticker": "NVDA",
+              "identifier": "NVDA",
+              "cusip": "67066G104",
+              "company": "NVIDIA CORPORATION",
+              "market_value": 550175000000.0,
+              "shares": 2950000.0,
+              "rank": 2,
+              "pct_portfolio": 7.5629
+            },
+            {
+              "ticker": "AMZN",
+              "identifier": "AMZN",
+              "cusip": "023135106",
+              "company": "AMAZON COM INC",
+              "market_value": 499725300000.0,
+              "shares": 2165000.0,
+              "rank": 3,
+              "pct_portfolio": 6.8694
+            },
+            {
+              "ticker": "MSFT",
+              "identifier": "MSFT",
+              "cusip": "594918104",
+              "company": "MICROSOFT CORP",
+              "market_value": 447348500000.0,
+              "shares": 925000.0,
+              "rank": 4,
+              "pct_portfolio": 6.1494
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:907818108",
+              "cusip": "907818108",
+              "company": "UNION PAC CORP",
+              "market_value": 418689200000.0,
+              "shares": 1810000.0,
+              "rank": 5,
+              "pct_portfolio": 5.7555
+            },
+            {
+              "ticker": "CRH",
+              "identifier": "CRH",
+              "cusip": "G25508105",
+              "company": "CRH PLC",
+              "market_value": 324480000000.0,
+              "shares": 2600000.0,
+              "rank": 6,
+              "pct_portfolio": 4.4604
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:88023U101",
+              "cusip": "88023U101",
+              "company": "SOMNIGROUP INTERNATIONAL INC",
+              "market_value": 303552000000.0,
+              "shares": 3400000.0,
+              "rank": 7,
+              "pct_portfolio": 4.1728
+            },
+            {
+              "ticker": "BN",
+              "identifier": "BN",
+              "cusip": "11271J107",
+              "company": "BROOKFIELD CORP",
+              "market_value": 284518000000.0,
+              "shares": 6200000.0,
+              "rank": 8,
+              "pct_portfolio": 3.9111
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:655844108",
+              "cusip": "655844108",
+              "company": "NORFOLK SOUTHN CORP",
+              "market_value": 281502000000.0,
+              "shares": 975000.0,
+              "rank": 9,
+              "pct_portfolio": 3.8696
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:879433829",
+              "cusip": "879433829",
+              "company": "TELEPHONE & DATA SYS INC",
+              "market_value": 273675000000.0,
+              "shares": 6675000.0,
+              "rank": 10,
+              "pct_portfolio": 3.7621
+            },
+            {
+              "ticker": "COF",
+              "identifier": "COF",
+              "cusip": "14040H105",
+              "company": "CAPITAL ONE FINL CORP",
+              "market_value": 266596000000.0,
+              "shares": 1100000.0,
+              "rank": 11,
+              "pct_portfolio": 3.6647
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:147528103",
+              "cusip": "147528103",
+              "company": "CASEYS GEN STORES INC",
+              "market_value": 251483050000.0,
+              "shares": 455000.0,
+              "rank": 12,
+              "pct_portfolio": 3.457
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:144285103",
+              "cusip": "144285103",
+              "company": "CARPENTER TECHNOLOGY CORP",
+              "market_value": 247149400000.0,
+              "shares": 785000.0,
+              "rank": 13,
+              "pct_portfolio": 3.3974
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:538034109",
+              "cusip": "538034109",
+              "company": "LIVE NATION ENTERTAINMENT IN",
+              "market_value": 245812500000.0,
+              "shares": 1725000.0,
+              "rank": 14,
+              "pct_portfolio": 3.379
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:22160N109",
+              "cusip": "22160N109",
+              "company": "COSTAR GROUP INC",
+              "market_value": 212814600000.0,
+              "shares": 3165000.0,
+              "rank": 15,
+              "pct_portfolio": 2.9254
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:576323109",
+              "cusip": "576323109",
+              "company": "MASTEC INC",
+              "market_value": 201067250000.0,
+              "shares": 925000.0,
+              "rank": 16,
+              "pct_portfolio": 2.764
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:77311W101",
+              "cusip": "77311W101",
+              "company": "ROCKET COS INC",
+              "market_value": 184210400000.0,
+              "shares": 9515000.0,
+              "rank": 17,
+              "pct_portfolio": 2.5322
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:50212V100",
+              "cusip": "50212V100",
+              "company": "LPL FINL HLDGS INC",
+              "market_value": 182156700000.0,
+              "shares": 510000.0,
+              "rank": 18,
+              "pct_portfolio": 2.504
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:169656105",
+              "cusip": "169656105",
+              "company": "CHIPOTLE MEXICAN GRILL INC",
+              "market_value": 174825000000.0,
+              "shares": 4725000.0,
+              "rank": 19,
+              "pct_portfolio": 2.4032
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:21037T109",
+              "cusip": "21037T109",
+              "company": "CONSTELLATION ENERGY CORP",
+              "market_value": 167803250000.0,
+              "shares": 475000.0,
+              "rank": 20,
+              "pct_portfolio": 2.3067
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:92840M102",
+              "cusip": "92840M102",
+              "company": "VISTRA CORP",
+              "market_value": 162136650000.0,
+              "shares": 1005000.0,
+              "rank": 21,
+              "pct_portfolio": 2.2288
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:235851102",
+              "cusip": "235851102",
+              "company": "DANAHER CORPORATION",
+              "market_value": 137352000000.0,
+              "shares": 600000.0,
+              "rank": 22,
+              "pct_portfolio": 1.8881
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G8068L108",
+              "cusip": "G8068L108",
+              "company": "SHARKNINJA INC",
+              "market_value": 134280000000.0,
+              "shares": 1200000.0,
+              "rank": 23,
+              "pct_portfolio": 1.8459
+            },
+            {
+              "ticker": "TSM",
+              "identifier": "TSM",
+              "cusip": "874039100",
+              "company": "TAIWAN SEMICONDUCTOR MFG LTD",
+              "market_value": 129153250000.0,
+              "shares": 425000.0,
+              "rank": 24,
+              "pct_portfolio": 1.7754
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:01609W102",
+              "cusip": "01609W102",
+              "company": "ALIBABA GROUP HLDG LTD",
+              "market_value": 120928500000.0,
+              "shares": 825000.0,
+              "rank": 25,
+              "pct_portfolio": 1.6623
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:00187Y100",
+              "cusip": "00187Y100",
+              "company": "API GROUP CORP",
+              "market_value": 114780000000.0,
+              "shares": 3000000.0,
+              "rank": 26,
+              "pct_portfolio": 1.5778
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:199908104",
+              "cusip": "199908104",
+              "company": "COMFORT SYS USA INC",
+              "market_value": 97995450000.0,
+              "shares": 105000.0,
+              "rank": 27,
+              "pct_portfolio": 1.3471
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:L8681T102",
+              "cusip": "L8681T102",
+              "company": "SPOTIFY TECHNOLOGY S A",
+              "market_value": 58071000000.0,
+              "shares": 100000.0,
+              "rank": 28,
+              "pct_portfolio": 0.7983
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:49177J102",
+              "cusip": "49177J102",
+              "company": "KENVUE INC",
+              "market_value": 56062500000.0,
+              "shares": 3250000.0,
+              "rank": 29,
+              "pct_portfolio": 0.7707
+            },
+            {
+              "ticker": "PGR",
+              "identifier": "PGR",
+              "cusip": "743315103",
+              "company": "PROGRESSIVE CORP",
+              "market_value": 50098400000.0,
+              "shares": 220000.0,
+              "rank": 30,
+              "pct_portfolio": 0.6887
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:883556102",
+              "cusip": "883556102",
+              "company": "THERMO FISHER SCIENTIFIC INC",
+              "market_value": 28972500000.0,
+              "shares": 50000.0,
+              "rank": 31,
+              "pct_portfolio": 0.3983
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:092667104",
+              "cusip": "092667104",
+              "company": "STRATA CRITICAL MEDICAL INC",
+              "market_value": 24050000000.0,
+              "shares": 5000000.0,
+              "rank": 32,
+              "pct_portfolio": 0.3306
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:M98068105",
+              "cusip": "M98068105",
+              "company": "WIX COM LTD",
+              "market_value": 23375250000.0,
+              "shares": 225000.0,
+              "rank": 33,
+              "pct_portfolio": 0.3213
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:126408103",
+              "cusip": "126408103",
+              "company": "CSX CORP",
+              "market_value": 18125000000.0,
+              "shares": 500000.0,
+              "rank": 34,
+              "pct_portfolio": 0.2492
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:42806J148",
+              "cusip": "42806J148",
+              "company": "HERTZ GLOBAL HLDGS INC",
+              "market_value": 10639600000.0,
+              "shares": 3970000.0,
+              "rank": 35,
+              "pct_portfolio": 0.1463
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:69331CAL2",
+              "cusip": "69331CAL2",
+              "company": "PG&E CORP",
+              "market_value": 10283406000.0,
+              "shares": 10000000.0,
+              "rank": 36,
+              "pct_portfolio": 0.1414
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:82835W108",
+              "cusip": "82835W108",
+              "company": "ARS PHARMACEUTICALS INC",
+              "market_value": 6480161000.0,
+              "shares": 556237.0,
+              "rank": 37,
+              "pct_portfolio": 0.0891
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:62548M209",
+              "cusip": "62548M209",
+              "company": "CLARITEV CORPORATION",
+              "market_value": 6198750000.0,
+              "shares": 145000.0,
+              "rank": 38,
+              "pct_portfolio": 0.0852
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:69331C306",
+              "cusip": "69331C306",
+              "company": "PG&E CORP",
+              "market_value": 5740000000.0,
+              "shares": 140000.0,
+              "rank": 39,
+              "pct_portfolio": 0.0789
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:343928107",
+              "cusip": "343928107",
+              "company": "FLYEXCLUSIVE INC",
+              "market_value": 4200420000.0,
+              "shares": 1022000.0,
+              "rank": 40,
+              "pct_portfolio": 0.0577
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:051774107",
+              "cusip": "051774107",
+              "company": "AURORA INNOVATION INC",
+              "market_value": 3964658000.0,
+              "shares": 1032463.0,
+              "rank": 41,
+              "pct_portfolio": 0.0545
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:071734107",
+              "cusip": "071734107",
+              "company": "BAUSCH HEALTH COS INC",
+              "market_value": 2432500000.0,
+              "shares": 350000.0,
+              "rank": 42,
+              "pct_portfolio": 0.0334
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:051774115",
+              "cusip": "051774115",
+              "company": "AURORA INNOVATION INC",
+              "market_value": 413059000.0,
+              "shares": 1835000.0,
+              "rank": 43,
+              "pct_portfolio": 0.0057
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:343928115",
+              "cusip": "343928115",
+              "company": "FLYEXCLUSIVE INC",
+              "market_value": 104664000.0,
+              "shares": 367499.0,
+              "rank": 44,
+              "pct_portfolio": 0.0014
+            }
+          ],
+          "total_value": 7274621868000.0,
+          "num_holdings": 44
+        },
+        {
+          "form": "13F-HR",
+          "company": "Third Point LLC",
+          "cik": "1040273",
+          "filing_date": "2025-11-14",
+          "file_name": "edgar/data/1040273/0001040273-25-000003.txt",
+          "accession": "0001040273-25-000003",
+          "period_end": "2025-09-30",
+          "quarter": "2025-Q3",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/1040273/0001040273-25-000003.txt",
+          "holdings": [
+            {
+              "ticker": null,
+              "identifier": "CUSIP:69331C108",
+              "cusip": "69331C108",
+              "company": "PG&E CORP",
+              "market_value": 755508000000.0,
+              "shares": 50100000.0,
+              "rank": 1,
+              "pct_portfolio": 9.0137
+            },
+            {
+              "ticker": "AMZN",
+              "identifier": "AMZN",
+              "cusip": "023135106",
+              "company": "AMAZON COM INC",
+              "market_value": 616991700000.0,
+              "shares": 2810000.0,
+              "rank": 2,
+              "pct_portfolio": 7.3611
+            },
+            {
+              "ticker": "MSFT",
+              "identifier": "MSFT",
+              "cusip": "594918104",
+              "company": "MICROSOFT CORP",
+              "market_value": 569745000000.0,
+              "shares": 1100000.0,
+              "rank": 3,
+              "pct_portfolio": 6.7974
+            },
+            {
+              "ticker": "NVDA",
+              "identifier": "NVDA",
+              "cusip": "67066G104",
+              "company": "NVIDIA CORPORATION",
+              "market_value": 531753000000.0,
+              "shares": 2850000.0,
+              "rank": 4,
+              "pct_portfolio": 6.3442
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:655844108",
+              "cusip": "655844108",
+              "company": "NORFOLK SOUTHN CORP",
+              "market_value": 495676500000.0,
+              "shares": 1650000.0,
+              "rank": 5,
+              "pct_portfolio": 5.9137
+            },
+            {
+              "ticker": "BN",
+              "identifier": "BN",
+              "cusip": "11271J107",
+              "company": "BROOKFIELD CORP",
+              "market_value": 320611500000.0,
+              "shares": 4675000.0,
+              "rank": 6,
+              "pct_portfolio": 3.8251
+            },
+            {
+              "ticker": "TSM",
+              "identifier": "TSM",
+              "cusip": "874039100",
+              "company": "TAIWAN SEMICONDUCTOR MFG LTD",
+              "market_value": 307219000000.0,
+              "shares": 1100000.0,
+              "rank": 7,
+              "pct_portfolio": 3.6653
+            },
+            {
+              "ticker": "COF",
+              "identifier": "COF",
+              "cusip": "14040H105",
+              "company": "CAPITAL ONE FINL CORP",
+              "market_value": 294423300000.0,
+              "shares": 1385000.0,
+              "rank": 8,
+              "pct_portfolio": 3.5127
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G3643J108",
+              "cusip": "G3643J108",
+              "company": "FLUTTER ENTMT PLC",
+              "market_value": 284480000000.0,
+              "shares": 1120000.0,
+              "rank": 9,
+              "pct_portfolio": 3.394
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:147528103",
+              "cusip": "147528103",
+              "company": "CASEYS GEN STORES INC",
+              "market_value": 282660000000.0,
+              "shares": 500000.0,
+              "rank": 10,
+              "pct_portfolio": 3.3723
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:879433829",
+              "cusip": "879433829",
+              "company": "TELEPHONE & DATA SYS INC",
+              "market_value": 263193432000.0,
+              "shares": 6707274.0,
+              "rank": 11,
+              "pct_portfolio": 3.1401
+            },
+            {
+              "ticker": "CRH",
+              "identifier": "CRH",
+              "cusip": "G25508105",
+              "company": "CRH PLC",
+              "market_value": 259583500000.0,
+              "shares": 2165000.0,
+              "rank": 12,
+              "pct_portfolio": 3.097
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:22160N109",
+              "cusip": "22160N109",
+              "company": "COSTAR GROUP INC",
+              "market_value": 254544290000.0,
+              "shares": 3017000.0,
+              "rank": 13,
+              "pct_portfolio": 3.0369
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:88023U101",
+              "cusip": "88023U101",
+              "company": "SOMNIGROUP INTERNATIONAL INC",
+              "market_value": 252990000000.0,
+              "shares": 3000000.0,
+              "rank": 14,
+              "pct_portfolio": 3.0183
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:538034109",
+              "cusip": "538034109",
+              "company": "LIVE NATION ENTERTAINMENT IN",
+              "market_value": 220590000000.0,
+              "shares": 1350000.0,
+              "rank": 15,
+              "pct_portfolio": 2.6318
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:144285103",
+              "cusip": "144285103",
+              "company": "CARPENTER TECHNOLOGY CORP",
+              "market_value": 208709000000.0,
+              "shares": 850000.0,
+              "rank": 16,
+              "pct_portfolio": 2.49
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:907818108",
+              "cusip": "907818108",
+              "company": "UNION PAC CORP",
+              "market_value": 206823750000.0,
+              "shares": 875000.0,
+              "rank": 17,
+              "pct_portfolio": 2.4675
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:50212V100",
+              "cusip": "50212V100",
+              "company": "LPL FINL HLDGS INC",
+              "market_value": 197665435000.0,
+              "shares": 594143.0,
+              "rank": 18,
+              "pct_portfolio": 2.3583
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:62482R107",
+              "cusip": "62482R107",
+              "company": "MR COOPER GROUP INC",
+              "market_value": 194980750000.0,
+              "shares": 925000.0,
+              "rank": 19,
+              "pct_portfolio": 2.3262
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G8068L108",
+              "cusip": "G8068L108",
+              "company": "SHARKNINJA INC",
+              "market_value": 185670000000.0,
+              "shares": 1800000.0,
+              "rank": 20,
+              "pct_portfolio": 2.2152
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:92840M102",
+              "cusip": "92840M102",
+              "company": "VISTRA CORP",
+              "market_value": 183185200000.0,
+              "shares": 935000.0,
+              "rank": 21,
+              "pct_portfolio": 2.1855
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:199908104",
+              "cusip": "199908104",
+              "company": "COMFORT SYS USA INC",
+              "market_value": 165036000000.0,
+              "shares": 200000.0,
+              "rank": 22,
+              "pct_portfolio": 1.969
+            },
+            {
+              "ticker": "META",
+              "identifier": "META",
+              "cusip": "30303M102",
+              "company": "META PLATFORMS INC",
+              "market_value": 161563600000.0,
+              "shares": 220000.0,
+              "rank": 23,
+              "pct_portfolio": 1.9276
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:576323109",
+              "cusip": "576323109",
+              "company": "MASTEC INC",
+              "market_value": 154287250000.0,
+              "shares": 725000.0,
+              "rank": 24,
+              "pct_portfolio": 1.8407
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:87422Q109",
+              "cusip": "87422Q109",
+              "company": "TALEN ENERGY CORP",
+              "market_value": 148883000000.0,
+              "shares": 350000.0,
+              "rank": 25,
+              "pct_portfolio": 1.7763
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:49177J102",
+              "cusip": "49177J102",
+              "company": "KENVUE INC",
+              "market_value": 146070000000.0,
+              "shares": 9000000.0,
+              "rank": 26,
+              "pct_portfolio": 1.7427
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:46982L108",
+              "cusip": "46982L108",
+              "company": "JACOBS SOLUTIONS INC",
+              "market_value": 137121900000.0,
+              "shares": 915000.0,
+              "rank": 27,
+              "pct_portfolio": 1.636
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:741623102",
+              "cusip": "741623102",
+              "company": "PRIMO BRANDS CORPORATION",
+              "market_value": 127627500000.0,
+              "shares": 5775000.0,
+              "rank": 28,
+              "pct_portfolio": 1.5227
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:339750101",
+              "cusip": "339750101",
+              "company": "FLOOR & DECOR HLDGS INC",
+              "market_value": 98021000000.0,
+              "shares": 1330000.0,
+              "rank": 29,
+              "pct_portfolio": 1.1695
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:03769M106",
+              "cusip": "03769M106",
+              "company": "APOLLO GLOBAL MGMT INC",
+              "market_value": 86625500000.0,
+              "shares": 650000.0,
+              "rank": 30,
+              "pct_portfolio": 1.0335
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:77311W101",
+              "cusip": "77311W101",
+              "company": "ROCKET COS INC",
+              "market_value": 77520000000.0,
+              "shares": 4000000.0,
+              "rank": 31,
+              "pct_portfolio": 0.9249
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:03769M304",
+              "cusip": "03769M304",
+              "company": "APOLLO GLOBAL MGMT INC",
+              "market_value": 63252000000.0,
+              "shares": 900000.0,
+              "rank": 32,
+              "pct_portfolio": 0.7546
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:21874A106",
+              "cusip": "21874A106",
+              "company": "CORE SCIENTIFIC INC NEW",
+              "market_value": 53820000000.0,
+              "shares": 3000000.0,
+              "rank": 33,
+              "pct_portfolio": 0.6421
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:092667104",
+              "cusip": "092667104",
+              "company": "STRATA CRITICAL MEDICAL INC",
+              "market_value": 25300000000.0,
+              "shares": 5000000.0,
+              "rank": 34,
+              "pct_portfolio": 0.3018
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:42806J148",
+              "cusip": "42806J148",
+              "company": "HERTZ GLOBAL HLDGS INC",
+              "market_value": 14768400000.0,
+              "shares": 3970000.0,
+              "rank": 35,
+              "pct_portfolio": 0.1762
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:69331CAL2",
+              "cusip": "69331CAL2",
+              "company": "PG&E CORP",
+              "market_value": 10112827000.0,
+              "shares": 10000000.0,
+              "rank": 36,
+              "pct_portfolio": 0.1207
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:235851102",
+              "cusip": "235851102",
+              "company": "DANAHER CORPORATION",
+              "market_value": 9913000000.0,
+              "shares": 50000.0,
+              "rank": 37,
+              "pct_portfolio": 0.1183
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:69331C306",
+              "cusip": "69331C306",
+              "company": "PG&E CORP",
+              "market_value": 5513200000.0,
+              "shares": 140000.0,
+              "rank": 38,
+              "pct_portfolio": 0.0658
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:343928107",
+              "cusip": "343928107",
+              "company": "FLYEXCLUSIVE INC",
+              "market_value": 5048680000.0,
+              "shares": 1022000.0,
+              "rank": 39,
+              "pct_portfolio": 0.0602
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:051774107",
+              "cusip": "051774107",
+              "company": "AURORA INNOVATION INC",
+              "market_value": 2173719000.0,
+              "shares": 1032463.0,
+              "rank": 40,
+              "pct_portfolio": 0.0259
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:051774115",
+              "cusip": "051774115",
+              "company": "AURORA INNOVATION INC",
+              "market_value": 877000000.0,
+              "shares": 1835000.0,
+              "rank": 41,
+              "pct_portfolio": 0.0105
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:071734107",
+              "cusip": "071734107",
+              "company": "BAUSCH HEALTH COS INC",
+              "market_value": 645000000.0,
+              "shares": 100000.0,
+              "rank": 42,
+              "pct_portfolio": 0.0077
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:203668108",
+              "cusip": "203668108",
+              "company": "COMMUNITY HEALTH SYS INC NEW",
+              "market_value": 481500000.0,
+              "shares": 150000.0,
+              "rank": 43,
+              "pct_portfolio": 0.0057
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:343928115",
+              "cusip": "343928115",
+              "company": "FLYEXCLUSIVE INC",
+              "market_value": 116681000.0,
+              "shares": 367499.0,
+              "rank": 44,
+              "pct_portfolio": 0.0014
+            }
+          ],
+          "total_value": 8381781114000.0,
+          "num_holdings": 44
+        },
+        {
+          "form": "13F-HR",
+          "company": "Third Point LLC",
+          "cik": "1040273",
+          "filing_date": "2025-08-14",
+          "file_name": "edgar/data/1040273/0001085146-25-005277.txt",
+          "accession": "0001085146-25-005277",
+          "period_end": "2025-06-30",
+          "quarter": "2025-Q2",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/1040273/0001085146-25-005277.txt",
+          "holdings": [
+            {
+              "ticker": null,
+              "identifier": "CUSIP:69331C108",
+              "cusip": "69331C108",
+              "company": "PG&E CORP",
+              "market_value": 712334000000.0,
+              "shares": 51100000.0,
+              "rank": 1,
+              "pct_portfolio": 9.3482
+            },
+            {
+              "ticker": "AMZN",
+              "identifier": "AMZN",
+              "cusip": "023135106",
+              "company": "AMAZON COM INC",
+              "market_value": 594546900000.0,
+              "shares": 2710000.0,
+              "rank": 2,
+              "pct_portfolio": 7.8024
+            },
+            {
+              "ticker": "NVDA",
+              "identifier": "NVDA",
+              "cusip": "67066G104",
+              "company": "NVIDIA CORPORATION",
+              "market_value": 442372000000.0,
+              "shares": 2800000.0,
+              "rank": 3,
+              "pct_portfolio": 5.8054
+            },
+            {
+              "ticker": "COF",
+              "identifier": "COF",
+              "cusip": "14040H105",
+              "company": "CAPITAL ONE FINL CORP",
+              "market_value": 383862443000.0,
+              "shares": 1804204.0,
+              "rank": 4,
+              "pct_portfolio": 5.0375
+            },
+            {
+              "ticker": "TSM",
+              "identifier": "TSM",
+              "cusip": "874039100",
+              "company": "TAIWAN SEMICONDUCTOR MFG LTD",
+              "market_value": 323880700000.0,
+              "shares": 1430000.0,
+              "rank": 5,
+              "pct_portfolio": 4.2504
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G3643J108",
+              "cusip": "G3643J108",
+              "company": "FLUTTER ENTMT PLC",
+              "market_value": 305763200000.0,
+              "shares": 1070000.0,
+              "rank": 6,
+              "pct_portfolio": 4.0126
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:538034109",
+              "cusip": "538034109",
+              "company": "LIVE NATION ENTERTAINMENT IN",
+              "market_value": 298778000000.0,
+              "shares": 1975000.0,
+              "rank": 7,
+              "pct_portfolio": 3.921
+            },
+            {
+              "ticker": "BN",
+              "identifier": "BN",
+              "cusip": "11271J107",
+              "company": "BROOKFIELD CORP",
+              "market_value": 289148750000.0,
+              "shares": 4675000.0,
+              "rank": 8,
+              "pct_portfolio": 3.7946
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:22160N109",
+              "cusip": "22160N109",
+              "company": "COSTAR GROUP INC",
+              "market_value": 248034000000.0,
+              "shares": 3085000.0,
+              "rank": 9,
+              "pct_portfolio": 3.255
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:92840M102",
+              "cusip": "92840M102",
+              "company": "VISTRA CORP",
+              "market_value": 242262500000.0,
+              "shares": 1250000.0,
+              "rank": 10,
+              "pct_portfolio": 3.1793
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:879433829",
+              "cusip": "879433829",
+              "company": "TELEPHONE & DATA SYS INC",
+              "market_value": 239275500000.0,
+              "shares": 6725000.0,
+              "rank": 11,
+              "pct_portfolio": 3.1401
+            },
+            {
+              "ticker": "CRH",
+              "identifier": "CRH",
+              "cusip": "G25508105",
+              "company": "CRH PLC",
+              "market_value": 237762000000.0,
+              "shares": 2590000.0,
+              "rank": 12,
+              "pct_portfolio": 3.1202
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:50212V100",
+              "cusip": "50212V100",
+              "company": "LPL FINL HLDGS INC",
+              "market_value": 234356250000.0,
+              "shares": 625000.0,
+              "rank": 13,
+              "pct_portfolio": 3.0755
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:87422Q109",
+              "cusip": "87422Q109",
+              "company": "TALEN ENERGY CORP",
+              "market_value": 228254450000.0,
+              "shares": 785000.0,
+              "rank": 14,
+              "pct_portfolio": 2.9955
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:219948106",
+              "cusip": "219948106",
+              "company": "CORPAY INC",
+              "market_value": 227296700000.0,
+              "shares": 685000.0,
+              "rank": 15,
+              "pct_portfolio": 2.9829
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:144285103",
+              "cusip": "144285103",
+              "company": "CARPENTER TECHNOLOGY CORP",
+              "market_value": 207285000000.0,
+              "shares": 750000.0,
+              "rank": 16,
+              "pct_portfolio": 2.7203
+            },
+            {
+              "ticker": "MSFT",
+              "identifier": "MSFT",
+              "cusip": "594918104",
+              "company": "MICROSOFT CORP",
+              "market_value": 198964000000.0,
+              "shares": 400000.0,
+              "rank": 17,
+              "pct_portfolio": 2.6111
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:147528103",
+              "cusip": "147528103",
+              "company": "CASEYS GEN STORES INC",
+              "market_value": 183697200000.0,
+              "shares": 360000.0,
+              "rank": 18,
+              "pct_portfolio": 2.4107
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:03769M106",
+              "cusip": "03769M106",
+              "company": "APOLLO GLOBAL MGMT INC",
+              "market_value": 180884250000.0,
+              "shares": 1275000.0,
+              "rank": 19,
+              "pct_portfolio": 2.3738
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:49177J102",
+              "cusip": "49177J102",
+              "company": "KENVUE INC",
+              "market_value": 178428250000.0,
+              "shares": 8525000.0,
+              "rank": 20,
+              "pct_portfolio": 2.3416
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:45866F104",
+              "cusip": "45866F104",
+              "company": "INTERCONTINENTAL EXCHANGE IN",
+              "market_value": 174296500000.0,
+              "shares": 950000.0,
+              "rank": 21,
+              "pct_portfolio": 2.2873
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:741623102",
+              "cusip": "741623102",
+              "company": "PRIMO BRANDS CORPORATION",
+              "market_value": 171055500000.0,
+              "shares": 5775000.0,
+              "rank": 22,
+              "pct_portfolio": 2.2448
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:46982L108",
+              "cusip": "46982L108",
+              "company": "JACOBS SOLUTIONS INC",
+              "market_value": 166152800000.0,
+              "shares": 1264000.0,
+              "rank": 23,
+              "pct_portfolio": 2.1805
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:62482R107",
+              "cusip": "62482R107",
+              "company": "MR COOPER GROUP INC",
+              "market_value": 138019250000.0,
+              "shares": 925000.0,
+              "rank": 24,
+              "pct_portfolio": 1.8113
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G8068L108",
+              "cusip": "G8068L108",
+              "company": "SHARKNINJA INC",
+              "market_value": 118788000000.0,
+              "shares": 1200000.0,
+              "rank": 25,
+              "pct_portfolio": 1.5589
+            },
+            {
+              "ticker": "META",
+              "identifier": "META",
+              "cusip": "30303M102",
+              "company": "META PLATFORMS INC",
+              "market_value": 110713500000.0,
+              "shares": 150000.0,
+              "rank": 26,
+              "pct_portfolio": 1.4529
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:199908104",
+              "cusip": "199908104",
+              "company": "COMFORT SYS USA INC",
+              "market_value": 99198850000.0,
+              "shares": 185000.0,
+              "rank": 27,
+              "pct_portfolio": 1.3018
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:235851102",
+              "cusip": "235851102",
+              "company": "DANAHER CORPORATION",
+              "market_value": 98770000000.0,
+              "shares": 500000.0,
+              "rank": 28,
+              "pct_portfolio": 1.2962
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:74935Q107",
+              "cusip": "74935Q107",
+              "company": "RB GLOBAL INC",
+              "market_value": 73802050000.0,
+              "shares": 695000.0,
+              "rank": 29,
+              "pct_portfolio": 0.9685
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:98138H101",
+              "cusip": "98138H101",
+              "company": "WORKDAY INC",
+              "market_value": 72000000000.0,
+              "shares": 300000.0,
+              "rank": 30,
+              "pct_portfolio": 0.9449
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:03769M304",
+              "cusip": "03769M304",
+              "company": "APOLLO GLOBAL MGMT INC",
+              "market_value": 67365000000.0,
+              "shares": 900000.0,
+              "rank": 31,
+              "pct_portfolio": 0.8841
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:77311W101",
+              "cusip": "77311W101",
+              "company": "ROCKET COS INC",
+              "market_value": 67355000000.0,
+              "shares": 4750000.0,
+              "rank": 32,
+              "pct_portfolio": 0.8839
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:34354P105",
+              "cusip": "34354P105",
+              "company": "FLOWSERVE CORP",
+              "market_value": 62558250000.0,
+              "shares": 1195000.0,
+              "rank": 33,
+              "pct_portfolio": 0.821
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:34959J108",
+              "cusip": "34959J108",
+              "company": "FORTIVE CORP",
+              "market_value": 60470800000.0,
+              "shares": 1160000.0,
+              "rank": 34,
+              "pct_portfolio": 0.7936
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:256163106",
+              "cusip": "256163106",
+              "company": "DOCUSIGN INC",
+              "market_value": 48681250000.0,
+              "shares": 625000.0,
+              "rank": 35,
+              "pct_portfolio": 0.6389
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:586001109",
+              "cusip": "586001109",
+              "company": "SOHO HOUSE & CO INC",
+              "market_value": 38011819000.0,
+              "shares": 5171676.0,
+              "rank": 36,
+              "pct_portfolio": 0.4988
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:16115Q308",
+              "cusip": "16115Q308",
+              "company": "CHART INDS INC",
+              "market_value": 35399750000.0,
+              "shares": 215000.0,
+              "rank": 37,
+              "pct_portfolio": 0.4646
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:42806J148",
+              "cusip": "42806J148",
+              "company": "HERTZ GLOBAL HLDGS INC",
+              "market_value": 14490500000.0,
+              "shares": 3970000.0,
+              "rank": 38,
+              "pct_portfolio": 0.1902
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:69331CAL2",
+              "cusip": "69331CAL2",
+              "company": "PG&E CORP",
+              "market_value": 9928534000.0,
+              "shares": 10000000.0,
+              "rank": 39,
+              "pct_portfolio": 0.1303
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:81141R100",
+              "cusip": "81141R100",
+              "company": "SEA LTD",
+              "market_value": 7997000000.0,
+              "shares": 50000.0,
+              "rank": 40,
+              "pct_portfolio": 0.1049
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:750940108",
+              "cusip": "750940108",
+              "company": "RALLIANT CORP",
+              "market_value": 6061395000.0,
+              "shares": 125003.0,
+              "rank": 41,
+              "pct_portfolio": 0.0795
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:051774107",
+              "cusip": "051774107",
+              "company": "AURORA INNOVATION INC",
+              "market_value": 5410106000.0,
+              "shares": 1032463.0,
+              "rank": 42,
+              "pct_portfolio": 0.071
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:69331C306",
+              "cusip": "69331C306",
+              "company": "PG&E CORP",
+              "market_value": 5264000000.0,
+              "shares": 140000.0,
+              "rank": 43,
+              "pct_portfolio": 0.0691
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:78573M104",
+              "cusip": "78573M104",
+              "company": "SABRE CORP",
+              "market_value": 2370000000.0,
+              "shares": 750000.0,
+              "rank": 44,
+              "pct_portfolio": 0.0311
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:343928107",
+              "cusip": "343928107",
+              "company": "FLYEXCLUSIVE INC",
+              "market_value": 1992900000.0,
+              "shares": 1022000.0,
+              "rank": 45,
+              "pct_portfolio": 0.0262
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:81764X103",
+              "cusip": "81764X103",
+              "company": "SERVICETITAN INC",
+              "market_value": 1607700000.0,
+              "shares": 15000.0,
+              "rank": 46,
+              "pct_portfolio": 0.0211
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:051774115",
+              "cusip": "051774115",
+              "company": "AURORA INNOVATION INC",
+              "market_value": 1596450000.0,
+              "shares": 1835000.0,
+              "rank": 47,
+              "pct_portfolio": 0.021
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:62548M209",
+              "cusip": "62548M209",
+              "company": "CLARITEV CORPORATION",
+              "market_value": 1353900000.0,
+              "shares": 30000.0,
+              "rank": 48,
+              "pct_portfolio": 0.0178
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:04681Y103",
+              "cusip": "04681Y103",
+              "company": "ATEGRITY SPECIALTY IN CO HO",
+              "market_value": 1076000000.0,
+              "shares": 50000.0,
+              "rank": 49,
+              "pct_portfolio": 0.0141
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:03980N107",
+              "cusip": "03980N107",
+              "company": "ARDENT HEALTH INC",
+              "market_value": 1024500000.0,
+              "shares": 75000.0,
+              "rank": 50,
+              "pct_portfolio": 0.0134
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:343928115",
+              "cusip": "343928115",
+              "company": "FLYEXCLUSIVE INC",
+              "market_value": 36750000.0,
+              "shares": 367499.0,
+              "rank": 51,
+              "pct_portfolio": 0.0005
+            }
+          ],
+          "total_value": 7620034147000.0,
+          "num_holdings": 51
+        },
+        {
+          "form": "13F-HR",
+          "company": "Third Point LLC",
+          "cik": "1040273",
+          "filing_date": "2025-05-15",
+          "file_name": "edgar/data/1040273/0001085146-25-003337.txt",
+          "accession": "0001085146-25-003337",
+          "period_end": "2025-03-31",
+          "quarter": "2025-Q1",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/1040273/0001085146-25-003337.txt",
+          "holdings": [
+            {
+              "ticker": null,
+              "identifier": "CUSIP:69331C108",
+              "cusip": "69331C108",
+              "company": "PG&E CORP",
+              "market_value": 877898000000.0,
+              "shares": 51100000.0,
+              "rank": 1,
+              "pct_portfolio": 13.7888
+            },
+            {
+              "ticker": "AMZN",
+              "identifier": "AMZN",
+              "cusip": "023135106",
+              "company": "AMAZON COM INC",
+              "market_value": 447111000000.0,
+              "shares": 2350000.0,
+              "rank": 2,
+              "pct_portfolio": 7.0226
+            },
+            {
+              "ticker": "TSM",
+              "identifier": "TSM",
+              "cusip": "874039100",
+              "company": "TAIWAN SEMICONDUCTOR MFG LTD",
+              "market_value": 295480000000.0,
+              "shares": 1780000.0,
+              "rank": 3,
+              "pct_portfolio": 4.641
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:538034109",
+              "cusip": "538034109",
+              "company": "LIVE NATION ENTERTAINMENT IN",
+              "market_value": 274218000000.0,
+              "shares": 2100000.0,
+              "rank": 4,
+              "pct_portfolio": 4.307
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:879433829",
+              "cusip": "879433829",
+              "company": "TELEPHONE & DATA SYS INC",
+              "market_value": 261882400000.0,
+              "shares": 6760000.0,
+              "rank": 5,
+              "pct_portfolio": 4.1133
+            },
+            {
+              "ticker": "CRH",
+              "identifier": "CRH",
+              "cusip": "G25508105",
+              "company": "CRH PLC",
+              "market_value": 238838550000.0,
+              "shares": 2715000.0,
+              "rank": 6,
+              "pct_portfolio": 3.7513
+            },
+            {
+              "ticker": "BN",
+              "identifier": "BN",
+              "cusip": "11271J107",
+              "company": "BROOKFIELD CORP",
+              "market_value": 222218400000.0,
+              "shares": 4240000.0,
+              "rank": 7,
+              "pct_portfolio": 3.4903
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G3643J108",
+              "cusip": "G3643J108",
+              "company": "FLUTTER ENTMT PLC",
+              "market_value": 214903500000.0,
+              "shares": 970000.0,
+              "rank": 8,
+              "pct_portfolio": 3.3754
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:49177J102",
+              "cusip": "49177J102",
+              "company": "KENVUE INC",
+              "market_value": 213422000000.0,
+              "shares": 8900000.0,
+              "rank": 9,
+              "pct_portfolio": 3.3521
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:219948106",
+              "cusip": "219948106",
+              "company": "CORPAY INC",
+              "market_value": 212719200000.0,
+              "shares": 610000.0,
+              "rank": 10,
+              "pct_portfolio": 3.3411
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:03769M106",
+              "cusip": "03769M106",
+              "company": "APOLLO GLOBAL MGMT INC",
+              "market_value": 205410000000.0,
+              "shares": 1500000.0,
+              "rank": 11,
+              "pct_portfolio": 3.2263
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:50212V100",
+              "cusip": "50212V100",
+              "company": "LPL FINL HLDGS INC",
+              "market_value": 204462500000.0,
+              "shares": 625000.0,
+              "rank": 12,
+              "pct_portfolio": 3.2114
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:45866F104",
+              "cusip": "45866F104",
+              "company": "INTERCONTINENTAL EXCHANGE IN",
+              "market_value": 189750000000.0,
+              "shares": 1100000.0,
+              "rank": 13,
+              "pct_portfolio": 2.9803
+            },
+            {
+              "ticker": "COF",
+              "identifier": "COF",
+              "cusip": "14040H105",
+              "company": "CAPITAL ONE FINL CORP",
+              "market_value": 188265000000.0,
+              "shares": 1050000.0,
+              "rank": 14,
+              "pct_portfolio": 2.957
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:46982L108",
+              "cusip": "46982L108",
+              "company": "JACOBS SOLUTIONS INC",
+              "market_value": 169246000000.0,
+              "shares": 1400000.0,
+              "rank": 15,
+              "pct_portfolio": 2.6583
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:144285103",
+              "cusip": "144285103",
+              "company": "CARPENTER TECHNOLOGY CORP",
+              "market_value": 157626600000.0,
+              "shares": 870000.0,
+              "rank": 16,
+              "pct_portfolio": 2.4758
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:26884L109",
+              "cusip": "26884L109",
+              "company": "EQT CORP",
+              "market_value": 157618500000.0,
+              "shares": 2950000.0,
+              "rank": 17,
+              "pct_portfolio": 2.4757
+            },
+            {
+              "ticker": "NVDA",
+              "identifier": "NVDA",
+              "cusip": "67066G104",
+              "company": "NVIDIA CORPORATION",
+              "market_value": 157151000000.0,
+              "shares": 1450000.0,
+              "rank": 18,
+              "pct_portfolio": 2.4683
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:22160N109",
+              "cusip": "22160N109",
+              "company": "COSTAR GROUP INC",
+              "market_value": 156479250000.0,
+              "shares": 1975000.0,
+              "rank": 19,
+              "pct_portfolio": 2.4578
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:912909108",
+              "cusip": "912909108",
+              "company": "UNITED STATES STL CORP NEW",
+              "market_value": 153192500000.0,
+              "shares": 3625000.0,
+              "rank": 20,
+              "pct_portfolio": 2.4061
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:34959J108",
+              "cusip": "34959J108",
+              "company": "FORTIVE CORP",
+              "market_value": 139042000000.0,
+              "shares": 1900000.0,
+              "rank": 21,
+              "pct_portfolio": 2.1839
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:147528103",
+              "cusip": "147528103",
+              "company": "CASEYS GEN STORES INC",
+              "market_value": 130212000000.0,
+              "shares": 300000.0,
+              "rank": 22,
+              "pct_portfolio": 2.0452
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:254709108",
+              "cusip": "254709108",
+              "company": "DISCOVER FINL SVCS",
+              "market_value": 126318000000.0,
+              "shares": 740000.0,
+              "rank": 23,
+              "pct_portfolio": 1.984
+            },
+            {
+              "ticker": "MSFT",
+              "identifier": "MSFT",
+              "cusip": "594918104",
+              "company": "MICROSOFT CORP",
+              "market_value": 118247850000.0,
+              "shares": 315000.0,
+              "rank": 24,
+              "pct_portfolio": 1.8573
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:87422Q109",
+              "cusip": "87422Q109",
+              "company": "TALEN ENERGY CORP",
+              "market_value": 116806950000.0,
+              "shares": 585000.0,
+              "rank": 25,
+              "pct_portfolio": 1.8346
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:00206R102",
+              "cusip": "00206R102",
+              "company": "AT&T INC",
+              "market_value": 105637713000.0,
+              "shares": 3775000.0,
+              "rank": 26,
+              "pct_portfolio": 1.6592
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:42809H107",
+              "cusip": "42809H107",
+              "company": "HESS CORP",
+              "market_value": 99831250000.0,
+              "shares": 625000.0,
+              "rank": 27,
+              "pct_portfolio": 1.568
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:92840M102",
+              "cusip": "92840M102",
+              "company": "VISTRA CORP",
+              "market_value": 99824000000.0,
+              "shares": 850000.0,
+              "rank": 28,
+              "pct_portfolio": 1.5679
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:741623102",
+              "cusip": "741623102",
+              "company": "PRIMO BRANDS CORPORATION",
+              "market_value": 98484750000.0,
+              "shares": 2775000.0,
+              "rank": 29,
+              "pct_portfolio": 1.5469
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:74935Q107",
+              "cusip": "74935Q107",
+              "company": "RB GLOBAL INC",
+              "market_value": 95285000000.0,
+              "shares": 950000.0,
+              "rank": 30,
+              "pct_portfolio": 1.4966
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:03769M304",
+              "cusip": "03769M304",
+              "company": "APOLLO GLOBAL MGMT INC",
+              "market_value": 65781000000.0,
+              "shares": 900000.0,
+              "rank": 31,
+              "pct_portfolio": 1.0332
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G8068L108",
+              "cusip": "G8068L108",
+              "company": "SHARKNINJA INC",
+              "market_value": 45875500000.0,
+              "shares": 550000.0,
+              "rank": 32,
+              "pct_portfolio": 0.7205
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:586001109",
+              "cusip": "586001109",
+              "company": "SOHO HOUSE & CO INC",
+              "market_value": 32136000000.0,
+              "shares": 5200000.0,
+              "rank": 33,
+              "pct_portfolio": 0.5047
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:72352L106",
+              "cusip": "72352L106",
+              "company": "PINTEREST INC",
+              "market_value": 31000000000.0,
+              "shares": 1000000.0,
+              "rank": 34,
+              "pct_portfolio": 0.4869
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G7997W102",
+              "cusip": "G7997W102",
+              "company": "SEADRILL LTD",
+              "market_value": 25625000000.0,
+              "shares": 1025000.0,
+              "rank": 35,
+              "pct_portfolio": 0.4025
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:69331CAL2",
+              "cusip": "69331CAL2",
+              "company": "PG&E CORP",
+              "market_value": 10577312000.0,
+              "shares": 10000000.0,
+              "rank": 36,
+              "pct_portfolio": 0.1661
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:42806J148",
+              "cusip": "42806J148",
+              "company": "HERTZ GLOBAL HLDGS INC",
+              "market_value": 8972200000.0,
+              "shares": 3970000.0,
+              "rank": 37,
+              "pct_portfolio": 0.1409
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:051774107",
+              "cusip": "051774107",
+              "company": "AURORA INNOVATION INC",
+              "market_value": 6943314000.0,
+              "shares": 1032463.0,
+              "rank": 38,
+              "pct_portfolio": 0.1091
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:69331C306",
+              "cusip": "69331C306",
+              "company": "PG&E CORP",
+              "market_value": 6263600000.0,
+              "shares": 140000.0,
+              "rank": 39,
+              "pct_portfolio": 0.0984
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:343928107",
+              "cusip": "343928107",
+              "company": "FLYEXCLUSIVE INC",
+              "market_value": 3178420000.0,
+              "shares": 1022000.0,
+              "rank": 40,
+              "pct_portfolio": 0.0499
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:051774115",
+              "cusip": "051774115",
+              "company": "AURORA INNOVATION INC",
+              "market_value": 2587167000.0,
+              "shares": 1835000.0,
+              "rank": 41,
+              "pct_portfolio": 0.0406
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:64107A113",
+              "cusip": "64107A113",
+              "company": "NET POWER INC",
+              "market_value": 152500000.0,
+              "shares": 500000.0,
+              "rank": 42,
+              "pct_portfolio": 0.0024
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:343928115",
+              "cusip": "343928115",
+              "company": "FLYEXCLUSIVE INC",
+              "market_value": 36750000.0,
+              "shares": 367499.0,
+              "rank": 43,
+              "pct_portfolio": 0.0006
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:H33700115",
+              "cusip": "H33700115",
+              "company": "GLOBAL BLUE GROUP HOLDING AG",
+              "market_value": 29600000.0,
+              "shares": 1333333.0,
+              "rank": 44,
+              "pct_portfolio": 0.0005
+            }
+          ],
+          "total_value": 6366740276000.0,
+          "num_holdings": 44
+        },
+        {
+          "form": "13F-HR",
+          "company": "Third Point LLC",
+          "cik": "1040273",
+          "filing_date": "2025-02-14",
+          "file_name": "edgar/data/1040273/0001085146-25-001713.txt",
+          "accession": "0001085146-25-001713",
+          "period_end": "2024-12-31",
+          "quarter": "2024-Q4",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/1040273/0001085146-25-001713.txt",
+          "holdings": [
+            {
+              "ticker": null,
+              "identifier": "CUSIP:69331C108",
+              "cusip": "69331C108",
+              "company": "PG&E CORP",
+              "market_value": 978730000000.0,
+              "shares": 48500000.0,
+              "rank": 1,
+              "pct_portfolio": 13.1506
+            },
+            {
+              "ticker": "AMZN",
+              "identifier": "AMZN",
+              "cusip": "023135106",
+              "company": "AMAZON COM INC",
+              "market_value": 756895500000.0,
+              "shares": 3450000.0,
+              "rank": 2,
+              "pct_portfolio": 10.17
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:235851102",
+              "cusip": "235851102",
+              "company": "DANAHER CORPORATION",
+              "market_value": 436145000000.0,
+              "shares": 1900000.0,
+              "rank": 3,
+              "pct_portfolio": 5.8602
+            },
+            {
+              "ticker": "META",
+              "identifier": "META",
+              "cusip": "30303M102",
+              "company": "META PLATFORMS INC",
+              "market_value": 389364150000.0,
+              "shares": 665000.0,
+              "rank": 4,
+              "pct_portfolio": 5.2317
+            },
+            {
+              "ticker": "TSM",
+              "identifier": "TSM",
+              "cusip": "874039100",
+              "company": "TAIWAN SEMICONDUCTOR MFG LTD",
+              "market_value": 351532200000.0,
+              "shares": 1780000.0,
+              "rank": 5,
+              "pct_portfolio": 4.7233
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:45866F104",
+              "cusip": "45866F104",
+              "company": "INTERCONTINENTAL EXCHANGE IN",
+              "market_value": 310685850000.0,
+              "shares": 2085000.0,
+              "rank": 6,
+              "pct_portfolio": 4.1745
+            },
+            {
+              "ticker": "BN",
+              "identifier": "BN",
+              "cusip": "11271J107",
+              "company": "BROOKFIELD CORP",
+              "market_value": 286675500000.0,
+              "shares": 4990000.0,
+              "rank": 7,
+              "pct_portfolio": 3.8519
+            },
+            {
+              "ticker": "MSFT",
+              "identifier": "MSFT",
+              "cusip": "594918104",
+              "company": "MICROSOFT CORP",
+              "market_value": 252900000000.0,
+              "shares": 600000.0,
+              "rank": 8,
+              "pct_portfolio": 3.3981
+            },
+            {
+              "ticker": "CRH",
+              "identifier": "CRH",
+              "cusip": "G25508105",
+              "company": "CRH PLC",
+              "market_value": 251191800000.0,
+              "shares": 2715000.0,
+              "rank": 9,
+              "pct_portfolio": 3.3751
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G3643J108",
+              "cusip": "G3643J108",
+              "company": "FLUTTER ENTMT PLC",
+              "market_value": 224851500000.0,
+              "shares": 870000.0,
+              "rank": 10,
+              "pct_portfolio": 3.0212
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:538034109",
+              "cusip": "538034109",
+              "company": "LIVE NATION ENTERTAINMENT IN",
+              "market_value": 222740000000.0,
+              "shares": 1720000.0,
+              "rank": 11,
+              "pct_portfolio": 2.9928
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:46982L108",
+              "cusip": "46982L108",
+              "company": "JACOBS SOLUTIONS INC",
+              "market_value": 220473000000.0,
+              "shares": 1650000.0,
+              "rank": 12,
+              "pct_portfolio": 2.9624
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:50212V100",
+              "cusip": "50212V100",
+              "company": "LPL FINL HLDGS INC",
+              "market_value": 213864050000.0,
+              "shares": 655000.0,
+              "rank": 13,
+              "pct_portfolio": 2.8736
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:31488V107",
+              "cusip": "31488V107",
+              "company": "FERGUSON ENTERPRISES INC",
+              "market_value": 208284000000.0,
+              "shares": 1200000.0,
+              "rank": 14,
+              "pct_portfolio": 2.7986
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:219948106",
+              "cusip": "219948106",
+              "company": "CORPAY INC",
+              "market_value": 206436200000.0,
+              "shares": 610000.0,
+              "rank": 15,
+              "pct_portfolio": 2.7738
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:879433829",
+              "cusip": "879433829",
+              "company": "TELEPHONE & DATA SYS INC",
+              "market_value": 204660000000.0,
+              "shares": 6000000.0,
+              "rank": 16,
+              "pct_portfolio": 2.7499
+            },
+            {
+              "ticker": "TSLA",
+              "identifier": "TSLA",
+              "cusip": "88160R101",
+              "company": "TESLA INC",
+              "market_value": 201920000000.0,
+              "shares": 500000.0,
+              "rank": 17,
+              "pct_portfolio": 2.7131
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:883556102",
+              "cusip": "883556102",
+              "company": "THERMO FISHER SCIENTIFIC INC",
+              "market_value": 182080500000.0,
+              "shares": 350000.0,
+              "rank": 18,
+              "pct_portfolio": 2.4465
+            },
+            {
+              "ticker": "COF",
+              "identifier": "COF",
+              "cusip": "14040H105",
+              "company": "CAPITAL ONE FINL CORP",
+              "market_value": 164946000000.0,
+              "shares": 925000.0,
+              "rank": 19,
+              "pct_portfolio": 2.2163
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:144285103",
+              "cusip": "144285103",
+              "company": "CARPENTER TECHNOLOGY CORP",
+              "market_value": 147647700000.0,
+              "shares": 870000.0,
+              "rank": 20,
+              "pct_portfolio": 1.9839
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:34959J108",
+              "cusip": "34959J108",
+              "company": "FORTIVE CORP",
+              "market_value": 142500000000.0,
+              "shares": 1900000.0,
+              "rank": 21,
+              "pct_portfolio": 1.9147
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:92840M102",
+              "cusip": "92840M102",
+              "company": "VISTRA CORP",
+              "market_value": 137870000000.0,
+              "shares": 1000000.0,
+              "rank": 22,
+              "pct_portfolio": 1.8525
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:26884L109",
+              "cusip": "26884L109",
+              "company": "EQT CORP",
+              "market_value": 136024500000.0,
+              "shares": 2950000.0,
+              "rank": 23,
+              "pct_portfolio": 1.8277
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:98138H101",
+              "cusip": "98138H101",
+              "company": "WORKDAY INC",
+              "market_value": 129015000000.0,
+              "shares": 500000.0,
+              "rank": 24,
+              "pct_portfolio": 1.7335
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:17243V102",
+              "cusip": "17243V102",
+              "company": "CINEMARK HLDGS INC",
+              "market_value": 116175000000.0,
+              "shares": 3750000.0,
+              "rank": 25,
+              "pct_portfolio": 1.561
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:254709108",
+              "cusip": "254709108",
+              "company": "DISCOVER FINL SVCS",
+              "market_value": 110867200000.0,
+              "shares": 640000.0,
+              "rank": 26,
+              "pct_portfolio": 1.4897
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:42809H107",
+              "cusip": "42809H107",
+              "company": "HESS CORP",
+              "market_value": 83131250000.0,
+              "shares": 625000.0,
+              "rank": 27,
+              "pct_portfolio": 1.117
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:03769M304",
+              "cusip": "03769M304",
+              "company": "APOLLO GLOBAL MGMT INC",
+              "market_value": 78219000000.0,
+              "shares": 900000.0,
+              "rank": 28,
+              "pct_portfolio": 1.051
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:741623102",
+              "cusip": "741623102",
+              "company": "PRIMO BRANDS CORPORATION",
+              "market_value": 73848000000.0,
+              "shares": 2400000.0,
+              "rank": 29,
+              "pct_portfolio": 0.9923
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:03769M106",
+              "cusip": "03769M106",
+              "company": "APOLLO GLOBAL MGMT INC",
+              "market_value": 66064000000.0,
+              "shares": 400000.0,
+              "rank": 30,
+              "pct_portfolio": 0.8877
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:H33700107",
+              "cusip": "H33700107",
+              "company": "GLOBAL BLUE GROUP HOLDING AG",
+              "market_value": 58126075000.0,
+              "shares": 8387601.0,
+              "rank": 31,
+              "pct_portfolio": 0.781
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G7997W102",
+              "cusip": "G7997W102",
+              "company": "SEADRILL 2021 LTD",
+              "market_value": 39903250000.0,
+              "shares": 1025000.0,
+              "rank": 32,
+              "pct_portfolio": 0.5362
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:586001109",
+              "cusip": "586001109",
+              "company": "SOHO HOUSE & CO INC",
+              "market_value": 17522966000.0,
+              "shares": 2352076.0,
+              "rank": 33,
+              "pct_portfolio": 0.2354
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:69331CAL2",
+              "cusip": "69331CAL2",
+              "company": "PG&E CORP",
+              "market_value": 10865632000.0,
+              "shares": 10000000.0,
+              "rank": 34,
+              "pct_portfolio": 0.146
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:42806J148",
+              "cusip": "42806J148",
+              "company": "HERTZ GLOBAL HLDGS INC",
+              "market_value": 8535500000.0,
+              "shares": 3970000.0,
+              "rank": 35,
+              "pct_portfolio": 0.1147
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:69331C306",
+              "cusip": "69331C306",
+              "company": "PG&E CORP",
+              "market_value": 6970600000.0,
+              "shares": 140000.0,
+              "rank": 36,
+              "pct_portfolio": 0.0937
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:051774107",
+              "cusip": "051774107",
+              "company": "AURORA INNOVATION INC",
+              "market_value": 6504517000.0,
+              "shares": 1032463.0,
+              "rank": 37,
+              "pct_portfolio": 0.0874
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:343928107",
+              "cusip": "343928107",
+              "company": "FLYEXCLUSIVE INC",
+              "market_value": 3219300000.0,
+              "shares": 1022000.0,
+              "rank": 38,
+              "pct_portfolio": 0.0433
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:051774115",
+              "cusip": "051774115",
+              "company": "AURORA INNOVATION INC",
+              "market_value": 1945100000.0,
+              "shares": 1835000.0,
+              "rank": 39,
+              "pct_portfolio": 0.0261
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:64107A113",
+              "cusip": "64107A113",
+              "company": "NET POWER INC",
+              "market_value": 1799650000.0,
+              "shares": 500000.0,
+              "rank": 40,
+              "pct_portfolio": 0.0242
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:18453H106",
+              "cusip": "18453H106",
+              "company": "CLEAR CHANNEL OUTDOOR HLDGS",
+              "market_value": 1233000000.0,
+              "shares": 900000.0,
+              "rank": 41,
+              "pct_portfolio": 0.0166
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:343928115",
+              "cusip": "343928115",
+              "company": "FLYEXCLUSIVE INC",
+              "market_value": 66150000.0,
+              "shares": 367499.0,
+              "rank": 42,
+              "pct_portfolio": 0.0009
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:H33700115",
+              "cusip": "H33700115",
+              "company": "GLOBAL BLUE GROUP HOLDING AG",
+              "market_value": 40667000.0,
+              "shares": 1333333.0,
+              "rank": 43,
+              "pct_portfolio": 0.0005
+            }
+          ],
+          "total_value": 7442469307000.0,
+          "num_holdings": 43
+        },
+        {
+          "form": "13F-HR",
+          "company": "Third Point LLC",
+          "cik": "1040273",
+          "filing_date": "2024-11-14",
+          "file_name": "edgar/data/1040273/0001085146-24-005927.txt",
+          "accession": "0001085146-24-005927",
+          "period_end": "2024-09-30",
+          "quarter": "2024-Q3",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/1040273/0001085146-24-005927.txt",
+          "holdings": [
+            {
+              "ticker": null,
+              "identifier": "CUSIP:69331C108",
+              "cusip": "69331C108",
+              "company": "PG&E CORP",
+              "market_value": 983557500000.0,
+              "shares": 49750000.0,
+              "rank": 1,
+              "pct_portfolio": 13.2359
+            },
+            {
+              "ticker": "AMZN",
+              "identifier": "AMZN",
+              "cusip": "023135106",
+              "company": "AMAZON COM INC",
+              "market_value": 689421000000.0,
+              "shares": 3700000.0,
+              "rank": 2,
+              "pct_portfolio": 9.2776
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:235851102",
+              "cusip": "235851102",
+              "company": "DANAHER CORPORATION",
+              "market_value": 542139000000.0,
+              "shares": 1950000.0,
+              "rank": 3,
+              "pct_portfolio": 7.2956
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:92840M102",
+              "cusip": "92840M102",
+              "company": "VISTRA CORP",
+              "market_value": 376364500000.0,
+              "shares": 3175000.0,
+              "rank": 4,
+              "pct_portfolio": 5.0648
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:070830104",
+              "cusip": "070830104",
+              "company": "BATH & BODY WORKS INC",
+              "market_value": 376177200000.0,
+              "shares": 11785000.0,
+              "rank": 5,
+              "pct_portfolio": 5.0623
+            },
+            {
+              "ticker": "MSFT",
+              "identifier": "MSFT",
+              "cusip": "594918104",
+              "company": "MICROSOFT CORP",
+              "market_value": 374361000000.0,
+              "shares": 870000.0,
+              "rank": 6,
+              "pct_portfolio": 5.0378
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:45866F104",
+              "cusip": "45866F104",
+              "company": "INTERCONTINENTAL EXCHANGE IN",
+              "market_value": 334934400000.0,
+              "shares": 2085000.0,
+              "rank": 7,
+              "pct_portfolio": 4.5073
+            },
+            {
+              "ticker": "META",
+              "identifier": "META",
+              "cusip": "30303M102",
+              "company": "META PLATFORMS INC",
+              "market_value": 311979800000.0,
+              "shares": 545000.0,
+              "rank": 8,
+              "pct_portfolio": 4.1984
+            },
+            {
+              "ticker": "TSM",
+              "identifier": "TSM",
+              "cusip": "874039100",
+              "company": "TAIWAN SEMICONDUCTOR MFG LTD",
+              "market_value": 309132600000.0,
+              "shares": 1780000.0,
+              "rank": 9,
+              "pct_portfolio": 4.16
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:538034109",
+              "cusip": "538034109",
+              "company": "LIVE NATION ENTERTAINMENT IN",
+              "market_value": 256206600000.0,
+              "shares": 2340000.0,
+              "rank": 10,
+              "pct_portfolio": 3.4478
+            },
+            {
+              "ticker": "BN",
+              "identifier": "BN",
+              "cusip": "11271J107",
+              "company": "BROOKFIELD CORP",
+              "market_value": 251133750000.0,
+              "shares": 4725000.0,
+              "rank": 11,
+              "pct_portfolio": 3.3795
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:219948106",
+              "cusip": "219948106",
+              "company": "CORPAY INC",
+              "market_value": 239261400000.0,
+              "shares": 765000.0,
+              "rank": 12,
+              "pct_portfolio": 3.2198
+            },
+            {
+              "ticker": "AAPL",
+              "identifier": "AAPL",
+              "cusip": "037833100",
+              "company": "APPLE INC",
+              "market_value": 216690000000.0,
+              "shares": 930000.0,
+              "rank": 13,
+              "pct_portfolio": 2.916
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:46982L108",
+              "cusip": "46982L108",
+              "company": "JACOBS SOLUTIONS INC",
+              "market_value": 215985000000.0,
+              "shares": 1650000.0,
+              "rank": 14,
+              "pct_portfolio": 2.9065
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:17243V102",
+              "cusip": "17243V102",
+              "company": "CINEMARK HLDGS INC",
+              "market_value": 194880000000.0,
+              "shares": 7000000.0,
+              "rank": 15,
+              "pct_portfolio": 2.6225
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:31488V107",
+              "cusip": "31488V107",
+              "company": "FERGUSON ENTERPRISES INC",
+              "market_value": 191620050000.0,
+              "shares": 965000.0,
+              "rank": 16,
+              "pct_portfolio": 2.5787
+            },
+            {
+              "ticker": "CRH",
+              "identifier": "CRH",
+              "cusip": "G25508105",
+              "company": "CRH PLC",
+              "market_value": 190117000000.0,
+              "shares": 2050000.0,
+              "rank": 17,
+              "pct_portfolio": 2.5584
+            },
+            {
+              "ticker": "ROP",
+              "identifier": "ROP",
+              "cusip": "776696106",
+              "company": "ROPER TECHNOLOGIES INC",
+              "market_value": 133545600000.0,
+              "shares": 240000.0,
+              "rank": 18,
+              "pct_portfolio": 1.7971
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G3643J108",
+              "cusip": "G3643J108",
+              "company": "FLUTTER ENTMT PLC",
+              "market_value": 121012800000.0,
+              "shares": 510000.0,
+              "rank": 19,
+              "pct_portfolio": 1.6285
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:03769M106",
+              "cusip": "03769M106",
+              "company": "APOLLO GLOBAL MGMT INC",
+              "market_value": 118664500000.0,
+              "shares": 950000.0,
+              "rank": 20,
+              "pct_portfolio": 1.5969
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:50212V100",
+              "cusip": "50212V100",
+              "company": "LPL FINL HLDGS INC",
+              "market_value": 112825550000.0,
+              "shares": 485000.0,
+              "rank": 21,
+              "pct_portfolio": 1.5183
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:144285103",
+              "cusip": "144285103",
+              "company": "CARPENTER TECHNOLOGY CORP",
+              "market_value": 105322800000.0,
+              "shares": 660000.0,
+              "rank": 22,
+              "pct_portfolio": 1.4173
+            },
+            {
+              "ticker": "TSLA",
+              "identifier": "TSLA",
+              "cusip": "88160R101",
+              "company": "TESLA INC",
+              "market_value": 104652000000.0,
+              "shares": 400000.0,
+              "rank": 23,
+              "pct_portfolio": 1.4083
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:032095101",
+              "cusip": "032095101",
+              "company": "AMPHENOL CORP NEW",
+              "market_value": 104256000000.0,
+              "shares": 1600000.0,
+              "rank": 24,
+              "pct_portfolio": 1.403
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:126650100",
+              "cusip": "126650100",
+              "company": "CVS HEALTH CORP",
+              "market_value": 99036000000.0,
+              "shares": 1575000.0,
+              "rank": 25,
+              "pct_portfolio": 1.3327
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:42809H107",
+              "cusip": "42809H107",
+              "company": "HESS CORP",
+              "market_value": 84875000000.0,
+              "shares": 625000.0,
+              "rank": 26,
+              "pct_portfolio": 1.1422
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:03662Q105",
+              "cusip": "03662Q105",
+              "company": "ANSYS INC",
+              "market_value": 81250650000.0,
+              "shares": 255000.0,
+              "rank": 27,
+              "pct_portfolio": 1.0934
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:26884L109",
+              "cusip": "26884L109",
+              "company": "EQT CORP",
+              "market_value": 71448000000.0,
+              "shares": 1950000.0,
+              "rank": 28,
+              "pct_portfolio": 0.9615
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:879433829",
+              "cusip": "879433829",
+              "company": "TELEPHONE & DATA SYS INC",
+              "market_value": 66843750000.0,
+              "shares": 2875000.0,
+              "rank": 29,
+              "pct_portfolio": 0.8995
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:03769M304",
+              "cusip": "03769M304",
+              "company": "APOLLO GLOBAL MGMT INC",
+              "market_value": 61191000000.0,
+              "shares": 900000.0,
+              "rank": 30,
+              "pct_portfolio": 0.8235
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:H33700107",
+              "cusip": "H33700107",
+              "company": "GLOBAL BLUE GROUP HOLDING AG",
+              "market_value": 45880177000.0,
+              "shares": 8387601.0,
+              "rank": 31,
+              "pct_portfolio": 0.6174
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:911684108",
+              "cusip": "911684108",
+              "company": "UNITED STATES CELLULAR CORP",
+              "market_value": 29803050000.0,
+              "shares": 545344.0,
+              "rank": 32,
+              "pct_portfolio": 0.4011
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:419870100",
+              "cusip": "419870100",
+              "company": "HAWAIIAN ELEC INDUSTRIES",
+              "market_value": 14858800000.0,
+              "shares": 1535000.0,
+              "rank": 33,
+              "pct_portfolio": 0.2
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:42806J148",
+              "cusip": "42806J148",
+              "company": "HERTZ GLOBAL HLDGS INC",
+              "market_value": 8694300000.0,
+              "shares": 3970000.0,
+              "rank": 34,
+              "pct_portfolio": 0.117
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:051774107",
+              "cusip": "051774107",
+              "company": "AURORA INNOVATION INC",
+              "market_value": 6112181000.0,
+              "shares": 1032463.0,
+              "rank": 35,
+              "pct_portfolio": 0.0823
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:343928107",
+              "cusip": "343928107",
+              "company": "FLYEXCLUSIVE INC",
+              "market_value": 3045560000.0,
+              "shares": 1022000.0,
+              "rank": 36,
+              "pct_portfolio": 0.041
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:051774115",
+              "cusip": "051774115",
+              "company": "AURORA INNOVATION INC",
+              "market_value": 1521215000.0,
+              "shares": 1835000.0,
+              "rank": 37,
+              "pct_portfolio": 0.0205
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:18453H106",
+              "cusip": "18453H106",
+              "company": "CLEAR CHANNEL OUTDOOR HLDGS",
+              "market_value": 1360000000.0,
+              "shares": 850000.0,
+              "rank": 38,
+              "pct_portfolio": 0.0183
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:64107A113",
+              "cusip": "64107A113",
+              "company": "NET POWER INC",
+              "market_value": 580000000.0,
+              "shares": 500000.0,
+              "rank": 39,
+              "pct_portfolio": 0.0078
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:343928115",
+              "cusip": "343928115",
+              "company": "FLYEXCLUSIVE INC",
+              "market_value": 117600000.0,
+              "shares": 367499.0,
+              "rank": 40,
+              "pct_portfolio": 0.0016
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:H33700115",
+              "cusip": "H33700115",
+              "company": "GLOBAL BLUE GROUP HOLDING AG",
+              "market_value": 111600000.0,
+              "shares": 1333333.0,
+              "rank": 41,
+              "pct_portfolio": 0.0015
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G50737124",
+              "cusip": "G50737124",
+              "company": "JAWS MUSTANG ACQUISITION COR",
+              "market_value": 23100000.0,
+              "shares": 1000000.0,
+              "rank": 42,
+              "pct_portfolio": 0.0003
+            }
+          ],
+          "total_value": 7430992033000.0,
+          "num_holdings": 42
+        },
+        {
+          "form": "13F-HR",
+          "company": "Third Point LLC",
+          "cik": "1040273",
+          "filing_date": "2024-08-14",
+          "file_name": "edgar/data/1040273/0001085146-24-004004.txt",
+          "accession": "0001085146-24-004004",
+          "period_end": "2024-06-30",
+          "quarter": "2024-Q2",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/1040273/0001085146-24-004004.txt",
+          "holdings": [
+            {
+              "ticker": "AMZN",
+              "identifier": "AMZN",
+              "cusip": "023135106",
+              "company": "AMAZON COM INC",
+              "market_value": 985575000000.0,
+              "shares": 5100000.0,
+              "rank": 1,
+              "pct_portfolio": 11.28
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:69331C108",
+              "cusip": "69331C108",
+              "company": "PG&E CORP",
+              "market_value": 938475000000.0,
+              "shares": 53750000.0,
+              "rank": 2,
+              "pct_portfolio": 10.7409
+            },
+            {
+              "ticker": "MSFT",
+              "identifier": "MSFT",
+              "cusip": "594918104",
+              "company": "MICROSOFT CORP",
+              "market_value": 706181000000.0,
+              "shares": 1580000.0,
+              "rank": 3,
+              "pct_portfolio": 8.0823
+            },
+            {
+              "ticker": "META",
+              "identifier": "META",
+              "cusip": "30303M102",
+              "company": "META PLATFORMS INC",
+              "market_value": 554642000000.0,
+              "shares": 1100000.0,
+              "rank": 4,
+              "pct_portfolio": 6.3479
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:235851102",
+              "cusip": "235851102",
+              "company": "DANAHER CORPORATION",
+              "market_value": 512192500000.0,
+              "shares": 2050000.0,
+              "rank": 5,
+              "pct_portfolio": 5.8621
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:070830104",
+              "cusip": "070830104",
+              "company": "BATH & BODY WORKS INC",
+              "market_value": 467623750000.0,
+              "shares": 11975000.0,
+              "rank": 6,
+              "pct_portfolio": 5.352
+            },
+            {
+              "ticker": "AAPL",
+              "identifier": "AAPL",
+              "cusip": "037833100",
+              "company": "APPLE INC",
+              "market_value": 410709000000.0,
+              "shares": 1950000.0,
+              "rank": 7,
+              "pct_portfolio": 4.7006
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:92840M102",
+              "cusip": "92840M102",
+              "company": "VISTRA CORP",
+              "market_value": 384330600000.0,
+              "shares": 4470000.0,
+              "rank": 8,
+              "pct_portfolio": 4.3987
+            },
+            {
+              "ticker": "GOOGL",
+              "identifier": "GOOGL",
+              "cusip": "02079K305",
+              "company": "ALPHABET INC",
+              "market_value": 360657000000.0,
+              "shares": 1980000.0,
+              "rank": 9,
+              "pct_portfolio": 4.1277
+            },
+            {
+              "ticker": "TSM",
+              "identifier": "TSM",
+              "cusip": "874039100",
+              "company": "TAIWAN SEMICONDUCTOR MFG LTD",
+              "market_value": 351965250000.0,
+              "shares": 2025000.0,
+              "rank": 10,
+              "pct_portfolio": 4.0283
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:026874784",
+              "cusip": "026874784",
+              "company": "AMERICAN INTL GROUP INC",
+              "market_value": 256128000000.0,
+              "shares": 3450000.0,
+              "rank": 11,
+              "pct_portfolio": 2.9314
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:46982L108",
+              "cusip": "46982L108",
+              "company": "JACOBS SOLUTIONS INC",
+              "market_value": 243547921000.0,
+              "shares": 1743239.0,
+              "rank": 12,
+              "pct_portfolio": 2.7874
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:219948106",
+              "cusip": "219948106",
+              "company": "CORPAY INC",
+              "market_value": 203803650000.0,
+              "shares": 765000.0,
+              "rank": 13,
+              "pct_portfolio": 2.3325
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:92343V104",
+              "cusip": "92343V104",
+              "company": "VERIZON COMMUNICATIONS INC",
+              "market_value": 192797000000.0,
+              "shares": 4675000.0,
+              "rank": 14,
+              "pct_portfolio": 2.2066
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:032095101",
+              "cusip": "032095101",
+              "company": "AMPHENOL CORP NEW",
+              "market_value": 188636000000.0,
+              "shares": 2800000.0,
+              "rank": 15,
+              "pct_portfolio": 2.1589
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G3421J106",
+              "cusip": "G3421J106",
+              "company": "FERGUSON PLC NEW",
+              "market_value": 186872250000.0,
+              "shares": 965000.0,
+              "rank": 16,
+              "pct_portfolio": 2.1388
+            },
+            {
+              "ticker": "UBER",
+              "identifier": "UBER",
+              "cusip": "90353T100",
+              "company": "UBER TECHNOLOGIES INC",
+              "market_value": 152628000000.0,
+              "shares": 2100000.0,
+              "rank": 17,
+              "pct_portfolio": 1.7468
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:17243V102",
+              "cusip": "17243V102",
+              "company": "CINEMARK HLDGS INC",
+              "market_value": 151340000000.0,
+              "shares": 7000000.0,
+              "rank": 18,
+              "pct_portfolio": 1.7321
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:48666K109",
+              "cusip": "48666K109",
+              "company": "KB HOME",
+              "market_value": 147378000000.0,
+              "shares": 2100000.0,
+              "rank": 19,
+              "pct_portfolio": 1.6867
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:45866F104",
+              "cusip": "45866F104",
+              "company": "INTERCONTINENTAL EXCHANGE IN",
+              "market_value": 136890000000.0,
+              "shares": 1000000.0,
+              "rank": 20,
+              "pct_portfolio": 1.5667
+            },
+            {
+              "ticker": "ROP",
+              "identifier": "ROP",
+              "cusip": "776696106",
+              "company": "ROPER TECHNOLOGIES INC",
+              "market_value": 135098160000.0,
+              "shares": 240000.0,
+              "rank": 21,
+              "pct_portfolio": 1.5462
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:538034109",
+              "cusip": "538034109",
+              "company": "LIVE NATION ENTERTAINMENT IN",
+              "market_value": 127955100000.0,
+              "shares": 1365000.0,
+              "rank": 22,
+              "pct_portfolio": 1.4645
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:459506101",
+              "cusip": "459506101",
+              "company": "INTERNATIONAL FLAVORS&FRAGRA",
+              "market_value": 123773000000.0,
+              "shares": 1300000.0,
+              "rank": 23,
+              "pct_portfolio": 1.4166
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:03769M106",
+              "cusip": "03769M106",
+              "company": "APOLLO GLOBAL MGMT INC",
+              "market_value": 118070000000.0,
+              "shares": 1000000.0,
+              "rank": 24,
+              "pct_portfolio": 1.3513
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:00751Y106",
+              "cusip": "00751Y106",
+              "company": "ADVANCE AUTO PARTS INC",
+              "market_value": 94617307000.0,
+              "shares": 1500100.0,
+              "rank": 25,
+              "pct_portfolio": 1.0829
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:42809H107",
+              "cusip": "42809H107",
+              "company": "HESS CORP",
+              "market_value": 92200000000.0,
+              "shares": 625000.0,
+              "rank": 26,
+              "pct_portfolio": 1.0552
+            },
+            {
+              "ticker": "ASML",
+              "identifier": "ASML",
+              "cusip": "N07059210",
+              "company": "ASML HOLDING N V",
+              "market_value": 81818400000.0,
+              "shares": 80000.0,
+              "rank": 27,
+              "pct_portfolio": 0.9364
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:55354G100",
+              "cusip": "55354G100",
+              "company": "MSCI INC",
+              "market_value": 72262500000.0,
+              "shares": 150000.0,
+              "rank": 28,
+              "pct_portfolio": 0.827
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:26884L109",
+              "cusip": "26884L109",
+              "company": "EQT CORP",
+              "market_value": 72111000000.0,
+              "shares": 1950000.0,
+              "rank": 29,
+              "pct_portfolio": 0.8253
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:03769M304",
+              "cusip": "03769M304",
+              "company": "APOLLO GLOBAL MGMT INC",
+              "market_value": 59049000000.0,
+              "shares": 900000.0,
+              "rank": 30,
+              "pct_portfolio": 0.6758
+            },
+            {
+              "ticker": "CRH",
+              "identifier": "CRH",
+              "cusip": "G25508105",
+              "company": "CRH PLC",
+              "market_value": 48737000000.0,
+              "shares": 650000.0,
+              "rank": 31,
+              "pct_portfolio": 0.5578
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:879433829",
+              "cusip": "879433829",
+              "company": "TELEPHONE & DATA SYS INC",
+              "market_value": 46975424000.0,
+              "shares": 2266060.0,
+              "rank": 32,
+              "pct_portfolio": 0.5376
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:H33700107",
+              "cusip": "H33700107",
+              "company": "GLOBAL BLUE GROUP HOLDING AG",
+              "market_value": 40428237000.0,
+              "shares": 8387601.0,
+              "rank": 33,
+              "pct_portfolio": 0.4627
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:595112103",
+              "cusip": "595112103",
+              "company": "MICRON TECHNOLOGY INC",
+              "market_value": 36139125000.0,
+              "shares": 275000.0,
+              "rank": 34,
+              "pct_portfolio": 0.4136
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:911684108",
+              "cusip": "911684108",
+              "company": "UNITED STATES CELLULAR CORP",
+              "market_value": 30441102000.0,
+              "shares": 545344.0,
+              "rank": 35,
+              "pct_portfolio": 0.3484
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:42806J148",
+              "cusip": "42806J148",
+              "company": "HERTZ GLOBAL HLDGS INC",
+              "market_value": 9726500000.0,
+              "shares": 3970000.0,
+              "rank": 36,
+              "pct_portfolio": 0.1113
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:268150109",
+              "cusip": "268150109",
+              "company": "DYNATRACE INC",
+              "market_value": 6711000000.0,
+              "shares": 150000.0,
+              "rank": 37,
+              "pct_portfolio": 0.0768
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:343928107",
+              "cusip": "343928107",
+              "company": "FLYEXCLUSIVE INC",
+              "market_value": 4118660000.0,
+              "shares": 1022000.0,
+              "rank": 38,
+              "pct_portfolio": 0.0471
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:051774107",
+              "cusip": "051774107",
+              "company": "AURORA INNOVATION INC",
+              "market_value": 2859923000.0,
+              "shares": 1032463.0,
+              "rank": 39,
+              "pct_portfolio": 0.0327
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:64107A113",
+              "cusip": "64107A113",
+              "company": "NET POWER INC",
+              "market_value": 1142900000.0,
+              "shares": 500000.0,
+              "rank": 40,
+              "pct_portfolio": 0.0131
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:051774115",
+              "cusip": "051774115",
+              "company": "AURORA INNOVATION INC",
+              "market_value": 379845000.0,
+              "shares": 1835000.0,
+              "rank": 41,
+              "pct_portfolio": 0.0043
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:343928115",
+              "cusip": "343928115",
+              "company": "FLYEXCLUSIVE INC",
+              "market_value": 203962000.0,
+              "shares": 367499.0,
+              "rank": 42,
+              "pct_portfolio": 0.0023
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:H33700115",
+              "cusip": "H33700115",
+              "company": "GLOBAL BLUE GROUP HOLDING AG",
+              "market_value": 106667000.0,
+              "shares": 1333333.0,
+              "rank": 43,
+              "pct_portfolio": 0.0012
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G50737124",
+              "cusip": "G50737124",
+              "company": "JAWS MUSTANG ACQUISITION COR",
+              "market_value": 100000000.0,
+              "shares": 1000000.0,
+              "rank": 44,
+              "pct_portfolio": 0.0011
+            }
+          ],
+          "total_value": 8737396733000.0,
+          "num_holdings": 44
         }
       ],
       "filing_errors": []
