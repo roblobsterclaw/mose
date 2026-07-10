@@ -5254,7 +5254,7 @@ function reentryPlanSettingsHtml(plan) {
     <label>Start month<input type="month" class="reentry-input" style="width:150px" value="${(plan.startDate || '').slice(0, 7)}" onchange="reentryUpdatePlan('${plan.id}','startDate',this.value)"></label>
     <label>Buy day of month<input type="number" min="1" max="28" class="reentry-input short" value="${plan.buyDay}" onchange="reentryUpdatePlan('${plan.id}','buyDay',this.value)"></label>`;
     fields += REENTRY_BUCKET_CHOICES.map(bk => {
-      const info = WATCHLIST_BUCKETS[bk];
+      const info = WATCHLIST_BUCKETS[bk] || WATCHLIST_BUCKETS.uncategorized || { label: bk, color: '#5B5B5B' };
       return `<label>${info.label} %<input type="number" min="0" max="100" class="reentry-input short" value="${(plan.allocations && plan.allocations[bk]) || 0}" onchange="reentryUpdateAlloc('${plan.id}','${bk}',this.value)"></label>`;
     }).join('');
     const allocTotal = Object.values(plan.allocations || {}).reduce((s, v) => s + v, 0);
