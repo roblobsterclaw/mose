@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-14T11:18:03.707255+00:00",
+  "generated_at": "2026-07-14T13:08:01.061935+00:00",
   "source": "yahoo",
   "market_status": "closed",
   "indices": [
@@ -38,8 +38,8 @@
     {
       "name": "VIX",
       "ticker": "^VIX",
-      "price": 17.5,
-      "change_pct": 1.9813519813519804,
+      "price": 16.85,
+      "change_pct": -1.8065268065267992,
       "vs_exit": null,
       "source": "yahoo"
     }
@@ -79,7 +79,7 @@
       "time": "16:00:01",
       "volume": 22515725,
       "week52_high": 584.73,
-      "week52_low": 141.9
+      "week52_low": 149.22
     },
     {
       "ticker": "AMZN",
@@ -103,7 +103,7 @@
       "time": "16:00:01",
       "volume": 10322349,
       "week52_high": 745.61,
-      "week52_low": 342.11
+      "week52_low": 343.0
     },
     {
       "ticker": "ARM",
@@ -151,7 +151,7 @@
       "time": "16:00:01",
       "volume": 19865507,
       "week52_high": 495.0,
-      "week52_low": 269.58
+      "week52_low": 273.0
     },
     {
       "ticker": "AXP",
@@ -259,7 +259,7 @@
       "time": "16:00:02",
       "volume": 1219797,
       "week52_high": 637.51,
-      "week52_low": 76.89
+      "week52_low": 80.83
     },
     {
       "ticker": "CLS",
@@ -463,7 +463,7 @@
       "time": "16:00:01",
       "volume": 15013162,
       "week52_high": 408.61,
-      "week52_low": 179.68
+      "week52_low": 180.48
     },
     {
       "ticker": "HON",
@@ -546,7 +546,7 @@
       "date": "2026-07-13",
       "time": "16:00:02",
       "volume": 3264054,
-      "week52_high": 66.23,
+      "week52_high": 66.04,
       "week52_low": 30.26
     },
     {
@@ -751,7 +751,7 @@
       "time": "16:00:01",
       "volume": 113202886,
       "week52_high": 236.54,
-      "week52_low": 162.02
+      "week52_low": 164.07
     },
     {
       "ticker": "NVS",
@@ -883,7 +883,7 @@
       "time": "16:00:00",
       "volume": 105693,
       "week52_high": 90.51,
-      "week52_low": 59.82
+      "week52_low": 59.9
     },
     {
       "ticker": "ROP",
@@ -1123,7 +1123,7 @@
       "time": "16:00:00",
       "volume": 4746749,
       "week52_high": 799.87,
-      "week52_low": 65.24
+      "week52_low": 65.8
     },
     {
       "ticker": "WMT",
@@ -1135,7 +1135,7 @@
       "time": "16:00:01",
       "volume": 15880294,
       "week52_high": 135.16,
-      "week52_low": 94.38
+      "week52_low": 94.43
     }
   ]
 }

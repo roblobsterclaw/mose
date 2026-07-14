@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-14T11:18:03.707255+00:00",
+  "generated_at": "2026-07-14T13:08:01.061935+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -78,11 +78,11 @@
         "time": "16:00:01",
         "volume": 22515725,
         "week52_high": 584.73,
-        "week52_low": 141.9
+        "week52_low": 149.22
       },
       "metrics": {
         "week52High": 584.73,
-        "week52Low": 141.9
+        "week52Low": 149.22
       },
       "profile": {
         "company": "Advanced Micro Devices, Inc.",
@@ -141,11 +141,11 @@
         "time": "16:00:01",
         "volume": 10322349,
         "week52_high": 745.61,
-        "week52_low": 342.11
+        "week52_low": 343.0
       },
       "metrics": {
         "week52High": 745.61,
-        "week52Low": 342.11
+        "week52Low": 343.0
       },
       "profile": {
         "company": "AppLovin Corporation",
@@ -259,11 +259,11 @@
         "time": "16:00:01",
         "volume": 19865507,
         "week52_high": 495.0,
-        "week52_low": 269.58
+        "week52_low": 273.0
       },
       "metrics": {
         "week52High": 495.0,
-        "week52Low": 269.58
+        "week52Low": 273.0
       },
       "profile": {
         "company": "Broadcom Inc.",
@@ -531,11 +531,11 @@
         "time": "16:00:02",
         "volume": 1219797,
         "week52_high": 637.51,
-        "week52_low": 76.89
+        "week52_low": 80.83
       },
       "metrics": {
         "week52High": 637.51,
-        "week52Low": 76.89
+        "week52Low": 80.83
       },
       "profile": {
         "company": "Ciena Corporation",
@@ -1042,11 +1042,11 @@
         "time": "16:00:01",
         "volume": 15013162,
         "week52_high": 408.61,
-        "week52_low": 179.68
+        "week52_low": 180.48
       },
       "metrics": {
         "week52High": 408.61,
-        "week52Low": 179.68,
+        "week52Low": 180.48,
         "marketCap": 4166206881792,
         "peRatio": 32.609620721554116
       },
@@ -1251,11 +1251,11 @@
         "date": "2026-07-13",
         "time": "16:00:02",
         "volume": 3264054,
-        "week52_high": 66.23,
+        "week52_high": 66.04,
         "week52_low": 30.26
       },
       "metrics": {
-        "week52High": 66.23,
+        "week52High": 66.04,
         "week52Low": 30.26,
         "marketCap": 5427479040,
         "peRatio": 32.660714285714285
@@ -1757,11 +1757,11 @@
         "time": "16:00:01",
         "volume": 113202886,
         "week52_high": 236.54,
-        "week52_low": 162.02
+        "week52_low": 164.07
       },
       "metrics": {
         "week52High": 236.54,
-        "week52Low": 162.02,
+        "week52Low": 164.07,
         "marketCap": 5062002737152,
         "peRatio": 41.62167689161554
       },
@@ -2092,11 +2092,11 @@
         "time": "16:00:00",
         "volume": 105693,
         "week52_high": 90.51,
-        "week52_low": 59.82
+        "week52_low": 59.9
       },
       "metrics": {
         "week52High": 90.51,
-        "week52Low": 59.82
+        "week52Low": 59.9
       },
       "profile": {
         "company": null,
@@ -2691,11 +2691,11 @@
         "time": "16:00:00",
         "volume": 4746749,
         "week52_high": 799.87,
-        "week52_low": 65.24
+        "week52_low": 65.8
       },
       "metrics": {
         "week52High": 799.87,
-        "week52Low": 65.24
+        "week52Low": 65.8
       },
       "profile": {
         "company": "Western Digital Corporation",
@@ -2720,11 +2720,11 @@
         "time": "16:00:01",
         "volume": 15880294,
         "week52_high": 135.16,
-        "week52_low": 94.38
+        "week52_low": 94.43
       },
       "metrics": {
         "week52High": 135.16,
-        "week52Low": 94.38,
+        "week52Low": 94.43,
         "marketCap": 1035591090176,
         "peRatio": 42.043956043956044
       },
@@ -2808,8 +2808,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 17.5,
-        "change_pct": 1.9813519813519804,
+        "price": 16.85,
+        "change_pct": -1.8065268065267992,
         "source": "yahoo"
       },
       "metrics": {},
