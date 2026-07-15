@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-15T11:22:10.520464+00:00",
+  "generated_at": "2026-07-15T13:12:26.675053+00:00",
   "source": "yahoo",
   "market_status": "closed",
   "indices": [
@@ -38,8 +38,8 @@
     {
       "name": "VIX",
       "ticker": "^VIX",
-      "price": 16.35,
-      "change_pct": -0.9090909090909005,
+      "price": 16.13,
+      "change_pct": -2.2424242424242484,
       "vs_exit": null,
       "source": "yahoo"
     }
@@ -330,7 +330,7 @@
       "date": "2026-07-14",
       "time": "16:00:02",
       "volume": 2358538,
-      "week52_high": 92.155,
+      "week52_high": 92.16,
       "week52_low": 68.42
     },
     {
@@ -546,7 +546,7 @@
       "date": "2026-07-14",
       "time": "16:00:02",
       "volume": 1859054,
-      "week52_high": 66.04,
+      "week52_high": 63.76,
       "week52_low": 30.26
     },
     {
@@ -943,7 +943,7 @@
       "time": "16:00:01",
       "volume": 46682745,
       "week52_high": 225.64,
-      "week52_low": 135.93
+      "week52_low": 135.52
     },
     {
       "ticker": "SPGI",
