@@ -5849,12 +5849,44 @@ function showStockInfo(t) {
   el.style.display = 'block';
 }
 
+// 52-week range position: where the live price sits between its 52-week low
+// and high. 0% = at the low (cheap / buy zone), 100% = at the high. Pulled
+// from live-quotes.json (week52_low / week52_high), no extra data needed.
+function targRangePct(t) {
+  const q = liveQuotes[canonicalTicker(t)];
+  if (!q) return null;
+  const p = Number(q.price), lo = Number(q.week52_low), hi = Number(q.week52_high);
+  if (!Number.isFinite(p) || !Number.isFinite(lo) || !Number.isFinite(hi) || hi <= lo) return null;
+  return Math.max(0, Math.min(100, (p - lo) / (hi - lo) * 100));
+}
+function targRangeCell(t) {
+  const r = targRangePct(t);
+  if (r == null) return `<td style="color:var(--muted)">—</td>`;
+  // Lower in the range = better entry: green near the low, muted near the high.
+  const col = r <= 35 ? 'var(--green)' : (r <= 65 ? 'var(--yellow)' : 'var(--muted)');
+  const q = liveQuotes[canonicalTicker(t)];
+  const title = q ? `52-wk range $${Number(q.week52_low).toFixed(2)}–$${Number(q.week52_high).toFixed(2)} · 0% = low, 100% = high` : '';
+  return `<td style="white-space:nowrap" title="${title}"><span class="targ-bar"><span class="targ-bar-fill" style="width:${r.toFixed(0)}%;background:${col}"></span></span><span style="color:${col};font-weight:700">${r.toFixed(0)}%</span></td>`;
+}
+// Tiny inline 1-year price sparkline from price-history.json (daily closes).
+// Green if up over the window, red if down. Blank if no history for the ticker.
+function targSparkCell(t) {
+  const h = priceHistoryData[canonicalTicker(t)] || priceHistoryData[t];
+  if (!Array.isArray(h) || h.length < 2) return `<td></td>`;
+  const closes = h.map(d => Number(d.close)).filter(Number.isFinite);
+  if (closes.length < 2) return `<td></td>`;
+  const w = 66, ht = 18, min = Math.min(...closes), max = Math.max(...closes), rng = (max - min) || 1;
+  const step = w / (closes.length - 1);
+  const pts = closes.map((c, i) => `${(i * step).toFixed(1)},${(ht - 1.5 - ((c - min) / rng) * (ht - 3)).toFixed(1)}`).join(' ');
+  const col = closes[closes.length - 1] >= closes[0] ? 'var(--green)' : 'var(--red)';
+  return `<td><svg width="${w}" height="${ht}" viewBox="0 0 ${w} ${ht}" preserveAspectRatio="none" style="display:block"><polyline points="${pts}" fill="none" stroke="${col}" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"/></svg></td>`;
+}
 function targCombinedHtml() {
-  let html = `<div class="table-wrap"><table><thead><tr><th></th><th>Ticker</th><th>% of Bucket</th><th>Combined Goal</th><th>Owned (his+hers)</th><th>Remaining</th><th>% to Goal</th></tr></thead>`;
+  let html = `<div class="table-wrap"><table><thead><tr><th></th><th>Ticker</th><th>% of Bucket</th><th>Combined Goal</th><th>Owned (his+hers)</th><th>Remaining</th><th>% to Goal</th><th title="Where the price sits in its 52-week range — 0% = at the 52-week low (cheap), 100% = at the high">52w Range</th><th title="1-year price trend">1-yr</th></tr></thead>`;
   targetsData.ira.buckets.forEach(b => {
     const bucketGoal = targetsData.ira.total * b.pct / 100;
     html += `<tbody data-targ-bucket="${b.id}">`;
-    html += `<tr class="targ-bucket-row"><td colspan="7">${escapeHtml(b.label)} · ${b.pct}% · goal ${reentryFmt(bucketGoal)} · ${b.tickers.length} name${b.tickers.length !== 1 ? 's' : ''}${b.tickers.length > 1 ? ` <a onclick="targResetWeights('${b.id}')" style="cursor:pointer;color:var(--blue);font-weight:600;font-size:11px;margin-left:8px">reset to equal</a>` : ''} <span style="color:var(--muted);font-weight:600;font-size:11px;margin-left:6px">🔒 lock a % to hold it; unlocked names split the rest · ⠿ drag to reorder or move buckets</span></td></tr>`;
+    html += `<tr class="targ-bucket-row"><td colspan="9">${escapeHtml(b.label)} · ${b.pct}% · goal ${reentryFmt(bucketGoal)} · ${b.tickers.length} name${b.tickers.length !== 1 ? 's' : ''}${b.tickers.length > 1 ? ` <a onclick="targResetWeights('${b.id}')" style="cursor:pointer;color:var(--blue);font-weight:600;font-size:11px;margin-left:8px">reset to equal</a>` : ''} <span style="color:var(--muted);font-weight:600;font-size:11px;margin-left:6px">🔒 lock a % to hold it; unlocked names split the rest · ⠿ drag to reorder or move buckets</span></td></tr>`;
     b.tickers.forEach(t => {
       const tgt = targStockTarget(targetsData.ira.total, b, t);
       const owned = targOwned('his', t) + targOwned('hers', t);
@@ -5862,9 +5894,9 @@ function targCombinedHtml() {
       const pctCell = b.tickers.length === 1
         ? `<td style="color:var(--muted)">100%</td>`
         : `<td style="white-space:nowrap"><input type="number" step="0.5" class="targ-input" style="width:58px${locked ? ';border-color:var(--accent);color:var(--accent);font-weight:700' : ''}" value="${targStockPctOfBucket(b, t).toFixed(1)}" onchange="targSetPctOfBucket('${b.id}','${t}',this.value)">% <a onclick="targToggleLock('${b.id}','${escapeHtml(t)}')" title="${locked ? 'Locked — holds this %. Click to unlock and let it recalc.' : 'Click to lock this % so it holds while the others recalc.'}" style="cursor:pointer;margin-left:2px">${locked ? '🔒' : '🔓'}</a></td>`;
-      html += `<tr data-targ-bucket="${b.id}" data-targ-ticker="${escapeHtml(t)}"><td class="targ-drag-handle" onpointerdown="targDragStart(event,'${b.id}','${escapeHtml(t)}')" title="Drag to reorder or move to another bucket">⠿</td><td><strong title="${escapeAttr(stockBlurb(t))}">${escapeHtml(t)}</strong> <a onclick="showStockInfo('${escapeHtml(t)}')" title="What is ${escapeHtml(t)}?" style="cursor:pointer;color:var(--blue);margin-left:2px;font-size:12px">ⓘ</a>${targLivePrice(t)} <a onclick="targRemoveTicker('${b.id}','${escapeHtml(t)}')" title="Remove from bucket" style="cursor:pointer;color:var(--muted);margin-left:6px">✕</a></td>${pctCell}<td>${reentryFmt(tgt)}</td><td>${reentryFmt(owned)}</td>${targMoreCell(owned, tgt)}${targPctCell(owned, tgt)}</tr>`;
+      html += `<tr data-targ-bucket="${b.id}" data-targ-ticker="${escapeHtml(t)}"><td class="targ-drag-handle" onpointerdown="targDragStart(event,'${b.id}','${escapeHtml(t)}')" title="Drag to reorder or move to another bucket">⠿</td><td><strong title="${escapeAttr(stockBlurb(t))}">${escapeHtml(t)}</strong> <a onclick="showStockInfo('${escapeHtml(t)}')" title="What is ${escapeHtml(t)}?" style="cursor:pointer;color:var(--blue);margin-left:2px;font-size:12px">ⓘ</a>${targLivePrice(t)} <a onclick="targRemoveTicker('${b.id}','${escapeHtml(t)}')" title="Remove from bucket" style="cursor:pointer;color:var(--muted);margin-left:6px">✕</a></td>${pctCell}<td>${reentryFmt(tgt)}</td><td>${reentryFmt(owned)}</td>${targMoreCell(owned, tgt)}${targPctCell(owned, tgt)}${targRangeCell(t)}${targSparkCell(t)}</tr>`;
     });
-    html += targAddRow(b.id, 7);
+    html += targAddRow(b.id, 9);
     html += `</tbody>`;
   });
   html += `</table></div>`;
