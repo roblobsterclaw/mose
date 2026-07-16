@@ -5375,21 +5375,21 @@ function canonTargetsBuckets() {
       tickers: ['BN', 'PLD', 'CP', 'CVX', 'OXY', 'GE', 'HON', 'NLR'], weights: {}, locked: {} },
     { id: 'aicore', label: 'AI core', pct: 8,
       tickers: ['AVGO', 'LRCX', 'TSM', 'ASML', 'NVDA', 'SMH'], weights: {}, locked: {} },
-    { id: 'aibench', label: 'AI bench', pct: 4,
-      tickers: ['COHR', 'CIEN', 'FN', 'CLS', 'MKSI', 'MTSI', 'AEIS', 'TTMI', 'VIAV', 'SITM', 'WDC', 'TSEM', 'CBRS', 'MU', 'INTC', 'ARM', 'AMD'], weights: {}, locked: {} },
     { id: 'opp', label: 'Opportunistic', pct: 8,
       tickers: ['UBER', 'APP', 'MDB', 'DASH', 'RBLX', 'FROG', 'KVYO', 'BABA', 'CVNA', 'TSLA', 'SPCX', 'CODI', 'MBGL', 'BE'], weights: {}, locked: {} },
     { id: 'radar', label: 'Radar', pct: 5,
       tickers: ['LLY', 'DE', 'ROP', 'FICO', 'VRSN', 'ORLY', 'TXN', 'RACE'], weights: {}, locked: {} },
     { id: 'dry', label: 'Dry powder', pct: 20,
       tickers: ['VOO', 'VTV', 'QQQ', 'IDGT', 'SGOV'],
-      weights: { SGOV: 40, VOO: 30 }, locked: { SGOV: true } }
+      weights: { SGOV: 40, VOO: 30 }, locked: { SGOV: true } },
+    { id: 'aibench', label: 'AI bench', pct: 4,
+      tickers: ['COHR', 'CIEN', 'FN', 'CLS', 'MKSI', 'MTSI', 'AEIS', 'TTMI', 'VIAV', 'SITM', 'WDC', 'TSEM', 'CBRS', 'MU', 'INTC', 'ARM', 'AMD'], weights: {}, locked: {} }
   ];
 }
 
 function defaultTargetsData() {
   return {
-    version: 7,
+    version: 8,
     // `ira` is the shared container for all three accounts + the one bucket set.
     // (Name kept for backward-compat; it holds Joint too now.)
     ira: {
@@ -5493,6 +5493,16 @@ function migrateTargets(d) {
     delete d.mose;  // no longer a separate flat list
     d.version = 7;
     _targetsRepaired = true;
+  }
+  if ((d.version || 0) < 8) {
+    // Move the AI bench bucket to the bottom of the list (Joe's call). AI bench
+    // is the most-extended, lowest-priority bucket, so it now sits last in both
+    // the Combined and per-account Buy Targets tables. Reorder only — the
+    // bucket's pct/tickers/weights/locked are preserved.
+    const i = d.ira.buckets.findIndex(b => b.id === 'aibench');
+    if (i >= 0) d.ira.buckets.push(d.ira.buckets.splice(i, 1)[0]);
+    d.version = 8;
+    _targetsRepaired = true;  // sync the new order to all devices
   }
   d.ira.buckets.forEach(b => {
     if (!Array.isArray(b.tickers)) b.tickers = [];
