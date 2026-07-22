@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-22T10:15:03.596763+00:00",
+  "generated_at": "2026-07-22T12:22:02.449748+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -141,11 +141,11 @@
         "time": "16:00:01",
         "volume": 4822728,
         "week52_high": 745.61,
-        "week52_low": 343.0
+        "week52_low": 349.21
       },
       "metrics": {
         "week52High": 745.61,
-        "week52Low": 343.0
+        "week52Low": 349.21
       },
       "profile": {
         "company": "AppLovin Corporation",
@@ -382,11 +382,11 @@
         "time": "16:00:03",
         "volume": 14883770,
         "week52_high": 351.28,
-        "week52_low": 24.385
+        "week52_low": 25.74
       },
       "metrics": {
         "week52High": 351.28,
-        "week52Low": 24.385
+        "week52Low": 25.74
       },
       "profile": {
         "company": "Bloom Energy Corporation",
@@ -531,11 +531,11 @@
         "time": "16:00:02",
         "volume": 1786957,
         "week52_high": 637.51,
-        "week52_low": 83.2
+        "week52_low": 84.38
       },
       "metrics": {
         "week52High": 637.51,
-        "week52Low": 83.2
+        "week52Low": 84.38
       },
       "profile": {
         "company": "Ciena Corporation",
@@ -560,11 +560,11 @@
         "time": "16:00:02",
         "volume": 2875069,
         "week52_high": 474.03,
-        "week52_low": 153.11
+        "week52_low": 158.15
       },
       "metrics": {
         "week52High": 474.03,
-        "week52Low": 153.11
+        "week52Low": 158.15
       },
       "profile": {
         "company": "Celestica Inc.",
@@ -1011,11 +1011,11 @@
         "time": "16:00:02",
         "volume": 3933005,
         "week52_high": 382.97,
-        "week52_low": 254.66
+        "week52_low": 259.95
       },
       "metrics": {
         "week52High": 382.97,
-        "week52Low": 254.66,
+        "week52Low": 259.95,
         "marketCap": 297358524416,
         "peRatio": 42.32298136645962
       },
@@ -1042,11 +1042,11 @@
         "time": "16:00:01",
         "volume": 22327729,
         "week52_high": 408.61,
-        "week52_low": 187.46
+        "week52_low": 187.82
       },
       "metrics": {
         "week52High": 408.61,
-        "week52Low": 187.46,
+        "week52Low": 187.82,
         "marketCap": 4166206881792,
         "peRatio": 32.11378353376503
       },
@@ -2092,11 +2092,11 @@
         "time": "16:00:00",
         "volume": 273547,
         "week52_high": 90.51,
-        "week52_low": 60.724
+        "week52_low": 60.96
       },
       "metrics": {
         "week52High": 90.51,
-        "week52Low": 60.724
+        "week52Low": 60.96
       },
       "profile": {
         "company": null,
@@ -2691,11 +2691,11 @@
         "time": "16:00:00",
         "volume": 7200147,
         "week52_high": 799.87,
-        "week52_low": 66.04
+        "week52_low": 66.51
       },
       "metrics": {
         "week52High": 799.87,
-        "week52Low": 66.04
+        "week52Low": 66.51
       },
       "profile": {
         "company": "Western Digital Corporation",
@@ -2808,8 +2808,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 17.47,
-        "change_pct": 2.4633431085043878,
+        "price": 17.62,
+        "change_pct": 3.3431085043988285,
         "source": "yahoo"
       },
       "metrics": {},
