@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-24T01:47:47.136537+00:00",
+  "generated_at": "2026-07-24T05:11:06.410894+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -1127,10 +1127,10 @@
       "quote": {
         "ticker": "IFNNF",
         "symbol": "IFNNF",
-        "price": 77.27,
-        "prev_close": 76.14,
-        "change_pct": 1.4841082216968682,
-        "date": "2026-07-22",
+        "price": 76.14,
+        "prev_close": 77.27,
+        "change_pct": -1.4624045554548926,
+        "date": "2026-07-23",
         "time": "16:00:00",
         "volume": 100,
         "week52_high": 103.5,
@@ -2792,8 +2792,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^RUT",
-        "price": 2940.1628,
-        "change_pct": -0.6681017867197359,
+        "price": 2940.163,
+        "change_pct": -0.6681554355831552,
         "source": "yahoo"
       },
       "metrics": {},
