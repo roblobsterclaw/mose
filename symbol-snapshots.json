@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-24T10:53:40.279255+00:00",
+  "generated_at": "2026-07-24T12:12:37.904888+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -141,11 +141,11 @@
         "time": "16:00:01",
         "volume": 5360215,
         "week52_high": 745.61,
-        "week52_low": 355.0
+        "week52_low": 357.029
       },
       "metrics": {
         "week52High": 745.61,
-        "week52Low": 355.0
+        "week52Low": 357.029
       },
       "profile": {
         "company": "AppLovin Corporation",
@@ -382,11 +382,11 @@
         "time": "16:00:03",
         "volume": 9402600,
         "week52_high": 351.28,
-        "week52_low": 29.9
+        "week52_low": 32.52
       },
       "metrics": {
         "week52High": 351.28,
-        "week52Low": 29.9
+        "week52Low": 32.52
       },
       "profile": {
         "company": "Bloom Energy Corporation",
@@ -560,11 +560,11 @@
         "time": "16:00:02",
         "volume": 2241470,
         "week52_high": 474.03,
-        "week52_low": 161.84
+        "week52_low": 164.52
       },
       "metrics": {
         "week52High": 474.03,
-        "week52Low": 161.84
+        "week52Low": 164.52
       },
       "profile": {
         "company": "Celestica Inc.",
@@ -2301,11 +2301,11 @@
         "date": "2026-07-23",
         "time": "16:00:02",
         "volume": 1420570,
-        "week52_high": 176.82,
+        "week52_high": 176.33,
         "week52_low": 126.45
       },
       "metrics": {
-        "week52High": 176.82,
+        "week52High": 176.33,
         "week52Low": 126.45,
         "marketCap": 26862960640,
         "peRatio": 13.451612903225808
@@ -2720,11 +2720,11 @@
         "time": "16:00:00",
         "volume": 21497085,
         "week52_high": 135.16,
-        "week52_low": 95.35
+        "week52_low": 95.42
       },
       "metrics": {
         "week52High": 135.16,
-        "week52Low": 95.35,
+        "week52Low": 95.42,
         "marketCap": 1035591090176,
         "peRatio": 39.70695970695971
       },
@@ -2808,8 +2808,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 18.87,
-        "change_pct": 0.9090909090909183,
+        "price": 18.89,
+        "change_pct": 1.01604278074867,
         "source": "yahoo"
       },
       "metrics": {},

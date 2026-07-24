@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-24T10:53:40.279255+00:00",
+  "generated_at": "2026-07-24T12:12:37.904888+00:00",
   "source": "yahoo",
   "market_status": "closed",
   "indices": [
@@ -38,8 +38,8 @@
     {
       "name": "VIX",
       "ticker": "^VIX",
-      "price": 18.87,
-      "change_pct": 0.9090909090909183,
+      "price": 18.89,
+      "change_pct": 1.01604278074867,
       "vs_exit": null,
       "source": "yahoo"
     }
@@ -103,7 +103,7 @@
       "time": "16:00:01",
       "volume": 5360215,
       "week52_high": 745.61,
-      "week52_low": 355.0
+      "week52_low": 357.029
     },
     {
       "ticker": "ARM",
@@ -199,7 +199,7 @@
       "time": "16:00:03",
       "volume": 9402600,
       "week52_high": 351.28,
-      "week52_low": 29.9
+      "week52_low": 32.52
     },
     {
       "ticker": "BIL",
@@ -271,7 +271,7 @@
       "time": "16:00:02",
       "volume": 2241470,
       "week52_high": 474.03,
-      "week52_low": 161.84
+      "week52_low": 164.52
     },
     {
       "ticker": "CODI",
@@ -966,7 +966,7 @@
       "date": "2026-07-23",
       "time": "16:00:02",
       "volume": 1420570,
-      "week52_high": 176.82,
+      "week52_high": 176.33,
       "week52_low": 126.45
     },
     {
@@ -1135,7 +1135,7 @@
       "time": "16:00:00",
       "volume": 21497085,
       "week52_high": 135.16,
-      "week52_low": 95.35
+      "week52_low": 95.42
     }
   ]
 }
