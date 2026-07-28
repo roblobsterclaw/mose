@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-28T10:24:18.168616+00:00",
+  "generated_at": "2026-07-28T12:48:04.964298+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -560,11 +560,11 @@
         "time": "16:00:02",
         "volume": 3923368,
         "week52_high": 474.03,
-        "week52_low": 169.19
+        "week52_low": 173.23
       },
       "metrics": {
         "week52High": 474.03,
-        "week52Low": 169.19
+        "week52Low": 173.23
       },
       "profile": {
         "company": "Celestica Inc.",
@@ -2033,11 +2033,11 @@
         "date": "2026-07-27",
         "time": "16:00:02",
         "volume": 707239,
-        "week52_high": 515.0,
+        "week52_high": 509.82,
         "week52_low": 312.51
       },
       "metrics": {
-        "week52High": 515.0,
+        "week52High": 509.82,
         "week52Low": 312.51
       },
       "profile": {
@@ -2691,11 +2691,11 @@
         "time": "16:00:01",
         "volume": 6129765,
         "week52_high": 799.87,
-        "week52_low": 68.67
+        "week52_low": 69.3
       },
       "metrics": {
         "week52High": 799.87,
-        "week52Low": 68.67
+        "week52Low": 69.3
       },
       "profile": {
         "company": "Western Digital Corporation",
@@ -2808,8 +2808,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 18.97,
-        "change_pct": 1.6068559185859514,
+        "price": 18.65,
+        "change_pct": -0.10712372790574785,
         "source": "yahoo"
       },
       "metrics": {},
