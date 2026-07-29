@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-29T20:18:43.445847+00:00",
+  "generated_at": "2026-07-29T20:58:27.562348+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -317,7 +317,7 @@
         "change_pct": -0.13890094626269348,
         "date": "2026-07-29",
         "time": "16:03:00",
-        "volume": 7897317,
+        "volume": 7383403,
         "week52_high": 192.67,
         "week52_low": 91.99
       },
@@ -464,11 +464,11 @@
       "quote": {
         "ticker": "BRK-B",
         "symbol": "BRK-B",
-        "price": 509.47,
+        "price": 509.16,
         "prev_close": 512.37,
-        "change_pct": -0.5659972285652901,
+        "change_pct": -0.6265003805843393,
         "date": "2026-07-29",
-        "time": "15:59:59",
+        "time": "16:05:41",
         "volume": 2922554,
         "week52_high": 516.85,
         "week52_low": 455.19
@@ -477,7 +477,7 @@
         "week52High": 516.85,
         "week52Low": 455.19,
         "marketCap": 1012262699008,
-        "peRatio": 16.42392005157963
+        "peRatio": 16.413926499032883
       },
       "profile": {
         "company": "Berkshire Hathaway Inc.",
@@ -709,7 +709,7 @@
         "change_pct": -0.4471101417666266,
         "date": "2026-07-29",
         "time": "16:02:37",
-        "volume": 2581677,
+        "volume": 2323765,
         "week52_high": 93.95,
         "week52_low": 68.42
       },
@@ -764,11 +764,11 @@
       "quote": {
         "ticker": "CVNA",
         "symbol": "CVNA",
-        "price": 66.31,
+        "price": 66.32,
         "prev_close": 66.07,
-        "change_pct": 0.363251097321037,
+        "change_pct": 0.37838655970939916,
         "date": "2026-07-29",
-        "time": "15:59:59",
+        "time": "16:05:04",
         "volume": 16435788,
         "week52_high": 97.378,
         "week52_low": 54.464
@@ -777,7 +777,7 @@
         "week52High": 97.378,
         "week52Low": 54.464,
         "marketCap": 58495893504,
-        "peRatio": 7.8288075560802834
+        "peRatio": 7.829988193624556
       },
       "profile": {
         "company": "Carvana Co.",
@@ -795,11 +795,11 @@
       "quote": {
         "ticker": "CVX",
         "symbol": "CVX",
-        "price": 191.89,
+        "price": 191.86,
         "prev_close": 187.58,
-        "change_pct": 2.297686320503238,
+        "change_pct": 2.2816931442584503,
         "date": "2026-07-29",
-        "time": "16:00:00",
+        "time": "16:05:02",
         "volume": 5958899,
         "week52_high": 214.71,
         "week52_low": 146.49
@@ -808,7 +808,7 @@
         "week52High": 214.71,
         "week52Low": 146.49,
         "marketCap": 368919576576,
-        "peRatio": 28.942684766214175
+        "peRatio": 28.938159879336354
       },
       "profile": {
         "company": "Chevron Corporation",
@@ -1276,11 +1276,11 @@
       "quote": {
         "ticker": "KVYO",
         "symbol": "KVYO",
-        "price": 19.39,
+        "price": 19.37,
         "prev_close": 18.89,
-        "change_pct": 2.6469031233456857,
+        "change_pct": 2.5410269984118603,
         "date": "2026-07-29",
-        "time": "15:59:58",
+        "time": "16:03:52",
         "volume": 5298934,
         "week52_high": 36.76,
         "week52_low": 12.53
@@ -1305,11 +1305,11 @@
       "quote": {
         "ticker": "LLY",
         "symbol": "LLY",
-        "price": 1210.72,
+        "price": 1210.02,
         "prev_close": 1220.66,
-        "change_pct": -0.8143135680697371,
+        "change_pct": -0.8716595939901446,
         "date": "2026-07-29",
-        "time": "15:59:59",
+        "time": "16:04:54",
         "volume": 1566085,
         "week52_high": 1249.45,
         "week52_low": 623.78
@@ -2145,11 +2145,11 @@
       "quote": {
         "ticker": "SGOV",
         "symbol": "SGOV",
-        "price": 100.675,
+        "price": 100.68,
         "prev_close": 100.66,
-        "change_pct": 0.01490164911583605,
+        "change_pct": 0.01986886548779081,
         "date": "2026-07-29",
-        "time": "15:59:59",
+        "time": "16:03:51",
         "volume": 15601846,
         "week52_high": 100.74,
         "week52_low": 100.27
@@ -2792,8 +2792,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^RUT",
-        "price": 2906.3103,
-        "change_pct": -1.6077593329515127,
+        "price": 2906.3098,
+        "change_pct": -1.6077762602976202,
         "source": "yahoo"
       },
       "metrics": {},
@@ -2808,8 +2808,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 20.56,
-        "change_pct": 12.904997254255889,
+        "price": 20.66,
+        "change_pct": 13.454146073585937,
         "source": "yahoo"
       },
       "metrics": {},
