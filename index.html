@@ -121,6 +121,22 @@
   .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
   body.theme-light .tab-btn:hover { color: #111827; }
 
+  /* Second row: the views inside the selected group. Quieter than the
+     primary bar so the six groups stay the dominant navigation. */
+  .subtab-bar {
+    background: var(--bg); border-bottom: 1px solid var(--border);
+    padding: 6px 20px; display: flex; gap: 6px; overflow-x: auto;
+  }
+  .subtab-btn {
+    padding: 5px 13px; border-radius: 999px; cursor: pointer;
+    background: var(--surface); border: 1px solid var(--border);
+    color: var(--soft-text); font-family: inherit; font-size: 12px;
+    font-weight: 700; white-space: nowrap; transition: all 0.15s;
+  }
+  .subtab-btn:hover { color: var(--text); border-color: var(--accent); }
+  .subtab-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+  body.theme-light .subtab-bar { background: #ffffff; }
+
   /* MAIN CONTENT */
   #main { padding: 16px 20px; }
   .tab-panel { display: none; }
@@ -1127,6 +1143,8 @@
     .refresh-info { flex-shrink: 1; min-width: 0; white-space: normal; margin-left: 4px; }
     .refresh-stamp { display: none; }
     #topbar { flex-wrap: wrap; }
+    .subtab-bar { padding: 5px 12px; }
+    .subtab-btn { padding: 4px 10px; font-size: 11px; }
   }
 </style>
 </head>
@@ -1212,21 +1230,9 @@ async function checkPw(){
   </div>
 </div>
 
-<!-- TAB BAR -->
-<div class="tab-bar">
-  <button class="tab-btn active" onclick="switchTab('cockpit', this)">Command Center</button>
-  <button class="tab-btn" onclick="switchTab('investors', this)">🧠 Super Investors</button>
-  <button class="tab-btn" onclick="switchTab('holdings', this)">📊 Holdings Tracker</button>
-  <button class="tab-btn" onclick="switchTab('dcf', this)">📐 DCF Valuations</button>
-  <button class="tab-btn" onclick="switchTab('heatmap', this)">🔥 Convergence Heat Map</button>
-  <button class="tab-btn" onclick="switchTab('filings', this)">13F Tracker</button>
-  <button class="tab-btn" onclick="switchTab('portfolio', this)">🎯 Joe's Watchlist</button>
-  <button class="tab-btn" onclick="switchTab('joeholdings', this)">💼 Joe's Holdings</button>
-  <button class="tab-btn" onclick="switchTab('targets', this)">🎯 Buy Targets</button>
-  <button class="tab-btn" onclick="switchTab('buyzone', this)">🟢 Buy Zone</button>
-  <button class="tab-btn" onclick="switchTab('reentry', this)">📅 Re-Entry Plan</button>
-  <button class="tab-btn" onclick="switchTab('research', this)">📄 Research Library</button>
-</div>
+<!-- TAB BAR — both rows are populated by renderTabBars() from TAB_GROUPS -->
+<div class="tab-bar" id="tab-bar-primary"></div>
+<div class="subtab-bar" id="tab-bar-sub" style="display:none"></div>
 
 <!-- MAIN -->
 <div id="main">
@@ -2653,13 +2659,65 @@ let filingChangeFilter = 'all';
 // ============================================================
 // TAB SWITCHING
 // ============================================================
-function switchTab(name, btn) {
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+// Twelve top-level tabs overflowed the bar even on desktop and buried the
+// buy-day flow across three of them. The same twelve panels are now grouped
+// under six headings, with a sub-tab row when a group holds more than one.
+// switchTab(name) still takes a panel id, so every existing call site works.
+const TAB_GROUPS = [
+  { id: 'buy',      label: '🟢 Buy',             tabs: [
+      { id: 'buyzone', label: 'Buy Zone' },
+      { id: 'targets', label: 'Buy Targets' },
+      { id: 'reentry', label: 'Re-Entry Plan' } ] },
+  { id: 'watch',    label: '🎯 Watchlist',       tabs: [
+      { id: 'portfolio', label: 'Watchlist' },
+      { id: 'cockpit',   label: 'Command Center' } ] },
+  { id: 'mine',     label: '💼 My Holdings',     tabs: [
+      { id: 'joeholdings', label: "Joe's Holdings" } ] },
+  { id: 'gurus',    label: '🧠 Super Investors', tabs: [
+      { id: 'investors', label: 'Investors' },
+      { id: 'holdings',  label: 'Holdings Tracker' },
+      { id: 'heatmap',   label: 'Heat Map' },
+      { id: 'filings',   label: '13F Tracker' } ] },
+  { id: 'value',    label: '📐 Valuation',       tabs: [
+      { id: 'dcf', label: 'DCF Valuations' } ] },
+  { id: 'library',  label: '📄 Research',        tabs: [
+      { id: 'research', label: 'Research Library' } ] },
+];
+// Remembers the sub-tab you were last on in each group, so coming back to a
+// group returns you where you left off rather than resetting to the first.
+const _groupLastTab = {};
+function groupForTab(name) { return TAB_GROUPS.find(g => g.tabs.some(t => t.id === name)); }
+
+function renderTabBars(activeTab) {
+  const g = groupForTab(activeTab);
+  const primary = document.getElementById('tab-bar-primary');
+  if (primary) {
+    primary.innerHTML = TAB_GROUPS.map(grp => {
+      const target = _groupLastTab[grp.id] || grp.tabs[0].id;
+      return `<button class="tab-btn${g && grp.id === g.id ? ' active' : ''}" onclick="switchTab('${target}')">${grp.label}</button>`;
+    }).join('');
+  }
+  const sub = document.getElementById('tab-bar-sub');
+  if (sub) {
+    if (g && g.tabs.length > 1) {
+      sub.style.display = '';
+      sub.innerHTML = g.tabs.map(t =>
+        `<button class="subtab-btn${t.id === activeTab ? ' active' : ''}" onclick="switchTab('${t.id}')">${t.label}</button>`).join('');
+    } else {
+      sub.style.display = 'none';
+      sub.innerHTML = '';
+    }
+  }
+}
+
+function switchTab(name) {
+  const g = groupForTab(name);
+  if (!g) return;
+  _groupLastTab[g.id] = name;
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-  if (!btn) btn = [...document.querySelectorAll('.tab-btn')].find(b => (b.getAttribute('onclick') || '').includes(`'${name}'`));
-  if (btn) btn.classList.add('active');
   const panel = document.getElementById('tab-' + name);
   if (panel) panel.classList.add('active');
+  renderTabBars(name);
 }
 
 function setTheme(theme) {
