@@ -1101,6 +1101,26 @@
     .si-grid { grid-template-columns: 1fr; }
     .si-search { max-width: 100%; }
   }
+  /* Phone: drop secondary columns so the numbers that drive a decision
+     (ticker, score, price, MOS, signal) fit without sideways scrolling.
+     Everything hidden here is still one tap away on the stock modal. */
+  @media (max-width: 560px) {
+    .hide-sm { display: none !important; }
+    td, th { padding: 6px 6px; font-size: 12px; }
+    .tab-btn { padding: 9px 11px; font-size: 12px; }
+    .info-blurb { font-size: 11px; line-height: 1.5; }
+    .stat-card { padding: 6px 9px; min-width: 68px; }
+    .stat-card .stat-val { font-size: 16px; }
+    .toolbar h2 { font-size: 15px; }
+    .inv-list { max-width: 200px; }
+    .targ-bar { width: 34px; margin-right: 4px; }
+    /* The topbar's refresh block is nowrap + flex-shrink:0, so on a phone it
+       forced the whole document to ~584px and clipped every page. Let it
+       shrink and drop the timestamp (the stale-data banner already says it). */
+    .refresh-info { flex-shrink: 1; min-width: 0; white-space: normal; margin-left: 4px; }
+    .refresh-stamp { display: none; }
+    #topbar { flex-wrap: wrap; }
+  }
 </style>
 </head>
 <body>
@@ -1181,7 +1201,7 @@ async function checkPw(){
   </div>
   <div class="refresh-info">
     <span id="market-status">—</span>
-    <span>Updated: <span id="last-updated">—</span> · <a onclick="loadIndices()">↻ refresh</a> · <button class="hard-refresh-btn" onclick="hardRefreshAll()" title="Reload all data from GitHub">🔄 hard refresh</button> · <button class="theme-toggle" id="theme-toggle" type="button" onclick="toggleTheme()">☀️ Light</button></span>
+    <span class="refresh-line"><span class="refresh-stamp">Updated: <span id="last-updated">—</span> · </span><a onclick="loadIndices()">↻ refresh</a> · <button class="hard-refresh-btn" onclick="hardRefreshAll()" title="Reload all data from GitHub">🔄 hard refresh</button> · <button class="theme-toggle" id="theme-toggle" type="button" onclick="toggleTheme()">☀️ Light</button></span>
   </div>
 </div>
 
@@ -1245,18 +1265,18 @@ async function checkPw(){
           <tr>
             <th style="cursor:default">Rank</th>
             <th onclick="sortCockpit('ticker')">Ticker<span class="sort-arrow"></span></th>
-            <th onclick="sortCockpit('name')">Company<span class="sort-arrow"></span></th>
+            <th class="hide-sm" onclick="sortCockpit('name')">Company<span class="sort-arrow"></span></th>
             <th onclick="sortCockpit('score')">Score<span class="sort-arrow"></span></th>
             <th onclick="sortCockpit('action')">Action<span class="sort-arrow"></span></th>
-            <th onclick="sortCockpit('bucket')">Bucket<span class="sort-arrow"></span></th>
-            <th onclick="sortCockpit('investors')">Investors<span class="sort-arrow"></span></th>
-            <th onclick="sortCockpit('maxPct')">Max Conviction<span class="sort-arrow"></span></th>
-            <th onclick="sortCockpit('trend')">Trend<span class="sort-arrow"></span></th>
+            <th class="hide-sm" onclick="sortCockpit('bucket')">Bucket<span class="sort-arrow"></span></th>
+            <th class="hide-sm" onclick="sortCockpit('investors')">Investors<span class="sort-arrow"></span></th>
+            <th class="hide-sm" onclick="sortCockpit('maxPct')">Max Conviction<span class="sort-arrow"></span></th>
+            <th class="hide-sm" onclick="sortCockpit('trend')">Trend<span class="sort-arrow"></span></th>
             <th onclick="sortCockpit('price')">Price<span class="sort-arrow"></span></th>
-            <th onclick="sortCockpit('iv')">Base IV<span class="sort-arrow"></span></th>
+            <th class="hide-sm" onclick="sortCockpit('iv')">Base IV<span class="sort-arrow"></span></th>
             <th onclick="sortCockpit('mos')">MOS<span class="sort-arrow"></span></th>
-            <th style="cursor:default">Deep Dive</th>
-            <th style="cursor:default">Why It Ranks</th>
+            <th class="hide-sm" style="cursor:default">Deep Dive</th>
+            <th class="hide-sm" style="cursor:default">Why It Ranks</th>
           </tr>
         </thead>
         <tbody id="cockpit-body">
@@ -1751,14 +1771,19 @@ async function checkPw(){
 
     <div class="stats-bar" id="buyzone-stats-bar"></div>
 
-    <div class="info-blurb" style="margin:0 0 14px">
-      <b>52-wk Range:</b> 0% = at the 52-week low, 100% = at the high; lower = cheaper.
-      ⭐ = 3 cheapest in zone. <b style="color:var(--accent)">IN ZONE</b> = inside that bucket's
-      threshold, i.e. close enough to its 52-week low to be worth a look.
-      Thresholds — Forever compounders 50% · Toll booths 45% · Hard assets 40% · Radar 35% ·
-      AI core 30% · Opportunistic 25%. AI bench and Dry powder are not buy-zone buckets.
-      Updates automatically with every quote refresh.
-    </div>
+    <details class="info-blurb" style="margin:0 0 14px">
+      <summary style="cursor:pointer;font-weight:700;color:var(--heading)">
+        How to read this <span style="font-weight:400;color:var(--muted)">— lower % = closer to the 52-week low = cheaper</span>
+      </summary>
+      <div style="margin-top:8px">
+        <b>52-wk Range:</b> 0% = at the 52-week low, 100% = at the high; lower = cheaper.
+        ⭐ = 3 cheapest in zone. <b style="color:var(--accent)">IN ZONE</b> = inside that bucket's
+        threshold, i.e. close enough to its 52-week low to be worth a look.<br>
+        Thresholds — Forever compounders 50% · Toll booths 45% · Hard assets 40% · Radar 35% ·
+        AI core 30% · Opportunistic 25%. AI bench and Dry powder are not buy-zone buckets.
+        Updates automatically with every quote refresh.
+      </div>
+    </details>
 
     <div class="toolbar">
       <button class="filter-btn active" onclick="setBuyZoneFilter('all', this)">All names</button>
@@ -1771,11 +1796,11 @@ async function checkPw(){
           <tr>
             <th style="width:64px">Zone #</th>
             <th>Ticker</th>
-            <th>Bucket</th>
-            <th>Status</th>
+            <th class="hide-sm">Bucket</th>
+            <th class="hide-sm">Status</th>
             <th>52-wk Range %</th>
             <th style="text-align:right">Price</th>
-            <th style="text-align:right">52-wk Low–High</th>
+            <th class="hide-sm" style="text-align:right">52-wk Low–High</th>
           </tr>
         </thead>
         <tbody id="buyzone-body">
@@ -4155,18 +4180,18 @@ function renderCockpit() {
     return `<tr class="${zoneCls}">
       <td class="mono muted">${idx + 1}</td>
       <td><span class="ticker">${c.ticker}</span></td>
-      <td style="font-size:12px;min-width:160px">${c.name}</td>
+      <td class="hide-sm" style="font-size:12px;min-width:160px">${c.name}</td>
       <td><span class="cockpit-score ${scoreClass(c.score)}">${c.score}</span></td>
       <td><span class="action-pill ${actionClass(c.action)}">${c.action}</span></td>
-      <td><span style="font-size:11px;color:${bInfo.color};font-weight:700;white-space:nowrap">${bInfo.label}</span></td>
-      <td>${investorHtml}</td>
-      <td class="mono">${c.maxPct ? c.maxPct.toFixed(1) + '%' : '-'}</td>
-      <td class="mono">${trend}</td>
+      <td class="hide-sm"><span style="font-size:11px;color:${bInfo.color};font-weight:700;white-space:nowrap">${bInfo.label}</span></td>
+      <td class="hide-sm">${investorHtml}</td>
+      <td class="mono hide-sm">${c.maxPct ? c.maxPct.toFixed(1) + '%' : '-'}</td>
+      <td class="mono hide-sm">${trend}</td>
       <td class="price-cell">${fmtPrice(c.valuation.price)}</td>
-      <td class="mono">${fmtPrice(c.valuation.iv)}</td>
+      <td class="mono hide-sm">${fmtPrice(c.valuation.iv)}</td>
       <td>${mosPill(c.valuation.mos)}</td>
-      <td>${deepDiveCellForCandidate(c)}</td>
-      <td>${drivers}</td>
+      <td class="hide-sm">${deepDiveCellForCandidate(c)}</td>
+      <td class="hide-sm">${drivers}</td>
     </tr>`;
   }).join('');
 
@@ -4231,27 +4256,27 @@ function watchlistRowHtml(p, dcfMap, tickerToInvestors, joeOwns, candidateMap) {
   </div>`;
 
   return `<tr>
-    <td style="min-width:195px">${bucketSel}</td>
+    <td class="hide-sm" style="min-width:195px">${bucketSel}</td>
     <td><span class="ticker">${p.private ? '🔒' : ticker}</span> <a onclick="removeFromWatchlist('${ticker}')" title="Remove from watchlist" style="cursor:pointer;color:var(--muted);font-size:11px;margin-left:4px">✕</a></td>
-    <td style="font-size:13px">${escapeHtml(p.name)}${p.private ? ' <span class="private-tag">private</span>' : ''}</td>
-    <td>${prioritySelect(ticker)}</td>
-    <td class="i-own-cell">${ownCell}</td>
-    <td class="notes-cell">${notesCell}</td>
-    <td>${invCell}</td>
+    <td class="hide-sm" style="font-size:13px">${escapeHtml(p.name)}${p.private ? ' <span class="private-tag">private</span>' : ''}</td>
+    <td class="hide-sm">${prioritySelect(ticker)}</td>
+    <td class="i-own-cell hide-sm">${ownCell}</td>
+    <td class="notes-cell hide-sm">${notesCell}</td>
+    <td class="hide-sm">${invCell}</td>
     <td>${scoreCell}</td>
-    <td>${actionCell}</td>
+    <td class="hide-sm">${actionCell}</td>
     <td class="price-cell">${priceCell}</td>
-    <td class="mono">${ivCell}</td>
+    <td class="mono hide-sm">${ivCell}</td>
     <td>${mosCell}</td>
     <td>${dcfCell}</td>
-    <td>${ddCell}</td>
-    <td>${researchCell}</td>
+    <td class="hide-sm">${ddCell}</td>
+    <td class="hide-sm">${researchCell}</td>
   </tr>`;
 }
 
-function watchlistSortHeader(label, key) {
+function watchlistSortHeader(label, key, cls) {
   const active = watchlistSort === key ? ' active sort-desc' : '';
-  return `<th class="watchlist-sortable${active}" onclick="setWatchlistSort('${key}')">${label}<span class="sort-arrow"></span></th>`;
+  return `<th class="watchlist-sortable${active}${cls ? ' ' + cls : ''}" onclick="setWatchlistSort('${key}')">${label}<span class="sort-arrow"></span></th>`;
 }
 
 function watchlistTableWrap(stocks, dcfMap, tickerToInvestors, joeOwns, candidateMap) {
@@ -4259,21 +4284,21 @@ function watchlistTableWrap(stocks, dcfMap, tickerToInvestors, joeOwns, candidat
   return `<div class="table-wrap">
     <table>
       <thead><tr>
-        ${watchlistSortHeader('Bucket', 'bucket')}
+        ${watchlistSortHeader('Bucket', 'bucket', 'hide-sm')}
         ${watchlistSortHeader('Ticker', 'ticker')}
-        ${watchlistSortHeader('Name', 'name')}
-        ${watchlistSortHeader('Priority', 'priority')}
-        ${watchlistSortHeader('I Own', 'owned')}
-        <th>Notes</th>
-        <th>Investors</th>
+        ${watchlistSortHeader('Name', 'name', 'hide-sm')}
+        ${watchlistSortHeader('Priority', 'priority', 'hide-sm')}
+        ${watchlistSortHeader('I Own', 'owned', 'hide-sm')}
+        <th class="hide-sm">Notes</th>
+        <th class="hide-sm">Investors</th>
         ${watchlistSortHeader('Score', 'score')}
-        <th>Action</th>
+        <th class="hide-sm">Action</th>
         ${watchlistSortHeader('Price', 'price')}
-        ${watchlistSortHeader('Base IV', 'iv')}
+        ${watchlistSortHeader('Base IV', 'iv', 'hide-sm')}
         ${watchlistSortHeader('MOS', 'discount')}
         <th>DCF Signal</th>
-        ${watchlistSortHeader('Deep Dive', 'deepDive')}
-        ${watchlistSortHeader('Research', 'research')}
+        ${watchlistSortHeader('Deep Dive', 'deepDive', 'hide-sm')}
+        ${watchlistSortHeader('Research', 'research', 'hide-sm')}
       </tr></thead>
       <tbody>${stocks.map(p => watchlistRowHtml(p, dcfMap, tickerToInvestors, joeOwns, candidateMap)).join('')}</tbody>
     </table>
@@ -6032,20 +6057,20 @@ function renderBuyZone() {
         ? (r.zoneNum <= 3 ? ' style="background:var(--yellow-bg)"' : ' style="background:var(--green-bg)"')
         : '';
       const status = r.inZone
-        ? `<td style="color:var(--accent);font-weight:800;white-space:nowrap">IN ZONE</td>`
-        : `<td style="color:var(--muted)">—</td>`;
+        ? `<td class="hide-sm" style="color:var(--accent);font-weight:800;white-space:nowrap">IN ZONE</td>`
+        : `<td class="hide-sm" style="color:var(--muted)">—</td>`;
       const lohi = (Number.isFinite(r.low) && Number.isFinite(r.high))
         ? `${buyZonePrice(r.low)} – ${buyZonePrice(r.high)}` : '—';
       return `<tr${rowStyle}>` +
         `<td style="font-weight:700">${r.inZone ? r.zoneNum + star : ''}</td>` +
         `<td><a class="ticker-link" onclick="openSymbolSnapshot('${r.ticker}')">${r.ticker}</a></td>` +
-        `<td style="color:var(--muted)">${r.bucket}</td>` +
+        `<td class="hide-sm" style="color:var(--muted)">${r.bucket}</td>` +
         status +
         `<td style="white-space:nowrap" title="52-wk range ${lohi} · threshold ${r.threshold}%">` +
           `<span class="targ-bar"><span class="targ-bar-fill" style="width:${r.range.toFixed(0)}%;background:${col}"></span></span>` +
           `<span style="color:${col};font-weight:700">${r.range.toFixed(1)}%</span></td>` +
         `<td style="text-align:right">${buyZonePrice(r.price)}</td>` +
-        `<td style="text-align:right;color:var(--muted)">${lohi}</td>` +
+        `<td class="hide-sm" style="text-align:right;color:var(--muted)">${lohi}</td>` +
       `</tr>`;
     }).join('');
   }
