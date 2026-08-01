@@ -2388,6 +2388,8 @@ function getMoseState() {
 function hydrateMoseState(state) {
   if (!state) return false;
   let changed = false;
+  // Cloud state can carry a different bucket set; rebuild the canonical map.
+  invalidateCanonicalBuckets();
   if (Array.isArray(state.bucketDefs) && state.bucketDefs.length && JSON.stringify(state.bucketDefs) !== JSON.stringify(bucketDefs)) {
     bucketDefs = state.bucketDefs;
     rebuildBucketLookups();
@@ -3671,9 +3673,33 @@ function getReportForTicker(ticker) {
   return reportMap[ticker] || reportMap[canonicalTicker(ticker)] || null;
 }
 
+// The Buy Targets taxonomy is the approved one, so it — not the old hardcoded
+// JOES_PORTFOLIO seed — decides which bucket a ticker belongs to. The two had
+// drifted badly: 26 tickers disagreed (NVDA read Opportunistic vs AI core;
+// V/MA/MCO/AXP read Forever vs Toll booths) and 40 taxonomy names were absent
+// entirely, which is why UBER and CVNA showed up as "Uncategorized".
+// Rebuilt lazily and invalidated whenever the buckets are edited.
+let _canonBucketMap = null;
+function canonicalBucketMap() {
+  if (_canonBucketMap) return _canonBucketMap;
+  const src = (targetsData && targetsData.ira && Array.isArray(targetsData.ira.buckets) && targetsData.ira.buckets.length)
+    ? targetsData.ira.buckets : canonTargetsBuckets();
+  const map = {};
+  src.forEach(b => (b.tickers || []).forEach(t => { map[canonicalTicker(t)] = b.id; }));
+  _canonBucketMap = map;
+  return map;
+}
+function invalidateCanonicalBuckets() { _canonBucketMap = null; }
+function canonicalBucketFor(ticker) {
+  const id = canonicalBucketMap()[canonicalTicker(ticker)];
+  return id ? normalizeBucket(id) : null;
+}
 function getCandidateBucket(ticker, p) {
-  const defaultBucket = normalizeBucket(p && p.bucket ? p.bucket : 'uncategorized');
-  return normalizeBucket(watchlistBuckets[canonicalTicker(ticker)] || defaultBucket);
+  // An explicit per-ticker override from the Watchlist dropdown still wins.
+  const override = watchlistBuckets[canonicalTicker(ticker)];
+  if (override) return normalizeBucket(override);
+  return canonicalBucketFor(ticker)
+    || normalizeBucket(p && p.bucket ? p.bucket : 'uncategorized');
 }
 
 function getWatchlistStocks() {
@@ -5692,7 +5718,12 @@ function targetsSave() {
   targetsData.ira.total = targetsData.ira.accounts.his.total + targetsData.ira.accounts.hers.total;
   localStorage.setItem('mose_targets_local', JSON.stringify(targetsData));
   moseFbPutDebounced();
+  // Buckets are the source of truth for the Watchlist/Command Center bucket
+  // column, so drop the cached map whenever they change.
+  invalidateCanonicalBuckets();
   renderTargets();
+  if (typeof renderWatchlist === 'function') renderWatchlist();
+  if (typeof renderCockpit === 'function') renderCockpit();
 }
 
 function targSetOwned(acct, ticker, val) {
