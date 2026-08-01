@@ -425,6 +425,17 @@
   .targ-sug-item:last-child { border-bottom: none; }
   .targ-sug-item:hover { background: rgba(232,86,42,0.14); }
   .targ-sug-item .muted { color: var(--muted); }
+  .inv-cell { display: inline-block; }
+  .inv-cell > summary { list-style: none; cursor: pointer; }
+  .inv-cell > summary::-webkit-details-marker { display: none; }
+  .inv-count {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    background: var(--surface); border: 1px solid var(--border);
+    font-size: 11px; font-weight: 800; color: var(--soft-text); white-space: nowrap;
+  }
+  .inv-count:hover { border-color: var(--accent); color: var(--accent); }
+  .inv-cell[open] > summary { margin-bottom: 6px; }
+  .inv-list { display: flex; flex-wrap: wrap; gap: 4px; max-width: 250px; }
   .ticker-link { color: var(--heading); font-weight: 800; cursor: pointer; }
   .ticker-link:hover { color: var(--accent); text-decoration: underline; }
   .targ-bar { display: inline-block; width: 64px; height: 8px; background: var(--bg); border: 1px solid var(--border); border-radius: 999px; overflow: hidden; vertical-align: middle; margin-right: 7px; }
@@ -2984,6 +2995,17 @@ function investorBadge(name) {
   const c = INVESTOR_COLORS[name] || { bg: '#1c2128', color: '#8b949e' };
   return `<span class="investor-badge" style="background:${c.bg};color:${c.color};border:1px solid ${c.color}33">${name}</span>`;
 }
+// Investor list as a single count pill that expands on click. Rendering every
+// name as its own badge made rows up to ~180px tall (GOOGL has 16 holders),
+// which cut the table to ~7 visible stocks. Collapsed by default; the full
+// list is one tap away and still in the title text for hover.
+function investorsCell(list) {
+  const names = (list || []).filter(Boolean);
+  if (!names.length) return '<span style="color:var(--muted);font-size:11px">—</span>';
+  return `<details class="inv-cell"><summary class="inv-count" title="${escapeHtml(names.join(', '))}">` +
+    `${names.length} investor${names.length > 1 ? 's' : ''}</summary>` +
+    `<div class="inv-list">${names.map(n => investorBadge(n)).join(' ')}</div></details>`;
+}
 function convDots(n) {
   let html = '<div class="conv-score">';
   for (let i = 1; i <= 5; i++) {
@@ -4122,9 +4144,7 @@ function renderCockpit() {
 
   body.innerHTML = data.map((c, idx) => {
     const bInfo = WATCHLIST_BUCKETS[c.bucket] || WATCHLIST_BUCKETS.uncategorized;
-    const investorHtml = c.investors.length
-      ? `<span style="font-size:12px;color:var(--text)">${c.investors.slice(0, 3).join(', ')}${c.investors.length > 3 ? ` +${c.investors.length - 3}` : ''}</span>`
-      : '<span class="muted">-</span>';
+    const investorHtml = investorsCell(c.investors);
     const trend = c.adding || c.trimming
       ? `<span style="color:${c.adding >= c.trimming ? 'var(--green)' : 'var(--yellow)'}">${c.adding} add / ${c.trimming} trim</span>`
       : '<span class="muted">-</span>';
@@ -4200,9 +4220,7 @@ function watchlistRowHtml(p, dcfMap, tickerToInvestors, joeOwns, candidateMap) {
   const priceCell = candidate ? fmtPrice(candidate.valuation.price) : '\u2014';
   const ivCell = candidate ? fmtPrice(candidate.valuation.iv) : '\u2014';
   const mosCell = candidate ? mosPill(candidate.valuation.mos) : '<span class="mos-pill mos-nd">N/A</span>';
-  const invCell = investors.length
-    ? investors.map(inv => investorBadge(inv)).join(' ')
-    : '<span style="color:var(--muted);font-size:11px">\u2014</span>';
+  const invCell = investorsCell(investors);
   const researchCell = `<div style="display:flex;flex-direction:column;gap:6px;min-width:130px">
     ${researchStatusPill(rec.status)}
     <div class="research-actions" style="margin-top:0">
