@@ -2706,6 +2706,9 @@ async function loadLiveMarketData(showToast) {
     renderCockpit();
     renderResearchQueue();
     if (typeof renderBuyZone === 'function') renderBuyZone();
+    // Buy Targets shows live-quote-derived columns (52w range, sparkline), so it
+    // has to re-render when quotes land or those cells stay blank all session.
+    if (typeof renderTargets === 'function') renderTargets();
     if (typeof renderReentry === 'function') renderReentry();
     if (showToast) showWatchlistToast(`Quotes refreshed: ${(data.quotes || []).length} tickers`);
     return true;
