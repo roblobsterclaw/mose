@@ -425,6 +425,8 @@
   .targ-sug-item:last-child { border-bottom: none; }
   .targ-sug-item:hover { background: rgba(232,86,42,0.14); }
   .targ-sug-item .muted { color: var(--muted); }
+  .ticker-link { color: var(--heading); font-weight: 800; cursor: pointer; }
+  .ticker-link:hover { color: var(--accent); text-decoration: underline; }
   .targ-bar { display: inline-block; width: 64px; height: 8px; background: var(--bg); border: 1px solid var(--border); border-radius: 999px; overflow: hidden; vertical-align: middle; margin-right: 7px; }
   .targ-bar-fill { display: block; height: 100%; background: linear-gradient(90deg, var(--green), #56d364); }
   .targ-bucket-row td { background: rgba(255,255,255,0.05); font-weight: 800; color: var(--heading); font-size: 12px; letter-spacing: 0.3px; }
@@ -1183,6 +1185,7 @@ async function checkPw(){
   <button class="tab-btn" onclick="switchTab('portfolio', this)">🎯 Joe's Watchlist</button>
   <button class="tab-btn" onclick="switchTab('joeholdings', this)">💼 Joe's Holdings</button>
   <button class="tab-btn" onclick="switchTab('targets', this)">🎯 Buy Targets</button>
+  <button class="tab-btn" onclick="switchTab('buyzone', this)">🟢 Buy Zone</button>
   <button class="tab-btn" onclick="switchTab('reentry', this)">📅 Re-Entry Plan</button>
   <button class="tab-btn" onclick="switchTab('research', this)">📄 Research Library</button>
 </div>
@@ -1720,6 +1723,60 @@ async function checkPw(){
 
     <div class="info-blurb">
       How to use it: one shared set of 8 buckets feeds all three accounts. When you sit down to buy, each account (<strong>Joe's IRA</strong>, <strong>Keli's IRA</strong>, <strong>Joint Cash</strong>) shows its own dollar target per stock — scaled to that account's size — plus a "Buy This Month" order size. The Combined table up top rolls up the two IRAs. Print the buy list (below) to get the per-account order sheet you take into IBKR. IRAs and the joint cash account stay legally separate; this just lets you plan them as one. Not financial advice — this is your own plan.
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- TAB: BUY ZONE (every name ranked by 52-week range position) -->
+  <!-- ============================================================ -->
+  <div id="tab-buyzone" class="tab-panel">
+    <div class="toolbar">
+      <h2>🟢 Buy Zone</h2>
+      <span style="font-size:12px;color:var(--muted)" id="buyzone-asof">—</span>
+      <button class="csv-btn" onclick="buyZoneExportCSV()">⬇ Export CSV</button>
+      <button class="csv-btn" onclick="window.print()">🖨 Print</button>
+      <button class="filter-btn" onclick="loadLiveMarketData(true)">↻ Refresh Quotes</button>
+    </div>
+
+    <div class="stats-bar" id="buyzone-stats-bar"></div>
+
+    <div class="info-blurb" style="margin:0 0 14px">
+      <b>52-wk Range:</b> 0% = at the 52-week low, 100% = at the high; lower = cheaper.
+      ⭐ = 3 cheapest in zone. <b style="color:var(--accent)">IN ZONE</b> = inside that bucket's
+      threshold, i.e. close enough to its 52-week low to be worth a look.
+      Thresholds — Forever compounders 50% · Toll booths 45% · Hard assets 40% · Radar 35% ·
+      AI core 30% · Opportunistic 25%. AI bench and Dry powder are not buy-zone buckets.
+      Updates automatically with every quote refresh.
+    </div>
+
+    <div class="toolbar">
+      <button class="filter-btn active" onclick="setBuyZoneFilter('all', this)">All names</button>
+      <button class="filter-btn" onclick="setBuyZoneFilter('zone', this)">In zone only 🟢</button>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:64px">Zone #</th>
+            <th>Ticker</th>
+            <th>Bucket</th>
+            <th>Status</th>
+            <th>52-wk Range %</th>
+            <th style="text-align:right">Price</th>
+            <th style="text-align:right">52-wk Low–High</th>
+          </tr>
+        </thead>
+        <tbody id="buyzone-body">
+          <tr><td colspan="7" class="no-data">Loading quotes…</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="info-blurb" style="margin-top:12px" id="buyzone-skipped"></div>
+    <div class="info-blurb" style="margin-top:8px;font-size:12px">
+      Not financial advice — your plan. Range % is computed live from
+      <code>live-quotes.json</code> (week52_low / week52_high).
     </div>
   </div>
 
@@ -2648,6 +2705,7 @@ async function loadLiveMarketData(showToast) {
     renderWatchlist();
     renderCockpit();
     renderResearchQueue();
+    if (typeof renderBuyZone === 'function') renderBuyZone();
     if (typeof renderReentry === 'function') renderReentry();
     if (showToast) showWatchlistToast(`Quotes refreshed: ${(data.quotes || []).length} tickers`);
     return true;
@@ -5868,6 +5926,136 @@ function targRangeCell(t) {
   const title = q ? `52-wk range $${Number(q.week52_low).toFixed(2)}–$${Number(q.week52_high).toFixed(2)} · 0% = low, 100% = high` : '';
   return `<td style="white-space:nowrap" title="${title}"><span class="targ-bar"><span class="targ-bar-fill" style="width:${r.toFixed(0)}%;background:${col}"></span></span><span style="color:${col};font-weight:700">${r.toFixed(0)}%</span></td>`;
 }
+// ============================================================
+// BUY ZONE — every tracked name ranked by where it sits in its own
+// 52-week range, cheapest first, with the ones inside their bucket's
+// threshold flagged IN ZONE. Same computation as the daily Buy Zone
+// report; recomputed live on every quote refresh (no stored state).
+// ============================================================
+// Per-bucket cutoffs: how far above its 52-week low a name may sit and
+// still count as "in the zone". Tighter for speculative buckets, looser
+// for the compounders we'd own at most reasonable prices. Buckets absent
+// from this map (AI bench, Dry powder) are not buy-zone buckets.
+const BUYZONE_THRESHOLDS = { forever: 50, toll: 45, hard: 40, radar: 35, aicore: 30, opp: 25 };
+let buyZoneFilter = 'all';
+
+function setBuyZoneFilter(mode, btn) {
+  buyZoneFilter = mode;
+  document.querySelectorAll('#tab-buyzone .filter-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  renderBuyZone();
+}
+
+function buyZonePrice(v) {
+  if (!Number.isFinite(v)) return '—';
+  // Whole dollars over $100, cents under — keeps the column scannable.
+  return v >= 100 ? '$' + Math.round(v).toLocaleString() : '$' + v.toFixed(2);
+}
+
+// Shared by the table and the CSV export so the two can never disagree.
+function buyZoneRows() {
+  const buckets = (targetsData && targetsData.ira && Array.isArray(targetsData.ira.buckets) && targetsData.ira.buckets.length)
+    ? targetsData.ira.buckets : canonTargetsBuckets();
+  const rows = [], skipped = [];
+  buckets.forEach(b => {
+    const thr = BUYZONE_THRESHOLDS[b.id];
+    if (thr == null) return;
+    (b.tickers || []).forEach(t => {
+      const r = targRangePct(t);
+      if (r == null) { skipped.push({ ticker: t, bucket: b.label }); return; }
+      const q = liveQuotes[canonicalTicker(t)] || {};
+      rows.push({
+        ticker: t, bucket: b.label, range: r, threshold: thr, inZone: r <= thr,
+        price: Number(q.price), low: Number(q.week52_low), high: Number(q.week52_high)
+      });
+    });
+  });
+  rows.sort((a, b) => a.range - b.range);
+  // Zone rank is assigned over in-zone names only, so #1 is the cheapest buy.
+  let n = 0;
+  rows.forEach(r => { if (r.inZone) r.zoneNum = ++n; });
+  return { rows: rows, skipped: skipped };
+}
+
+function renderBuyZone() {
+  const tbody = document.getElementById('buyzone-body');
+  if (!tbody) return;
+  const { rows, skipped } = buyZoneRows();
+
+  const asOf = document.getElementById('buyzone-asof');
+  if (asOf) {
+    const ts = liveMarketData && liveMarketData.generated_at ? new Date(liveMarketData.generated_at) : null;
+    asOf.textContent = ts && !isNaN(ts) ? 'As of ' + ts.toLocaleString() : '';
+  }
+
+  const inZone = rows.filter(r => r.inZone);
+  const bar = document.getElementById('buyzone-stats-bar');
+  if (bar) {
+    const cheapest = inZone[0];
+    bar.innerHTML =
+      `<div class="stat-card"><div class="stat-val green">${inZone.length}</div><div class="stat-label">In the buy zone</div></div>` +
+      `<div class="stat-card"><div class="stat-val">${rows.length}</div><div class="stat-label">Names tracked</div></div>` +
+      `<div class="stat-card"><div class="stat-val">${cheapest ? cheapest.ticker : '—'}</div><div class="stat-label">Cheapest${cheapest ? ' · ' + cheapest.range.toFixed(0) + '% of range' : ''}</div></div>`;
+  }
+
+  const shown = buyZoneFilter === 'zone' ? inZone : rows;
+  if (!shown.length) {
+    tbody.innerHTML = `<tr><td colspan="7" class="no-data">${rows.length ? 'No names in the buy zone right now.' : 'Loading quotes…'}</td></tr>`;
+  } else {
+    tbody.innerHTML = shown.map(r => {
+      // Bar colour matches the Buy Targets tab: green near the low (good
+      // entry), muted near the high. IN ZONE is the authoritative signal.
+      const col = r.range <= 35 ? 'var(--green)' : (r.range <= 65 ? 'var(--yellow)' : 'var(--muted)');
+      const star = r.inZone && r.zoneNum <= 3 ? ' ⭐' : '';
+      const rowStyle = r.inZone
+        ? (r.zoneNum <= 3 ? ' style="background:var(--yellow-bg)"' : ' style="background:var(--green-bg)"')
+        : '';
+      const status = r.inZone
+        ? `<td style="color:var(--accent);font-weight:800;white-space:nowrap">IN ZONE</td>`
+        : `<td style="color:var(--muted)">—</td>`;
+      const lohi = (Number.isFinite(r.low) && Number.isFinite(r.high))
+        ? `${buyZonePrice(r.low)} – ${buyZonePrice(r.high)}` : '—';
+      return `<tr${rowStyle}>` +
+        `<td style="font-weight:700">${r.inZone ? r.zoneNum + star : ''}</td>` +
+        `<td><a class="ticker-link" onclick="openSymbolSnapshot('${r.ticker}')">${r.ticker}</a></td>` +
+        `<td style="color:var(--muted)">${r.bucket}</td>` +
+        status +
+        `<td style="white-space:nowrap" title="52-wk range ${lohi} · threshold ${r.threshold}%">` +
+          `<span class="targ-bar"><span class="targ-bar-fill" style="width:${r.range.toFixed(0)}%;background:${col}"></span></span>` +
+          `<span style="color:${col};font-weight:700">${r.range.toFixed(1)}%</span></td>` +
+        `<td style="text-align:right">${buyZonePrice(r.price)}</td>` +
+        `<td style="text-align:right;color:var(--muted)">${lohi}</td>` +
+      `</tr>`;
+    }).join('');
+  }
+
+  const skipEl = document.getElementById('buyzone-skipped');
+  if (skipEl) {
+    skipEl.innerHTML = skipped.length
+      ? `<b>Skipped (no quote in data):</b> ${skipped.map(s => `${s.ticker} <span style="color:var(--muted)">(${s.bucket})</span>`).join(', ')}`
+      : '';
+    skipEl.style.display = skipped.length ? '' : 'none';
+  }
+}
+
+function buyZoneExportCSV() {
+  const { rows } = buyZoneRows();
+  const head = ['Zone #', 'Ticker', 'Bucket', 'Status', '52wk Range %', 'Threshold %', 'Price', '52wk Low', '52wk High'];
+  const lines = [head.join(',')].concat(rows.map(r => [
+    r.inZone ? r.zoneNum : '', r.ticker, `"${r.bucket}"`, r.inZone ? 'IN ZONE' : '',
+    r.range.toFixed(1), r.threshold,
+    Number.isFinite(r.price) ? r.price : '',
+    Number.isFinite(r.low) ? r.low : '',
+    Number.isFinite(r.high) ? r.high : ''
+  ].join(',')));
+  const blob = new Blob([lines.join('\n')], { type: 'text/csv' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `mose-buy-zone-${new Date().toISOString().slice(0, 10)}.csv`;
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
 // Tiny inline 1-year price sparkline from price-history.json (daily closes).
 // Green if up over the window, red if down. Blank if no history for the ticker.
 function targSparkCell(t) {
@@ -6655,6 +6843,7 @@ window.addEventListener('DOMContentLoaded', () => {
   loadTickerDirectory();
   renderReentry();
   renderTargets();
+  renderBuyZone();
   renderWatchlist();
   updateDDCounter();
 
@@ -6671,6 +6860,7 @@ window.addEventListener('DOMContentLoaded', () => {
       renderWatchlist();
       renderReentry();
       renderTargets();
+      renderBuyZone();
       if (typeof renderResearchLibrary === 'function') renderResearchLibrary();
       if (typeof updateDDCounter === 'function') updateDDCounter();
       if (typeof renderCockpit === 'function') renderCockpit();
