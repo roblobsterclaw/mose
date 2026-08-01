@@ -232,6 +232,13 @@
   .mos-fair { background: var(--yellow-bg); color: var(--yellow); border: 1px solid var(--yellow); }
   .mos-ov { background: var(--red-bg); color: var(--red); border: 1px solid var(--red); }
   .mos-nd { background: var(--surface); color: var(--muted); border: 1px solid var(--border); }
+  /* Implausible DCF output — shown, but visually demoted so it never reads
+     as a tradeable signal. Dashed border = "don't trust this number". */
+  .mos-suspect {
+    background: var(--surface); color: var(--muted);
+    border: 1px dashed var(--yellow); cursor: help; opacity: 0.85;
+  }
+  .signal-suspect { color: var(--yellow); font-weight: 700; cursor: help; white-space: nowrap; }
 
   /* HEATMAP TAB */
   .heatmap-wrap { overflow: auto; max-height: calc(100vh - 150px); border-radius: 8px; border: 1px solid var(--border); }
@@ -3039,13 +3046,38 @@ function convDots(n) {
   html += `<span style="color:var(--muted);font-size:11px;margin-left:3px">${n}</span></div>`;
   return html;
 }
-function mosPill(mos) {
+// A DCF whose intrinsic value lands more than 3x above the market price, or
+// below 40% of it, is nearly always a bad input rather than a real mispricing
+// — bad share counts, ADR/FX scale errors, or a model that doesn't fit the
+// business. Live examples: TSM base IV 28x price, PDD 40x, TSLA IV at 4% of
+// price (MOS -2130%). Those were rendering as confident BUY / OVERVALUED.
+// Flag them instead of asserting a number nobody should trade on.
+const DCF_IV_MAX_RATIO = 3;
+const DCF_IV_MIN_RATIO = 0.4;
+function dcfSuspect(price, iv) {
+  const p = Number(price), v = Number(iv);
+  if (!Number.isFinite(p) || !Number.isFinite(v) || p <= 0 || v <= 0) return false;
+  const r = v / p;
+  return r > DCF_IV_MAX_RATIO || r < DCF_IV_MIN_RATIO;
+}
+function dcfSuspectTitle(price, iv) {
+  const r = (Number(iv) / Number(price));
+  return `Model looks broken: intrinsic value is ${r >= 1 ? r.toFixed(1) + '× the price' : Math.round(r * 100) + '% of the price'}. ` +
+    `Check the inputs before trusting this — judge the name qualitatively.`;
+}
+function mosPill(mos, price, iv) {
   if (mos === null || mos === undefined) return '<span class="mos-pill mos-nd">N/A</span>';
+  if (dcfSuspect(price, iv)) {
+    return `<span class="mos-pill mos-suspect" title="${escapeHtml(dcfSuspectTitle(price, iv))}">⚠ ${fmtPct(mos)}</span>`;
+  }
   const cls = mos > 25 ? 'mos-buy' : mos >= 0 ? 'mos-fair' : 'mos-ov';
   return `<span class="mos-pill ${cls}">${fmtPct(mos)}</span>`;
 }
-function signalHtml(sig) {
+function signalHtml(sig, price, iv) {
   if (!sig) return '<span class="signal-nd">—</span>';
+  if (dcfSuspect(price, iv)) {
+    return `<span class="signal-suspect" title="${escapeHtml(dcfSuspectTitle(price, iv))}">⚠ CHECK MODEL</span>`;
+  }
   if (sig.includes('BUY')) return `<span class="signal-buy">${sig}</span>`;
   if (sig.includes('FAIR')) return `<span class="signal-fair">${sig}</span>`;
   if (sig.includes('OVER')) return `<span class="signal-ov">${sig}</span>`;
@@ -3205,12 +3237,12 @@ function renderDCF() {
       <td class="mono muted">${d.bear_iv ? fmtPrice(d.bear_iv) : '—'}</td>
       <td class="mono" style="font-weight:700">${d.base_iv ? fmtPrice(d.base_iv) : '—'}</td>
       <td class="mono muted">${d.bull_iv ? fmtPrice(d.bull_iv) : '—'}</td>
-      <td>${mosPill(d.base_mos)}</td>
+      <td>${mosPill(d.base_mos, d.current_price, d.base_iv)}</td>
       <td class="mono muted">${d.graham_number ? fmtPrice(d.graham_number) : '—'}</td>
       <td class="mono">${d.owner_earnings_billions !== null && d.owner_earnings_billions !== undefined ? '$' + d.owner_earnings_billions.toFixed(1) + 'B' : '—'}</td>
       <td class="mono">${grwth}</td>
       <td class="mono">${maintPct}</td>
-      <td>${signalHtml(d.signal)}</td>
+      <td>${signalHtml(d.signal, d.current_price, d.base_iv)}</td>
     </tr>`;
   }).join('');
 
@@ -4189,7 +4221,7 @@ function renderCockpit() {
       <td class="mono hide-sm">${trend}</td>
       <td class="price-cell">${fmtPrice(c.valuation.price)}</td>
       <td class="mono hide-sm">${fmtPrice(c.valuation.iv)}</td>
-      <td>${mosPill(c.valuation.mos)}</td>
+      <td>${mosPill(c.valuation.mos, c.valuation.price, c.valuation.iv)}</td>
       <td class="hide-sm">${deepDiveCellForCandidate(c)}</td>
       <td class="hide-sm">${drivers}</td>
     </tr>`;
@@ -4239,12 +4271,12 @@ function watchlistRowHtml(p, dcfMap, tickerToInvestors, joeOwns, candidateMap) {
 
   const bucketSel = `<select class="bucket-dropdown" onchange="onBucketChange('${ticker}', this.value)">${BUCKET_ORDER.map(bk => `<option value="${bk}"${bucket === bk ? ' selected' : ''}>${WATCHLIST_BUCKETS[bk].label}</option>`).join('')}</select>`;
 
-  const dcfCell = dcf ? signalHtml(dcf.signal) : '<span class="signal-nd">\u2014</span>';
+  const dcfCell = dcf ? signalHtml(dcf.signal, dcf.current_price, dcf.base_iv) : '<span class="signal-nd">\u2014</span>';
   const scoreCell = candidate ? `<span class="cockpit-score ${scoreClass(candidate.score)}">${candidate.score}</span>` : '<span class="muted">-</span>';
   const actionCell = candidate ? `<span class="action-pill ${actionClass(candidate.action)}">${candidate.action}</span>` : '<span class="muted">-</span>';
   const priceCell = candidate ? fmtPrice(candidate.valuation.price) : '\u2014';
   const ivCell = candidate ? fmtPrice(candidate.valuation.iv) : '\u2014';
-  const mosCell = candidate ? mosPill(candidate.valuation.mos) : '<span class="mos-pill mos-nd">N/A</span>';
+  const mosCell = candidate ? mosPill(candidate.valuation.mos, candidate.valuation.price, candidate.valuation.iv) : '<span class="mos-pill mos-nd">N/A</span>';
   const invCell = investorsCell(investors);
   const researchCell = `<div style="display:flex;flex-direction:column;gap:6px;min-width:130px">
     ${researchStatusPill(rec.status)}
@@ -4913,7 +4945,7 @@ function renderSymbolSnapshot(ticker) {
       metric('Market Cap', s.metrics?.marketCap ? fmtDollar(s.metrics.marketCap) : '—'),
       metric('P/E', Number.isFinite(s.metrics?.peRatio) ? s.metrics.peRatio.toFixed(1) : '—'),
       metric('Volume', s.volume ? Math.round(s.volume).toLocaleString() : '—'),
-      metric('MOS', mosPill(s.valuation?.mos)),
+      metric('MOS', mosPill(s.valuation?.mos, s.valuation?.price, s.valuation?.iv)),
       metric('Bucket', s.bucket ? (WATCHLIST_BUCKETS[s.bucket]?.label || s.bucket) : '—'),
       metric('Research', s.researchStatus ? (RESEARCH_LABELS[s.researchStatus] || s.researchStatus) : '—')
     ].join('');
