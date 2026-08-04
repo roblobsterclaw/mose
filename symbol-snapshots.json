@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-04T11:36:53.780971+00:00",
+  "generated_at": "2026-08-04T11:56:07.788658+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -18,11 +18,11 @@
         "time": "16:00:01",
         "volume": 71988041,
         "week52_high": 344.57,
-        "week52_low": 201.68
+        "week52_low": 202.16
       },
       "metrics": {
         "week52High": 344.57,
-        "week52Low": 201.68,
+        "week52Low": 202.16,
         "marketCap": 3979469914112,
         "peRatio": 38.45627376425856
       },
@@ -199,11 +199,11 @@
         "time": "16:00:00",
         "volume": 2255423,
         "week52_high": 11.99,
-        "week52_low": 3.28
+        "week52_low": 3.35
       },
       "metrics": {
         "week52High": 11.99,
-        "week52Low": 3.28
+        "week52Low": 3.35
       },
       "profile": {
         "company": "Avino Silver & Gold Mines Ltd.",
@@ -382,11 +382,11 @@
         "time": "16:00:03",
         "volume": 18265922,
         "week52_high": 351.28,
-        "week52_low": 35.0
+        "week52_low": 35.85
       },
       "metrics": {
         "week52High": 351.28,
-        "week52Low": 35.0
+        "week52Low": 35.85
       },
       "profile": {
         "company": "Bloom Energy Corporation",
@@ -471,11 +471,11 @@
         "time": "16:00:02",
         "volume": 4202307,
         "week52_high": 520.665,
-        "week52_low": 455.19
+        "week52_low": 460.38
       },
       "metrics": {
         "week52High": 520.665,
-        "week52Low": 455.19,
+        "week52Low": 460.38,
         "marketCap": 1012262699008,
         "peRatio": 16.542230818826564
       },
@@ -1042,11 +1042,11 @@
         "time": "16:00:01",
         "volume": 38121117,
         "week52_high": 408.61,
-        "week52_low": 190.12
+        "week52_low": 193.67
       },
       "metrics": {
         "week52High": 408.61,
-        "week52Low": 190.12,
+        "week52Low": 193.67,
         "marketCap": 4166206881792,
         "peRatio": 34.5522664199815
       },
@@ -1163,11 +1163,11 @@
         "time": "16:00:01",
         "volume": 93454443,
         "week52_high": 142.35,
-        "week52_low": 19.35
+        "week52_low": 19.6
       },
       "metrics": {
         "week52High": 142.35,
-        "week52Low": 19.35
+        "week52Low": 19.6
       },
       "profile": {
         "company": "Intel Corporation",
@@ -1699,11 +1699,11 @@
         "time": "16:00:01",
         "volume": 42015788,
         "week52_high": 1255.0,
-        "week52_low": 105.46
+        "week52_low": 106.75
       },
       "metrics": {
         "week52High": 1255.0,
-        "week52Low": 105.46
+        "week52Low": 106.75
       },
       "profile": {
         "company": "Micron Technology, Inc.",
@@ -2573,11 +2573,11 @@
         "time": "16:00:00",
         "volume": 4039725,
         "week52_high": 60.43,
-        "week52_low": 9.68
+        "week52_low": 9.85
       },
       "metrics": {
         "week52High": 60.43,
-        "week52Low": 9.68
+        "week52Low": 9.85
       },
       "profile": {
         "company": "Viavi Solutions Inc.",
@@ -2602,11 +2602,11 @@
         "time": "16:00:00",
         "volume": 6732336,
         "week52_high": 699.15,
-        "week52_low": 575.08
+        "week52_low": 576.4
       },
       "metrics": {
         "week52High": 699.15,
-        "week52Low": 575.08
+        "week52Low": 576.4
       },
       "profile": {
         "company": null,
@@ -2662,11 +2662,11 @@
         "time": "16:00:00",
         "volume": 3023837,
         "week52_high": 223.58,
-        "week52_low": 175.81
+        "week52_low": 176.23
       },
       "metrics": {
         "week52High": 223.58,
-        "week52Low": 175.81
+        "week52Low": 176.23
       },
       "profile": {
         "company": null,
@@ -2808,8 +2808,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 15.63,
-        "change_pct": -1.4501891551071793,
+        "price": 15.65,
+        "change_pct": -1.3240857503152526,
         "source": "yahoo"
       },
       "metrics": {},
