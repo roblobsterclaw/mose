@@ -450,6 +450,12 @@
   .targ-sug-item .muted { color: var(--muted); }
   /* ALL-IN reserve card. Deliberately loud when armed — it's the one moment
      the plan asks for a large, time-sensitive action. */
+  .quarter-notice {
+    background: var(--yellow-bg); border: 1px solid var(--yellow); border-left-width: 4px;
+    border-radius: 8px; padding: 10px 14px; margin-bottom: 12px;
+    font-size: 12px; line-height: 1.6; color: var(--text);
+  }
+  .quarter-notice b { color: var(--heading); }
   .consensus-new {
     display: inline-block; padding: 1px 6px; border-radius: 999px; margin-left: 5px;
     background: var(--blue); color: #fff; font-size: 9px; font-weight: 800; vertical-align: middle;
@@ -1332,6 +1338,7 @@ async function checkPw(){
   <!-- ============================================================ -->
   <div id="tab-holdings" class="tab-panel">
 
+    <div id="holdings-quarter-notice"></div>
     <div class="stats-bar" id="stats-bar">
       <div class="stat-card"><div class="stat-val blue" id="stat-total">—</div><div class="stat-label">Holdings</div></div>
       <div class="stat-card"><div class="stat-val blue" id="stat-tickers">—</div><div class="stat-label">Unique Tickers</div></div>
@@ -1464,6 +1471,7 @@ async function checkPw(){
       <button class="csv-btn" onclick="consensusExportCSV()">⬇ Export CSV</button>
     </div>
 
+    <div id="consensus-quarter-notice"></div>
     <div class="stats-bar" id="consensus-stats-bar"></div>
 
     <details class="info-blurb" style="margin:0 0 14px">
@@ -2969,12 +2977,85 @@ function updateLiveStatus(data, error) {
 // ============================================================
 // HOLDINGS DATA
 // ============================================================
+// 13F filings are due 45 days after quarter end, so for ~6 weeks each quarter
+// the feed flips to the new quarter with only a handful of managers in it —
+// on 2026-08-03 it went from 223 positions across 25 investors to 28 from
+// Tom Gayner alone. Every investor view then reads near-empty, which looks
+// like "the super investors sold everything" rather than "nobody has filed
+// yet". Snapshot the last complete quarter and fall back to it until the new
+// one fills in, and say plainly which quarter is on screen.
+const HOLDINGS_MIN_INVESTORS = 5;
+let holdingsFallback = null;   // set when we're showing a cached quarter
+
+function holdingsSnapshotSave(data) {
+  try {
+    localStorage.setItem('mose_holdings_snapshot', JSON.stringify({
+      latest_quarter: data.latest_quarter || '',
+      generated_at: data.generated_at || '',
+      total_investors: data.total_investors || 0,
+      holdings: data.holdings || []
+    }));
+  } catch {}   // quota or private mode — degrade to live data, never throw
+}
+function holdingsSnapshotLoad() {
+  try {
+    const s = JSON.parse(localStorage.getItem('mose_holdings_snapshot') || 'null');
+    return (s && Array.isArray(s.holdings) && s.holdings.length) ? s : null;
+  } catch { return null; }
+}
+function countInvestors(rows) {
+  return new Set((rows || []).map(r => r && r.investor).filter(Boolean)).size;
+}
+
+// Banner for the Super Investor views. Empty string when the data is current.
+function holdingsQuarterNoticeHtml() {
+  if (!holdingsFallback) return '';
+  const f = holdingsFallback;
+  return `<div class="quarter-notice">
+    <b>Showing ${escapeHtml(f.shownQuarter || 'the last complete quarter')} — the most recent quarter with full coverage.</b><br>
+    ${escapeHtml(f.liveQuarter || 'The new quarter')} filings have started landing
+    (${f.liveInvestors} of the tracked investors so far), but 13Fs aren't due until
+    45 days after quarter end, so the new quarter is still mostly empty. These views
+    will switch over automatically once enough managers have filed.
+  </div>`;
+}
+
 async function loadHoldings() {
   try {
     const r = await fetch('holdings-latest.json?' + Date.now());
     const data = await r.json();
-    allHoldings = data.holdings || [];
-    latestQuarterLabel = data.latest_quarter || '';
+    const liveRows = data.holdings || [];
+    const liveInvestors = countInvestors(liveRows);
+    holdingsFallback = null;
+
+    if (liveInvestors >= HOLDINGS_MIN_INVESTORS) {
+      // Healthy quarter — use it and remember it for the next changeover.
+      allHoldings = liveRows;
+      latestQuarterLabel = data.latest_quarter || '';
+      holdingsSnapshotSave(data);
+    } else {
+      const snap = holdingsSnapshotLoad();
+      if (snap && countInvestors(snap.holdings) > liveInvestors) {
+        allHoldings = snap.holdings;
+        latestQuarterLabel = snap.latest_quarter || '';
+        holdingsFallback = {
+          shownQuarter: snap.latest_quarter || '',
+          liveQuarter: data.latest_quarter || '',
+          liveInvestors
+        };
+      } else {
+        // No better cache (fresh device) — show what we have, but say so.
+        allHoldings = liveRows;
+        latestQuarterLabel = data.latest_quarter || '';
+        if (liveRows.length) {
+          holdingsFallback = {
+            shownQuarter: data.latest_quarter || '',
+            liveQuarter: data.latest_quarter || '',
+            liveInvestors
+          };
+        }
+      }
+    }
     document.getElementById('data-date').textContent = data.generated_at || '—';
     renderHoldings();
     updateHoldingsStats();
@@ -3307,6 +3388,8 @@ function renderHoldings() {
 
 function updateHoldingsStats() {
   const h = allHoldings;
+  const hn = document.getElementById('holdings-quarter-notice');
+  if (hn) hn.innerHTML = holdingsQuarterNoticeHtml();
   const tickers = new Set(h.map(x => x.ticker));
   document.getElementById('stat-total').textContent = h.length;
   document.getElementById('stat-tickers').textContent = tickers.size;
@@ -3485,6 +3568,8 @@ function renderConsensus() {
 
   const asOf = document.getElementById('consensus-asof');
   if (asOf) asOf.textContent = latestQuarterLabel ? `13F as of ${latestQuarterLabel}` : '';
+  const notice = document.getElementById('consensus-quarter-notice');
+  if (notice) notice.innerHTML = holdingsQuarterNoticeHtml();
 
   const bar = document.getElementById('consensus-stats-bar');
   if (bar) {
@@ -5907,13 +5992,19 @@ function canonTargetsBuckets() {
     { id: 'toll', label: 'Toll booths', pct: 10,
       tickers: ['V', 'MA', 'AXP', 'MCO', 'SPGI', 'PGR'], weights: {}, locked: {} },
     { id: 'hard', label: 'Hard assets', pct: 10,
-      tickers: ['BN', 'PLD', 'CP', 'CVX', 'OXY', 'GE', 'HON', 'NLR'], weights: {}, locked: {} },
+      // SOLS = Solstice Advanced Materials, the Honeywell Advanced Materials
+      // spin-off (Oct 2025). Already on the IBKR Hard assets watchlist.
+      tickers: ['BN', 'PLD', 'CP', 'CVX', 'OXY', 'GE', 'HON', 'NLR', 'SOLS'], weights: {}, locked: {} },
     { id: 'aicore', label: 'AI core', pct: 8,
       tickers: ['AVGO', 'LRCX', 'TSM', 'ASML', 'NVDA', 'SMH'], weights: {}, locked: {} },
     { id: 'opp', label: 'Opportunistic', pct: 8,
       tickers: ['UBER', 'APP', 'MDB', 'DASH', 'RBLX', 'FROG', 'KVYO', 'BABA', 'CVNA', 'TSLA', 'SPCX', 'CODI', 'MBGL', 'BE'], weights: {}, locked: {} },
     { id: 'radar', label: 'Radar', pct: 5,
-      tickers: ['LLY', 'DE', 'ROP', 'FICO', 'VRSN', 'ORLY', 'TXN', 'RACE'], weights: {}, locked: {} },
+      // HHH = Howard Hughes Holdings — Ackman's Berkshire-style vehicle, and
+      // already on the IBKR Opportunistic watchlist. Parked on Radar because
+      // it's researched-and-circling, not bought. Its business is master-
+      // planned real estate, so it belongs in Hard assets if it graduates.
+      tickers: ['LLY', 'DE', 'ROP', 'FICO', 'VRSN', 'ORLY', 'TXN', 'RACE', 'HHH'], weights: {}, locked: {} },
     { id: 'dry', label: 'Dry powder', pct: 20,
       tickers: ['VOO', 'VTV', 'QQQ', 'IDGT', 'SGOV'],
       weights: { SGOV: 40, VOO: 30 }, locked: { SGOV: true } },
@@ -5924,7 +6015,7 @@ function canonTargetsBuckets() {
 
 function defaultTargetsData() {
   return {
-    version: 8,
+    version: 9,
     // `ira` is the shared container for all three accounts + the one bucket set.
     // (Name kept for backward-compat; it holds Joint too now.)
     ira: {
@@ -6038,6 +6129,24 @@ function migrateTargets(d) {
     if (i >= 0) d.ira.buckets.push(d.ira.buckets.splice(i, 1)[0]);
     d.version = 8;
     _targetsRepaired = true;  // sync the new order to all devices
+  }
+  if ((d.version || 0) < 9) {
+    // Reconcile two names that lived on the IBKR watchlists but never existed
+    // in the app's taxonomy, so they showed up as "skipped (no quote)" in the
+    // Buy Zone and got no tranche allocation: HHH (Howard Hughes Holdings,
+    // Ackman's vehicle) onto Radar, and SOLS (Solstice, the Honeywell spin-off)
+    // onto Hard assets. Additive only — no existing ticker, weight or lock is
+    // touched, and nothing is added if Joe already placed them somewhere.
+    const place = (id, ticker) => {
+      const already = d.ira.buckets.some(b => (b.tickers || []).includes(ticker));
+      if (already) return;
+      const b = d.ira.buckets.find(x => x.id === id);
+      if (b) b.tickers.push(ticker);
+    };
+    place('radar', 'HHH');
+    place('hard', 'SOLS');
+    d.version = 9;
+    _targetsRepaired = true;  // push to the cloud so every device agrees
   }
   d.ira.buckets.forEach(b => {
     if (!Array.isArray(b.tickers)) b.tickers = [];
