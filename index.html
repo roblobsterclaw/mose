@@ -450,6 +450,10 @@
   .targ-sug-item .muted { color: var(--muted); }
   /* ALL-IN reserve card. Deliberately loud when armed — it's the one moment
      the plan asks for a large, time-sensitive action. */
+  .consensus-new {
+    display: inline-block; padding: 1px 6px; border-radius: 999px; margin-left: 5px;
+    background: var(--blue); color: #fff; font-size: 9px; font-weight: 800; vertical-align: middle;
+  }
   .allin-card {
     border: 1px solid var(--border); border-left: 4px solid var(--muted);
     background: var(--surface); border-radius: 8px; padding: 14px 16px; margin-bottom: 12px;
@@ -1450,6 +1454,67 @@ async function checkPw(){
   <!-- ============================================================ -->
   <!-- TAB 3: CONVERGENCE HEAT MAP -->
   <!-- ============================================================ -->
+  <!-- ============================================================ -->
+  <!-- CONSENSUS — what the 25 super investors did as a group in 13F -->
+  <!-- ============================================================ -->
+  <div id="tab-consensus" class="tab-panel">
+    <div class="toolbar">
+      <h2>🤝 Super Investor Consensus</h2>
+      <span style="font-size:12px;color:var(--muted)" id="consensus-asof">—</span>
+      <button class="csv-btn" onclick="consensusExportCSV()">⬇ Export CSV</button>
+    </div>
+
+    <div class="stats-bar" id="consensus-stats-bar"></div>
+
+    <details class="info-blurb" style="margin:0 0 14px">
+      <summary style="cursor:pointer;font-weight:700;color:var(--heading)">
+        How to read this <span style="font-weight:400;color:var(--muted)">— net conviction = investors adding or opening, minus investors trimming</span>
+      </summary>
+      <div style="margin-top:8px">
+        Each row is one stock across all 25 tracked investors. <b>Net</b> = (adding + new) − trimming.
+        <b>Agreement</b> is that net as a share of the investors holding it, so +50% means half of the
+        holders moved the same way. Only names held by 2 or more investors appear — a single manager's
+        trade isn't consensus.<br>
+        <b style="color:var(--green)">ACCUMULATE</b> = the group is buying · <b style="color:var(--red)">DISTRIBUTE</b> = the group is selling ·
+        <b style="color:var(--muted)">SPLIT</b> = no agreement. <b style="color:var(--blue)">NEW</b> flags names two or more
+        investors opened fresh this quarter — your candidate new positions.<br>
+        13F filings are 45–90 days delayed, so treat this as direction, not timing. Not financial advice.
+      </div>
+    </details>
+
+    <div class="toolbar">
+      <button class="filter-btn active" onclick="setConsensusFilter('all', this)">All</button>
+      <button class="filter-btn" onclick="setConsensusFilter('buy', this)">Accumulating 🟢</button>
+      <button class="filter-btn" onclick="setConsensusFilter('sell', this)">Distributing 🔴</button>
+      <button class="filter-btn" onclick="setConsensusFilter('new', this)">New positions ✨</button>
+      <button class="filter-btn" onclick="setConsensusFilter('mine', this)">In my buckets 🎯</button>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Ticker</th>
+            <th class="hide-sm">Company</th>
+            <th class="hide-sm">My bucket</th>
+            <th>Signal</th>
+            <th>Agreement</th>
+            <th class="hide-sm" style="text-align:right">Investors</th>
+            <th class="hide-sm" style="text-align:right">Adding</th>
+            <th class="hide-sm" style="text-align:right">New</th>
+            <th class="hide-sm" style="text-align:right">Trimming</th>
+            <th style="text-align:right">Net</th>
+          </tr>
+        </thead>
+        <tbody id="consensus-body"><tr><td colspan="10" class="no-data">Loading 13F data…</td></tr></tbody>
+      </table>
+    </div>
+    <div class="info-blurb" style="margin-top:12px;font-size:12px">
+      Source: quarterly 13F filings, refreshed by the tracker. Positions are as of the filing date and
+      may already have changed. Not financial advice — your plan.
+    </div>
+  </div>
+
   <div id="tab-heatmap" class="tab-panel">
     <div class="toolbar">
       <h2>🔥 Convergence Heat Map</h2>
@@ -2241,6 +2306,7 @@ const INVESTOR_COLORS = {
 // STATE
 // ============================================================
 let allHoldings = [];
+let latestQuarterLabel = '';
 let allDCF = [];
 let allReports = [];
 let reportTickers = new Set();
@@ -2694,6 +2760,7 @@ const TAB_GROUPS = [
   { id: 'mine',     label: '💼 My Holdings',     tabs: [
       { id: 'joeholdings', label: "Joe's Holdings" } ] },
   { id: 'gurus',    label: '🧠 Super Investors', tabs: [
+      { id: 'consensus', label: '🤝 Consensus' },
       { id: 'investors', label: 'Investors' },
       { id: 'holdings',  label: 'Holdings Tracker' },
       { id: 'heatmap',   label: 'Heat Map' },
@@ -2907,10 +2974,12 @@ async function loadHoldings() {
     const r = await fetch('holdings-latest.json?' + Date.now());
     const data = await r.json();
     allHoldings = data.holdings || [];
+    latestQuarterLabel = data.latest_quarter || '';
     document.getElementById('data-date').textContent = data.generated_at || '—';
     renderHoldings();
     updateHoldingsStats();
     renderHeatmap();
+    renderConsensus();
     renderPortfolio();
     renderCockpit();
     renderResearchQueue();
@@ -3364,6 +3433,116 @@ function sortHeatmap(key) {
   if (heatmapSortKey === key) heatmapSortDir *= -1;
   else { heatmapSortKey = key; heatmapSortDir = (key === 'ticker' || key === 'company') ? 1 : -1; }
   renderHeatmap();
+}
+
+// ============================================================
+// SUPER INVESTOR CONSENSUS — the clone signal
+// Rolls the 13F holdings up per stock: how many of the tracked investors
+// added, opened, trimmed or held it last quarter. A single manager buying is
+// noise; the same move across several is the signal worth acting on.
+// ============================================================
+let consensusFilter = 'all';
+const CONSENSUS_MIN_INVESTORS = 2;   // one manager's trade isn't consensus
+
+function setConsensusFilter(mode, btn) {
+  consensusFilter = mode;
+  document.querySelectorAll('#tab-consensus .filter-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  renderConsensus();
+}
+
+function consensusRows() {
+  const agg = {};
+  (allHoldings || []).forEach(h => {
+    // GOOG and GOOGL are the same business — canonicalTicker folds them so the
+    // share classes don't split one consensus into two weak ones.
+    const t = canonicalTicker(h.ticker || '');
+    if (!t) return;
+    const a = agg[t] || (agg[t] = { ticker: t, company: h.company || t, investors: new Set(), ADDING: 0, TRIMMING: 0, HOLDING: 0, NEW: 0 });
+    const trend = (h.trend || 'HOLDING').toUpperCase();
+    if (a[trend] !== undefined) a[trend]++;
+    if (h.investor) a.investors.add(h.investor);
+  });
+  return Object.values(agg)
+    .map(a => {
+      const held = a.investors.size;
+      const buys = a.ADDING + a.NEW;
+      const net = buys - a.TRIMMING;
+      const agreement = held ? (net / held) * 100 : 0;
+      let signal = 'SPLIT';
+      if (net >= 2 || (net >= 1 && agreement >= 25)) signal = 'ACCUMULATE';
+      else if (net <= -2 || (net <= -1 && agreement <= -25)) signal = 'DISTRIBUTE';
+      return { ...a, held, net, agreement, signal, bucket: canonicalBucketFor(a.ticker) };
+    })
+    .filter(r => r.held >= CONSENSUS_MIN_INVESTORS)
+    .sort((x, y) => y.net - x.net || y.held - x.held || x.ticker.localeCompare(y.ticker));
+}
+
+function renderConsensus() {
+  const body = document.getElementById('consensus-body');
+  if (!body) return;
+  const rows = consensusRows();
+
+  const asOf = document.getElementById('consensus-asof');
+  if (asOf) asOf.textContent = latestQuarterLabel ? `13F as of ${latestQuarterLabel}` : '';
+
+  const bar = document.getElementById('consensus-stats-bar');
+  if (bar) {
+    const acc = rows.filter(r => r.signal === 'ACCUMULATE').length;
+    const dis = rows.filter(r => r.signal === 'DISTRIBUTE').length;
+    const fresh = rows.filter(r => r.NEW >= 2).length;
+    const mine = rows.filter(r => r.bucket && r.signal === 'ACCUMULATE').length;
+    bar.innerHTML =
+      `<div class="stat-card"><div class="stat-val green">${acc}</div><div class="stat-label">Accumulating</div></div>` +
+      `<div class="stat-card"><div class="stat-val" style="color:var(--red)">${dis}</div><div class="stat-label">Distributing</div></div>` +
+      `<div class="stat-card"><div class="stat-val blue">${fresh}</div><div class="stat-label">New by 2+ investors</div></div>` +
+      `<div class="stat-card"><div class="stat-val">${mine}</div><div class="stat-label">Accumulating &amp; in my buckets</div></div>` +
+      `<div class="stat-card"><div class="stat-val">${rows.length}</div><div class="stat-label">Names with 2+ holders</div></div>`;
+  }
+
+  const shown = rows.filter(r =>
+    consensusFilter === 'buy'  ? r.signal === 'ACCUMULATE' :
+    consensusFilter === 'sell' ? r.signal === 'DISTRIBUTE' :
+    consensusFilter === 'new'  ? r.NEW >= 2 :
+    consensusFilter === 'mine' ? !!r.bucket : true);
+
+  if (!shown.length) {
+    body.innerHTML = `<tr><td colspan="10" class="no-data">${(allHoldings || []).length ? 'Nothing matches this filter.' : 'Loading 13F data…'}</td></tr>`;
+    return;
+  }
+
+  body.innerHTML = shown.map(r => {
+    const sigCol = r.signal === 'ACCUMULATE' ? 'var(--green)' : r.signal === 'DISTRIBUTE' ? 'var(--red)' : 'var(--muted)';
+    const bInfo = r.bucket ? (WATCHLIST_BUCKETS[r.bucket] || null) : null;
+    const rowBg = r.signal === 'ACCUMULATE' && r.bucket ? ' style="background:var(--green-bg)"' : '';
+    return `<tr${rowBg}>
+      <td><a class="ticker-link" onclick="openSymbolSnapshot('${r.ticker}')">${r.ticker}</a>${r.NEW >= 2 ? ' <span class="consensus-new">NEW</span>' : ''}</td>
+      <td class="hide-sm" style="font-size:12px;color:var(--soft-text)">${escapeHtml((r.company || '').slice(0, 34))}</td>
+      <td class="hide-sm" style="font-size:11px;color:${bInfo ? bInfo.color : 'var(--muted)'};font-weight:700">${bInfo ? bInfo.label : '—'}</td>
+      <td style="color:${sigCol};font-weight:800;white-space:nowrap">${r.signal}</td>
+      <td style="white-space:nowrap"><span class="targ-bar"><span class="targ-bar-fill" style="width:${Math.min(100, Math.abs(r.agreement)).toFixed(0)}%;background:${sigCol}"></span></span><span style="color:${sigCol};font-weight:700">${r.agreement >= 0 ? '+' : ''}${r.agreement.toFixed(0)}%</span></td>
+      <td class="hide-sm" style="text-align:right">${r.held}</td>
+      <td class="hide-sm" style="text-align:right;color:var(--green)">${r.ADDING || '—'}</td>
+      <td class="hide-sm" style="text-align:right;color:var(--blue)">${r.NEW || '—'}</td>
+      <td class="hide-sm" style="text-align:right;color:var(--red)">${r.TRIMMING || '—'}</td>
+      <td style="text-align:right;font-weight:800;color:${sigCol}">${r.net >= 0 ? '+' : ''}${r.net}</td>
+    </tr>`;
+  }).join('');
+}
+
+function consensusExportCSV() {
+  const rows = consensusRows();
+  const head = ['Ticker', 'Company', 'My bucket', 'Signal', 'Agreement %', 'Investors', 'Adding', 'New', 'Trimming', 'Net'];
+  const lines = [head.join(',')].concat(rows.map(r => [
+    r.ticker, `"${(r.company || '').replace(/"/g, '')}"`, r.bucket || '', r.signal,
+    r.agreement.toFixed(0), r.held, r.ADDING, r.NEW, r.TRIMMING, r.net
+  ].join(',')));
+  const blob = new Blob([lines.join('\n')], { type: 'text/csv' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `mose-consensus-${new Date().toISOString().slice(0, 10)}.csv`;
+  a.click();
+  URL.revokeObjectURL(a.href);
 }
 
 function renderHeatmap() {
