@@ -448,6 +448,26 @@
   .targ-sug-item:last-child { border-bottom: none; }
   .targ-sug-item:hover { background: rgba(232,86,42,0.14); }
   .targ-sug-item .muted { color: var(--muted); }
+  /* ALL-IN reserve card. Deliberately loud when armed — it's the one moment
+     the plan asks for a large, time-sensitive action. */
+  .allin-card {
+    border: 1px solid var(--border); border-left: 4px solid var(--muted);
+    background: var(--surface); border-radius: 8px; padding: 14px 16px; margin-bottom: 12px;
+  }
+  .allin-card.armed { border-left-color: var(--green); background: var(--green-bg); }
+  .allin-card.done { border-left-color: var(--blue); opacity: 0.85; }
+  .allin-title { font-weight: 800; color: var(--heading); font-size: 15px; }
+  .allin-amount { font-size: 26px; font-weight: 800; color: var(--green); margin: 4px 0 2px; }
+  .allin-sub { font-size: 12px; color: var(--soft-text); }
+  .allin-note { font-size: 11px; color: var(--muted); margin-top: 8px; }
+  .allin-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+  .allin-btn {
+    background: var(--green); border: 1px solid var(--green); color: #fff;
+    border-radius: 6px; padding: 8px 14px; font-family: inherit; font-size: 13px;
+    font-weight: 800; cursor: pointer;
+  }
+  .allin-btn.ghost { background: transparent; color: var(--soft-text); border-color: var(--border); }
+  .allin-btn:hover { filter: brightness(1.1); }
   .inv-cell { display: inline-block; }
   .inv-cell > summary { list-style: none; cursor: pointer; }
   .inv-cell > summary::-webkit-details-marker { display: none; }
@@ -2410,7 +2430,7 @@ function hydrateMoseState(state) {
   if (state.researchItems && JSON.stringify(state.researchItems) !== JSON.stringify(researchItems)) { researchItems = state.researchItems; changed = true; }
   if (state.researchCadence && JSON.stringify(state.researchCadence) !== JSON.stringify(researchCadence)) { researchCadence = state.researchCadence; changed = true; }
   if (state.ddRequests && JSON.stringify(state.ddRequests) !== JSON.stringify(ddRequestsData)) { ddRequestsData = state.ddRequests; changed = true; }
-  if (state.reentry && state.reentry.plans && JSON.stringify(state.reentry) !== JSON.stringify(reentryData)) { reentryData = state.reentry; changed = true; }
+  if (state.reentry && state.reentry.plans && JSON.stringify(state.reentry) !== JSON.stringify(reentryData)) { reentryData = migrateReentry(state.reentry); changed = true; }
   if (state.targets && state.targets.ira && JSON.stringify(state.targets) !== JSON.stringify(targetsData)) { targetsData = migrateTargets(state.targets); changed = true; }
   if (state.viewPrefs) {
     if (state.viewPrefs.view) watchlistView = state.viewPrefs.view;
@@ -5138,20 +5158,37 @@ let latestIndicesData = null; // fallback indices captured by loadIndices()
 
 const REENTRY_BUCKET_CHOICES = ['forever','toll','hard','aicore','opp','dry'];
 
+// v2 — the accelerated plan. The 18-month schedule wasn't being executed
+// (2 months in, $62.5k of a scheduled $100k), and an unexecuted DCA carries
+// the cash drag without the discipline. Retirement money goes fully in over
+// four monthly tranches; the joint account puts half in on the same schedule
+// and holds the other half as the ALL-IN reserve for an 8%+ drawdown.
 function defaultReentryData() {
   return {
-    version: 1,
-    settings: { referenceHigh: null, exitLevel: 6591.90 },
+    version: 2,
+    settings: {
+      referenceHigh: null,
+      exitLevel: 6591.90,
+      // The reserve is the half of Joint Cash deliberately kept out. It arms
+      // when the S&P is this far off its reference high. Never auto-invests —
+      // it just tells Joe it's time and he places the orders.
+      allIn: { reserveAmount: 172000, triggerDd: -8, deployedAt: null },
+      // Backstop: if no qualifying dip shows up by this date, the reserve goes
+      // in anyway. "Waiting for a dip" without an expiry is how the last plan
+      // quietly turned into sitting in cash.
+      reserveDeadline: '2027-08-01'
+    },
     plans: [
       {
         id: 'ira',
-        label: '🏦 IRA (IBKR) — 18-Month Tranche Re-Entry',
+        label: '🏦 Retirement (Joe + Keli IRAs) — 100% in over 4 months',
         mode: 'dca',
-        totalAmount: 900000,
-        months: 18,
-        startDate: '2026-06-01',
+        totalAmount: 1150000,
+        months: 4,
+        startDate: '2026-08-15',
         buyDay: 15,
-        allocations: { 'forever': 50, 'toll': 15, 'hard': 15, 'dry': 20 },
+        allocations: { 'forever': 45, 'toll': 15, 'hard': 15, 'aicore': 10, 'opp': 5, 'dry': 10 },
+        // Dips still buy more — the tranche just scales up, it never pauses.
         ladder: [
           { dd: 0,   mult: 1.0 },
           { dd: -5,  mult: 1.5 },
@@ -5162,14 +5199,19 @@ function defaultReentryData() {
       },
       {
         id: 'joint',
-        label: '👫 Joint Taxable — Opportunistic Dip Buyer',
-        mode: 'dip',
-        totalAmount: 344000,
-        tiers: [
-          { dd: -5,  pct: 15 },
-          { dd: -10, pct: 25 },
-          { dd: -15, pct: 30 },
-          { dd: -20, pct: 30 },
+        label: '👫 Joint Cash — 50% in over 4 months ($172k of $344k)',
+        mode: 'dca',
+        totalAmount: 172000,
+        months: 4,
+        startDate: '2026-08-15',
+        buyDay: 15,
+        allocations: { 'forever': 40, 'toll': 15, 'hard': 15, 'aicore': 15, 'opp': 15 },
+        ladder: [
+          { dd: 0,   mult: 1.0 },
+          { dd: -5,  mult: 1.5 },
+          { dd: -10, mult: 2.0 },
+          { dd: -15, mult: 2.5 },
+          { dd: -20, mult: 3.0 },
         ]
       }
     ],
@@ -5177,10 +5219,23 @@ function defaultReentryData() {
   };
 }
 
+// Move a v1 plan onto the accelerated schedule without losing the purchase log.
+function migrateReentry(d) {
+  if (!d || !Array.isArray(d.plans)) return defaultReentryData();
+  if ((d.version || 1) >= 2) return d;
+  const fresh = defaultReentryData();
+  fresh.purchases = Array.isArray(d.purchases) ? d.purchases : [];
+  if (d.settings) {
+    if (d.settings.referenceHigh) fresh.settings.referenceHigh = d.settings.referenceHigh;
+    if (d.settings.exitLevel) fresh.settings.exitLevel = d.settings.exitLevel;
+  }
+  return fresh;
+}
+
 let reentryData = (function() {
   try {
     const d = JSON.parse(localStorage.getItem('mose_reentry_local') || 'null');
-    if (d && Array.isArray(d.plans)) return d;
+    if (d && Array.isArray(d.plans)) return migrateReentry(d);
   } catch {}
   return defaultReentryData();
 })();
@@ -5217,6 +5272,72 @@ function reentryMarket() {
   const dd = (price && s.referenceHigh) ? ((price - s.referenceHigh) / s.referenceHigh) * 100 : null;
   const vsExit = (price && s.exitLevel) ? ((price - s.exitLevel) / s.exitLevel) * 100 : null;
   return { price, dd, vsExit, changePct: spx ? spx.change_pct : null };
+}
+
+// ---- ALL-IN reserve -------------------------------------------------------
+// The half of Joint Cash held back on purpose. It arms when the S&P falls far
+// enough off its reference high, and expires into a "deploy anyway" state at
+// the deadline so the reserve can't quietly become permanent cash.
+// This never places an order — it tells Joe the condition is met.
+function reentryAllInState(market) {
+  const s = reentryData.settings || {};
+  const cfg = s.allIn || { reserveAmount: 0, triggerDd: -8, deployedAt: null };
+  const dd = market ? market.dd : null;
+  const armed = dd !== null && dd <= cfg.triggerDd;
+  const deadline = s.reserveDeadline ? new Date(s.reserveDeadline + 'T00:00:00') : null;
+  const expired = deadline ? new Date() >= deadline : false;
+  return {
+    amount: Number(cfg.reserveAmount) || 0,
+    triggerDd: Number(cfg.triggerDd) || -8,
+    deployedAt: cfg.deployedAt || null,
+    dd, armed, expired, deadline: s.reserveDeadline || null,
+    // How much further the market has to fall before the trigger fires.
+    toGo: (dd === null) ? null : Math.max(0, dd - (Number(cfg.triggerDd) || -8))
+  };
+}
+
+function reentryMarkAllInDeployed() {
+  if (!confirm('Mark the ALL-IN reserve as deployed?\n\nDo this only after you have actually placed the orders at IBKR. It just records the date — MOSE never places trades.')) return;
+  reentryData.settings.allIn = reentryData.settings.allIn || {};
+  reentryData.settings.allIn.deployedAt = new Date().toISOString().slice(0, 10);
+  reentrySave();
+  showWatchlistToast('ALL-IN reserve marked deployed');
+}
+function reentryResetAllIn() {
+  reentryData.settings.allIn = reentryData.settings.allIn || {};
+  reentryData.settings.allIn.deployedAt = null;
+  reentrySave();
+}
+
+function reentryAllInHtml(market) {
+  const a = reentryAllInState(market);
+  if (!a.amount) return '';
+  if (a.deployedAt) {
+    return `<div class="allin-card done">
+      <div class="allin-title">✅ ALL-IN reserve deployed</div>
+      <div class="allin-sub">${reentryFmt(a.amount)} put to work on ${escapeHtml(a.deployedAt)}.
+        <a onclick="reentryResetAllIn()" style="cursor:pointer;color:var(--blue)">undo</a></div>
+    </div>`;
+  }
+  const live = a.armed || a.expired;
+  const why = a.armed
+    ? `S&P is ${a.dd.toFixed(1)}% off its high — past your ${a.triggerDd}% trigger.`
+    : a.expired
+      ? `No qualifying dip arrived by ${escapeHtml(a.deadline)}. Per your own rule, the reserve goes in anyway.`
+      : `Armed at ${a.triggerDd}%. S&P is ${a.dd === null ? '—' : a.dd.toFixed(1) + '%'} off its high` +
+        `${a.toGo !== null ? ` — another ${a.toGo.toFixed(1)}% down and this fires.` : '.'}`;
+  return `<div class="allin-card${live ? ' armed' : ''}">
+    <div class="allin-title">${live ? '🚨 ALL IN — condition met' : '🛡️ ALL-IN reserve · waiting'}</div>
+    <div class="allin-amount">${reentryFmt(a.amount)}</div>
+    <div class="allin-sub">${why}</div>
+    ${live
+      ? `<div class="allin-actions">
+           <button class="allin-btn" onclick="switchTab('buyzone')">Open Buy Zone → pick the names</button>
+           <button class="allin-btn ghost" onclick="reentryMarkAllInDeployed()">I placed the orders</button>
+         </div>
+         <div class="allin-note">MOSE never places trades. Enter the orders at IBKR yourself, then mark it done.</div>`
+      : `<div class="allin-note">Backstop: if no ${a.triggerDd}% dip by ${escapeHtml(a.deadline || '—')}, this deploys anyway.</div>`}
+  </div>`;
 }
 
 function reentryLadderRung(ladder, dd) {
@@ -5272,7 +5393,19 @@ function computeDipPlan(plan, market) {
 }
 
 function reentryBucketTickers(bucket) {
-  return Object.keys(watchlistBuckets || {}).filter(t => watchlistBuckets[t] === bucket).sort();
+  // Was reading only the explicit-override map, which is normally empty — so
+  // every tranche card said "no tickers in this bucket" and couldn't tell Joe
+  // what to actually buy. Take the canonical Buy Targets taxonomy as the base
+  // and layer any per-ticker overrides on top.
+  const set = new Set();
+  Object.entries(canonicalBucketMap() || {}).forEach(([t, id]) => {
+    if (normalizeBucket(id) === bucket) set.add(t);
+  });
+  Object.entries(watchlistBuckets || {}).forEach(([t, id]) => {
+    const key = canonicalTicker(t);
+    if (normalizeBucket(id) === bucket) set.add(key); else set.delete(key);
+  });
+  return [...set].sort();
 }
 
 function reentryTickerChip(t) {
@@ -5503,8 +5636,11 @@ function renderReentry() {
       return `<div style="font-size:13px;color:${urgent ? 'var(--green)' : 'var(--soft-text)'}">${plan.label.replace(/—.*$/, '').trim()}: ${detail}</div>`;
     }).join('');
     const anyDue = computed.some(({ c }) => c.statusClass === 'due');
+    const allIn = reentryAllInState(market);
+    const allInLive = allIn.amount > 0 && !allIn.deployedAt && (allIn.armed || allIn.expired);
     banner.innerHTML = `<a class="cockpit-reentry-card" onclick="gotoReentryTab()">
-      <div class="crc-title">📅 RE-ENTRY PLAN${anyDue ? ' — 🔔 ACTION NEEDED' : ''}${market.dd !== null ? ` · S&P ${market.dd <= -0.05 ? Math.abs(market.dd).toFixed(1) + '% off the high' : 'at the high'}` : ''}</div>
+      <div class="crc-title">📅 RE-ENTRY PLAN${allInLive ? ' — 🚨 ALL IN TRIGGERED' : anyDue ? ' — 🔔 ACTION NEEDED' : ''}${market.dd !== null ? ` · S&P ${market.dd <= -0.05 ? Math.abs(market.dd).toFixed(1) + '% off the high' : 'at the high'}` : ''}</div>
+      ${allInLive ? `<div style="font-size:13px;color:var(--green);font-weight:800">ALL-IN reserve ${reentryFmt(allIn.amount)} is ready to deploy</div>` : ''}
       ${lines}
     </a>`;
   }
@@ -5523,8 +5659,8 @@ function renderReentry() {
     <div class="stat-card"><div class="stat-val orange">${iraC ? iraC.c.rung.mult + '×' : '—'}</div><div class="stat-label">Active buy multiple</div></div>
     <div class="stat-card"><div class="stat-val green">${reentryFmt(totalRemaining)}</div><div class="stat-label">Dry powder left (of ${reentryFmt(totalPot)})</div></div>`;
 
-  // — Action tickets
-  document.getElementById('reentry-action').innerHTML = computed.map(({ plan, c }) =>
+  // — Action tickets (ALL-IN card first: it outranks the monthly tranches)
+  document.getElementById('reentry-action').innerHTML = reentryAllInHtml(market) + computed.map(({ plan, c }) =>
     plan.mode === 'dca' ? reentryDcaTicketHtml(plan, c, market) : reentryDipTicketHtml(plan, c, market)
   ).join('');
 
