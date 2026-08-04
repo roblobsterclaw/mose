@@ -2028,6 +2028,7 @@ const INVESTORS_DATA = [
   { id:'rochon',     name:'François Rochon',       fund:'Giverny Capital',             category:'Buffett Disciples',      rating:null, source:'Letters', stocks:['BRK-B','META','HEIA','AME','GOOGL','SCHW','V'],               notes:'Electrical engineer turned investor. Peter Lynch + Buffett style. Lifetime average 15%+ returns. Montreal-based.' },
   { id:'lou',        name:'Norbert Lou',           fund:'Punch Card Management',       category:'Buffett Disciples',      rating:null, source:'13F',     stocks:['BRK','PDD','CROX','PYPL','FI'],                               notes:'Buffett through and through. 3-5 year patience. Keeps 50% cash for market crashes.' },
   { id:'klarman',    name:'Seth Klarman',          fund:'Baupost Group',               category:'Deep Value / Contrarian',rating:null, source:'13F',     stocks:['ELV','WESO','QSR','UNP','CRH','GPC'],                        notes:'Warren would invest his money with him. 40-year track record, 20%+ returns. Author of \'Margin of Safety.\'' },
+  { id:'abrams',     name:'David Abrams',          fund:'Abrams Capital Management',   category:'Deep Value / Contrarian',rating:null, source:'13F',     stocks:['LOAR','LAD','GOOGL','ABG','CPNG'],                           notes:'Boston deep-value investor, ex-Baupost. Runs an extremely concentrated book — roughly 10-11 US long positions. Largest holding is Loar Holdings (aerospace components), about 40% of the portfolio, where the fund owns ~34% of the company.' },
   { id:'einhorn',    name:'David Einhorn',         fund:'Greenlight Capital',          category:'Deep Value / Contrarian',rating:null, source:'13F',     stocks:['GRBK','FLR','CEIX','BHF','KD'],                              notes:'The whistleblower. Famous for shorting Lehman. Loves cheap, low P/E stocks with catalysts.' },
   { id:'tepper',     name:'David Tepper',          fund:'Appaloosa Management',        category:'Deep Value / Contrarian',rating:null, source:'13F',     stocks:['BABA','AMZN','WHR','GOOG','KWEB'],                            notes:'Watches the bond market and the Fed like a hawk. Pittsburgh kid. Buys distressed assets at rock bottom.' },
   { id:'burry',      name:'Michael Burry',         fund:'Scion Management',            category:'Deep Value / Contrarian',rating:null, source:'13F',     stocks:['JD','BABA','MOH'],                                            notes:'The Big Short. Medical doctor. Stanford. Deep value contrarian — concentrated, asymmetric bets.' },
@@ -6004,7 +6005,11 @@ function canonTargetsBuckets() {
       // already on the IBKR Opportunistic watchlist. Parked on Radar because
       // it's researched-and-circling, not bought. Its business is master-
       // planned real estate, so it belongs in Hard assets if it graduates.
-      tickers: ['LLY', 'DE', 'ROP', 'FICO', 'VRSN', 'ORLY', 'TXN', 'RACE', 'HHH'], weights: {}, locked: {} },
+      // LOAR = Loar Holdings, aerospace & defence components. David Abrams'
+      // largest position (~40% of his book; the fund owns ~34% of the company).
+      // On Radar pending a deep dive — if it graduates it fits Hard assets
+      // alongside GE and HON rather than Opportunistic.
+      tickers: ['LLY', 'DE', 'ROP', 'FICO', 'VRSN', 'ORLY', 'TXN', 'RACE', 'HHH', 'LOAR'], weights: {}, locked: {} },
     { id: 'dry', label: 'Dry powder', pct: 20,
       tickers: ['VOO', 'VTV', 'QQQ', 'IDGT', 'SGOV'],
       weights: { SGOV: 40, VOO: 30 }, locked: { SGOV: true } },
@@ -6015,7 +6020,7 @@ function canonTargetsBuckets() {
 
 function defaultTargetsData() {
   return {
-    version: 9,
+    version: 10,
     // `ira` is the shared container for all three accounts + the one bucket set.
     // (Name kept for backward-compat; it holds Joint too now.)
     ira: {
@@ -6147,6 +6152,18 @@ function migrateTargets(d) {
     place('hard', 'SOLS');
     d.version = 9;
     _targetsRepaired = true;  // push to the cloud so every device agrees
+  }
+  if ((d.version || 0) < 10) {
+    // LOAR (Loar Holdings, aerospace components) onto Radar — David Abrams'
+    // largest position by a wide margin. Additive, same guard as v9.
+    const place = (id, ticker) => {
+      if (d.ira.buckets.some(b => (b.tickers || []).includes(ticker))) return;
+      const b = d.ira.buckets.find(x => x.id === id);
+      if (b) b.tickers.push(ticker);
+    };
+    place('radar', 'LOAR');
+    d.version = 10;
+    _targetsRepaired = true;
   }
   d.ira.buckets.forEach(b => {
     if (!Array.isArray(b.tickers)) b.tickers = [];
