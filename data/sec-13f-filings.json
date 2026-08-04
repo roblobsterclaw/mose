@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-08-03T14:03:10.698493+00:00",
+  "generated_at": "2026-08-04T11:23:17.620805+00:00",
   "source": "SEC EDGAR submissions and Archives information tables",
   "quarters_requested": 8,
-  "investor_count": 28,
-  "filings_pulled": 209,
+  "investor_count": 29,
+  "filings_pulled": 217,
   "failed_investors": [],
   "investors": [
     {
@@ -10892,6 +10892,1166 @@
           ],
           "total_value": 3634101000.0,
           "num_holdings": 24
+        }
+      ],
+      "filing_errors": []
+    },
+    {
+      "name": "David Abrams",
+      "fund": "Abrams Capital Management",
+      "tier": 1,
+      "cik": "1358706",
+      "source_type": "13F",
+      "filings": [
+        {
+          "form": "13F-HR",
+          "company": "ABRAMS CAPITAL MANAGEMENT, L.P.",
+          "cik": "1358706",
+          "filing_date": "2026-05-14",
+          "file_name": "edgar/data/1358706/0001172661-26-001966.txt",
+          "accession": "0001172661-26-001966",
+          "period_end": "2026-03-31",
+          "quarter": "2026-Q1",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/1358706/0001172661-26-001966.txt",
+          "holdings": [
+            {
+              "ticker": null,
+              "identifier": "CUSIP:53947R105",
+              "cusip": "53947R105",
+              "company": "LOAR HOLDINGS INC",
+              "market_value": 1836158250000.0,
+              "shares": 32050240.0,
+              "rank": 1,
+              "pct_portfolio": 39.5874
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:536797103",
+              "cusip": "536797103",
+              "company": "LITHIA MTRS INC",
+              "market_value": 621936150000.0,
+              "shares": 2490534.0,
+              "rank": 2,
+              "pct_portfolio": 13.4089
+            },
+            {
+              "ticker": "GOOGL",
+              "identifier": "GOOGL",
+              "cusip": "02079K305",
+              "company": "ALPHABET INC",
+              "market_value": 536520246000.0,
+              "shares": 1865768.0,
+              "rank": 3,
+              "pct_portfolio": 11.5673
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:88023U101",
+              "cusip": "88023U101",
+              "company": "SOMNIGROUP INTERNATIONAL INC",
+              "market_value": 428645522000.0,
+              "shares": 5798776.0,
+              "rank": 4,
+              "pct_portfolio": 9.2416
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:043436104",
+              "cusip": "043436104",
+              "company": "ASBURY AUTOMOTIVE GROUP INC",
+              "market_value": 421204692000.0,
+              "shares": 2155492.0,
+              "rank": 5,
+              "pct_portfolio": 9.0811
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:22266T109",
+              "cusip": "22266T109",
+              "company": "COUPANG INC",
+              "market_value": 245779160000.0,
+              "shares": 13017964.0,
+              "rank": 6,
+              "pct_portfolio": 5.299
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G96629103",
+              "cusip": "G96629103",
+              "company": "WILLIS TOWERS WATSON PLC LTD",
+              "market_value": 209530455000.0,
+              "shares": 720779.0,
+              "rank": 7,
+              "pct_portfolio": 4.5175
+            },
+            {
+              "ticker": "META",
+              "identifier": "META",
+              "cusip": "30303M102",
+              "company": "META PLATFORMS INC",
+              "market_value": 186030930000.0,
+              "shares": 325155.0,
+              "rank": 8,
+              "pct_portfolio": 4.0108
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:023586506",
+              "cusip": "023586506",
+              "company": "U HAUL HOLDING COMPANY",
+              "market_value": 145243120000.0,
+              "shares": 3251469.0,
+              "rank": 9,
+              "pct_portfolio": 3.1314
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:67080N101",
+              "cusip": "67080N101",
+              "company": "NUVATION BIO INC",
+              "market_value": 5450462000.0,
+              "shares": 1270504.0,
+              "rank": 10,
+              "pct_portfolio": 0.1175
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:023586100",
+              "cusip": "023586100",
+              "company": "U HAUL HOLDING COMPANY",
+              "market_value": 1739240000.0,
+              "shares": 36401.0,
+              "rank": 11,
+              "pct_portfolio": 0.0375
+            }
+          ],
+          "total_value": 4638238227000.0,
+          "num_holdings": 11
+        },
+        {
+          "form": "13F-HR",
+          "company": "ABRAMS CAPITAL MANAGEMENT, L.P.",
+          "cik": "1358706",
+          "filing_date": "2026-02-13",
+          "file_name": "edgar/data/1358706/0001172661-26-000791.txt",
+          "accession": "0001172661-26-000791",
+          "period_end": "2025-12-31",
+          "quarter": "2025-Q4",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/1358706/0001172661-26-000791.txt",
+          "holdings": [
+            {
+              "ticker": null,
+              "identifier": "CUSIP:53947R105",
+              "cusip": "53947R105",
+              "company": "LOAR HOLDINGS INC",
+              "market_value": 2179416320000.0,
+              "shares": 32050240.0,
+              "rank": 1,
+              "pct_portfolio": 38.412
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:536797103",
+              "cusip": "536797103",
+              "company": "LITHIA MTRS INC",
+              "market_value": 827679164000.0,
+              "shares": 2490534.0,
+              "rank": 2,
+              "pct_portfolio": 14.5878
+            },
+            {
+              "ticker": "GOOGL",
+              "identifier": "GOOGL",
+              "cusip": "02079K305",
+              "company": "ALPHABET INC",
+              "market_value": 599905190000.0,
+              "shares": 1916630.0,
+              "rank": 3,
+              "pct_portfolio": 10.5733
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:88023U101",
+              "cusip": "88023U101",
+              "company": "SOMNIGROUP INTERNATIONAL INC",
+              "market_value": 518193262000.0,
+              "shares": 5804136.0,
+              "rank": 4,
+              "pct_portfolio": 9.1331
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:043436104",
+              "cusip": "043436104",
+              "company": "ASBURY AUTOMOTIVE GROUP INC",
+              "market_value": 501216555000.0,
+              "shares": 2155492.0,
+              "rank": 5,
+              "pct_portfolio": 8.8339
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:22266T109",
+              "cusip": "22266T109",
+              "company": "COUPANG INC",
+              "market_value": 307093771000.0,
+              "shares": 13017964.0,
+              "rank": 6,
+              "pct_portfolio": 5.4125
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G96629103",
+              "cusip": "G96629103",
+              "company": "WILLIS TOWERS WATSON PLC LTD",
+              "market_value": 236847979000.0,
+              "shares": 720779.0,
+              "rank": 7,
+              "pct_portfolio": 4.1744
+            },
+            {
+              "ticker": "META",
+              "identifier": "META",
+              "cusip": "30303M102",
+              "company": "META PLATFORMS INC",
+              "market_value": 214631564000.0,
+              "shares": 325155.0,
+              "rank": 8,
+              "pct_portfolio": 3.7829
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:023586506",
+              "cusip": "023586506",
+              "company": "U HAUL HOLDING COMPANY",
+              "market_value": 151973661000.0,
+              "shares": 3251469.0,
+              "rank": 9,
+              "pct_portfolio": 2.6785
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:29273V100",
+              "cusip": "29273V100",
+              "company": "ENERGY TRANSFER L P",
+              "market_value": 100843226000.0,
+              "shares": 6115417.0,
+              "rank": 10,
+              "pct_portfolio": 1.7774
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:67080N101",
+              "cusip": "67080N101",
+              "company": "NUVATION BIO INC",
+              "market_value": 34151156000.0,
+              "shares": 3811513.0,
+              "rank": 11,
+              "pct_portfolio": 0.6019
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:023586100",
+              "cusip": "023586100",
+              "company": "U HAUL HOLDING COMPANY",
+              "market_value": 1834974000.0,
+              "shares": 36401.0,
+              "rank": 12,
+              "pct_portfolio": 0.0323
+            }
+          ],
+          "total_value": 5673786822000.0,
+          "num_holdings": 12
+        },
+        {
+          "form": "13F-HR",
+          "company": "ABRAMS CAPITAL MANAGEMENT, L.P.",
+          "cik": "1358706",
+          "filing_date": "2025-11-07",
+          "file_name": "edgar/data/1358706/0001172661-25-004648.txt",
+          "accession": "0001172661-25-004648",
+          "period_end": "2025-09-30",
+          "quarter": "2025-Q3",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/1358706/0001172661-25-004648.txt",
+          "holdings": [
+            {
+              "ticker": null,
+              "identifier": "CUSIP:53947R105",
+              "cusip": "53947R105",
+              "company": "LOAR HOLDINGS INC",
+              "market_value": 2564019200000.0,
+              "shares": 32050240.0,
+              "rank": 1,
+              "pct_portfolio": 41.5566
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:536797103",
+              "cusip": "536797103",
+              "company": "LITHIA MTRS INC",
+              "market_value": 787008744000.0,
+              "shares": 2490534.0,
+              "rank": 2,
+              "pct_portfolio": 12.7555
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:043436104",
+              "cusip": "043436104",
+              "company": "ASBURY AUTOMOTIVE GROUP INC",
+              "market_value": 526910019000.0,
+              "shares": 2155492.0,
+              "rank": 3,
+              "pct_portfolio": 8.5399
+            },
+            {
+              "ticker": "GOOGL",
+              "identifier": "GOOGL",
+              "cusip": "02079K305",
+              "company": "ALPHABET INC",
+              "market_value": 516376003000.0,
+              "shares": 2124130.0,
+              "rank": 4,
+              "pct_portfolio": 8.3692
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:88023U101",
+              "cusip": "88023U101",
+              "company": "SOMNIGROUP INTERNATIONAL INC",
+              "market_value": 492929595000.0,
+              "shares": 5845246.0,
+              "rank": 5,
+              "pct_portfolio": 7.9892
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:22266T109",
+              "cusip": "22266T109",
+              "company": "COUPANG INC",
+              "market_value": 419178441000.0,
+              "shares": 13017964.0,
+              "rank": 6,
+              "pct_portfolio": 6.7939
+            },
+            {
+              "ticker": "META",
+              "identifier": "META",
+              "cusip": "30303M102",
+              "company": "META PLATFORMS INC",
+              "market_value": 289900177000.0,
+              "shares": 394755.0,
+              "rank": 7,
+              "pct_portfolio": 4.6986
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G96629103",
+              "cusip": "G96629103",
+              "company": "WILLIS TOWERS WATSON PLC LTD",
+              "market_value": 248993106000.0,
+              "shares": 720779.0,
+              "rank": 8,
+              "pct_portfolio": 4.0356
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:023586506",
+              "cusip": "023586506",
+              "company": "U HAUL HOLDING COMPANY",
+              "market_value": 165499772000.0,
+              "shares": 3251469.0,
+              "rank": 9,
+              "pct_portfolio": 2.6824
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:29273V100",
+              "cusip": "29273V100",
+              "company": "ENERGY TRANSFER L P",
+              "market_value": 106491133000.0,
+              "shares": 6205777.0,
+              "rank": 10,
+              "pct_portfolio": 1.726
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:172573107",
+              "cusip": "172573107",
+              "company": "CIRCLE INTERNET GROUP INC",
+              "market_value": 36459500000.0,
+              "shares": 275000.0,
+              "rank": 11,
+              "pct_portfolio": 0.5909
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:67080N101",
+              "cusip": "67080N101",
+              "company": "NUVATION BIO INC",
+              "market_value": 14102598000.0,
+              "shares": 3811513.0,
+              "rank": 12,
+              "pct_portfolio": 0.2286
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:023586100",
+              "cusip": "023586100",
+              "company": "U HAUL HOLDING COMPANY",
+              "market_value": 2077405000.0,
+              "shares": 36401.0,
+              "rank": 13,
+              "pct_portfolio": 0.0337
+            }
+          ],
+          "total_value": 6169945693000.0,
+          "num_holdings": 13
+        },
+        {
+          "form": "13F-HR",
+          "company": "ABRAMS CAPITAL MANAGEMENT, L.P.",
+          "cik": "1358706",
+          "filing_date": "2025-08-08",
+          "file_name": "edgar/data/1358706/0001172661-25-002983.txt",
+          "accession": "0001172661-25-002983",
+          "period_end": "2025-06-30",
+          "quarter": "2025-Q2",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/1358706/0001172661-25-002983.txt",
+          "holdings": [
+            {
+              "ticker": null,
+              "identifier": "CUSIP:53947R105",
+              "cusip": "53947R105",
+              "company": "LOAR HOLDINGS INC",
+              "market_value": 2761769181000.0,
+              "shares": 32050240.0,
+              "rank": 1,
+              "pct_portfolio": 45.1728
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:536797103",
+              "cusip": "536797103",
+              "company": "LITHIA MTRS INC",
+              "market_value": 825861122000.0,
+              "shares": 2444678.0,
+              "rank": 2,
+              "pct_portfolio": 13.5082
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:043436104",
+              "cusip": "043436104",
+              "company": "ASBURY AUTOMOTIVE GROUP INC",
+              "market_value": 502971132000.0,
+              "shares": 2108540.0,
+              "rank": 3,
+              "pct_portfolio": 8.2268
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:88023U101",
+              "cusip": "88023U101",
+              "company": "SOMNIGROUP INTERNATIONAL INC",
+              "market_value": 397768990000.0,
+              "shares": 5845246.0,
+              "rank": 4,
+              "pct_portfolio": 6.5061
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:22266T109",
+              "cusip": "22266T109",
+              "company": "COUPANG INC",
+              "market_value": 390018201000.0,
+              "shares": 13017964.0,
+              "rank": 5,
+              "pct_portfolio": 6.3793
+            },
+            {
+              "ticker": "GOOGL",
+              "identifier": "GOOGL",
+              "cusip": "02079K305",
+              "company": "ALPHABET INC",
+              "market_value": 374335430000.0,
+              "shares": 2124130.0,
+              "rank": 6,
+              "pct_portfolio": 6.1228
+            },
+            {
+              "ticker": "META",
+              "identifier": "META",
+              "cusip": "30303M102",
+              "company": "META PLATFORMS INC",
+              "market_value": 291364718000.0,
+              "shares": 394755.0,
+              "rank": 7,
+              "pct_portfolio": 4.7657
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G96629103",
+              "cusip": "G96629103",
+              "company": "WILLIS TOWERS WATSON PLC LTD",
+              "market_value": 220918764000.0,
+              "shares": 720779.0,
+              "rank": 8,
+              "pct_portfolio": 3.6134
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:023586506",
+              "cusip": "023586506",
+              "company": "U HAUL HOLDING COMPANY",
+              "market_value": 176782370000.0,
+              "shares": 3251469.0,
+              "rank": 9,
+              "pct_portfolio": 2.8915
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:29273V100",
+              "cusip": "29273V100",
+              "company": "ENERGY TRANSFER L P",
+              "market_value": 112510737000.0,
+              "shares": 6205777.0,
+              "rank": 10,
+              "pct_portfolio": 1.8403
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:172573107",
+              "cusip": "172573107",
+              "company": "CIRCLE INTERNET GROUP INC",
+              "market_value": 49854750000.0,
+              "shares": 275000.0,
+              "rank": 11,
+              "pct_portfolio": 0.8154
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:67080N101",
+              "cusip": "67080N101",
+              "company": "NUVATION BIO INC",
+              "market_value": 7432450000.0,
+              "shares": 3811513.0,
+              "rank": 12,
+              "pct_portfolio": 0.1216
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:023586100",
+              "cusip": "023586100",
+              "company": "U HAUL HOLDING COMPANY",
+              "market_value": 2204445000.0,
+              "shares": 36401.0,
+              "rank": 13,
+              "pct_portfolio": 0.0361
+            }
+          ],
+          "total_value": 6113792290000.0,
+          "num_holdings": 13
+        },
+        {
+          "form": "13F-HR",
+          "company": "ABRAMS CAPITAL MANAGEMENT, L.P.",
+          "cik": "1358706",
+          "filing_date": "2025-05-09",
+          "file_name": "edgar/data/1358706/0001172661-25-001634.txt",
+          "accession": "0001172661-25-001634",
+          "period_end": "2025-03-31",
+          "quarter": "2025-Q1",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/1358706/0001172661-25-001634.txt",
+          "holdings": [
+            {
+              "ticker": null,
+              "identifier": "CUSIP:53947R105",
+              "cusip": "53947R105",
+              "company": "LOAR HOLDINGS INC",
+              "market_value": 2644282336000.0,
+              "shares": 37427917.0,
+              "rank": 1,
+              "pct_portfolio": 46.9177
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:536797103",
+              "cusip": "536797103",
+              "company": "LITHIA MTRS INC",
+              "market_value": 717610780000.0,
+              "shares": 2444678.0,
+              "rank": 2,
+              "pct_portfolio": 12.7326
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:043436104",
+              "cusip": "043436104",
+              "company": "ASBURY AUTOMOTIVE GROUP INC",
+              "market_value": 465649974000.0,
+              "shares": 2108540.0,
+              "rank": 3,
+              "pct_portfolio": 8.2621
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:88023U101",
+              "cusip": "88023U101",
+              "company": "SOMNIGROUP INTERNATIONAL INC",
+              "market_value": 350013330000.0,
+              "shares": 5845246.0,
+              "rank": 4,
+              "pct_portfolio": 6.2103
+            },
+            {
+              "ticker": "GOOGL",
+              "identifier": "GOOGL",
+              "cusip": "02079K305",
+              "company": "ALPHABET INC",
+              "market_value": 328475463000.0,
+              "shares": 2124130.0,
+              "rank": 5,
+              "pct_portfolio": 5.8282
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:22266T109",
+              "cusip": "22266T109",
+              "company": "COUPANG INC",
+              "market_value": 285483951000.0,
+              "shares": 13017964.0,
+              "rank": 6,
+              "pct_portfolio": 5.0654
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G96629103",
+              "cusip": "G96629103",
+              "company": "WILLIS TOWERS WATSON PLC LTD",
+              "market_value": 243587263000.0,
+              "shares": 720779.0,
+              "rank": 7,
+              "pct_portfolio": 4.322
+            },
+            {
+              "ticker": "META",
+              "identifier": "META",
+              "cusip": "30303M102",
+              "company": "META PLATFORMS INC",
+              "market_value": 227520992000.0,
+              "shares": 394755.0,
+              "rank": 8,
+              "pct_portfolio": 4.0369
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:023586506",
+              "cusip": "023586506",
+              "company": "U HAUL HOLDING COMPANY",
+              "market_value": 192421935000.0,
+              "shares": 3251469.0,
+              "rank": 9,
+              "pct_portfolio": 3.4142
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:29273V100",
+              "cusip": "29273V100",
+              "company": "ENERGY TRANSFER L P",
+              "market_value": 115365394000.0,
+              "shares": 6205777.0,
+              "rank": 10,
+              "pct_portfolio": 2.0469
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:138103106",
+              "cusip": "138103106",
+              "company": "CANTALOUPE INC",
+              "market_value": 56506600000.0,
+              "shares": 7180000.0,
+              "rank": 11,
+              "pct_portfolio": 1.0026
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:67080N101",
+              "cusip": "67080N101",
+              "company": "NUVATION BIO INC",
+              "market_value": 6708263000.0,
+              "shares": 3811513.0,
+              "rank": 12,
+              "pct_portfolio": 0.119
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:023586100",
+              "cusip": "023586100",
+              "company": "U HAUL HOLDING COMPANY",
+              "market_value": 2379169000.0,
+              "shares": 36401.0,
+              "rank": 13,
+              "pct_portfolio": 0.0422
+            }
+          ],
+          "total_value": 5636005450000.0,
+          "num_holdings": 13
+        },
+        {
+          "form": "13F-HR",
+          "company": "ABRAMS CAPITAL MANAGEMENT, L.P.",
+          "cik": "1358706",
+          "filing_date": "2025-02-07",
+          "file_name": "edgar/data/1358706/0001172661-25-000576.txt",
+          "accession": "0001172661-25-000576",
+          "period_end": "2024-12-31",
+          "quarter": "2024-Q4",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/1358706/0001172661-25-000576.txt",
+          "holdings": [
+            {
+              "ticker": null,
+              "identifier": "CUSIP:53947R105",
+              "cusip": "53947R105",
+              "company": "LOAR HOLDINGS INC",
+              "market_value": 2766297345000.0,
+              "shares": 37427917.0,
+              "rank": 1,
+              "pct_portfolio": 44.4982
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:536797103",
+              "cusip": "536797103",
+              "company": "LITHIA MTRS INC",
+              "market_value": 854682327000.0,
+              "shares": 2391188.0,
+              "rank": 2,
+              "pct_portfolio": 13.7483
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:043436104",
+              "cusip": "043436104",
+              "company": "ASBURY AUTOMOTIVE GROUP INC",
+              "market_value": 512438476000.0,
+              "shares": 2108540.0,
+              "rank": 3,
+              "pct_portfolio": 8.243
+            },
+            {
+              "ticker": "GOOGL",
+              "identifier": "GOOGL",
+              "cusip": "02079K305",
+              "company": "ALPHABET INC",
+              "market_value": 402097809000.0,
+              "shares": 2124130.0,
+              "rank": 4,
+              "pct_portfolio": 6.4681
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:29273V100",
+              "cusip": "29273V100",
+              "company": "ENERGY TRANSFER L P",
+              "market_value": 349374368000.0,
+              "shares": 17834322.0,
+              "rank": 5,
+              "pct_portfolio": 5.62
+            },
+            {
+              "ticker": "META",
+              "identifier": "META",
+              "cusip": "30303M102",
+              "company": "META PLATFORMS INC",
+              "market_value": 326569374000.0,
+              "shares": 557752.0,
+              "rank": 6,
+              "pct_portfolio": 5.2531
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:22266T109",
+              "cusip": "22266T109",
+              "company": "COUPANG INC",
+              "market_value": 286134849000.0,
+              "shares": 13017964.0,
+              "rank": 7,
+              "pct_portfolio": 4.6027
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G96629103",
+              "cusip": "G96629103",
+              "company": "WILLIS TOWERS WATSON PLC LTD",
+              "market_value": 225776814000.0,
+              "shares": 720779.0,
+              "rank": 8,
+              "pct_portfolio": 3.6318
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:023586506",
+              "cusip": "023586506",
+              "company": "U HAUL HOLDING COMPANY",
+              "market_value": 208256589000.0,
+              "shares": 3251469.0,
+              "rank": 9,
+              "pct_portfolio": 3.35
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:88023U101",
+              "cusip": "88023U101",
+              "company": "TEMPUR SEALY INTL INC",
+              "market_value": 204084000000.0,
+              "shares": 3600000.0,
+              "rank": 10,
+              "pct_portfolio": 3.2829
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:138103106",
+              "cusip": "138103106",
+              "company": "CANTALOUPE INC",
+              "market_value": 68281800000.0,
+              "shares": 7180000.0,
+              "rank": 11,
+              "pct_portfolio": 1.0984
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:67080N101",
+              "cusip": "67080N101",
+              "company": "NUVATION BIO INC",
+              "market_value": 10138625000.0,
+              "shares": 3811513.0,
+              "rank": 12,
+              "pct_portfolio": 0.1631
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:023586100",
+              "cusip": "023586100",
+              "company": "U HAUL HOLDING COMPANY",
+              "market_value": 2514945000.0,
+              "shares": 36401.0,
+              "rank": 13,
+              "pct_portfolio": 0.0405
+            }
+          ],
+          "total_value": 6216647321000.0,
+          "num_holdings": 13
+        },
+        {
+          "form": "13F-HR",
+          "company": "ABRAMS CAPITAL MANAGEMENT, L.P.",
+          "cik": "1358706",
+          "filing_date": "2024-11-08",
+          "file_name": "edgar/data/1358706/0001172661-24-004539.txt",
+          "accession": "0001172661-24-004539",
+          "period_end": "2024-09-30",
+          "quarter": "2024-Q3",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/1358706/0001172661-24-004539.txt",
+          "holdings": [
+            {
+              "ticker": null,
+              "identifier": "CUSIP:53947R105",
+              "cusip": "53947R105",
+              "company": "LOAR HOLDINGS INC",
+              "market_value": 2866820255000.0,
+              "shares": 38434378.0,
+              "rank": 1,
+              "pct_portfolio": 46.0368
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:536797103",
+              "cusip": "536797103",
+              "company": "LITHIA MTRS INC",
+              "market_value": 759536956000.0,
+              "shares": 2391188.0,
+              "rank": 2,
+              "pct_portfolio": 12.197
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:043436104",
+              "cusip": "043436104",
+              "company": "ASBURY AUTOMOTIVE GROUP INC",
+              "market_value": 503076559000.0,
+              "shares": 2108540.0,
+              "rank": 3,
+              "pct_portfolio": 8.0787
+            },
+            {
+              "ticker": "META",
+              "identifier": "META",
+              "cusip": "30303M102",
+              "company": "META PLATFORMS INC",
+              "market_value": 355225925000.0,
+              "shares": 620547.0,
+              "rank": 4,
+              "pct_portfolio": 5.7044
+            },
+            {
+              "ticker": "GOOGL",
+              "identifier": "GOOGL",
+              "cusip": "02079K305",
+              "company": "ALPHABET INC",
+              "market_value": 342844291000.0,
+              "shares": 2067195.0,
+              "rank": 5,
+              "pct_portfolio": 5.5056
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:22266T109",
+              "cusip": "22266T109",
+              "company": "COUPANG INC",
+              "market_value": 319591016000.0,
+              "shares": 13017964.0,
+              "rank": 6,
+              "pct_portfolio": 5.1322
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:29273V100",
+              "cusip": "29273V100",
+              "company": "ENERGY TRANSFER L P",
+              "market_value": 286240868000.0,
+              "shares": 17834322.0,
+              "rank": 7,
+              "pct_portfolio": 4.5966
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:023586506",
+              "cusip": "023586506",
+              "company": "U HAUL HOLDING COMPANY",
+              "market_value": 245068992000.0,
+              "shares": 3403736.0,
+              "rank": 8,
+              "pct_portfolio": 3.9354
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G96629103",
+              "cusip": "G96629103",
+              "company": "WILLIS TOWERS WATSON PLC LTD",
+              "market_value": 212291039000.0,
+              "shares": 720779.0,
+              "rank": 9,
+              "pct_portfolio": 3.4091
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:88023U101",
+              "cusip": "88023U101",
+              "company": "TEMPUR SEALY INTL INC",
+              "market_value": 196560000000.0,
+              "shares": 3600000.0,
+              "rank": 10,
+              "pct_portfolio": 3.1565
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:13462K109",
+              "cusip": "13462K109",
+              "company": "CAMPING WORLD HLDGS INC",
+              "market_value": 75295330000.0,
+              "shares": 3108808.0,
+              "rank": 11,
+              "pct_portfolio": 1.2091
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:138103106",
+              "cusip": "138103106",
+              "company": "CANTALOUPE INC",
+              "market_value": 53132000000.0,
+              "shares": 7180000.0,
+              "rank": 12,
+              "pct_portfolio": 0.8532
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:67080N101",
+              "cusip": "67080N101",
+              "company": "NUVATION BIO INC",
+              "market_value": 8728365000.0,
+              "shares": 3811513.0,
+              "rank": 13,
+              "pct_portfolio": 0.1402
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:023586100",
+              "cusip": "023586100",
+              "company": "U HAUL HOLDING COMPANY",
+              "market_value": 2820349000.0,
+              "shares": 36401.0,
+              "rank": 14,
+              "pct_portfolio": 0.0453
+            }
+          ],
+          "total_value": 6227231945000.0,
+          "num_holdings": 14
+        },
+        {
+          "form": "13F-HR",
+          "company": "ABRAMS CAPITAL MANAGEMENT, L.P.",
+          "cik": "1358706",
+          "filing_date": "2024-08-09",
+          "file_name": "edgar/data/1358706/0001172661-24-003200.txt",
+          "accession": "0001172661-24-003200",
+          "period_end": "2024-06-30",
+          "quarter": "2024-Q2",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/1358706/0001172661-24-003200.txt",
+          "holdings": [
+            {
+              "ticker": null,
+              "identifier": "CUSIP:53947R105",
+              "cusip": "53947R105",
+              "company": "LOAR HOLDINGS INC",
+              "market_value": 2052780129000.0,
+              "shares": 38434378.0,
+              "rank": 1,
+              "pct_portfolio": 40.1335
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:536797103",
+              "cusip": "536797103",
+              "company": "LITHIA MTRS INC",
+              "market_value": 603655411000.0,
+              "shares": 2391188.0,
+              "rank": 2,
+              "pct_portfolio": 11.8019
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:043436104",
+              "cusip": "043436104",
+              "company": "ASBURY AUTOMOTIVE GROUP INC",
+              "market_value": 480473010000.0,
+              "shares": 2108540.0,
+              "rank": 3,
+              "pct_portfolio": 9.3936
+            },
+            {
+              "ticker": "GOOGL",
+              "identifier": "GOOGL",
+              "cusip": "02079K305",
+              "company": "ALPHABET INC",
+              "market_value": 376539569000.0,
+              "shares": 2067195.0,
+              "rank": 4,
+              "pct_portfolio": 7.3616
+            },
+            {
+              "ticker": "META",
+              "identifier": "META",
+              "cusip": "30303M102",
+              "company": "META PLATFORMS INC",
+              "market_value": 312892208000.0,
+              "shares": 620547.0,
+              "rank": 5,
+              "pct_portfolio": 6.1173
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:29273V100",
+              "cusip": "29273V100",
+              "company": "ENERGY TRANSFER L P",
+              "market_value": 289272703000.0,
+              "shares": 17834322.0,
+              "rank": 6,
+              "pct_portfolio": 5.6555
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:22266T109",
+              "cusip": "22266T109",
+              "company": "COUPANG INC",
+              "market_value": 272726346000.0,
+              "shares": 13017964.0,
+              "rank": 7,
+              "pct_portfolio": 5.332
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:023586506",
+              "cusip": "023586506",
+              "company": "U HAUL HOLDING COMPANY",
+              "market_value": 212784104000.0,
+              "shares": 3545220.0,
+              "rank": 8,
+              "pct_portfolio": 4.1601
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G96629103",
+              "cusip": "G96629103",
+              "company": "WILLIS TOWERS WATSON PLC LTD",
+              "market_value": 188945007000.0,
+              "shares": 720779.0,
+              "rank": 9,
+              "pct_portfolio": 3.694
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:88023U101",
+              "cusip": "88023U101",
+              "company": "TEMPUR SEALY INTL INC",
+              "market_value": 170424000000.0,
+              "shares": 3600000.0,
+              "rank": 10,
+              "pct_portfolio": 3.3319
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:13462K109",
+              "cusip": "13462K109",
+              "company": "CAMPING WORLD HLDGS INC",
+              "market_value": 91243311000.0,
+              "shares": 5108808.0,
+              "rank": 11,
+              "pct_portfolio": 1.7839
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:138103106",
+              "cusip": "138103106",
+              "company": "CANTALOUPE INC",
+              "market_value": 47388000000.0,
+              "shares": 7180000.0,
+              "rank": 12,
+              "pct_portfolio": 0.9265
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:67080N101",
+              "cusip": "67080N101",
+              "company": "NUVATION BIO INC",
+              "market_value": 11129618000.0,
+              "shares": 3811513.0,
+              "rank": 13,
+              "pct_portfolio": 0.2176
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:023586100",
+              "cusip": "023586100",
+              "company": "U HAUL HOLDING COMPANY",
+              "market_value": 4630059000.0,
+              "shares": 75005.0,
+              "rank": 14,
+              "pct_portfolio": 0.0905
+            }
+          ],
+          "total_value": 5114883475000.0,
+          "num_holdings": 14
         }
       ],
       "filing_errors": []
