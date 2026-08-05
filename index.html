@@ -561,6 +561,8 @@
   .si-src-public  { background: #1c2128; color: var(--muted); border: 1px solid var(--border); }
   .si-src-legacy  { background: #2d2208; color: var(--yellow); border: 1px solid var(--yellow); }
   .si-src-boss    { background: #1a3a10; color: #56d364; border: 1px solid #2ea043; }
+  /* Dashed border = the holding is claimed, not filed. */
+  .si-src-youtube { background: #2a1a2d; color: #c58af9; border: 1px dashed #a371f7; }
 
   .si-cat-badge {
     display: inline-block; padding: 2px 8px; border-radius: 10px;
@@ -1718,6 +1720,7 @@ async function checkPw(){
       <button class="filter-btn" onclick="setSIFilter('Legends', this)">🏆 Legends</button>
       <button class="filter-btn" onclick="setSIFilter('AI & Growth', this)">🤖 AI &amp; Growth</button>
       <button class="filter-btn" onclick="setSIFilter('Other Notable', this)">⭐ Other</button>
+      <button class="filter-btn" onclick="setSIFilter('Creators', this)">📹 Creators</button>
     </div>
 
     <!-- Investor Cards Grid -->
@@ -2029,6 +2032,7 @@ const INVESTORS_DATA = [
   { id:'lou',        name:'Norbert Lou',           fund:'Punch Card Management',       category:'Buffett Disciples',      rating:null, source:'13F',     stocks:['BRK','PDD','CROX','PYPL','FI'],                               notes:'Buffett through and through. 3-5 year patience. Keeps 50% cash for market crashes.' },
   { id:'klarman',    name:'Seth Klarman',          fund:'Baupost Group',               category:'Deep Value / Contrarian',rating:null, source:'13F',     stocks:['ELV','WESO','QSR','UNP','CRH','GPC'],                        notes:'Warren would invest his money with him. 40-year track record, 20%+ returns. Author of \'Margin of Safety.\'' },
   { id:'abrams',     name:'David Abrams',          fund:'Abrams Capital Management',   category:'Deep Value / Contrarian',rating:null, source:'13F',     stocks:['LOAR','LAD','GOOGL','ABG','CPNG'],                           notes:'Boston deep-value investor, ex-Baupost. Runs an extremely concentrated book — roughly 10-11 US long positions. Largest holding is Loar Holdings (aerospace components), about 40% of the portfolio, where the fund owns ~34% of the company.' },
+  { id:'baldinv',    name:'The Bald Investor',     fund:'YouTube channel',             category:'Creators',              rating:null, source:'YouTube', stocks:['LOAR','TPL'],                                                notes:'First creator Joe has approved for occasional cloning. Fellow cloner — surfaced LOAR and TPL. IMPORTANT: these are self-reported picks from public commentary, not SEC filings, so they are excluded from convergence and consensus scoring and carry no position sizes. Treat as research leads to verify, not confirmed holdings.' },
   { id:'einhorn',    name:'David Einhorn',         fund:'Greenlight Capital',          category:'Deep Value / Contrarian',rating:null, source:'13F',     stocks:['GRBK','FLR','CEIX','BHF','KD'],                              notes:'The whistleblower. Famous for shorting Lehman. Loves cheap, low P/E stocks with catalysts.' },
   { id:'tepper',     name:'David Tepper',          fund:'Appaloosa Management',        category:'Deep Value / Contrarian',rating:null, source:'13F',     stocks:['BABA','AMZN','WHR','GOOG','KWEB'],                            notes:'Watches the bond market and the Fed like a hawk. Pittsburgh kid. Buys distressed assets at rock bottom.' },
   { id:'burry',      name:'Michael Burry',         fund:'Scion Management',            category:'Deep Value / Contrarian',rating:null, source:'13F',     stocks:['JD','BABA','MOH'],                                            notes:'The Big Short. Medical doctor. Stanford. Deep value contrarian — concentrated, asymmetric bets.' },
@@ -2064,6 +2068,11 @@ const INVESTORS_DATA = [
 function computeSIConvergence() {
   const stockToInvestors = {};
   INVESTORS_DATA.forEach(inv => {
+    // Creator picks are self-reported, so they must not create convergence.
+    // Without this a single YouTube mention would make a name look like it had
+    // two managers behind it. Creators are still scored *against* this map
+    // below, which usefully shows how much of their book real filers hold.
+    if (inv.source === 'YouTube') return;
     inv.stocks.forEach(t => {
       const key = t.replace('-','').toUpperCase();
       if (!stockToInvestors[key]) stockToInvestors[key] = new Set();
@@ -2102,6 +2111,7 @@ const SI_CAT_MAP = {
   'Legends':                { cls: 'si-cat-legend',    label: '🏆 Legend' },
   'AI & Growth':            { cls: 'si-cat-ai',       label: '🤖 AI & Growth' },
   'Other Notable':          { cls: 'si-cat-other',     label: '⭐ Other' },
+  'Creators':               { cls: 'si-cat-other',     label: '📹 Creators' },
 };
 const SI_SRC_MAP = {
   '13F':    { cls: 'si-src-13f',     label: '📊 13F' },
@@ -2109,6 +2119,10 @@ const SI_SRC_MAP = {
   'Public': { cls: 'si-src-public',  label: '🌐 Public' },
   'Legacy': { cls: 'si-src-legacy',  label: '👑 Legacy' },
   'Boss':   { cls: 'si-src-boss',    label: '🏆 The Boss' },
+  // Creator picks are self-reported commentary, not an SEC filing. Badged
+  // distinctly on purpose so a YouTube tip is never mistaken for a verified
+  // 13F position, and excluded from convergence/consensus scoring.
+  'YouTube':{ cls: 'si-src-youtube', label: '📹 YouTube · unverified' },
 };
 
 function setSIFilter(f, btn) {
@@ -2342,6 +2356,29 @@ let watchlistPriority = JSON.parse(localStorage.getItem('mose_watchlist_priority
 let customWatchlist = JSON.parse(localStorage.getItem('mose_custom_watchlist') || '[]');
 let watchlistRemoved = JSON.parse(localStorage.getItem('mose_watchlist_removed') || '[]'); // tickers removed from the watchlist (incl. base names)
 let researchItems = JSON.parse(localStorage.getItem('mose_research_items') || '{}');
+// One-time queue of the three Radar names that arrived from outside the 13F
+// set (Abrams' LOAR, Ackman's HHH, and TPL via The Bald Investor). They're
+// unresearched by definition, so they enter the deep-dive queue rather than
+// sitting on Radar unexamined. Only fills a blank — never overwrites a status
+// Joe has already set, and runs once.
+(function seedOutsideSourceResearch() {
+  try {
+    if (localStorage.getItem('mose_seed_radar_dd_v1')) return;
+    const seeds = {
+      LOAR: "David Abrams' largest position (~40% of his book). Aerospace components — verify the moat and what a ~34% owner implies for float.",
+      HHH:  "Howard Hughes Holdings — Ackman's Berkshire-style vehicle. Master-planned real estate; check NAV vs price and the fee structure.",
+      TPL:  "Texas Pacific Land — Permian surface + royalties, ~60% net margin, no debt. Sourced from The Bald Investor, not a tracked filer. Justify ~55x trailing earnings."
+    };
+    let added = 0;
+    Object.entries(seeds).forEach(([t, why]) => {
+      if (researchItems[t]) return;                       // respect existing status
+      researchItems[t] = { ticker: t, status: 'needs', reason: why, updatedAt: new Date().toISOString() };
+      added++;
+    });
+    if (added) localStorage.setItem('mose_research_items', JSON.stringify(researchItems));
+    localStorage.setItem('mose_seed_radar_dd_v1', '1');
+  } catch {}
+})();
 let cockpitFilter = 'top';
 let cockpitSortKey = null;   // null = natural order (by score)
 let cockpitSortDir = -1;
@@ -6009,7 +6046,11 @@ function canonTargetsBuckets() {
       // largest position (~40% of his book; the fund owns ~34% of the company).
       // On Radar pending a deep dive — if it graduates it fits Hard assets
       // alongside GE and HON rather than Opportunistic.
-      tickers: ['LLY', 'DE', 'ROP', 'FICO', 'VRSN', 'ORLY', 'TXN', 'RACE', 'HHH', 'LOAR'], weights: {}, locked: {} },
+      // TPL = Texas Pacific Land — Permian surface + royalty acreage, ~60% net
+      // margin, no debt. Sourced from The Bald Investor, not from any 13F we
+      // track. On Radar at ~55x trailing earnings pending a deep dive; Hard
+      // assets is its natural home if it graduates.
+      tickers: ['LLY', 'DE', 'ROP', 'FICO', 'VRSN', 'ORLY', 'TXN', 'RACE', 'HHH', 'LOAR', 'TPL'], weights: {}, locked: {} },
     { id: 'dry', label: 'Dry powder', pct: 20,
       tickers: ['VOO', 'VTV', 'QQQ', 'IDGT', 'SGOV'],
       weights: { SGOV: 40, VOO: 30 }, locked: { SGOV: true } },
@@ -6020,7 +6061,7 @@ function canonTargetsBuckets() {
 
 function defaultTargetsData() {
   return {
-    version: 10,
+    version: 11,
     // `ira` is the shared container for all three accounts + the one bucket set.
     // (Name kept for backward-compat; it holds Joint too now.)
     ira: {
@@ -6163,6 +6204,17 @@ function migrateTargets(d) {
     };
     place('radar', 'LOAR');
     d.version = 10;
+    _targetsRepaired = true;
+  }
+  if ((d.version || 0) < 11) {
+    // TPL (Texas Pacific Land) onto Radar. Additive, same guard as v9/v10.
+    const place = (id, ticker) => {
+      if (d.ira.buckets.some(b => (b.tickers || []).includes(ticker))) return;
+      const b = d.ira.buckets.find(x => x.id === id);
+      if (b) b.tickers.push(ticker);
+    };
+    place('radar', 'TPL');
+    d.version = 11;
     _targetsRepaired = true;
   }
   d.ira.buckets.forEach(b => {
