@@ -564,6 +564,15 @@
   /* Dashed border = the holding is claimed, not filed. */
   .si-src-youtube { background: #2a1a2d; color: #c58af9; border: 1px dashed #a371f7; }
 
+  /* Idea provenance. Inert — records where a name came from, never a signal.
+     Dashed + amber when the idea has no filer behind it at all. */
+  .idea-chip {
+    display: inline-block; margin-left: 5px; padding: 1px 6px; border-radius: 999px;
+    font-size: 9px; font-weight: 800; vertical-align: middle; cursor: help;
+    background: var(--surface); border: 1px solid var(--border); color: var(--muted);
+  }
+  .idea-chip.unverified { border: 1px dashed var(--yellow); color: var(--yellow); }
+
   .si-cat-badge {
     display: inline-block; padding: 2px 8px; border-radius: 10px;
     font-size: 10px; font-weight: 600; white-space: nowrap;
@@ -2068,11 +2077,13 @@ const INVESTORS_DATA = [
 function computeSIConvergence() {
   const stockToInvestors = {};
   INVESTORS_DATA.forEach(inv => {
-    // Creator picks are self-reported, so they must not create convergence.
-    // Without this a single YouTube mention would make a name look like it had
-    // two managers behind it. Creators are still scored *against* this map
-    // below, which usefully shows how much of their book real filers hold.
-    if (inv.source === 'YouTube') return;
+    // ONLY SEC 13F filers may create convergence. Everything else — creator
+    // videos, shareholder letters, public commentary, legacy/retired managers,
+    // and Joe's own list — is unverified or historical, and must never make a
+    // name look like more managers are behind it than actually filed. Those
+    // entries are still scored *against* this map below, which usefully shows
+    // how much of their stated book real filers hold.
+    if (inv.source !== '13F') return;
     inv.stocks.forEach(t => {
       const key = t.replace('-','').toUpperCase();
       if (!stockToInvestors[key]) stockToInvestors[key] = new Set();
@@ -2101,6 +2112,60 @@ computeSIConvergence();
 // ============================================================
 let siFilter = 'All';
 let siSort = 'name';
+
+// ============================================================
+// IDEA PROVENANCE
+// Where a name on the buy list originally came from, when that wasn't our own
+// 13F set. Recorded purely so Joe can backtrack an unfamiliar ticker — it is
+// deliberately inert: nothing here feeds a score, a signal or a ranking.
+// The verification status shown alongside is computed from the SEC filings,
+// never from the person who suggested it.
+// ============================================================
+// `filers` records tracked 13F managers confirmed to hold the name, checked
+// against 8 quarters of SEC filings. It is stored rather than derived because
+// the live holdings export only covers the newest quarter — for six weeks each
+// quarter that export is nearly empty, and deriving from it alone would label
+// genuinely filer-backed names "unverified", which is worse than saying nothing.
+const IDEA_ORIGIN = {
+  TPL:  { via: 'The Bald Investor', kind: 'creator', when: 'Aug 2026', filers: [],
+          note: 'YouTube pick. Texas Pacific Land — Permian surface acreage and royalties.' },
+  LOAR: { via: 'The Bald Investor', kind: 'creator', when: 'Aug 2026',
+          filers: ['David Abrams', 'Joel Greenblatt'],
+          note: 'Surfaced by the creator, then independently confirmed in the filings (2026-Q1).' },
+  HHH:  { via: "Bill Ackman's book", kind: '13F', when: 'Aug 2026',
+          filers: ['Bill Ackman', 'Joel Greenblatt'],
+          note: 'Noticed via Ackman; already on the IBKR Opportunistic watchlist (2026-Q1).' },
+  SOLS: { via: 'Honeywell spin-off', kind: 'corporate', when: 'Oct 2025',
+          filers: ['Joel Greenblatt', 'Philippe Laffont'],
+          note: 'Solstice Advanced Materials — received via the HON separation (2026-Q1).' },
+};
+
+// Tracked SEC filers known to hold this name: the confirmed set, plus anyone in
+// the currently loaded quarter. Only filings count as evidence — a suggestion
+// from a creator or any other non-filer counts for nothing.
+function ideaFilers(ticker) {
+  const t = canonicalTicker(ticker);
+  const who = new Set((IDEA_ORIGIN[t] && IDEA_ORIGIN[t].filers) || []);
+  (allHoldings || []).forEach(h => {
+    if (canonicalTicker(h.ticker || '') === t && h.investor) who.add(h.investor);
+  });
+  return [...who];
+}
+
+// Small inert chip shown next to a ticker that didn't come from our own 13F set.
+function ideaOriginChip(ticker) {
+  const t = canonicalTicker(ticker);
+  const o = IDEA_ORIGIN[t];
+  if (!o) return '';
+  const filers = ideaFilers(t);
+  const unverified = filers.length === 0;
+  const title = `Idea source: ${o.via} (${o.when}). ${o.note} ` +
+    (filers.length
+      ? `Independently held by ${filers.length} tracked 13F filer${filers.length > 1 ? 's' : ''} — ${filers.join(', ')}. That filing, not the suggestion, is the evidence.`
+      : 'No tracked 13F filer holds this. Unverified lead — it carries no weight in any score, signal or ranking.');
+  return `<span class="idea-chip${unverified ? ' unverified' : ''}" title="${escapeAttr(title)}">` +
+    `${unverified ? '⚠ idea only' : filers.length + '× 13F'}</span>`;
+}
 
 const SI_CAT_MAP = {
   'BRK Inner Circle':       { cls: 'si-cat-brk',      label: '👑 BRK Inner Circle' },
@@ -6447,7 +6512,7 @@ function targAcctTableHtml(acctKey) {
       const tgt = targStockTarget(acct.total, b, t);
       const owned = targOwned(acctKey, t); deployed += owned;
       const plan = targPlan(acctKey, t);
-      html += `<tr><td><strong title="${escapeAttr(stockBlurb(t))}">${escapeHtml(t)}</strong> <a onclick="showStockInfo('${escapeHtml(t)}')" title="What is ${escapeHtml(t)}?" style="cursor:pointer;color:var(--blue);margin-left:2px;font-size:12px">ⓘ</a>${targLivePrice(t)}</td><td>${reentryFmt(tgt)}</td><td style="font-weight:700">${reentryFmt(owned)}</td>${targMoreCell(owned, tgt, t)}<td><input type="number" class="targ-input" value="${plan || ''}" placeholder="0" onchange="targSetPlan('${acctKey}','${t}',this.value)">${targShareHint(plan, t)}</td>${targGaugeCell(plan, tgt)}${targGaugeCell(owned + plan, tgt)}</tr>`;
+      html += `<tr><td><strong title="${escapeAttr(stockBlurb(t))}">${escapeHtml(t)}</strong>${ideaOriginChip(t)} <a onclick="showStockInfo('${escapeHtml(t)}')" title="What is ${escapeHtml(t)}?" style="cursor:pointer;color:var(--blue);margin-left:2px;font-size:12px">ⓘ</a>${targLivePrice(t)}</td><td>${reentryFmt(tgt)}</td><td style="font-weight:700">${reentryFmt(owned)}</td>${targMoreCell(owned, tgt, t)}<td><input type="number" class="targ-input" value="${plan || ''}" placeholder="0" onchange="targSetPlan('${acctKey}','${t}',this.value)">${targShareHint(plan, t)}</td>${targGaugeCell(plan, tgt)}${targGaugeCell(owned + plan, tgt)}</tr>`;
     });
   });
   html += `</tbody></table></div>`;
@@ -6742,7 +6807,7 @@ function targCombinedHtml() {
       const pctCell = b.tickers.length === 1
         ? `<td style="color:var(--muted)">100%</td>`
         : `<td style="white-space:nowrap"><input type="number" step="0.5" class="targ-input" style="width:58px${locked ? ';border-color:var(--accent);color:var(--accent);font-weight:700' : ''}" value="${targStockPctOfBucket(b, t).toFixed(1)}" onchange="targSetPctOfBucket('${b.id}','${t}',this.value)">% <a onclick="targToggleLock('${b.id}','${escapeHtml(t)}')" title="${locked ? 'Locked — holds this %. Click to unlock and let it recalc.' : 'Click to lock this % so it holds while the others recalc.'}" style="cursor:pointer;margin-left:2px">${locked ? '🔒' : '🔓'}</a></td>`;
-      html += `<tr data-targ-bucket="${b.id}" data-targ-ticker="${escapeHtml(t)}"><td class="targ-drag-handle" onpointerdown="targDragStart(event,'${b.id}','${escapeHtml(t)}')" title="Drag to reorder or move to another bucket">⠿</td><td><strong title="${escapeAttr(stockBlurb(t))}">${escapeHtml(t)}</strong> <a onclick="showStockInfo('${escapeHtml(t)}')" title="What is ${escapeHtml(t)}?" style="cursor:pointer;color:var(--blue);margin-left:2px;font-size:12px">ⓘ</a>${targLivePrice(t)} <a onclick="targRemoveTicker('${b.id}','${escapeHtml(t)}')" title="Remove from bucket" style="cursor:pointer;color:var(--muted);margin-left:6px">✕</a></td>${targRangeCell(t)}${targSparkCell(t)}${pctCell}<td>${reentryFmt(tgt)}</td><td>${reentryFmt(owned)}</td>${targMoreCell(owned, tgt)}${targPctCell(owned, tgt)}</tr>`;
+      html += `<tr data-targ-bucket="${b.id}" data-targ-ticker="${escapeHtml(t)}"><td class="targ-drag-handle" onpointerdown="targDragStart(event,'${b.id}','${escapeHtml(t)}')" title="Drag to reorder or move to another bucket">⠿</td><td><strong title="${escapeAttr(stockBlurb(t))}">${escapeHtml(t)}</strong>${ideaOriginChip(t)} <a onclick="showStockInfo('${escapeHtml(t)}')" title="What is ${escapeHtml(t)}?" style="cursor:pointer;color:var(--blue);margin-left:2px;font-size:12px">ⓘ</a>${targLivePrice(t)} <a onclick="targRemoveTicker('${b.id}','${escapeHtml(t)}')" title="Remove from bucket" style="cursor:pointer;color:var(--muted);margin-left:6px">✕</a></td>${targRangeCell(t)}${targSparkCell(t)}${pctCell}<td>${reentryFmt(tgt)}</td><td>${reentryFmt(owned)}</td>${targMoreCell(owned, tgt)}${targPctCell(owned, tgt)}</tr>`;
     });
     html += targAddRow(b.id, 9);
     html += `</tbody>`;
