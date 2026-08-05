@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-05T01:41:11.385836+00:00",
+  "generated_at": "2026-08-05T04:55:49.862484+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -106,11 +106,11 @@
         "date": "2026-08-04",
         "time": "16:00:01",
         "volume": 69522809,
-        "week52_high": 281.07,
+        "week52_high": 287.2,
         "week52_low": 196.0
       },
       "metrics": {
-        "week52High": 281.07,
+        "week52High": 287.2,
         "week52Low": 196.0,
         "marketCap": 2839014801408,
         "peRatio": 38.63788300835655
@@ -890,11 +890,11 @@
         "date": "2026-08-04",
         "time": "16:00:03",
         "volume": 2122147,
-        "week52_high": 244.49,
+        "week52_high": 247.49,
         "week52_low": 101.0
       },
       "metrics": {
-        "week52High": 244.49,
+        "week52High": 247.49,
         "week52Low": 101.0,
         "marketCap": 10013648896,
         "peRatio": 23.973711882229235
@@ -1127,10 +1127,10 @@
       "quote": {
         "ticker": "IFNNF",
         "symbol": "IFNNF",
-        "price": 70.82,
-        "prev_close": 71.29,
-        "change_pct": -0.6592790012624674,
-        "date": "2026-08-03",
+        "price": 73.16,
+        "prev_close": 70.82,
+        "change_pct": 3.3041513696695897,
+        "date": "2026-08-04",
         "time": "16:00:00",
         "volume": 100,
         "week52_high": 103.5,
@@ -2792,8 +2792,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^RUT",
-        "price": 3036.9753,
-        "change_pct": 1.8466999187500281,
+        "price": 3036.975,
+        "change_pct": 1.8466352103182209,
         "source": "yahoo"
       },
       "metrics": {},
