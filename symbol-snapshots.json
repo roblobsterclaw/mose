@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-06T10:27:53.503058+00:00",
+  "generated_at": "2026-08-06T12:50:30.788713+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -18,11 +18,11 @@
         "time": "16:00:01",
         "volume": 44330978,
         "week52_high": 344.57,
-        "week52_low": 205.59
+        "week52_low": 216.58
       },
       "metrics": {
         "week52High": 344.57,
-        "week52Low": 205.59,
+        "week52Low": 216.58,
         "marketCap": 3979469914112,
         "peRatio": 39.416983523447406
       },
@@ -49,11 +49,11 @@
         "time": "16:00:01",
         "volume": 826142,
         "week52_high": 397.44,
-        "week52_low": 128.4
+        "week52_low": 140.66
       },
       "metrics": {
         "week52High": 397.44,
-        "week52Low": 128.4
+        "week52Low": 140.66
       },
       "profile": {
         "company": "Advanced Energy Industries, Inc.",
@@ -199,11 +199,11 @@
         "time": "16:00:00",
         "volume": 5582635,
         "week52_high": 11.99,
-        "week52_low": 3.47
+        "week52_low": 3.58
       },
       "metrics": {
         "week52High": 11.99,
-        "week52Low": 3.47
+        "week52Low": 3.58
       },
       "profile": {
         "company": "Avino Silver & Gold Mines Ltd.",
@@ -228,11 +228,11 @@
         "time": "16:00:01",
         "volume": 1214990,
         "week52_high": 1999.96,
-        "week52_low": 685.44
+        "week52_low": 706.62
       },
       "metrics": {
         "week52High": 1999.96,
-        "week52Low": 685.44,
+        "week52Low": 706.62,
         "marketCap": 561823285248,
         "peRatio": 55.35026385224275
       },
@@ -1042,11 +1042,11 @@
         "time": "16:00:01",
         "volume": 46331184,
         "week52_high": 408.61,
-        "week52_low": 193.67
+        "week52_low": 194.33
       },
       "metrics": {
         "week52High": 408.61,
-        "week52Low": 193.67,
+        "week52Low": 194.33,
         "marketCap": 4166206881792,
         "peRatio": 33.527289546716005
       },
@@ -1581,11 +1581,11 @@
         "time": "16:00:01",
         "volume": 2305646,
         "week52_high": 447.62,
-        "week52_low": 88.49
+        "week52_low": 95.54
       },
       "metrics": {
         "week52High": 447.62,
-        "week52Low": 88.49
+        "week52Low": 95.54
       },
       "profile": {
         "company": "MKS Instruments, Inc.",
@@ -1699,11 +1699,11 @@
         "time": "16:00:00",
         "volume": 33738006,
         "week52_high": 1255.0,
-        "week52_low": 106.75
+        "week52_low": 110.79
       },
       "metrics": {
         "week52High": 1255.0,
-        "week52Low": 106.75
+        "week52Low": 110.79
       },
       "profile": {
         "company": "Micron Technology, Inc.",
@@ -1791,11 +1791,11 @@
         "time": "16:00:02",
         "volume": 1082426,
         "week52_high": 170.46,
-        "week52_low": 113.48
+        "week52_low": 114.38
       },
       "metrics": {
         "week52High": 170.46,
-        "week52Low": 113.48
+        "week52Low": 114.38
       },
       "profile": {
         "company": "Novartis AG",
@@ -2184,11 +2184,11 @@
         "time": "16:00:01",
         "volume": 600067,
         "week52_high": 901.81,
-        "week52_low": 187.56
+        "week52_low": 192.0
       },
       "metrics": {
         "week52High": 901.81,
-        "week52Low": 187.56
+        "week52Low": 192.0
       },
       "profile": {
         "company": "SiTime Corporation",
@@ -2573,11 +2573,11 @@
         "time": "16:00:01",
         "volume": 7052597,
         "week52_high": 60.43,
-        "week52_low": 9.92
+        "week52_low": 10.02
       },
       "metrics": {
         "week52High": 60.43,
-        "week52Low": 9.92
+        "week52Low": 10.02
       },
       "profile": {
         "company": "Viavi Solutions Inc.",
@@ -2602,11 +2602,11 @@
         "time": "16:00:00",
         "volume": 4423409,
         "week52_high": 714.12,
-        "week52_low": 577.41
+        "week52_low": 578.31
       },
       "metrics": {
         "week52High": 714.12,
-        "week52Low": 577.41
+        "week52Low": 578.31
       },
       "profile": {
         "company": null,
@@ -2808,8 +2808,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 15.94,
-        "change_pct": 0.8222643896268123,
+        "price": 15.85,
+        "change_pct": 0.2530044275774772,
         "source": "yahoo"
       },
       "metrics": {},
