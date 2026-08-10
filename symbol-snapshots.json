@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T09:07:12.054836+00:00",
+  "generated_at": "2026-08-10T10:57:46.538641+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -1060,6 +1060,35 @@
       },
       "source": "yahoo"
     },
+    "HHH": {
+      "ticker": "HHH",
+      "name": "HHH",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "HHH",
+        "symbol": "HHH",
+        "price": 67.48,
+        "prev_close": 68.05,
+        "change_pct": -0.837619397501827,
+        "date": "2026-08-07",
+        "time": "16:00:02",
+        "volume": 413177,
+        "week52_high": 91.07,
+        "week52_low": 61.01
+      },
+      "metrics": {
+        "week52High": 91.07,
+        "week52Low": 61.01
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "HON": {
       "ticker": "HON",
       "name": "HON",
@@ -1322,6 +1351,35 @@
         "company": "Eli Lilly and Company",
         "owned": null,
         "hasResearch": true
+      },
+      "source": "yahoo"
+    },
+    "LOAR": {
+      "ticker": "LOAR",
+      "name": "LOAR",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "LOAR",
+        "symbol": "LOAR",
+        "price": 70.87,
+        "prev_close": 72.54,
+        "change_pct": -2.302178108629724,
+        "date": "2026-08-07",
+        "time": "16:00:02",
+        "volume": 533534,
+        "week52_high": 83.43,
+        "week52_low": 53.15
+      },
+      "metrics": {
+        "week52High": 83.43,
+        "week52Low": 53.15
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
       },
       "source": "yahoo"
     },
@@ -2226,6 +2284,35 @@
       },
       "source": "yahoo"
     },
+    "SOLS": {
+      "ticker": "SOLS",
+      "name": "SOLS",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "SOLS",
+        "symbol": "SOLS",
+        "price": 60.96,
+        "prev_close": 62.18,
+        "change_pct": -1.9620456738501109,
+        "date": "2026-08-07",
+        "time": "16:00:00",
+        "volume": 1901036,
+        "week52_high": 90.8,
+        "week52_low": 40.43
+      },
+      "metrics": {
+        "week52High": 90.8,
+        "week52Low": 40.43
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "SPCX": {
       "ticker": "SPCX",
       "name": "SPCX",
@@ -2338,6 +2425,35 @@
       "metrics": {
         "week52High": 50.67,
         "week52Low": 50.39
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "TPL": {
+      "ticker": "TPL",
+      "name": "TPL",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "TPL",
+        "symbol": "TPL",
+        "price": 340.65,
+        "prev_close": 355.64,
+        "change_pct": -4.214936452592512,
+        "date": "2026-08-07",
+        "time": "16:00:02",
+        "volume": 413822,
+        "week52_high": 547.2,
+        "week52_low": 269.233
+      },
+      "metrics": {
+        "week52High": 547.2,
+        "week52Low": 269.233
       },
       "profile": {
         "company": null,
@@ -2808,8 +2924,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 15.47,
-        "change_pct": 3.8255033557047,
+        "price": 15.46,
+        "change_pct": 3.7583892617449695,
         "source": "yahoo"
       },
       "metrics": {},

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T09:07:12.054836+00:00",
+  "generated_at": "2026-08-10T10:57:46.538641+00:00",
   "source": "yahoo",
   "market_status": "closed",
   "indices": [
@@ -38,8 +38,8 @@
     {
       "name": "VIX",
       "ticker": "^VIX",
-      "price": 15.47,
-      "change_pct": 3.8255033557047,
+      "price": 15.46,
+      "change_pct": 3.7583892617449695,
       "vs_exit": null,
       "source": "yahoo"
     }
@@ -466,6 +466,18 @@
       "week52_low": 196.6
     },
     {
+      "ticker": "HHH",
+      "symbol": "HHH",
+      "price": 67.48,
+      "prev_close": 68.05,
+      "change_pct": -0.837619397501827,
+      "date": "2026-08-07",
+      "time": "16:00:02",
+      "volume": 413177,
+      "week52_high": 91.07,
+      "week52_low": 61.01
+    },
+    {
       "ticker": "HON",
       "symbol": "HON",
       "price": 246.21,
@@ -572,6 +584,18 @@
       "volume": 1797267,
       "week52_high": 1249.45,
       "week52_low": 625.9
+    },
+    {
+      "ticker": "LOAR",
+      "symbol": "LOAR",
+      "price": 70.87,
+      "prev_close": 72.54,
+      "change_pct": -2.302178108629724,
+      "date": "2026-08-07",
+      "time": "16:00:02",
+      "volume": 533534,
+      "week52_high": 83.43,
+      "week52_low": 53.15
     },
     {
       "ticker": "LRCX",
@@ -934,6 +958,18 @@
       "week52_low": 281.15
     },
     {
+      "ticker": "SOLS",
+      "symbol": "SOLS",
+      "price": 60.96,
+      "prev_close": 62.18,
+      "change_pct": -1.9620456738501109,
+      "date": "2026-08-07",
+      "time": "16:00:00",
+      "volume": 1901036,
+      "week52_high": 90.8,
+      "week52_low": 40.43
+    },
+    {
       "ticker": "SPCX",
       "symbol": "SPCX",
       "price": 133.11,
@@ -980,6 +1016,18 @@
       "volume": 1646264,
       "week52_high": 50.67,
       "week52_low": 50.39
+    },
+    {
+      "ticker": "TPL",
+      "symbol": "TPL",
+      "price": 340.65,
+      "prev_close": 355.64,
+      "change_pct": -4.214936452592512,
+      "date": "2026-08-07",
+      "time": "16:00:02",
+      "volume": 413822,
+      "week52_high": 547.2,
+      "week52_low": 269.233
     },
     {
       "ticker": "TSEM",
