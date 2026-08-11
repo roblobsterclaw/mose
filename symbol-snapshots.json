@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-11T10:42:07.778819+00:00",
+  "generated_at": "2026-08-11T11:37:27.044305+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -1192,11 +1192,11 @@
         "time": "16:00:02",
         "volume": 99944552,
         "week52_high": 142.35,
-        "week52_low": 20.44
+        "week52_low": 20.76
       },
       "metrics": {
         "week52High": 142.35,
-        "week52Low": 20.44
+        "week52Low": 20.76
       },
       "profile": {
         "company": "Intel Corporation",
@@ -2242,11 +2242,11 @@
         "time": "16:00:00",
         "volume": 535058,
         "week52_high": 901.81,
-        "week52_low": 199.12
+        "week52_low": 204.3
       },
       "metrics": {
         "week52High": 901.81,
-        "week52Low": 199.12
+        "week52Low": 204.3
       },
       "profile": {
         "company": "SiTime Corporation",
@@ -2924,8 +2924,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 15.48,
-        "change_pct": 0.1293661060802042,
+        "price": 15.49,
+        "change_pct": 0.19404915912030635,
         "source": "yahoo"
       },
       "metrics": {},
