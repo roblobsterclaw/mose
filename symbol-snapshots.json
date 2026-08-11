@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-11T11:37:27.044305+00:00",
+  "generated_at": "2026-08-11T12:41:01.430207+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -741,11 +741,11 @@
         "date": "2026-08-10",
         "time": "16:00:00",
         "volume": 65501,
-        "week52_high": 4922.93,
+        "week52_high": 4885.92,
         "week52_low": 2196.0
       },
       "metrics": {
-        "week52High": 4922.93,
+        "week52High": 4885.92,
         "week52Low": 2196.0
       },
       "profile": {
@@ -2924,8 +2924,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 15.49,
-        "change_pct": 0.19404915912030635,
+        "price": 15.56,
+        "change_pct": 0.6468305304010327,
         "source": "yahoo"
       },
       "metrics": {},
