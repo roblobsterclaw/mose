@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-12T09:01:11.172357+00:00",
+  "generated_at": "2026-08-12T10:51:38.936150+00:00",
   "source": "yahoo",
   "market_status": "closed",
   "indices": [
@@ -38,8 +38,8 @@
     {
       "name": "VIX",
       "ticker": "^VIX",
-      "price": 15.31,
-      "change_pct": 0.19633507853403886,
+      "price": 15.4,
+      "change_pct": 0.7853403141361323,
       "vs_exit": null,
       "source": "yahoo"
     }
@@ -619,7 +619,7 @@
       "time": "16:00:02",
       "volume": 9829237,
       "week52_high": 11.95,
-      "week52_low": 3.75
+      "week52_low": 3.94
     },
     {
       "ticker": "MA",
@@ -1159,7 +1159,7 @@
       "time": "16:00:00",
       "volume": 2387882,
       "week52_high": 226.05,
-      "week52_low": 178.1
+      "week52_low": 179.46
     },
     {
       "ticker": "WDC",
