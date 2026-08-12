@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-12T01:03:47.069044+00:00",
+  "generated_at": "2026-08-12T03:55:29.631251+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -382,11 +382,11 @@
         "time": "16:00:03",
         "volume": 8641642,
         "week52_high": 351.28,
-        "week52_low": 38.18
+        "week52_low": 40.56
       },
       "metrics": {
         "week52High": 351.28,
-        "week52Low": 38.18
+        "week52Low": 40.56
       },
       "profile": {
         "company": "Bloom Energy Corporation",
@@ -1156,10 +1156,10 @@
       "quote": {
         "ticker": "IFNNF",
         "symbol": "IFNNF",
-        "price": 76.15,
-        "prev_close": 71.15,
-        "change_pct": 7.027406886858749,
-        "date": "2026-08-10",
+        "price": 73.23,
+        "prev_close": 76.15,
+        "change_pct": -3.834537097833226,
+        "date": "2026-08-11",
         "time": "16:00:00",
         "volume": 306,
         "week52_high": 103.5,
@@ -1341,11 +1341,11 @@
         "time": "16:03:11",
         "volume": 1554593,
         "week52_high": 1249.45,
-        "week52_low": 629.4
+        "week52_low": 644.5
       },
       "metrics": {
         "week52High": 1249.45,
-        "week52Low": 629.4
+        "week52Low": 644.5
       },
       "profile": {
         "company": "Eli Lilly and Company",
@@ -1428,11 +1428,11 @@
         "time": "16:00:02",
         "volume": 9829237,
         "week52_high": 11.95,
-        "week52_low": 3.75
+        "week52_low": 3.94
       },
       "metrics": {
         "week52High": 11.95,
-        "week52Low": 3.75
+        "week52Low": 3.94
       },
       "profile": {
         "company": "Lumen Technologies, Inc.",
@@ -1548,11 +1548,11 @@
         "time": "16:00:01",
         "volume": 1765956,
         "week52_high": 444.72,
-        "week52_low": 198.47
+        "week52_low": 202.05
       },
       "metrics": {
         "week52High": 444.72,
-        "week52Low": 198.47
+        "week52Low": 202.05
       },
       "profile": {
         "company": "MongoDB, Inc.",
@@ -1849,11 +1849,11 @@
         "time": "16:00:02",
         "volume": 967842,
         "week52_high": 170.46,
-        "week52_low": 118.34
+        "week52_low": 119.97
       },
       "metrics": {
         "week52High": 170.46,
-        "week52Low": 118.34
+        "week52Low": 119.97
       },
       "profile": {
         "company": "Novartis AG",
@@ -1971,11 +1971,11 @@
         "time": "16:04:03",
         "volume": 2545933,
         "week52_high": 153.35,
-        "week52_low": 103.41
+        "week52_low": 104.07
       },
       "metrics": {
         "week52High": 153.35,
-        "week52Low": 103.41,
+        "week52Low": 104.07,
         "marketCap": 132469981184,
         "peRatio": 39.075630252100844
       },
@@ -2388,11 +2388,11 @@
         "date": "2026-08-11",
         "time": "16:00:02",
         "volume": 1466701,
-        "week52_high": 171.48,
+        "week52_high": 171.18,
         "week52_low": 126.45
       },
       "metrics": {
-        "week52High": 171.48,
+        "week52High": 171.18,
         "week52Low": 126.45,
         "marketCap": 26862960640,
         "peRatio": 13.941727367325703
@@ -2777,12 +2777,12 @@
         "date": "2026-08-11",
         "time": "16:00:00",
         "volume": 2387882,
-        "week52_high": 226.039,
-        "week52_low": 178.1
+        "week52_high": 226.05,
+        "week52_low": 179.46
       },
       "metrics": {
-        "week52High": 226.039,
-        "week52Low": 178.1
+        "week52High": 226.05,
+        "week52Low": 179.46
       },
       "profile": {
         "company": null,
@@ -2909,7 +2909,7 @@
       "quote": {
         "ticker": "^RUT",
         "price": 3027.115,
-        "change_pct": 0.32206567448697826,
+        "change_pct": 0.32196593093390635,
         "source": "yahoo"
       },
       "metrics": {},
