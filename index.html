@@ -6101,7 +6101,7 @@ function canonTargetsBuckets() {
     { id: 'aicore', label: 'AI core', pct: 8,
       tickers: ['AVGO', 'LRCX', 'TSM', 'ASML', 'NVDA', 'SMH'], weights: {}, locked: {} },
     { id: 'opp', label: 'Opportunistic', pct: 8,
-      tickers: ['UBER', 'APP', 'MDB', 'DASH', 'RBLX', 'FROG', 'KVYO', 'BABA', 'CVNA', 'TSLA', 'SPCX', 'CODI', 'MBGL', 'BE'], weights: {}, locked: {} },
+      tickers: ['UBER', 'APP', 'MDB', 'DASH', 'RBLX', 'FROG', 'KVYO', 'BABA', 'CVNA', 'TSLA', 'SPCX', 'CODI'], weights: {}, locked: {} },
     { id: 'radar', label: 'Radar', pct: 5,
       // HHH = Howard Hughes Holdings — Ackman's Berkshire-style vehicle, and
       // already on the IBKR Opportunistic watchlist. Parked on Radar because
@@ -6115,18 +6115,25 @@ function canonTargetsBuckets() {
       // margin, no debt. Sourced from The Bald Investor, not from any 13F we
       // track. On Radar at ~55x trailing earnings pending a deep dive; Hard
       // assets is its natural home if it graduates.
-      tickers: ['LLY', 'DE', 'ROP', 'FICO', 'VRSN', 'ORLY', 'TXN', 'RACE', 'HHH', 'LOAR', 'TPL'], weights: {}, locked: {} },
+      // DIS, TDG and COF are held by tracked filers but were absent from every
+      // bucket. DIS (+2) and TDG (+2) are being actively accumulated; COF is
+      // the most widely held name we didn't own (6 filers).
+      tickers: ['LLY', 'DE', 'ROP', 'FICO', 'VRSN', 'ORLY', 'TXN', 'RACE', 'HHH', 'LOAR', 'TPL', 'DIS', 'TDG', 'COF'], weights: {}, locked: {} },
     { id: 'dry', label: 'Dry powder', pct: 20,
       tickers: ['VOO', 'VTV', 'QQQ', 'IDGT', 'SGOV'],
       weights: { SGOV: 40, VOO: 30 }, locked: { SGOV: true } },
     { id: 'aibench', label: 'AI bench', pct: 4,
-      tickers: ['COHR', 'CIEN', 'FN', 'CLS', 'MKSI', 'MTSI', 'AEIS', 'TTMI', 'VIAV', 'SITM', 'WDC', 'TSEM', 'CBRS', 'MU', 'INTC', 'ARM', 'AMD'], weights: {}, locked: {} }
+      // Trimmed 17 -> 4. At 4% of the portfolio, seventeen names meant ~$3.5k
+      // each — too small to matter and too many to follow — and not one was
+      // held by any tracked filer. Kept the four with real franchises rather
+      // than pure AI-capex cyclicals; SMH in AI core already covers the rest.
+      tickers: ['AMD', 'ARM', 'MU', 'COHR'], weights: {}, locked: {} }
   ];
 }
 
 function defaultTargetsData() {
   return {
-    version: 11,
+    version: 12,
     // `ira` is the shared container for all three accounts + the one bucket set.
     // (Name kept for backward-compat; it holds Joint too now.)
     ira: {
@@ -6280,6 +6287,37 @@ function migrateTargets(d) {
     };
     place('radar', 'TPL');
     d.version = 11;
+    _targetsRepaired = true;
+  }
+  if ((d.version || 0) < 12) {
+    // Portfolio cleanup after reviewing all 78 names against filer backing and
+    // position sizing.
+    //  - AI bench 17 -> 4: at 4% of capital each name was ~$3.5k, none were
+    //    held by any tracked filer, and SMH already covers the theme.
+    //  - Drop BE and MBGL from Opportunistic (no filer backing, weak thesis).
+    //    SPCX stays — Joe wants the SpaceX exposure.
+    //  - Add DIS, TDG and COF to Radar: filer-held names that were in no bucket.
+    // Anything Joe actually owns is never removed, only left in place, so a
+    // stale snapshot of this list can't orphan real dollars.
+    const ownedQty = t => ['his','hers','joint'].reduce((s,a) =>
+      s + (Number((d.owned || {})[a + '|' + t]) || 0), 0);
+    const dropFrom = (id, list) => {
+      const b = d.ira.buckets.find(x => x.id === id);
+      if (!b) return [];
+      const kept = [], removed = [];
+      b.tickers.forEach(t => {
+        if (list.includes(t) && ownedQty(t) === 0) removed.push(t); else kept.push(t);
+      });
+      b.tickers = kept;
+      return removed;
+    };
+    dropFrom('aibench', ['CIEN','FN','CLS','MKSI','MTSI','AEIS','TTMI','VIAV','SITM','WDC','TSEM','CBRS','INTC']);
+    dropFrom('opp', ['BE','MBGL']);
+    const radar = d.ira.buckets.find(x => x.id === 'radar');
+    if (radar) ['DIS','TDG','COF'].forEach(t => {
+      if (!d.ira.buckets.some(b => (b.tickers || []).includes(t))) radar.tickers.push(t);
+    });
+    d.version = 12;
     _targetsRepaired = true;
   }
   d.ira.buckets.forEach(b => {
