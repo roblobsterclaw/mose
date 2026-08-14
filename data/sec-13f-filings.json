@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-13T11:58:19.283242+00:00",
+  "generated_at": "2026-08-14T11:56:24.704504+00:00",
   "source": "SEC EDGAR submissions and Archives information tables",
   "quarters_requested": 8,
   "investor_count": 29,
@@ -8974,7 +8974,9 @@
           "num_holdings": 9
         }
       ],
-      "filing_errors": []
+      "filing_errors": [
+        "0001172661-24-002519: HTTP Error 503: Service Unavailable"
+      ]
     },
     {
       "name": "Seth Klarman",
@@ -8983,6 +8985,251 @@
       "cik": "1061768",
       "source_type": "13F",
       "filings": [
+        {
+          "form": "13F-HR",
+          "company": "BAUPOST GROUP LLC/MA",
+          "cik": "1061768",
+          "filing_date": "2026-08-13",
+          "file_name": "edgar/data/1061768/0001061768-26-000010.txt",
+          "accession": "0001061768-26-000010",
+          "period_end": "2026-06-30",
+          "quarter": "2026-Q2",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/1061768/0001061768-26-000010.txt",
+          "holdings": [
+            {
+              "ticker": "AMZN",
+              "identifier": "AMZN",
+              "cusip": "023135106",
+              "company": "AMAZON COM INC",
+              "market_value": 892310000.0,
+              "shares": 3743854.0,
+              "rank": 1,
+              "pct_portfolio": 16.4759
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:036752103",
+              "cusip": "036752103",
+              "company": "ELEVANCE HEALTH INC FORMERLY",
+              "market_value": 493140000.0,
+              "shares": 1275154.0,
+              "rank": 2,
+              "pct_portfolio": 9.1055
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:76131D103",
+              "cusip": "76131D103",
+              "company": "RESTAURANT BRANDS INTL INC",
+              "market_value": 489612000.0,
+              "shares": 6753112.0,
+              "rank": 3,
+              "pct_portfolio": 9.0403
+            },
+            {
+              "ticker": "GOOG",
+              "identifier": "GOOG",
+              "cusip": "02079K107",
+              "company": "ALPHABET INC",
+              "market_value": 484744000.0,
+              "shares": 1371931.0,
+              "rank": 4,
+              "pct_portfolio": 8.9505
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:31488V107",
+              "cusip": "31488V107",
+              "company": "FERGUSON ENTERPRISES INC",
+              "market_value": 344269000.0,
+              "shares": 1450594.0,
+              "rank": 5,
+              "pct_portfolio": 6.3567
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:372460105",
+              "cusip": "372460105",
+              "company": "GENUINE PARTS CO",
+              "market_value": 332253000.0,
+              "shares": 2816178.0,
+              "rank": 6,
+              "pct_portfolio": 6.1348
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:907818108",
+              "cusip": "907818108",
+              "company": "UNION PAC CORP",
+              "market_value": 322427000.0,
+              "shares": 1185395.0,
+              "rank": 7,
+              "pct_portfolio": 5.9534
+            },
+            {
+              "ticker": "V",
+              "identifier": "V",
+              "cusip": "92826C839",
+              "company": "VISA INC",
+              "market_value": 240628000.0,
+              "shares": 701355.0,
+              "rank": 8,
+              "pct_portfolio": 4.443
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:95082P105",
+              "cusip": "95082P105",
+              "company": "WESCO INTL INC",
+              "market_value": 228979000.0,
+              "shares": 662881.0,
+              "rank": 9,
+              "pct_portfolio": 4.2279
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G0403H108",
+              "cusip": "G0403H108",
+              "company": "AON PLC",
+              "market_value": 227871000.0,
+              "shares": 687000.0,
+              "rank": 10,
+              "pct_portfolio": 4.2075
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:879369106",
+              "cusip": "879369106",
+              "company": "TELEFLEX INCORPORATED",
+              "market_value": 178605000.0,
+              "shares": 1409000.0,
+              "rank": 11,
+              "pct_portfolio": 3.2978
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G66721104",
+              "cusip": "G66721104",
+              "company": "NORWEGIAN CRUISE LINE HLDGS",
+              "market_value": 163180000.0,
+              "shares": 7730000.0,
+              "rank": 12,
+              "pct_portfolio": 3.013
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:60855R100",
+              "cusip": "60855R100",
+              "company": "MOLINA HEALTHCARE INC",
+              "market_value": 144906000.0,
+              "shares": 633609.0,
+              "rank": 13,
+              "pct_portfolio": 2.6756
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:12572Q105",
+              "cusip": "12572Q105",
+              "company": "CME GROUP INC",
+              "market_value": 136694000.0,
+              "shares": 619000.0,
+              "rank": 14,
+              "pct_portfolio": 2.524
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G4412G101",
+              "cusip": "G4412G101",
+              "company": "HERBALIFE LTD",
+              "market_value": 121767000.0,
+              "shares": 9259844.0,
+              "rank": 15,
+              "pct_portfolio": 2.2483
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:26969P108",
+              "cusip": "26969P108",
+              "company": "EAGLE MATLS INC",
+              "market_value": 119422000.0,
+              "shares": 530763.0,
+              "rank": 16,
+              "pct_portfolio": 2.205
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:36165L108",
+              "cusip": "36165L108",
+              "company": "GDS HLDGS LTD",
+              "market_value": 113208000.0,
+              "shares": 3769818.0,
+              "rank": 17,
+              "pct_portfolio": 2.0903
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:03064D108",
+              "cusip": "03064D108",
+              "company": "AMERICOLD REALTY TRUST INC",
+              "market_value": 107371000.0,
+              "shares": 6830230.0,
+              "rank": 18,
+              "pct_portfolio": 1.9825
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G61188127",
+              "cusip": "G61188127",
+              "company": "LIBERTY GLOBAL LTD",
+              "market_value": 93975000.0,
+              "shares": 8543161.0,
+              "rank": 19,
+              "pct_portfolio": 1.7352
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:40054J109",
+              "cusip": "40054J109",
+              "company": "GRUPO AEROMEXICO SAB DE CV",
+              "market_value": 87843000.0,
+              "shares": 4880188.0,
+              "rank": 20,
+              "pct_portfolio": 1.622
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:G0750C108",
+              "cusip": "G0750C108",
+              "company": "AXALTA COATING SYS LTD",
+              "market_value": 43608000.0,
+              "shares": 1274356.0,
+              "rank": 21,
+              "pct_portfolio": 0.8052
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:67011P100",
+              "cusip": "67011P100",
+              "company": "DNOW INC",
+              "market_value": 36160000.0,
+              "shares": 2788000.0,
+              "rank": 22,
+              "pct_portfolio": 0.6677
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:71531U102",
+              "cusip": "71531U102",
+              "company": "PERSHING SQUARE INC",
+              "market_value": 12881000.0,
+              "shares": 392000.0,
+              "rank": 23,
+              "pct_portfolio": 0.2378
+            }
+          ],
+          "total_value": 5415853000.0,
+          "num_holdings": 23
+        },
         {
           "form": "13F-HR",
           "company": "BAUPOST GROUP LLC/MA",
@@ -10637,261 +10884,6 @@
           ],
           "total_value": 3516299000.0,
           "num_holdings": 21
-        },
-        {
-          "form": "13F-HR",
-          "company": "BAUPOST GROUP LLC/MA",
-          "cik": "1061768",
-          "filing_date": "2024-08-13",
-          "file_name": "edgar/data/1061768/0001567619-24-000363.txt",
-          "accession": "0001567619-24-000363",
-          "period_end": "2024-06-30",
-          "quarter": "2024-Q2",
-          "submission_url": "https://www.sec.gov/Archives/edgar/data/1061768/0001567619-24-000363.txt",
-          "holdings": [
-            {
-              "ticker": null,
-              "identifier": "CUSIP:G61188127",
-              "cusip": "G61188127",
-              "company": "LIBERTY GLOBAL LTD",
-              "market_value": 755252000.0,
-              "shares": 42311011.0,
-              "rank": 1,
-              "pct_portfolio": 20.7824
-            },
-            {
-              "ticker": "WTW",
-              "identifier": "WTW",
-              "cusip": "G96629103",
-              "company": "WILLIS TOWERS WATSON PLC LTD",
-              "market_value": 433225000.0,
-              "shares": 1652648.0,
-              "rank": 2,
-              "pct_portfolio": 11.9211
-            },
-            {
-              "ticker": null,
-              "identifier": "CUSIP:G25508105",
-              "cusip": "G25508105",
-              "company": "CRH PLC",
-              "market_value": 316911000.0,
-              "shares": 4226602.0,
-              "rank": 3,
-              "pct_portfolio": 8.7205
-            },
-            {
-              "ticker": null,
-              "identifier": "CUSIP:31620M106",
-              "cusip": "31620M106",
-              "company": "FIDELITY NATL INFORMATION SV",
-              "market_value": 264457000.0,
-              "shares": 3509254.0,
-              "rank": 4,
-              "pct_portfolio": 7.2771
-            },
-            {
-              "ticker": null,
-              "identifier": "CUSIP:G21810109",
-              "cusip": "G21810109",
-              "company": "CLARIVATE PLC",
-              "market_value": 221510000.0,
-              "shares": 38929635.0,
-              "rank": 5,
-              "pct_portfolio": 6.0953
-            },
-            {
-              "ticker": "GOOG",
-              "identifier": "GOOG",
-              "cusip": "02079K107",
-              "company": "ALPHABET INC",
-              "market_value": 196184000.0,
-              "shares": 1069588.0,
-              "rank": 6,
-              "pct_portfolio": 5.3984
-            },
-            {
-              "ticker": null,
-              "identifier": "CUSIP:92552V100",
-              "cusip": "92552V100",
-              "company": "VIASAT INC",
-              "market_value": 174744000.0,
-              "shares": 13759364.0,
-              "rank": 7,
-              "pct_portfolio": 4.8085
-            },
-            {
-              "ticker": null,
-              "identifier": "CUSIP:444859102",
-              "cusip": "444859102",
-              "company": "HUMANA INC",
-              "market_value": 156933000.0,
-              "shares": 420000.0,
-              "rank": 8,
-              "pct_portfolio": 4.3183
-            },
-            {
-              "ticker": null,
-              "identifier": "CUSIP:G50871105",
-              "cusip": "G50871105",
-              "company": "JAZZ PHARMACEUTICALS PLC",
-              "market_value": 136000000.0,
-              "shares": 1274248.0,
-              "rank": 9,
-              "pct_portfolio": 3.7423
-            },
-            {
-              "ticker": null,
-              "identifier": "CUSIP:95082P105",
-              "cusip": "95082P105",
-              "company": "WESCO INTL INC",
-              "market_value": 127292000.0,
-              "shares": 803000.0,
-              "rank": 10,
-              "pct_portfolio": 3.5027
-            },
-            {
-              "ticker": null,
-              "identifier": "CUSIP:G61188101",
-              "cusip": "G61188101",
-              "company": "LIBERTY GLOBAL LTD",
-              "market_value": 125396000.0,
-              "shares": 7194276.0,
-              "rank": 11,
-              "pct_portfolio": 3.4505
-            },
-            {
-              "ticker": null,
-              "identifier": "CUSIP:69002RAB9",
-              "cusip": "69002RAB9",
-              "company": "OUTBRAIN INC",
-              "market_value": 103267000.0,
-              "shares": 118000000.0,
-              "rank": 12,
-              "pct_portfolio": 2.8416
-            },
-            {
-              "ticker": null,
-              "identifier": "CUSIP:83444M101",
-              "cusip": "83444M101",
-              "company": "SOLVENTUM CORP",
-              "market_value": 96242000.0,
-              "shares": 1820000.0,
-              "rank": 13,
-              "pct_portfolio": 2.6483
-            },
-            {
-              "ticker": null,
-              "identifier": "CUSIP:971378104",
-              "cusip": "971378104",
-              "company": "WILLSCOT MOBIL MINI HLDNG CO",
-              "market_value": 92971000.0,
-              "shares": 2470000.0,
-              "rank": 14,
-              "pct_portfolio": 2.5583
-            },
-            {
-              "ticker": null,
-              "identifier": "CUSIP:26969P108",
-              "cusip": "26969P108",
-              "company": "EAGLE MATLS INC",
-              "market_value": 74394000.0,
-              "shares": 342102.0,
-              "rank": 15,
-              "pct_portfolio": 2.0471
-            },
-            {
-              "ticker": null,
-              "identifier": "CUSIP:34965K107",
-              "cusip": "34965K107",
-              "company": "FORTREA HLDGS INC",
-              "market_value": 73296000.0,
-              "shares": 3140360.0,
-              "rank": 16,
-              "pct_portfolio": 2.0169
-            },
-            {
-              "ticker": null,
-              "identifier": "CUSIP:46982L108",
-              "cusip": "46982L108",
-              "company": "JACOBS SOLUTIONS INC",
-              "market_value": 69047000.0,
-              "shares": 494218.0,
-              "rank": 17,
-              "pct_portfolio": 1.9
-            },
-            {
-              "ticker": null,
-              "identifier": "CUSIP:G4412G101",
-              "cusip": "G4412G101",
-              "company": "HERBALIFE LTD",
-              "market_value": 53244000.0,
-              "shares": 5124526.0,
-              "rank": 18,
-              "pct_portfolio": 1.4651
-            },
-            {
-              "ticker": null,
-              "identifier": "CUSIP:36165L108",
-              "cusip": "36165L108",
-              "company": "GDS HLDGS LTD",
-              "market_value": 39482000.0,
-              "shares": 4249952.0,
-              "rank": 19,
-              "pct_portfolio": 1.0864
-            },
-            {
-              "ticker": null,
-              "identifier": "CUSIP:G8807B106",
-              "cusip": "G8807B106",
-              "company": "THERAVANCE BIOPHARMA INC",
-              "market_value": 35616000.0,
-              "shares": 4200021.0,
-              "rank": 20,
-              "pct_portfolio": 0.98
-            },
-            {
-              "ticker": null,
-              "identifier": "CUSIP:G1890L107",
-              "cusip": "G1890L107",
-              "company": "CAPRI HOLDINGS LIMITED",
-              "market_value": 33080000.0,
-              "shares": 1000000.0,
-              "rank": 21,
-              "pct_portfolio": 0.9103
-            },
-            {
-              "ticker": null,
-              "identifier": "CUSIP:531229789",
-              "cusip": "531229789",
-              "company": "LIBERTY MEDIA CORP DEL",
-              "market_value": 23459000.0,
-              "shares": 1058616.0,
-              "rank": 22,
-              "pct_portfolio": 0.6455
-            },
-            {
-              "ticker": null,
-              "identifier": "CUSIP:92343E102",
-              "cusip": "92343E102",
-              "company": "VERISIGN INC",
-              "market_value": 18805000.0,
-              "shares": 105764.0,
-              "rank": 23,
-              "pct_portfolio": 0.5175
-            },
-            {
-              "ticker": null,
-              "identifier": "CUSIP:531229813",
-              "cusip": "531229813",
-              "company": "LIBERTY MEDIA CORP DEL",
-              "market_value": 13294000.0,
-              "shares": 600194.0,
-              "rank": 24,
-              "pct_portfolio": 0.3658
-            }
-          ],
-          "total_value": 3634101000.0,
-          "num_holdings": 24
         }
       ],
       "filing_errors": []
@@ -10903,6 +10895,131 @@
       "cik": "1358706",
       "source_type": "13F",
       "filings": [
+        {
+          "form": "13F-HR",
+          "company": "ABRAMS CAPITAL MANAGEMENT, L.P.",
+          "cik": "1358706",
+          "filing_date": "2026-08-13",
+          "file_name": "edgar/data/1358706/0001172661-26-003402.txt",
+          "accession": "0001172661-26-003402",
+          "period_end": "2026-06-30",
+          "quarter": "2026-Q2",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/1358706/0001172661-26-003402.txt",
+          "holdings": [
+            {
+              "ticker": "LOAR",
+              "identifier": "LOAR",
+              "cusip": "53947R105",
+              "company": "LOAR HOLDINGS INC",
+              "market_value": 2583569846000.0,
+              "shares": 32050240.0,
+              "rank": 1,
+              "pct_portfolio": 47.1476
+            },
+            {
+              "ticker": "LAD",
+              "identifier": "LAD",
+              "cusip": "536797103",
+              "company": "LITHIA MTRS INC",
+              "market_value": 723475222000.0,
+              "shares": 2490534.0,
+              "rank": 2,
+              "pct_portfolio": 13.2027
+            },
+            {
+              "ticker": "GOOGL",
+              "identifier": "GOOGL",
+              "cusip": "02079K305",
+              "company": "ALPHABET INC",
+              "market_value": 489773798000.0,
+              "shares": 1370495.0,
+              "rank": 3,
+              "pct_portfolio": 8.9379
+            },
+            {
+              "ticker": "SGI",
+              "identifier": "SGI",
+              "cusip": "88023U101",
+              "company": "SOMNIGROUP INTERNATIONAL INC",
+              "market_value": 454624038000.0,
+              "shares": 5798776.0,
+              "rank": 4,
+              "pct_portfolio": 8.2964
+            },
+            {
+              "ticker": "ABG",
+              "identifier": "ABG",
+              "cusip": "043436104",
+              "company": "ASBURY AUTOMOTIVE GROUP INC",
+              "market_value": 433426331000.0,
+              "shares": 2155492.0,
+              "rank": 5,
+              "pct_portfolio": 7.9096
+            },
+            {
+              "ticker": "CPNG",
+              "identifier": "CPNG",
+              "cusip": "22266T109",
+              "company": "COUPANG INC",
+              "market_value": 226122035000.0,
+              "shares": 13017964.0,
+              "rank": 6,
+              "pct_portfolio": 4.1265
+            },
+            {
+              "ticker": "WTW",
+              "identifier": "WTW",
+              "cusip": "G96629103",
+              "company": "WILLIS TOWERS WATSON PLC LTD",
+              "market_value": 188390007000.0,
+              "shares": 720779.0,
+              "rank": 7,
+              "pct_portfolio": 3.4379
+            },
+            {
+              "ticker": "UHAL-B",
+              "identifier": "UHAL-B",
+              "cusip": "023586506",
+              "company": "U HAUL HOLDING COMPANY",
+              "market_value": 187609761000.0,
+              "shares": 3251469.0,
+              "rank": 8,
+              "pct_portfolio": 3.4237
+            },
+            {
+              "ticker": "META",
+              "identifier": "META",
+              "cusip": "30303M102",
+              "company": "META PLATFORMS INC",
+              "market_value": 183156560000.0,
+              "shares": 325155.0,
+              "rank": 9,
+              "pct_portfolio": 3.3424
+            },
+            {
+              "ticker": "NUVB",
+              "identifier": "NUVB",
+              "cusip": "67080N101",
+              "company": "NUVATION BIO INC",
+              "market_value": 7216463000.0,
+              "shares": 1270504.0,
+              "rank": 10,
+              "pct_portfolio": 0.1317
+            },
+            {
+              "ticker": "UHAL",
+              "identifier": "UHAL",
+              "cusip": "023586100",
+              "company": "U HAUL HOLDING COMPANY",
+              "market_value": 2382081000.0,
+              "shares": 36401.0,
+              "rank": 11,
+              "pct_portfolio": 0.0435
+            }
+          ],
+          "total_value": 5479746142000.0,
+          "num_holdings": 11
+        },
         {
           "form": "13F-HR",
           "company": "ABRAMS CAPITAL MANAGEMENT, L.P.",
@@ -11896,161 +12013,6 @@
             }
           ],
           "total_value": 6227231945000.0,
-          "num_holdings": 14
-        },
-        {
-          "form": "13F-HR",
-          "company": "ABRAMS CAPITAL MANAGEMENT, L.P.",
-          "cik": "1358706",
-          "filing_date": "2024-08-09",
-          "file_name": "edgar/data/1358706/0001172661-24-003200.txt",
-          "accession": "0001172661-24-003200",
-          "period_end": "2024-06-30",
-          "quarter": "2024-Q2",
-          "submission_url": "https://www.sec.gov/Archives/edgar/data/1358706/0001172661-24-003200.txt",
-          "holdings": [
-            {
-              "ticker": "LOAR",
-              "identifier": "LOAR",
-              "cusip": "53947R105",
-              "company": "LOAR HOLDINGS INC",
-              "market_value": 2052780129000.0,
-              "shares": 38434378.0,
-              "rank": 1,
-              "pct_portfolio": 40.1335
-            },
-            {
-              "ticker": "LAD",
-              "identifier": "LAD",
-              "cusip": "536797103",
-              "company": "LITHIA MTRS INC",
-              "market_value": 603655411000.0,
-              "shares": 2391188.0,
-              "rank": 2,
-              "pct_portfolio": 11.8019
-            },
-            {
-              "ticker": "ABG",
-              "identifier": "ABG",
-              "cusip": "043436104",
-              "company": "ASBURY AUTOMOTIVE GROUP INC",
-              "market_value": 480473010000.0,
-              "shares": 2108540.0,
-              "rank": 3,
-              "pct_portfolio": 9.3936
-            },
-            {
-              "ticker": "GOOGL",
-              "identifier": "GOOGL",
-              "cusip": "02079K305",
-              "company": "ALPHABET INC",
-              "market_value": 376539569000.0,
-              "shares": 2067195.0,
-              "rank": 4,
-              "pct_portfolio": 7.3616
-            },
-            {
-              "ticker": "META",
-              "identifier": "META",
-              "cusip": "30303M102",
-              "company": "META PLATFORMS INC",
-              "market_value": 312892208000.0,
-              "shares": 620547.0,
-              "rank": 5,
-              "pct_portfolio": 6.1173
-            },
-            {
-              "ticker": null,
-              "identifier": "CUSIP:29273V100",
-              "cusip": "29273V100",
-              "company": "ENERGY TRANSFER L P",
-              "market_value": 289272703000.0,
-              "shares": 17834322.0,
-              "rank": 6,
-              "pct_portfolio": 5.6555
-            },
-            {
-              "ticker": "CPNG",
-              "identifier": "CPNG",
-              "cusip": "22266T109",
-              "company": "COUPANG INC",
-              "market_value": 272726346000.0,
-              "shares": 13017964.0,
-              "rank": 7,
-              "pct_portfolio": 5.332
-            },
-            {
-              "ticker": "UHAL-B",
-              "identifier": "UHAL-B",
-              "cusip": "023586506",
-              "company": "U HAUL HOLDING COMPANY",
-              "market_value": 212784104000.0,
-              "shares": 3545220.0,
-              "rank": 8,
-              "pct_portfolio": 4.1601
-            },
-            {
-              "ticker": "WTW",
-              "identifier": "WTW",
-              "cusip": "G96629103",
-              "company": "WILLIS TOWERS WATSON PLC LTD",
-              "market_value": 188945007000.0,
-              "shares": 720779.0,
-              "rank": 9,
-              "pct_portfolio": 3.694
-            },
-            {
-              "ticker": "SGI",
-              "identifier": "SGI",
-              "cusip": "88023U101",
-              "company": "TEMPUR SEALY INTL INC",
-              "market_value": 170424000000.0,
-              "shares": 3600000.0,
-              "rank": 10,
-              "pct_portfolio": 3.3319
-            },
-            {
-              "ticker": null,
-              "identifier": "CUSIP:13462K109",
-              "cusip": "13462K109",
-              "company": "CAMPING WORLD HLDGS INC",
-              "market_value": 91243311000.0,
-              "shares": 5108808.0,
-              "rank": 11,
-              "pct_portfolio": 1.7839
-            },
-            {
-              "ticker": null,
-              "identifier": "CUSIP:138103106",
-              "cusip": "138103106",
-              "company": "CANTALOUPE INC",
-              "market_value": 47388000000.0,
-              "shares": 7180000.0,
-              "rank": 12,
-              "pct_portfolio": 0.9265
-            },
-            {
-              "ticker": "NUVB",
-              "identifier": "NUVB",
-              "cusip": "67080N101",
-              "company": "NUVATION BIO INC",
-              "market_value": 11129618000.0,
-              "shares": 3811513.0,
-              "rank": 13,
-              "pct_portfolio": 0.2176
-            },
-            {
-              "ticker": "UHAL",
-              "identifier": "UHAL",
-              "cusip": "023586100",
-              "company": "U HAUL HOLDING COMPANY",
-              "market_value": 4630059000.0,
-              "shares": 75005.0,
-              "rank": 14,
-              "pct_portfolio": 0.0905
-            }
-          ],
-          "total_value": 5114883475000.0,
           "num_holdings": 14
         }
       ],
@@ -242632,6 +242594,61 @@
           "form": "13F-HR",
           "company": "Dalal Street, LLC",
           "cik": "1549575",
+          "filing_date": "2026-08-13",
+          "file_name": "edgar/data/1549575/0001549575-26-000015.txt",
+          "accession": "0001549575-26-000015",
+          "period_end": "2026-06-30",
+          "quarter": "2026-Q2",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/1549575/0001549575-26-000015.txt",
+          "holdings": [
+            {
+              "ticker": null,
+              "identifier": "CUSIP:93627C101",
+              "cusip": "93627C101",
+              "company": "WARRIOR MET COAL INC",
+              "market_value": 141547098000.0,
+              "shares": 1744050.0,
+              "rank": 1,
+              "pct_portfolio": 43.3197
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:H8817H100",
+              "cusip": "H8817H100",
+              "company": "TRANSOCEAN LTD",
+              "market_value": 99749443000.0,
+              "shares": 20398659.0,
+              "rank": 2,
+              "pct_portfolio": 30.5278
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:020764106",
+              "cusip": "020764106",
+              "company": "ALPHA METALLURGICAL RESOUR I",
+              "market_value": 85305978000.0,
+              "shares": 517194.0,
+              "rank": 3,
+              "pct_portfolio": 26.1074
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:48581R205",
+              "cusip": "48581R205",
+              "company": "KASPI KZ JSC",
+              "market_value": 147461000.0,
+              "shares": 1702.0,
+              "rank": 4,
+              "pct_portfolio": 0.0451
+            }
+          ],
+          "total_value": 326749980000.0,
+          "num_holdings": 4
+        },
+        {
+          "form": "13F-HR",
+          "company": "Dalal Street, LLC",
+          "cik": "1549575",
           "filing_date": "2026-05-14",
           "file_name": "edgar/data/1549575/0001549575-26-000009.txt",
           "accession": "0001549575-26-000009",
@@ -243022,61 +243039,6 @@
           ],
           "total_value": 246895462000.0,
           "num_holdings": 5
-        },
-        {
-          "form": "13F-HR",
-          "company": "Dalal Street, LLC",
-          "cik": "1549575",
-          "filing_date": "2024-08-13",
-          "file_name": "edgar/data/1549575/0001549575-24-000009.txt",
-          "accession": "0001549575-24-000009",
-          "period_end": "2024-06-30",
-          "quarter": "2024-Q2",
-          "submission_url": "https://www.sec.gov/Archives/edgar/data/1549575/0001549575-24-000009.txt",
-          "holdings": [
-            {
-              "ticker": null,
-              "identifier": "CUSIP:020764106",
-              "cusip": "020764106",
-              "company": "ALPHA METALLURGICAL RESOUR I",
-              "market_value": 125946800000.0,
-              "shares": 448960.0,
-              "rank": 1,
-              "pct_portfolio": 54.0938
-            },
-            {
-              "ticker": null,
-              "identifier": "CUSIP:03940R107",
-              "cusip": "03940R107",
-              "company": "ARCH RESOURCES INC",
-              "market_value": 59733225000.0,
-              "shares": 392388.0,
-              "rank": 2,
-              "pct_portfolio": 25.6553
-            },
-            {
-              "ticker": null,
-              "identifier": "CUSIP:93627C101",
-              "cusip": "93627C101",
-              "company": "WARRIOR MET COAL INC",
-              "market_value": 29597248000.0,
-              "shares": 471519.0,
-              "rank": 3,
-              "pct_portfolio": 12.7119
-            },
-            {
-              "ticker": null,
-              "identifier": "CUSIP:20854L108",
-              "cusip": "20854L108",
-              "company": "CONSOL ENERGY INC NEW",
-              "market_value": 17553037000.0,
-              "shares": 172038.0,
-              "rank": 4,
-              "pct_portfolio": 7.539
-            }
-          ],
-          "total_value": 232830310000.0,
-          "num_holdings": 4
         }
       ],
       "filing_errors": []
