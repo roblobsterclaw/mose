@@ -573,6 +573,18 @@
   }
   .idea-chip.unverified { border: 1px dashed var(--yellow); color: var(--yellow); }
 
+  #update-banner {
+    background: var(--green-bg); border: 1px solid var(--green); border-left-width: 4px;
+    color: var(--text); padding: 10px 16px; font-size: 13px;
+  }
+  .update-btn {
+    background: var(--green); border: 1px solid var(--green); color: #fff;
+    border-radius: 6px; padding: 5px 12px; margin-left: 8px;
+    font-family: inherit; font-size: 12px; font-weight: 800; cursor: pointer;
+  }
+  .build-stamp { color: var(--muted); font-size: 9px; cursor: pointer; }
+  .build-stamp:hover { color: var(--accent); }
+
   .si-cat-badge {
     display: inline-block; padding: 2px 8px; border-radius: 10px;
     font-size: 10px; font-weight: 600; white-space: nowrap;
@@ -1238,6 +1250,7 @@ async function checkPw(){
 }
 </script>
 
+<div id="update-banner" style="display:none"></div>
 <div id="pipeline-banner" style="display:none"></div>
 
 <!-- TOP BAR: Brand + Indices -->
@@ -1267,7 +1280,7 @@ async function checkPw(){
   </div>
   <div class="refresh-info">
     <span id="market-status">—</span>
-    <span class="refresh-line"><span class="refresh-stamp">Updated: <span id="last-updated">—</span> · </span><a onclick="loadIndices()">↻ refresh</a> · <button class="hard-refresh-btn" onclick="hardRefreshAll()" title="Reload all data from GitHub">🔄 hard refresh</button> · <button class="theme-toggle" id="theme-toggle" type="button" onclick="toggleTheme()">☀️ Light</button></span>
+    <span class="refresh-line"><span class="refresh-stamp">Updated: <span id="last-updated">—</span> · </span><a onclick="loadIndices()">↻ refresh</a> · <button class="hard-refresh-btn" onclick="hardRefreshAll()" title="Reload all data from GitHub">🔄 hard refresh</button> · <button class="theme-toggle" id="theme-toggle" type="button" onclick="toggleTheme()">☀️ Light</button> · <span class="build-stamp" id="build-stamp" title="Page build currently loaded. Tap to check for a newer one." onclick="checkForAppUpdate(true)"></span></span>
   </div>
 </div>
 
@@ -2022,6 +2035,37 @@ async function checkPw(){
 </div><!-- end #main -->
 
 <script>
+// ============================================================
+// BUILD VERSION + UPDATE CHECK
+// The data files are all fetched with a cache-buster, but index.html itself
+// isn't — so a phone (especially an iOS home-screen web app) can happily show
+// live prices while running weeks-old page code, and "hard refresh" doesn't
+// help because it only re-pulls JSON. Re-fetch this file with a cache-buster,
+// compare the build stamp, and offer a genuine reload when they differ.
+// Bump APP_BUILD whenever index.html changes.
+// ============================================================
+const APP_BUILD = '2026-08-14a';
+
+async function checkForAppUpdate(announce) {
+  try {
+    const r = await fetch('index.html?v=' + Date.now(), { cache: 'no-store' });
+    if (!r.ok) return false;
+    const txt = await r.text();
+    const m = txt.match(/const APP_BUILD = '([^']+)'/);
+    if (!m || m[1] === APP_BUILD) return false;
+    const bar = document.getElementById('update-banner');
+    if (bar) {
+      bar.style.display = '';
+      bar.innerHTML = `🎉 <strong>A new version of MOSE is available</strong> ` +
+        `<span style="color:var(--muted)">(you're on ${escapeHtml(APP_BUILD)}, latest is ${escapeHtml(m[1])})</span> ` +
+        `<button class="update-btn" onclick="location.reload(true)">Reload now</button>`;
+    } else if (announce) {
+      alert('A new version of MOSE is available. Pull down to refresh the page.');
+    }
+    return true;
+  } catch { return false; }   // offline or blocked — never break the page
+}
+
 // ============================================================
 // SUPER INVESTORS DATA
 // ============================================================
@@ -7565,6 +7609,9 @@ async function hardRefreshAll() {
   const btn = document.querySelector('.hard-refresh-btn');
   if (btn) { btn.textContent = '⏳ Refreshing…'; btn.disabled = true; }
   try {
+    // Check the page code too, not just the data — a stale index.html was
+    // exactly why new features appeared to be missing on the phone.
+    await checkForAppUpdate(false);
     await Promise.all([
       loadIndices(),
       loadHoldings(),
@@ -7637,6 +7684,12 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     moseFbListen();
   })();
+
+  // Show which build is loaded, and watch for a newer one being deployed.
+  const bs = document.getElementById('build-stamp');
+  if (bs) bs.textContent = 'build ' + APP_BUILD;
+  checkForAppUpdate(false);
+  setInterval(() => checkForAppUpdate(false), 15 * 60 * 1000);
 
   // Auto-refresh
   setInterval(loadIndices, 5 * 60 * 1000);
