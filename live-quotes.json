@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-14T09:57:10.034907+00:00",
+  "generated_at": "2026-08-14T10:40:54.728626+00:00",
   "source": "yahoo",
   "market_status": "closed",
   "indices": [
@@ -38,8 +38,8 @@
     {
       "name": "VIX",
       "ticker": "^VIX",
-      "price": 14.58,
-      "change_pct": -0.3417634996582414,
+      "price": 14.56,
+      "change_pct": -0.478468899521533,
       "vs_exit": null,
       "source": "yahoo"
     }
@@ -478,18 +478,6 @@
       "week52_low": 61.01
     },
     {
-      "ticker": "HON",
-      "symbol": "HON",
-      "price": 233.99,
-      "prev_close": 235.34,
-      "change_pct": -0.5736381405625879,
-      "date": "2026-08-13",
-      "time": "16:00:01",
-      "volume": 2120914,
-      "week52_high": 260.283,
-      "week52_low": 195.868
-    },
-    {
       "ticker": "IDGT",
       "symbol": "IDGT",
       "price": 122.95,
@@ -523,7 +511,7 @@
       "time": "16:00:01",
       "volume": 111979671,
       "week52_high": 142.35,
-      "week52_low": 22.78
+      "week52_low": 21.9
     },
     {
       "ticker": "IRBO",
@@ -989,7 +977,7 @@
       "change_pct": 3.0651060716898297,
       "date": "2026-08-13",
       "time": "16:00:02",
-      "volume": 1774774,
+      "volume": 1774749,
       "week52_high": 534.797,
       "week52_low": 361.031
     },

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-14T09:57:10.034907+00:00",
+  "generated_at": "2026-08-14T10:40:54.728626+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -1089,35 +1089,6 @@
       },
       "source": "yahoo"
     },
-    "HON": {
-      "ticker": "HON",
-      "name": "HON",
-      "type": "Equity",
-      "bucket": null,
-      "note": null,
-      "quote": {
-        "ticker": "HON",
-        "symbol": "HON",
-        "price": 233.99,
-        "prev_close": 235.34,
-        "change_pct": -0.5736381405625879,
-        "date": "2026-08-13",
-        "time": "16:00:01",
-        "volume": 2120914,
-        "week52_high": 260.283,
-        "week52_low": 195.868
-      },
-      "metrics": {
-        "week52High": 260.283,
-        "week52Low": 195.868
-      },
-      "profile": {
-        "company": null,
-        "owned": null,
-        "hasResearch": false
-      },
-      "source": "yahoo"
-    },
     "IDGT": {
       "ticker": "IDGT",
       "name": "IDGT",
@@ -1192,11 +1163,11 @@
         "time": "16:00:01",
         "volume": 111979671,
         "week52_high": 142.35,
-        "week52_low": 22.78
+        "week52_low": 21.9
       },
       "metrics": {
         "week52High": 142.35,
-        "week52Low": 22.78
+        "week52Low": 21.9
       },
       "profile": {
         "company": "Intel Corporation",
@@ -2356,7 +2327,7 @@
         "change_pct": 3.0651060716898297,
         "date": "2026-08-13",
         "time": "16:00:02",
-        "volume": 1774774,
+        "volume": 1774749,
         "week52_high": 534.797,
         "week52_low": 361.031
       },
@@ -2924,8 +2895,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 14.58,
-        "change_pct": -0.3417634996582414,
+        "price": 14.56,
+        "change_pct": -0.478468899521533,
         "source": "yahoo"
       },
       "metrics": {},
