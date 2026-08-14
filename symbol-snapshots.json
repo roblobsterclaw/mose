@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-14T10:53:30.205921+00:00",
+  "generated_at": "2026-08-14T11:00:15.217122+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -875,6 +875,37 @@
       },
       "source": "yahoo"
     },
+    "DIS": {
+      "ticker": "DIS",
+      "name": "The Walt Disney Company",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "DIS",
+        "symbol": "DIS",
+        "price": 104.8,
+        "prev_close": 103.22,
+        "change_pct": 1.530711102499514,
+        "date": "2026-08-13",
+        "time": "16:04:37",
+        "volume": 5808468,
+        "week52_high": 119.78,
+        "week52_low": 92.19
+      },
+      "metrics": {
+        "week52High": 119.78,
+        "week52Low": 92.19,
+        "marketCap": 181757935616,
+        "peRatio": 15.434462444771723
+      },
+      "profile": {
+        "company": "The Walt Disney Company",
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "DVA": {
       "ticker": "DVA",
       "name": "DaVita",
@@ -1163,11 +1194,11 @@
         "time": "16:00:01",
         "volume": 111979671,
         "week52_high": 142.35,
-        "week52_low": 22.78
+        "week52_low": 21.9
       },
       "metrics": {
         "week52High": 142.35,
-        "week52Low": 22.78
+        "week52Low": 21.9
       },
       "profile": {
         "company": "Intel Corporation",
@@ -2327,7 +2358,7 @@
         "change_pct": 3.0651060716898297,
         "date": "2026-08-13",
         "time": "16:00:02",
-        "volume": 1774774,
+        "volume": 1774749,
         "week52_high": 534.797,
         "week52_low": 361.031
       },
@@ -2372,6 +2403,37 @@
         "company": "Constellation Brands, Inc.",
         "owned": null,
         "hasResearch": true
+      },
+      "source": "yahoo"
+    },
+    "TDG": {
+      "ticker": "TDG",
+      "name": "TransDigm Group Incorporated",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "TDG",
+        "symbol": "TDG",
+        "price": 1246.31,
+        "prev_close": 1235.48,
+        "change_pct": 0.876582380936958,
+        "date": "2026-08-13",
+        "time": "16:00:02",
+        "volume": 319763,
+        "week52_high": 1463.03,
+        "week52_low": 1123.61
+      },
+      "metrics": {
+        "week52High": 1463.03,
+        "week52Low": 1123.61,
+        "marketCap": 64841818112,
+        "peRatio": 40.04852185089974
+      },
+      "profile": {
+        "company": "TransDigm Group Incorporated",
+        "owned": null,
+        "hasResearch": false
       },
       "source": "yahoo"
     },
@@ -2895,8 +2957,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 14.54,
-        "change_pct": -0.6151742993848368,
+        "price": 14.53,
+        "change_pct": -0.6835269993164828,
         "source": "yahoo"
       },
       "metrics": {},

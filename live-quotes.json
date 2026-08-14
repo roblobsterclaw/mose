@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-14T10:53:30.205921+00:00",
+  "generated_at": "2026-08-14T11:00:15.217122+00:00",
   "source": "yahoo",
   "market_status": "closed",
   "indices": [
@@ -38,8 +38,8 @@
     {
       "name": "VIX",
       "ticker": "^VIX",
-      "price": 14.54,
-      "change_pct": -0.6151742993848368,
+      "price": 14.53,
+      "change_pct": -0.6835269993164828,
       "vs_exit": null,
       "source": "yahoo"
     }
@@ -394,6 +394,18 @@
       "week52_low": 433.0
     },
     {
+      "ticker": "DIS",
+      "symbol": "DIS",
+      "price": 104.8,
+      "prev_close": 103.22,
+      "change_pct": 1.530711102499514,
+      "date": "2026-08-13",
+      "time": "16:04:37",
+      "volume": 5808468,
+      "week52_high": 119.78,
+      "week52_low": 92.19
+    },
+    {
       "ticker": "DVA",
       "symbol": "DVA",
       "price": 179.17,
@@ -511,7 +523,7 @@
       "time": "16:00:01",
       "volume": 111979671,
       "week52_high": 142.35,
-      "week52_low": 22.78
+      "week52_low": 21.9
     },
     {
       "ticker": "IRBO",
@@ -977,7 +989,7 @@
       "change_pct": 3.0651060716898297,
       "date": "2026-08-13",
       "time": "16:00:02",
-      "volume": 1774774,
+      "volume": 1774749,
       "week52_high": 534.797,
       "week52_low": 361.031
     },
@@ -992,6 +1004,18 @@
       "volume": 1479660,
       "week52_high": 171.0,
       "week52_low": 126.45
+    },
+    {
+      "ticker": "TDG",
+      "symbol": "TDG",
+      "price": 1246.31,
+      "prev_close": 1235.48,
+      "change_pct": 0.876582380936958,
+      "date": "2026-08-13",
+      "time": "16:00:02",
+      "volume": 319763,
+      "week52_high": 1463.03,
+      "week52_low": 1123.61
     },
     {
       "ticker": "TFLO",
