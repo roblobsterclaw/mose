@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-15T02:48:05.246534+00:00",
+  "generated_at": "2026-08-15T03:34:54.072424+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -710,11 +710,11 @@
         "date": "2026-08-14",
         "time": "16:00:02",
         "volume": 2155582,
-        "week52_high": 94.66,
+        "week52_high": 94.635,
         "week52_low": 68.42
       },
       "metrics": {
-        "week52High": 94.66,
+        "week52High": 94.635,
         "week52Low": 68.42,
         "marketCap": 77966712832,
         "peRatio": 28.333333333333336
@@ -1159,10 +1159,10 @@
         "ticker": "IFNNF",
         "symbol": "IFNNF",
         "price": 72.9,
-        "prev_close": 72.5,
-        "change_pct": 0.5517241379310424,
+        "prev_close": 72.92,
+        "change_pct": -0.027427317608332447,
         "date": "2026-08-14",
-        "time": "10:11:30",
+        "time": "16:00:00",
         "volume": 800,
         "week52_high": 103.5,
         "week52_low": 36.21
@@ -1878,7 +1878,7 @@
         "change_pct": -1.6526247569669485,
         "date": "2026-08-14",
         "time": "16:00:01",
-        "volume": 3239044,
+        "volume": 3241766,
         "week52_high": 108.72,
         "week52_low": 82.59
       },
@@ -2300,7 +2300,7 @@
         "change_pct": 0.12785680038356767,
         "date": "2026-08-14",
         "time": "16:00:00",
-        "volume": 1056740,
+        "volume": 1062847,
         "week52_high": 90.8,
         "week52_low": 40.43
       },
@@ -2910,7 +2910,7 @@
       "quote": {
         "ticker": "^DJI",
         "price": 53732.41,
-        "change_pct": -0.19981430159997146,
+        "change_pct": -0.19983283803862653,
         "source": "yahoo"
       },
       "metrics": {},
@@ -2942,7 +2942,7 @@
       "quote": {
         "ticker": "^RUT",
         "price": 3068.415,
-        "change_pct": 0.5099502202370363,
+        "change_pct": 0.5098514502841626,
         "source": "yahoo"
       },
       "metrics": {},
