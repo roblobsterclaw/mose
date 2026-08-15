@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-15T06:31:19.671886+00:00",
+  "generated_at": "2026-08-15T07:26:29.971427+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -47,7 +47,7 @@
         "change_pct": 0.21848637494688666,
         "date": "2026-08-14",
         "time": "16:00:01",
-        "volume": 326959,
+        "volume": 316200,
         "week52_high": 397.44,
         "week52_low": 143.38
       },
@@ -710,11 +710,11 @@
         "date": "2026-08-14",
         "time": "16:00:02",
         "volume": 2155582,
-        "week52_high": 94.635,
+        "week52_high": 94.66,
         "week52_low": 68.42
       },
       "metrics": {
-        "week52High": 94.635,
+        "week52High": 94.66,
         "week52Low": 68.42,
         "marketCap": 77966712832,
         "peRatio": 28.333333333333336
@@ -2909,13 +2909,13 @@
       "type": "Index",
       "quote": {
         "ticker": "^DJI",
-        "price": 53732.41,
-        "change_pct": -0.19983283803862653,
+        "price": 53732.4,
+        "change_pct": -0.19985141158989328,
         "source": "yahoo"
       },
       "metrics": {},
       "profile": {
-        "vsExit": 15.72905496054341
+        "vsExit": 15.729033422507987
       },
       "source": "yahoo"
     },
