@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-18T14:01:58.750261+00:00",
+  "generated_at": "2026-08-18T14:19:36.360883+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -11,12 +11,12 @@
       "quote": {
         "ticker": "AAPL",
         "symbol": "AAPL",
-        "price": 307.85,
+        "price": 309.55,
         "prev_close": 305.59,
-        "change_pct": 0.7395529958441205,
+        "change_pct": 1.2958539219215408,
         "date": "2026-08-18",
-        "time": "10:01:25",
-        "volume": 7129399,
+        "time": "10:19:00",
+        "volume": 10913211,
         "week52_high": 344.57,
         "week52_low": 223.78
       },
@@ -24,7 +24,7 @@
         "week52High": 344.57,
         "week52Low": 223.78,
         "marketCap": 3979469914112,
-        "peRatio": 39.01774397972117
+        "peRatio": 39.233206590621045
       },
       "profile": {
         "company": "Apple Inc.",
@@ -42,12 +42,12 @@
       "quote": {
         "ticker": "AEIS",
         "symbol": "AEIS",
-        "price": 321.83,
+        "price": 318.455,
         "prev_close": 348.63,
-        "change_pct": -7.687232882999171,
+        "change_pct": -8.655307919570895,
         "date": "2026-08-18",
-        "time": "10:01:19",
-        "volume": 65797,
+        "time": "10:18:40",
+        "volume": 92503,
         "week52_high": 397.44,
         "week52_low": 143.38
       },
@@ -71,12 +71,12 @@
       "quote": {
         "ticker": "AMD",
         "symbol": "AMD",
-        "price": 479.733,
+        "price": 480.585,
         "prev_close": 506.0,
-        "change_pct": -5.191106719367588,
+        "change_pct": -5.022727272727277,
         "date": "2026-08-18",
-        "time": "10:01:26",
-        "volume": 4722668,
+        "time": "10:19:00",
+        "volume": 6150020,
         "week52_high": 584.73,
         "week52_low": 149.22
       },
@@ -100,12 +100,12 @@
       "quote": {
         "ticker": "AMZN",
         "symbol": "AMZN",
-        "price": 258.436,
+        "price": 260.06,
         "prev_close": 261.31,
-        "change_pct": -1.099843098235821,
+        "change_pct": -0.47835903715893,
         "date": "2026-08-18",
-        "time": "10:01:26",
-        "volume": 4927363,
+        "time": "10:19:03",
+        "volume": 6363568,
         "week52_high": 287.2,
         "week52_low": 196.0
       },
@@ -113,7 +113,7 @@
         "week52High": 287.2,
         "week52Low": 196.0,
         "marketCap": 2839014801408,
-        "peRatio": 35.993871866295265
+        "peRatio": 36.22005571030641
       },
       "profile": {
         "company": "Amazon.com, Inc.",
@@ -134,12 +134,12 @@
       "quote": {
         "ticker": "APP",
         "symbol": "APP",
-        "price": 312.07,
+        "price": 312.85,
         "prev_close": 311.98,
-        "change_pct": 0.02884800307711231,
+        "change_pct": 0.27886402974549795,
         "date": "2026-08-18",
-        "time": "10:01:20",
-        "volume": 642150,
+        "time": "10:19:04",
+        "volume": 983458,
         "week52_high": 745.61,
         "week52_low": 303.17
       },
@@ -163,12 +163,12 @@
       "quote": {
         "ticker": "ARM",
         "symbol": "ARM",
-        "price": 253.11,
+        "price": 253.865,
         "prev_close": 271.43,
-        "change_pct": -6.749438160851782,
+        "change_pct": -6.471281730096157,
         "date": "2026-08-18",
-        "time": "10:01:27",
-        "volume": 1104702,
+        "time": "10:19:01",
+        "volume": 1345563,
         "week52_high": 452.7,
         "week52_low": 100.02
       },
@@ -192,12 +192,12 @@
       "quote": {
         "ticker": "ASM",
         "symbol": "ASM",
-        "price": 7.1,
+        "price": 7.01,
         "prev_close": 7.2,
-        "change_pct": -1.3888888888888962,
+        "change_pct": -2.638888888888894,
         "date": "2026-08-18",
-        "time": "10:01:19",
-        "volume": 769667,
+        "time": "10:18:37",
+        "volume": 1362027,
         "week52_high": 11.99,
         "week52_low": 3.66
       },
@@ -221,12 +221,12 @@
       "quote": {
         "ticker": "ASML",
         "symbol": "ASML",
-        "price": 1796.95,
+        "price": 1796.737,
         "prev_close": 1883.12,
-        "change_pct": -4.575916564000162,
+        "change_pct": -4.587227579761238,
         "date": "2026-08-18",
-        "time": "10:01:27",
-        "volume": 262719,
+        "time": "10:19:02",
+        "volume": 323602,
         "week52_high": 1999.96,
         "week52_low": 716.2
       },
@@ -234,7 +234,7 @@
         "week52High": 1999.96,
         "week52Low": 716.2,
         "marketCap": 561823285248,
-        "peRatio": 59.26616094986807
+        "peRatio": 59.25913588390502
       },
       "profile": {
         "company": "ASML Holding N.V.",
@@ -252,12 +252,12 @@
       "quote": {
         "ticker": "AVGO",
         "symbol": "AVGO",
-        "price": 379.135,
+        "price": 378.045,
         "prev_close": 392.43,
-        "change_pct": -3.3878653517824873,
+        "change_pct": -3.6656218943505827,
         "date": "2026-08-18",
-        "time": "10:01:28",
-        "volume": 3520592,
+        "time": "10:19:04",
+        "volume": 4605580,
         "week52_high": 495.0,
         "week52_low": 281.87
       },
@@ -281,12 +281,12 @@
       "quote": {
         "ticker": "AXP",
         "symbol": "AXP",
-        "price": 338.22,
+        "price": 338.87,
         "prev_close": 336.21,
-        "change_pct": 0.5978406353172266,
+        "change_pct": 0.7911721840516419,
         "date": "2026-08-18",
-        "time": "10:01:26",
-        "volume": 211257,
+        "time": "10:19:05",
+        "volume": 293245,
         "week52_high": 387.49,
         "week52_low": 290.97
       },
@@ -294,7 +294,7 @@
         "week52High": 387.49,
         "week52Low": 290.97,
         "marketCap": 214305079296,
-        "peRatio": 21.1123595505618
+        "peRatio": 21.152933832709113
       },
       "profile": {
         "company": "American Express Company",
@@ -312,12 +312,12 @@
       "quote": {
         "ticker": "BABA",
         "symbol": "BABA",
-        "price": 127.195,
+        "price": 127.3,
         "prev_close": 124.71,
-        "change_pct": 1.9926228850934165,
+        "change_pct": 2.076818218266381,
         "date": "2026-08-18",
-        "time": "10:01:29",
-        "volume": 3366853,
+        "time": "10:19:05",
+        "volume": 3963816,
         "week52_high": 192.67,
         "week52_low": 91.99
       },
@@ -325,7 +325,7 @@
         "week52High": 192.67,
         "week52Low": 91.99,
         "marketCap": 335146942464,
-        "peRatio": 22.393485915492956
+        "peRatio": 22.411971830985916
       },
       "profile": {
         "company": "Alibaba Group Holding Limited",
@@ -343,12 +343,12 @@
       "quote": {
         "ticker": "BAC",
         "symbol": "BAC",
-        "price": 64.235,
+        "price": 64.14,
         "prev_close": 63.89,
-        "change_pct": 0.5399906088589747,
+        "change_pct": 0.39129754265143213,
         "date": "2026-08-18",
-        "time": "10:01:29",
-        "volume": 3335586,
+        "time": "10:19:05",
+        "volume": 4695530,
         "week52_high": 65.23,
         "week52_low": 46.12
       },
@@ -375,12 +375,12 @@
       "quote": {
         "ticker": "BE",
         "symbol": "BE",
-        "price": 213.66,
+        "price": 212.97,
         "prev_close": 232.16,
-        "change_pct": -7.9686423156443835,
+        "change_pct": -8.265851137146795,
         "date": "2026-08-18",
-        "time": "10:01:29",
-        "volume": 3572508,
+        "time": "10:19:05",
+        "volume": 4574389,
         "week52_high": 351.28,
         "week52_low": 40.56
       },
@@ -404,12 +404,12 @@
       "quote": {
         "ticker": "BIL",
         "symbol": "BIL",
-        "price": 91.554,
+        "price": 91.555,
         "prev_close": 91.55,
-        "change_pct": 0.004369197160027186,
+        "change_pct": 0.005461496450037863,
         "date": "2026-08-18",
-        "time": "10:01:22",
-        "volume": 1771656,
+        "time": "10:19:03",
+        "volume": 2017322,
         "week52_high": 91.78,
         "week52_low": 91.26
       },
@@ -433,12 +433,12 @@
       "quote": {
         "ticker": "BN",
         "symbol": "BN",
-        "price": 42.05,
+        "price": 42.16,
         "prev_close": 42.75,
-        "change_pct": -1.6374269005848021,
+        "change_pct": -1.3801169590643354,
         "date": "2026-08-18",
-        "time": "10:01:27",
-        "volume": 634701,
+        "time": "10:18:45",
+        "volume": 747224,
         "week52_high": 49.57,
         "week52_low": 37.93
       },
@@ -446,7 +446,7 @@
         "week52High": 49.57,
         "week52Low": 37.93,
         "marketCap": 101744623616,
-        "peRatio": 85.81632653061224
+        "peRatio": 86.0408163265306
       },
       "profile": {
         "company": "Brookfield Corporation",
@@ -464,12 +464,12 @@
       "quote": {
         "ticker": "BRK-B",
         "symbol": "BRK-B",
-        "price": 501.78,
+        "price": 502.97,
         "prev_close": 498.23,
-        "change_pct": 0.7125223290448095,
+        "change_pct": 0.9513678421612526,
         "date": "2026-08-18",
-        "time": "10:01:28",
-        "volume": 494582,
+        "time": "10:19:04",
+        "volume": 688533,
         "week52_high": 537.74,
         "week52_low": 464.01
       },
@@ -477,7 +477,7 @@
         "week52High": 537.74,
         "week52Low": 464.01,
         "marketCap": 1012262699008,
-        "peRatio": 16.176015473887812
+        "peRatio": 16.214377820760802
       },
       "profile": {
         "company": "Berkshire Hathaway Inc.",
@@ -495,12 +495,12 @@
       "quote": {
         "ticker": "CBRS",
         "symbol": "CBRS",
-        "price": 222.31,
+        "price": 221.83,
         "prev_close": 251.98,
-        "change_pct": -11.77474402730375,
+        "change_pct": -11.96523533613778,
         "date": "2026-08-18",
-        "time": "10:01:30",
-        "volume": 3157044,
+        "time": "10:19:04",
+        "volume": 4240609,
         "week52_high": 386.34,
         "week52_low": 160.81
       },
@@ -524,12 +524,12 @@
       "quote": {
         "ticker": "CIEN",
         "symbol": "CIEN",
-        "price": 416.21,
+        "price": 415.6,
         "prev_close": 445.18,
-        "change_pct": -6.507480120400742,
+        "change_pct": -6.644503346960776,
         "date": "2026-08-18",
-        "time": "10:01:30",
-        "volume": 363499,
+        "time": "10:19:04",
+        "volume": 495795,
         "week52_high": 637.51,
         "week52_low": 84.41
       },
@@ -553,12 +553,12 @@
       "quote": {
         "ticker": "CLS",
         "symbol": "CLS",
-        "price": 320.575,
+        "price": 319.38,
         "prev_close": 340.4,
-        "change_pct": -5.824030552291419,
+        "change_pct": -6.175088131609866,
         "date": "2026-08-18",
-        "time": "10:01:22",
-        "volume": 461956,
+        "time": "10:19:08",
+        "volume": 587774,
         "week52_high": 474.03,
         "week52_low": 173.23
       },
@@ -582,12 +582,12 @@
       "quote": {
         "ticker": "CODI",
         "symbol": "CODI",
-        "price": 12.24,
+        "price": 12.185,
         "prev_close": 12.1,
-        "change_pct": 1.1570247933884346,
+        "change_pct": 0.7024793388429823,
         "date": "2026-08-18",
-        "time": "10:00:45",
-        "volume": 35136,
+        "time": "10:18:32",
+        "volume": 43666,
         "week52_high": 13.25,
         "week52_low": 4.58
       },
@@ -595,7 +595,7 @@
         "week52High": 13.25,
         "week52Low": 4.58,
         "marketCap": 864461248,
-        "peRatio": -3.3719008264462813
+        "peRatio": -3.356749311294766
       },
       "profile": {
         "company": "Compass Diversified",
@@ -613,12 +613,12 @@
       "quote": {
         "ticker": "COF",
         "symbol": "COF",
-        "price": 222.795,
+        "price": 223.59,
         "prev_close": 221.45,
-        "change_pct": 0.6073605780085793,
+        "change_pct": 0.9663580943779702,
         "date": "2026-08-18",
-        "time": "10:01:30",
-        "volume": 153628,
+        "time": "10:18:50",
+        "volume": 238131,
         "week52_high": 259.64,
         "week52_low": 174.24
       },
@@ -626,7 +626,7 @@
         "week52High": 259.64,
         "week52Low": 174.24,
         "marketCap": 121378750464,
-        "peRatio": 68.55230769230769
+        "peRatio": 68.79692307692308
       },
       "profile": {
         "company": "Capital One Financial Corporation",
@@ -644,12 +644,12 @@
       "quote": {
         "ticker": "COHR",
         "symbol": "COHR",
-        "price": 314.64,
+        "price": 314.75,
         "prev_close": 351.22,
-        "change_pct": -10.41512442343831,
+        "change_pct": -10.383805022493032,
         "date": "2026-08-18",
-        "time": "10:01:33",
-        "volume": 2233987,
+        "time": "10:19:05",
+        "volume": 2922497,
         "week52_high": 440.0,
         "week52_low": 84.35
       },
@@ -673,12 +673,12 @@
       "quote": {
         "ticker": "COST",
         "symbol": "COST",
-        "price": 960.975,
+        "price": 962.665,
         "prev_close": 953.5,
-        "change_pct": 0.7839538542212924,
+        "change_pct": 0.9611955951756648,
         "date": "2026-08-18",
-        "time": "10:01:30",
-        "volume": 163039,
+        "time": "10:19:04",
+        "volume": 221855,
         "week52_high": 1096.5,
         "week52_low": 844.06
       },
@@ -686,7 +686,7 @@
         "week52High": 1096.5,
         "week52Low": 844.06,
         "marketCap": 448599293952,
-        "peRatio": 50.02472670484123
+        "peRatio": 50.11270171785528
       },
       "profile": {
         "company": "Costco Wholesale Corporation",
@@ -704,12 +704,12 @@
       "quote": {
         "ticker": "CP",
         "symbol": "CP",
-        "price": 94.16,
+        "price": 94.04,
         "prev_close": 93.92,
-        "change_pct": 0.25553662691651924,
+        "change_pct": 0.1277683134582672,
         "date": "2026-08-18",
-        "time": "10:01:09",
-        "volume": 147189,
+        "time": "10:18:17",
+        "volume": 187354,
         "week52_high": 94.66,
         "week52_low": 68.42
       },
@@ -717,7 +717,7 @@
         "week52High": 94.66,
         "week52Low": 68.42,
         "marketCap": 77966712832,
-        "peRatio": 28.533333333333335
+        "peRatio": 28.4969696969697
       },
       "profile": {
         "company": "Canadian Pacific Kansas City Limited",
@@ -735,12 +735,12 @@
       "quote": {
         "ticker": "CSU",
         "symbol": "CSU.TO",
-        "price": 3025.76,
+        "price": 3037.38,
         "prev_close": 2990.99,
-        "change_pct": 1.1624913490182327,
+        "change_pct": 1.5509914777381513,
         "date": "2026-08-18",
-        "time": "10:00:01",
-        "volume": 7026,
+        "time": "10:17:08",
+        "volume": 7704,
         "week52_high": 4634.98,
         "week52_low": 2196.0
       },
@@ -764,12 +764,12 @@
       "quote": {
         "ticker": "CVNA",
         "symbol": "CVNA",
-        "price": 66.815,
+        "price": 65.78,
         "prev_close": 70.09,
-        "change_pct": -4.672563846483102,
+        "change_pct": -6.14923669567699,
         "date": "2026-08-18",
-        "time": "10:01:31",
-        "volume": 1777930,
+        "time": "10:19:09",
+        "volume": 3324515,
         "week52_high": 97.378,
         "week52_low": 54.464
       },
@@ -777,7 +777,7 @@
         "week52High": 97.378,
         "week52Low": 54.464,
         "marketCap": 58495893504,
-        "peRatio": 7.888429752066115
+        "peRatio": 7.766233766233766
       },
       "profile": {
         "company": "Carvana Co.",
@@ -795,12 +795,12 @@
       "quote": {
         "ticker": "CVX",
         "symbol": "CVX",
-        "price": 204.43,
+        "price": 204.815,
         "prev_close": 202.7,
-        "change_pct": 0.8534780463739606,
+        "change_pct": 1.0434139121855004,
         "date": "2026-08-18",
-        "time": "10:01:28",
-        "volume": 974861,
+        "time": "10:18:58",
+        "volume": 1293787,
         "week52_high": 214.71,
         "week52_low": 146.49
       },
@@ -808,7 +808,7 @@
         "week52High": 214.71,
         "week52Low": 146.49,
         "marketCap": 368919576576,
-        "peRatio": 30.834087481146305
+        "peRatio": 30.892156862745097
       },
       "profile": {
         "company": "Chevron Corporation",
@@ -826,12 +826,12 @@
       "quote": {
         "ticker": "DASH",
         "symbol": "DASH",
-        "price": 219.462,
+        "price": 220.12,
         "prev_close": 212.72,
-        "change_pct": 3.169424595712669,
+        "change_pct": 3.4787514103046284,
         "date": "2026-08-18",
-        "time": "10:01:35",
-        "volume": 810469,
+        "time": "10:19:06",
+        "volume": 1149341,
         "week52_high": 285.5,
         "week52_low": 143.3
       },
@@ -855,12 +855,12 @@
       "quote": {
         "ticker": "DE",
         "symbol": "DE",
-        "price": 595.225,
+        "price": 596.295,
         "prev_close": 599.92,
-        "change_pct": -0.7826043472462889,
+        "change_pct": -0.6042472329643953,
         "date": "2026-08-18",
-        "time": "10:01:23",
-        "volume": 108197,
+        "time": "10:19:09",
+        "volume": 158127,
         "week52_high": 674.19,
         "week52_low": 433.0
       },
@@ -884,12 +884,12 @@
       "quote": {
         "ticker": "DIS",
         "symbol": "DIS",
-        "price": 104.24,
+        "price": 104.8,
         "prev_close": 103.5,
-        "change_pct": 0.7149758454106231,
+        "change_pct": 1.2560386473429923,
         "date": "2026-08-18",
-        "time": "10:01:31",
-        "volume": 634001,
+        "time": "10:19:12",
+        "volume": 932738,
         "week52_high": 119.78,
         "week52_low": 92.19
       },
@@ -897,7 +897,7 @@
         "week52High": 119.78,
         "week52Low": 92.19,
         "marketCap": 181757935616,
-        "peRatio": 15.351988217967598
+        "peRatio": 15.434462444771723
       },
       "profile": {
         "company": "The Walt Disney Company",
@@ -915,12 +915,12 @@
       "quote": {
         "ticker": "DVA",
         "symbol": "DVA",
-        "price": 179.09,
+        "price": 178.85,
         "prev_close": 176.7,
-        "change_pct": 1.3525749858517346,
+        "change_pct": 1.2167515563101334,
         "date": "2026-08-18",
-        "time": "10:01:09",
-        "volume": 26411,
+        "time": "10:18:35",
+        "volume": 36325,
         "week52_high": 247.49,
         "week52_low": 101.0
       },
@@ -928,7 +928,7 @@
         "week52High": 247.49,
         "week52Low": 101.0,
         "marketCap": 10013648896,
-        "peRatio": 18.83175604626709
+        "peRatio": 18.80651945320715
       },
       "profile": {
         "company": "DaVita Inc.",
@@ -946,12 +946,12 @@
       "quote": {
         "ticker": "FICO",
         "symbol": "FICO",
-        "price": 1092.3,
+        "price": 1091.225,
         "prev_close": 1064.41,
-        "change_pct": 2.6202309260529186,
+        "change_pct": 2.519236008680849,
         "date": "2026-08-18",
-        "time": "10:01:26",
-        "volume": 13419,
+        "time": "10:19:07",
+        "volume": 19335,
         "week52_high": 1998.01,
         "week52_low": 870.01
       },
@@ -959,7 +959,7 @@
         "week52High": 1998.01,
         "week52Low": 870.01,
         "marketCap": 23834101760,
-        "peRatio": 40.41065482796892
+        "peRatio": 40.37088420273769
       },
       "profile": {
         "company": "Fair Isaac Corporation",
@@ -977,12 +977,12 @@
       "quote": {
         "ticker": "FN",
         "symbol": "FN",
-        "price": 486.36,
+        "price": 486.64,
         "prev_close": 598.58,
-        "change_pct": -18.747702896855895,
+        "change_pct": -18.700925523739524,
         "date": "2026-08-18",
-        "time": "10:01:33",
-        "volume": 686280,
+        "time": "10:19:12",
+        "volume": 886515,
         "week52_high": 748.89,
         "week52_low": 272.49
       },
@@ -1006,12 +1006,12 @@
       "quote": {
         "ticker": "FROG",
         "symbol": "FROG",
-        "price": 93.66,
+        "price": 92.51,
         "prev_close": 94.64,
-        "change_pct": -1.0355029585798858,
+        "change_pct": -2.2506339814032073,
         "date": "2026-08-18",
-        "time": "10:01:34",
-        "volume": 113222,
+        "time": "10:19:13",
+        "volume": 146413,
         "week52_high": 99.22,
         "week52_low": 34.05
       },
@@ -1035,12 +1035,12 @@
       "quote": {
         "ticker": "GE",
         "symbol": "GE",
-        "price": 370.81,
+        "price": 369.17,
         "prev_close": 369.43,
-        "change_pct": 0.37354843948785843,
+        "change_pct": -0.07037869149771023,
         "date": "2026-08-18",
-        "time": "10:01:26",
-        "volume": 1128986,
+        "time": "10:19:08",
+        "volume": 1299891,
         "week52_high": 388.84,
         "week52_low": 263.8
       },
@@ -1048,7 +1048,7 @@
         "week52High": 388.84,
         "week52Low": 263.8,
         "marketCap": 297358524416,
-        "peRatio": 46.063354037267075
+        "peRatio": 45.85962732919254
       },
       "profile": {
         "company": "GE Aerospace",
@@ -1066,12 +1066,12 @@
       "quote": {
         "ticker": "GOOGL",
         "symbol": "GOOGL",
-        "price": 341.71,
+        "price": 342.54,
         "prev_close": 344.0,
-        "change_pct": -0.6656976744186106,
+        "change_pct": -0.42441860465115683,
         "date": "2026-08-18",
-        "time": "10:01:37",
-        "volume": 2796558,
+        "time": "10:19:14",
+        "volume": 3576276,
         "week52_high": 408.61,
         "week52_low": 196.6
       },
@@ -1079,7 +1079,7 @@
         "week52High": 408.61,
         "week52Low": 196.6,
         "marketCap": 4166206881792,
-        "peRatio": 31.610545790934317
+        "peRatio": 31.687326549491214
       },
       "profile": {
         "company": "Alphabet Inc.",
@@ -1100,12 +1100,12 @@
       "quote": {
         "ticker": "HHH",
         "symbol": "HHH",
-        "price": 66.82,
+        "price": 66.79,
         "prev_close": 66.65,
-        "change_pct": 0.25506376594146657,
+        "change_pct": 0.2100525131282829,
         "date": "2026-08-18",
-        "time": "10:00:06",
-        "volume": 19467,
+        "time": "10:16:53",
+        "volume": 48329,
         "week52_high": 91.07,
         "week52_low": 61.01
       },
@@ -1129,12 +1129,12 @@
       "quote": {
         "ticker": "IDGT",
         "symbol": "IDGT",
-        "price": 121.13,
+        "price": 120.45,
         "prev_close": 122.85,
-        "change_pct": -1.4000814000813993,
+        "change_pct": -1.9536019536019467,
         "date": "2026-08-18",
-        "time": "09:46:04",
-        "volume": 1071,
+        "time": "10:18:15",
+        "volume": 2467,
         "week52_high": 133.05,
         "week52_low": 81.12
       },
@@ -1187,12 +1187,12 @@
       "quote": {
         "ticker": "INTC",
         "symbol": "INTC",
-        "price": 96.74,
+        "price": 96.725,
         "prev_close": 103.49,
-        "change_pct": -6.522369311044546,
+        "change_pct": -6.53686346506909,
         "date": "2026-08-18",
-        "time": "10:01:39",
-        "volume": 25499225,
+        "time": "10:19:16",
+        "volume": 33993034,
         "week52_high": 142.35,
         "week52_low": 22.78
       },
@@ -1245,12 +1245,12 @@
       "quote": {
         "ticker": "KHC",
         "symbol": "KHC",
-        "price": 25.05,
+        "price": 25.06,
         "prev_close": 24.75,
-        "change_pct": 1.212121212121215,
+        "change_pct": 1.2525252525252475,
         "date": "2026-08-18",
-        "time": "10:01:37",
-        "volume": 1094484,
+        "time": "10:19:16",
+        "volume": 1400212,
         "week52_high": 28.1,
         "week52_low": 21.035
       },
@@ -1258,7 +1258,7 @@
         "week52High": 28.1,
         "week52Low": 21.035,
         "marketCap": 25971361792,
-        "peRatio": -5.081135902636917
+        "peRatio": -5.0831643002028395
       },
       "profile": {
         "company": "The Kraft Heinz Company",
@@ -1276,12 +1276,12 @@
       "quote": {
         "ticker": "KMX",
         "symbol": "KMX",
-        "price": 58.515,
+        "price": 58.19,
         "prev_close": 58.53,
-        "change_pct": -0.025627883136853866,
+        "change_pct": -0.5808986844353381,
         "date": "2026-08-18",
-        "time": "10:00:44",
-        "volume": 59659,
+        "time": "10:18:16",
+        "volume": 83454,
         "week52_high": 62.56,
         "week52_low": 30.26
       },
@@ -1289,7 +1289,7 @@
         "week52High": 62.56,
         "week52Low": 30.26,
         "marketCap": 5427479040,
-        "peRatio": 34.830357142857146
+        "peRatio": 34.63690476190476
       },
       "profile": {
         "company": "CarMax, Inc.",
@@ -1307,12 +1307,12 @@
       "quote": {
         "ticker": "KVYO",
         "symbol": "KVYO",
-        "price": 18.131,
+        "price": 18.17,
         "prev_close": 17.54,
-        "change_pct": 3.3694412770809636,
+        "change_pct": 3.59179019384266,
         "date": "2026-08-18",
-        "time": "10:01:28",
-        "volume": 583800,
+        "time": "10:19:13",
+        "volume": 738017,
         "week52_high": 36.225,
         "week52_low": 12.53
       },
@@ -1336,12 +1336,12 @@
       "quote": {
         "ticker": "LLY",
         "symbol": "LLY",
-        "price": 1214.02,
+        "price": 1212.125,
         "prev_close": 1183.16,
-        "change_pct": 2.608269380303585,
+        "change_pct": 2.4481050745461235,
         "date": "2026-08-18",
-        "time": "10:01:32",
-        "volume": 323750,
+        "time": "10:19:04",
+        "volume": 413844,
         "week52_high": 1249.45,
         "week52_low": 685.15
       },
@@ -1365,12 +1365,12 @@
       "quote": {
         "ticker": "LOAR",
         "symbol": "LOAR",
-        "price": 75.635,
+        "price": 76.225,
         "prev_close": 77.83,
-        "change_pct": -2.8202492612103214,
+        "change_pct": -2.062186817422593,
         "date": "2026-08-18",
-        "time": "10:00:06",
-        "volume": 16002,
+        "time": "10:19:18",
+        "volume": 31075,
         "week52_high": 83.43,
         "week52_low": 53.15
       },
@@ -1394,12 +1394,12 @@
       "quote": {
         "ticker": "LRCX",
         "symbol": "LRCX",
-        "price": 321.91,
+        "price": 320.96,
         "prev_close": 343.84,
-        "change_pct": -6.3779664960446585,
+        "change_pct": -6.65425779432294,
         "date": "2026-08-18",
-        "time": "10:01:37",
-        "volume": 1189455,
+        "time": "10:19:13",
+        "volume": 1645358,
         "week52_high": 438.5,
         "week52_low": 94.11
       },
@@ -1423,12 +1423,12 @@
       "quote": {
         "ticker": "LUMN",
         "symbol": "LUMN",
-        "price": 6.23,
+        "price": 6.166,
         "prev_close": 6.58,
-        "change_pct": -5.319148936170207,
+        "change_pct": -6.291793313069904,
         "date": "2026-08-18",
-        "time": "10:01:38",
-        "volume": 1189016,
+        "time": "10:19:16",
+        "volume": 1829535,
         "week52_high": 11.95,
         "week52_low": 4.27
       },
@@ -1452,12 +1452,12 @@
       "quote": {
         "ticker": "MA",
         "symbol": "MA",
-        "price": 570.8,
+        "price": 571.555,
         "prev_close": 562.26,
-        "change_pct": 1.5188702735389257,
+        "change_pct": 1.653149788354135,
         "date": "2026-08-18",
-        "time": "10:01:36",
-        "volume": 265964,
+        "time": "10:19:17",
+        "volume": 400441,
         "week52_high": 601.77,
         "week52_low": 464.52
       },
@@ -1465,7 +1465,7 @@
         "week52High": 601.77,
         "week52Low": 464.52,
         "marketCap": 449940324352,
-        "peRatio": 34.510278113663844
+        "peRatio": 34.555925030229744
       },
       "profile": {
         "company": "Mastercard Incorporated",
@@ -1483,12 +1483,12 @@
       "quote": {
         "ticker": "MBGL",
         "symbol": "MBGL",
-        "price": 19.96,
+        "price": 19.93,
         "prev_close": 19.72,
-        "change_pct": 1.2170385395537628,
+        "change_pct": 1.0649087221095377,
         "date": "2026-08-18",
-        "time": "10:00:51",
-        "volume": 682051,
+        "time": "10:19:19",
+        "volume": 912751,
         "week52_high": 26.0,
         "week52_low": 17.67
       },
@@ -1512,12 +1512,12 @@
       "quote": {
         "ticker": "MCO",
         "symbol": "MCO",
-        "price": 483.835,
+        "price": 484.918,
         "prev_close": 477.17,
-        "change_pct": 1.3967768300605576,
+        "change_pct": 1.6237399668881092,
         "date": "2026-08-18",
-        "time": "10:00:51",
-        "volume": 27187,
+        "time": "10:19:12",
+        "volume": 42970,
         "week52_high": 546.88,
         "week52_low": 402.28
       },
@@ -1525,7 +1525,7 @@
         "week52High": 546.88,
         "week52Low": 402.28,
         "marketCap": 79661187072,
-        "peRatio": 34.6586676217765
+        "peRatio": 34.736246418338105
       },
       "profile": {
         "company": "Moody's Corporation",
@@ -1543,12 +1543,12 @@
       "quote": {
         "ticker": "MDB",
         "symbol": "MDB",
-        "price": 442.35,
+        "price": 438.46,
         "prev_close": 438.7,
-        "change_pct": 0.8320036471392829,
+        "change_pct": -0.05470708912696811,
         "date": "2026-08-18",
-        "time": "10:01:37",
-        "volume": 130762,
+        "time": "10:19:18",
+        "volume": 212265,
         "week52_high": 473.1,
         "week52_low": 206.92
       },
@@ -1572,12 +1572,12 @@
       "quote": {
         "ticker": "MELI",
         "symbol": "MELI",
-        "price": 1790.0,
+        "price": 1792.85,
         "prev_close": 1787.57,
-        "change_pct": 0.13593873246922156,
+        "change_pct": 0.29537304832817585,
         "date": "2026-08-18",
-        "time": "10:01:39",
-        "volume": 47917,
+        "time": "10:19:15",
+        "volume": 67496,
         "week52_high": 2548.5,
         "week52_low": 1495.0
       },
@@ -1585,7 +1585,7 @@
         "week52High": 2548.5,
         "week52Low": 1495.0,
         "marketCap": 93040484352,
-        "peRatio": 45.362392295995946
+        "peRatio": 45.43461733400912
       },
       "profile": {
         "company": "MercadoLibre, Inc.",
@@ -1603,12 +1603,12 @@
       "quote": {
         "ticker": "META",
         "symbol": "META",
-        "price": 547.83,
+        "price": 547.82,
         "prev_close": 568.97,
-        "change_pct": -3.7154858779900497,
+        "change_pct": -3.7172434399001664,
         "date": "2026-08-18",
-        "time": "10:01:43",
-        "volume": 5821744,
+        "time": "10:19:20",
+        "volume": 7181410,
         "week52_high": 790.8,
         "week52_low": 520.26
       },
@@ -1616,7 +1616,7 @@
         "week52High": 790.8,
         "week52Low": 520.26,
         "marketCap": 1713511989248,
-        "peRatio": 23.321839080459775
+        "peRatio": 23.32141336739038
       },
       "profile": {
         "company": "Meta Platforms, Inc.",
@@ -1634,12 +1634,12 @@
       "quote": {
         "ticker": "MKSI",
         "symbol": "MKSI",
-        "price": 302.86,
+        "price": 301.68,
         "prev_close": 320.74,
-        "change_pct": -5.574608717341147,
+        "change_pct": -5.9425079503647815,
         "date": "2026-08-18",
-        "time": "10:01:19",
-        "volume": 171928,
+        "time": "10:18:55",
+        "volume": 236493,
         "week52_high": 447.62,
         "week52_low": 97.3
       },
@@ -1663,12 +1663,12 @@
       "quote": {
         "ticker": "MRVL",
         "symbol": "MRVL",
-        "price": 218.1,
+        "price": 217.585,
         "prev_close": 234.33,
-        "change_pct": -6.926129816924857,
+        "change_pct": -7.14590534715999,
         "date": "2026-08-18",
-        "time": "10:01:43",
-        "volume": 5371204,
+        "time": "10:19:20",
+        "volume": 6493455,
         "week52_high": 329.88,
         "week52_low": 61.44
       },
@@ -1692,12 +1692,12 @@
       "quote": {
         "ticker": "MSFT",
         "symbol": "MSFT",
-        "price": 480.345,
+        "price": 482.04,
         "prev_close": 480.35,
-        "change_pct": -0.0010409076714885921,
+        "change_pct": 0.35182679296346364,
         "date": "2026-08-18",
-        "time": "10:01:43",
-        "volume": 3487695,
+        "time": "10:19:20",
+        "volume": 4269605,
         "week52_high": 553.72,
         "week52_low": 349.2
       },
@@ -1705,7 +1705,7 @@
         "week52High": 553.72,
         "week52Low": 349.2,
         "marketCap": 3155936149504,
-        "peRatio": 30.07795867251096
+        "peRatio": 30.18409517845961
       },
       "profile": {
         "company": "Microsoft Corporation",
@@ -1723,12 +1723,12 @@
       "quote": {
         "ticker": "MTSI",
         "symbol": "MTSI",
-        "price": 305.35,
+        "price": 304.4,
         "prev_close": 327.53,
-        "change_pct": -6.771898757365722,
+        "change_pct": -7.061948523799345,
         "date": "2026-08-18",
-        "time": "10:01:09",
-        "volume": 135814,
+        "time": "10:19:07",
+        "volume": 207738,
         "week52_high": 418.9,
         "week52_low": 118.28
       },
@@ -1752,12 +1752,12 @@
       "quote": {
         "ticker": "MU",
         "symbol": "MU",
-        "price": 957.324,
+        "price": 954.715,
         "prev_close": 1011.75,
-        "change_pct": -5.379392142327655,
+        "change_pct": -5.637262169508275,
         "date": "2026-08-18",
-        "time": "10:01:43",
-        "volume": 8071315,
+        "time": "10:19:21",
+        "volume": 10375757,
         "week52_high": 1255.0,
         "week52_low": 113.46
       },
@@ -1781,12 +1781,12 @@
       "quote": {
         "ticker": "NLR",
         "symbol": "NLR",
-        "price": 116.46,
+        "price": 115.25,
         "prev_close": 118.35,
-        "change_pct": -1.5969581749049433,
+        "change_pct": -2.619349387410219,
         "date": "2026-08-18",
-        "time": "10:00:06",
-        "volume": 59617,
+        "time": "10:18:45",
+        "volume": 71533,
         "week52_high": 168.12,
         "week52_low": 101.92
       },
@@ -1810,12 +1810,12 @@
       "quote": {
         "ticker": "NVDA",
         "symbol": "NVDA",
-        "price": 219.945,
+        "price": 219.24,
         "prev_close": 225.01,
-        "change_pct": -2.251011066174836,
+        "change_pct": -2.5643304742011384,
         "date": "2026-08-18",
-        "time": "10:01:45",
-        "volume": 18272411,
+        "time": "10:19:22",
+        "volume": 23972834,
         "week52_high": 236.54,
         "week52_low": 164.07
       },
@@ -1823,7 +1823,7 @@
         "week52High": 236.54,
         "week52Low": 164.07,
         "marketCap": 5062002737152,
-        "peRatio": 44.97852760736196
+        "peRatio": 44.834355828220865
       },
       "profile": {
         "company": "NVIDIA Corporation",
@@ -1844,12 +1844,12 @@
       "quote": {
         "ticker": "NVS",
         "symbol": "NVS",
-        "price": 154.53,
+        "price": 154.79,
         "prev_close": 151.97,
-        "change_pct": 1.684543001908273,
+        "change_pct": 1.8556294005395757,
         "date": "2026-08-18",
-        "time": "10:01:24",
-        "volume": 168302,
+        "time": "10:19:08",
+        "volume": 204479,
         "week52_high": 170.46,
         "week52_low": 121.57
       },
@@ -1873,12 +1873,12 @@
       "quote": {
         "ticker": "ORLY",
         "symbol": "ORLY",
-        "price": 91.42,
+        "price": 91.46,
         "prev_close": 90.23,
-        "change_pct": 1.318851823118694,
+        "change_pct": 1.3631829768369608,
         "date": "2026-08-18",
-        "time": "10:01:31",
-        "volume": 425063,
+        "time": "10:19:23",
+        "volume": 597250,
         "week52_high": 108.72,
         "week52_low": 82.59
       },
@@ -1886,7 +1886,7 @@
         "week52High": 108.72,
         "week52Low": 82.59,
         "marketCap": 78088298496,
-        "peRatio": 30.78114478114478
+        "peRatio": 30.79461279461279
       },
       "profile": {
         "company": "O'Reilly Automotive, Inc.",
@@ -1904,12 +1904,12 @@
       "quote": {
         "ticker": "OXY",
         "symbol": "OXY",
-        "price": 59.33,
+        "price": 59.34,
         "prev_close": 59.04,
-        "change_pct": 0.49119241192411783,
+        "change_pct": 0.5081300813008202,
         "date": "2026-08-18",
-        "time": "10:01:46",
-        "volume": 1296407,
+        "time": "10:19:22",
+        "volume": 1645897,
         "week52_high": 67.45,
         "week52_low": 38.8
       },
@@ -1917,7 +1917,7 @@
         "week52High": 67.45,
         "week52Low": 38.8,
         "marketCap": 56645627904,
-        "peRatio": 43.94814814814814
+        "peRatio": 43.955555555555556
       },
       "profile": {
         "company": "Occidental Petroleum Corporation",
@@ -1935,12 +1935,12 @@
       "quote": {
         "ticker": "PGR",
         "symbol": "PGR",
-        "price": 206.82,
+        "price": 207.255,
         "prev_close": 203.84,
-        "change_pct": 1.4619309262166356,
+        "change_pct": 1.6753335949764483,
         "date": "2026-08-18",
-        "time": "10:01:34",
-        "volume": 401697,
+        "time": "10:19:18",
+        "volume": 567950,
         "week52_high": 254.93,
         "week52_low": 189.2
       },
@@ -1948,7 +1948,7 @@
         "week52High": 254.93,
         "week52Low": 189.2,
         "marketCap": 117400117248,
-        "peRatio": 10.755070202808112
+        "peRatio": 10.777691107644305
       },
       "profile": {
         "company": "The Progressive Corporation",
@@ -1966,12 +1966,12 @@
       "quote": {
         "ticker": "PLD",
         "symbol": "PLD",
-        "price": 140.75,
+        "price": 140.09,
         "prev_close": 140.62,
-        "change_pct": 0.09244773147489364,
+        "change_pct": -0.37690228985919577,
         "date": "2026-08-18",
-        "time": "10:01:29",
-        "volume": 361385,
+        "time": "10:18:45",
+        "volume": 474276,
         "week52_high": 153.35,
         "week52_low": 107.03
       },
@@ -1979,7 +1979,7 @@
         "week52High": 153.35,
         "week52Low": 107.03,
         "marketCap": 132469981184,
-        "peRatio": 39.42577030812325
+        "peRatio": 39.240896358543424
       },
       "profile": {
         "company": "Prologis, Inc.",
@@ -2000,12 +2000,12 @@
       "quote": {
         "ticker": "PLTR",
         "symbol": "PLTR",
-        "price": 174.56,
+        "price": 173.19,
         "prev_close": 172.55,
-        "change_pct": 1.1648797450014434,
+        "change_pct": 0.37090698348304046,
         "date": "2026-08-18",
-        "time": "10:01:46",
-        "volume": 5270328,
+        "time": "10:19:23",
+        "volume": 7247623,
         "week52_high": 207.52,
         "week52_low": 106.37
       },
@@ -2029,12 +2029,12 @@
       "quote": {
         "ticker": "POWR",
         "symbol": "POWR",
-        "price": 26.95,
+        "price": 26.83,
         "prev_close": 27.115,
-        "change_pct": -0.6085192697768731,
+        "change_pct": -1.0510787387055143,
         "date": "2026-08-18",
-        "time": "09:58:06",
-        "volume": 18283,
+        "time": "10:19:08",
+        "volume": 32535,
         "week52_high": 28.44,
         "week52_low": 23.18
       },
@@ -2058,12 +2058,12 @@
       "quote": {
         "ticker": "QQQ",
         "symbol": "QQQ",
-        "price": 718.74,
+        "price": 718.55,
         "prev_close": 729.87,
-        "change_pct": -1.524929096962472,
+        "change_pct": -1.550961130064265,
         "date": "2026-08-18",
-        "time": "10:01:46",
-        "volume": 7994381,
+        "time": "10:19:25",
+        "volume": 10253471,
         "week52_high": 748.65,
         "week52_low": 555.6
       },
@@ -2087,12 +2087,12 @@
       "quote": {
         "ticker": "RACE",
         "symbol": "RACE",
-        "price": 414.89,
+        "price": 415.325,
         "prev_close": 417.1,
-        "change_pct": -0.5298489570846406,
+        "change_pct": -0.42555742028291393,
         "date": "2026-08-18",
-        "time": "10:01:34",
-        "volume": 35755,
+        "time": "10:18:55",
+        "volume": 44466,
         "week52_high": 504.49,
         "week52_low": 312.51
       },
@@ -2116,12 +2116,12 @@
       "quote": {
         "ticker": "RBLX",
         "symbol": "RBLX",
-        "price": 38.415,
+        "price": 38.445,
         "prev_close": 37.93,
-        "change_pct": 1.2786712364882664,
+        "change_pct": 1.3577643026628015,
         "date": "2026-08-18",
-        "time": "10:01:42",
-        "volume": 815554,
+        "time": "10:19:20",
+        "volume": 1202180,
         "week52_high": 142.0,
         "week52_low": 33.88
       },
@@ -2145,12 +2145,12 @@
       "quote": {
         "ticker": "ROBO",
         "symbol": "ROBO",
-        "price": 82.575,
+        "price": 82.47,
         "prev_close": 84.82,
-        "change_pct": -2.646781419476527,
+        "change_pct": -2.770572978071203,
         "date": "2026-08-18",
-        "time": "10:01:10",
-        "volume": 58691,
+        "time": "10:19:06",
+        "volume": 69559,
         "week52_high": 90.51,
         "week52_low": 61.93
       },
@@ -2174,12 +2174,12 @@
       "quote": {
         "ticker": "ROP",
         "symbol": "ROP",
-        "price": 397.867,
+        "price": 397.01,
         "prev_close": 389.71,
-        "change_pct": 2.0930948654127532,
+        "change_pct": 1.8731877549973086,
         "date": "2026-08-18",
-        "time": "10:01:20",
-        "volume": 37641,
+        "time": "10:19:19",
+        "volume": 50066,
         "week52_high": 544.94,
         "week52_low": 305.96
       },
@@ -2187,7 +2187,7 @@
         "week52High": 544.94,
         "week52Low": 305.96,
         "marketCap": 36374581248,
-        "peRatio": 24.851155527795125
+        "peRatio": 24.797626483447843
       },
       "profile": {
         "company": "Roper Technologies, Inc.",
@@ -2205,12 +2205,12 @@
       "quote": {
         "ticker": "SGOV",
         "symbol": "SGOV",
-        "price": 100.573,
+        "price": 100.57,
         "prev_close": 100.56,
-        "change_pct": 0.012927605409696718,
+        "change_pct": 0.009944311853610685,
         "date": "2026-08-18",
-        "time": "10:01:47",
-        "volume": 3093589,
+        "time": "10:19:20",
+        "volume": 3971527,
         "week52_high": 100.74,
         "week52_low": 100.27
       },
@@ -2237,12 +2237,12 @@
       "quote": {
         "ticker": "SITM",
         "symbol": "SITM",
-        "price": 691.51,
+        "price": 695.16,
         "prev_close": 749.44,
-        "change_pct": -7.729771562766874,
+        "change_pct": -7.242741246797619,
         "date": "2026-08-18",
-        "time": "10:01:15",
-        "volume": 65672,
+        "time": "10:19:20",
+        "volume": 97222,
         "week52_high": 901.81,
         "week52_low": 204.605
       },
@@ -2266,12 +2266,12 @@
       "quote": {
         "ticker": "SMH",
         "symbol": "SMH",
-        "price": 569.89,
+        "price": 568.74,
         "prev_close": 594.07,
-        "change_pct": -4.070227414277789,
+        "change_pct": -4.263807295436571,
         "date": "2026-08-18",
-        "time": "10:01:47",
-        "volume": 2012232,
+        "time": "10:19:25",
+        "volume": 2956727,
         "week52_high": 671.83,
         "week52_low": 281.15
       },
@@ -2295,12 +2295,12 @@
       "quote": {
         "ticker": "SOLS",
         "symbol": "SOLS",
-        "price": 60.785,
+        "price": 60.64,
         "prev_close": 62.55,
-        "change_pct": -2.8217426059152686,
+        "change_pct": -3.0535571542765734,
         "date": "2026-08-18",
-        "time": "10:00:44",
-        "volume": 84206,
+        "time": "10:18:53",
+        "volume": 173767,
         "week52_high": 90.8,
         "week52_low": 40.43
       },
@@ -2324,12 +2324,12 @@
       "quote": {
         "ticker": "SPCX",
         "symbol": "SPCX",
-        "price": 141.035,
+        "price": 141.088,
         "prev_close": 146.23,
-        "change_pct": -3.552622580865755,
+        "change_pct": -3.5163783081447013,
         "date": "2026-08-18",
-        "time": "10:01:49",
-        "volume": 18487358,
+        "time": "10:19:20",
+        "volume": 22056416,
         "week52_high": 225.64,
         "week52_low": 104.83
       },
@@ -2353,12 +2353,12 @@
       "quote": {
         "ticker": "SPGI",
         "symbol": "SPGI",
-        "price": 416.98,
+        "price": 417.59,
         "prev_close": 410.53,
-        "change_pct": 1.5711397461817762,
+        "change_pct": 1.7197281562857776,
         "date": "2026-08-18",
-        "time": "10:01:39",
-        "volume": 184150,
+        "time": "10:19:19",
+        "volume": 256905,
         "week52_high": 529.423,
         "week52_low": 361.031
       },
@@ -2366,7 +2366,7 @@
         "week52High": 529.423,
         "week52Low": 361.031,
         "marketCap": 130512855040,
-        "peRatio": 28.404632152588558
+        "peRatio": 28.446185286103542
       },
       "profile": {
         "company": "S&P Global Inc.",
@@ -2384,12 +2384,12 @@
       "quote": {
         "ticker": "STZ",
         "symbol": "STZ",
-        "price": 130.11,
+        "price": 130.86,
         "prev_close": 130.56,
-        "change_pct": -0.3446691176470501,
+        "change_pct": 0.22977941176471461,
         "date": "2026-08-18",
-        "time": "10:01:45",
-        "volume": 206733,
+        "time": "10:19:19",
+        "volume": 257182,
         "week52_high": 169.0,
         "week52_low": 126.45
       },
@@ -2397,7 +2397,7 @@
         "week52High": 169.0,
         "week52Low": 126.45,
         "marketCap": 26862960640,
-        "peRatio": 13.539021852237255
+        "peRatio": 13.617065556711761
       },
       "profile": {
         "company": "Constellation Brands, Inc.",
@@ -2415,12 +2415,12 @@
       "quote": {
         "ticker": "TDG",
         "symbol": "TDG",
-        "price": 1231.58,
+        "price": 1232.17,
         "prev_close": 1237.82,
-        "change_pct": -0.5041120679905001,
+        "change_pct": -0.4564476256644637,
         "date": "2026-08-18",
-        "time": "10:01:05",
-        "volume": 14569,
+        "time": "10:18:57",
+        "volume": 24663,
         "week52_high": 1463.03,
         "week52_low": 1123.61
       },
@@ -2428,7 +2428,7 @@
         "week52High": 1463.03,
         "week52Low": 1123.61,
         "marketCap": 64841818112,
-        "peRatio": 39.57519280205655
+        "peRatio": 39.594151670951156
       },
       "profile": {
         "company": "TransDigm Group Incorporated",
@@ -2450,8 +2450,8 @@
         "prev_close": 50.59,
         "change_pct": -0.009883376161301754,
         "date": "2026-08-18",
-        "time": "10:00:48",
-        "volume": 192878,
+        "time": "10:19:10",
+        "volume": 219986,
         "week52_high": 50.67,
         "week52_low": 50.39
       },
@@ -2475,12 +2475,12 @@
       "quote": {
         "ticker": "TPL",
         "symbol": "TPL",
-        "price": 362.637,
+        "price": 361.99,
         "prev_close": 360.79,
-        "change_pct": 0.5119321488954738,
+        "change_pct": 0.3326034535325227,
         "date": "2026-08-18",
-        "time": "10:00:07",
-        "volume": 27489,
+        "time": "10:19:18",
+        "volume": 42064,
         "week52_high": 547.2,
         "week52_low": 269.233
       },
@@ -2504,12 +2504,12 @@
       "quote": {
         "ticker": "TSEM",
         "symbol": "TSEM",
-        "price": 245.4,
+        "price": 246.28,
         "prev_close": 263.73,
-        "change_pct": -6.950290069389152,
+        "change_pct": -6.6166154779509405,
         "date": "2026-08-18",
-        "time": "10:01:51",
-        "volume": 327398,
+        "time": "10:19:18",
+        "volume": 414780,
         "week52_high": 319.94,
         "week52_low": 47.97
       },
@@ -2533,12 +2533,12 @@
       "quote": {
         "ticker": "TSLA",
         "symbol": "TSLA",
-        "price": 337.63,
+        "price": 336.59,
         "prev_close": 339.3,
-        "change_pct": -0.49218980253463485,
+        "change_pct": -0.7987032124963267,
         "date": "2026-08-18",
-        "time": "10:01:52",
-        "volume": 6635539,
+        "time": "10:19:28",
+        "volume": 8050689,
         "week52_high": 498.83,
         "week52_low": 297.38
       },
@@ -2546,7 +2546,7 @@
         "week52High": 498.83,
         "week52Low": 297.38,
         "marketCap": 1413278859264,
-        "peRatio": 309.7522935779816
+        "peRatio": 308.79816513761466
       },
       "profile": {
         "company": "Tesla, Inc.",
@@ -2564,12 +2564,12 @@
       "quote": {
         "ticker": "TSM",
         "symbol": "TSM",
-        "price": 414.785,
+        "price": 414.935,
         "prev_close": 430.97,
-        "change_pct": -3.755481820080284,
+        "change_pct": -3.7206766132213436,
         "date": "2026-08-18",
-        "time": "10:01:52",
-        "volume": 2474168,
+        "time": "10:19:18",
+        "volume": 3175538,
         "week52_high": 479.0,
         "week52_low": 223.7
       },
@@ -2577,7 +2577,7 @@
         "week52High": 479.0,
         "week52Low": 223.7,
         "marketCap": 2087318585344,
-        "peRatio": 35.54284490145673
+        "peRatio": 35.55569837189375
       },
       "profile": {
         "company": "Taiwan Semiconductor Manufacturing Company Limited",
@@ -2595,12 +2595,12 @@
       "quote": {
         "ticker": "TTMI",
         "symbol": "TTMI",
-        "price": 129.61,
+        "price": 127.07,
         "prev_close": 140.98,
-        "change_pct": -8.064973755142557,
+        "change_pct": -9.866647751454105,
         "date": "2026-08-18",
-        "time": "10:01:51",
-        "volume": 449886,
+        "time": "10:19:24",
+        "volume": 713092,
         "week52_high": 223.83,
         "week52_low": 39.2
       },
@@ -2624,12 +2624,12 @@
       "quote": {
         "ticker": "TXN",
         "symbol": "TXN",
-        "price": 273.74,
+        "price": 273.49,
         "prev_close": 282.91,
-        "change_pct": -3.241313491923232,
+        "change_pct": -3.3296808172210297,
         "date": "2026-08-18",
-        "time": "10:01:52",
-        "volume": 753236,
+        "time": "10:19:29",
+        "volume": 932501,
         "week52_high": 334.03,
         "week52_low": 152.73
       },
@@ -2653,12 +2653,12 @@
       "quote": {
         "ticker": "UBER",
         "symbol": "UBER",
-        "price": 76.65,
+        "price": 76.85,
         "prev_close": 74.99,
-        "change_pct": 2.213628483797854,
+        "change_pct": 2.480330710761434,
         "date": "2026-08-18",
-        "time": "10:01:52",
-        "volume": 2192653,
+        "time": "10:19:28",
+        "volume": 3129183,
         "week52_high": 101.99,
         "week52_low": 65.41
       },
@@ -2666,7 +2666,7 @@
         "week52High": 101.99,
         "week52Low": 65.41,
         "marketCap": 153617776640,
-        "peRatio": 16.20507399577167
+        "peRatio": 16.24735729386892
       },
       "profile": {
         "company": "Uber Technologies, Inc.",
@@ -2684,12 +2684,12 @@
       "quote": {
         "ticker": "V",
         "symbol": "V",
-        "price": 363.635,
+        "price": 363.89,
         "prev_close": 358.84,
-        "change_pct": 1.336250139337871,
+        "change_pct": 1.40731245123175,
         "date": "2026-08-18",
-        "time": "10:01:51",
-        "volume": 1787414,
+        "time": "10:19:29",
+        "volume": 2075058,
         "week52_high": 373.97,
         "week52_low": 293.89
       },
@@ -2697,7 +2697,7 @@
         "week52High": 373.97,
         "week52Low": 293.89,
         "marketCap": 596574011392,
-        "peRatio": 34.17622180451128
+        "peRatio": 34.20018796992481
       },
       "profile": {
         "company": "Visa Inc.",
@@ -2715,12 +2715,12 @@
       "quote": {
         "ticker": "VIAV",
         "symbol": "VIAV",
-        "price": 42.455,
+        "price": 42.27,
         "prev_close": 46.26,
-        "change_pct": -8.2252485948984,
+        "change_pct": -8.625162127107641,
         "date": "2026-08-18",
-        "time": "10:01:37",
-        "volume": 448399,
+        "time": "10:19:23",
+        "volume": 650099,
         "week52_high": 60.43,
         "week52_low": 10.45
       },
@@ -2744,12 +2744,12 @@
       "quote": {
         "ticker": "VOO",
         "symbol": "VOO",
-        "price": 706.365,
+        "price": 706.455,
         "prev_close": 710.27,
-        "change_pct": -0.5497909245779735,
+        "change_pct": -0.537119686879629,
         "date": "2026-08-18",
-        "time": "10:01:53",
-        "volume": 977791,
+        "time": "10:19:31",
+        "volume": 1208951,
         "week52_high": 716.39,
         "week52_low": 578.46
       },
@@ -2773,12 +2773,12 @@
       "quote": {
         "ticker": "VRSN",
         "symbol": "VRSN",
-        "price": 277.8,
+        "price": 278.49,
         "prev_close": 272.77,
-        "change_pct": 1.8440444330388348,
+        "change_pct": 2.097004802580939,
         "date": "2026-08-18",
-        "time": "09:59:45",
-        "volume": 44897,
+        "time": "10:19:20",
+        "volume": 65248,
         "week52_high": 312.48,
         "week52_low": 208.86
       },
@@ -2786,7 +2786,7 @@
         "week52High": 312.48,
         "week52Low": 208.86,
         "marketCap": 24497201152,
-        "peRatio": 30.696132596685082
+        "peRatio": 30.772375690607735
       },
       "profile": {
         "company": "VeriSign, Inc.",
@@ -2804,12 +2804,12 @@
       "quote": {
         "ticker": "VTV",
         "symbol": "VTV",
-        "price": 227.13,
+        "price": 227.1,
         "prev_close": 226.69,
-        "change_pct": 0.1940976664166914,
+        "change_pct": 0.18086373461555277,
         "date": "2026-08-18",
-        "time": "10:01:35",
-        "volume": 265387,
+        "time": "10:19:30",
+        "volume": 386804,
         "week52_high": 227.86,
         "week52_low": 180.3
       },
@@ -2833,12 +2833,12 @@
       "quote": {
         "ticker": "WDC",
         "symbol": "WDC",
-        "price": 504.56,
+        "price": 502.361,
         "prev_close": 536.01,
-        "change_pct": -5.867427846495399,
+        "change_pct": -6.277681386541296,
         "date": "2026-08-18",
-        "time": "10:01:52",
-        "volume": 1598202,
+        "time": "10:19:29",
+        "volume": 2030216,
         "week52_high": 799.87,
         "week52_low": 73.14
       },
@@ -2862,12 +2862,12 @@
       "quote": {
         "ticker": "WMT",
         "symbol": "WMT",
-        "price": 115.125,
+        "price": 115.35,
         "prev_close": 114.33,
-        "change_pct": 0.6953555497244832,
+        "change_pct": 0.8921542902125391,
         "date": "2026-08-18",
-        "time": "10:01:55",
-        "volume": 2850411,
+        "time": "10:19:33",
+        "volume": 3606802,
         "week52_high": 135.16,
         "week52_low": 95.42
       },
@@ -2875,7 +2875,7 @@
         "week52High": 135.16,
         "week52Low": 95.42,
         "marketCap": 1035591090176,
-        "peRatio": 42.17032967032967
+        "peRatio": 42.25274725274725
       },
       "profile": {
         "company": "Walmart Inc.",
@@ -2893,13 +2893,13 @@
       "type": "Index",
       "quote": {
         "ticker": "^GSPC",
-        "price": 7704.39,
-        "change_pct": -0.5251089081298282,
+        "price": 7705.24,
+        "change_pct": -0.5141341706842893,
         "source": "yahoo"
       },
       "metrics": {},
       "profile": {
-        "vsExit": 16.876621307968882
+        "vsExit": 16.88951592105463
       },
       "source": "yahoo"
     },
@@ -2909,13 +2909,13 @@
       "type": "Index",
       "quote": {
         "ticker": "^DJI",
-        "price": 53424.92,
-        "change_pct": -0.06520790021956803,
+        "price": 53435.32,
+        "change_pct": -0.04575402293088211,
         "source": "yahoo"
       },
       "metrics": {},
       "profile": {
-        "vsExit": 15.066781909514837
+        "vsExit": 15.089181466348226
       },
       "source": "yahoo"
     },
@@ -2925,8 +2925,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^IXIC",
-        "price": 26318.635,
-        "change_pct": -1.2245303136696706,
+        "price": 26313.562,
+        "change_pct": -1.243569597345227,
         "source": "yahoo"
       },
       "metrics": {},
@@ -2941,8 +2941,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^RUT",
-        "price": 3040.0745,
-        "change_pct": -0.5712206918778242,
+        "price": 3042.956,
+        "change_pct": -0.4769782555242579,
         "source": "yahoo"
       },
       "metrics": {},
@@ -2957,8 +2957,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 15.74,
-        "change_pct": 3.620803159973672,
+        "price": 15.72,
+        "change_pct": 3.489137590520087,
         "source": "yahoo"
       },
       "metrics": {},
