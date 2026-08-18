@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-18T06:25:19.431126+00:00",
+  "generated_at": "2026-08-18T07:29:39.734567+00:00",
   "source": "yahoo",
   "market_status": "closed",
   "indices": [
@@ -14,9 +14,9 @@
     {
       "name": "Dow Jones",
       "ticker": "^DJI",
-      "price": 53459.78,
-      "change_pct": -0.507366132910502,
-      "vs_exit": 15.141863500977507,
+      "price": 53459.8,
+      "change_pct": -0.5073289114202949,
+      "vs_exit": 15.141906577048347,
       "source": "yahoo"
     },
     {
@@ -39,7 +39,7 @@
       "name": "VIX",
       "ticker": "^VIX",
       "price": 15.19,
-      "change_pct": 6.596491228070173,
+      "change_pct": 0,
       "vs_exit": null,
       "source": "yahoo"
     }
@@ -53,7 +53,7 @@
       "change_pct": -0.11113653450136692,
       "date": "2026-08-17",
       "time": "16:00:01",
-      "volume": 32739721,
+      "volume": 32743947,
       "week52_high": 344.57,
       "week52_low": 223.78
     },
@@ -917,7 +917,7 @@
       "change_pct": -2.411478940251414,
       "date": "2026-08-17",
       "time": "16:00:01",
-      "volume": 734855,
+      "volume": 735122,
       "week52_high": 544.94,
       "week52_low": 305.96
     },
@@ -1049,7 +1049,7 @@
       "change_pct": -0.6591833659786047,
       "date": "2026-08-17",
       "time": "16:00:01",
-      "volume": 1212421,
+      "volume": 1213007,
       "week52_high": 319.94,
       "week52_low": 47.97
     },
@@ -1157,7 +1157,7 @@
       "change_pct": -4.035322262876452,
       "date": "2026-08-17",
       "time": "16:00:00",
-      "volume": 720551,
+      "volume": 723581,
       "week52_high": 312.48,
       "week52_low": 208.86
     },
@@ -1171,7 +1171,7 @@
       "time": "16:00:00",
       "volume": 2457631,
       "week52_high": 227.86,
-      "week52_low": 180.3
+      "week52_low": 180.0
     },
     {
       "ticker": "WDC",
@@ -1181,7 +1181,7 @@
       "change_pct": 5.347877358490562,
       "date": "2026-08-17",
       "time": "16:00:01",
-      "volume": 8512942,
+      "volume": 8520645,
       "week52_high": 799.87,
       "week52_low": 73.14
     },
