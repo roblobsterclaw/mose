@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-08-18T10:54:15.781371+00:00",
+  "generated_at": "2026-08-18T10:59:15.943004+00:00",
   "source": "SEC EDGAR submissions and Archives information tables",
   "quarters_requested": 8,
-  "investor_count": 29,
-  "filings_pulled": 219,
+  "investor_count": 30,
+  "filings_pulled": 224,
   "failed_investors": [],
   "investors": [
     {
@@ -310967,6 +310967,281 @@
           ],
           "total_value": 7430992033000.0,
           "num_holdings": 42
+        }
+      ],
+      "filing_errors": []
+    },
+    {
+      "name": "Bill Ackman (Pershing Square Inc.)",
+      "fund": "Pershing Square Inc.",
+      "tier": 1,
+      "cik": "2026053",
+      "source_type": "13F",
+      "filings": [
+        {
+          "form": "13F-HR",
+          "company": "PERSHING SQUARE INC.",
+          "cik": "2026053",
+          "filing_date": "2026-08-14",
+          "file_name": "edgar/data/2026053/0001172661-26-003790.txt",
+          "accession": "0001172661-26-003790",
+          "period_end": "2026-06-30",
+          "quarter": "2026-Q2",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/2026053/0001172661-26-003790.txt",
+          "holdings": [
+            {
+              "ticker": "UBER",
+              "identifier": "UBER",
+              "cusip": "90353T100",
+              "company": "UBER TECHNOLOGIES INC",
+              "market_value": 2476978592000.0,
+              "shares": 34326200.0,
+              "rank": 1,
+              "pct_portfolio": 12.7248
+            },
+            {
+              "ticker": "BN",
+              "identifier": "BN",
+              "cusip": "11271J107",
+              "company": "BROOKFIELD CORP",
+              "market_value": 2448117792000.0,
+              "shares": 57481047.0,
+              "rank": 2,
+              "pct_portfolio": 12.5766
+            },
+            {
+              "ticker": "MSFT",
+              "identifier": "MSFT",
+              "cusip": "594918104",
+              "company": "MICROSOFT CORP",
+              "market_value": 2315234425000.0,
+              "shares": 6206730.0,
+              "rank": 3,
+              "pct_portfolio": 11.8939
+            },
+            {
+              "ticker": "AMZN",
+              "identifier": "AMZN",
+              "cusip": "023135106",
+              "company": "AMAZON COM INC",
+              "market_value": 2041109677000.0,
+              "shares": 8563857.0,
+              "rank": 4,
+              "pct_portfolio": 10.4857
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:76131D103",
+              "cusip": "76131D103",
+              "company": "RESTAURANT BRANDS INTL INC",
+              "market_value": 1872301303000.0,
+              "shares": 25821284.0,
+              "rank": 5,
+              "pct_portfolio": 9.6185
+            },
+            {
+              "ticker": "META",
+              "identifier": "META",
+              "cusip": "30303M102",
+              "company": "META PLATFORMS INC",
+              "market_value": 1800309764000.0,
+              "shares": 3196062.0,
+              "rank": 6,
+              "pct_portfolio": 9.2486
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:44267T102",
+              "cusip": "44267T102",
+              "company": "HOWARD HUGHES HOLDINGS INC",
+              "market_value": 1347734055000.0,
+              "shares": 18852064.0,
+              "rank": 7,
+              "pct_portfolio": 6.9236
+            },
+            {
+              "ticker": "V",
+              "identifier": "V",
+              "cusip": "92826C839",
+              "company": "VISA INC",
+              "market_value": 1122065552000.0,
+              "shares": 3270470.0,
+              "rank": 8,
+              "pct_portfolio": 5.7643
+            },
+            {
+              "ticker": "MA",
+              "identifier": "MA",
+              "cusip": "57636Q104",
+              "company": "MASTERCARD INCORPORATED",
+              "market_value": 1091218186000.0,
+              "shares": 2124646.0,
+              "rank": 9,
+              "pct_portfolio": 5.6059
+            },
+            {
+              "ticker": "SPGI",
+              "identifier": "SPGI",
+              "cusip": "78409V104",
+              "company": "S&P GLOBAL INC",
+              "market_value": 1056088305000.0,
+              "shares": 2593155.0,
+              "rank": 10,
+              "pct_portfolio": 5.4254
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:64110L106",
+              "cusip": "64110L106",
+              "company": "NETFLIX INC.",
+              "market_value": 934016601000.0,
+              "shares": 13081465.0,
+              "rank": 11,
+              "pct_portfolio": 4.7983
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:44267T102",
+              "cusip": "44267T102",
+              "company": "HOWARD HUGHES HOLDINGS INC",
+              "market_value": 643410000000.0,
+              "shares": 9000000.0,
+              "rank": 12,
+              "pct_portfolio": 3.3054
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:71531T105",
+              "cusip": "71531T105",
+              "company": "PERSHING SQUARE USA LTD",
+              "market_value": 149520000000.0,
+              "shares": 4000000.0,
+              "rank": 13,
+              "pct_portfolio": 0.7681
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:812215200",
+              "cusip": "812215200",
+              "company": "SEAPORT ENTMT GROUP INC",
+              "market_value": 133632548000.0,
+              "shares": 5023780.0,
+              "rank": 14,
+              "pct_portfolio": 0.6865
+            },
+            {
+              "ticker": null,
+              "identifier": "CUSIP:42806J700",
+              "cusip": "42806J700",
+              "company": "HERTZ GLOBAL HLDGS INC",
+              "market_value": 33955972000.0,
+              "shares": 14991599.0,
+              "rank": 15,
+              "pct_portfolio": 0.1744
+            }
+          ],
+          "total_value": 19465692772000.0,
+          "num_holdings": 15
+        },
+        {
+          "form": "13F-HR",
+          "company": "PERSHING SQUARE INC.",
+          "cik": "2026053",
+          "filing_date": "2026-05-15",
+          "file_name": "edgar/data/2026053/0001172661-26-002339.txt",
+          "accession": "0001172661-26-002339",
+          "period_end": "2026-03-31",
+          "quarter": "2026-Q1",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/2026053/0001172661-26-002339.txt",
+          "holdings": [
+            {
+              "ticker": null,
+              "identifier": "CUSIP:44267T102",
+              "cusip": "44267T102",
+              "company": "HOWARD HUGHES HOLDINGS INC",
+              "market_value": 569340000000.0,
+              "shares": 9000000.0,
+              "rank": 1,
+              "pct_portfolio": 100.0
+            }
+          ],
+          "total_value": 569340000000.0,
+          "num_holdings": 1
+        },
+        {
+          "form": "13F-HR",
+          "company": "PERSHING SQUARE HOLDCO, L.P.",
+          "cik": "2026053",
+          "filing_date": "2026-02-17",
+          "file_name": "edgar/data/2026053/0001172661-26-001095.txt",
+          "accession": "0001172661-26-001095",
+          "period_end": "2025-12-31",
+          "quarter": "2025-Q4",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/2026053/0001172661-26-001095.txt",
+          "holdings": [
+            {
+              "ticker": null,
+              "identifier": "CUSIP:44267T102",
+              "cusip": "44267T102",
+              "company": "HOWARD HUGHES HOLDINGS INC",
+              "market_value": 717930000000.0,
+              "shares": 9000000.0,
+              "rank": 1,
+              "pct_portfolio": 100.0
+            }
+          ],
+          "total_value": 717930000000.0,
+          "num_holdings": 1
+        },
+        {
+          "form": "13F-HR",
+          "company": "PERSHING SQUARE HOLDCO, L.P.",
+          "cik": "2026053",
+          "filing_date": "2025-11-14",
+          "file_name": "edgar/data/2026053/0001172661-25-005115.txt",
+          "accession": "0001172661-25-005115",
+          "period_end": "2025-09-30",
+          "quarter": "2025-Q3",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/2026053/0001172661-25-005115.txt",
+          "holdings": [
+            {
+              "ticker": null,
+              "identifier": "CUSIP:44267T102",
+              "cusip": "44267T102",
+              "company": "HOWARD HUGHES HOLDINGS INC",
+              "market_value": 739530000000.0,
+              "shares": 9000000.0,
+              "rank": 1,
+              "pct_portfolio": 100.0
+            }
+          ],
+          "total_value": 739530000000.0,
+          "num_holdings": 1
+        },
+        {
+          "form": "13F-HR",
+          "company": "PERSHING SQUARE HOLDCO, L.P.",
+          "cik": "2026053",
+          "filing_date": "2025-08-14",
+          "file_name": "edgar/data/2026053/0001172661-25-003512.txt",
+          "accession": "0001172661-25-003512",
+          "period_end": "2025-06-30",
+          "quarter": "2025-Q2",
+          "submission_url": "https://www.sec.gov/Archives/edgar/data/2026053/0001172661-25-003512.txt",
+          "holdings": [
+            {
+              "ticker": null,
+              "identifier": "CUSIP:44267T102",
+              "cusip": "44267T102",
+              "company": "HOWARD HUGHES HOLDINGS INC",
+              "market_value": 607500000000.0,
+              "shares": 9000000.0,
+              "rank": 1,
+              "pct_portfolio": 100.0
+            }
+          ],
+          "total_value": 607500000000.0,
+          "num_holdings": 1
         }
       ],
       "filing_errors": []
