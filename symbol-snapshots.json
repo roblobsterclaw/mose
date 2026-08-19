@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T08:24:23.768915+00:00",
+  "generated_at": "2026-08-19T09:23:04.209386+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -16,7 +16,7 @@
         "change_pct": 1.4529271245786832,
         "date": "2026-08-18",
         "time": "16:00:02",
-        "volume": 46451172,
+        "volume": 46601840,
         "week52_high": 344.57,
         "week52_low": 223.78
       },
@@ -286,7 +286,7 @@
         "change_pct": 0.6870705808869464,
         "date": "2026-08-18",
         "time": "16:00:03",
-        "volume": 1942124,
+        "volume": 1943131,
         "week52_high": 387.49,
         "week52_low": 290.97
       },
@@ -1042,11 +1042,11 @@
         "time": "16:00:03",
         "volume": 3999274,
         "week52_high": 388.84,
-        "week52_low": 263.8
+        "week52_low": 263.81
       },
       "metrics": {
         "week52High": 388.84,
-        "week52Low": 263.8,
+        "week52Low": 263.81,
         "marketCap": 297358524416,
         "peRatio": 46.59503105590061
       },
@@ -1548,7 +1548,7 @@
         "change_pct": -0.930020515158419,
         "date": "2026-08-18",
         "time": "16:00:01",
-        "volume": 1093828,
+        "volume": 1094466,
         "week52_high": 473.1,
         "week52_low": 206.92
       },
@@ -2778,7 +2778,7 @@
         "change_pct": 1.4554386479451653,
         "date": "2026-08-18",
         "time": "16:00:00",
-        "volume": 596756,
+        "volume": 615678,
         "week52_high": 312.48,
         "week52_low": 208.86
       },
@@ -2957,8 +2957,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 15.81,
-        "change_pct": -0.18939393939393537,
+        "price": 15.84,
+        "change_pct": 0,
         "source": "yahoo"
       },
       "metrics": {},
