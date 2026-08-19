@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T02:11:53.408687+00:00",
+  "generated_at": "2026-08-19T03:38:09.397890+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -226,7 +226,7 @@
         "change_pct": -4.255703300904875,
         "date": "2026-08-18",
         "time": "16:00:01",
-        "volume": 1463646,
+        "volume": 1462114,
         "week52_high": 1999.96,
         "week52_low": 716.2
       },
@@ -1042,11 +1042,11 @@
         "time": "16:00:03",
         "volume": 3999274,
         "week52_high": 388.84,
-        "week52_low": 263.8
+        "week52_low": 263.81
       },
       "metrics": {
         "week52High": 388.84,
-        "week52Low": 263.8,
+        "week52Low": 263.81,
         "marketCap": 297358524416,
         "peRatio": 46.59503105590061
       },
@@ -1159,9 +1159,9 @@
         "ticker": "IFNNF",
         "symbol": "IFNNF",
         "price": 71.7,
-        "prev_close": 72.9,
-        "change_pct": -1.6460905349794275,
-        "date": "2026-08-17",
+        "prev_close": 71.7,
+        "change_pct": 0.0,
+        "date": "2026-08-18",
         "time": "16:00:00",
         "volume": 800,
         "week52_high": 103.5,
@@ -2910,7 +2910,7 @@
       "quote": {
         "ticker": "^DJI",
         "price": 53343.4,
-        "change_pct": -0.21769636912085572,
+        "change_pct": -0.21773369896632883,
         "source": "yahoo"
       },
       "metrics": {},
@@ -2942,7 +2942,7 @@
       "quote": {
         "ticker": "^RUT",
         "price": 3017.887,
-        "change_pct": -1.296885816498606,
+        "change_pct": -1.2968922728729566,
         "source": "yahoo"
       },
       "metrics": {},
