@@ -2044,7 +2044,7 @@ async function checkPw(){
 // compare the build stamp, and offer a genuine reload when they differ.
 // Bump APP_BUILD whenever index.html changes.
 // ============================================================
-const APP_BUILD = '2026-08-14a';
+const APP_BUILD = '2026-08-18a';
 
 async function checkForAppUpdate(announce) {
   try {
@@ -5576,7 +5576,7 @@ const REENTRY_BUCKET_CHOICES = ['forever','toll','hard','aicore','opp','dry'];
 // and holds the other half as the ALL-IN reserve for an 8%+ drawdown.
 function defaultReentryData() {
   return {
-    version: 2,
+    version: 3,
     settings: {
       referenceHigh: null,
       exitLevel: 6591.90,
@@ -5596,7 +5596,7 @@ function defaultReentryData() {
         mode: 'dca',
         totalAmount: 1150000,
         months: 4,
-        startDate: '2026-08-15',
+        startDate: '2026-09-15',
         buyDay: 15,
         allocations: { 'forever': 45, 'toll': 15, 'hard': 15, 'aicore': 10, 'opp': 5, 'dry': 10 },
         // Dips still buy more — the tranche just scales up, it never pauses.
@@ -5614,7 +5614,7 @@ function defaultReentryData() {
         mode: 'dca',
         totalAmount: 172000,
         months: 4,
-        startDate: '2026-08-15',
+        startDate: '2026-09-15',
         buyDay: 15,
         allocations: { 'forever': 40, 'toll': 15, 'hard': 15, 'aicore': 15, 'opp': 15 },
         ladder: [
@@ -5633,14 +5633,25 @@ function defaultReentryData() {
 // Move a v1 plan onto the accelerated schedule without losing the purchase log.
 function migrateReentry(d) {
   if (!d || !Array.isArray(d.plans)) return defaultReentryData();
-  if ((d.version || 1) >= 2) return d;
-  const fresh = defaultReentryData();
-  fresh.purchases = Array.isArray(d.purchases) ? d.purchases : [];
-  if (d.settings) {
-    if (d.settings.referenceHigh) fresh.settings.referenceHigh = d.settings.referenceHigh;
-    if (d.settings.exitLevel) fresh.settings.exitLevel = d.settings.exitLevel;
+  if ((d.version || 1) < 2) {
+    const fresh = defaultReentryData();
+    fresh.purchases = Array.isArray(d.purchases) ? d.purchases : [];
+    if (d.settings) {
+      if (d.settings.referenceHigh) fresh.settings.referenceHigh = d.settings.referenceHigh;
+      if (d.settings.exitLevel) fresh.settings.exitLevel = d.settings.exitLevel;
+    }
+    d = fresh;
   }
-  return fresh;
+  if ((d.version || 0) < 3) {
+    // Joe's call: hold August, start the same four tranches a month later, so
+    // the run is Sep 15 -> Dec 15. Only shifts a plan still sitting on the
+    // original date — a start he has since edited himself is left alone.
+    (d.plans || []).forEach(p => {
+      if (p.startDate === '2026-08-15') p.startDate = '2026-09-15';
+    });
+    d.version = 3;
+  }
+  return d;
 }
 
 let reentryData = (function() {
