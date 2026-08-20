@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T20:13:33.167037+00:00",
+  "generated_at": "2026-08-20T20:30:32.965253+00:00",
   "source": "yahoo",
   "market_status": "closed",
   "indices": [
@@ -30,16 +30,16 @@
     {
       "name": "Russell 2000",
       "ticker": "^RUT",
-      "price": 2992.01,
-      "change_pct": -1.3495807041479786,
+      "price": 2992.434,
+      "change_pct": -1.3356008786188398,
       "vs_exit": null,
       "source": "yahoo"
     },
     {
       "name": "VIX",
       "ticker": "^VIX",
-      "price": 16.04,
-      "change_pct": 7.723304231027525,
+      "price": 16.01,
+      "change_pct": 7.521826729348563,
       "vs_exit": null,
       "source": "yahoo"
     }
@@ -53,7 +53,7 @@
       "change_pct": -1.7454155225199548,
       "date": "2026-08-20",
       "time": "16:00:01",
-      "volume": 32919252,
+      "volume": 38182357,
       "week52_high": 344.57,
       "week52_low": 223.78
     },
@@ -120,11 +120,11 @@
     {
       "ticker": "ASM",
       "symbol": "ASM",
-      "price": 7.565,
+      "price": 7.6,
       "prev_close": 7.57,
-      "change_pct": -0.06605019815059304,
+      "change_pct": 0.39630118890355825,
       "date": "2026-08-20",
-      "time": "15:59:59",
+      "time": "16:00:00",
       "volume": 6442333,
       "week52_high": 11.99,
       "week52_low": 3.73
@@ -149,18 +149,18 @@
       "change_pct": 0.4276097991613205,
       "date": "2026-08-20",
       "time": "16:00:01",
-      "volume": 18136377,
+      "volume": 19211749,
       "week52_high": 495.0,
       "week52_low": 286.17
     },
     {
       "ticker": "AXP",
       "symbol": "AXP",
-      "price": 331.55,
+      "price": 331.15,
       "prev_close": 339.9,
-      "change_pct": -2.45660488378934,
+      "change_pct": -2.5742865548690794,
       "date": "2026-08-20",
-      "time": "16:00:00",
+      "time": "16:00:03",
       "volume": 2893731,
       "week52_high": 387.49,
       "week52_low": 290.97
@@ -168,23 +168,23 @@
     {
       "ticker": "BABA",
       "symbol": "BABA",
-      "price": 130.59,
+      "price": 130.53,
       "prev_close": 128.9,
-      "change_pct": 1.3110938712179967,
+      "change_pct": 1.2645461598138055,
       "date": "2026-08-20",
-      "time": "15:59:58",
-      "volume": 26944119,
+      "time": "16:02:28",
+      "volume": 27481874,
       "week52_high": 192.67,
       "week52_low": 91.99
     },
     {
       "ticker": "BAC",
       "symbol": "BAC",
-      "price": 61.91,
+      "price": 61.86,
       "prev_close": 63.17,
-      "change_pct": -1.9946176982745054,
+      "change_pct": -2.0737691942377747,
       "date": "2026-08-20",
-      "time": "16:00:00",
+      "time": "16:00:02",
       "volume": 24086395,
       "week52_high": 65.23,
       "week52_low": 46.12
@@ -192,11 +192,11 @@
     {
       "ticker": "BE",
       "symbol": "BE",
-      "price": 202.31,
+      "price": 202.48,
       "prev_close": 206.63,
-      "change_pct": -2.0906935101388924,
+      "change_pct": -2.0084208488602844,
       "date": "2026-08-20",
-      "time": "15:59:57",
+      "time": "16:00:03",
       "volume": 6734166,
       "week52_high": 351.28,
       "week52_low": 43.62
@@ -204,11 +204,11 @@
     {
       "ticker": "BIL",
       "symbol": "BIL",
-      "price": 91.572,
+      "price": 91.57,
       "prev_close": 91.57,
-      "change_pct": 0.002184121437162335,
+      "change_pct": 0.0,
       "date": "2026-08-20",
-      "time": "15:59:57",
+      "time": "16:00:00",
       "volume": 6478506,
       "week52_high": 91.78,
       "week52_low": 91.26
@@ -216,11 +216,11 @@
     {
       "ticker": "BN",
       "symbol": "BN",
-      "price": 41.38,
+      "price": 41.37,
       "prev_close": 42.15,
-      "change_pct": -1.8268090154211059,
+      "change_pct": -1.8505338078291842,
       "date": "2026-08-20",
-      "time": "15:59:59",
+      "time": "16:00:03",
       "volume": 3182543,
       "week52_high": 49.57,
       "week52_low": 37.93
@@ -228,12 +228,12 @@
     {
       "ticker": "BRK-B",
       "symbol": "BRK-B",
-      "price": 496.9,
+      "price": 496.86,
       "prev_close": 499.62,
-      "change_pct": -0.54441375445339,
+      "change_pct": -0.5524198390776972,
       "date": "2026-08-20",
-      "time": "15:59:58",
-      "volume": 2344741,
+      "time": "16:03:14",
+      "volume": 2860180,
       "week52_high": 537.74,
       "week52_low": 464.01
     },
@@ -252,23 +252,23 @@
     {
       "ticker": "CIEN",
       "symbol": "CIEN",
-      "price": 392.91,
+      "price": 392.48,
       "prev_close": 399.47,
-      "change_pct": -1.6421758830450353,
+      "change_pct": -1.749818509525123,
       "date": "2026-08-20",
-      "time": "15:59:59",
-      "volume": 1207809,
+      "time": "16:00:02",
+      "volume": 1450866,
       "week52_high": 637.51,
       "week52_low": 86.0
     },
     {
       "ticker": "CLS",
       "symbol": "CLS",
-      "price": 302.05,
+      "price": 302.0,
       "prev_close": 301.36,
-      "change_pct": 0.2289620387576313,
+      "change_pct": 0.21237058667374115,
       "date": "2026-08-20",
-      "time": "15:59:59",
+      "time": "16:00:02",
       "volume": 1449410,
       "week52_high": 474.03,
       "week52_low": 179.01
@@ -276,11 +276,11 @@
     {
       "ticker": "CODI",
       "symbol": "CODI",
-      "price": 11.55,
+      "price": 11.56,
       "prev_close": 11.59,
-      "change_pct": -0.34512510785158884,
+      "change_pct": -0.2588438308886916,
       "date": "2026-08-20",
-      "time": "15:59:57",
+      "time": "16:00:02",
       "volume": 706359,
       "week52_high": 13.25,
       "week52_low": 4.58
@@ -288,11 +288,11 @@
     {
       "ticker": "COF",
       "symbol": "COF",
-      "price": 212.455,
+      "price": 212.48,
       "prev_close": 220.73,
-      "change_pct": -3.7489240248267013,
+      "change_pct": -3.737597970371042,
       "date": "2026-08-20",
-      "time": "15:59:58",
+      "time": "16:00:02",
       "volume": 2894446,
       "week52_high": 259.64,
       "week52_low": 174.24
@@ -300,11 +300,11 @@
     {
       "ticker": "COHR",
       "symbol": "COHR",
-      "price": 289.969,
+      "price": 290.03,
       "prev_close": 287.47,
-      "change_pct": 0.8693081017149499,
+      "change_pct": 0.8905277072389972,
       "date": "2026-08-20",
-      "time": "15:59:59",
+      "time": "16:00:02",
       "volume": 4336030,
       "week52_high": 440.0,
       "week52_low": 85.52
@@ -324,11 +324,11 @@
     {
       "ticker": "CP",
       "symbol": "CP",
-      "price": 94.84,
+      "price": 94.83,
       "prev_close": 94.44,
-      "change_pct": 0.42354934349852363,
+      "change_pct": 0.4129606099110552,
       "date": "2026-08-20",
-      "time": "15:59:56",
+      "time": "16:00:02",
       "volume": 1401151,
       "week52_high": 95.994,
       "week52_low": 68.42
@@ -348,11 +348,11 @@
     {
       "ticker": "CVNA",
       "symbol": "CVNA",
-      "price": 71.54,
+      "price": 71.52,
       "prev_close": 70.44,
-      "change_pct": 1.5616127200454408,
+      "change_pct": 1.5332197614991459,
       "date": "2026-08-20",
-      "time": "15:59:59",
+      "time": "16:04:00",
       "volume": 9092752,
       "week52_high": 97.378,
       "week52_low": 54.464
@@ -360,12 +360,12 @@
     {
       "ticker": "CVX",
       "symbol": "CVX",
-      "price": 205.845,
+      "price": 205.77,
       "prev_close": 205.76,
-      "change_pct": 0.04131026438569594,
+      "change_pct": 0.00486003110420846,
       "date": "2026-08-20",
-      "time": "15:59:59",
-      "volume": 6188302,
+      "time": "16:04:23",
+      "volume": 7803076,
       "week52_high": 214.71,
       "week52_low": 146.49
     },
@@ -384,11 +384,11 @@
     {
       "ticker": "DE",
       "symbol": "DE",
-      "price": 620.89,
+      "price": 620.94,
       "prev_close": 580.63,
-      "change_pct": 6.933847717134835,
+      "change_pct": 6.942459053097508,
       "date": "2026-08-20",
-      "time": "15:59:59",
+      "time": "16:00:02",
       "volume": 2840348,
       "week52_high": 674.19,
       "week52_low": 433.0
@@ -396,11 +396,11 @@
     {
       "ticker": "DIS",
       "symbol": "DIS",
-      "price": 107.375,
+      "price": 107.32,
       "prev_close": 106.93,
-      "change_pct": 0.41616010474141324,
+      "change_pct": 0.3647245861778606,
       "date": "2026-08-20",
-      "time": "15:59:59",
+      "time": "16:04:16",
       "volume": 5712754,
       "week52_high": 119.78,
       "week52_low": 92.19
@@ -408,11 +408,11 @@
     {
       "ticker": "DVA",
       "symbol": "DVA",
-      "price": 175.31,
+      "price": 175.24,
       "prev_close": 177.27,
-      "change_pct": -1.1056580357646573,
+      "change_pct": -1.145145822756248,
       "date": "2026-08-20",
-      "time": "15:59:57",
+      "time": "16:00:02",
       "volume": 365559,
       "week52_high": 247.49,
       "week52_low": 101.0
@@ -420,11 +420,11 @@
     {
       "ticker": "FICO",
       "symbol": "FICO",
-      "price": 1149.61,
+      "price": 1149.75,
       "prev_close": 1161.59,
-      "change_pct": -1.0313449668127326,
+      "change_pct": -1.0192925214576503,
       "date": "2026-08-20",
-      "time": "15:59:59",
+      "time": "16:00:02",
       "volume": 221936,
       "week52_high": 1998.01,
       "week52_low": 870.01
@@ -432,11 +432,11 @@
     {
       "ticker": "FN",
       "symbol": "FN",
-      "price": 444.89,
+      "price": 444.87,
       "prev_close": 454.55,
-      "change_pct": -2.1251787482125235,
+      "change_pct": -2.129578704212959,
       "date": "2026-08-20",
-      "time": "15:59:59",
+      "time": "16:00:02",
       "volume": 998242,
       "week52_high": 748.89,
       "week52_low": 272.49
@@ -456,11 +456,11 @@
     {
       "ticker": "GE",
       "symbol": "GE",
-      "price": 344.76,
+      "price": 344.64,
       "prev_close": 356.23,
-      "change_pct": -3.219829885186544,
+      "change_pct": -3.2535159868624293,
       "date": "2026-08-20",
-      "time": "16:00:00",
+      "time": "16:00:03",
       "volume": 2959434,
       "week52_high": 388.84,
       "week52_low": 266.14
@@ -480,11 +480,11 @@
     {
       "ticker": "HHH",
       "symbol": "HHH",
-      "price": 67.92,
+      "price": 67.93,
       "prev_close": 68.2,
-      "change_pct": -0.41055718475073477,
+      "change_pct": -0.3958944281524868,
       "date": "2026-08-20",
-      "time": "15:59:55",
+      "time": "16:00:02",
       "volume": 411086,
       "week52_high": 91.07,
       "week52_low": 61.01
@@ -492,11 +492,11 @@
     {
       "ticker": "IDGT",
       "symbol": "IDGT",
-      "price": 116.63,
+      "price": 116.59,
       "prev_close": 117.33,
-      "change_pct": -0.5966078581777915,
+      "change_pct": -0.6306997357879441,
       "date": "2026-08-20",
-      "time": "15:59:00",
+      "time": "15:59:51",
       "volume": 18144,
       "week52_high": 133.05,
       "week52_low": 81.26
@@ -552,11 +552,11 @@
     {
       "ticker": "KMX",
       "symbol": "KMX",
-      "price": 61.01,
+      "price": 61.05,
       "prev_close": 58.95,
-      "change_pct": 3.494486853265471,
+      "change_pct": 3.5623409669211097,
       "date": "2026-08-20",
-      "time": "15:59:58",
+      "time": "16:00:02",
       "volume": 2284698,
       "week52_high": 62.56,
       "week52_low": 30.26
@@ -564,11 +564,11 @@
     {
       "ticker": "KVYO",
       "symbol": "KVYO",
-      "price": 18.1,
+      "price": 18.11,
       "prev_close": 18.2,
-      "change_pct": -0.5494505494505377,
+      "change_pct": -0.4945054945054937,
       "date": "2026-08-20",
-      "time": "15:59:57",
+      "time": "16:00:02",
       "volume": 3502665,
       "week52_high": 36.225,
       "week52_low": 12.53
@@ -576,11 +576,11 @@
     {
       "ticker": "LLY",
       "symbol": "LLY",
-      "price": 1245.69,
+      "price": 1244.4,
       "prev_close": 1280.34,
-      "change_pct": -2.706312385772519,
+      "change_pct": -2.807066872861883,
       "date": "2026-08-20",
-      "time": "16:00:00",
+      "time": "16:03:41",
       "volume": 1753647,
       "week52_high": 1292.65,
       "week52_low": 694.23
@@ -588,11 +588,11 @@
     {
       "ticker": "LOAR",
       "symbol": "LOAR",
-      "price": 74.5,
+      "price": 74.37,
       "prev_close": 76.49,
-      "change_pct": -2.6016472741534775,
+      "change_pct": -2.7716041312589756,
       "date": "2026-08-20",
-      "time": "15:59:57",
+      "time": "16:00:02",
       "volume": 897792,
       "week52_high": 83.43,
       "week52_low": 53.15
@@ -616,7 +616,7 @@
       "prev_close": 6.13,
       "change_pct": -1.9575856443719433,
       "date": "2026-08-20",
-      "time": "15:59:59",
+      "time": "16:00:02",
       "volume": 7165659,
       "week52_high": 11.95,
       "week52_low": 4.27
@@ -624,11 +624,11 @@
     {
       "ticker": "MA",
       "symbol": "MA",
-      "price": 574.02,
+      "price": 573.85,
       "prev_close": 573.72,
-      "change_pct": 0.052290315833499704,
+      "change_pct": 0.022659136861185848,
       "date": "2026-08-20",
-      "time": "15:59:59",
+      "time": "16:00:03",
       "volume": 1587997,
       "week52_high": 601.77,
       "week52_low": 464.52
@@ -636,11 +636,11 @@
     {
       "ticker": "MBGL",
       "symbol": "MBGL",
-      "price": 20.205,
+      "price": 20.2,
       "prev_close": 20.69,
-      "change_pct": -2.344127597873383,
+      "change_pct": -2.3682938617689797,
       "date": "2026-08-20",
-      "time": "15:59:59",
+      "time": "16:00:02",
       "volume": 1983281,
       "week52_high": 26.0,
       "week52_low": 17.67
@@ -648,11 +648,11 @@
     {
       "ticker": "MCO",
       "symbol": "MCO",
-      "price": 498.83,
+      "price": 498.77,
       "prev_close": 497.03,
-      "change_pct": 0.36215117799730634,
+      "change_pct": 0.35007947206406237,
       "date": "2026-08-20",
-      "time": "15:59:59",
+      "time": "16:00:02",
       "volume": 575343,
       "week52_high": 546.88,
       "week52_low": 402.28
@@ -689,7 +689,7 @@
       "change_pct": -0.03662802410122737,
       "date": "2026-08-20",
       "time": "16:00:01",
-      "volume": 13006605,
+      "volume": 13446966,
       "week52_high": 790.8,
       "week52_low": 520.26
     },
@@ -713,7 +713,7 @@
       "change_pct": 5.7908711594386055,
       "date": "2026-08-20",
       "time": "16:00:01",
-      "volume": 26786890,
+      "volume": 28668066,
       "week52_high": 329.88,
       "week52_low": 61.44
     },
@@ -756,11 +756,11 @@
     {
       "ticker": "NLR",
       "symbol": "NLR",
-      "price": 114.45,
+      "price": 114.55,
       "prev_close": 117.72,
-      "change_pct": -2.7777777777777746,
+      "change_pct": -2.6928304451240246,
       "date": "2026-08-20",
-      "time": "15:59:39",
+      "time": "16:00:00",
       "volume": 281747,
       "week52_high": 168.12,
       "week52_low": 101.92
@@ -780,11 +780,11 @@
     {
       "ticker": "NVS",
       "symbol": "NVS",
-      "price": 156.255,
+      "price": 156.24,
       "prev_close": 160.31,
-      "change_pct": -2.529474143846302,
+      "change_pct": -2.5388310149086104,
       "date": "2026-08-20",
-      "time": "15:59:59",
+      "time": "16:00:02",
       "volume": 1351239,
       "week52_high": 170.46,
       "week52_low": 121.57
@@ -804,11 +804,11 @@
     {
       "ticker": "OXY",
       "symbol": "OXY",
-      "price": 61.515,
+      "price": 61.52,
       "prev_close": 60.09,
-      "change_pct": 2.3714428357463757,
+      "change_pct": 2.3797636878016304,
       "date": "2026-08-20",
-      "time": "15:59:59",
+      "time": "16:00:02",
       "volume": 7701649,
       "week52_high": 67.45,
       "week52_low": 38.8
@@ -816,11 +816,11 @@
     {
       "ticker": "PGR",
       "symbol": "PGR",
-      "price": 220.32,
+      "price": 220.34,
       "prev_close": 217.27,
-      "change_pct": 1.4037833110875788,
+      "change_pct": 1.4129884475537318,
       "date": "2026-08-20",
-      "time": "15:59:58",
+      "time": "16:00:02",
       "volume": 2903383,
       "week52_high": 252.82,
       "week52_low": 189.2
@@ -828,11 +828,11 @@
     {
       "ticker": "PLD",
       "symbol": "PLD",
-      "price": 140.675,
+      "price": 140.68,
       "prev_close": 141.3,
-      "change_pct": -0.4423213021939136,
+      "change_pct": -0.4387827317763655,
       "date": "2026-08-20",
-      "time": "15:59:57",
+      "time": "16:00:03",
       "volume": 2210965,
       "week52_high": 153.35,
       "week52_low": 107.84
@@ -845,18 +845,18 @@
       "change_pct": -0.7020948684285574,
       "date": "2026-08-20",
       "time": "16:00:00",
-      "volume": 23911724,
+      "volume": 26741342,
       "week52_high": 207.52,
       "week52_low": 106.37
     },
     {
       "ticker": "POWR",
       "symbol": "POWR",
-      "price": 26.15,
+      "price": 26.18,
       "prev_close": 26.47,
-      "change_pct": -1.2089157536834163,
+      "change_pct": -1.0955799017755918,
       "date": "2026-08-20",
-      "time": "15:59:51",
+      "time": "16:00:00",
       "volume": 149864,
       "week52_high": 28.44,
       "week52_low": 23.18
@@ -876,11 +876,11 @@
     {
       "ticker": "RACE",
       "symbol": "RACE",
-      "price": 428.33,
+      "price": 428.37,
       "prev_close": 425.18,
-      "change_pct": 0.7408626934474757,
+      "change_pct": 0.7502704736817343,
       "date": "2026-08-20",
-      "time": "15:59:58",
+      "time": "16:00:02",
       "volume": 562156,
       "week52_high": 504.49,
       "week52_low": 312.51
@@ -888,11 +888,11 @@
     {
       "ticker": "RBLX",
       "symbol": "RBLX",
-      "price": 38.635,
+      "price": 38.63,
       "prev_close": 38.69,
-      "change_pct": -0.14215559576117787,
+      "change_pct": -0.15507883173945508,
       "date": "2026-08-20",
-      "time": "15:59:59",
+      "time": "16:00:03",
       "volume": 8294225,
       "week52_high": 142.0,
       "week52_low": 33.88
@@ -900,11 +900,11 @@
     {
       "ticker": "ROBO",
       "symbol": "ROBO",
-      "price": 80.98,
+      "price": 80.94,
       "prev_close": 81.72,
-      "change_pct": -0.9055310817425293,
+      "change_pct": -0.9544787077826739,
       "date": "2026-08-20",
-      "time": "15:59:59",
+      "time": "16:00:00",
       "volume": 162100,
       "week52_high": 90.51,
       "week52_low": 61.95
@@ -928,8 +928,8 @@
       "prev_close": 100.59,
       "change_pct": 0.0,
       "date": "2026-08-20",
-      "time": "15:59:58",
-      "volume": 19116396,
+      "time": "16:00:14",
+      "volume": 19311839,
       "week52_high": 100.74,
       "week52_low": 100.27
     },
@@ -988,7 +988,7 @@
       "prev_close": 426.66,
       "change_pct": 1.28908264191628,
       "date": "2026-08-20",
-      "time": "15:59:59",
+      "time": "16:00:02",
       "volume": 1437910,
       "week52_high": 529.272,
       "week52_low": 361.031
@@ -996,11 +996,11 @@
     {
       "ticker": "STZ",
       "symbol": "STZ",
-      "price": 134.06,
+      "price": 134.14,
       "prev_close": 133.52,
-      "change_pct": 0.40443379269022767,
+      "change_pct": 0.4643499101258059,
       "date": "2026-08-20",
-      "time": "15:59:56",
+      "time": "16:00:02",
       "volume": 1080102,
       "week52_high": 168.6,
       "week52_low": 126.45
@@ -1008,11 +1008,11 @@
     {
       "ticker": "TDG",
       "symbol": "TDG",
-      "price": 1181.2,
+      "price": 1180.4,
       "prev_close": 1222.91,
-      "change_pct": -3.4107170601270766,
+      "change_pct": -3.476134793239076,
       "date": "2026-08-20",
-      "time": "15:59:58",
+      "time": "16:00:03",
       "volume": 380992,
       "week52_high": 1463.03,
       "week52_low": 1123.61
@@ -1020,11 +1020,11 @@
     {
       "ticker": "TFLO",
       "symbol": "TFLO",
-      "price": 50.61,
+      "price": 50.6,
       "prev_close": 50.59,
-      "change_pct": 0.03953350464517893,
+      "change_pct": 0.019766752322589464,
       "date": "2026-08-20",
-      "time": "15:59:55",
+      "time": "16:00:00",
       "volume": 1134411,
       "week52_high": 50.67,
       "week52_low": 50.39
@@ -1032,11 +1032,11 @@
     {
       "ticker": "TPL",
       "symbol": "TPL",
-      "price": 369.08,
+      "price": 369.56,
       "prev_close": 373.18,
-      "change_pct": -1.0986655233399492,
+      "change_pct": -0.9700412669489267,
       "date": "2026-08-20",
-      "time": "15:59:59",
+      "time": "16:00:02",
       "volume": 693108,
       "week52_high": 547.2,
       "week52_low": 269.233
@@ -1061,18 +1061,18 @@
       "change_pct": -1.7059694691273664,
       "date": "2026-08-20",
       "time": "16:00:01",
-      "volume": 29306036,
+      "volume": 29914112,
       "week52_high": 498.83,
       "week52_low": 297.38
     },
     {
       "ticker": "TSM",
       "symbol": "TSM",
-      "price": 416.085,
+      "price": 416.0,
       "prev_close": 412.09,
-      "change_pct": 0.9694484214613325,
+      "change_pct": 0.9488218593025857,
       "date": "2026-08-20",
-      "time": "15:59:59",
+      "time": "16:00:02",
       "volume": 8797251,
       "week52_high": 479.0,
       "week52_low": 225.63
@@ -1104,11 +1104,11 @@
     {
       "ticker": "UBER",
       "symbol": "UBER",
-      "price": 78.57,
+      "price": 78.55,
       "prev_close": 78.04,
-      "change_pct": 0.679138903126585,
+      "change_pct": 0.6535110199897372,
       "date": "2026-08-20",
-      "time": "16:00:00",
+      "time": "16:00:02",
       "volume": 13974043,
       "week52_high": 101.99,
       "week52_low": 65.41
@@ -1116,11 +1116,11 @@
     {
       "ticker": "V",
       "symbol": "V",
-      "price": 366.09,
+      "price": 365.73,
       "prev_close": 365.54,
-      "change_pct": 0.1504623297039871,
+      "change_pct": 0.051977895715926495,
       "date": "2026-08-20",
-      "time": "15:59:59",
+      "time": "16:00:02",
       "volume": 4251254,
       "week52_high": 373.97,
       "week52_low": 293.89
@@ -1140,9 +1140,9 @@
     {
       "ticker": "VOO",
       "symbol": "VOO",
-      "price": 700.99,
+      "price": 701.01,
       "prev_close": 706.91,
-      "change_pct": -0.8374474827064209,
+      "change_pct": -0.8346182682378207,
       "date": "2026-08-20",
       "time": "16:00:00",
       "volume": 4925329,
@@ -1164,11 +1164,11 @@
     {
       "ticker": "VTV",
       "symbol": "VTV",
-      "price": 225.17,
+      "price": 225.19,
       "prev_close": 226.95,
-      "change_pct": -0.7843137254901966,
+      "change_pct": -0.7755012117206393,
       "date": "2026-08-20",
-      "time": "15:59:58",
+      "time": "16:00:00",
       "volume": 1874074,
       "week52_high": 228.57,
       "week52_low": 180.46
@@ -1181,7 +1181,7 @@
       "change_pct": 1.5062000908913928,
       "date": "2026-08-20",
       "time": "16:00:00",
-      "volume": 5016244,
+      "volume": 5077659,
       "week52_high": 799.87,
       "week52_low": 74.42
     },
@@ -1193,7 +1193,7 @@
       "change_pct": -9.151356080489933,
       "date": "2026-08-20",
       "time": "16:00:01",
-      "volume": 82641953,
+      "volume": 83146956,
       "week52_high": 135.16,
       "week52_low": 95.42
     }
