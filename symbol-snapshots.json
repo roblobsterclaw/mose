@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T10:19:49.402932+00:00",
+  "generated_at": "2026-08-20T11:17:36.058091+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -197,13 +197,13 @@
         "change_pct": 10.834553440702784,
         "date": "2026-08-19",
         "time": "16:00:00",
-        "volume": 4760832,
+        "volume": 4759676,
         "week52_high": 11.99,
-        "week52_low": 3.66
+        "week52_low": 3.73
       },
       "metrics": {
         "week52High": 11.99,
-        "week52Low": 3.66
+        "week52Low": 3.73
       },
       "profile": {
         "company": "Avino Silver & Gold Mines Ltd.",
@@ -500,7 +500,7 @@
         "change_pct": -1.9635471114949292,
         "date": "2026-08-19",
         "time": "16:00:01",
-        "volume": 10865300,
+        "volume": 10851766,
         "week52_high": 386.34,
         "week52_low": 160.81
       },
@@ -531,11 +531,11 @@
         "time": "16:00:02",
         "volume": 1769437,
         "week52_high": 637.51,
-        "week52_low": 84.41
+        "week52_low": 86.0
       },
       "metrics": {
         "week52High": 637.51,
-        "week52Low": 84.41
+        "week52Low": 86.0
       },
       "profile": {
         "company": "Ciena Corporation",
@@ -678,7 +678,7 @@
         "change_pct": -0.45352889166276733,
         "date": "2026-08-19",
         "time": "16:00:01",
-        "volume": 1518451,
+        "volume": 1514743,
         "week52_high": 1096.5,
         "week52_low": 844.06
       },
@@ -1011,7 +1011,7 @@
         "change_pct": -0.42576419213973865,
         "date": "2026-08-19",
         "time": "16:00:01",
-        "volume": 1911021,
+        "volume": 1909858,
         "week52_high": 99.22,
         "week52_low": 34.05
       },
@@ -1073,11 +1073,11 @@
         "time": "16:00:01",
         "volume": 19596813,
         "week52_high": 408.61,
-        "week52_low": 196.6
+        "week52_low": 199.43
       },
       "metrics": {
         "week52High": 408.61,
-        "week52Low": 196.6,
+        "week52Low": 199.43,
         "marketCap": 4166206881792,
         "peRatio": 31.88899167437558
       },
@@ -1136,11 +1136,11 @@
         "time": "15:59:51",
         "volume": 19148,
         "week52_high": 133.05,
-        "week52_low": 81.12
+        "week52_low": 81.26
       },
       "metrics": {
         "week52High": 133.05,
-        "week52Low": 81.12
+        "week52Low": 81.26
       },
       "profile": {
         "company": null,
@@ -1786,7 +1786,7 @@
         "change_pct": 2.8571428571428537,
         "date": "2026-08-19",
         "time": "16:00:00",
-        "volume": 299101,
+        "volume": 299001,
         "week52_high": 168.12,
         "week52_low": 101.92
       },
@@ -1878,7 +1878,7 @@
         "change_pct": 0.48479506390480137,
         "date": "2026-08-19",
         "time": "16:00:00",
-        "volume": 3734253,
+        "volume": 3733032,
         "week52_high": 108.72,
         "week52_low": 82.59
       },
@@ -2152,11 +2152,11 @@
         "time": "16:00:00",
         "volume": 273590,
         "week52_high": 90.51,
-        "week52_low": 61.93
+        "week52_low": 61.95
       },
       "metrics": {
         "week52High": 90.51,
-        "week52Low": 61.93
+        "week52Low": 61.95
       },
       "profile": {
         "company": null,
@@ -2242,13 +2242,13 @@
         "change_pct": -9.021262829750304,
         "date": "2026-08-19",
         "time": "16:00:00",
-        "volume": 512131,
+        "volume": 511868,
         "week52_high": 901.81,
-        "week52_low": 204.605
+        "week52_low": 217.64
       },
       "metrics": {
         "week52High": 901.81,
-        "week52Low": 204.605
+        "week52Low": 217.64
       },
       "profile": {
         "company": "SiTime Corporation",
@@ -2300,7 +2300,7 @@
         "change_pct": -4.576468630387751,
         "date": "2026-08-19",
         "time": "16:00:00",
-        "volume": 2813010,
+        "volume": 2806658,
         "week52_high": 90.8,
         "week52_low": 40.43
       },
@@ -2538,7 +2538,7 @@
         "change_pct": 4.230118443316413,
         "date": "2026-08-19",
         "time": "16:00:00",
-        "volume": 35322838,
+        "volume": 35316918,
         "week52_high": 498.83,
         "week52_low": 297.38
       },
@@ -2957,8 +2957,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 15.2,
-        "change_pct": 2.0819341840161094,
+        "price": 15.13,
+        "change_pct": 1.6118200134318348,
         "source": "yahoo"
       },
       "metrics": {},
