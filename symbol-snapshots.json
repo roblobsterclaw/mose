@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T11:17:44.810342+00:00",
+  "generated_at": "2026-08-22T12:31:04.689119+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -531,11 +531,11 @@
         "time": "16:00:02",
         "volume": 1234520,
         "week52_high": 637.51,
-        "week52_low": 87.25
+        "week52_low": 89.41
       },
       "metrics": {
         "week52High": 637.51,
-        "week52Low": 87.25
+        "week52Low": 89.41
       },
       "profile": {
         "company": "Ciena Corporation",
@@ -1194,11 +1194,11 @@
         "time": "16:00:01",
         "volume": 90790387,
         "week52_high": 142.35,
-        "week52_low": 23.65
+        "week52_low": 23.68
       },
       "metrics": {
         "week52High": 142.35,
-        "week52Low": 23.65
+        "week52Low": 23.68
       },
       "profile": {
         "company": "Intel Corporation",
@@ -2244,11 +2244,11 @@
         "time": "16:00:00",
         "volume": 316381,
         "week52_high": 901.81,
-        "week52_low": 221.525
+        "week52_low": 222.12
       },
       "metrics": {
         "week52High": 901.81,
-        "week52Low": 221.525
+        "week52Low": 222.12
       },
       "profile": {
         "company": "SiTime Corporation",
@@ -2909,13 +2909,13 @@
       "type": "Index",
       "quote": {
         "ticker": "^DJI",
-        "price": 53277.0,
-        "change_pct": 0.9814402037938463,
+        "price": 53277.01,
+        "change_pct": 0.9814591578340933,
         "source": "yahoo"
       },
       "metrics": {},
       "profile": {
-        "vsExit": 14.748191289630796
+        "vsExit": 14.748212827666219
       },
       "source": "yahoo"
     },
