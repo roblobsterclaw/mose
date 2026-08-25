@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T02:12:53.673799+00:00",
+  "generated_at": "2026-08-25T03:40:06.434356+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -382,11 +382,11 @@
         "time": "16:00:03",
         "volume": 15079952,
         "week52_high": 351.28,
-        "week52_low": 47.83
+        "week52_low": 48.87
       },
       "metrics": {
         "week52High": 351.28,
-        "week52Low": 47.83
+        "week52Low": 48.87
       },
       "profile": {
         "company": "Bloom Energy Corporation",
@@ -1158,10 +1158,10 @@
       "quote": {
         "ticker": "IFNNF",
         "symbol": "IFNNF",
-        "price": 64.0,
-        "prev_close": 63.0,
-        "change_pct": 1.5873015873015872,
-        "date": "2026-08-21",
+        "price": 63.0,
+        "prev_close": 67.59,
+        "change_pct": -6.790945406125171,
+        "date": "2026-08-24",
         "time": "16:00:00",
         "volume": 2000,
         "week52_high": 103.5,
@@ -2909,13 +2909,13 @@
       "type": "Index",
       "quote": {
         "ticker": "^DJI",
-        "price": 53417.16,
-        "change_pct": 0.2630778760065385,
+        "price": 53417.2,
+        "change_pct": 0.26315295530903976,
         "source": "yahoo"
       },
       "metrics": {},
       "profile": {
-        "vsExit": 15.050068394031479
+        "vsExit": 15.05015454617313
       },
       "source": "yahoo"
     },
@@ -2926,7 +2926,7 @@
       "quote": {
         "ticker": "^IXIC",
         "price": 25980.191,
-        "change_pct": -0.7649370494133996,
+        "change_pct": -0.7651076182655071,
         "source": "yahoo"
       },
       "metrics": {},
@@ -2942,7 +2942,7 @@
       "quote": {
         "ticker": "^RUT",
         "price": 2995.08,
-        "change_pct": -0.75519468891777,
+        "change_pct": -0.7551683803477275,
         "source": "yahoo"
       },
       "metrics": {},
