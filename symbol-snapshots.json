@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T10:21:43.744613+00:00",
+  "generated_at": "2026-08-25T11:17:50.138905+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -2909,13 +2909,13 @@
       "type": "Index",
       "quote": {
         "ticker": "^DJI",
-        "price": 53417.16,
-        "change_pct": 0.2630778760065385,
+        "price": 53417.2,
+        "change_pct": 0.26315295530903976,
         "source": "yahoo"
       },
       "metrics": {},
       "profile": {
-        "vsExit": 15.050068394031479
+        "vsExit": 15.05015454617313
       },
       "source": "yahoo"
     },
@@ -2957,8 +2957,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 15.87,
-        "change_pct": 0.12618296529968187,
+        "price": 15.81,
+        "change_pct": 4.494382022471908,
         "source": "yahoo"
       },
       "metrics": {},
