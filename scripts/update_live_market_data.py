@@ -205,6 +205,21 @@ def firebase_custom_tickers() -> list[str]:
     return sorted(t for t in tickers if t)
 
 
+def truist_baseline_tickers() -> list[str]:
+    """Every ticker in the pre-exit Truist book. These are quoted daily so the
+    opportunity-cost tracker can price the counterfactual — what the liquidated
+    portfolio would be worth now — against live prices rather than a stale
+    snapshot. Many are names Joe no longer holds, which is the whole point."""
+    data = load_json(ROOT / "truist-baseline-feb2026.json", {})
+    out = set()
+    for acct in data.get("accounts", []):
+        for h in acct.get("holdings", []):
+            t = _norm_ticker(h.get("ticker") or "")
+            if t and t not in SKIP_TICKERS:
+                out.add(t)
+    return sorted(out)
+
+
 def watchlist_tickers() -> list[str]:
     html = INDEX_HTML.read_text()
     tickers = set(re.findall(r"ticker:\s*'([^']+)'", html))
@@ -212,6 +227,7 @@ def watchlist_tickers() -> list[str]:
         if report.get("ticker"):
             tickers.add(report["ticker"].upper())
     tickers.update(firebase_custom_tickers())
+    tickers.update(truist_baseline_tickers())
     return sorted(t for t in (s.strip().upper() for s in tickers) if t and t not in SKIP_TICKERS)
 
 
