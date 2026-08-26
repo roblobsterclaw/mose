@@ -1,0 +1,1608 @@
+{
+ "note": "Pre-exit Truist baseline parsed from the Feb 2026 monthly statements. Account numbers deliberately omitted (see docs/SECURITY-LOCKDOWN.md).",
+ "data_as_of": "February 28, 2026 (Truist statements)",
+ "purpose": "Baseline for the opportunity-cost tracker: what the book would be worth had it not been liquidated.",
+ "accounts": [
+  {
+   "label": "Keli IRA Rollover",
+   "custodian": "Truist",
+   "type": "IRA Rollover",
+   "manager": "PINNACLE MANAGED",
+   "total_value": 205246.85,
+   "section_totals": {
+    "Cash And Cash Equivalents": 9026.55,
+    "Equities": 193514.06,
+    "Exchange Traded Products": 2706.24
+   },
+   "fee_charged_q1_2026": 634.84,
+   "holdings": [
+    {
+     "ticker": "CSCO",
+     "shares": 88.0,
+     "price_02_28_26": 79.46,
+     "market_value": 6992.48,
+     "cost_basis": 5851.5,
+     "name": "CISCO SYSTEMS INC"
+    },
+    {
+     "ticker": "BAC",
+     "shares": 117.0,
+     "price_02_28_26": 49.83,
+     "market_value": 5830.11,
+     "cost_basis": 5274.77,
+     "name": "BANK AMERICA CORP COM"
+    },
+    {
+     "ticker": "MSFT",
+     "shares": 13.0,
+     "price_02_28_26": 392.74,
+     "market_value": 5105.62,
+     "cost_basis": 6148.61,
+     "name": "MICROSOFT CORP"
+    },
+    {
+     "ticker": "C",
+     "shares": 45.0,
+     "price_02_28_26": 110.19,
+     "market_value": 4958.55,
+     "cost_basis": 3504.94,
+     "name": "CITIGROUP INC"
+    },
+    {
+     "ticker": "FDX",
+     "shares": 12.0,
+     "price_02_28_26": 387.0,
+     "market_value": 4644.0,
+     "cost_basis": 2721.77,
+     "name": "FEDEX CORP COM USD0.10"
+    },
+    {
+     "ticker": "COF",
+     "shares": 23.0,
+     "price_02_28_26": 195.64,
+     "market_value": 4499.72,
+     "cost_basis": 4599.83,
+     "name": "CAPITAL ONE FINANCIAL CORP COM USD0.01"
+    },
+    {
+     "ticker": "XOM",
+     "shares": 25.0,
+     "price_02_28_26": 152.5,
+     "market_value": 3812.5,
+     "cost_basis": 2682.55,
+     "name": "EXXON MOBIL CORP COM"
+    },
+    {
+     "ticker": "WMT",
+     "shares": 28.0,
+     "price_02_28_26": 127.95,
+     "market_value": 3582.6,
+     "cost_basis": 2709.11,
+     "name": "WALMART INC COM"
+    },
+    {
+     "ticker": "GOOGL",
+     "shares": 11.0,
+     "price_02_28_26": 311.76,
+     "market_value": 3429.36,
+     "cost_basis": 1895.43,
+     "name": "ALPHABET INC CAP STK CL A"
+    },
+    {
+     "ticker": "COP",
+     "shares": 30.0,
+     "price_02_28_26": 113.46,
+     "market_value": 3403.8,
+     "cost_basis": 2736.29,
+     "name": "CONOCOPHILLIPS COM"
+    },
+    {
+     "ticker": "PM",
+     "shares": 17.0,
+     "price_02_28_26": 186.83,
+     "market_value": 3176.11,
+     "cost_basis": 2999.79,
+     "name": "PHILIP MORRIS INTERNATIONAL INC COM NPV"
+    },
+    {
+     "ticker": "FCX",
+     "shares": 45.0,
+     "price_02_28_26": 68.08,
+     "market_value": 3063.6,
+     "cost_basis": 1896.09,
+     "name": "FREEPORT-MCMORAN INC COM USD0.10"
+    },
+    {
+     "ticker": "LUV",
+     "shares": 61.0,
+     "price_02_28_26": 49.26,
+     "market_value": 3004.86,
+     "cost_basis": 2083.41,
+     "name": "SOUTHWEST AIRLINES CO"
+    },
+    {
+     "ticker": "JPM",
+     "shares": 10.0,
+     "price_02_28_26": 300.3,
+     "market_value": 3003.0,
+     "cost_basis": 2676.84,
+     "name": "JPMORGAN CHASE &CO. COM"
+    },
+    {
+     "ticker": "MCK",
+     "shares": 3.0,
+     "price_02_28_26": 987.37,
+     "market_value": 2962.11,
+     "cost_basis": 2110.55,
+     "name": "MCKESSON CORP"
+    },
+    {
+     "ticker": "STX",
+     "shares": 7.0,
+     "price_02_28_26": 407.84,
+     "market_value": 2854.88,
+     "cost_basis": 897.96,
+     "name": "SEAGATE TECHNOLOGY HLDGS PUB LTD CO"
+    },
+    {
+     "ticker": "KO",
+     "shares": 35.0,
+     "price_02_28_26": 81.56,
+     "market_value": 2854.6,
+     "cost_basis": 2525.52,
+     "name": "COCA-COLA CO"
+    },
+    {
+     "ticker": "HLT",
+     "shares": 9.0,
+     "price_02_28_26": 311.78,
+     "market_value": 2806.02,
+     "cost_basis": 2278.84,
+     "name": "HILTON WORLDWIDE HLDGS INC"
+    },
+    {
+     "ticker": "BK",
+     "shares": 23.0,
+     "price_02_28_26": 119.1,
+     "market_value": 2739.3,
+     "cost_basis": 2076.32,
+     "name": "BANK OF NEW YORK MELLON CORP COM USD0.01"
+    },
+    {
+     "ticker": "JNJ",
+     "shares": 11.0,
+     "price_02_28_26": 248.43,
+     "market_value": 2732.73,
+     "cost_basis": 1720.8,
+     "name": "JOHNSON &JOHNSON COM"
+    },
+    {
+     "ticker": "IWD",
+     "shares": 12.0,
+     "price_02_28_26": 225.52,
+     "market_value": 2706.24,
+     "cost_basis": 2692.92,
+     "name": "ISHARES RUSSELL 1000 VALUE ETF"
+    },
+    {
+     "ticker": "DG",
+     "shares": 17.0,
+     "price_02_28_26": 156.24,
+     "market_value": 2656.08,
+     "cost_basis": 1867.49,
+     "name": "DOLLAR GEN CORP NEW COM"
+    },
+    {
+     "ticker": "AAPL",
+     "shares": 10.0,
+     "price_02_28_26": 264.18,
+     "market_value": 2641.8,
+     "cost_basis": 2021.4,
+     "name": "APPLE INC"
+    },
+    {
+     "ticker": "CVS",
+     "shares": 33.0,
+     "price_02_28_26": 79.9,
+     "market_value": 2636.7,
+     "cost_basis": 2116.15,
+     "name": "CVS HEALTH CORPORATION COM USD0.01"
+    },
+    {
+     "ticker": "RTX",
+     "shares": 13.0,
+     "price_02_28_26": 202.62,
+     "market_value": 2634.06,
+     "cost_basis": 1803.01,
+     "name": "RTX CORPORATION COM USD1.00"
+    },
+    {
+     "ticker": "SCHW",
+     "shares": 26.0,
+     "price_02_28_26": 95.2,
+     "market_value": 2475.2,
+     "cost_basis": 2358.15,
+     "name": "SCHWAB CHARLES CORP COM"
+    },
+    {
+     "ticker": "SPG",
+     "shares": 12.0,
+     "price_02_28_26": 203.85,
+     "market_value": 2446.2,
+     "cost_basis": 1928.87,
+     "name": "SIMON PROPERTY GROUP INC"
+    },
+    {
+     "ticker": "GM",
+     "shares": 30.0,
+     "price_02_28_26": 78.71,
+     "market_value": 2361.3,
+     "cost_basis": 1468.89,
+     "name": "GENERAL MTRS CO COM"
+    },
+    {
+     "ticker": "ALL",
+     "shares": 11.0,
+     "price_02_28_26": 214.52,
+     "market_value": 2359.72,
+     "cost_basis": 2291.16,
+     "name": "ALLSTATE CORP COM USD0.01"
+    },
+    {
+     "ticker": "JCI",
+     "shares": 16.0,
+     "price_02_28_26": 144.3,
+     "market_value": 2308.8,
+     "cost_basis": 1644.65,
+     "name": "JOHNSON CONTROLS INTERNATIONAL PLC COM"
+    },
+    {
+     "ticker": "BMY",
+     "shares": 37.0,
+     "price_02_28_26": 62.37,
+     "market_value": 2307.69,
+     "cost_basis": 1798.04,
+     "name": "BRISTOL-MYERS SQUIBB CO COM"
+    },
+    {
+     "ticker": "PWR",
+     "shares": 4.0,
+     "price_02_28_26": 563.08,
+     "market_value": 2252.32,
+     "cost_basis": 1385.85,
+     "name": "QUANTA SERVICES COM USD0.00001"
+    },
+    {
+     "ticker": "AVGO",
+     "shares": 7.0,
+     "price_02_28_26": 319.55,
+     "market_value": 2236.85,
+     "cost_basis": 1707.84,
+     "name": "BROADCOM INC COM"
+    },
+    {
+     "ticker": "DVN",
+     "shares": 51.0,
+     "price_02_28_26": 43.53,
+     "market_value": 2220.03,
+     "cost_basis": 1765.69,
+     "name": "DEVON ENERGY CORP NEW"
+    },
+    {
+     "ticker": "NOC",
+     "shares": 3.0,
+     "price_02_28_26": 724.38,
+     "market_value": 2173.14,
+     "cost_basis": 1463.18,
+     "name": "NORTHROP GRUMMAN CORP COM USD1"
+    },
+    {
+     "ticker": "NEE",
+     "shares": 23.0,
+     "price_02_28_26": 93.77,
+     "market_value": 2156.71,
+     "cost_basis": 1670.31,
+     "name": "NEXTERA ENERGY INC COM USD0.01"
+    },
+    {
+     "ticker": "BLK",
+     "shares": 2.0,
+     "price_02_28_26": 1063.23,
+     "market_value": 2126.46,
+     "cost_basis": 1978.29,
+     "name": "BLACKROCK INC COM"
+    },
+    {
+     "ticker": "SHEL",
+     "shares": 25.0,
+     "price_02_28_26": 83.51,
+     "market_value": 2087.75,
+     "cost_basis": 1759.37,
+     "name": "SHELL PLC SPON ADS EA REP 2 ORD SHS"
+    },
+    {
+     "ticker": "TMO",
+     "shares": 4.0,
+     "price_02_28_26": 521.11,
+     "market_value": 2084.44,
+     "cost_basis": 1670.75,
+     "name": "THERMO FISHER SCIENTIFIC INC"
+    },
+    {
+     "ticker": "PLD",
+     "shares": 14.0,
+     "price_02_28_26": 142.57,
+     "market_value": 1995.98,
+     "cost_basis": 1531.04,
+     "name": "PROLOGIS INC. COM"
+    },
+    {
+     "ticker": "SJM",
+     "shares": 17.0,
+     "price_02_28_26": 115.95,
+     "market_value": 1971.15,
+     "cost_basis": 1645.74,
+     "name": "SMUCKER J M CO COM NEW"
+    },
+    {
+     "ticker": "IBM",
+     "shares": 8.0,
+     "price_02_28_26": 240.21,
+     "market_value": 1921.68,
+     "cost_basis": 2204.62,
+     "name": "INTERNATIONAL BUS MACH CORP COM USD0.20"
+    },
+    {
+     "ticker": "PHM",
+     "shares": 14.0,
+     "price_02_28_26": 137.2,
+     "market_value": 1920.8,
+     "cost_basis": 1464.09,
+     "name": "PULTE GROUP INC COM USD0.01"
+    },
+    {
+     "ticker": "ETN",
+     "shares": 5.0,
+     "price_02_28_26": 375.92,
+     "market_value": 1879.6,
+     "cost_basis": 1607.68,
+     "name": "EATON CORPORATION PLC"
+    },
+    {
+     "ticker": "AZN",
+     "shares": 9.0,
+     "price_02_28_26": 208.45,
+     "market_value": 1876.05,
+     "cost_basis": 1328.93,
+     "name": "ASTRAZENECA PLC ORD USD0.25 ISIN"
+    },
+    {
+     "ticker": "MRK",
+     "shares": 15.0,
+     "price_02_28_26": 123.82,
+     "market_value": 1857.3,
+     "cost_basis": 1217.14,
+     "name": "MERCK &CO. INC COM"
+    },
+    {
+     "ticker": "TRV",
+     "shares": 6.0,
+     "price_02_28_26": 308.64,
+     "market_value": 1851.84,
+     "cost_basis": 1579.87,
+     "name": "TRAVELERS COMPANIES INC COM STK NPV"
+    },
+    {
+     "ticker": "NVO",
+     "shares": 49.0,
+     "price_02_28_26": 37.45,
+     "market_value": 1835.05,
+     "cost_basis": 2594.05,
+     "name": "NOVO NORDISK A/S ADR-EACH CNV INTO 1"
+    },
+    {
+     "ticker": "CTVA",
+     "shares": 22.0,
+     "price_02_28_26": 80.12,
+     "market_value": 1762.64,
+     "cost_basis": 1585.23,
+     "name": "CORTEVA INC COM"
+    },
+    {
+     "ticker": "PPL",
+     "shares": 45.0,
+     "price_02_28_26": 38.98,
+     "market_value": 1754.1,
+     "cost_basis": 1515.56,
+     "name": "PPL CORP COM USD0.01"
+    },
+    {
+     "ticker": "TFC",
+     "shares": 35.0,
+     "price_02_28_26": 49.31,
+     "market_value": 1725.85,
+     "cost_basis": 1433.08,
+     "name": "TRUIST FINL CORP COM"
+    },
+    {
+     "ticker": "GS",
+     "shares": 2.0,
+     "price_02_28_26": 859.57,
+     "market_value": 1719.14,
+     "cost_basis": 1225.32,
+     "name": "GOLDMAN SACHS GROUP INC COM USD0.01"
+    },
+    {
+     "ticker": "PEP",
+     "shares": 10.0,
+     "price_02_28_26": 169.74,
+     "market_value": 1697.4,
+     "cost_basis": 1376.8,
+     "name": "PEPSICO INC"
+    },
+    {
+     "ticker": "CVX",
+     "shares": 9.0,
+     "price_02_28_26": 186.76,
+     "market_value": 1680.84,
+     "cost_basis": 1332.14,
+     "name": "CHEVRON CORP NEW COM"
+    },
+    {
+     "ticker": "URI",
+     "shares": 2.0,
+     "price_02_28_26": 840.0,
+     "market_value": 1680.0,
+     "cost_basis": 1420.77,
+     "name": "UNITED RENTALS INC"
+    },
+    {
+     "ticker": "DOW",
+     "shares": 54.0,
+     "price_02_28_26": 30.73,
+     "market_value": 1659.42,
+     "cost_basis": 1508.8,
+     "name": "DOW INC COM"
+    },
+    {
+     "ticker": "SNY",
+     "shares": 34.0,
+     "price_02_28_26": 48.66,
+     "market_value": 1654.44,
+     "cost_basis": 1706.96,
+     "name": "SANOFI ADR REP 1 1/2 ORD"
+    },
+    {
+     "ticker": "IFF",
+     "shares": 20.0,
+     "price_02_28_26": 82.23,
+     "market_value": 1644.6,
+     "cost_basis": 1465.44,
+     "name": "INTERNATIONAL FLAVORS &FRAGRANCES COM"
+    },
+    {
+     "ticker": "VLO",
+     "shares": 8.0,
+     "price_02_28_26": 204.64,
+     "market_value": 1637.12,
+     "cost_basis": 1061.12,
+     "name": "VALERO ENERGY CORP COM"
+    },
+    {
+     "ticker": "PFE",
+     "shares": 59.0,
+     "price_02_28_26": 27.65,
+     "market_value": 1631.35,
+     "cost_basis": 1449.6,
+     "name": "PFIZER INC"
+    },
+    {
+     "ticker": "WFC",
+     "shares": 20.0,
+     "price_02_28_26": 81.45,
+     "market_value": 1629.0,
+     "cost_basis": 1510.81,
+     "name": "WELLS FARGO CO NEW COM"
+    },
+    {
+     "ticker": "IR",
+     "shares": 17.0,
+     "price_02_28_26": 94.14,
+     "market_value": 1600.38,
+     "cost_basis": 1423.58,
+     "name": "INGERSOLL RAND INC COM"
+    },
+    {
+     "ticker": "TGT",
+     "shares": 14.0,
+     "price_02_28_26": 113.79,
+     "market_value": 1593.06,
+     "cost_basis": 1341.88,
+     "name": "TARGET CORP"
+    },
+    {
+     "ticker": "MET",
+     "shares": 22.0,
+     "price_02_28_26": 72.07,
+     "market_value": 1585.54,
+     "cost_basis": 1746.4,
+     "name": "METLIFE INC COM USD0.01"
+    },
+    {
+     "ticker": "REGN",
+     "shares": 2.0,
+     "price_02_28_26": 781.67,
+     "market_value": 1563.34,
+     "cost_basis": 1054.46,
+     "name": "REGENERON PHARMACEUTICALS INC"
+    },
+    {
+     "ticker": "TJX",
+     "shares": 9.0,
+     "price_02_28_26": 161.66,
+     "market_value": 1454.94,
+     "cost_basis": 1133.86,
+     "name": "TJX COMPANIES INC"
+    },
+    {
+     "ticker": "D",
+     "shares": 23.0,
+     "price_02_28_26": 63.14,
+     "market_value": 1452.22,
+     "cost_basis": 1277.76,
+     "name": "DOMINION ENERGY INC COM"
+    },
+    {
+     "ticker": "TT",
+     "shares": 3.0,
+     "price_02_28_26": 462.32,
+     "market_value": 1386.96,
+     "cost_basis": 1260.7,
+     "name": "TRANE TECHNOLOGIES PLC COM USD1"
+    },
+    {
+     "ticker": "TMUS",
+     "shares": 6.0,
+     "price_02_28_26": 217.09,
+     "market_value": 1302.54,
+     "cost_basis": 1419.96,
+     "name": "T-MOBILE US INC COM"
+    },
+    {
+     "ticker": "BBY",
+     "shares": 20.0,
+     "price_02_28_26": 61.97,
+     "market_value": 1239.4,
+     "cost_basis": 1473.36,
+     "name": "BEST BUY CO INC COM USD0.10"
+    },
+    {
+     "ticker": "UNH",
+     "shares": 4.0,
+     "price_02_28_26": 293.27,
+     "market_value": 1173.08,
+     "cost_basis": 1208.5,
+     "name": "UNITEDHEALTH GROUP INC"
+    },
+    {
+     "ticker": "APO",
+     "shares": 11.0,
+     "price_02_28_26": 104.6,
+     "market_value": 1150.6,
+     "cost_basis": 1482.48,
+     "name": "APOLLO GLOBAL MGMT INC COM"
+    },
+    {
+     "ticker": "QCOM",
+     "shares": 8.0,
+     "price_02_28_26": 142.36,
+     "market_value": 1138.88,
+     "cost_basis": 1267.24,
+     "name": "QUALCOMM INC"
+    },
+    {
+     "ticker": "SON",
+     "shares": 20.0,
+     "price_02_28_26": 56.47,
+     "market_value": 1129.4,
+     "cost_basis": 914.8,
+     "name": "SONOCO PRODUCTS CO"
+    },
+    {
+     "ticker": "NRG",
+     "shares": 6.0,
+     "price_02_28_26": 178.96,
+     "market_value": 1073.76,
+     "cost_basis": 896.64,
+     "name": "NRG ENERGY INC"
+    },
+    {
+     "ticker": "NUE",
+     "shares": 6.0,
+     "price_02_28_26": 176.88,
+     "market_value": 1061.28,
+     "cost_basis": 748.56,
+     "name": "NUCOR CORP COM USD0.40"
+    },
+    {
+     "ticker": "CMCSA",
+     "shares": 34.0,
+     "price_02_28_26": 30.96,
+     "market_value": 1052.64,
+     "cost_basis": 1130.58,
+     "name": "COMCAST CORP"
+    },
+    {
+     "ticker": "SWK",
+     "shares": 12.0,
+     "price_02_28_26": 86.49,
+     "market_value": 1037.88,
+     "cost_basis": 830.62,
+     "name": "STANLEY BLACK & DECKER INC"
+    },
+    {
+     "ticker": "DELL",
+     "shares": 7.0,
+     "price_02_28_26": 148.08,
+     "market_value": 1036.56,
+     "cost_basis": 795.69,
+     "name": "DELL TECHNOLOGIES INC CL C"
+    },
+    {
+     "ticker": "HPQ",
+     "shares": 51.0,
+     "price_02_28_26": 18.99,
+     "market_value": 968.49,
+     "cost_basis": 1299.31,
+     "name": "HP INC COM"
+    },
+    {
+     "ticker": "FIS",
+     "shares": 19.0,
+     "price_02_28_26": 50.96,
+     "market_value": 968.24,
+     "cost_basis": 1440.99,
+     "name": "FIDELITY NATL INFORMATION SERVICES COM"
+    },
+    {
+     "ticker": "ELV",
+     "shares": 3.0,
+     "price_02_28_26": 320.0,
+     "market_value": 960.0,
+     "cost_basis": 868.32,
+     "name": "ELEVANCE HEALTH INC COM"
+    },
+    {
+     "ticker": "ATO",
+     "shares": 5.0,
+     "price_02_28_26": 186.79,
+     "market_value": 933.95,
+     "cost_basis": 761.45,
+     "name": "ATMOS ENERGY CORP COM NPV"
+    },
+    {
+     "ticker": "F",
+     "shares": 65.0,
+     "price_02_28_26": 14.09,
+     "market_value": 915.85,
+     "cost_basis": 689.99,
+     "name": "FORD MTR CO DEL COM"
+    },
+    {
+     "ticker": "MDT",
+     "shares": 9.0,
+     "price_02_28_26": 97.66,
+     "market_value": 878.94,
+     "cost_basis": 795.1,
+     "name": "MEDTRONIC PLC"
+    },
+    {
+     "ticker": "WY",
+     "shares": 34.0,
+     "price_02_28_26": 24.53,
+     "market_value": 834.02,
+     "cost_basis": 801.69,
+     "name": "WEYERHAEUSER CO MTN BE COM NEW"
+    },
+    {
+     "ticker": "LNC",
+     "shares": 23.0,
+     "price_02_28_26": 34.3,
+     "market_value": 788.9,
+     "cost_basis": 767.37,
+     "name": "LINCOLN NATIONAL CORP COM NPV"
+    },
+    {
+     "ticker": "HD",
+     "shares": 2.0,
+     "price_02_28_26": 380.72,
+     "market_value": 761.44,
+     "cost_basis": 733.88,
+     "name": "HOME DEPOT INC"
+    }
+   ]
+  },
+  {
+   "label": "Joint WROS",
+   "custodian": "Truist",
+   "type": "Joint Taxable",
+   "manager": "AMC ADVISE",
+   "total_value": 333623.25,
+   "section_totals": {
+    "Cash And Cash Equivalents": 4953.79,
+    "Equities": 235400.79,
+    "Mutual Funds": 24149.79,
+    "Exchange Traded Products": 69118.88
+   },
+   "fee_charged_q1_2026": 866.76,
+   "holdings": [
+    {
+     "ticker": "MU",
+     "shares": 70.0,
+     "price_02_28_26": 412.37,
+     "market_value": 28865.9,
+     "cost_basis": 13344.2,
+     "name": "MICRON TECHNOLOGY INC"
+    },
+    {
+     "ticker": "VFIAX",
+     "shares": 37.966,
+     "price_02_28_26": 636.09,
+     "market_value": 24149.79,
+     "cost_basis": 12317.28,
+     "name": "VANGUARD 500 INDEX ADMIRAL"
+    },
+    {
+     "ticker": "CSCO",
+     "shares": 195.0,
+     "price_02_28_26": 79.46,
+     "market_value": 15494.7,
+     "cost_basis": 13285.36,
+     "name": "CISCO SYSTEMS INC"
+    },
+    {
+     "ticker": "IDU",
+     "shares": 125.0,
+     "price_02_28_26": 120.7,
+     "market_value": 15087.5,
+     "cost_basis": 14009.0,
+     "name": "ISHARES US UTILITIES ETF"
+    },
+    {
+     "ticker": "NVDA",
+     "shares": 85.0,
+     "price_02_28_26": 177.19,
+     "market_value": 15061.15,
+     "cost_basis": 15628.81,
+     "name": "NVIDIA CORPORATION COM"
+    },
+    {
+     "ticker": "GOOGL",
+     "shares": 45.0,
+     "price_02_28_26": 311.76,
+     "market_value": 14029.2,
+     "cost_basis": 10778.55,
+     "name": "ALPHABET INC CAP STK CL A"
+    },
+    {
+     "ticker": "CEG",
+     "shares": 37.0,
+     "price_02_28_26": 329.88,
+     "market_value": 12205.56,
+     "cost_basis": 13865.54,
+     "name": "CONSTELLATION ENERGY CORP COM"
+    },
+    {
+     "ticker": "QQQ",
+     "shares": 20.0,
+     "price_02_28_26": 607.29,
+     "market_value": 12145.8,
+     "cost_basis": 11859.78,
+     "name": "INVESCO QQQ TR UNIT SER 1"
+    },
+    {
+     "ticker": "EA",
+     "shares": 60.0,
+     "price_02_28_26": 200.57,
+     "market_value": 12034.2,
+     "cost_basis": 12010.1,
+     "name": "ELECTRONIC ARTS INC"
+    },
+    {
+     "ticker": "AVGO",
+     "shares": 35.0,
+     "price_02_28_26": 319.55,
+     "market_value": 11184.25,
+     "cost_basis": 12213.05,
+     "name": "BROADCOM INC COM"
+    },
+    {
+     "ticker": "XLK",
+     "shares": 80.0,
+     "price_02_28_26": 138.76,
+     "market_value": 11100.8,
+     "cost_basis": 11259.6,
+     "name": "SELECT SECTOR SPDR TRUST STATE STREET"
+    },
+    {
+     "ticker": "VGT",
+     "shares": 14.0,
+     "price_02_28_26": 726.7,
+     "market_value": 10173.8,
+     "cost_basis": 10429.3,
+     "name": "VANGUARD WORLD FD INF TECH ETF"
+    },
+    {
+     "ticker": "XLY",
+     "shares": 80.0,
+     "price_02_28_26": 116.86,
+     "market_value": 9348.8,
+     "cost_basis": 9234.0,
+     "name": "SELECT SECTOR SPDR TRUST STATE STREET"
+    },
+    {
+     "ticker": "V",
+     "shares": 27.0,
+     "price_02_28_26": 320.14,
+     "market_value": 8643.78,
+     "cost_basis": 9257.6,
+     "name": "VISA INC"
+    },
+    {
+     "ticker": "ORCL",
+     "shares": 55.0,
+     "price_02_28_26": 145.4,
+     "market_value": 7997.0,
+     "cost_basis": 16522.75,
+     "name": "ORACLE CORP"
+    },
+    {
+     "ticker": "MSFT",
+     "shares": 20.0,
+     "price_02_28_26": 392.74,
+     "market_value": 7854.8,
+     "cost_basis": 10225.6,
+     "name": "MICROSOFT CORP"
+    }
+   ]
+  },
+  {
+   "label": "Joint (cash sweep)",
+   "custodian": "Truist",
+   "type": "Joint Taxable",
+   "manager": "self-directed",
+   "total_value": 2.46,
+   "section_totals": {
+    "Cash And Cash Equivalents": 2.46
+   },
+   "fee_charged_q1_2026": 0.0,
+   "holdings": []
+  },
+  {
+   "label": "Joe IRA",
+   "custodian": "Truist",
+   "type": "IRA",
+   "manager": "PINNACLE MANAGED",
+   "total_value": 507162.87,
+   "section_totals": {
+    "Cash And Cash Equivalents": 23097.14,
+    "Equities": 476398.05,
+    "Exchange Traded Products": 7667.68
+   },
+   "fee_charged_q1_2026": 1567.52,
+   "holdings": [
+    {
+     "ticker": "CSCO",
+     "shares": 218.0,
+     "price_02_28_26": 79.46,
+     "market_value": 17322.28,
+     "cost_basis": 13145.02,
+     "name": "CISCO SYSTEMS INC"
+    },
+    {
+     "ticker": "BAC",
+     "shares": 292.0,
+     "price_02_28_26": 49.83,
+     "market_value": 14550.36,
+     "cost_basis": 11834.71,
+     "name": "BANK AMERICA CORP COM"
+    },
+    {
+     "ticker": "MSFT",
+     "shares": 31.0,
+     "price_02_28_26": 392.74,
+     "market_value": 12174.94,
+     "cost_basis": 12857.28,
+     "name": "MICROSOFT CORP"
+    },
+    {
+     "ticker": "COF",
+     "shares": 56.0,
+     "price_02_28_26": 195.64,
+     "market_value": 10955.84,
+     "cost_basis": 10330.43,
+     "name": "CAPITAL ONE FINANCIAL CORP COM USD0.01"
+    },
+    {
+     "ticker": "C",
+     "shares": 98.0,
+     "price_02_28_26": 110.19,
+     "market_value": 10798.62,
+     "cost_basis": 6720.71,
+     "name": "CITIGROUP INC"
+    },
+    {
+     "ticker": "XOM",
+     "shares": 68.0,
+     "price_02_28_26": 152.5,
+     "market_value": 10370.0,
+     "cost_basis": 7305.52,
+     "name": "EXXON MOBIL CORP COM"
+    },
+    {
+     "ticker": "FDX",
+     "shares": 24.0,
+     "price_02_28_26": 387.0,
+     "market_value": 9288.0,
+     "cost_basis": 5070.17,
+     "name": "FEDEX CORP COM USD0.10"
+    },
+    {
+     "ticker": "MCK",
+     "shares": 9.0,
+     "price_02_28_26": 987.37,
+     "market_value": 8886.33,
+     "cost_basis": 6303.5,
+     "name": "MCKESSON CORP"
+    },
+    {
+     "ticker": "WMT",
+     "shares": 66.0,
+     "price_02_28_26": 127.95,
+     "market_value": 8444.7,
+     "cost_basis": 6280.73,
+     "name": "WALMART INC COM"
+    },
+    {
+     "ticker": "COP",
+     "shares": 73.0,
+     "price_02_28_26": 113.46,
+     "market_value": 8282.58,
+     "cost_basis": 6694.36,
+     "name": "CONOCOPHILLIPS COM"
+    },
+    {
+     "ticker": "FCX",
+     "shares": 119.0,
+     "price_02_28_26": 68.08,
+     "market_value": 8101.52,
+     "cost_basis": 4406.6,
+     "name": "FREEPORT-MCMORAN INC COM USD0.10"
+    },
+    {
+     "ticker": "LUV",
+     "shares": 163.0,
+     "price_02_28_26": 49.26,
+     "market_value": 8029.38,
+     "cost_basis": 4557.11,
+     "name": "SOUTHWEST AIRLINES CO"
+    },
+    {
+     "ticker": "GOOGL",
+     "shares": 25.0,
+     "price_02_28_26": 311.76,
+     "market_value": 7794.0,
+     "cost_basis": 4307.8,
+     "name": "ALPHABET INC CAP STK CL A"
+    },
+    {
+     "ticker": "IWD",
+     "shares": 34.0,
+     "price_02_28_26": 225.52,
+     "market_value": 7667.68,
+     "cost_basis": 7629.94,
+     "name": "ISHARES RUSSELL 1000 VALUE ETF"
+    },
+    {
+     "ticker": "KO",
+     "shares": 93.0,
+     "price_02_28_26": 81.56,
+     "market_value": 7585.08,
+     "cost_basis": 6665.65,
+     "name": "COCA-COLA CO"
+    },
+    {
+     "ticker": "HLT",
+     "shares": 24.0,
+     "price_02_28_26": 311.78,
+     "market_value": 7482.72,
+     "cost_basis": 5467.43,
+     "name": "HILTON WORLDWIDE HLDGS INC"
+    },
+    {
+     "ticker": "BK",
+     "shares": 62.0,
+     "price_02_28_26": 119.1,
+     "market_value": 7384.2,
+     "cost_basis": 4980.67,
+     "name": "BANK OF NEW YORK MELLON CORP COM USD0.01"
+    },
+    {
+     "ticker": "CVS",
+     "shares": 91.0,
+     "price_02_28_26": 79.9,
+     "market_value": 7270.9,
+     "cost_basis": 5831.54,
+     "name": "CVS HEALTH CORPORATION COM USD0.01"
+    },
+    {
+     "ticker": "JPM",
+     "shares": 24.0,
+     "price_02_28_26": 300.3,
+     "market_value": 7207.2,
+     "cost_basis": 5809.7,
+     "name": "JPMORGAN CHASE &CO. COM"
+    },
+    {
+     "ticker": "JNJ",
+     "shares": 29.0,
+     "price_02_28_26": 248.43,
+     "market_value": 7204.47,
+     "cost_basis": 4486.08,
+     "name": "JOHNSON &JOHNSON COM"
+    },
+    {
+     "ticker": "PM",
+     "shares": 38.0,
+     "price_02_28_26": 186.83,
+     "market_value": 7099.54,
+     "cost_basis": 6464.52,
+     "name": "PHILIP MORRIS INTERNATIONAL INC COM NPV"
+    },
+    {
+     "ticker": "RTX",
+     "shares": 34.0,
+     "price_02_28_26": 202.62,
+     "market_value": 6889.08,
+     "cost_basis": 4349.13,
+     "name": "RTX CORPORATION COM USD1.00"
+    },
+    {
+     "ticker": "SPG",
+     "shares": 33.0,
+     "price_02_28_26": 203.85,
+     "market_value": 6727.05,
+     "cost_basis": 5219.26,
+     "name": "SIMON PROPERTY GROUP INC"
+    },
+    {
+     "ticker": "NOC",
+     "shares": 9.0,
+     "price_02_28_26": 724.38,
+     "market_value": 6519.42,
+     "cost_basis": 4306.51,
+     "name": "NORTHROP GRUMMAN CORP COM USD1"
+    },
+    {
+     "ticker": "ALL",
+     "shares": 30.0,
+     "price_02_28_26": 214.52,
+     "market_value": 6435.6,
+     "cost_basis": 6162.72,
+     "name": "ALLSTATE CORP COM USD0.01"
+    },
+    {
+     "ticker": "AAPL",
+     "shares": 24.0,
+     "price_02_28_26": 264.18,
+     "market_value": 6340.32,
+     "cost_basis": 4981.2,
+     "name": "APPLE INC"
+    },
+    {
+     "ticker": "TMO",
+     "shares": 12.0,
+     "price_02_28_26": 521.11,
+     "market_value": 6253.32,
+     "cost_basis": 5011.15,
+     "name": "THERMO FISHER SCIENTIFIC INC"
+    },
+    {
+     "ticker": "GM",
+     "shares": 79.0,
+     "price_02_28_26": 78.71,
+     "market_value": 6218.09,
+     "cost_basis": 3778.6,
+     "name": "GENERAL MTRS CO COM"
+    },
+    {
+     "ticker": "PWR",
+     "shares": 11.0,
+     "price_02_28_26": 563.08,
+     "market_value": 6193.88,
+     "cost_basis": 3354.91,
+     "name": "QUANTA SERVICES COM USD0.00001"
+    },
+    {
+     "ticker": "AVGO",
+     "shares": 19.0,
+     "price_02_28_26": 319.55,
+     "market_value": 6071.45,
+     "cost_basis": 3684.23,
+     "name": "BROADCOM INC COM"
+    },
+    {
+     "ticker": "BMY",
+     "shares": 97.0,
+     "price_02_28_26": 62.37,
+     "market_value": 6049.89,
+     "cost_basis": 4628.18,
+     "name": "BRISTOL-MYERS SQUIBB CO COM"
+    },
+    {
+     "ticker": "DG",
+     "shares": 38.0,
+     "price_02_28_26": 156.24,
+     "market_value": 5937.12,
+     "cost_basis": 3610.29,
+     "name": "DOLLAR GEN CORP NEW COM"
+    },
+    {
+     "ticker": "JCI",
+     "shares": 41.0,
+     "price_02_28_26": 144.3,
+     "market_value": 5916.3,
+     "cost_basis": 3469.89,
+     "name": "JOHNSON CONTROLS INTERNATIONAL PLC COM"
+    },
+    {
+     "ticker": "SHEL",
+     "shares": 70.0,
+     "price_02_28_26": 83.51,
+     "market_value": 5845.7,
+     "cost_basis": 4632.85,
+     "name": "SHELL PLC SPON ADS EA REP 2 ORD SHS"
+    },
+    {
+     "ticker": "STX",
+     "shares": 14.0,
+     "price_02_28_26": 407.84,
+     "market_value": 5709.76,
+     "cost_basis": 1139.6,
+     "name": "SEAGATE TECHNOLOGY HLDGS PUB LTD CO"
+    },
+    {
+     "ticker": "DVN",
+     "shares": 131.0,
+     "price_02_28_26": 43.53,
+     "market_value": 5702.43,
+     "cost_basis": 4445.24,
+     "name": "DEVON ENERGY CORP NEW"
+    },
+    {
+     "ticker": "AZN",
+     "shares": 26.0,
+     "price_02_28_26": 208.45,
+     "market_value": 5419.7,
+     "cost_basis": 3719.47,
+     "name": "ASTRAZENECA PLC ORD USD0.25 ISIN"
+    },
+    {
+     "ticker": "BLK",
+     "shares": 5.0,
+     "price_02_28_26": 1063.23,
+     "market_value": 5316.15,
+     "cost_basis": 4893.47,
+     "name": "BLACKROCK INC COM"
+    },
+    {
+     "ticker": "PHM",
+     "shares": 38.0,
+     "price_02_28_26": 137.2,
+     "market_value": 5213.6,
+     "cost_basis": 3866.34,
+     "name": "PULTE GROUP INC COM USD0.01"
+    },
+    {
+     "ticker": "GS",
+     "shares": 6.0,
+     "price_02_28_26": 859.57,
+     "market_value": 5157.42,
+     "cost_basis": 3274.9,
+     "name": "GOLDMAN SACHS GROUP INC COM USD0.01"
+    },
+    {
+     "ticker": "SCHW",
+     "shares": 51.0,
+     "price_02_28_26": 95.2,
+     "market_value": 4855.2,
+     "cost_basis": 4168.55,
+     "name": "SCHWAB CHARLES CORP COM"
+    },
+    {
+     "ticker": "NEE",
+     "shares": 50.0,
+     "price_02_28_26": 93.77,
+     "market_value": 4688.5,
+     "cost_basis": 3526.33,
+     "name": "NEXTERA ENERGY INC COM USD0.01"
+    },
+    {
+     "ticker": "TRV",
+     "shares": 15.0,
+     "price_02_28_26": 308.64,
+     "market_value": 4629.6,
+     "cost_basis": 3949.52,
+     "name": "TRAVELERS COMPANIES INC COM STK NPV"
+    },
+    {
+     "ticker": "IBM",
+     "shares": 19.0,
+     "price_02_28_26": 240.21,
+     "market_value": 4563.99,
+     "cost_basis": 4436.59,
+     "name": "INTERNATIONAL BUS MACH CORP COM USD0.20"
+    },
+    {
+     "ticker": "PPL",
+     "shares": 116.0,
+     "price_02_28_26": 38.98,
+     "market_value": 4521.68,
+     "cost_basis": 4166.39,
+     "name": "PPL CORP COM USD0.01"
+    },
+    {
+     "ticker": "SJM",
+     "shares": 38.0,
+     "price_02_28_26": 115.95,
+     "market_value": 4406.1,
+     "cost_basis": 3990.53,
+     "name": "SMUCKER J M CO COM NEW"
+    },
+    {
+     "ticker": "SNY",
+     "shares": 90.0,
+     "price_02_28_26": 48.66,
+     "market_value": 4379.4,
+     "cost_basis": 4796.38,
+     "name": "SANOFI ADR REP 1 1/2 ORD"
+    },
+    {
+     "ticker": "TGT",
+     "shares": 38.0,
+     "price_02_28_26": 113.79,
+     "market_value": 4324.02,
+     "cost_basis": 3552.95,
+     "name": "TARGET CORP"
+    },
+    {
+     "ticker": "WFC",
+     "shares": 53.0,
+     "price_02_28_26": 81.45,
+     "market_value": 4316.85,
+     "cost_basis": 3684.8,
+     "name": "WELLS FARGO CO NEW COM"
+    },
+    {
+     "ticker": "IR",
+     "shares": 45.0,
+     "price_02_28_26": 94.14,
+     "market_value": 4236.3,
+     "cost_basis": 3453.24,
+     "name": "INGERSOLL RAND INC COM"
+    },
+    {
+     "ticker": "MRK",
+     "shares": 34.0,
+     "price_02_28_26": 123.82,
+     "market_value": 4209.88,
+     "cost_basis": 2803.24,
+     "name": "MERCK &CO. INC COM"
+    },
+    {
+     "ticker": "URI",
+     "shares": 5.0,
+     "price_02_28_26": 840.0,
+     "market_value": 4200.0,
+     "cost_basis": 3654.27,
+     "name": "UNITED RENTALS INC"
+    },
+    {
+     "ticker": "ETN",
+     "shares": 11.0,
+     "price_02_28_26": 375.92,
+     "market_value": 4135.12,
+     "cost_basis": 3193.98,
+     "name": "EATON CORPORATION PLC"
+    },
+    {
+     "ticker": "MET",
+     "shares": 57.0,
+     "price_02_28_26": 72.07,
+     "market_value": 4107.99,
+     "cost_basis": 4379.49,
+     "name": "METLIFE INC COM USD0.01"
+    },
+    {
+     "ticker": "PEP",
+     "shares": 24.0,
+     "price_02_28_26": 169.74,
+     "market_value": 4073.76,
+     "cost_basis": 3326.63,
+     "name": "PEPSICO INC"
+    },
+    {
+     "ticker": "PLD",
+     "shares": 28.0,
+     "price_02_28_26": 142.57,
+     "market_value": 3991.96,
+     "cost_basis": 3033.37,
+     "name": "PROLOGIS INC. COM"
+    },
+    {
+     "ticker": "CVX",
+     "shares": 21.0,
+     "price_02_28_26": 186.76,
+     "market_value": 3921.96,
+     "cost_basis": 3066.09,
+     "name": "CHEVRON CORP NEW COM"
+    },
+    {
+     "ticker": "REGN",
+     "shares": 5.0,
+     "price_02_28_26": 781.67,
+     "market_value": 3908.35,
+     "cost_basis": 2863.12,
+     "name": "REGENERON PHARMACEUTICALS INC"
+    },
+    {
+     "ticker": "D",
+     "shares": 61.0,
+     "price_02_28_26": 63.14,
+     "market_value": 3851.54,
+     "cost_basis": 3322.58,
+     "name": "DOMINION ENERGY INC COM"
+    },
+    {
+     "ticker": "UNH",
+     "shares": 13.0,
+     "price_02_28_26": 293.27,
+     "market_value": 3812.51,
+     "cost_basis": 4980.45,
+     "name": "UNITEDHEALTH GROUP INC"
+    },
+    {
+     "ticker": "DOW",
+     "shares": 123.0,
+     "price_02_28_26": 30.73,
+     "market_value": 3779.79,
+     "cost_basis": 3313.8,
+     "name": "DOW INC COM"
+    },
+    {
+     "ticker": "PFE",
+     "shares": 134.0,
+     "price_02_28_26": 27.65,
+     "market_value": 3705.1,
+     "cost_basis": 3221.1,
+     "name": "PFIZER INC"
+    },
+    {
+     "ticker": "CTVA",
+     "shares": 45.0,
+     "price_02_28_26": 80.12,
+     "market_value": 3605.4,
+     "cost_basis": 2774.88,
+     "name": "CORTEVA INC COM"
+    },
+    {
+     "ticker": "TFC",
+     "shares": 73.0,
+     "price_02_28_26": 49.31,
+     "market_value": 3599.63,
+     "cost_basis": 2792.15,
+     "name": "TRUIST FINL CORP COM"
+    },
+    {
+     "ticker": "NVO",
+     "shares": 89.0,
+     "price_02_28_26": 37.45,
+     "market_value": 3333.05,
+     "cost_basis": 4950.71,
+     "name": "NOVO NORDISK A/S ADR-EACH CNV INTO 1"
+    },
+    {
+     "ticker": "BBY",
+     "shares": 53.0,
+     "price_02_28_26": 61.97,
+     "market_value": 3284.41,
+     "cost_basis": 3614.76,
+     "name": "BEST BUY CO INC COM USD0.10"
+    },
+    {
+     "ticker": "VLO",
+     "shares": 16.0,
+     "price_02_28_26": 204.64,
+     "market_value": 3274.24,
+     "cost_basis": 1831.89,
+     "name": "VALERO ENERGY CORP COM"
+    },
+    {
+     "ticker": "TMUS",
+     "shares": 15.0,
+     "price_02_28_26": 217.09,
+     "market_value": 3256.35,
+     "cost_basis": 3550.47,
+     "name": "T-MOBILE US INC COM"
+    },
+    {
+     "ticker": "CMCSA",
+     "shares": 105.0,
+     "price_02_28_26": 30.96,
+     "market_value": 3250.8,
+     "cost_basis": 3273.04,
+     "name": "COMCAST CORP"
+    },
+    {
+     "ticker": "NRG",
+     "shares": 18.0,
+     "price_02_28_26": 178.96,
+     "market_value": 3221.28,
+     "cost_basis": 1948.82,
+     "name": "NRG ENERGY INC"
+    },
+    {
+     "ticker": "APO",
+     "shares": 30.0,
+     "price_02_28_26": 104.6,
+     "market_value": 3138.0,
+     "cost_basis": 4044.14,
+     "name": "APOLLO GLOBAL MGMT INC COM"
+    },
+    {
+     "ticker": "IFF",
+     "shares": 38.0,
+     "price_02_28_26": 82.23,
+     "market_value": 3124.74,
+     "cost_basis": 2884.91,
+     "name": "INTERNATIONAL FLAVORS &FRAGRANCES COM"
+    },
+    {
+     "ticker": "MDT",
+     "shares": 29.0,
+     "price_02_28_26": 97.66,
+     "market_value": 2832.14,
+     "cost_basis": 2563.84,
+     "name": "MEDTRONIC PLC"
+    },
+    {
+     "ticker": "SON",
+     "shares": 49.0,
+     "price_02_28_26": 56.47,
+     "market_value": 2767.03,
+     "cost_basis": 2241.26,
+     "name": "SONOCO PRODUCTS CO"
+    },
+    {
+     "ticker": "TJX",
+     "shares": 17.0,
+     "price_02_28_26": 161.66,
+     "market_value": 2748.22,
+     "cost_basis": 2150.16,
+     "name": "TJX COMPANIES INC"
+    },
+    {
+     "ticker": "SWK",
+     "shares": 31.0,
+     "price_02_28_26": 86.49,
+     "market_value": 2681.19,
+     "cost_basis": 2145.77,
+     "name": "STANLEY BLACK & DECKER INC"
+    },
+    {
+     "ticker": "HPQ",
+     "shares": 139.0,
+     "price_02_28_26": 18.99,
+     "market_value": 2639.61,
+     "cost_basis": 3641.14,
+     "name": "HP INC COM"
+    },
+    {
+     "ticker": "ATO",
+     "shares": 14.0,
+     "price_02_28_26": 186.79,
+     "market_value": 2615.06,
+     "cost_basis": 2206.26,
+     "name": "ATMOS ENERGY CORP COM NPV"
+    },
+    {
+     "ticker": "ELV",
+     "shares": 8.0,
+     "price_02_28_26": 320.0,
+     "market_value": 2560.0,
+     "cost_basis": 2315.52,
+     "name": "ELEVANCE HEALTH INC COM"
+    },
+    {
+     "ticker": "TT",
+     "shares": 5.0,
+     "price_02_28_26": 462.32,
+     "market_value": 2311.6,
+     "cost_basis": 1748.49,
+     "name": "TRANE TECHNOLOGIES PLC COM USD1"
+    },
+    {
+     "ticker": "WY",
+     "shares": 94.0,
+     "price_02_28_26": 24.53,
+     "market_value": 2305.82,
+     "cost_basis": 2216.44,
+     "name": "WEYERHAEUSER CO MTN BE COM NEW"
+    },
+    {
+     "ticker": "NUE",
+     "shares": 13.0,
+     "price_02_28_26": 176.88,
+     "market_value": 2299.44,
+     "cost_basis": 1506.81,
+     "name": "NUCOR CORP COM USD0.40"
+    },
+    {
+     "ticker": "QCOM",
+     "shares": 16.0,
+     "price_02_28_26": 142.36,
+     "market_value": 2277.76,
+     "cost_basis": 2347.65,
+     "name": "QUALCOMM INC"
+    },
+    {
+     "ticker": "FIS",
+     "shares": 42.0,
+     "price_02_28_26": 50.96,
+     "market_value": 2140.32,
+     "cost_basis": 3038.68,
+     "name": "FIDELITY NATL INFORMATION SERVICES COM"
+    },
+    {
+     "ticker": "DELL",
+     "shares": 14.0,
+     "price_02_28_26": 148.08,
+     "market_value": 2073.12,
+     "cost_basis": 1323.11,
+     "name": "DELL TECHNOLOGIES INC CL C"
+    },
+    {
+     "ticker": "F",
+     "shares": 128.0,
+     "price_02_28_26": 14.09,
+     "market_value": 1803.52,
+     "cost_basis": 1283.93,
+     "name": "FORD MTR CO DEL COM"
+    },
+    {
+     "ticker": "HD",
+     "shares": 4.0,
+     "price_02_28_26": 380.72,
+     "market_value": 1522.88,
+     "cost_basis": 1426.75,
+     "name": "HOME DEPOT INC"
+    },
+    {
+     "ticker": "LNC",
+     "shares": 44.0,
+     "price_02_28_26": 34.3,
+     "market_value": 1509.2,
+     "cost_basis": 1404.42,
+     "name": "LINCOLN NATIONAL CORP COM NPV"
+    }
+   ]
+  }
+ ],
+ "total_value": 1046035.43,
+ "fees": {
+  "charged_jan_2026": 3069.12,
+  "billing": "quarterly (charged in January; February shows $0.00)",
+  "annualised": 12276.48,
+  "annualised_pct_of_assets": 1.19
+ }
+}
