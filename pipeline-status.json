@@ -1,10 +1,11 @@
 {
-  "generated_at": "2026-08-26T09:30:49.166645+00:00",
+  "generated_at": "2026-08-26T09:57:05.237376+00:00",
   "job": "update_live_market_data",
   "status": "partial",
-  "detail": "96 quotes, 5 indices published. 3 symbol(s) failed.",
-  "quote_count": 96,
+  "detail": "182 quotes, 5 indices published. 4 symbol(s) failed.",
+  "quote_count": 182,
   "errors": [
+    "BK: no data after retry",
     "CERE: no data after retry",
     "CORE: no data after retry",
     "MARV: no data after retry"

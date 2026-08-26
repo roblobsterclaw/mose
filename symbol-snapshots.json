@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T09:30:49.052281+00:00",
+  "generated_at": "2026-08-26T09:57:05.124086+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -59,6 +59,35 @@
         "company": "Advanced Energy Industries, Inc.",
         "owned": null,
         "hasResearch": true
+      },
+      "source": "yahoo"
+    },
+    "ALL": {
+      "ticker": "ALL",
+      "name": "ALL",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "ALL",
+        "symbol": "ALL",
+        "price": 257.62,
+        "prev_close": 260.19,
+        "change_pct": -0.987739728659823,
+        "date": "2026-08-25",
+        "time": "16:00:03",
+        "volume": 965204,
+        "week52_high": 277.22,
+        "week52_low": 188.08
+      },
+      "metrics": {
+        "week52High": 277.22,
+        "week52Low": 188.08
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
       },
       "source": "yahoo"
     },
@@ -122,6 +151,35 @@
           "value": 21869
         },
         "hasResearch": true
+      },
+      "source": "yahoo"
+    },
+    "APO": {
+      "ticker": "APO",
+      "name": "APO",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "APO",
+        "symbol": "APO",
+        "price": 133.18,
+        "prev_close": 132.79,
+        "change_pct": 0.29369681451917673,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 1832369,
+        "week52_high": 153.29,
+        "week52_low": 99.56
+      },
+      "metrics": {
+        "week52High": 153.29,
+        "week52Low": 99.56
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
       },
       "source": "yahoo"
     },
@@ -243,6 +301,35 @@
       },
       "source": "yahoo"
     },
+    "ATO": {
+      "ticker": "ATO",
+      "name": "ATO",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "ATO",
+        "symbol": "ATO",
+        "price": 167.56,
+        "prev_close": 167.82,
+        "change_pct": -0.15492789893933437,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 971412,
+        "week52_high": 192.51,
+        "week52_low": 160.1
+      },
+      "metrics": {
+        "week52High": 192.51,
+        "week52Low": 160.1
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "AVGO": {
       "ticker": "AVGO",
       "name": "Broadcom Inc.",
@@ -300,6 +387,37 @@
         "company": "American Express Company",
         "owned": null,
         "hasResearch": true
+      },
+      "source": "yahoo"
+    },
+    "AZN": {
+      "ticker": "AZN",
+      "name": "AstraZeneca PLC",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "AZN",
+        "symbol": "AZN",
+        "price": 169.66,
+        "prev_close": 166.71,
+        "change_pct": 1.7695399196208919,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 3453030,
+        "week52_high": 212.71,
+        "week52_low": 145.8
+      },
+      "metrics": {
+        "week52High": 212.71,
+        "week52Low": 145.8,
+        "marketCap": 294166298624,
+        "peRatio": 25.902290076335877
+      },
+      "profile": {
+        "company": "AstraZeneca PLC",
+        "owned": null,
+        "hasResearch": false
       },
       "source": "yahoo"
     },
@@ -366,6 +484,35 @@
       },
       "source": "yahoo"
     },
+    "BBY": {
+      "ticker": "BBY",
+      "name": "BBY",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "BBY",
+        "symbol": "BBY",
+        "price": 85.29,
+        "prev_close": 87.48,
+        "change_pct": -2.5034293552812046,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 4189465,
+        "week52_high": 91.27,
+        "week52_low": 55.1
+      },
+      "metrics": {
+        "week52High": 91.27,
+        "week52Low": 55.1
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "BE": {
       "ticker": "BE",
       "name": "Bloom Energy Corporation",
@@ -419,6 +566,66 @@
       },
       "profile": {
         "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "BLK": {
+      "ticker": "BLK",
+      "name": "BLK",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "BLK",
+        "symbol": "BLK",
+        "price": 1176.64,
+        "prev_close": 1172.61,
+        "change_pct": 0.34367777863059334,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 438141,
+        "week52_high": 1219.94,
+        "week52_low": 917.39
+      },
+      "metrics": {
+        "week52High": 1219.94,
+        "week52Low": 917.39
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "BMY": {
+      "ticker": "BMY",
+      "name": "Bristol-Myers Squibb Company",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "BMY",
+        "symbol": "BMY",
+        "price": 67.92,
+        "prev_close": 67.28,
+        "change_pct": 0.9512485136741982,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 7909761,
+        "week52_high": 68.64,
+        "week52_low": 42.52
+      },
+      "metrics": {
+        "week52High": 68.64,
+        "week52Low": 42.52,
+        "marketCap": 119870283776,
+        "peRatio": 19.63005780346821
+      },
+      "profile": {
+        "company": "Bristol-Myers Squibb Company",
         "owned": null,
         "hasResearch": false
       },
@@ -486,6 +693,37 @@
       },
       "source": "yahoo"
     },
+    "C": {
+      "ticker": "C",
+      "name": "Citigroup Inc.",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "C",
+        "symbol": "C",
+        "price": 133.25,
+        "prev_close": 131.72,
+        "change_pct": 1.1615548132402074,
+        "date": "2026-08-25",
+        "time": "16:03:39",
+        "volume": 6184176,
+        "week52_high": 147.96,
+        "week52_low": 92.96
+      },
+      "metrics": {
+        "week52High": 147.96,
+        "week52Low": 92.96,
+        "marketCap": 223877857280,
+        "peRatio": 16.47095179233622
+      },
+      "profile": {
+        "company": "Citigroup Inc.",
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "CBRS": {
       "ticker": "CBRS",
       "name": "Cerebras Systems, Inc.",
@@ -512,6 +750,35 @@
         "company": "Cerebras Systems, Inc.",
         "owned": null,
         "hasResearch": true
+      },
+      "source": "yahoo"
+    },
+    "CEG": {
+      "ticker": "CEG",
+      "name": "CEG",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "CEG",
+        "symbol": "CEG",
+        "price": 278.42,
+        "prev_close": 273.43,
+        "change_pct": 1.8249643418790948,
+        "date": "2026-08-25",
+        "time": "16:00:01",
+        "volume": 2464015,
+        "week52_high": 412.7,
+        "week52_low": 228.63
+      },
+      "metrics": {
+        "week52High": 412.7,
+        "week52Low": 228.63
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
       },
       "source": "yahoo"
     },
@@ -570,6 +837,35 @@
         "company": "Celestica Inc.",
         "owned": null,
         "hasResearch": true
+      },
+      "source": "yahoo"
+    },
+    "CMCSA": {
+      "ticker": "CMCSA",
+      "name": "CMCSA",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "CMCSA",
+        "symbol": "CMCSA",
+        "price": 27.1,
+        "prev_close": 27.02,
+        "change_pct": 0.2960769800148107,
+        "date": "2026-08-25",
+        "time": "16:00:00",
+        "volume": 22648713,
+        "week52_high": 32.86,
+        "week52_low": 21.28
+      },
+      "metrics": {
+        "week52High": 32.86,
+        "week52Low": 21.28
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
       },
       "source": "yahoo"
     },
@@ -664,6 +960,35 @@
       },
       "source": "yahoo"
     },
+    "COP": {
+      "ticker": "COP",
+      "name": "COP",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "COP",
+        "symbol": "COP",
+        "price": 131.84,
+        "prev_close": 133.35,
+        "change_pct": -1.132358455193094,
+        "date": "2026-08-25",
+        "time": "16:00:03",
+        "volume": 6043385,
+        "week52_high": 135.88,
+        "week52_low": 85.57
+      },
+      "metrics": {
+        "week52High": 135.88,
+        "week52Low": 85.57
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "COST": {
       "ticker": "COST",
       "name": "Costco Wholesale Corporation",
@@ -726,6 +1051,38 @@
       },
       "source": "yahoo"
     },
+    "CSCO": {
+      "ticker": "CSCO",
+      "name": "CSCO",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "CSCO",
+        "symbol": "CSCO",
+        "price": 111.11,
+        "prev_close": 110.23,
+        "change_pct": 0.7983307629501909,
+        "date": "2026-08-25",
+        "time": "16:00:01",
+        "volume": 11808103,
+        "week52_high": 130.37,
+        "week52_low": 66.13
+      },
+      "metrics": {
+        "week52High": 130.37,
+        "week52Low": 66.13
+      },
+      "profile": {
+        "company": null,
+        "owned": {
+          "shares": 88,
+          "value": 0
+        },
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "CSU": {
       "ticker": "CSU",
       "name": "Constellation Software Inc.",
@@ -752,6 +1109,35 @@
         "company": "Constellation Software Inc.",
         "owned": null,
         "hasResearch": true
+      },
+      "source": "yahoo"
+    },
+    "CTVA": {
+      "ticker": "CTVA",
+      "name": "CTVA",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "CTVA",
+        "symbol": "CTVA",
+        "price": 83.05,
+        "prev_close": 82.81,
+        "change_pct": 0.28982007003984406,
+        "date": "2026-08-25",
+        "time": "16:00:03",
+        "volume": 3098067,
+        "week52_high": 90.97,
+        "week52_low": 60.535
+      },
+      "metrics": {
+        "week52High": 90.97,
+        "week52Low": 60.535
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
       },
       "source": "yahoo"
     },
@@ -786,6 +1172,35 @@
       },
       "source": "yahoo"
     },
+    "CVS": {
+      "ticker": "CVS",
+      "name": "CVS",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "CVS",
+        "symbol": "CVS",
+        "price": 92.9,
+        "prev_close": 94.11,
+        "change_pct": -1.2857294655190667,
+        "date": "2026-08-25",
+        "time": "16:00:03",
+        "volume": 4100958,
+        "week52_high": 110.68,
+        "week52_low": 69.51
+      },
+      "metrics": {
+        "week52High": 110.68,
+        "week52Low": 69.51
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "CVX": {
       "ticker": "CVX",
       "name": "Chevron",
@@ -814,6 +1229,35 @@
         "company": "Chevron Corporation",
         "owned": null,
         "hasResearch": true
+      },
+      "source": "yahoo"
+    },
+    "D": {
+      "ticker": "D",
+      "name": "D",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "D",
+        "symbol": "D",
+        "price": 66.93,
+        "prev_close": 66.61,
+        "change_pct": 0.48040834709504193,
+        "date": "2026-08-25",
+        "time": "16:03:58",
+        "volume": 3069018,
+        "week52_high": 72.99,
+        "week52_low": 55.85
+      },
+      "metrics": {
+        "week52High": 72.99,
+        "week52Low": 55.85
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
       },
       "source": "yahoo"
     },
@@ -875,6 +1319,64 @@
       },
       "source": "yahoo"
     },
+    "DELL": {
+      "ticker": "DELL",
+      "name": "DELL",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "DELL",
+        "symbol": "DELL",
+        "price": 451.5,
+        "prev_close": 433.19,
+        "change_pct": 4.226782705048594,
+        "date": "2026-08-25",
+        "time": "16:04:17",
+        "volume": 3893612,
+        "week52_high": 514.0,
+        "week52_low": 110.22
+      },
+      "metrics": {
+        "week52High": 514.0,
+        "week52Low": 110.22
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "DG": {
+      "ticker": "DG",
+      "name": "DG",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "DG",
+        "symbol": "DG",
+        "price": 122.58,
+        "prev_close": 125.33,
+        "change_pct": -2.1942072927471474,
+        "date": "2026-08-25",
+        "time": "16:00:03",
+        "volume": 1529743,
+        "week52_high": 158.23,
+        "week52_low": 95.11
+      },
+      "metrics": {
+        "week52High": 158.23,
+        "week52Low": 95.11
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "DIS": {
       "ticker": "DIS",
       "name": "The Walt Disney Company",
@@ -901,6 +1403,35 @@
       },
       "profile": {
         "company": "The Walt Disney Company",
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "DOW": {
+      "ticker": "DOW",
+      "name": "DOW",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "DOW",
+        "symbol": "DOW",
+        "price": 30.16,
+        "prev_close": 31.44,
+        "change_pct": -4.071246819338426,
+        "date": "2026-08-25",
+        "time": "16:00:03",
+        "volume": 9172360,
+        "week52_high": 42.74,
+        "week52_low": 20.65
+      },
+      "metrics": {
+        "week52High": 42.74,
+        "week52Low": 20.65
+      },
+      "profile": {
+        "company": null,
         "owned": null,
         "hasResearch": false
       },
@@ -937,6 +1468,220 @@
       },
       "source": "yahoo"
     },
+    "DVN": {
+      "ticker": "DVN",
+      "name": "DVN",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "DVN",
+        "symbol": "DVN",
+        "price": 46.91,
+        "prev_close": 48.23,
+        "change_pct": -2.736885755753681,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 7211132,
+        "week52_high": 52.71,
+        "week52_low": 31.47
+      },
+      "metrics": {
+        "week52High": 52.71,
+        "week52Low": 31.47
+      },
+      "profile": {
+        "company": null,
+        "owned": {
+          "shares": 51,
+          "value": 0
+        },
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "EA": {
+      "ticker": "EA",
+      "name": "EA",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "EA",
+        "symbol": "EA",
+        "price": 209.7,
+        "prev_close": null,
+        "change_pct": null,
+        "date": "2026-08-04",
+        "time": "16:00:00",
+        "volume": 48430629,
+        "week52_high": 210.2,
+        "week52_low": 164.5
+      },
+      "metrics": {
+        "week52High": 210.2,
+        "week52Low": 164.5
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "ELV": {
+      "ticker": "ELV",
+      "name": "Elevance Health, Inc.",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "ELV",
+        "symbol": "ELV",
+        "price": 398.87,
+        "prev_close": 402.63,
+        "change_pct": -0.9338598713458984,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 933524,
+        "week52_high": 436.24,
+        "week52_low": 274.84
+      },
+      "metrics": {
+        "week52High": 436.24,
+        "week52Low": 274.84,
+        "marketCap": 74868908032,
+        "peRatio": 16.886960203217612
+      },
+      "profile": {
+        "company": "Elevance Health, Inc.",
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "ETN": {
+      "ticker": "ETN",
+      "name": "ETN",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "ETN",
+        "symbol": "ETN",
+        "price": 409.2,
+        "prev_close": 408.67,
+        "change_pct": 0.1296889911175209,
+        "date": "2026-08-25",
+        "time": "16:00:03",
+        "volume": 1521065,
+        "week52_high": 478.0,
+        "week52_low": 311.92
+      },
+      "metrics": {
+        "week52High": 478.0,
+        "week52Low": 311.92
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "F": {
+      "ticker": "F",
+      "name": "F",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "F",
+        "symbol": "F",
+        "price": 13.95,
+        "prev_close": 13.93,
+        "change_pct": 0.1435750179468742,
+        "date": "2026-08-25",
+        "time": "16:04:04",
+        "volume": 33446601,
+        "week52_high": 17.78,
+        "week52_low": 11.11
+      },
+      "metrics": {
+        "week52High": 17.78,
+        "week52Low": 11.11
+      },
+      "profile": {
+        "company": null,
+        "owned": {
+          "shares": 65,
+          "value": 0
+        },
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "FCX": {
+      "ticker": "FCX",
+      "name": "FCX",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "FCX",
+        "symbol": "FCX",
+        "price": 79.91,
+        "prev_close": 77.8,
+        "change_pct": 2.7120822622107963,
+        "date": "2026-08-25",
+        "time": "16:04:11",
+        "volume": 15779231,
+        "week52_high": 79.94,
+        "week52_low": 35.15
+      },
+      "metrics": {
+        "week52High": 79.94,
+        "week52Low": 35.15
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "FDX": {
+      "ticker": "FDX",
+      "name": "FDX",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "FDX",
+        "symbol": "FDX",
+        "price": 333.71,
+        "prev_close": 334.05,
+        "change_pct": -0.10178117048347007,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 1096805,
+        "week52_high": 345.37,
+        "week52_low": 178.332
+      },
+      "metrics": {
+        "week52High": 345.37,
+        "week52Low": 178.332
+      },
+      "profile": {
+        "company": null,
+        "owned": {
+          "shares": 12,
+          "value": 0
+        },
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "FICO": {
       "ticker": "FICO",
       "name": "Fair Isaac (FICO)",
@@ -965,6 +1710,37 @@
         "company": "Fair Isaac Corporation",
         "owned": null,
         "hasResearch": true
+      },
+      "source": "yahoo"
+    },
+    "FIS": {
+      "ticker": "FIS",
+      "name": "Fidelity National Information Services, Inc.",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "FIS",
+        "symbol": "FIS",
+        "price": 40.47,
+        "prev_close": 41.4,
+        "change_pct": -2.246376811594202,
+        "date": "2026-08-25",
+        "time": "16:00:03",
+        "volume": 5714731,
+        "week52_high": 71.57,
+        "week52_low": 37.42
+      },
+      "metrics": {
+        "week52High": 71.57,
+        "week52Low": 37.42,
+        "marketCap": 23681314816,
+        "peRatio": 55.43835616438356
+      },
+      "profile": {
+        "company": "Fidelity National Information Services, Inc.",
+        "owned": null,
+        "hasResearch": false
       },
       "source": "yahoo"
     },
@@ -1057,6 +1833,35 @@
       },
       "source": "yahoo"
     },
+    "GM": {
+      "ticker": "GM",
+      "name": "GM",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "GM",
+        "symbol": "GM",
+        "price": 85.81,
+        "prev_close": 86.98,
+        "change_pct": -1.3451368130604757,
+        "date": "2026-08-25",
+        "time": "16:00:03",
+        "volume": 4851893,
+        "week52_high": 91.85,
+        "week52_low": 54.33
+      },
+      "metrics": {
+        "week52High": 91.85,
+        "week52Low": 54.33
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "GOOGL": {
       "ticker": "GOOGL",
       "name": "Alphabet (Google)",
@@ -1091,6 +1896,68 @@
       },
       "source": "yahoo"
     },
+    "GS": {
+      "ticker": "GS",
+      "name": "The Goldman Sachs Group, Inc.",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "GS",
+        "symbol": "GS",
+        "price": 1058.88,
+        "prev_close": 1036.28,
+        "change_pct": 2.180877755046912,
+        "date": "2026-08-25",
+        "time": "16:00:03",
+        "volume": 2303119,
+        "week52_high": 1153.99,
+        "week52_low": 721.16
+      },
+      "metrics": {
+        "week52High": 1153.99,
+        "week52Low": 721.16,
+        "marketCap": 275063242752,
+        "peRatio": 19.329682365826947
+      },
+      "profile": {
+        "company": "The Goldman Sachs Group, Inc.",
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "HD": {
+      "ticker": "HD",
+      "name": "The Home Depot, Inc.",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "HD",
+        "symbol": "HD",
+        "price": 337.88,
+        "prev_close": 337.43,
+        "change_pct": 0.1333609933912185,
+        "date": "2026-08-25",
+        "time": "16:00:03",
+        "volume": 2373867,
+        "week52_high": 426.75,
+        "week52_low": 289.1
+      },
+      "metrics": {
+        "week52High": 426.75,
+        "week52Low": 289.1,
+        "marketCap": 334555742208,
+        "peRatio": 23.727528089887638
+      },
+      "profile": {
+        "company": "The Home Depot, Inc.",
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "HHH": {
       "ticker": "HHH",
       "name": "HHH",
@@ -1120,6 +1987,97 @@
       },
       "source": "yahoo"
     },
+    "HLT": {
+      "ticker": "HLT",
+      "name": "Hilton Worldwide Holdings Inc.",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "HLT",
+        "symbol": "HLT",
+        "price": 329.31,
+        "prev_close": 330.07,
+        "change_pct": -0.2302541885054658,
+        "date": "2026-08-25",
+        "time": "16:00:03",
+        "volume": 1248064,
+        "week52_high": 358.0,
+        "week52_low": 253.54
+      },
+      "metrics": {
+        "week52High": 358.0,
+        "week52Low": 253.54,
+        "marketCap": 76957147136,
+        "peRatio": 53.89689034369885
+      },
+      "profile": {
+        "company": "Hilton Worldwide Holdings Inc.",
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "HPQ": {
+      "ticker": "HPQ",
+      "name": "HP Inc.",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "HPQ",
+        "symbol": "HPQ",
+        "price": 29.52,
+        "prev_close": 28.58,
+        "change_pct": 3.2890132960112015,
+        "date": "2026-08-25",
+        "time": "16:00:03",
+        "volume": 10214243,
+        "week52_high": 32.19,
+        "week52_low": 17.56
+      },
+      "metrics": {
+        "week52High": 32.19,
+        "week52Low": 17.56,
+        "marketCap": 18166915072,
+        "peRatio": 11.181818181818182
+      },
+      "profile": {
+        "company": "HP Inc.",
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "IBM": {
+      "ticker": "IBM",
+      "name": "IBM",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "IBM",
+        "symbol": "IBM",
+        "price": 234.19,
+        "prev_close": 231.04,
+        "change_pct": 1.3634002770083127,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 3006177,
+        "week52_high": 332.46,
+        "week52_low": 199.19
+      },
+      "metrics": {
+        "week52High": 332.46,
+        "week52Low": 199.19
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "IDGT": {
       "ticker": "IDGT",
       "name": "IDGT",
@@ -1141,6 +2099,64 @@
       "metrics": {
         "week52High": 133.05,
         "week52Low": 81.26
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "IDU": {
+      "ticker": "IDU",
+      "name": "IDU",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "IDU",
+        "symbol": "IDU",
+        "price": 110.05,
+        "prev_close": 110.03,
+        "change_pct": 0.01817686085612653,
+        "date": "2026-08-25",
+        "time": "16:00:00",
+        "volume": 53515,
+        "week52_high": 120.82,
+        "week52_low": 105.06
+      },
+      "metrics": {
+        "week52High": 120.82,
+        "week52Low": 105.06
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "IFF": {
+      "ticker": "IFF",
+      "name": "IFF",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "IFF",
+        "symbol": "IFF",
+        "price": 87.16,
+        "prev_close": 85.81,
+        "change_pct": 1.5732432117468762,
+        "date": "2026-08-25",
+        "time": "16:00:03",
+        "volume": 1565863,
+        "week52_high": 89.32,
+        "week52_low": 59.14
+      },
+      "metrics": {
+        "week52High": 89.32,
+        "week52Low": 59.14
       },
       "profile": {
         "company": null,
@@ -1207,6 +2223,35 @@
       },
       "source": "yahoo"
     },
+    "IR": {
+      "ticker": "IR",
+      "name": "IR",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "IR",
+        "symbol": "IR",
+        "price": 78.57,
+        "prev_close": 79.99,
+        "change_pct": -1.7752219027378446,
+        "date": "2026-08-25",
+        "time": "16:00:03",
+        "volume": 2066398,
+        "week52_high": 100.96,
+        "week52_low": 68.07
+      },
+      "metrics": {
+        "week52High": 100.96,
+        "week52Low": 68.07
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "IRBO": {
       "ticker": "IRBO",
       "name": "iShares Robotics and AI Multisector ETF",
@@ -1231,6 +2276,124 @@
       },
       "profile": {
         "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "IWD": {
+      "ticker": "IWD",
+      "name": "IWD",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "IWD",
+        "symbol": "IWD",
+        "price": 258.27,
+        "prev_close": 258.32,
+        "change_pct": -0.019355837720660952,
+        "date": "2026-08-25",
+        "time": "16:00:00",
+        "volume": 1849726,
+        "week52_high": 260.19,
+        "week52_low": 199.13
+      },
+      "metrics": {
+        "week52High": 260.19,
+        "week52Low": 199.13
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "JCI": {
+      "ticker": "JCI",
+      "name": "JCI",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "JCI",
+        "symbol": "JCI",
+        "price": 141.82,
+        "prev_close": 142.99,
+        "change_pct": -0.8182390376949548,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 2075564,
+        "week52_high": 157.06,
+        "week52_low": 103.82
+      },
+      "metrics": {
+        "week52High": 157.06,
+        "week52Low": 103.82
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "JNJ": {
+      "ticker": "JNJ",
+      "name": "JNJ",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "JNJ",
+        "symbol": "JNJ",
+        "price": 273.14,
+        "prev_close": 271.7,
+        "change_pct": 0.5299963194700029,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 4094797,
+        "week52_high": 276.47,
+        "week52_low": 173.33
+      },
+      "metrics": {
+        "week52High": 276.47,
+        "week52Low": 173.33
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "JPM": {
+      "ticker": "JPM",
+      "name": "JPMorgan Chase & Co.",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "JPM",
+        "symbol": "JPM",
+        "price": 356.69,
+        "prev_close": 356.39,
+        "change_pct": 0.08417744605628985,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 4153125,
+        "week52_high": 366.5,
+        "week52_low": 279.1
+      },
+      "metrics": {
+        "week52High": 366.5,
+        "week52Low": 279.1,
+        "marketCap": 826036256768,
+        "peRatio": 17.066507177033493
+      },
+      "profile": {
+        "company": "JPMorgan Chase & Co.",
         "owned": null,
         "hasResearch": false
       },
@@ -1298,6 +2461,35 @@
       },
       "source": "yahoo"
     },
+    "KO": {
+      "ticker": "KO",
+      "name": "KO",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "KO",
+        "symbol": "KO",
+        "price": 91.64,
+        "prev_close": 91.99,
+        "change_pct": -0.3804761387107233,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 11910471,
+        "week52_high": 92.49,
+        "week52_low": 65.35
+      },
+      "metrics": {
+        "week52High": 92.49,
+        "week52Low": 65.35
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "KVYO": {
       "ticker": "KVYO",
       "name": "Klaviyo, Inc.",
@@ -1353,6 +2545,35 @@
         "company": "Eli Lilly and Company",
         "owned": null,
         "hasResearch": true
+      },
+      "source": "yahoo"
+    },
+    "LNC": {
+      "ticker": "LNC",
+      "name": "LNC",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "LNC",
+        "symbol": "LNC",
+        "price": 42.61,
+        "prev_close": 42.38,
+        "change_pct": 0.5427088249174065,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 1701245,
+        "week52_high": 47.67,
+        "week52_low": 32.18
+      },
+      "metrics": {
+        "week52High": 47.67,
+        "week52Low": 32.18
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
       },
       "source": "yahoo"
     },
@@ -1443,6 +2664,35 @@
       },
       "source": "yahoo"
     },
+    "LUV": {
+      "ticker": "LUV",
+      "name": "LUV",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "LUV",
+        "symbol": "LUV",
+        "price": 40.82,
+        "prev_close": 40.71,
+        "change_pct": 0.2702038811102909,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 5804126,
+        "week52_high": 55.11,
+        "week52_low": 29.26
+      },
+      "metrics": {
+        "week52High": 55.11,
+        "week52Low": 29.26
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "MA": {
       "ticker": "MA",
       "name": "Mastercard",
@@ -1495,6 +2745,35 @@
       "metrics": {
         "week52High": 26.0,
         "week52Low": 17.67
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "MCK": {
+      "ticker": "MCK",
+      "name": "MCK",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "MCK",
+        "symbol": "MCK",
+        "price": 905.09,
+        "prev_close": 873.79,
+        "change_pct": 3.582096384714871,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 882506,
+        "week52_high": 999.0,
+        "week52_low": 677.28
+      },
+      "metrics": {
+        "week52High": 999.0,
+        "week52Low": 677.28
       },
       "profile": {
         "company": null,
@@ -1563,6 +2842,35 @@
       },
       "source": "yahoo"
     },
+    "MDT": {
+      "ticker": "MDT",
+      "name": "MDT",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "MDT",
+        "symbol": "MDT",
+        "price": 91.14,
+        "prev_close": 92.9,
+        "change_pct": -1.894510226049521,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 6797703,
+        "week52_high": 106.33,
+        "week52_low": 73.31
+      },
+      "metrics": {
+        "week52High": 106.33,
+        "week52Low": 73.31
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "MELI": {
       "ticker": "MELI",
       "name": "MercadoLibre, Inc.",
@@ -1591,6 +2899,35 @@
         "company": "MercadoLibre, Inc.",
         "owned": null,
         "hasResearch": true
+      },
+      "source": "yahoo"
+    },
+    "MET": {
+      "ticker": "MET",
+      "name": "MET",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "MET",
+        "symbol": "MET",
+        "price": 95.87,
+        "prev_close": 96.21,
+        "change_pct": -0.3533936181270026,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 2179382,
+        "week52_high": 100.93,
+        "week52_low": 67.33
+      },
+      "metrics": {
+        "week52High": 100.93,
+        "week52Low": 67.33
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
       },
       "source": "yahoo"
     },
@@ -1651,6 +2988,35 @@
         "company": "MKS Instruments, Inc.",
         "owned": null,
         "hasResearch": true
+      },
+      "source": "yahoo"
+    },
+    "MRK": {
+      "ticker": "MRK",
+      "name": "MRK",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "MRK",
+        "symbol": "MRK",
+        "price": 156.45,
+        "prev_close": 150.66,
+        "change_pct": 3.843090402230182,
+        "date": "2026-08-25",
+        "time": "16:04:08",
+        "volume": 13898396,
+        "week52_high": 156.92,
+        "week52_low": 77.58
+      },
+      "metrics": {
+        "week52High": 156.92,
+        "week52Low": 77.58
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
       },
       "source": "yahoo"
     },
@@ -1772,6 +3138,35 @@
       },
       "source": "yahoo"
     },
+    "NEE": {
+      "ticker": "NEE",
+      "name": "NEE",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "NEE",
+        "symbol": "NEE",
+        "price": 84.22,
+        "prev_close": 84.1,
+        "change_pct": 0.14268727705113504,
+        "date": "2026-08-25",
+        "time": "16:00:03",
+        "volume": 7677645,
+        "week52_high": 98.75,
+        "week52_low": 69.24
+      },
+      "metrics": {
+        "week52High": 98.75,
+        "week52Low": 69.24
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "NLR": {
       "ticker": "NLR",
       "name": "NLR",
@@ -1793,6 +3188,93 @@
       "metrics": {
         "week52High": 168.12,
         "week52Low": 101.92
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "NOC": {
+      "ticker": "NOC",
+      "name": "NOC",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "NOC",
+        "symbol": "NOC",
+        "price": 542.52,
+        "prev_close": 549.28,
+        "change_pct": -1.2307020099038726,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 553872,
+        "week52_high": 774.0,
+        "week52_low": 479.02
+      },
+      "metrics": {
+        "week52High": 774.0,
+        "week52Low": 479.02
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "NRG": {
+      "ticker": "NRG",
+      "name": "NRG",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "NRG",
+        "symbol": "NRG",
+        "price": 113.61,
+        "prev_close": 111.78,
+        "change_pct": 1.6371443907675778,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 2951091,
+        "week52_high": 189.96,
+        "week52_low": 111.3
+      },
+      "metrics": {
+        "week52High": 189.96,
+        "week52Low": 111.3
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "NUE": {
+      "ticker": "NUE",
+      "name": "NUE",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "NUE",
+        "symbol": "NUE",
+        "price": 247.55,
+        "prev_close": 244.64,
+        "change_pct": 1.1895029431000756,
+        "date": "2026-08-25",
+        "time": "16:00:03",
+        "volume": 985384,
+        "week52_high": 280.11,
+        "week52_low": 131.32
+      },
+      "metrics": {
+        "week52High": 280.11,
+        "week52Low": 131.32
       },
       "profile": {
         "company": null,
@@ -1835,6 +3317,35 @@
       },
       "source": "yahoo"
     },
+    "NVO": {
+      "ticker": "NVO",
+      "name": "NVO",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "NVO",
+        "symbol": "NVO",
+        "price": 48.66,
+        "prev_close": 46.92,
+        "change_pct": 3.7084398976981987,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 15494639,
+        "week52_high": 64.16,
+        "week52_low": 35.12
+      },
+      "metrics": {
+        "week52High": 64.16,
+        "week52Low": 35.12
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "NVS": {
       "ticker": "NVS",
       "name": "Novartis AG",
@@ -1861,6 +3372,35 @@
         "company": "Novartis AG",
         "owned": null,
         "hasResearch": true
+      },
+      "source": "yahoo"
+    },
+    "ORCL": {
+      "ticker": "ORCL",
+      "name": "ORCL",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "ORCL",
+        "symbol": "ORCL",
+        "price": 144.76,
+        "prev_close": 142.45,
+        "change_pct": 1.6216216216216235,
+        "date": "2026-08-25",
+        "time": "16:04:25",
+        "volume": 13254279,
+        "week52_high": 345.72,
+        "week52_low": 114.5
+      },
+      "metrics": {
+        "week52High": 345.72,
+        "week52Low": 114.5
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
       },
       "source": "yahoo"
     },
@@ -1926,6 +3466,64 @@
       },
       "source": "yahoo"
     },
+    "PEP": {
+      "ticker": "PEP",
+      "name": "PEP",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "PEP",
+        "symbol": "PEP",
+        "price": 142.27,
+        "prev_close": 144.67,
+        "change_pct": -1.6589479505080373,
+        "date": "2026-08-25",
+        "time": "16:00:00",
+        "volume": 9718105,
+        "week52_high": 171.48,
+        "week52_low": 133.73
+      },
+      "metrics": {
+        "week52High": 171.48,
+        "week52Low": 133.73
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "PFE": {
+      "ticker": "PFE",
+      "name": "PFE",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "PFE",
+        "symbol": "PFE",
+        "price": 28.57,
+        "prev_close": 27.97,
+        "change_pct": 2.145155523775479,
+        "date": "2026-08-25",
+        "time": "16:03:40",
+        "volume": 31840109,
+        "week52_high": 28.75,
+        "week52_low": 23.58
+      },
+      "metrics": {
+        "week52High": 28.75,
+        "week52Low": 23.58
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "PGR": {
       "ticker": "PGR",
       "name": "The Progressive Corporation",
@@ -1954,6 +3552,35 @@
         "company": "The Progressive Corporation",
         "owned": null,
         "hasResearch": true
+      },
+      "source": "yahoo"
+    },
+    "PHM": {
+      "ticker": "PHM",
+      "name": "PHM",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "PHM",
+        "symbol": "PHM",
+        "price": 130.86,
+        "prev_close": 129.61,
+        "change_pct": 0.964431756808888,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 948414,
+        "week52_high": 144.5,
+        "week52_low": 108.49
+      },
+      "metrics": {
+        "week52High": 144.5,
+        "week52Low": 108.49
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
       },
       "source": "yahoo"
     },
@@ -2020,6 +3647,35 @@
       },
       "source": "yahoo"
     },
+    "PM": {
+      "ticker": "PM",
+      "name": "PM",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "PM",
+        "symbol": "PM",
+        "price": 193.92,
+        "prev_close": 191.46,
+        "change_pct": 1.2848636790974508,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 2704695,
+        "week52_high": 207.76,
+        "week52_low": 142.11
+      },
+      "metrics": {
+        "week52High": 207.76,
+        "week52Low": 142.11
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "POWR": {
       "ticker": "POWR",
       "name": "POWR",
@@ -2041,6 +3697,93 @@
       "metrics": {
         "week52High": 28.44,
         "week52Low": 23.18
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "PPL": {
+      "ticker": "PPL",
+      "name": "PPL",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "PPL",
+        "symbol": "PPL",
+        "price": 34.99,
+        "prev_close": 35.04,
+        "change_pct": -0.1426940639269325,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 6921848,
+        "week52_high": 40.11,
+        "week52_low": 33.17
+      },
+      "metrics": {
+        "week52High": 40.11,
+        "week52Low": 33.17
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "PWR": {
+      "ticker": "PWR",
+      "name": "PWR",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "PWR",
+        "symbol": "PWR",
+        "price": 603.78,
+        "prev_close": 616.78,
+        "change_pct": -2.1077207432147604,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 1301627,
+        "week52_high": 788.75,
+        "week52_low": 363.01
+      },
+      "metrics": {
+        "week52High": 788.75,
+        "week52Low": 363.01
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "QCOM": {
+      "ticker": "QCOM",
+      "name": "QCOM",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "QCOM",
+        "symbol": "QCOM",
+        "price": 160.56,
+        "prev_close": 158.53,
+        "change_pct": 1.2805147290733623,
+        "date": "2026-08-25",
+        "time": "16:00:00",
+        "volume": 11417859,
+        "week52_high": 259.92,
+        "week52_low": 121.99
+      },
+      "metrics": {
+        "week52High": 259.92,
+        "week52Low": 121.99
       },
       "profile": {
         "company": null,
@@ -2136,6 +3879,35 @@
       },
       "source": "yahoo"
     },
+    "REGN": {
+      "ticker": "REGN",
+      "name": "REGN",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "REGN",
+        "symbol": "REGN",
+        "price": 833.56,
+        "prev_close": 828.5,
+        "change_pct": 0.6107423053711462,
+        "date": "2026-08-25",
+        "time": "16:00:00",
+        "volume": 505409,
+        "week52_high": 847.0,
+        "week52_low": 541.0
+      },
+      "metrics": {
+        "week52High": 847.0,
+        "week52Low": 541.0
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "ROBO": {
       "ticker": "ROBO",
       "name": "Robo Global Robotics & Automation ETF",
@@ -2196,6 +3968,64 @@
       },
       "source": "yahoo"
     },
+    "RTX": {
+      "ticker": "RTX",
+      "name": "RTX",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "RTX",
+        "symbol": "RTX",
+        "price": 210.28,
+        "prev_close": 209.22,
+        "change_pct": 0.5066437243093406,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 4840005,
+        "week52_high": 226.88,
+        "week52_low": 150.61
+      },
+      "metrics": {
+        "week52High": 226.88,
+        "week52Low": 150.61
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "SCHW": {
+      "ticker": "SCHW",
+      "name": "SCHW",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "SCHW",
+        "symbol": "SCHW",
+        "price": 112.27,
+        "prev_close": 113.65,
+        "change_pct": -1.2142542894852701,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 5047399,
+        "week52_high": 114.53,
+        "week52_low": 83.96
+      },
+      "metrics": {
+        "week52High": 114.53,
+        "week52Low": 83.96
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "SGOV": {
       "ticker": "SGOV",
       "name": "iShares 0-3 Month Treasury Bond ETF",
@@ -2224,6 +4054,35 @@
           "shares": 11300,
           "value": 1137458
         },
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "SHEL": {
+      "ticker": "SHEL",
+      "name": "SHEL",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "SHEL",
+        "symbol": "SHEL",
+        "price": 92.22,
+        "prev_close": 93.0,
+        "change_pct": -0.838709677419356,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 5644304,
+        "week52_high": 94.9,
+        "week52_low": 68.625
+      },
+      "metrics": {
+        "week52High": 94.9,
+        "week52Low": 68.625
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
         "hasResearch": false
       },
       "source": "yahoo"
@@ -2257,6 +4116,35 @@
       },
       "source": "yahoo"
     },
+    "SJM": {
+      "ticker": "SJM",
+      "name": "SJM",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "SJM",
+        "symbol": "SJM",
+        "price": 125.45,
+        "prev_close": 125.87,
+        "change_pct": -0.3336776038770173,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 1972669,
+        "week52_high": 127.65,
+        "week52_low": 88.25
+      },
+      "metrics": {
+        "week52High": 127.65,
+        "week52Low": 88.25
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "SMH": {
       "ticker": "SMH",
       "name": "SMH",
@@ -2278,6 +4166,35 @@
       "metrics": {
         "week52High": 671.83,
         "week52Low": 281.74
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "SNY": {
+      "ticker": "SNY",
+      "name": "SNY",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "SNY",
+        "symbol": "SNY",
+        "price": 46.02,
+        "prev_close": 45.69,
+        "change_pct": 0.722258699934352,
+        "date": "2026-08-25",
+        "time": "16:00:00",
+        "volume": 1240483,
+        "week52_high": 52.68,
+        "week52_low": 40.89
+      },
+      "metrics": {
+        "week52High": 52.68,
+        "week52Low": 40.89
       },
       "profile": {
         "company": null,
@@ -2315,6 +4232,35 @@
       },
       "source": "yahoo"
     },
+    "SON": {
+      "ticker": "SON",
+      "name": "SON",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "SON",
+        "symbol": "SON",
+        "price": 57.88,
+        "prev_close": 57.49,
+        "change_pct": 0.6783788484953914,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 1104387,
+        "week52_high": 60.67,
+        "week52_low": 38.65
+      },
+      "metrics": {
+        "week52High": 60.67,
+        "week52Low": 38.65
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "SPCX": {
       "ticker": "SPCX",
       "name": "SPCX",
@@ -2336,6 +4282,35 @@
       "metrics": {
         "week52High": 225.64,
         "week52Low": 104.83
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "SPG": {
+      "ticker": "SPG",
+      "name": "SPG",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "SPG",
+        "symbol": "SPG",
+        "price": 218.99,
+        "prev_close": 220.73,
+        "change_pct": -0.7882933901146109,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 843357,
+        "week52_high": 238.5,
+        "week52_low": 172.19
+      },
+      "metrics": {
+        "week52High": 238.5,
+        "week52Low": 172.19
       },
       "profile": {
         "company": null,
@@ -2375,6 +4350,35 @@
       },
       "source": "yahoo"
     },
+    "STX": {
+      "ticker": "STX",
+      "name": "STX",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "STX",
+        "symbol": "STX",
+        "price": 821.67,
+        "prev_close": 794.65,
+        "change_pct": 3.400239098974389,
+        "date": "2026-08-25",
+        "time": "16:00:00",
+        "volume": 2557698,
+        "week52_high": 1145.0,
+        "week52_low": 163.72
+      },
+      "metrics": {
+        "week52High": 1145.0,
+        "week52Low": 163.72
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "STZ": {
       "ticker": "STZ",
       "name": "Constellation Brands",
@@ -2403,6 +4407,35 @@
         "company": "Constellation Brands, Inc.",
         "owned": null,
         "hasResearch": true
+      },
+      "source": "yahoo"
+    },
+    "SWK": {
+      "ticker": "SWK",
+      "name": "SWK",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "SWK",
+        "symbol": "SWK",
+        "price": 98.46,
+        "prev_close": 98.51,
+        "change_pct": -0.05075626839915883,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 1211900,
+        "week52_high": 104.68,
+        "week52_low": 61.9
+      },
+      "metrics": {
+        "week52High": 104.68,
+        "week52Low": 61.9
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
       },
       "source": "yahoo"
     },
@@ -2437,6 +4470,35 @@
       },
       "source": "yahoo"
     },
+    "TFC": {
+      "ticker": "TFC",
+      "name": "TFC",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "TFC",
+        "symbol": "TFC",
+        "price": 50.3,
+        "prev_close": 50.81,
+        "change_pct": -1.0037394213737554,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 5501381,
+        "week52_high": 56.2,
+        "week52_low": 40.78
+      },
+      "metrics": {
+        "week52High": 56.2,
+        "week52Low": 40.78
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "TFLO": {
       "ticker": "TFLO",
       "name": "iShares Treasury Floating Rate Bond ETF",
@@ -2466,6 +4528,124 @@
       },
       "source": "yahoo"
     },
+    "TGT": {
+      "ticker": "TGT",
+      "name": "Target Corporation",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "TGT",
+        "symbol": "TGT",
+        "price": 163.47,
+        "prev_close": 169.89,
+        "change_pct": -3.77891576902701,
+        "date": "2026-08-25",
+        "time": "16:03:33",
+        "volume": 6231619,
+        "week52_high": 170.75,
+        "week52_low": 83.44
+      },
+      "metrics": {
+        "week52High": 170.75,
+        "week52Low": 83.44,
+        "marketCap": 58536112128,
+        "peRatio": 20.107011070110698
+      },
+      "profile": {
+        "company": "Target Corporation",
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "TJX": {
+      "ticker": "TJX",
+      "name": "TJX",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "TJX",
+        "symbol": "TJX",
+        "price": 139.48,
+        "prev_close": 140.71,
+        "change_pct": -0.8741382986283975,
+        "date": "2026-08-25",
+        "time": "16:03:37",
+        "volume": 6068779,
+        "week52_high": 170.0,
+        "week52_low": 135.9
+      },
+      "metrics": {
+        "week52High": 170.0,
+        "week52Low": 135.9
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "TMO": {
+      "ticker": "TMO",
+      "name": "TMO",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "TMO",
+        "symbol": "TMO",
+        "price": 628.15,
+        "prev_close": 628.74,
+        "change_pct": -0.09383847059198268,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 1535264,
+        "week52_high": 643.99,
+        "week52_low": 435.27
+      },
+      "metrics": {
+        "week52High": 643.99,
+        "week52Low": 435.27
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "TMUS": {
+      "ticker": "TMUS",
+      "name": "TMUS",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "TMUS",
+        "symbol": "TMUS",
+        "price": 181.61,
+        "prev_close": 182.62,
+        "change_pct": -0.5530610009856483,
+        "date": "2026-08-25",
+        "time": "16:00:00",
+        "volume": 3210492,
+        "week52_high": 258.66,
+        "week52_low": 165.66
+      },
+      "metrics": {
+        "week52High": 258.66,
+        "week52Low": 165.66
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "TPL": {
       "ticker": "TPL",
       "name": "TPL",
@@ -2487,6 +4667,35 @@
       "metrics": {
         "week52High": 547.2,
         "week52Low": 269.233
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "TRV": {
+      "ticker": "TRV",
+      "name": "TRV",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "TRV",
+        "symbol": "TRV",
+        "price": 369.66,
+        "prev_close": 370.55,
+        "change_pct": -0.2401835109971627,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 1144717,
+        "week52_high": 398.7,
+        "week52_low": 252.26
+      },
+      "metrics": {
+        "week52High": 398.7,
+        "week52Low": 252.26
       },
       "profile": {
         "company": null,
@@ -2586,6 +4795,35 @@
       },
       "source": "yahoo"
     },
+    "TT": {
+      "ticker": "TT",
+      "name": "TT",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "TT",
+        "symbol": "TT",
+        "price": 455.25,
+        "prev_close": 452.96,
+        "change_pct": 0.5055634051571928,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 1337379,
+        "week52_high": 505.87,
+        "week52_low": 348.06
+      },
+      "metrics": {
+        "week52High": 505.87,
+        "week52Low": 348.06
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "TTMI": {
       "ticker": "TTMI",
       "name": "TTM Technologies, Inc.",
@@ -2675,6 +4913,64 @@
       },
       "source": "yahoo"
     },
+    "UNH": {
+      "ticker": "UNH",
+      "name": "UNH",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "UNH",
+        "symbol": "UNH",
+        "price": 396.59,
+        "prev_close": 398.76,
+        "change_pct": -0.5441869796368782,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 2652931,
+        "week52_high": 461.62,
+        "week52_low": 255.97
+      },
+      "metrics": {
+        "week52High": 461.62,
+        "week52Low": 255.97
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "URI": {
+      "ticker": "URI",
+      "name": "URI",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "URI",
+        "symbol": "URI",
+        "price": 1053.14,
+        "prev_close": 1083.56,
+        "change_pct": -2.8074126029015325,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 441229,
+        "week52_high": 1179.18,
+        "week52_low": 701.59
+      },
+      "metrics": {
+        "week52High": 1179.18,
+        "week52Low": 701.59
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "V": {
       "ticker": "V",
       "name": "Visa",
@@ -2706,6 +5002,64 @@
       },
       "source": "yahoo"
     },
+    "VFIAX": {
+      "ticker": "VFIAX",
+      "name": "VFIAX",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "VFIAX",
+        "symbol": "VFIAX",
+        "price": 709.46,
+        "prev_close": 707.16003,
+        "change_pct": 0.32524038441483044,
+        "date": "2026-08-25",
+        "time": "20:08:44",
+        "volume": null,
+        "week52_high": 720.28,
+        "week52_low": 585.37
+      },
+      "metrics": {
+        "week52High": 720.28,
+        "week52Low": 585.37
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "VGT": {
+      "ticker": "VGT",
+      "name": "VGT",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "VGT",
+        "symbol": "VGT",
+        "price": 117.51,
+        "prev_close": 116.42,
+        "change_pct": 0.9362652465212192,
+        "date": "2026-08-25",
+        "time": "16:00:00",
+        "volume": 2602751,
+        "week52_high": 126.0,
+        "week52_low": 83.09
+      },
+      "metrics": {
+        "week52High": 126.0,
+        "week52Low": 83.09
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "VIAV": {
       "ticker": "VIAV",
       "name": "Viavi Solutions Inc.",
@@ -2732,6 +5086,35 @@
         "company": "Viavi Solutions Inc.",
         "owned": null,
         "hasResearch": true
+      },
+      "source": "yahoo"
+    },
+    "VLO": {
+      "ticker": "VLO",
+      "name": "VLO",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "VLO",
+        "symbol": "VLO",
+        "price": 340.41,
+        "prev_close": 346.0,
+        "change_pct": -1.6156069364161776,
+        "date": "2026-08-25",
+        "time": "16:00:02",
+        "volume": 1698454,
+        "week52_high": 353.0,
+        "week52_low": 145.14
+      },
+      "metrics": {
+        "week52High": 353.0,
+        "week52Low": 145.14
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
       },
       "source": "yahoo"
     },
@@ -2853,6 +5236,37 @@
       },
       "source": "yahoo"
     },
+    "WFC": {
+      "ticker": "WFC",
+      "name": "Wells Fargo & Company",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "WFC",
+        "symbol": "WFC",
+        "price": 84.79,
+        "prev_close": 84.72,
+        "change_pct": 0.08262511803589163,
+        "date": "2026-08-25",
+        "time": "16:04:14",
+        "volume": 8979395,
+        "week52_high": 97.76,
+        "week52_low": 72.78
+      },
+      "metrics": {
+        "week52High": 97.76,
+        "week52Low": 72.78,
+        "marketCap": 243369869312,
+        "peRatio": 13.105100463678518
+      },
+      "profile": {
+        "company": "Wells Fargo & Company",
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "WMT": {
       "ticker": "WMT",
       "name": "Walmart",
@@ -2884,6 +5298,125 @@
           "value": 17399
         },
         "hasResearch": true
+      },
+      "source": "yahoo"
+    },
+    "WY": {
+      "ticker": "WY",
+      "name": "WY",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "WY",
+        "symbol": "WY",
+        "price": 24.43,
+        "prev_close": 24.39,
+        "change_pct": 0.16400164001639667,
+        "date": "2026-08-25",
+        "time": "16:00:03",
+        "volume": 2773712,
+        "week52_high": 27.75,
+        "week52_low": 21.16
+      },
+      "metrics": {
+        "week52High": 27.75,
+        "week52Low": 21.16
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "XLK": {
+      "ticker": "XLK",
+      "name": "XLK",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "XLK",
+        "symbol": "XLK",
+        "price": 181.74,
+        "prev_close": 180.05,
+        "change_pct": 0.9386281588447639,
+        "date": "2026-08-25",
+        "time": "16:00:00",
+        "volume": 5356507,
+        "week52_high": 198.73,
+        "week52_low": 126.68
+      },
+      "metrics": {
+        "week52High": 198.73,
+        "week52Low": 126.68
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "XLY": {
+      "ticker": "XLY",
+      "name": "XLY",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "XLY",
+        "symbol": "XLY",
+        "price": 117.95,
+        "prev_close": 118.3,
+        "change_pct": -0.2958579881656757,
+        "date": "2026-08-25",
+        "time": "16:00:00",
+        "volume": 4153716,
+        "week52_high": 125.01,
+        "week52_low": 105.19
+      },
+      "metrics": {
+        "week52High": 125.01,
+        "week52Low": 105.19
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "XOM": {
+      "ticker": "XOM",
+      "name": "XOM",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "XOM",
+        "symbol": "XOM",
+        "price": 160.64,
+        "prev_close": 164.05,
+        "change_pct": -2.0786345626333587,
+        "date": "2026-08-25",
+        "time": "16:04:07",
+        "volume": 17259903,
+        "week52_high": 176.41,
+        "week52_low": 108.35
+      },
+      "metrics": {
+        "week52High": 176.41,
+        "week52Low": 108.35
+      },
+      "profile": {
+        "company": null,
+        "owned": {
+          "shares": 25,
+          "value": 0
+        },
+        "hasResearch": false
       },
       "source": "yahoo"
     },
@@ -2957,8 +5490,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 15.7,
-        "change_pct": 1.6181229773462786,
+        "price": 15.71,
+        "change_pct": 1.6828478964401397,
         "source": "yahoo"
       },
       "metrics": {},
