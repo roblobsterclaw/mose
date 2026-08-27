@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-27T00:21:41.810357+00:00",
+  "generated_at": "2026-08-27T10:46:13.562705+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -2175,10 +2175,10 @@
         "ticker": "IFNNF",
         "symbol": "IFNNF",
         "price": 66.52,
-        "prev_close": 64.0,
-        "change_pct": 3.937499999999994,
+        "prev_close": 63.0,
+        "change_pct": 5.587301587301581,
         "date": "2026-08-26",
-        "time": "14:44:36",
+        "time": "16:00:00",
         "volume": 100,
         "week52_high": 103.5,
         "week52_low": 36.21
@@ -2445,11 +2445,11 @@
         "date": "2026-08-26",
         "time": "16:00:02",
         "volume": 1496059,
-        "week52_high": 65.27,
+        "week52_high": 65.28,
         "week52_low": 30.26
       },
       "metrics": {
-        "week52High": 65.27,
+        "week52High": 65.28,
         "week52Low": 30.26,
         "marketCap": 5427479040,
         "peRatio": 38.0
@@ -4334,11 +4334,11 @@
         "date": "2026-08-26",
         "time": "16:00:02",
         "volume": 1398491,
-        "week52_high": 524.655,
+        "week52_high": 522.469,
         "week52_low": 361.031
       },
       "metrics": {
-        "week52High": 524.655,
+        "week52High": 522.469,
         "week52Low": 361.031,
         "marketCap": 130512855040,
         "peRatio": 29.733651226158038
@@ -5015,7 +5015,7 @@
         "prev_close": 709.46,
         "change_pct": -0.021142841034038698,
         "date": "2026-08-26",
-        "time": "18:53:22",
+        "time": "20:08:23",
         "volume": null,
         "week52_high": 720.28,
         "week52_low": 585.37
@@ -5474,8 +5474,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^RUT",
-        "price": 3005.9001,
-        "change_pct": -0.1369292453938104,
+        "price": 3005.9,
+        "change_pct": -0.13687616693576424,
         "source": "yahoo"
       },
       "metrics": {},
@@ -5490,8 +5490,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 15.21,
-        "change_pct": -1.5533980582524172,
+        "price": 14.95,
+        "change_pct": -1.7094017094017195,
         "source": "yahoo"
       },
       "metrics": {},
