@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-27T23:16:18.296083+00:00",
+  "generated_at": "2026-08-28T04:06:09.565513+00:00",
   "source": "yahoo",
   "market_status": "closed",
   "indices": [
@@ -15,7 +15,7 @@
       "name": "Dow Jones",
       "ticker": "^DJI",
       "price": 53569.44,
-      "change_pct": 0.19744171204934052,
+      "change_pct": 0.19740422976999597,
       "vs_exit": 15.378049597357208,
       "source": "yahoo"
     },
@@ -30,8 +30,8 @@
     {
       "name": "Russell 2000",
       "ticker": "^RUT",
-      "price": 3014.3394,
-      "change_pct": 0.2807578335687205,
+      "price": 3014.339,
+      "change_pct": 0.28074786253700557,
       "vs_exit": null,
       "source": "yahoo"
     },
@@ -916,7 +916,7 @@
       "prev_close": 66.52,
       "change_pct": 3.2020444978953844,
       "date": "2026-08-27",
-      "time": "10:30:31",
+      "time": "16:00:00",
       "volume": 100,
       "week52_high": 103.5,
       "week52_low": 36.21
@@ -1159,7 +1159,7 @@
       "time": "16:00:02",
       "volume": 1003253,
       "week52_high": 999.0,
-      "week52_low": 677.28
+      "week52_low": 679.65
     },
     {
       "ticker": "MCO",
@@ -2068,7 +2068,7 @@
       "prev_close": 709.31,
       "change_pct": 0.7204184348169367,
       "date": "2026-08-27",
-      "time": "18:54:41",
+      "time": "20:09:41",
       "volume": null,
       "week52_high": 720.28,
       "week52_low": 585.37
@@ -2107,7 +2107,7 @@
       "time": "16:00:02",
       "volume": 1946739,
       "week52_high": 353.0,
-      "week52_low": 149.52
+      "week52_low": 150.1
     },
     {
       "ticker": "VOO",
@@ -2179,7 +2179,7 @@
       "time": "16:00:00",
       "volume": 29706412,
       "week52_high": 135.16,
-      "week52_low": 95.7
+      "week52_low": 95.8
     },
     {
       "ticker": "WY",
