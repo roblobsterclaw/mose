@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-31T18:01:00.440576+00:00",
+  "generated_at": "2026-08-31T18:12:20.117476+00:00",
   "source": "SEC EDGAR submissions and Archives information tables",
   "quarters_requested": 8,
   "investor_count": 29,
@@ -10724,7 +10724,9 @@
           "num_holdings": 14
         }
       ],
-      "filing_errors": []
+      "filing_errors": [
+        "0001172661-24-003200: HTTP Error 503: Service Unavailable"
+      ]
     },
     {
       "name": "Michael Burry",
@@ -303369,7 +303371,9 @@
           "num_holdings": 36
         }
       ],
-      "filing_errors": []
+      "filing_errors": [
+        "0001387322-24-000004: HTTP Error 503: Service Unavailable"
+      ]
     },
     {
       "name": "Terry Smith",
