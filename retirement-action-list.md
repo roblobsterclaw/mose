@@ -49,6 +49,13 @@ current. Ordered by Joe's priority, then by deadline. Check items off in place.
   timing.
 - [ ] **Keli's final 2026 return.** Gather 2026 medical expenses; deductible above a
   floor if itemizing.
+- [ ] **Confirm NJ inheritance-tax class for inheritances from Keli's parents.** Joe
+  should be Class C (surviving spouse of a deceased child, if not remarried);
+  ~$407k on $3M. From Joe's father: Class A, exempt. Only applies if the
+  decedent is an NJ resident or owns NJ real estate. When appropriate, learn
+  how their assets are titled (taxable vs. traditional IRA matters more than
+  the inheritance tax) and where they reside. Life insurance and bequests to
+  grandchildren are exempt.
 - [ ] **Update MOSE's three-account model** to a single-owner model when Joe is ready.
 
 ## Reference: conversion cost at $235k income, New Jersey (2026 law)
