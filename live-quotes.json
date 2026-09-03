@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-03T05:21:27.174587+00:00",
+  "generated_at": "2026-09-03T10:22:58.008404+00:00",
   "source": "yahoo",
   "market_status": "closed",
   "indices": [
@@ -38,8 +38,8 @@
     {
       "name": "VIX",
       "ticker": "^VIX",
-      "price": 15.2,
-      "change_pct": -6.976744186046516,
+      "price": 15.34,
+      "change_pct": 0.9210526315789511,
       "vs_exit": null,
       "source": "yahoo"
     }
@@ -883,7 +883,7 @@
       "time": "15:59:51",
       "volume": 8244,
       "week52_high": 133.05,
-      "week52_low": 82.45
+      "week52_low": 81.26
     },
     {
       "ticker": "IDU",
@@ -1807,7 +1807,7 @@
       "time": "16:00:01",
       "volume": 2656324,
       "week52_high": 1145.0,
-      "week52_low": 170.01
+      "week52_low": 175.82
     },
     {
       "ticker": "STZ",
