@@ -6,6 +6,23 @@
 
 ---
 
+## Session 11 — September 4, 2026 (Claude) — Layer 1: the investor universe
+**Goal:** Joe's "grow the 29 into a real super-value-investor list, evidence first, I approve every name." Network switched to Full, so SEC bulk data is reachable from the sandbox.
+
+**What was built:**
+- **`scripts/build_investor_universe.py`** — screens every filer in the SEC *Form 13F Data Sets* (8 windows, Jun-2024 → Q1-2026; ~8,650 filers/quarter, 3.8M holding rows/window, streamed in ~2 min). Per filer: positions, book value, top-10 and top-1 concentration, options share, quarterly turnover and median hold across the history, ETF-allocator and self-dealing flags, name-pattern exclusions (banks, pensions, insurers, index shops). Score 0–100; **fit** = score × overlap of their book with names ≥2 tracked filers own ("same mentality"). Handles amendments (restatements only), nested zip folders, and **filings still reported in thousands** (detected per filing by implied share price — Baupost does this).
+- **`reference-data/investor-universe.json`** — 2026-Q1 run: 340 candidates pass, 26 tracked filers scored against the same rules. Value core passes (Hohn 100, Abrams 99, Akre 94, Li Lu 90, Ackman 89, Bloomstran 81, Smith 78, Greenberg 74); traders fail on turnover/breadth (Laffont, Halvorsen, Baker, Niles, Wood, Greenblatt) — the value-vs-trader cut Joe asked for.
+- **🧭 Universe tab** in the app: fit-ranked candidate table with Approve / Pass buttons, min-fit filter, near-miss toggle, hide-decided, search; a "prune view" of the tracked filers with the same buttons. Decisions live in `universeDecisions` (localStorage + Firebase, in `getMoseState`/`hydrateMoseState`/`saveLocalOnly`). Export button downloads the decision list.
+- **`scripts/sync_universe_decisions.py`** — reads decisions from Firebase and appends approved CIKs to `cik-map.json` (status `approved`); rejected tracked filers get status `pruned`, never removed. Firebase is reachable from the sandbox now.
+- **Data fix:** Ackman's CIK in `cik-map.json` was the holdco (2026053, one position = HHH). The fund book is **1336528 Pershing Square Capital Management** (11 positions, $13.7B). Corrected — this also explains the "74% coverage / all NEW" Ackman artefact in `holdings-latest.json`; it clears on the next 13F Action run.
+- `APP_BUILD` → `2026-09-04a`.
+
+**Verification:** `node --check` OK; headless render shows the Universe tab with candidate rows, stats bar, and tracked prune table; guard rail intact. `sync_universe_decisions.py --dry-run` against live Firebase.
+
+**Next:** Joe approves a first batch → run the sync → Layer 2 (full holdings + conviction across the approved list, OpenFIGI CUSIP pass). Bulk data for Q2-2026 (filed Jun–Aug) isn't posted by SEC yet; rerun the screen when it lands.
+
+---
+
 ## Session 10 — September 2, 2026 (Claude)
 **Goal:** Start the "guard rails + feed" build Joe asked for (see `docs/CODEX-HANDOFF-2026-09.md`): only stocks a tracked 13F filer owns may be routed into a bucket, and a landing zone for between-quarter signals.
 

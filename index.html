@@ -590,6 +590,9 @@
   .feed-meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 12px; }
   .feed-quote { margin-top: 6px; font-size: 13px; color: var(--text); }
   .feed-src { display: inline-block; margin-top: 6px; font-size: 11px; color: var(--blue); }
+  /* Universe approvals */
+  .uni-row.approved td { background: rgba(46, 204, 113, .07); }
+  .uni-row.rejected td { opacity: .5; }
 
   #update-banner {
     background: var(--green-bg); border: 1px solid var(--green); border-left-width: 4px;
@@ -1756,6 +1759,47 @@ async function checkPw(){
   <!-- ============================================================ -->
   <!-- TAB 5: SUPER INVESTORS -->
   <!-- ============================================================ -->
+  <div id="tab-universe" class="tab-panel">
+    <div class="toolbar">
+      <h2>🧭 Investor Universe — who gets a vote</h2>
+      <span style="font-size:12px;color:var(--muted)" id="universe-asof">—</span>
+      <button class="csv-btn" onclick="universeExportApproved()">⬇ Approved list</button>
+      <button class="filter-btn" onclick="loadUniverse()">↻ Refresh</button>
+    </div>
+    <div class="stats-bar" id="universe-stats-bar"></div>
+    <div class="info-blurb" style="border:none;margin:0 0 10px;padding:0;font-size:12px">
+      Every 13F filer in the SEC bulk dataset (~8,650 a quarter), screened for Buffett-style behaviour: concentrated
+      (8–60 names, top-10 ≥ 50% of the book), sized $300M–$60B, few options, low turnover across the last 8 quarters.
+      <b>Fit</b> = that score weighted by how much of their book overlaps names your tracked filers already own.
+      <b>You approve every addition.</b> Approved filers join the tracked list on the next pipeline run; rejected ones disappear from this view.
+      Nothing here changes a bucket or a score until a filer is approved <em>and</em> their filings are pulled.
+    </div>
+    <div class="si-search-row" style="margin-bottom:10px">
+      <input class="si-search" id="universe-search" placeholder="🔍 Filter by name, state or top holding…" oninput="renderUniverse()">
+      <label style="font-size:12px;color:var(--muted)">Min fit
+        <select id="universe-minfit" class="bucket-dropdown" onchange="renderUniverse()">
+          <option value="90">90+</option><option value="80" selected>80+</option><option value="70">70+</option><option value="0">all</option>
+        </select></label>
+      <label style="font-size:12px;color:var(--muted)"><input type="checkbox" id="universe-nearmiss" onchange="renderUniverse()"> show near-misses</label>
+      <label style="font-size:12px;color:var(--muted)"><input type="checkbox" id="universe-hidedecided" checked onchange="renderUniverse()"> hide decided</label>
+    </div>
+    <div class="table-wrap"><table>
+      <thead><tr>
+        <th>Decide</th><th>Fit</th><th>Filer</th><th class="hide-sm">Book</th><th>Pos</th><th class="hide-sm">Top-10</th>
+        <th class="hide-sm">Turnover /q</th><th class="hide-sm">Hold (q)</th><th>Overlap</th><th class="hide-sm">Top holdings</th><th class="hide-sm">Notes</th>
+      </tr></thead>
+      <tbody id="universe-body"><tr><td colspan="11" class="no-data">Loading investor-universe.json…</td></tr></tbody>
+    </table></div>
+    <details class="info-blurb" style="margin-top:16px">
+      <summary style="cursor:pointer;font-weight:700;color:var(--heading)">Your tracked filers against the same screen <span style="font-weight:400;color:var(--muted)">— the prune view</span></summary>
+      <div class="sub" style="margin:8px 0">Same rules applied to the investors you already follow. "Near-miss" here is information, not a verdict — Buffett fails only on size. Reject one to mark it <em>pruned</em>; the pipeline keeps its history but it stops voting.</div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Decide</th><th>Score</th><th>Investor</th><th class="hide-sm">Book</th><th>Pos</th><th class="hide-sm">Top-10</th><th class="hide-sm">Turnover /q</th><th class="hide-sm">Hold (q)</th><th>Screen</th></tr></thead>
+        <tbody id="universe-tracked-body"></tbody>
+      </table></div>
+    </details>
+  </div>
+
   <div id="tab-investors" class="tab-panel">
 
     <div class="stats-bar si-stats-row" id="si-stats-bar">
@@ -2089,7 +2133,7 @@ async function checkPw(){
 // compare the build stamp, and offer a genuine reload when they differ.
 // Bump APP_BUILD whenever index.html changes.
 // ============================================================
-const APP_BUILD = '2026-09-02a';
+const APP_BUILD = '2026-09-04a';
 
 async function checkForAppUpdate(announce) {
   try {
@@ -2502,6 +2546,9 @@ let activeSymbolRange = '1Y';
 // (The old GitHub Contents-API sync layer was removed; it was permanently
 // disabled and Firebase replaced it.)
 let watchlistBuckets = JSON.parse(localStorage.getItem('mose_watchlist_buckets_local') || '{}');
+// Universe tab: Joe's approve/reject decisions on candidate super investors, keyed by CIK.
+// { [cik]: { status: 'approved'|'rejected', date, name } } — synced via Firebase like the rest.
+let universeDecisions = (function() { try { return JSON.parse(localStorage.getItem('mose_universe_decisions') || '{}') || {}; } catch { return {}; } })();
 let watchlistNotes = JSON.parse(localStorage.getItem('mose_watchlist_notes_local') || '{}');
 let watchlistView = localStorage.getItem('mose_watchlist_view') || 'grouped';
 let watchlistSort = localStorage.getItem('mose_watchlist_sort') || 'priority';
@@ -2672,6 +2719,7 @@ function getMoseState() {
     ddRequests: ddRequestsData,
     reentry: reentryData,
     targets: targetsData,
+    universeDecisions: universeDecisions,
     viewPrefs: { view: watchlistView, sort: watchlistSort, group: watchlistGroup },
     lastUpdated: new Date().toISOString()
   };
@@ -2696,6 +2744,7 @@ function hydrateMoseState(state) {
   if (state.researchItems && JSON.stringify(state.researchItems) !== JSON.stringify(researchItems)) { researchItems = state.researchItems; changed = true; }
   if (state.researchCadence && JSON.stringify(state.researchCadence) !== JSON.stringify(researchCadence)) { researchCadence = state.researchCadence; changed = true; }
   if (state.ddRequests && JSON.stringify(state.ddRequests) !== JSON.stringify(ddRequestsData)) { ddRequestsData = state.ddRequests; changed = true; }
+  if (state.universeDecisions && typeof state.universeDecisions === 'object' && JSON.stringify(state.universeDecisions) !== JSON.stringify(universeDecisions)) { universeDecisions = state.universeDecisions; changed = true; if (typeof renderUniverse === 'function') renderUniverse(); }
   if (state.reentry && state.reentry.plans && JSON.stringify(state.reentry) !== JSON.stringify(reentryData)) { reentryData = migrateReentry(state.reentry); changed = true; }
   if (state.targets && state.targets.ira && JSON.stringify(state.targets) !== JSON.stringify(targetsData)) { targetsData = migrateTargets(state.targets); changed = true; }
   if (state.viewPrefs) {
@@ -2727,6 +2776,7 @@ function saveLocalOnly() {
   localStorage.setItem('mose_watchlist_view', watchlistView);
   localStorage.setItem('mose_watchlist_sort', watchlistSort);
   localStorage.setItem('mose_watchlist_group', watchlistGroup);
+  localStorage.setItem('mose_universe_decisions', JSON.stringify(universeDecisions));
 }
 
 // Returns the cloud state object, null if the DB is genuinely empty, or
@@ -2962,6 +3012,7 @@ const TAB_GROUPS = [
   { id: 'gurus',    label: '🧠 Super Investors', tabs: [
       { id: 'consensus', label: '🤝 Consensus' },
       { id: 'feed',      label: '📡 Feed' },
+      { id: 'universe',  label: '🧭 Universe' },
       { id: 'investors', label: 'Investors' },
       { id: 'holdings',  label: 'Holdings Tracker' },
       { id: 'heatmap',   label: 'Heat Map' },
@@ -3357,6 +3408,109 @@ function renderFeed() {
       ${i.source_url ? `<a class="feed-src" href="${escapeAttr(i.source_url)}" target="_blank" rel="noopener">${escapeHtml(i.source_title || i.source_url)}</a>` : ''}
     </div>`;
   }).join('');
+}
+
+// ============================================================
+// UNIVERSE — candidate super investors (reference-data/investor-universe.json)
+// Built by scripts/build_investor_universe.py from the SEC bulk 13F data sets.
+// Joe approves/rejects here; scripts/sync_universe_decisions.py reads the
+// decisions from Firebase and feeds approved CIKs into cik-map.json.
+// ============================================================
+let universeData = null;
+
+async function loadUniverse() {
+  try {
+    const r = await fetch('reference-data/investor-universe.json?' + Date.now());
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    universeData = await r.json();
+  } catch (e) { universeData = { candidates: [], error: e.message }; }
+  renderUniverse();
+}
+
+function universeDecide(cik, status) {
+  const row = ((universeData && universeData.candidates) || []).find(c => c.cik === cik);
+  if (status) universeDecisions[cik] = { status, date: new Date().toISOString().slice(0, 10), name: row ? row.name : '' };
+  else delete universeDecisions[cik];
+  localStorage.setItem('mose_universe_decisions', JSON.stringify(universeDecisions));
+  moseFbPutDebounced();
+  renderUniverse();
+  if (status) showWatchlistToast(`${status === 'approved' ? '✅ Approved' : '❌ Passed on'} ${row ? row.name : cik}`);
+}
+
+function universeDecideCell(c) {
+  const d = universeDecisions[c.cik];
+  if (d) {
+    return `<span class="filing-pill ${d.status === 'approved' ? 'add' : 'exit'}" title="${escapeAttr(d.date || '')}">${d.status === 'approved' ? '✅ approved' : (c.tracked ? '✂ pruned' : '❌ passed')}</span>
+      <a onclick="universeDecide('${c.cik}', null)" title="Undo" style="cursor:pointer;color:var(--muted);font-size:11px;margin-left:4px">↩</a>`;
+  }
+  return `<button class="research-action-btn primary" onclick="universeDecide('${c.cik}','approved')">Approve</button>
+    <button class="research-action-btn" onclick="universeDecide('${c.cik}','rejected')" style="margin-left:4px">${c.tracked ? 'Prune' : 'Pass'}</button>`;
+}
+
+function universeFmtB(v) { v = Number(v) || 0; return v >= 1e9 ? `$${(v / 1e9).toFixed(1)}B` : `$${(v / 1e6).toFixed(0)}M`; }
+
+function renderUniverse() {
+  const body = document.getElementById('universe-body');
+  if (!body) return;
+  const all = (universeData && universeData.candidates) || [];
+  const asof = document.getElementById('universe-asof');
+  if (asof) asof.textContent = universeData && universeData.period ? `Filings for ${universeData.period} · ${universeData.filers_scanned || '—'} filers scanned` : '—';
+  const q = (document.getElementById('universe-search').value || '').trim().toLowerCase();
+  const minFit = Number(document.getElementById('universe-minfit').value) || 0;
+  const nearMiss = document.getElementById('universe-nearmiss').checked;
+  const hideDecided = document.getElementById('universe-hidedecided').checked;
+  const cands = all.filter(c => !c.tracked);
+  const approved = Object.values(universeDecisions).filter(d => d.status === 'approved').length;
+  const rejected = Object.values(universeDecisions).filter(d => d.status === 'rejected').length;
+  const sb = document.getElementById('universe-stats-bar');
+  if (sb) sb.innerHTML = `
+    <div class="stat-card"><div class="stat-val blue">${(universeData && universeData.filers_scanned) || 0}</div><div class="stat-label">Filers scanned</div></div>
+    <div class="stat-card"><div class="stat-val orange">${cands.filter(c => c.screen === 'pass').length}</div><div class="stat-label">Pass the screen</div></div>
+    <div class="stat-card"><div class="stat-val green">${approved}</div><div class="stat-label">Approved</div></div>
+    <div class="stat-card"><div class="stat-val" style="color:var(--muted)">${rejected}</div><div class="stat-label">Passed on / pruned</div></div>
+    <div class="stat-card"><div class="stat-val" style="color:var(--purple)">${all.filter(c => c.tracked).length}</div><div class="stat-label">Tracked today</div></div>`;
+  let rows = cands.filter(c => (nearMiss || c.screen === 'pass') && (c.fit || 0) >= minFit);
+  if (hideDecided) rows = rows.filter(c => !universeDecisions[c.cik]);
+  if (q) rows = rows.filter(c => [c.name, c.state, ...(c.top_names || [])].join(' ').toLowerCase().includes(q));
+  if (!rows.length) {
+    body.innerHTML = `<tr><td colspan="11" class="no-data">${all.length ? 'Nothing matches — lower the fit floor or show near-misses.' : 'investor-universe.json not loaded' + (universeData && universeData.error ? ` (${escapeHtml(universeData.error)})` : '')}</td></tr>`;
+  } else {
+    body.innerHTML = rows.map(c => `<tr class="uni-row ${universeDecisions[c.cik] ? universeDecisions[c.cik].status : ''}">
+      <td style="white-space:nowrap">${universeDecideCell(c)}</td>
+      <td><span class="cockpit-score ${c.fit >= 90 ? 'score-high' : c.fit >= 75 ? 'score-mid' : ''}">${c.fit}</span></td>
+      <td><strong>${escapeHtml(c.name)}</strong><div style="font-size:11px;color:var(--muted)">${escapeHtml(c.state || '')} · CIK ${c.cik} · filed ${escapeHtml(c.filing_date || '')}</div></td>
+      <td class="hide-sm">${universeFmtB(c.total_value_usd)}</td>
+      <td>${c.positions}</td>
+      <td class="hide-sm">${c.top10_pct}%</td>
+      <td class="hide-sm">${c.turnover_q == null ? '—' : c.turnover_q + '%'}</td>
+      <td class="hide-sm">${c.median_hold_q == null ? '—' : c.median_hold_q}</td>
+      <td title="${c.overlap_names || 0} of their names are held by 2+ of your tracked filers">${c.overlap_pct}%</td>
+      <td class="hide-sm" style="font-size:11px;color:var(--soft-text)">${(c.top_names || []).slice(0, 4).map(escapeHtml).join(' · ')}</td>
+      <td class="hide-sm" style="font-size:11px;color:var(--muted)">${(c.screen_notes || []).map(escapeHtml).join(', ') || (c.screen === 'pass' ? '✓ passes all rules' : '')}</td>
+    </tr>`).join('');
+  }
+  const tb = document.getElementById('universe-tracked-body');
+  if (tb) {
+    const tr = all.filter(c => c.tracked).sort((a, b) => b.score - a.score);
+    tb.innerHTML = tr.length ? tr.map(c => `<tr class="uni-row ${universeDecisions[c.cik] ? universeDecisions[c.cik].status : ''}">
+      <td style="white-space:nowrap">${universeDecideCell(c)}</td>
+      <td><span class="cockpit-score ${c.score >= 80 ? 'score-high' : c.score >= 60 ? 'score-mid' : ''}">${c.score}</span></td>
+      <td><strong>${escapeHtml(c.tracked_as || c.name)}</strong><div style="font-size:11px;color:var(--muted)">${escapeHtml(c.name)}</div></td>
+      <td class="hide-sm">${universeFmtB(c.total_value_usd)}</td><td>${c.positions}</td><td class="hide-sm">${c.top10_pct}%</td>
+      <td class="hide-sm">${c.turnover_q == null ? '—' : c.turnover_q + '%'}</td><td class="hide-sm">${c.median_hold_q == null ? '—' : c.median_hold_q}</td>
+      <td><span class="filing-pill ${c.screen === 'pass' ? 'add' : 'trim'}">${c.screen}</span> <span style="font-size:11px;color:var(--muted)">${(c.screen_notes || []).map(escapeHtml).join(', ')}</span></td>
+    </tr>`).join('') : '<tr><td colspan="9" class="no-data">No tracked filers found in this dataset.</td></tr>';
+  }
+}
+
+function universeExportApproved() {
+  const all = (universeData && universeData.candidates) || [];
+  const out = Object.entries(universeDecisions).map(([cik, d]) => {
+    const c = all.find(x => x.cik === cik) || {};
+    return { cik, name: c.name || d.name || '', status: d.status, date: d.date, positions: c.positions, total_value_usd: c.total_value_usd, fit: c.fit };
+  });
+  const blob = new Blob([JSON.stringify({ exported_at: new Date().toISOString(), decisions: out }, null, 1)], { type: 'application/json' });
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'universe-decisions.json'; a.click();
 }
 
 async function loadHoldings() {
@@ -7828,7 +7982,8 @@ async function hardRefreshAll() {
       loadJoeHoldings(),
       loadSymbolData(),
       loadEligibleUniverse(),
-      loadFeed()
+      loadFeed(),
+      loadUniverse()
     ]);
     updateDDCounter();
     renderInvestors();
@@ -7862,6 +8017,7 @@ window.addEventListener('DOMContentLoaded', () => {
   loadTickerDirectory();
   loadEligibleUniverse();
   loadFeed();
+  loadUniverse();
   renderReentry();
   renderTargets();
   renderBuyZone();
