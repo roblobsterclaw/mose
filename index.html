@@ -2133,7 +2133,7 @@ async function checkPw(){
 // compare the build stamp, and offer a genuine reload when they differ.
 // Bump APP_BUILD whenever index.html changes.
 // ============================================================
-const APP_BUILD = '2026-09-04a';
+const APP_BUILD = '2026-09-04b';
 
 async function checkForAppUpdate(announce) {
   try {
@@ -6502,7 +6502,8 @@ function canonTargetsBuckets() {
     { id: 'aicore', label: 'AI core', pct: 8,
       tickers: ['AVGO', 'LRCX', 'TSM', 'ASML', 'NVDA', 'SMH'], weights: {}, locked: {} },
     { id: 'opp', label: 'Opportunistic', pct: 8,
-      tickers: ['UBER', 'APP', 'MDB', 'DASH', 'RBLX', 'FROG', 'KVYO', 'BABA', 'CVNA', 'TSLA', 'SPCX', 'CODI'], weights: {}, locked: {} },
+      // CODI (Compass Diversified) removed 4 Sep 2026 — the guard rail found no tracked filer owns it.
+      tickers: ['UBER', 'APP', 'MDB', 'DASH', 'RBLX', 'FROG', 'KVYO', 'BABA', 'CVNA', 'TSLA', 'SPCX'], weights: {}, locked: {} },
     { id: 'radar', label: 'Radar', pct: 5,
       // HHH = Howard Hughes Holdings — Ackman's Berkshire-style vehicle, and
       // already on the IBKR Opportunistic watchlist. Parked on Radar because
@@ -6721,6 +6722,22 @@ function migrateTargets(d) {
     });
     d.version = 12;
     _targetsRepaired = true;
+  }
+  if ((d.version || 0) < 13) {
+    // 4 Sep 2026: Joe removed CODI (Compass Diversified) — the guard rail found no
+    // tracked 13F filer owns it. Pulled from whichever bucket it sits in on this
+    // device; skipped if a position is recorded as owned, so nothing gets orphaned.
+    const ownsCodi = Object.entries(d.owned || {}).some(([k, v]) => k.endsWith('|CODI') && Number(v) > 0);
+    if (!ownsCodi) {
+      d.ira.buckets.forEach(b => {
+        if (!Array.isArray(b.tickers)) return;
+        const i = b.tickers.indexOf('CODI');
+        if (i >= 0) b.tickers.splice(i, 1);
+        if (b.weights) delete b.weights.CODI;
+        if (b.locked) delete b.locked.CODI;
+      });
+    }
+    d.version = 13;
   }
   d.ira.buckets.forEach(b => {
     if (!Array.isArray(b.tickers)) b.tickers = [];

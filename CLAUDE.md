@@ -25,7 +25,7 @@ everywhere: Buy Targets, Joe's Watchlist, Command Center, Re-Entry.
 3. **Hard assets** — BN, PLD, CP, CVX, OXY, GE, HON, NLR
 4. **AI core** — AVGO, LRCX, TSM, ASML, NVDA, SMH
 5. **AI bench** — COHR, CIEN, FN, CLS, MKSI, MTSI, AEIS, TTMI, VIAV, SITM, WDC, TSEM, CBRS, MU, INTC, ARM, AMD
-6. **Opportunistic** — UBER, APP, MDB, DASH, RBLX, FROG, KVYO, BABA, CVNA, TSLA, SPCX, CODI, MBGL, BE
+6. **Opportunistic** — UBER, APP, MDB, DASH, RBLX, FROG, KVYO, BABA, CVNA, TSLA, SPCX (CODI removed 4 Sep 2026 — no tracked filer owns it; MBGL, BE dropped earlier)
 7. **Radar** (researched, circling, not yet bought) — LLY, DE, ROP, FICO, VRSN, ORLY, TXN, RACE
 8. **Dry powder** — VOO, VTV, QQQ, IDGT, SGOV
 
