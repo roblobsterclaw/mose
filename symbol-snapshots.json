@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T05:14:59.915227+00:00",
+  "generated_at": "2026-09-04T10:10:23.874270+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -1878,11 +1878,11 @@
         "time": "16:00:01",
         "volume": 20685797,
         "week52_high": 408.61,
-        "week52_low": 226.11
+        "week52_low": 231.9
       },
       "metrics": {
         "week52High": 408.61,
-        "week52Low": 226.11,
+        "week52Low": 231.9,
         "marketCap": 4166206881792,
         "peRatio": 31.68177613320999
       },
@@ -2978,11 +2978,11 @@
         "time": "16:00:01",
         "volume": 1136865,
         "week52_high": 447.62,
-        "week52_low": 98.81
+        "week52_low": 102.14
       },
       "metrics": {
         "week52High": 447.62,
-        "week52Low": 98.81
+        "week52Low": 102.14
       },
       "profile": {
         "company": "MKS Instruments, Inc.",
@@ -4103,11 +4103,11 @@
         "time": "16:00:00",
         "volume": 253583,
         "week52_high": 901.81,
-        "week52_low": 222.77
+        "week52_low": 229.64
       },
       "metrics": {
         "week52High": 901.81,
-        "week52Low": 222.77
+        "week52Low": 229.64
       },
       "profile": {
         "company": "SiTime Corporation",
@@ -5490,8 +5490,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 14.32,
-        "change_pct": -5.78947368421052,
+        "price": 14.23,
+        "change_pct": -0.6284916201117309,
         "source": "yahoo"
       },
       "metrics": {},
