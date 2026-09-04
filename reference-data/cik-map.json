@@ -1,214 +1,215 @@
 [
-  {
-    "name": "Warren Buffett",
-    "fund": "Berkshire Hathaway",
-    "tier": 1,
-    "source_type": "13F",
-    "cik": "1067983"
-  },
-  {
-    "name": "Seth Klarman",
-    "fund": "Baupost Group",
-    "tier": 1,
-    "source_type": "13F",
-    "cik": "1061768"
-  },
-  {
-    "name": "David Abrams",
-    "fund": "Abrams Capital Management",
-    "tier": 1,
-    "source_type": "13F",
-    "cik": "1358706"
-  },
-  {
-    "name": "Michael Burry",
-    "fund": "Scion Asset Management",
-    "tier": 2,
-    "source_type": "13F",
-    "cik": "1649339"
-  },
-  {
-    "name": "David Einhorn",
-    "fund": "Greenlight Capital",
-    "tier": 2,
-    "source_type": "13F",
-    "cik": "1079114"
-  },
-  {
-    "name": "Chris Hohn",
-    "fund": "TCI Fund Management",
-    "tier": 1,
-    "source_type": "13F",
-    "cik": "1647251"
-  },
-  {
-    "name": "Chuck Akre",
-    "fund": "Akre Capital Management",
-    "tier": 1,
-    "source_type": "13F",
-    "cik": "1112520"
-  },
-  {
-    "name": "Tom Gayner",
-    "fund": "Markel Group",
-    "tier": 1,
-    "source_type": "13F",
-    "cik": "1096343"
-  },
-  {
-    "name": "Glenn Greenberg",
-    "fund": "Brave Warrior Advisors",
-    "tier": 2,
-    "source_type": "13F",
-    "cik": "1553733"
-  },
-  {
-    "name": "Joel Greenblatt",
-    "fund": "Gotham Asset Management",
-    "tier": 2,
-    "source_type": "13F",
-    "cik": "1446114"
-  },
-  {
-    "name": "Clifford Sosin",
-    "fund": "CAS Investment Partners",
-    "tier": 2,
-    "source_type": "13F",
-    "cik": "1697591"
-  },
-  {
-    "name": "Norbert Lou",
-    "fund": "Punch Card Management",
-    "tier": 2,
-    "source_type": "13F",
-    "cik": "1631664"
-  },
-  {
-    "name": "Mohnish Pabrai",
-    "fund": "Dalal Street LLC",
-    "tier": 1,
-    "source_type": "13F",
-    "cik": "1549575"
-  },
-  {
-    "name": "Li Lu",
-    "fund": "Himalaya Capital Management",
-    "tier": 1,
-    "source_type": "13F",
-    "cik": "1709323"
-  },
-  {
-    "name": "Christopher Bloomstran",
-    "fund": "Semper Augustus Investments",
-    "tier": 2,
-    "source_type": "13F",
-    "cik": "1115373"
-  },
-  {
-    "name": "Dev Kantesaria",
-    "fund": "Valley Forge Capital Management",
-    "tier": 1,
-    "source_type": "13F",
-    "cik": "1697868"
-  },
-  {
-    "name": "Tom Bancroft",
-    "fund": "Makaira Partners",
-    "tier": 2,
-    "source_type": "13F",
-    "cik": "1540866"
-  },
-  {
-    "name": "Gavin Baker",
-    "fund": "Atreides Management",
-    "tier": 2,
-    "source_type": "13F",
-    "cik": "1777813",
-    "note": "AI-buildout radar, not a value investor"
-  },
-  {
-    "name": "Leopold Aschenbrenner",
-    "fund": "Situational Awareness LP",
-    "tier": 2,
-    "source_type": "13F",
-    "cik": "2045724",
-    "note": "AGI-thesis fund; uses options/puts. Not a value investor"
-  },
-  {
-    "name": "Brad Gerstner",
-    "fund": "Altimeter Capital",
-    "tier": 2,
-    "source_type": "13F",
-    "cik": "1541617",
-    "note": "AI/growth; not a value investor"
-  },
-  {
-    "name": "Philippe Laffont",
-    "fund": "Coatue Management",
-    "tier": 2,
-    "source_type": "13F",
-    "cik": "1135730",
-    "note": "Tech growth (Tiger Cub); not a value investor"
-  },
-  {
-    "name": "Cathie Wood",
-    "fund": "ARK Investment Management",
-    "tier": 2,
-    "source_type": "13F",
-    "cik": "1697748",
-    "note": "Disruptive-innovation ETFs; not a value investor"
-  },
-  {
-    "name": "Chase Coleman",
-    "fund": "Tiger Global Management",
-    "tier": 2,
-    "source_type": "13F",
-    "cik": "1167483",
-    "note": "Large-cap tech + private growth (Tiger Cub); not a value investor"
-  },
-  {
-    "name": "Dan Niles",
-    "fund": "Niles Investment Management",
-    "tier": 2,
-    "source_type": "13F",
-    "cik": "2016708",
-    "note": "Tech/semis trader; uses puts/hedges. Not a value investor"
-  },
-  {
-    "name": "Ole Andreas Halvorsen",
-    "fund": "Viking Global Investors",
-    "tier": 2,
-    "source_type": "13F",
-    "cik": "1103804",
-    "note": "Quality-growth long/short (Tiger Cub); not deep value"
-  },
-  {
-    "name": "Whale Rock",
-    "fund": "Whale Rock Capital Management",
-    "tier": 2,
-    "source_type": "13F",
-    "cik": "1387322",
-    "note": "Tech-focused growth (A. Sacerdote); not a value investor"
-  },
-  {
-    "name": "Terry Smith",
-    "fund": "Fundsmith LLP",
-    "tier": 1,
-    "source_type": "13F",
-    "cik": "1569205"
-  },
-  {
-    "name": "Daniel Loeb",
-    "fund": "Third Point",
-    "tier": 1,
-    "source_type": "13F",
-    "cik": "1040273"
-  },
-  {
-    "name": "Bill Ackman",
-    "fund": "Pershing Square",
-    "tier": 1,
-    "source_type": "13F",
-    "cik": "2026053"
-  }
+ {
+  "name": "Warren Buffett",
+  "fund": "Berkshire Hathaway",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1067983"
+ },
+ {
+  "name": "Seth Klarman",
+  "fund": "Baupost Group",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1061768"
+ },
+ {
+  "name": "David Abrams",
+  "fund": "Abrams Capital Management",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1358706"
+ },
+ {
+  "name": "Michael Burry",
+  "fund": "Scion Asset Management",
+  "tier": 2,
+  "source_type": "13F",
+  "cik": "1649339"
+ },
+ {
+  "name": "David Einhorn",
+  "fund": "Greenlight Capital",
+  "tier": 2,
+  "source_type": "13F",
+  "cik": "1079114"
+ },
+ {
+  "name": "Chris Hohn",
+  "fund": "TCI Fund Management",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1647251"
+ },
+ {
+  "name": "Chuck Akre",
+  "fund": "Akre Capital Management",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1112520"
+ },
+ {
+  "name": "Tom Gayner",
+  "fund": "Markel Group",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1096343"
+ },
+ {
+  "name": "Glenn Greenberg",
+  "fund": "Brave Warrior Advisors",
+  "tier": 2,
+  "source_type": "13F",
+  "cik": "1553733"
+ },
+ {
+  "name": "Joel Greenblatt",
+  "fund": "Gotham Asset Management",
+  "tier": 2,
+  "source_type": "13F",
+  "cik": "1446114"
+ },
+ {
+  "name": "Clifford Sosin",
+  "fund": "CAS Investment Partners",
+  "tier": 2,
+  "source_type": "13F",
+  "cik": "1697591"
+ },
+ {
+  "name": "Norbert Lou",
+  "fund": "Punch Card Management",
+  "tier": 2,
+  "source_type": "13F",
+  "cik": "1631664"
+ },
+ {
+  "name": "Mohnish Pabrai",
+  "fund": "Dalal Street LLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1549575"
+ },
+ {
+  "name": "Li Lu",
+  "fund": "Himalaya Capital Management",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1709323"
+ },
+ {
+  "name": "Christopher Bloomstran",
+  "fund": "Semper Augustus Investments",
+  "tier": 2,
+  "source_type": "13F",
+  "cik": "1115373"
+ },
+ {
+  "name": "Dev Kantesaria",
+  "fund": "Valley Forge Capital Management",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1697868"
+ },
+ {
+  "name": "Tom Bancroft",
+  "fund": "Makaira Partners",
+  "tier": 2,
+  "source_type": "13F",
+  "cik": "1540866"
+ },
+ {
+  "name": "Gavin Baker",
+  "fund": "Atreides Management",
+  "tier": 2,
+  "source_type": "13F",
+  "cik": "1777813",
+  "note": "AI-buildout radar, not a value investor"
+ },
+ {
+  "name": "Leopold Aschenbrenner",
+  "fund": "Situational Awareness LP",
+  "tier": 2,
+  "source_type": "13F",
+  "cik": "2045724",
+  "note": "AGI-thesis fund; uses options/puts. Not a value investor"
+ },
+ {
+  "name": "Brad Gerstner",
+  "fund": "Altimeter Capital",
+  "tier": 2,
+  "source_type": "13F",
+  "cik": "1541617",
+  "note": "AI/growth; not a value investor"
+ },
+ {
+  "name": "Philippe Laffont",
+  "fund": "Coatue Management",
+  "tier": 2,
+  "source_type": "13F",
+  "cik": "1135730",
+  "note": "Tech growth (Tiger Cub); not a value investor"
+ },
+ {
+  "name": "Cathie Wood",
+  "fund": "ARK Investment Management",
+  "tier": 2,
+  "source_type": "13F",
+  "cik": "1697748",
+  "note": "Disruptive-innovation ETFs; not a value investor"
+ },
+ {
+  "name": "Chase Coleman",
+  "fund": "Tiger Global Management",
+  "tier": 2,
+  "source_type": "13F",
+  "cik": "1167483",
+  "note": "Large-cap tech + private growth (Tiger Cub); not a value investor"
+ },
+ {
+  "name": "Dan Niles",
+  "fund": "Niles Investment Management",
+  "tier": 2,
+  "source_type": "13F",
+  "cik": "2016708",
+  "note": "Tech/semis trader; uses puts/hedges. Not a value investor"
+ },
+ {
+  "name": "Ole Andreas Halvorsen",
+  "fund": "Viking Global Investors",
+  "tier": 2,
+  "source_type": "13F",
+  "cik": "1103804",
+  "note": "Quality-growth long/short (Tiger Cub); not deep value"
+ },
+ {
+  "name": "Whale Rock",
+  "fund": "Whale Rock Capital Management",
+  "tier": 2,
+  "source_type": "13F",
+  "cik": "1387322",
+  "note": "Tech-focused growth (A. Sacerdote); not a value investor"
+ },
+ {
+  "name": "Terry Smith",
+  "fund": "Fundsmith LLP",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1569205"
+ },
+ {
+  "name": "Daniel Loeb",
+  "fund": "Third Point",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1040273"
+ },
+ {
+  "name": "Bill Ackman",
+  "fund": "Pershing Square",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1336528",
+  "note": "Pershing Square Capital Management, L.P. (CIK 1336528) files the fund book (11 positions, $13.7B at 2026-03-31). CIK 2026053 = Pershing Square Inc., the holdco, files a single position \u2014 do not use. Corrected 2026-09-04 from the SEC bulk dataset."
+ }
 ]
