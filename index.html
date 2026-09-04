@@ -572,6 +572,24 @@
     background: var(--surface); border: 1px solid var(--border); color: var(--muted);
   }
   .idea-chip.unverified { border: 1px dashed var(--yellow); color: var(--yellow); }
+  /* Guard rail: is this name held by a tracked 13F filer? */
+  .elig-chip {
+    display: inline-block; margin-left: 5px; padding: 1px 6px; border-radius: 999px;
+    font-size: 9px; font-weight: 800; vertical-align: middle; cursor: help;
+    background: var(--surface); border: 1px solid var(--border); color: var(--muted);
+  }
+  .elig-chip.ok { border-color: var(--green); color: var(--green); }
+  .elig-chip.warn { border-style: dashed; border-color: var(--yellow); color: var(--yellow); }
+  .guardrail { border-radius: 10px; padding: 10px 12px; margin: 0 0 14px; font-size: 12px; line-height: 1.7; border: 1px solid var(--border); background: var(--surface); }
+  .guardrail.warn { border-color: var(--yellow); }
+  .guardrail.ok { border-color: var(--green); }
+  /* Investor feed */
+  .feed-day { font-weight: 800; color: var(--heading); margin: 14px 0 6px; font-size: 12px; text-transform: uppercase; letter-spacing: .4px; }
+  .feed-item { border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; margin-bottom: 8px; background: var(--surface); }
+  .feed-item.mine { border-left: 4px solid var(--accent); }
+  .feed-meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 12px; }
+  .feed-quote { margin-top: 6px; font-size: 13px; color: var(--text); }
+  .feed-src { display: inline-block; margin-top: 6px; font-size: 11px; color: var(--blue); }
 
   #update-banner {
     background: var(--green-bg); border: 1px solid var(--green); border-left-width: 4px;
@@ -1547,6 +1565,32 @@ async function checkPw(){
     </div>
   </div>
 
+  <div id="tab-feed" class="tab-panel">
+    <div class="toolbar">
+      <h2>📡 Investor Feed</h2>
+      <span style="font-size:12px;color:var(--muted)" id="feed-asof">—</span>
+      <select class="bucket-dropdown" onchange="setFeedKind(this.value)">
+        <option value="all">All kinds</option>
+        <option value="13D">13D</option>
+        <option value="13G">13G</option>
+        <option value="FORM4">Form 4</option>
+        <option value="NPORT">N-PORT</option>
+        <option value="LETTER">Letters</option>
+        <option value="INTERVIEW">Interviews</option>
+        <option value="POST">Posts</option>
+        <option value="NEWS">News</option>
+        <option value="AGENT">Agent reports</option>
+      </select>
+      <input type="text" class="targ-input" style="width:190px" placeholder="Filter ticker or investor" oninput="setFeedQuery(this.value)">
+      <button class="filter-btn" onclick="loadFeed()">↻ Refresh</button>
+    </div>
+    <div class="stats-bar" id="feed-stats-bar"></div>
+    <div class="info-blurb" style="border:none;margin:0 0 10px;padding:0;font-size:12px">
+      What the approved investors are doing <em>between</em> 13Fs — fast filings (13D/13G, Form 4, N-PORT) and their own words (letters, interviews, posts). Items that touch one of your bucket names are marked. Words raise a watch flag; only filings move a score.
+    </div>
+    <div id="feed-list"></div>
+  </div>
+
   <div id="tab-heatmap" class="tab-panel">
     <div class="toolbar">
       <h2>🔥 Convergence Heat Map</h2>
@@ -1820,6 +1864,7 @@ async function checkPw(){
     </div>
 
     <div class="stats-bar" id="targets-stats-bar"></div>
+    <div id="targets-guardrail"></div>
 
     <details class="reentry-section" id="targets-import-section">
       <summary style="cursor:pointer;font-weight:800;color:var(--heading);font-size:15px;list-style:none">📥 Update from IBKR <span style="font-weight:600;color:var(--muted);font-size:12px">— paste positions for one account (monthly refresh)</span></summary>
@@ -2044,7 +2089,7 @@ async function checkPw(){
 // compare the build stamp, and offer a genuine reload when they differ.
 // Bump APP_BUILD whenever index.html changes.
 // ============================================================
-const APP_BUILD = '2026-08-18a';
+const APP_BUILD = '2026-09-02a';
 
 async function checkForAppUpdate(announce) {
   try {
@@ -2916,6 +2961,7 @@ const TAB_GROUPS = [
       { id: 'joeholdings', label: "Joe's Holdings" } ] },
   { id: 'gurus',    label: '🧠 Super Investors', tabs: [
       { id: 'consensus', label: '🤝 Consensus' },
+      { id: 'feed',      label: '📡 Feed' },
       { id: 'investors', label: 'Investors' },
       { id: 'holdings',  label: 'Holdings Tracker' },
       { id: 'heatmap',   label: 'Heat Map' },
@@ -3165,6 +3211,152 @@ function holdingsQuarterNoticeHtml() {
     45 days after quarter end, so the new quarter is still mostly empty. These views
     will switch over automatically once enough managers have filed.
   </div>`;
+}
+
+// ============================================================
+// GUARD RAIL — the eligible universe
+// Joe's rule (2 Sep 2026): the only stocks that may go into a bucket are ones a
+// tracked 13F filer actually owns. eligible-universe.json is built by
+// scripts/build_cusip_map.py from the raw filings (latest quarter, CUSIP-keyed).
+// Anything outside it needs an explicit, logged override.
+// ============================================================
+let eligibleUniverse = null;   // parsed eligible-universe.json
+let eligibleMap = {};          // canonical ticker -> row
+// Dry powder is cash management (index ETFs / T-bills), not a stock pick — exempt.
+const GUARDRAIL_EXEMPT_BUCKETS = new Set(['dry']);
+
+async function loadEligibleUniverse() {
+  try {
+    const r = await fetch('eligible-universe.json?' + Date.now());
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    eligibleUniverse = await r.json();
+    eligibleMap = {};
+    (eligibleUniverse.tickers || []).forEach(row => { eligibleMap[canonicalTicker(row.ticker)] = row; });
+    if (typeof renderTargets === 'function') renderTargets();
+    if (typeof renderWatchlist === 'function') renderWatchlist();
+  } catch (e) { console.warn('eligible-universe.json unavailable:', e.message); }
+}
+
+function eligibilityFor(ticker) {
+  const key = canonicalTicker(ticker);
+  if (!eligibleUniverse) return { known: false, eligible: null, holders: [], count: 0 };
+  const row = eligibleMap[key] || eligibleMap[key.replace('.', '-')] || eligibleMap[key.replace('-', '.')];
+  return row
+    ? { known: true, eligible: true, holders: row.holders || [], count: row.holder_count || (row.holders || []).length }
+    : { known: true, eligible: false, holders: [], count: 0 };
+}
+
+function eligibilityChip(ticker, bucketId) {
+  if (bucketId && GUARDRAIL_EXEMPT_BUCKETS.has(bucketId)) return '';
+  const e = eligibilityFor(ticker);
+  if (!e.known) return '';
+  const q = escapeAttr((eligibleUniverse && eligibleUniverse.quarter) || 'latest quarter');
+  if (e.eligible) {
+    return `<span class="elig-chip ok" title="Held by ${e.count} tracked filer${e.count === 1 ? '' : 's'} in ${q}: ${escapeAttr(e.holders.join(', '))}">✓ ${e.count}</span>`;
+  }
+  const ov = targetsData && targetsData.overrides && targetsData.overrides[canonicalTicker(ticker)];
+  return ov
+    ? `<span class="elig-chip warn" title="Outside the guard rail. Override ${escapeAttr(ov.date || '')}: ${escapeAttr(ov.reason || '')}">⚠ override</span>`
+    : `<span class="elig-chip warn" title="Not held by any tracked 13F filer in ${q}">⚠ not held</span>`;
+}
+
+// Called before a ticker is routed into a bucket. Returns true to proceed.
+function guardrailAllows(ticker, bucketId) {
+  if (bucketId && GUARDRAIL_EXEMPT_BUCKETS.has(bucketId)) return true;
+  const e = eligibilityFor(ticker);
+  if (!e.known || e.eligible) return true;
+  const key = canonicalTicker(ticker);
+  const n = ((eligibleUniverse && eligibleUniverse.investors) || []).length;
+  const q = (eligibleUniverse && eligibleUniverse.quarter) || 'the latest quarter';
+  if (!confirm(`🛡️ ${key} isn't held by any of the ${n} tracked 13F filers in ${q}.\n\nYour rule: only stocks a tracked filer owns go into a bucket.\n\nOverride and add it anyway? You'll be asked for a reason, and it's logged on the row.`)) return false;
+  const reason = (prompt(`Why add ${key} outside the guard rail? One line — where did the idea come from?`) || '').trim();
+  if (!reason) { showWatchlistToast('Override needs a reason — nothing added'); return false; }
+  if (!targetsData.overrides || typeof targetsData.overrides !== 'object') targetsData.overrides = {};
+  targetsData.overrides[key] = { reason, date: new Date().toISOString().slice(0, 10) };
+  return true;
+}
+
+// Audit banner for the Buy Targets page: which bucket names sit outside the rail.
+function targGuardrailHtml() {
+  if (!eligibleUniverse || !targetsData || !targetsData.ira) return '';
+  const bad = [];
+  let total = 0;
+  (targetsData.ira.buckets || []).forEach(b => {
+    if (GUARDRAIL_EXEMPT_BUCKETS.has(b.id)) return;
+    (b.tickers || []).forEach(t => { total++; const e = eligibilityFor(t); if (e.known && !e.eligible) bad.push({ t, b }); });
+  });
+  const n = (eligibleUniverse.investors || []).length;
+  const q = escapeHtml(eligibleUniverse.quarter || '');
+  if (!bad.length) {
+    return `<div class="guardrail ok">🛡️ <strong>Guard rail:</strong> all ${total} bucket names are held by at least one of the ${n} tracked 13F filers (${q}). Dry powder is exempt.</div>`;
+  }
+  return `<div class="guardrail warn">🛡️ <strong>Guard rail:</strong> ${bad.length} of ${total} bucket names aren't held by any of the ${n} tracked 13F filers in ${q}: ${bad.map(x => `<span class="elig-chip warn" title="${escapeAttr(x.b.label)}">${escapeHtml(x.t)}</span>`).join(' ')}. Keep them only with a reason (hover a chip for its override) or remove them.</div>`;
+}
+
+// ============================================================
+// INVESTOR FEED — between-quarter signals (signals/feed-latest.json)
+// Contract: docs/CODEX-HANDOFF-2026-09.md §6, Layer 3. Words raise a watch
+// flag here; only filings move a conviction score.
+// ============================================================
+let feedData = null;
+const feedFilters = { kind: 'all', q: '' };
+const FEED_KIND_LABEL = { '13D': '13D', '13G': '13G', FORM4: 'Form 4', NPORT: 'N-PORT', LETTER: 'Letter', INTERVIEW: 'Interview', POST: 'Post', NEWS: 'News', AGENT: 'Agent' };
+
+async function loadFeed() {
+  try {
+    const r = await fetch('signals/feed-latest.json?' + Date.now());
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    feedData = await r.json();
+  } catch (e) { feedData = { items: [], error: e.message }; }
+  renderFeed();
+}
+function setFeedKind(v) { feedFilters.kind = v || 'all'; renderFeed(); }
+function setFeedQuery(v) { feedFilters.q = (v || '').trim().toUpperCase(); renderFeed(); }
+function feedDirectionPill(d) {
+  const cls = { bullish: 'add', add: 'add', new: 'new', bearish: 'exit', exit: 'exit', trim: 'trim', neutral: '' }[d] || '';
+  return `<span class="filing-pill ${cls}">${escapeHtml(d || 'neutral')}</span>`;
+}
+function renderFeed() {
+  const list = document.getElementById('feed-list');
+  if (!list) return;
+  const items = ((feedData && feedData.items) || []).slice().sort((a, b) => String(b.ts || '').localeCompare(String(a.ts || '')));
+  const asof = document.getElementById('feed-asof');
+  if (asof) asof.textContent = feedData && feedData.generated_at ? 'Updated ' + String(feedData.generated_at).slice(0, 16).replace('T', ' ') : '—';
+  const bucketSet = new Set(Object.keys(canonicalBucketMap() || {}));
+  const touching = items.filter(i => i.ticker && bucketSet.has(canonicalTicker(i.ticker)));
+  const sb = document.getElementById('feed-stats-bar');
+  if (sb) sb.innerHTML = `
+    <div class="stat-card"><div class="stat-val blue">${items.length}</div><div class="stat-label">Signals</div></div>
+    <div class="stat-card"><div class="stat-val orange">${touching.length}</div><div class="stat-label">Touch my buckets</div></div>
+    <div class="stat-card"><div class="stat-val green">${items.filter(i => ['13D', '13G', 'FORM4', 'NPORT'].includes(i.kind)).length}</div><div class="stat-label">From filings</div></div>
+    <div class="stat-card"><div class="stat-val yellow">${items.filter(i => i.severity === 'act').length}</div><div class="stat-label">Act now</div></div>`;
+  let rows = items;
+  if (feedFilters.kind !== 'all') rows = rows.filter(i => (i.kind || '') === feedFilters.kind);
+  if (feedFilters.q) rows = rows.filter(i => (i.ticker || '').toUpperCase().includes(feedFilters.q) || (i.investor || '').toUpperCase().includes(feedFilters.q));
+  if (!rows.length) {
+    list.innerHTML = `<div class="no-data" style="padding:22px;line-height:1.7">
+      ${items.length ? 'No signals match this filter.' : `<strong>No signals yet.</strong> This is the landing zone for what the approved investors do <em>between</em> 13Fs: 13D/13G crossings, Form 4 insider trades, N-PORT monthly fund holdings, and their own words in letters, interviews and posts.<br>It fills when the Layer 3 pipeline (Mac Mini collector + extractor) writes <code>signals/feed-latest.json</code>. Contract: <code>docs/CODEX-HANDOFF-2026-09.md</code> §6.`}
+      ${feedData && feedData.error ? `<div class="muted" style="margin-top:6px">(${escapeHtml(feedData.error)})</div>` : ''}
+    </div>`;
+    return;
+  }
+  let lastDay = '';
+  list.innerHTML = rows.map(i => {
+    const day = String(i.ts || '').slice(0, 10);
+    const head = day !== lastDay ? `<div class="feed-day">${escapeHtml(day || 'undated')}</div>` : '';
+    lastDay = day;
+    const t = i.ticker ? canonicalTicker(i.ticker) : '';
+    const inB = t && bucketSet.has(t);
+    const sev = i.severity ? `<span class="filing-pill ${i.severity === 'act' ? 'exit' : i.severity === 'watch' ? 'trim' : ''}">${escapeHtml(i.severity)}</span>` : '';
+    return `${head}<div class="feed-item${inB ? ' mine' : ''}">
+      <div class="feed-meta"><span class="filing-pill">${escapeHtml(FEED_KIND_LABEL[i.kind] || i.kind || '?')}</span> ${feedDirectionPill(i.direction)} ${sev}
+        ${i.investor ? `<strong>${escapeHtml(i.investor)}</strong>` : ''}
+        ${t ? `<span class="ticker">${escapeHtml(t)}</span>${inB ? '<span class="elig-chip ok" title="In one of your buckets">bucket</span>' : ''}` : ''}
+        ${Number.isFinite(Number(i.confidence)) && i.confidence !== null && i.confidence !== undefined ? `<span class="muted">conf ${(Number(i.confidence) * 100).toFixed(0)}%</span>` : ''}</div>
+      ${i.quote ? `<div class="feed-quote">“${escapeHtml(i.quote)}”</div>` : ''}
+      ${i.source_url ? `<a class="feed-src" href="${escapeAttr(i.source_url)}" target="_blank" rel="noopener">${escapeHtml(i.source_title || i.source_url)}</a>` : ''}
+    </div>`;
+  }).join('');
 }
 
 async function loadHoldings() {
@@ -4804,7 +4996,7 @@ function watchlistRowHtml(p, dcfMap, tickerToInvestors, joeOwns, candidateMap) {
 
   return `<tr>
     <td class="hide-sm" style="min-width:195px">${bucketSel}</td>
-    <td><span class="ticker">${p.private ? '🔒' : ticker}</span> <a onclick="removeFromWatchlist('${ticker}')" title="Remove from watchlist" style="cursor:pointer;color:var(--muted);font-size:11px;margin-left:4px">✕</a></td>
+    <td><span class="ticker">${p.private ? '🔒' : ticker}</span>${eligibilityChip(ticker)} <a onclick="removeFromWatchlist('${ticker}')" title="Remove from watchlist" style="cursor:pointer;color:var(--muted);font-size:11px;margin-left:4px">✕</a></td>
     <td class="hide-sm" style="font-size:13px">${escapeHtml(p.name)}${p.private ? ' <span class="private-tag">private</span>' : ''}</td>
     <td class="hide-sm">${prioritySelect(ticker)}</td>
     <td class="i-own-cell hide-sm">${ownCell}</td>
@@ -6236,6 +6428,7 @@ function migrateTargets(d) {
   if (typeof d.ira.accounts.joint.total !== 'number') d.ira.accounts.joint.total = 344000;
   if (!Array.isArray(d.ira.buckets) || !d.ira.buckets.length) d.ira.buckets = canonTargetsBuckets();
   if (!d.owned || typeof d.owned !== 'object') d.owned = {};
+  if (!d.overrides || typeof d.overrides !== 'object') d.overrides = {};   // guard-rail overrides: ticker -> {reason, date}
   if ((d.version || 0) < 3) {
     const want = { forever: 50, sp: 25, fornow: 25 };
     d.ira.buckets.forEach(b => { if (want[b.id] != null) b.pct = want[b.id]; });
@@ -6900,7 +7093,7 @@ function targCombinedHtml() {
       const pctCell = b.tickers.length === 1
         ? `<td style="color:var(--muted)">100%</td>`
         : `<td style="white-space:nowrap"><input type="number" step="0.5" class="targ-input" style="width:58px${locked ? ';border-color:var(--accent);color:var(--accent);font-weight:700' : ''}" value="${targStockPctOfBucket(b, t).toFixed(1)}" onchange="targSetPctOfBucket('${b.id}','${t}',this.value)">% <a onclick="targToggleLock('${b.id}','${escapeHtml(t)}')" title="${locked ? 'Locked — holds this %. Click to unlock and let it recalc.' : 'Click to lock this % so it holds while the others recalc.'}" style="cursor:pointer;margin-left:2px">${locked ? '🔒' : '🔓'}</a></td>`;
-      html += `<tr data-targ-bucket="${b.id}" data-targ-ticker="${escapeHtml(t)}"><td class="targ-drag-handle" onpointerdown="targDragStart(event,'${b.id}','${escapeHtml(t)}')" title="Drag to reorder or move to another bucket">⠿</td><td><strong title="${escapeAttr(stockBlurb(t))}">${escapeHtml(t)}</strong>${ideaOriginChip(t)} <a onclick="showStockInfo('${escapeHtml(t)}')" title="What is ${escapeHtml(t)}?" style="cursor:pointer;color:var(--blue);margin-left:2px;font-size:12px">ⓘ</a>${targLivePrice(t)} <a onclick="targRemoveTicker('${b.id}','${escapeHtml(t)}')" title="Remove from bucket" style="cursor:pointer;color:var(--muted);margin-left:6px">✕</a></td>${targRangeCell(t)}${targSparkCell(t)}${pctCell}<td>${reentryFmt(tgt)}</td><td>${reentryFmt(owned)}</td>${targMoreCell(owned, tgt)}${targPctCell(owned, tgt)}</tr>`;
+      html += `<tr data-targ-bucket="${b.id}" data-targ-ticker="${escapeHtml(t)}"><td class="targ-drag-handle" onpointerdown="targDragStart(event,'${b.id}','${escapeHtml(t)}')" title="Drag to reorder or move to another bucket">⠿</td><td><strong title="${escapeAttr(stockBlurb(t))}">${escapeHtml(t)}</strong>${ideaOriginChip(t)}${eligibilityChip(t, b.id)} <a onclick="showStockInfo('${escapeHtml(t)}')" title="What is ${escapeHtml(t)}?" style="cursor:pointer;color:var(--blue);margin-left:2px;font-size:12px">ⓘ</a>${targLivePrice(t)} <a onclick="targRemoveTicker('${b.id}','${escapeHtml(t)}')" title="Remove from bucket" style="cursor:pointer;color:var(--muted);margin-left:6px">✕</a></td>${targRangeCell(t)}${targSparkCell(t)}${pctCell}<td>${reentryFmt(tgt)}</td><td>${reentryFmt(owned)}</td>${targMoreCell(owned, tgt)}${targPctCell(owned, tgt)}</tr>`;
     });
     html += targAddRow(b.id, 9);
     html += `</tbody>`;
@@ -7048,6 +7241,7 @@ function targAddTicker(bucketId, ticker) {
   const list = targListFor(bucketId);
   if (!list) return;
   if (list.tickers.includes(ticker)) { showWatchlistToast(`${ticker} is already in ${list.label}`); return; }
+  if (!guardrailAllows(ticker, bucketId)) return;   // Joe's rule: only names a tracked filer owns
   list.tickers.push(ticker);           // no explicit weight → bucket re-spreads equally on save
   targetsSave();                        // recalculates % of bucket + dollar goals and re-renders
   showWatchlistToast(`Added ${ticker} → ${list.label}`);
@@ -7418,6 +7612,8 @@ function _renderTargetsBody() {
     <div class="stat-card"><div class="stat-val" style="color:var(--purple)">${reentryFmt(hersTot)}</div><div class="stat-label">Keli's IRA</div></div>
     <div class="stat-card"><div class="stat-val yellow">${reentryFmt(jointTot)}</div><div class="stat-label">Joint Cash</div></div>`;
 
+  const gr = document.getElementById('targets-guardrail');
+  if (gr) gr.innerHTML = targGuardrailHtml();
   document.getElementById('targets-combined').innerHTML = targCombinedHtml();
 
   const his = targAcctTableHtml('his');
@@ -7630,7 +7826,9 @@ async function hardRefreshAll() {
       loadResearchLibrary(),
       loadFilingTracker(false),
       loadJoeHoldings(),
-      loadSymbolData()
+      loadSymbolData(),
+      loadEligibleUniverse(),
+      loadFeed()
     ]);
     updateDDCounter();
     renderInvestors();
@@ -7662,6 +7860,8 @@ window.addEventListener('DOMContentLoaded', () => {
   loadFilingTracker(false);
   loadSymbolData();
   loadTickerDirectory();
+  loadEligibleUniverse();
+  loadFeed();
   renderReentry();
   renderTargets();
   renderBuyZone();

@@ -91,3 +91,17 @@ model numbers as fact — flag caveats.
 - Joe dislikes repeated questions — lock in standing answers, act on sensible
   defaults, don't tack "want me to…?" onto every message.
 - Automated snapshots are ON HOLD until Joe says go.
+
+## Guard rail + feed (added 2 Sep 2026) — see docs/CODEX-HANDOFF-2026-09.md
+- **Joe's rule:** only stocks a tracked 13F filer owns may go into a bucket. Source of
+  truth: `eligible-universe.json` (built by `scripts/build_cusip_map.py` from
+  `data/sec-13f-filings.json`, latest quarter). Names outside it need a logged override
+  (`targetsData.overrides`). Dry powder bucket is exempt. Buy Targets shows an audit banner.
+- `reference-data/cusip-map.json` = offline CUSIP→ticker bootstrap (99%+ of value). Codex's
+  OpenFIGI pass should extend it, not replace the format.
+- `signals/feed-latest.json` = between-quarter signal feed (📡 Feed tab). Contract in the
+  handoff §6. **Words raise a watch flag; only filings move a score.**
+- A second builder (ChatGPT Codex) works the pipeline side on `codex/*` branches; Claude owns
+  `index.html`, research, email, this file. Log every session in `BUILD-LOG.md`.
+- Sandbox network: Joe is switching the cloud environment to Full access + LunarCrush
+  connector. Running sessions keep the old policy — start a fresh session for SEC-direct work.

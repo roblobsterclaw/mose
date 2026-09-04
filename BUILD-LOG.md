@@ -6,6 +6,29 @@
 
 ---
 
+## Session 10 — September 2, 2026 (Claude)
+**Goal:** Start the "guard rails + feed" build Joe asked for (see `docs/CODEX-HANDOFF-2026-09.md`): only stocks a tracked 13F filer owns may be routed into a bucket, and a landing zone for between-quarter signals.
+
+**What was built:**
+- **`scripts/build_cusip_map.py`** — offline CUSIP→ticker bootstrap for the 13F universe. Resolution order: CUSIP seeds (raw pull + `ticker-map.json`) → curated issuer-name alias table → exact normalised name vs `ticker-directory.json` → 13F-abbreviation expansion (AMER→AMERICA, MATLS→MATERIALS…). Tries every issuer name ever filed for a CUSIP (the same CUSIP is spelled differently across quarters). Writes `reference-data/cusip-map.json` (1,979 of 3,647 CUSIPs; **99.4% of Q2-2026 dollar value resolved**, up from ~44%) and **`eligible-universe.json`** (1,306 tickers held by ≥1 of the 29 filers in 2026-Q2, with holder lists). Funds/ETFs a filer holds are eligible too; the rest are tagged `fund`. Unresolved names are listed with dollar weight for the OpenFIGI pass (Codex, Layer 2).
+- **Guard rail in the app** (`index.html`): `loadEligibleUniverse()`, `eligibilityFor()`, `eligibilityChip()`, `guardrailAllows()`, `targGuardrailHtml()`. Adding a ticker to a bucket (`targAddTicker`) now checks the eligible set; a name no tracked filer owns needs a confirm + one-line reason, stored in `targetsData.overrides[ticker] = {reason, date}` (shape-guarded in `migrateTargets`; owned/plan untouched). Buy Targets shows an audit banner (`#targets-guardrail`) listing bucket names outside the rail; every Combined-table and Watchlist row carries a `✓ N` (held by N filers, hover for names) or `⚠ not held` / `⚠ override` chip. **Dry powder is exempt** (cash management, not a stock pick).
+- **📡 Feed tab** (Super Investors group): reads `signals/feed-latest.json` per the handoff §6 contract (kind / direction / severity / investor / ticker / quote / source). Filters by kind and ticker-or-investor, stats bar (signals, touching my buckets, from filings, act-now), day grouping, bucket names highlighted. Ships with an empty placeholder file and an explanatory empty state. Rule stated on the tab: words raise a watch flag, only filings move a score.
+- `APP_BUILD` → `2026-09-02a`.
+
+**Findings surfaced by the rail on Joe's current buckets:** all 61 stock-bucket names are held by a tracked filer except **CODI** (Compass Diversified — no filer owns it). SMH and NLR are held (VanEck ETFs via Greenblatt et al.).
+
+**Verification steps run:**
+- `node --check` on the embedded JS (2 blocks) — OK
+- Headless Chromium render against a local static server: guard-rail banner rendered ("2 of 61…" before the SMH alias fix, CODI after), Feed tab button + empty state rendered, 102 ✓ chips / 13 ⚠ chips, `APP_BUILD` present
+- `python3 scripts/build_cusip_map.py` coverage report (see above)
+
+**Known issues / next work:**
+- `eligible-universe.json` and `cusip-map.json` are a one-off bootstrap; wire `build_cusip_map.py` into `update-13f-tracker.yml` after the holdings rebuild so they refresh each quarter (Codex lane; then replace/extend with OpenFIGI).
+- Eligibility is "held by ≥1 of the 29". The conviction score / approved-universe expansion (Layers 1–2) is still to come.
+- Feed is a shell until the Layer 3 collector writes real items.
+
+---
+
 ## Session 9 — June 16, 2026
 **Goal:** Extend drag-and-drop to the MOSE bucket, and add edge auto-scroll so far-apart sections can be reached.
 
