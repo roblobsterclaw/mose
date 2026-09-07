@@ -1786,15 +1786,17 @@ async function checkPw(){
     <div class="table-wrap"><table>
       <thead><tr>
         <th>Decide</th><th>Fit</th><th>Filer</th><th class="hide-sm">Book</th><th>Pos</th><th class="hide-sm">Top-10</th>
-        <th class="hide-sm">Turnover /q</th><th class="hide-sm">Hold (q)</th><th>Overlap</th><th class="hide-sm">Top holdings</th><th class="hide-sm">Notes</th>
+        <th class="hide-sm">Turnover /q</th><th class="hide-sm">Hold (q)</th><th>Overlap</th>
+        <th title="13F-implied return of their US stock book, Jun-2024 → Mar-2026, price only">Perf 2y</th><th class="hide-sm" title="Same window, S&P 500 (SPY)">vs S&P</th><th class="hide-sm" title="What copying them one quarter late would have made">Clone</th>
+        <th title="From Form ADV: can they run your money?">Access</th><th class="hide-sm">Contact</th><th class="hide-sm">Top holdings</th><th class="hide-sm">Notes</th>
       </tr></thead>
-      <tbody id="universe-body"><tr><td colspan="11" class="no-data">Loading investor-universe.json…</td></tr></tbody>
+      <tbody id="universe-body"><tr><td colspan="16" class="no-data">Loading investor-universe.json…</td></tr></tbody>
     </table></div>
     <details class="info-blurb" style="margin-top:16px">
       <summary style="cursor:pointer;font-weight:700;color:var(--heading)">Your tracked filers against the same screen <span style="font-weight:400;color:var(--muted)">— the prune view</span></summary>
       <div class="sub" style="margin:8px 0">Same rules applied to the investors you already follow. "Near-miss" here is information, not a verdict — Buffett fails only on size. Reject one to mark it <em>pruned</em>; the pipeline keeps its history but it stops voting.</div>
       <div class="table-wrap"><table>
-        <thead><tr><th>Decide</th><th>Score</th><th>Investor</th><th class="hide-sm">Book</th><th>Pos</th><th class="hide-sm">Top-10</th><th class="hide-sm">Turnover /q</th><th class="hide-sm">Hold (q)</th><th>Screen</th></tr></thead>
+        <thead><tr><th>Decide</th><th>Score</th><th>Investor</th><th class="hide-sm">Book</th><th>Pos</th><th class="hide-sm">Top-10</th><th class="hide-sm">Turnover /q</th><th class="hide-sm">Hold (q)</th><th>Perf 2y</th><th class="hide-sm">vs S&P</th><th>Access</th><th>Screen</th></tr></thead>
         <tbody id="universe-tracked-body"></tbody>
       </table></div>
     </details>
@@ -2133,7 +2135,7 @@ async function checkPw(){
 // compare the build stamp, and offer a genuine reload when they differ.
 // Bump APP_BUILD whenever index.html changes.
 // ============================================================
-const APP_BUILD = '2026-09-04c';
+const APP_BUILD = '2026-09-07a';
 
 async function checkForAppUpdate(announce) {
   try {
@@ -3450,6 +3452,62 @@ function universeDecideCell(c) {
 
 function universeFmtB(v) { v = Number(v) || 0; return v >= 1e9 ? `$${(v / 1e9).toFixed(1)}B` : `$${(v / 1e6).toFixed(0)}M`; }
 
+// Performance cell: 13F-implied 2-year return, coloured against the S&P over the same quarters.
+function universePerfCell(c, withBench) {
+  if (c.perf_pct == null) return `<td>—</td>${withBench ? '<td class="hide-sm">—</td>' : ''}`;
+  const beat = (c.excess_pct || 0) >= 0;
+  const conf = { high: 'high confidence (low turnover)', medium: 'medium confidence', low: 'rough — high turnover, intra-quarter trades unseen' }[c.perf_confidence] || '';
+  const qs = (c.perf_quarterly || []).map(q => q == null ? '·' : (q >= 0 ? '+' : '') + q).join('  ');
+  const title = `${c.perf_quarters} quarters, price-only, US long book (${c.perf_coverage_pct}% of book priced). ${conf}. Quarterly: ${qs}`;
+  return `<td title="${escapeAttr(title)}"><span style="font-weight:800;color:${beat ? 'var(--green)' : 'var(--red)'}">${c.perf_pct >= 0 ? '+' : ''}${c.perf_pct}%</span><div style="font-size:10px;color:var(--muted)">${c.perf_ann_pct >= 0 ? '+' : ''}${c.perf_ann_pct}%/yr · ${escapeHtml(c.perf_confidence)}</div></td>`
+    + (withBench ? `<td class="hide-sm" title="S&P +${c.spy_pct}% over the same quarters">${c.excess_pct >= 0 ? '+' : ''}${c.excess_pct} pts</td>` : '');
+}
+const UNIVERSE_ACCESS_LABEL = {
+  'SMA-open': ['✅ Takes accounts', 'var(--green)'], 'SMA-possible': ['❓ Ask', 'var(--yellow)'],
+  'private-fund': ['Fund only', 'var(--soft-text)'], 'exempt-reporting': ['Fund only (ERA)', 'var(--soft-text)'],
+  'institutional': ['Institutions only', 'var(--muted)'], 'not-an-adviser': ['Not available', 'var(--muted)'], 'unknown': ['—', 'var(--muted)']
+};
+function universeAccessCell(c) {
+  const [label, col] = UNIVERSE_ACCESS_LABEL[c.access] || UNIVERSE_ACCESS_LABEL.unknown;
+  const extra = [];
+  if (c.public_fund) extra.push('public fund');
+  if (c.clients_individual || c.clients_hnw) extra.push(`${(c.clients_individual || 0) + (c.clients_hnw || 0)} individual clients`);
+  if (c.fee_schedule) extra.push(escapeHtml(c.fee_schedule));
+  if (c.minimum_usd) extra.push('min ' + universeFmtB(c.minimum_usd));
+  if (c.disclosure_flags) extra.push(`<span style="color:var(--red)">${c.disclosure_flags} disclosure${c.disclosure_flags > 1 ? 's' : ''}</span>`);
+  return `<td title="${escapeAttr(c.access_note || '')}" style="font-size:12px"><span style="font-weight:700;color:${col}">${label}</span>${extra.length ? `<div style="font-size:10px;color:var(--muted)">${extra.join(' · ')}</div>` : ''}</td>`;
+}
+function universeContactCell(c) {
+  const site = c.website ? `<a href="${escapeAttr(/^https?:/i.test(c.website) ? c.website : 'https://' + c.website)}" target="_blank" rel="noopener">site</a>` : '';
+  const iapd = c.iapd_url ? `<a href="${escapeAttr(c.iapd_url)}" target="_blank" rel="noopener" title="SEC adviser record (Form ADV)">ADV</a>` : '';
+  const phone = c.phone ? `<a href="tel:${escapeAttr(c.phone.replace(/[^0-9+]/g, ''))}">${escapeHtml(c.phone)}</a>` : '';
+  return `<td class="hide-sm" style="font-size:11px;line-height:1.6">${[phone, site, iapd].filter(Boolean).join('<br>')}${c.city ? `<div style="color:var(--muted)">${escapeHtml(c.city)}${c.state ? ', ' + escapeHtml(c.state) : ''}</div>` : ''}</td>`;
+}
+
+// Dossiers: per-firm research write-ups (reference-data/investor-dossiers.json), expand under the row.
+let universeDossiers = {};
+async function loadDossiers() {
+  try {
+    const r = await fetch('reference-data/investor-dossiers.json?' + Date.now());
+    if (r.ok) { const d = await r.json(); universeDossiers = d.firms || {}; }
+  } catch {}
+  renderUniverse();
+}
+function universeToggleDossier(cik) {
+  const row = document.getElementById('uni-d-' + cik);
+  if (row) row.hidden = !row.hidden;
+}
+function universeDossierRow(c, cols) {
+  const d = universeDossiers[c.cik];
+  const sec = (label, txt) => txt ? `<div style="margin-top:6px"><strong>${label}</strong> ${escapeHtml(txt)}</div>` : '';
+  const body = d
+    ? `${sec('Who:', d.who)}${sec('Structure & terms:', d.terms)}${sec('Track record:', d.track_record)}${sec('The good:', d.good)}${sec('The bad:', d.bad)}${sec('The ugly:', d.ugly)}${sec('How to engage:', d.how_to_engage)}
+       ${(d.sources || []).length ? `<div style="margin-top:6px;font-size:11px;color:var(--muted)">Sources: ${d.sources.slice(0, 8).map((s, i) => `<a href="${escapeAttr(s)}" target="_blank" rel="noopener">[${i + 1}]</a>`).join(' ')}</div>` : ''}
+       <div style="font-size:10px;color:var(--muted);margin-top:4px">Researched ${escapeHtml(d.researched_at || '')}. Web-sourced write-up — verify anything you'd act on.</div>`
+    : `<span class="muted">No dossier yet for this filer. Dossiers are researched for the top-60-by-fit plus tracked and approved filers.</span>`;
+  return `<tr class="uni-dossier" id="uni-d-${c.cik}" hidden><td colspan="${cols}" style="font-size:12px;line-height:1.6;background:var(--surface);padding:10px 14px">${body}</td></tr>`;
+}
+
 function renderUniverse() {
   const body = document.getElementById('universe-body');
   if (!body) return;
@@ -3474,21 +3532,25 @@ function renderUniverse() {
   if (hideDecided) rows = rows.filter(c => !universeDecisions[c.cik]);
   if (q) rows = rows.filter(c => [c.name, c.state, ...(c.top_names || [])].join(' ').toLowerCase().includes(q));
   if (!rows.length) {
-    body.innerHTML = `<tr><td colspan="11" class="no-data">${all.length ? 'Nothing matches — lower the fit floor or show near-misses.' : 'investor-universe.json not loaded' + (universeData && universeData.error ? ` (${escapeHtml(universeData.error)})` : '')}</td></tr>`;
+    body.innerHTML = `<tr><td colspan="16" class="no-data">${all.length ? 'Nothing matches — lower the fit floor or show near-misses.' : 'investor-universe.json not loaded' + (universeData && universeData.error ? ` (${escapeHtml(universeData.error)})` : '')}</td></tr>`;
   } else {
     body.innerHTML = rows.map(c => `<tr class="uni-row ${universeDecisions[c.cik] ? universeDecisions[c.cik].status : ''}">
       <td style="white-space:nowrap">${universeDecideCell(c)}</td>
       <td><span class="cockpit-score ${c.fit >= 90 ? 'score-high' : c.fit >= 75 ? 'score-mid' : ''}">${c.fit}</span></td>
-      <td><strong>${escapeHtml(c.name)}</strong><div style="font-size:11px;color:var(--muted)">${escapeHtml(c.state || '')} · CIK ${c.cik} · filed ${escapeHtml(c.filing_date || '')}</div></td>
+      <td><a onclick="universeToggleDossier('${c.cik}')" style="cursor:pointer;color:var(--heading)" title="Open the research write-up"><strong>${escapeHtml(c.name)}</strong> ${universeDossiers[c.cik] ? '📄' : ''}</a><div style="font-size:11px;color:var(--muted)">${escapeHtml(c.state || '')} · CIK ${c.cik} · filed ${escapeHtml(c.filing_date || '')}</div></td>
       <td class="hide-sm">${universeFmtB(c.total_value_usd)}</td>
       <td>${c.positions}</td>
       <td class="hide-sm">${c.top10_pct}%</td>
       <td class="hide-sm">${c.turnover_q == null ? '—' : c.turnover_q + '%'}</td>
       <td class="hide-sm">${c.median_hold_q == null ? '—' : c.median_hold_q}</td>
       <td title="${c.overlap_names || 0} of their names are held by 2+ of your tracked filers">${c.overlap_pct}%</td>
+      ${universePerfCell(c, true)}
+      <td class="hide-sm" title="Copying their book one quarter late">${c.clone_pct == null ? '—' : (c.clone_pct >= 0 ? '+' : '') + c.clone_pct + '%'}</td>
+      ${universeAccessCell(c)}
+      ${universeContactCell(c)}
       <td class="hide-sm" style="font-size:11px;color:var(--soft-text)">${(c.top_names || []).slice(0, 4).map(escapeHtml).join(' · ')}</td>
       <td class="hide-sm" style="font-size:11px;color:var(--muted)">${(c.screen_notes || []).map(escapeHtml).join(', ') || (c.screen === 'pass' ? '✓ passes all rules' : '')}</td>
-    </tr>`).join('');
+    </tr>${universeDossierRow(c, 16)}`).join('');
   }
   const tb = document.getElementById('universe-tracked-body');
   if (tb) {
@@ -3496,11 +3558,13 @@ function renderUniverse() {
     tb.innerHTML = tr.length ? tr.map(c => `<tr class="uni-row ${universeDecisions[c.cik] ? universeDecisions[c.cik].status : ''}">
       <td style="white-space:nowrap">${universeDecideCell(c)}</td>
       <td><span class="cockpit-score ${c.score >= 80 ? 'score-high' : c.score >= 60 ? 'score-mid' : ''}">${c.score}</span></td>
-      <td><strong>${escapeHtml(c.tracked_as || c.name)}</strong><div style="font-size:11px;color:var(--muted)">${escapeHtml(c.name)}</div></td>
+      <td><a onclick="universeToggleDossier('${c.cik}')" style="cursor:pointer;color:var(--heading)" title="Open the research write-up"><strong>${escapeHtml(c.tracked_as || c.name)}</strong> ${universeDossiers[c.cik] ? '📄' : ''}</a><div style="font-size:11px;color:var(--muted)">${escapeHtml(c.name)}</div></td>
       <td class="hide-sm">${universeFmtB(c.total_value_usd)}</td><td>${c.positions}</td><td class="hide-sm">${c.top10_pct}%</td>
       <td class="hide-sm">${c.turnover_q == null ? '—' : c.turnover_q + '%'}</td><td class="hide-sm">${c.median_hold_q == null ? '—' : c.median_hold_q}</td>
+      ${universePerfCell(c, true)}
+      ${universeAccessCell(c)}
       <td><span class="filing-pill ${c.screen === 'pass' ? 'add' : 'trim'}">${c.screen}</span> <span style="font-size:11px;color:var(--muted)">${(c.screen_notes || []).map(escapeHtml).join(', ')}</span></td>
-    </tr>`).join('') : '<tr><td colspan="9" class="no-data">No tracked filers found in this dataset.</td></tr>';
+    </tr>${universeDossierRow(c, 12)}`).join('') : '<tr><td colspan="12" class="no-data">No tracked filers found in this dataset.</td></tr>';
   }
 }
 
@@ -8036,6 +8100,7 @@ window.addEventListener('DOMContentLoaded', () => {
   loadEligibleUniverse();
   loadFeed();
   loadUniverse();
+  loadDossiers();
   renderReentry();
   renderTargets();
   renderBuyZone();

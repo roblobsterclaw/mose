@@ -6,6 +6,25 @@
 
 ---
 
+## Session 12 — September 7, 2026 (Claude) — performance, access, dossiers on the Universe tab
+**Goal:** Joe asked for a performance metric per investor, how each could work for him as an adviser (structure, fees, minimums, contact), long-term track records where public, and a good/bad/ugly write-up per firm.
+
+**What was built:**
+- **`scripts/build_investor_performance.py`** — 13F-implied performance from the bulk data alone: consensus quarter-end price per CUSIP = median of VALUE/SHARES across all filers (no ticker mapping, no outside data); each filer's US long book held one quarter, chained Jun-2024 → Mar-2026 (7 quarters); **clone** = same weights one quarter late (the filing lag); benchmark = SPY from the same table (+19.5%). Split detection by integer price ratios (2–50×, incl. ORLY 15:1), thousands-scaled filings fixed, unpriced positions excluded with a coverage %. 8,096 filers scored. Output `reference-data/investor-performance.json`.
+- **`scripts/build_investor_access.py`** — joins the universe to the SEC **Form ADV bulk CSV** (registered + exempt, 24k advisers; the file carries CIK so the join is exact, name fallback) and classifies `access`: SMA-open (individual/HNW clients on file + portfolio mgmt for individuals), private-fund, exempt-reporting, institutional, not-an-adviser. Also CRD, IAPD link, phone, website, city, regulatory AUM, client counts, private/hedge fund counts, public-fund flag, compensation types, Item 11 disclosure flags. Output `reference-data/investor-access.json`. Fee schedules/minimums come from Part 2A brochures (IAPD brochure API is locked; research agents pull them from firm sites/search).
+- **`scripts/merge_universe_enrichment.py`** — folds both into `investor-universe.json`.
+- **Universe tab**: new columns Perf 2y (coloured vs S&P, annualised + confidence from turnover), vs S&P (pts), Clone, Access (label + client count / public fund / disclosures), Contact (phone, site, ADV link, city). Firm name expands a **dossier row** (`reference-data/investor-dossiers.json`: who / terms / track record / good / bad / ugly / how to engage / sources). Same on the tracked prune view.
+- Research fan-out: 8 agents × ~11 firms (26 tracked + top-60 by fit) writing sourced dossiers; merged into `investor-dossiers.json` when complete.
+- `APP_BUILD` → `2026-09-07a`.
+
+**Findings:** Akre (105 individual / 89 HNW clients), Semper Augustus, Brave Warrior, Steginsky, Strategy Capital, Marshfield take separate accounts. Himalaya, Pershing, Abrams, Baupost, Altarock, WindAcre are fund-only. 13F-implied 2-yr: Buffett +19.2% vs SPY +19.5%; Sosin +94.6%; Bloomstran +42.3%; Li Lu +32.9%; Akre −4.9%; Ackman −1.2%; Klarman +2.7%.
+
+**Verification:** `node --check` OK; headless render: 72 candidate rows with perf/access/contact cells and dossier rows, 26 tracked rows.
+
+**Caveats:** performance is price-only, US long book only, quarter-end snapshots — ±2–3 pts/yr for low-turnover filers, unreliable for traders (confidence tag says which). Access is Form ADV Part 1 as filed; whether a firm is *currently* taking clients needs a call.
+
+---
+
 ## Session 11 — September 4, 2026 (Claude) — Layer 1: the investor universe
 **Goal:** Joe's "grow the 29 into a real super-value-investor list, evidence first, I approve every name." Network switched to Full, so SEC bulk data is reachable from the sandbox.
 

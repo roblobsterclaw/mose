@@ -99,6 +99,7 @@ model numbers as fact — flag caveats.
   (`targetsData.overrides`). Dry powder bucket is exempt. Buy Targets shows an audit banner.
 - `reference-data/cusip-map.json` = offline CUSIP→ticker bootstrap (99%+ of value). Codex's
   OpenFIGI pass should extend it, not replace the format.
+- Universe tab data: `reference-data/investor-universe.json` (screen + fit + 13F-implied perf + Form ADV access), built by `build_investor_universe.py` → `build_investor_performance.py` → `build_investor_access.py` → `merge_universe_enrichment.py`; dossiers in `investor-dossiers.json`. Decisions sync via Firebase → `sync_universe_decisions.py` → `cik-map.json`.
 - `signals/feed-latest.json` = between-quarter signal feed (📡 Feed tab). Contract in the
   handoff §6. **Words raise a watch flag; only filings move a score.**
 - A second builder (ChatGPT Codex) works the pipeline side on `codex/*` branches; Claude owns
