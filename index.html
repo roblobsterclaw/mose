@@ -2135,7 +2135,7 @@ async function checkPw(){
 // compare the build stamp, and offer a genuine reload when they differ.
 // Bump APP_BUILD whenever index.html changes.
 // ============================================================
-const APP_BUILD = '2026-09-07b';
+const APP_BUILD = '2026-09-07c';
 
 async function checkForAppUpdate(announce) {
   try {
@@ -3277,6 +3277,12 @@ let eligibleUniverse = null;   // parsed eligible-universe.json
 let eligibleMap = {};          // canonical ticker -> row
 // Dry powder is cash management (index ETFs / T-bills), not a stock pick — exempt.
 const GUARDRAIL_EXEMPT_BUCKETS = new Set(['dry']);
+// 13F covers US-listed securities only, so a foreign primary listing can never
+// appear in the eligible set however many great investors own it. Flagging those
+// as "not held" would be wrong — they're unverifiable, which is a different thing.
+const GUARDRAIL_UNVERIFIABLE = {
+  CSU: 'Constellation Software trades in Toronto (TSX, CAD). 13F reports US-listed holdings only, so no filing can confirm ownership. The US OTC line is CNSWF.'
+};
 
 async function loadEligibleUniverse() {
   try {
@@ -3294,9 +3300,9 @@ function eligibilityFor(ticker) {
   const key = canonicalTicker(ticker);
   if (!eligibleUniverse) return { known: false, eligible: null, holders: [], count: 0 };
   const row = eligibleMap[key] || eligibleMap[key.replace('.', '-')] || eligibleMap[key.replace('-', '.')];
-  return row
-    ? { known: true, eligible: true, holders: row.holders || [], count: row.holder_count || (row.holders || []).length }
-    : { known: true, eligible: false, holders: [], count: 0 };
+  if (row) return { known: true, eligible: true, holders: row.holders || [], count: row.holder_count || (row.holders || []).length };
+  if (GUARDRAIL_UNVERIFIABLE[key]) return { known: true, eligible: null, unverifiable: GUARDRAIL_UNVERIFIABLE[key], holders: [], count: 0 };
+  return { known: true, eligible: false, holders: [], count: 0 };
 }
 
 function eligibilityChip(ticker, bucketId) {
@@ -3307,6 +3313,7 @@ function eligibilityChip(ticker, bucketId) {
   if (e.eligible) {
     return `<span class="elig-chip ok" title="Held by ${e.count} tracked filer${e.count === 1 ? '' : 's'} in ${q}: ${escapeAttr(e.holders.join(', '))}">✓ ${e.count}</span>`;
   }
+  if (e.unverifiable) return `<span class="elig-chip" title="${escapeAttr(e.unverifiable)}">— n/a</span>`;
   const ov = targetsData && targetsData.overrides && targetsData.overrides[canonicalTicker(ticker)];
   return ov
     ? `<span class="elig-chip warn" title="Outside the guard rail. Override ${escapeAttr(ov.date || '')}: ${escapeAttr(ov.reason || '')}">⚠ override</span>`
@@ -3317,7 +3324,7 @@ function eligibilityChip(ticker, bucketId) {
 function guardrailAllows(ticker, bucketId) {
   if (bucketId && GUARDRAIL_EXEMPT_BUCKETS.has(bucketId)) return true;
   const e = eligibilityFor(ticker);
-  if (!e.known || e.eligible) return true;
+  if (!e.known || e.eligible || e.unverifiable) return true;
   const key = canonicalTicker(ticker);
   const n = ((eligibleUniverse && eligibleUniverse.investors) || []).length;
   const q = (eligibleUniverse && eligibleUniverse.quarter) || 'the latest quarter';
@@ -3336,7 +3343,7 @@ function targGuardrailHtml() {
   let total = 0;
   (targetsData.ira.buckets || []).forEach(b => {
     if (GUARDRAIL_EXEMPT_BUCKETS.has(b.id)) return;
-    (b.tickers || []).forEach(t => { total++; const e = eligibilityFor(t); if (e.known && !e.eligible) bad.push({ t, b }); });
+    (b.tickers || []).forEach(t => { total++; const e = eligibilityFor(t); if (e.known && !e.eligible && !e.unverifiable) bad.push({ t, b }); });
   });
   const n = (eligibleUniverse.investors || []).length;
   const q = escapeHtml(eligibleUniverse.quarter || '');
