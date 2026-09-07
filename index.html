@@ -2133,7 +2133,7 @@ async function checkPw(){
 // compare the build stamp, and offer a genuine reload when they differ.
 // Bump APP_BUILD whenever index.html changes.
 // ============================================================
-const APP_BUILD = '2026-09-04b';
+const APP_BUILD = '2026-09-04c';
 
 async function checkForAppUpdate(announce) {
   try {
@@ -3443,8 +3443,9 @@ function universeDecideCell(c) {
     return `<span class="filing-pill ${d.status === 'approved' ? 'add' : 'exit'}" title="${escapeAttr(d.date || '')}">${d.status === 'approved' ? '✅ approved' : (c.tracked ? '✂ pruned' : '❌ passed')}</span>
       <a onclick="universeDecide('${c.cik}', null)" title="Undo" style="cursor:pointer;color:var(--muted);font-size:11px;margin-left:4px">↩</a>`;
   }
-  return `<button class="research-action-btn primary" onclick="universeDecide('${c.cik}','approved')">Approve</button>
-    <button class="research-action-btn" onclick="universeDecide('${c.cik}','rejected')" style="margin-left:4px">${c.tracked ? 'Prune' : 'Pass'}</button>`;
+  // Explicit colours: the themed .primary style rendered as a blank white button in light mode.
+  return `<button class="research-action-btn" onclick="universeDecide('${c.cik}','approved')" style="background:#1d6b45;border-color:#1d6b45;color:#fff;font-weight:800">✅ Approve</button>
+    <button class="research-action-btn" onclick="universeDecide('${c.cik}','rejected')" style="margin-left:4px;color:var(--text)">${c.tracked ? '✂ Prune' : '❌ Pass'}</button>`;
 }
 
 function universeFmtB(v) { v = Number(v) || 0; return v >= 1e9 ? `$${(v / 1e9).toFixed(1)}B` : `$${(v / 1e6).toFixed(0)}M`; }
