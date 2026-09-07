@@ -34,7 +34,7 @@ ADV_DIR = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("/tmp/claude-0/-home-
 
 def norm(s: str) -> str:
     s = re.sub(r"[^A-Z0-9 ]", " ", (s or "").upper())
-    s = re.sub(r"\b(LLC|L L C|LP|L P|LLP|INC|LTD|LIMITED|CO|CORP|CORPORATION|MANAGEMENT|CAPITAL|PARTNERS|ADVISORS|ADVISERS|INVESTMENT|INVESTMENTS|ASSET|GROUP|THE|COMPANY|HOLDINGS|FUND|FUNDS|MGMT|II|III)\b", " ", s)
+    s = re.sub(r"\b(LLC|L L C|LP|L P|LLP|INC|LTD|LIMITED|CO|CORP|CORPORATION|THE|PLC|SA|AG|NV)\b", " ", s)
     return re.sub(r"\s+", " ", s).strip()
 
 def num(x):
@@ -66,7 +66,11 @@ def main():
         r = by_cik.get(c["cik"])
         how = "cik"
         if not r:
-            r = by_name.get(norm(c["name"])); how = "name" if r else "none"
+            cand = by_name.get(norm(c["name"]))
+            # name fallback only when the state agrees (or is unknown on either side)
+            if cand and (not c.get("state") or not cand.get("Main Office State") or c["state"] == cand.get("Main Office State")):
+                r = cand
+            how = "name" if r else "none"
         stats[how] += 1
         if not r:
             out[c["cik"]] = {"matched": None, "access": "not-an-adviser", "access_note": "No Form ADV on file — holding company, family office, bank, or non-US fund. Not available as an adviser."}

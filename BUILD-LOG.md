@@ -6,6 +6,26 @@
 
 ---
 
+## Session 13 — September 7, 2026 (Claude) — dossiers, and three filer-identity fixes
+**Goal:** finish what Session 12 started — research write-ups per firm — and repair the investor identity errors the research surfaced.
+
+**What was built:**
+- **`reference-data/investor-dossiers.json`** — 86 firms (27 tracked + top-60 by fit), researched by 8 parallel agents: who runs it, vehicles/fees/minimums, long-term track record, the good, the bad, the ugly, how to engage at ~$1.5M, plus sources and a confidence rating (11 high / 58 medium / 17 low). 50 carry an "ugly" finding. Every claim is tied to a listed URL; agents were told to write null rather than guess.
+- **Universe tab**: firm names now show 📄 when a dossier exists and **⚠📄** when it contains a regulatory action, lawsuit or blow-up (hover for the summary). Clicking expands the write-up.
+
+**Identity fixes the research forced (all were polluting holdings/consensus):**
+- **Joel Greenblatt** was mapped to CIK 1446114 = **Ancora Advisors**, a Cleveland wealth manager with 2,454 positions. Gotham Asset Management is **1510387**. The wrong entity had been voting on consensus and eligibility.
+- **Bill Ackman** — Pershing Square *moved its filing entity mid-year*: CIK 1336528 (the fund) filed the book through Q1-2026, then filed a **13F-NT** (notice, no holdings) for Q2-2026 while CIK 2026053 (Pershing Square Inc., the holdco) filed the real report. Neither CIK alone gives a complete history. Added **`alt_ciks`** support to `pull_sec_13f_history.py`: every CIK a manager has filed under is pulled and merged by quarter, fuller book wins.
+- **David Einhorn** — old CIK 1079114 stopped filing; the adviser now files as **DME Capital Management, CIK 1489933**. **Michael Burry** — Scion's last 13F is 30-SEP-2025; marked `dormant`, kept for history, no longer expected to file.
+- `build_investor_access.py` name-fallback tightened (it had matched **Strategy Capital LLC**, Hamilton Helmer's Bay Area fund, to *Asset Strategy Advisors* in Wayland MA and wrongly reported it as taking 481 individual clients).
+- `pull_sec_13f_history.py` hardened: retry/backoff on SEC reads (the sandbox proxy truncates the ~35MB full-index files with `IncompleteRead`), per-index fault tolerance, alt CIKs included in the index scan.
+
+**Finding worth acting on:** **Situational Awareness (Leopold Aschenbrenner)** — after +439% in H1-2026, margin calls in July 2026 forced liquidation of essentially the whole public book, Citadel reported to have bought it at a discount; assets ~$45B → ~$10B (CNBC, Yahoo Finance, 30 Jul 2026). His 13F is a snapshot of a book that no longer exists.
+
+**Verification:** `node --check` OK; headless render — 73 candidate rows (58 dossiers, 6 warnings), 27 tracked rows (24 dossiers, 6 warnings). Ackman multi-CIK merge confirmed against EDGAR submissions for both CIKs.
+
+---
+
 ## Session 12 — September 7, 2026 (Claude) — performance, access, dossiers on the Universe tab
 **Goal:** Joe asked for a performance metric per investor, how each could work for him as an adviser (structure, fees, minimums, contact), long-term track records where public, and a good/bad/ugly write-up per firm.
 

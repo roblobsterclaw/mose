@@ -25,14 +25,17 @@
   "fund": "Scion Asset Management",
   "tier": 2,
   "source_type": "13F",
-  "cik": "1649339"
+  "cik": "1649339",
+  "status": "dormant",
+  "note": "Scion Asset Management: last 13F for 30-SEP-2025 (filed Nov 2025); no filings since \u2014 Burry wound down the fund. Kept for history; does not vote on current consensus."
  },
  {
   "name": "David Einhorn",
   "fund": "Greenlight Capital",
   "tier": 2,
   "source_type": "13F",
-  "cik": "1079114"
+  "cik": "1489933",
+  "note": "Greenlight's adviser files as DME Capital Management (CIK 1489933); old CIK 1079114 stopped filing. Fixed 2026-09-07."
  },
  {
   "name": "Chris Hohn",
@@ -67,7 +70,8 @@
   "fund": "Gotham Asset Management",
   "tier": 2,
   "source_type": "13F",
-  "cik": "1446114"
+  "cik": "1510387",
+  "note": "Gotham Asset Management LLC, CIK 1510387 (CRD 149335). Was 1446114 = Ancora Advisors LLC, a Cleveland RIA with 2,454 positions \u2014 a mis-map that polluted holdings/consensus/eligibility. Fixed 2026-09-07."
  },
  {
   "name": "Clifford Sosin",
@@ -209,7 +213,10 @@
   "fund": "Pershing Square",
   "tier": 1,
   "source_type": "13F",
-  "cik": "1336528",
-  "note": "Pershing Square Capital Management, L.P. (CIK 1336528) files the fund book (11 positions, $13.7B at 2026-03-31). CIK 2026053 = Pershing Square Inc., the holdco, files a single position \u2014 do not use. Corrected 2026-09-04 from the SEC bulk dataset."
+  "cik": "2026053",
+  "note": "Pershing Square moved its filing entity: CIK 1336528 (Pershing Square Capital Management, L.P.) filed the book through Q1-2026, then filed 13F-NT for Q2-2026 while CIK 2026053 (Pershing Square Inc.) filed the holdings report. Both CIKs are pulled and merged by quarter. Fixed 2026-09-07.",
+  "alt_ciks": [
+   "1336528"
+  ]
  }
 ]

@@ -8,13 +8,14 @@ can turn into Q/Q new/add/trim/exit comparisons.
 from __future__ import annotations
 
 import argparse
+import http.client
 import json
 import re
 import time
 import urllib.error
 import urllib.request
 from collections import defaultdict
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -39,6 +40,11 @@ class InvestorConfig:
     tier: int
     cik: str
     source_type: str = "13F"
+    # Some managers move the filing entity between quarters (Pershing Square filed
+    # under the fund CIK through Q1-2026, then a 13F-NT there and the real holdings
+    # report under the holdco CIK from Q2-2026). List every CIK that has ever filed
+    # this manager's book; filings are merged by quarter, best holdings win.
+    alt_ciks: tuple[str, ...] = ()
 
 
 def load_json(path: Path, default: Any) -> Any:
@@ -57,16 +63,32 @@ def write_json(path: Path, data: Any) -> None:
     tmp.replace(path)
 
 
-def request_json(url: str) -> dict[str, Any]:
-    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "application/json"})
-    with urllib.request.urlopen(req, timeout=45) as resp:
-        return json.loads(resp.read().decode("utf-8"))
+def request_json(url: str, attempts: int = 4) -> dict[str, Any]:
+    last: Exception | None = None
+    for attempt in range(attempts):
+        req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "application/json"})
+        try:
+            with urllib.request.urlopen(req, timeout=120) as resp:
+                return json.loads(resp.read().decode("utf-8"))
+        except (http.client.IncompleteRead, urllib.error.URLError, ConnectionError, TimeoutError, json.JSONDecodeError) as exc:
+            last = exc
+            time.sleep(2 ** attempt)
+    raise RuntimeError(f"could not fetch {url} after {attempts} attempts: {last}")
 
 
-def request_text(url: str) -> str:
-    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "application/xml,text/plain,*/*"})
-    with urllib.request.urlopen(req, timeout=45) as resp:
-        return resp.read().decode("utf-8", errors="replace")
+def request_text(url: str, attempts: int = 4) -> str:
+    """SEC full-index files are tens of MB and the sandbox proxy sometimes cuts
+    the transfer mid-stream (http.client.IncompleteRead). Retry with backoff."""
+    last: Exception | None = None
+    for attempt in range(attempts):
+        req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "application/xml,text/plain,*/*"})
+        try:
+            with urllib.request.urlopen(req, timeout=120) as resp:
+                return resp.read().decode("utf-8", errors="replace")
+        except (http.client.IncompleteRead, urllib.error.URLError, ConnectionError, TimeoutError) as exc:
+            last = exc
+            time.sleep(2 ** attempt)
+    raise RuntimeError(f"could not fetch {url} after {attempts} attempts: {last}")
 
 
 def load_cik_map() -> list[InvestorConfig]:
@@ -82,6 +104,7 @@ def load_cik_map() -> list[InvestorConfig]:
                 tier=int(item.get("tier") or 1),
                 cik=cik,
                 source_type=str(item.get("source_type") or "13F"),
+                alt_ciks=tuple(str(c).strip().lstrip("0") for c in (item.get("alt_ciks") or []) if str(c).strip()),
             )
         )
     return configs
@@ -329,7 +352,7 @@ def enrich_full_index_filing(filing: dict[str, Any], ticker_map: dict[str, str])
 
 
 def build_filings_from_full_indexes(configs: list[InvestorConfig], quarters: int, ticker_map: dict[str, str]) -> tuple[dict[str, list[dict[str, Any]]], dict[str, list[str]]]:
-    tracked_ciks = {config.cik for config in configs}
+    tracked_ciks = {c for config in configs for c in (config.cik, *config.alt_ciks)}
     rows = []
     errors: dict[str, list[str]] = defaultdict(list)
     for year, quarter in index_calendar_quarters(quarters + 3):
@@ -337,7 +360,7 @@ def build_filings_from_full_indexes(configs: list[InvestorConfig], quarters: int
             print(f"Reading SEC full index {year} QTR{quarter}")
             rows.extend(parse_full_index(download_full_index(year, quarter), tracked_ciks))
             time.sleep(0.15)
-        except (urllib.error.URLError, RuntimeError) as exc:
+        except Exception as exc:  # a single bad index must not abort the pull
             errors["index"].append(f"{year} QTR{quarter}: {exc}")
 
     by_cik: dict[str, dict[str, dict[str, Any]]] = defaultdict(dict)
@@ -380,11 +403,29 @@ def main() -> int:
     for config in configs:
         try:
             print(f"Pulling SEC 13F history: {config.name} ({config.cik})")
-            filings = filings_by_cik.get(config.cik, [])
-            errors = full_index_errors.get(config.cik, [])
-            if not filings:
-                filings, errors = recent_filings_from_submissions(config, args.quarters, ticker_map)
-            good_filings = [f for f in filings if f.get("holdings")]
+            all_ciks = [config.cik, *config.alt_ciks]
+            merged: dict[str, dict[str, Any]] = {}
+            errors: list[str] = []
+            for cik in all_ciks:
+                sub = config if cik == config.cik else replace(config, cik=cik)
+                filings = filings_by_cik.get(cik, [])
+                errs = full_index_errors.get(cik, [])
+                if not filings:
+                    try:
+                        filings, errs = recent_filings_from_submissions(sub, args.quarters, ticker_map)
+                    except (RuntimeError, urllib.error.URLError, KeyError, ValueError) as sub_exc:
+                        errs = [f"CIK {cik}: {sub_exc}"]
+                        filings = []
+                errors.extend(errs)
+                for f in filings:
+                    if not f.get("holdings"):
+                        continue
+                    f = {**f, "cik": cik}
+                    prev = merged.get(f["quarter"])
+                    # Same quarter filed under two CIKs: keep the fuller book.
+                    if not prev or len(f["holdings"]) > len(prev.get("holdings") or []):
+                        merged[f["quarter"]] = f
+            good_filings = sorted(merged.values(), key=lambda r: r["quarter"], reverse=True)[: args.quarters]
             if not good_filings:
                 raise RuntimeError("; ".join(errors) or "no filings with holdings parsed")
             investors.append(

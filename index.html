@@ -2135,7 +2135,7 @@ async function checkPw(){
 // compare the build stamp, and offer a genuine reload when they differ.
 // Bump APP_BUILD whenever index.html changes.
 // ============================================================
-const APP_BUILD = '2026-09-07a';
+const APP_BUILD = '2026-09-07b';
 
 async function checkForAppUpdate(announce) {
   try {
@@ -3493,6 +3493,16 @@ async function loadDossiers() {
   } catch {}
   renderUniverse();
 }
+// Marker next to a firm name: 📄 there's a write-up, ⚠ it contains a regulatory
+// action, blow-up or lawsuit worth reading before you act.
+function universeDossierMark(cik) {
+  const d = universeDossiers[cik];
+  if (!d) return '';
+  const ugly = d.ugly && !/^(no|none|nothing)\b/i.test(d.ugly.trim());
+  return ugly
+    ? `<span title="${escapeAttr(d.ugly.slice(0, 220))}" style="color:var(--red);font-weight:800">⚠</span>📄`
+    : '📄';
+}
 function universeToggleDossier(cik) {
   const row = document.getElementById('uni-d-' + cik);
   if (row) row.hidden = !row.hidden;
@@ -3537,7 +3547,7 @@ function renderUniverse() {
     body.innerHTML = rows.map(c => `<tr class="uni-row ${universeDecisions[c.cik] ? universeDecisions[c.cik].status : ''}">
       <td style="white-space:nowrap">${universeDecideCell(c)}</td>
       <td><span class="cockpit-score ${c.fit >= 90 ? 'score-high' : c.fit >= 75 ? 'score-mid' : ''}">${c.fit}</span></td>
-      <td><a onclick="universeToggleDossier('${c.cik}')" style="cursor:pointer;color:var(--heading)" title="Open the research write-up"><strong>${escapeHtml(c.name)}</strong> ${universeDossiers[c.cik] ? '📄' : ''}</a><div style="font-size:11px;color:var(--muted)">${escapeHtml(c.state || '')} · CIK ${c.cik} · filed ${escapeHtml(c.filing_date || '')}</div></td>
+      <td><a onclick="universeToggleDossier('${c.cik}')" style="cursor:pointer;color:var(--heading)" title="Open the research write-up"><strong>${escapeHtml(c.name)}</strong> ${universeDossierMark(c.cik)}</a><div style="font-size:11px;color:var(--muted)">${escapeHtml(c.state || '')} · CIK ${c.cik} · filed ${escapeHtml(c.filing_date || '')}</div></td>
       <td class="hide-sm">${universeFmtB(c.total_value_usd)}</td>
       <td>${c.positions}</td>
       <td class="hide-sm">${c.top10_pct}%</td>
@@ -3558,7 +3568,7 @@ function renderUniverse() {
     tb.innerHTML = tr.length ? tr.map(c => `<tr class="uni-row ${universeDecisions[c.cik] ? universeDecisions[c.cik].status : ''}">
       <td style="white-space:nowrap">${universeDecideCell(c)}</td>
       <td><span class="cockpit-score ${c.score >= 80 ? 'score-high' : c.score >= 60 ? 'score-mid' : ''}">${c.score}</span></td>
-      <td><a onclick="universeToggleDossier('${c.cik}')" style="cursor:pointer;color:var(--heading)" title="Open the research write-up"><strong>${escapeHtml(c.tracked_as || c.name)}</strong> ${universeDossiers[c.cik] ? '📄' : ''}</a><div style="font-size:11px;color:var(--muted)">${escapeHtml(c.name)}</div></td>
+      <td><a onclick="universeToggleDossier('${c.cik}')" style="cursor:pointer;color:var(--heading)" title="Open the research write-up"><strong>${escapeHtml(c.tracked_as || c.name)}</strong> ${universeDossierMark(c.cik)}</a><div style="font-size:11px;color:var(--muted)">${escapeHtml(c.name)}</div></td>
       <td class="hide-sm">${universeFmtB(c.total_value_usd)}</td><td>${c.positions}</td><td class="hide-sm">${c.top10_pct}%</td>
       <td class="hide-sm">${c.turnover_q == null ? '—' : c.turnover_q + '%'}</td><td class="hide-sm">${c.median_hold_q == null ? '—' : c.median_hold_q}</td>
       ${universePerfCell(c, true)}
