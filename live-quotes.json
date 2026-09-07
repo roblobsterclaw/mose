@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-07T06:47:50.038752+00:00",
+  "generated_at": "2026-09-07T10:51:53.211142+00:00",
   "source": "yahoo",
   "market_status": "closed",
   "indices": [
@@ -38,8 +38,8 @@
     {
       "name": "VIX",
       "ticker": "^VIX",
-      "price": 14.53,
-      "change_pct": 1.4664804469273678,
+      "price": 15.04,
+      "change_pct": 3.5099793530626275,
       "vs_exit": null,
       "source": "yahoo"
     }
@@ -392,18 +392,6 @@
       "volume": 17284410,
       "week52_high": 32.86,
       "week52_low": 21.28
-    },
-    {
-      "ticker": "CODI",
-      "symbol": "CODI",
-      "price": 11.67,
-      "prev_close": 11.55,
-      "change_pct": 1.0389610389610322,
-      "date": "2026-09-04",
-      "time": "16:00:02",
-      "volume": 458452,
-      "week52_high": 13.25,
-      "week52_low": 4.58
     },
     {
       "ticker": "COF",

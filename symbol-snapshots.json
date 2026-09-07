@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-07T06:47:50.038752+00:00",
+  "generated_at": "2026-09-07T10:51:53.211142+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -864,37 +864,6 @@
       },
       "profile": {
         "company": null,
-        "owned": null,
-        "hasResearch": false
-      },
-      "source": "yahoo"
-    },
-    "CODI": {
-      "ticker": "CODI",
-      "name": "Compass Diversified",
-      "type": "Equity",
-      "bucket": null,
-      "note": null,
-      "quote": {
-        "ticker": "CODI",
-        "symbol": "CODI",
-        "price": 11.67,
-        "prev_close": 11.55,
-        "change_pct": 1.0389610389610322,
-        "date": "2026-09-04",
-        "time": "16:00:02",
-        "volume": 458452,
-        "week52_high": 13.25,
-        "week52_low": 4.58
-      },
-      "metrics": {
-        "week52High": 13.25,
-        "week52Low": 4.58,
-        "marketCap": 864461248,
-        "peRatio": -3.2148760330578514
-      },
-      "profile": {
-        "company": "Compass Diversified",
         "owned": null,
         "hasResearch": false
       },
@@ -5490,8 +5459,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 14.53,
-        "change_pct": 1.4664804469273678,
+        "price": 15.04,
+        "change_pct": 3.5099793530626275,
         "source": "yahoo"
       },
       "metrics": {},
