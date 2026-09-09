@@ -53,8 +53,9 @@ he already owns — neither is a stock pick).
 ## Buy-day workflow (the core use case)
 Joe decides buys on MOSE → **prints the buy list** (landscape, per-account order
 sheet) → signs into each IBKR account separately and enters orders manually
-(his login sees his IRA + Joint; Keli's is a separate login). The printout must
-show the per-account $ breakdown. Keep it aligned to this.
+(his browser login sees his IRA + Joint; Keli's is a separate login — note the
+API connector is narrower, see below). The printout must show the per-account $
+breakdown. Keep it aligned to this.
 
 ## IBKR connector (Interactive Brokers)
 - Connected via claude.ai Connectors → tools appear as `mcp__Interactive_Brokers_IBKR__*`.
@@ -69,10 +70,22 @@ show the per-account $ breakdown. Keep it aligned to this.
   `his` figures are far larger than this account holds (NVDA 5 shares here vs
   ~$18.9k recorded; AAPL absent here but $1,135 recorded). Those extra shares live
   in an account the connector cannot reach, almost certainly the Joint.
+- **Root cause (confirmed 9 Sep 2026): IBKR's official connector authorizes ONE
+  account per connection.** The account is picked on IBKR's own consent screen at
+  authorization time — not in Claude, and not switchable afterwards from here.
+  Joe picked his IRA. Linking Joint under the same username does NOT widen the
+  connector's view; the picker (which lists every account the login can trade)
+  is the only place it is chosen. Authorizing a second AI platform disconnects
+  the first.
+- **To see the Joint account: claude.ai → Settings → Connectors → Interactive
+  Brokers → disconnect, reconnect, pick Joint on IBKR's screen.** That SWAPS the
+  view — the IRA goes dark while Joint is connected. Procedure for a full
+  picture: connect Joint → snapshot positions → reconnect back to the IRA.
 - **Therefore: never mirror IBKR onto `owned` wholesale.** `scripts/sync_ibkr_owned.py`
   is additive by default and must stay that way; `--update-all` / `--prune` are only
-  safe if the API view is ever confirmed to cover every account. Joint and Keli's
-  IRA continue to come in via the paste-based import on the Buy tab.
+  safe if the API view is ever confirmed to cover every account — and it structurally
+  cannot cover more than one at a time. Joint and Keli's IRA continue to come in via
+  the paste-based import on the Buy tab.
 
 ### NEXT TASK when the connector is live: create 8 IBKR watchlists (Option A)
 Names = the 8 buckets above; contents = the ticker lists above. **Pull existing
@@ -87,7 +100,10 @@ Connect Keli's IRA (needs auth), then a **"tee up the trades" staging flow**: MO
 buy list → Joe approves → agent **stages** orders in each account via
 `create_order_instruction` (stage, never execute) → Joe verifies vs printout →
 **Joe** submits. Hard rule: the agent never auto-executes. Guardrails + dry-run
-first. Multi-account reach is the open question (separate logins).
+first. **Multi-account reach is now answered and it is the blocker:** the
+connector is one-account-per-authorization, so a staging flow can only ever stage
+into whichever single account is currently connected. Staging across all three
+means three authorization swaps, or Joe entering the other two by hand.
 
 ## Research library
 Deep dives are hand-authored HTML in `deep-dives/`, indexed in
