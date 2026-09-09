@@ -194,7 +194,7 @@ def main() -> None:
         "schema_version": 1,
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "quarter": latest,
-        "investors": sorted({i["name"] for i in raw["investors"]}),
+        "investors": sorted({i["name"] for i in raw["investors"] if votes_now(i)}),
         "rule": "eligible = held by >=1 tracked 13F filer in the latest quarter",
         "tickers": elig_rows,
     }, indent=1))

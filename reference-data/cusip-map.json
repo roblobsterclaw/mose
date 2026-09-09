@@ -1,9 +1,9 @@
 {
  "schema_version": 1,
- "generated_at": "2026-09-09T10:29:28.026978+00:00",
+ "generated_at": "2026-09-09T10:36:08.857838+00:00",
  "source": "offline bootstrap (scripts/build_cusip_map.py) \u2014 replace/extend with OpenFIGI pass",
- "resolved": 1865,
- "total": 2688,
+ "resolved": 1897,
+ "total": 2733,
  "map": {
   "025816109": {
    "ticker": "AXP",
@@ -250,6 +250,11 @@
    "name": "NU HLDGS LTD",
    "method": "name-exact"
   },
+  "922908363": {
+   "ticker": "VOO",
+   "name": "VANGUARD INDEX FDS",
+   "method": "fund"
+  },
   "78462F103": {
    "ticker": "STT",
    "name": "SPDR S&P 500 ETF TR",
@@ -390,11 +395,6 @@
    "name": "VIASAT INC",
    "method": "name-exact"
   },
-  "530307305": {
-   "ticker": "LBRDA",
-   "name": "LIBERTY BROADBAND CORP",
-   "method": "name-exact"
-  },
   "G4705A100": {
    "ticker": "ICLR",
    "name": "ICON PLC",
@@ -403,11 +403,6 @@
   "G0250X107": {
    "ticker": "AMCCF",
    "name": "AMCOR PLC",
-   "method": "name-exact"
-  },
-  "530307107": {
-   "ticker": "LBRDA",
-   "name": "LIBERTY BROADBAND CORP",
    "method": "name-exact"
   },
   "83444M101": {
@@ -995,6 +990,11 @@
    "name": "NOVO-NORDISK A S",
    "method": "name-exact"
   },
+  "655844108": {
+   "ticker": "NSC",
+   "name": "NORFOLK SOUTHN CORP",
+   "method": "name-exact"
+  },
   "55354G100": {
    "ticker": "MSCI",
    "name": "MSCI INC",
@@ -1120,6 +1120,11 @@
    "name": "AIR PRODUCTS AND CHEMICALS I",
    "method": "alias"
   },
+  "303075105": {
+   "ticker": "FDS",
+   "name": "FACTSET RESH SYS INC",
+   "method": "name-expand"
+  },
   "199908104": {
    "ticker": "FIX",
    "name": "COMFORT SYS USA INC",
@@ -1148,6 +1153,11 @@
   "115637100": {
    "ticker": "BF.A",
    "name": "BROWN FORMAN CORP",
+   "method": "name-exact"
+  },
+  "064058100": {
+   "ticker": "BNY",
+   "name": "BANK NEW YORK MELLON CORP",
    "method": "name-exact"
   },
   "654106103": {
@@ -1338,6 +1348,11 @@
   "461202103": {
    "ticker": "INTU",
    "name": "INTUIT",
+   "method": "name-exact"
+  },
+  "518439104": {
+   "ticker": "EL",
+   "name": "LAUDER ESTEE COS INC",
    "method": "name-exact"
   },
   "03524A108": {
@@ -2275,6 +2290,11 @@
    "name": "MCDONALDS CORP",
    "method": "name-exact"
   },
+  "426281101": {
+   "ticker": "JKHY",
+   "name": "HENRY JACK & ASSOC INC",
+   "method": "name-exact"
+  },
   "19247G107": {
    "ticker": "COHR",
    "name": "COHERENT CORP",
@@ -2615,11 +2635,6 @@
    "name": "OMNICOM GROUP INC",
    "method": "name-exact"
   },
-  "053484101": {
-   "ticker": "AVB",
-   "name": "AVALONBAY CMNTYS INC",
-   "method": "name-expand"
-  },
   "011659109": {
    "ticker": "ALK",
    "name": "ALASKA AIR GROUP INC",
@@ -2864,6 +2879,11 @@
    "ticker": "MHK",
    "name": "MOHAWK INDS INC",
    "method": "name-expand"
+  },
+  "922042858": {
+   "ticker": "VWO",
+   "name": "VANGUARD INTL EQUITY INDEX F",
+   "method": "fund"
   },
   "828806109": {
    "ticker": "SPG",
@@ -3755,6 +3775,11 @@
    "name": "APPFOLIO INC",
    "method": "name-exact"
   },
+  "921946406": {
+   "ticker": "VYM",
+   "name": "VANGUARD WHITEHALL FDS",
+   "method": "fund"
+  },
   "G3265R107": {
    "ticker": "APTV",
    "name": "APTIV PLC",
@@ -3859,6 +3884,11 @@
    "ticker": "SUI",
    "name": "SUN CMNTYS INC",
    "method": "name-expand"
+  },
+  "099502106": {
+   "ticker": "BAH",
+   "name": "BOOZ ALLEN HAMILTON HLDG COR",
+   "method": "name-exact"
   },
   "52661A108": {
    "ticker": "DRS",
@@ -4519,6 +4549,11 @@
    "ticker": "INSM",
    "name": "INSMED INC",
    "method": "name-exact"
+  },
+  "92204A504": {
+   "ticker": "VHT",
+   "name": "VANGUARD WORLD FD",
+   "method": "fund"
   },
   "25402D102": {
    "ticker": "DOCN",
@@ -8460,11 +8495,6 @@
    "name": "CHIME FINL INC",
    "method": "name-expand"
   },
-  "81141R100": {
-   "ticker": "SE",
-   "name": "SEA LTD",
-   "method": "name-exact"
-  },
   "G4124C117": {
    "ticker": "GRAB",
    "name": "GRAB HOLDINGS LIMITED",
@@ -9329,13 +9359,153 @@
    "ticker": "SEG",
    "name": "SEAPORT ENTMT GROUP INC",
    "method": "name-expand"
+  },
+  "640979100": {
+   "ticker": "NMRA",
+   "name": "NEUMORA THERAPEUTICS INC.",
+   "method": "name-exact"
+  },
+  "641069406": {
+   "ticker": "NSRGY",
+   "name": "Nestle Sa",
+   "method": "name-exact"
+  },
+  "N39338194": {
+   "ticker": "HKHHF",
+   "name": "Heineken Holding",
+   "method": "name-exact"
+  },
+  "64121N109": {
+   "ticker": "NTIP",
+   "name": "Network-1 Technologies Com",
+   "method": "name-exact"
+  },
+  "30233Q108": {
+   "ticker": "XOM",
+   "name": "Exxon Mobil Corp",
+   "method": "name-exact"
+  },
+  "09581B103": {
+   "ticker": "OBDC",
+   "name": "BLUE OWL CAPITAL INC",
+   "method": "name-exact"
+  },
+  "084670207": {
+   "ticker": "BRK.B",
+   "name": "BERKSHIRE HATHAWAY CL B",
+   "method": "alias"
+  },
+  "H8088L103": {
+   "ticker": "SRAD",
+   "name": "SPORTRADAR GROUP AG",
+   "method": "name-exact"
+  },
+  "33748L101": {
+   "ticker": "FWRG",
+   "name": "FIRST WATCH RESTAURANT GROUP",
+   "method": "name-exact"
+  },
+  "320551104": {
+   "ticker": "DIBS",
+   "name": "1STDIBS COM INC",
+   "method": "name-exact"
+  },
+  "922040852": {
+   "ticker": "VGUS",
+   "name": "VANGUARD ULTRA SHORT TREASURY ETF",
+   "method": "fund"
+  },
+  "92203C303": {
+   "ticker": "VUSB",
+   "name": "VANGUARD ULTRA SHORT BOND ETF",
+   "method": "fund"
+  },
+  "221015100": {
+   "ticker": "CRVS",
+   "name": "CORVUS PHARMACEUTICALS INC",
+   "method": "name-exact"
+  },
+  "032797300": {
+   "ticker": "AVXL",
+   "name": "ANAVEX LIFE SCIENCES CORP",
+   "method": "name-exact"
+  },
+  "67576A100": {
+   "ticker": "OCUL",
+   "name": "OCULAR THERAPEUTIX INC",
+   "method": "name-exact"
+  },
+  "01438T106": {
+   "ticker": "ALDX",
+   "name": "ALDEYRA THERAPEUTICS INC",
+   "method": "name-exact"
+  },
+  "09290C756": {
+   "ticker": "PMMF",
+   "name": "ISHARES PRIME MONEY MARKET ETF",
+   "method": "fund"
+  },
+  "83671M105": {
+   "ticker": "SOBO",
+   "name": "SOUTH BOW CORP",
+   "method": "name-exact"
+  },
+  "50048U201": {
+   "ticker": "KBGGY",
+   "name": "KONGSBERG GRUPPEN ASA ADR",
+   "method": "name-exact"
+  },
+  "Y4600W108": {
+   "ticker": "KARO",
+   "name": "KAROOOOO LTD",
+   "method": "name-exact"
+  },
+  "45104G104": {
+   "ticker": "IBN",
+   "name": "ICICI BANK LIMITED",
+   "method": "name-exact"
+  },
+  "40415F101": {
+   "ticker": "HDB",
+   "name": "HDFC BANK LTD",
+   "method": "name-exact"
+  },
+  "87978U108": {
+   "ticker": "TPST",
+   "name": "TEMPEST THERAPEUTICS INC",
+   "method": "name-exact"
+  },
+  "G17977110": {
+   "ticker": "BUR",
+   "name": "BURFORD CAP LTD",
+   "method": "name-exact"
+  },
+  "112585104": {
+   "ticker": "BN",
+   "name": "BROOKFIELD CORP CL A LTD VT SH",
+   "method": "alias"
+  },
+  "82452JAD1": {
+   "ticker": "FOUR",
+   "name": "Shift4 Payments, Inc.",
+   "method": "name-exact"
   }
  },
  "unresolved": [
   {
+   "cusip": "81141R100",
+   "name": "SEA LTD",
+   "latest_value_usd": 1762068435
+  },
+  {
    "cusip": "03769M106",
    "name": "APOLLO GLOBAL MGMT INC",
    "latest_value_usd": 474194408
+  },
+  {
+   "cusip": "31488V107",
+   "name": "FERGUSON ENTERPRISES INC",
+   "latest_value_usd": 455175347
   },
   {
    "cusip": "37045V100",
@@ -9358,14 +9528,29 @@
    "latest_value_usd": 307704083
   },
   {
-   "cusip": "655844108",
-   "name": "NORFOLK SOUTHN CORP",
-   "latest_value_usd": 302192008
+   "cusip": "053484101",
+   "name": "AVALONBAY CMNTYS INC",
+   "latest_value_usd": 281517555
+  },
+  {
+   "cusip": "36262G101",
+   "name": "GXO LOGISTICS INCORPORATED",
+   "latest_value_usd": 281441581
+  },
+  {
+   "cusip": "571748102",
+   "name": "MARSH & MCLENNAN COS INC",
+   "latest_value_usd": 261838905
   },
   {
    "cusip": "55616P104",
    "name": "MACYS INC",
    "latest_value_usd": 236626443
+  },
+  {
+   "cusip": "225310101",
+   "name": "CREDIT ACCEP CORP MICH",
+   "latest_value_usd": 229383038
   },
   {
    "cusip": "256677105",
@@ -9378,6 +9563,11 @@
    "latest_value_usd": 213805828
   },
   {
+   "cusip": "032095101",
+   "name": "AMPHENOL CORPORATION",
+   "latest_value_usd": 202348887
+  },
+  {
    "cusip": "12510Q100",
    "name": "CCC INTELLIGENT SOLUTIONS HL",
    "latest_value_usd": 188857812
@@ -9388,14 +9578,14 @@
    "latest_value_usd": 184382964
   },
   {
+   "cusip": "G1151C101",
+   "name": "ACCENTURE PLC IRELAND",
+   "latest_value_usd": 170122172
+  },
+  {
    "cusip": "351858105",
    "name": "FRANCO NEV CORP",
    "latest_value_usd": 161781540
-  },
-  {
-   "cusip": "032095101",
-   "name": "AMPHENOL CORP",
-   "latest_value_usd": 158071056
   },
   {
    "cusip": "34964C106",
@@ -9403,9 +9593,9 @@
    "latest_value_usd": 154854509
   },
   {
-   "cusip": "571748102",
-   "name": "MARSH & MCLENNAN COS INC",
-   "latest_value_usd": 153600407
+   "cusip": "679580100",
+   "name": "OLD DOMINION FREIGHT LINE IN",
+   "latest_value_usd": 149367956
   },
   {
    "cusip": "502431109",
@@ -9423,14 +9613,14 @@
    "latest_value_usd": 140174125
   },
   {
+   "cusip": "16119P108",
+   "name": "CHARTER COMMUNICATIONS INC",
+   "latest_value_usd": 130862069
+  },
+  {
    "cusip": "651639106",
    "name": "NEWMONT CORP",
    "latest_value_usd": 129370737
-  },
-  {
-   "cusip": "679580100",
-   "name": "OLD DOMINION FREIGHT LINE IN",
-   "latest_value_usd": 125479629
   },
   {
    "cusip": "23331A109",
@@ -9441,16 +9631,6 @@
    "cusip": "452308109",
    "name": "ILLINOIS TOOL WKS INC",
    "latest_value_usd": 111567253
-  },
-  {
-   "cusip": "303075105",
-   "name": "FACTSET RESH SYS INC",
-   "latest_value_usd": 105715319
-  },
-  {
-   "cusip": "31488V107",
-   "name": "FERGUSON ENTERPRISES INC",
-   "latest_value_usd": 104024252
   },
   {
    "cusip": "159864107",
@@ -9488,11 +9668,6 @@
    "latest_value_usd": 75821254
   },
   {
-   "cusip": "099502106",
-   "name": "BOOZ ALLEN HAMILTON HLDG COR",
-   "latest_value_usd": 73183491
-  },
-  {
    "cusip": "894164102",
    "name": "TRAVEL PLUS LEISURE CO",
    "latest_value_usd": 72943798
@@ -9506,6 +9681,11 @@
    "cusip": "254067101",
    "name": "DILLARDS INC",
    "latest_value_usd": 62882508
+  },
+  {
+   "cusip": "03027X100",
+   "name": "AMERICAN TOWER CORP",
+   "latest_value_usd": 60334594
   },
   {
    "cusip": "428291108",
@@ -9533,6 +9713,16 @@
    "latest_value_usd": 58066999
   },
   {
+   "cusip": "36266G107",
+   "name": "GE HEALTHCARE TECHNOLOGIES I",
+   "latest_value_usd": 57588261
+  },
+  {
+   "cusip": "30231G102",
+   "name": "EXXON MOBIL CORP",
+   "latest_value_usd": 55372968
+  },
+  {
    "cusip": "29670G102",
    "name": "ESSENTIAL UTILS INC",
    "latest_value_usd": 55318069
@@ -9541,11 +9731,6 @@
    "cusip": "88076W103",
    "name": "TERADATA CORP DEL",
    "latest_value_usd": 54565711
-  },
-  {
-   "cusip": "30231G102",
-   "name": "EXXON MOBIL CORP",
-   "latest_value_usd": 54264852
   },
   {
    "cusip": "680223104",
@@ -9588,11 +9773,6 @@
    "latest_value_usd": 47804355
   },
   {
-   "cusip": "03027X100",
-   "name": "AMERICAN TOWER CORP",
-   "latest_value_usd": 47733488
-  },
-  {
    "cusip": "N20944109",
    "name": "CNH INDL N V",
    "latest_value_usd": 47691666
@@ -9623,24 +9803,9 @@
    "latest_value_usd": 40734324
   },
   {
-   "cusip": "16119P108",
-   "name": "CHARTER COMMUNICATIONS INC",
-   "latest_value_usd": 39606765
-  },
-  {
-   "cusip": "426281101",
-   "name": "HENRY JACK & ASSOC INC",
-   "latest_value_usd": 38591580
-  },
-  {
    "cusip": "02072Q499",
    "name": "EA SERIES TRUST",
    "latest_value_usd": 37748160
-  },
-  {
-   "cusip": "36266G107",
-   "name": "GE HEALTHCARE TECHNOLOGIES I",
-   "latest_value_usd": 37700354
   },
   {
    "cusip": "127387108",
@@ -9661,11 +9826,6 @@
    "cusip": "300426103",
    "name": "EVERUS CONSTR GROUP",
    "latest_value_usd": 36210788
-  },
-  {
-   "cusip": "518439104",
-   "name": "LAUDER ESTEE COS INC",
-   "latest_value_usd": 35975225
   },
   {
    "cusip": "25179M103",
@@ -9703,11 +9863,6 @@
    "latest_value_usd": 33334166
   },
   {
-   "cusip": "G1151C101",
-   "name": "ACCENTURE PLC IRELAND",
-   "latest_value_usd": 33238172
-  },
-  {
    "cusip": "553530106",
    "name": "MSC INDL DIRECT INC",
    "latest_value_usd": 33068576
@@ -9738,6 +9893,11 @@
    "latest_value_usd": 31895374
   },
   {
+   "cusip": "285512109",
+   "name": "ELECTRONIC ARTS INC",
+   "latest_value_usd": 31570624
+  },
+  {
    "cusip": "38526M106",
    "name": "GRAND CANYON ED INC",
    "latest_value_usd": 29579978
@@ -9756,6 +9916,11 @@
    "cusip": "001084102",
    "name": "AGCO CORP",
    "latest_value_usd": 27893571
+  },
+  {
+   "cusip": "205306103",
+   "name": "TRUBRIDGE INC",
+   "latest_value_usd": 26169270
   },
   {
    "cusip": "574599106",
@@ -9796,16 +9961,6 @@
    "cusip": "758849103",
    "name": "REGENCY CTRS CORP",
    "latest_value_usd": 23160244
-  },
-  {
-   "cusip": "064058100",
-   "name": "BANK OF NY MELLON CORP",
-   "latest_value_usd": 22657639
-  },
-  {
-   "cusip": "285512109",
-   "name": "ELECTRONIC ARTS INC",
-   "latest_value_usd": 22611401
   },
   {
    "cusip": "38267D109",
@@ -9919,8 +10074,8 @@
   },
   {
    "cusip": "929740108",
-   "name": "WABTEC",
-   "latest_value_usd": 16384131
+   "name": "WABTEC CORPORATION",
+   "latest_value_usd": 16385787
   },
   {
    "cusip": "G0692U109",
@@ -9943,14 +10098,9 @@
    "latest_value_usd": 15339465
   },
   {
-   "cusip": "36262G101",
-   "name": "GXO LOGISTICS INCORPORATED",
-   "latest_value_usd": 15266581
-  },
-  {
    "cusip": "963320106",
    "name": "WHIRLPOOL CORP",
-   "latest_value_usd": 15019651
+   "latest_value_usd": 15041687
   },
   {
    "cusip": "913903100",
@@ -9969,8 +10119,8 @@
   },
   {
    "cusip": "45167R104",
-   "name": "IDEX CORP",
-   "latest_value_usd": 13849624
+   "name": "IDEX CORPORATION",
+   "latest_value_usd": 13850001
   },
   {
    "cusip": "37940X102",
@@ -10003,14 +10153,14 @@
    "latest_value_usd": 11283329
   },
   {
+   "cusip": "459200101",
+   "name": "INTERNATIONAL BUSINESS MACHINE",
+   "latest_value_usd": 11262179
+  },
+  {
    "cusip": "95058W100",
    "name": "WENDYS CO",
    "latest_value_usd": 11191749
-  },
-  {
-   "cusip": "459200101",
-   "name": "INTERNATIONAL BUSINESS MACHS",
-   "latest_value_usd": 11183440
   },
   {
    "cusip": "499049104",
@@ -10103,6 +10253,11 @@
    "latest_value_usd": 6634122
   },
   {
+   "cusip": "46138G888",
+   "name": "INVESCO EXCH TRADED FD TR II",
+   "latest_value_usd": 6501212
+  },
+  {
    "cusip": "46284V101",
    "name": "IRON MTN INC DEL",
    "latest_value_usd": 6462146
@@ -10151,11 +10306,6 @@
    "cusip": "745867101",
    "name": "PULTE GROUP INC",
    "latest_value_usd": 4467695
-  },
-  {
-   "cusip": "46138G888",
-   "name": "INVESCO EXCH TRADED FD TR II",
-   "latest_value_usd": 4444708
   },
   {
    "cusip": "969457100",
@@ -10238,6 +10388,11 @@
    "latest_value_usd": 2991505
   },
   {
+   "cusip": "902973304",
+   "name": "U.S. BANCORP DEL COMMON NEW",
+   "latest_value_usd": 2912548
+  },
+  {
    "cusip": "46138E628",
    "name": "INVESCO EXCH TRADED FD TR II",
    "latest_value_usd": 2865086
@@ -10251,11 +10406,6 @@
    "cusip": "44930G107",
    "name": "ICU MED INC",
    "latest_value_usd": 2827767
-  },
-  {
-   "cusip": "902973304",
-   "name": "US BANCORP",
-   "latest_value_usd": 2821344
   },
   {
    "cusip": "92647N527",
@@ -10423,11 +10573,6 @@
    "latest_value_usd": 1389909
   },
   {
-   "cusip": "225310101",
-   "name": "CREDIT ACCEP CORP MICH",
-   "latest_value_usd": 1387456
-  },
-  {
    "cusip": "97717W836",
    "name": "WISDOMTREE TR",
    "latest_value_usd": 1327580
@@ -10533,6 +10678,11 @@
    "latest_value_usd": 1092864
   },
   {
+   "cusip": "25432X102",
+   "name": "Dime Commercial Bank",
+   "latest_value_usd": 1085436
+  },
+  {
    "cusip": "743312100",
    "name": "PROGRESS SOFTWARE CORP",
    "latest_value_usd": 1059315
@@ -10618,6 +10768,11 @@
    "latest_value_usd": 704385
   },
   {
+   "cusip": "50540R409",
+   "name": "Laboratory Amer Hldgs Com New",
+   "latest_value_usd": 700000
+  },
+  {
    "cusip": "71601V105",
    "name": "PETCO HEALTH & WELLNESS CO I",
    "latest_value_usd": 659401
@@ -10696,6 +10851,11 @@
    "cusip": "37954Y657",
    "name": "GLOBAL X FDS",
    "latest_value_usd": 499472
+  },
+  {
+   "cusip": "808524201",
+   "name": "SCHWAB STRATEGIC TR",
+   "latest_value_usd": 495722
   },
   {
    "cusip": "46138G698",
@@ -10956,6 +11116,26 @@
    "cusip": "071734107",
    "name": "BAUSCH HEALTH COS INC",
    "latest_value_usd": 52199
+  },
+  {
+   "cusip": "30262F205",
+   "name": "FRMO CORPORATION",
+   "latest_value_usd": 33750
+  },
+  {
+   "cusip": "293828877",
+   "name": "ERSHARES PRIVATE-PUBLIC CROSSO",
+   "latest_value_usd": 5789
+  },
+  {
+   "cusip": "89389N103",
+   "name": "TRANSTEL SA COMMON",
+   "latest_value_usd": 33
+  },
+  {
+   "cusip": "68267M106",
+   "name": "Onelink Corporation",
+   "latest_value_usd": 0
   }
  ]
 }

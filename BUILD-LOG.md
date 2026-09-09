@@ -15,6 +15,8 @@
 - **Joe's 21 candidate approvals applied** via `sync_universe_decisions.py`: Wedgewood, Steginsky, Spruce House, Strategy Capital, Cryder, Greenbrier, Gobi, Gavilan, Greenlea Lane, Manitou, Hyperion, MayTech, Barton, Nellore, Foxhaven, Saybrook, Allen Holding, Wellcome Trust, Hikari, Milestone, JIA. Roster: **50 filers, 47 voting, 3 pruned**. Full 8-quarter history pulled for the new names.
 - Decisions written to Firebase `mose/universeDecisions` so the Universe tab matches (Joe's 21 candidate decisions and the 29 roster decisions merged with no conflicts).
 
+**Pull completed (50 filers, 394 filings, 0 failures).** After rebuilding on the 47 voting filers: holdings 283 rows / 44 investors, filing-changes 2,817 rows / 49 investors, eligible universe **1,469 tickers**. **KVYO is recovered** — Barton Investment Management, one of Joe's new approvals, holds it. The guard rail now flags only **NLR** and **SMH**, both VanEck sector ETFs that no concentrated value manager on the roster owns; CSU stays exempt as a TSX listing. `eligible-universe.json` now lists voting filers only, so the app's banner counts 47 rather than 50. Only Burry (pruned) and Tom Bancroft lack a 2026-Q2 filing — Makaira's Q1 shows a single holding, worth a look next session.
+
 **Consequence Joe needs to see:** with Whale Rock gone, **KVYO (Klaviyo)** loses its only tracked holder and now fails the guard rail, joining **NLR** and **SMH** (both only ever "eligible" through Ancora, the wrong-entity Greenblatt mapping fixed in Session 13). CSU stays exempt as a foreign listing.
 
 ---
