@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-09T11:11:11.912998+00:00",
+  "generated_at": "2026-09-09T11:45:02.252605+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -798,11 +798,11 @@
         "time": "16:00:02",
         "volume": 3222139,
         "week52_high": 637.51,
-        "week52_low": 117.94
+        "week52_low": 123.65
       },
       "metrics": {
         "week52High": 637.51,
-        "week52Low": 117.94
+        "week52Low": 123.65
       },
       "profile": {
         "company": "Ciena Corporation",
@@ -1303,11 +1303,11 @@
         "date": "2026-09-08",
         "time": "16:04:27",
         "volume": 6589879,
-        "week52_high": 538.424,
+        "week52_high": 538.47,
         "week52_low": 110.22
       },
       "metrics": {
-        "week52High": 538.424,
+        "week52High": 538.47,
         "week52Low": 110.22
       },
       "profile": {
@@ -1361,11 +1361,11 @@
         "date": "2026-09-08",
         "time": "16:04:23",
         "volume": 7332699,
-        "week52_high": 119.05,
+        "week52_high": 117.51,
         "week52_low": 92.19
       },
       "metrics": {
-        "week52High": 119.05,
+        "week52High": 117.51,
         "week52Low": 92.19,
         "marketCap": 181757935616,
         "peRatio": 15.472754050073638
@@ -1697,11 +1697,11 @@
         "date": "2026-09-08",
         "time": "16:03:20",
         "volume": 6566208,
-        "week52_high": 70.27,
+        "week52_high": 69.14,
         "week52_low": 37.42
       },
       "metrics": {
-        "week52High": 70.27,
+        "week52High": 69.14,
         "week52Low": 37.42,
         "marketCap": 23681314816,
         "peRatio": 54.00000000000001
@@ -2092,11 +2092,11 @@
         "time": "16:00:00",
         "volume": 52417,
         "week52_high": 120.82,
-        "week52_low": 105.13
+        "week52_low": 106.08
       },
       "metrics": {
         "week52High": 120.82,
-        "week52Low": 105.13
+        "week52Low": 106.08
       },
       "profile": {
         "company": null,
@@ -4103,11 +4103,11 @@
         "time": "16:00:00",
         "volume": 314774,
         "week52_high": 901.81,
-        "week52_low": 243.25
+        "week52_low": 243.677
       },
       "metrics": {
         "week52High": 901.81,
-        "week52Low": 243.25
+        "week52Low": 243.677
       },
       "profile": {
         "company": "SiTime Corporation",
@@ -5490,8 +5490,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 16.48,
-        "change_pct": 4.834605597964375,
+        "price": 16.31,
+        "change_pct": 3.753180661577596,
         "source": "yahoo"
       },
       "metrics": {},
