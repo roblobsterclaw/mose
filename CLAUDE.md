@@ -87,6 +87,18 @@ breakdown. Keep it aligned to this.
   cannot cover more than one at a time. Joint and Keli's IRA continue to come in via
   the paste-based import on the Buy tab.
 
+### The multi-account workaround: Flex Web Service (read-only, no swapping)
+`scripts/pull_ibkr_flex.py` pulls open positions for EVERY account via IBKR's
+Flex Web Service, which has no one-account limit — a token taken from the master
+account of a linked structure covers every account included in the query. Joe's
+login (IRA + Joint) = one token; Keli's login = a second token. Together they
+cover all three accounts with zero connector swapping, and it runs unattended in
+the GitHub Action (the runner has the network access the sandbox lacks).
+Secrets: `IBKR_FLEX_TOKEN`/`IBKR_FLEX_QUERY_ID` and the `_2` pair — repo secrets,
+never committed. Output: `data/ibkr-positions.json`, keyed by IBKR account id,
+prior-business-day close. Read-only; it never stages or places anything. The AI
+connector stays on whichever account Joe wants to stage trades in.
+
 ### NEXT TASK when the connector is live: create 8 IBKR watchlists (Option A)
 Names = the 8 buckets above; contents = the ticker lists above. **Pull existing
 watchlists first** (`get_watchlists`) and extend rather than duplicate. No
