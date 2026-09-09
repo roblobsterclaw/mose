@@ -22,8 +22,8 @@ everywhere: Buy Targets, Joe's Watchlist, Command Center, Re-Entry.
 
 1. **Forever compounders** — GOOGL, AMZN, BRK.B, AAPL, MSFT, META, COST, MELI, CSU, WMT
 2. **Toll booths** — V, MA, AXP, MCO, SPGI, PGR
-3. **Hard assets** — BN, PLD, CP, CVX, OXY, GE, HON, NLR
-4. **AI core** — AVGO, LRCX, TSM, ASML, NVDA, SMH
+3. **Hard assets** — BN, PLD, CP, CVX, OXY, GE, HON, SOLS (NLR removed 9 Sep 2026 — sector ETF, no voting filer owns it)
+4. **AI core** — AVGO, LRCX, TSM, ASML, NVDA (SMH removed 9 Sep 2026 — same reason; Joe's $612 position kept in `owned` as outside-plan)
 5. **AI bench** — COHR, CIEN, FN, CLS, MKSI, MTSI, AEIS, TTMI, VIAV, SITM, WDC, TSEM, CBRS, MU, INTC, ARM, AMD
 6. **Opportunistic** — UBER, APP, MDB, DASH, RBLX, FROG, KVYO, BABA, CVNA, TSLA, SPCX (CODI removed 4 Sep 2026 — no tracked filer owns it; MBGL, BE dropped earlier)
 7. **Radar** (researched, circling, not yet bought) — LLY, DE, ROP, FICO, VRSN, ORLY, TXN, RACE

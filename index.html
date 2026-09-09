@@ -2135,7 +2135,7 @@ async function checkPw(){
 // compare the build stamp, and offer a genuine reload when they differ.
 // Bump APP_BUILD whenever index.html changes.
 // ============================================================
-const APP_BUILD = '2026-09-07c';
+const APP_BUILD = '2026-09-09a';
 
 async function checkForAppUpdate(announce) {
   try {
@@ -6580,9 +6580,12 @@ function canonTargetsBuckets() {
     { id: 'hard', label: 'Hard assets', pct: 10,
       // SOLS = Solstice Advanced Materials, the Honeywell Advanced Materials
       // spin-off (Oct 2025). Already on the IBKR Hard assets watchlist.
-      tickers: ['BN', 'PLD', 'CP', 'CVX', 'OXY', 'GE', 'HON', 'NLR', 'SOLS'], weights: {}, locked: {} },
+      // NLR removed 9 Sep 2026 — a VanEck sector ETF; none of the 47 voting filers owns it.
+      tickers: ['BN', 'PLD', 'CP', 'CVX', 'OXY', 'GE', 'HON', 'SOLS'], weights: {}, locked: {} },
     { id: 'aicore', label: 'AI core', pct: 8,
-      tickers: ['AVGO', 'LRCX', 'TSM', 'ASML', 'NVDA', 'SMH'], weights: {}, locked: {} },
+      // SMH removed 9 Sep 2026 — same reason as NLR. Joe's existing $612 position
+      // is preserved in `owned` and surfaces as an outside-plan holding.
+      tickers: ['AVGO', 'LRCX', 'TSM', 'ASML', 'NVDA'], weights: {}, locked: {} },
     { id: 'opp', label: 'Opportunistic', pct: 8,
       // CODI (Compass Diversified) removed 4 Sep 2026 — the guard rail found no tracked filer owns it.
       tickers: ['UBER', 'APP', 'MDB', 'DASH', 'RBLX', 'FROG', 'KVYO', 'BABA', 'CVNA', 'TSLA', 'SPCX'], weights: {}, locked: {} },
@@ -6820,6 +6823,22 @@ function migrateTargets(d) {
       });
     }
     d.version = 13;
+  }
+  if ((d.version || 0) < 14) {
+    // 9 Sep 2026: NLR and SMH out of the buckets — both VanEck sector ETFs, and
+    // the guard rail found none of the 47 voting filers holds either. Unlike the
+    // CODI removal this runs even where a position exists: `owned` is left
+    // untouched, so SMH keeps its value and simply reads as outside the plan.
+    ['NLR', 'SMH'].forEach(sym => {
+      d.ira.buckets.forEach(b => {
+        if (!Array.isArray(b.tickers)) return;
+        const i = b.tickers.indexOf(sym);
+        if (i >= 0) b.tickers.splice(i, 1);
+        if (b.weights) delete b.weights[sym];
+        if (b.locked) delete b.locked[sym];
+      });
+    });
+    d.version = 14;
   }
   d.ira.buckets.forEach(b => {
     if (!Array.isArray(b.tickers)) b.tickers = [];

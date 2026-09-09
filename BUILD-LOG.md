@@ -6,6 +6,18 @@
 
 ---
 
+## Session 15 — September 9, 2026 (Claude) — NLR and SMH out; guard rail clean
+Joe: "remove NLR and SMH." Both were VanEck sector ETFs that no voting filer owns.
+
+- `canonTargetsBuckets()`: NLR out of Hard assets, SMH out of AI core. **targets v14** migration removes them from whichever bucket they have drifted into on a device (live state had SMH in `aibench`, not `aicore`).
+- **Joe owns $612 of SMH in his IRA.** Unlike the CODI removal, this migration runs even where a position exists but leaves `owned` untouched, so the position keeps its value and simply reads as an outside-plan holding rather than being silently deleted.
+- IBKR watchlists updated to match: Hard assets (110) 9 → 8 names, AI core (111) 6 → 5.
+- CLAUDE.md taxonomy updated. `APP_BUILD` → `2026-09-09a`.
+
+**Guard rail is now clean: all 58 bucket names are held by at least one of the 47 voting filers** (2026-Q2). Dry powder exempt, CSU exempt as a TSX listing.
+
+---
+
 ## Session 14 — September 9, 2026 (Claude) — roster settled at 47 voting filers
 **Goal:** Joe: "remove Leopold and Whale Rock from the list and approve the rest."
 
