@@ -22,7 +22,7 @@ Joe's brief: "I really just want to use my Buy tab as my guide to purchase stock
 
 **Owned data fixed (Joe's Q5)** — **`scripts/sync_ibkr_owned.py`**. SGOV was missing entirely; recorded holdings went **$138,717 → $995,730** with SGOV at **$844,087**. Two safeguards worth keeping: Firebase rejects `.` in keys, so class shares must be written the way `canonicalTicker` stores them (`BRK-B`, not `BRK.B`) or the PUT 400s; and the connector is bound to **one account view** (net liquidation $948,158 = the IRA), so the script is **additive by default** — it adds and renames but never deletes, because a ticker missing from the API may simply live in an account it cannot see. `--update-all` / `--prune` are opt-in.
 
-**Open question for Joe:** the API shows NVDA at $1,123, GOOGL $18,909 and AMZN $15,418 where the app recorded $18,932 / $34,484 / $27,079, and AAPL ($1,135) is absent entirely. Either those were sold down, or they sit in the Joint account the connector can't see. Left untouched pending his answer.
+**Resolved 9 Sep:** the connector sees only Joe's IRA. `get_pa_performance_all_periods` returns a single `accounts.account` entry, and 90 days of trades are all BUYS — no sales of GOOGL, NVDA, AMZN or AAPL — so the larger recorded values are real positions in the Joint account the API cannot see. The additive-only default was the right call; nothing was lost.
 
 **Verification:** `node --check` OK; headless render — tab order correct with Watchlist last, 108 consensus rows with sparklines, both alert rails populated, guard rail clean, Buy tab showing exactly the four new buckets. `APP_BUILD` → `2026-09-09c`.
 

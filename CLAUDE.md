@@ -59,8 +59,20 @@ show the per-account $ breakdown. Keep it aligned to this.
 ## IBKR connector (Interactive Brokers)
 - Connected via claude.ai Connectors → tools appear as `mcp__Interactive_Brokers_IBKR__*`.
   Flaky mid-session; a fresh session picks it up reliably after a global reconnect.
-- **Joe's login exposes his IRA + Joint Cash.** Keli's IRA is a **separate login**
-  and needs documented authorization from IBKR + Keli (Stage 2).
+- **The connector sees ONE account only — Joe's IRA (~$948k net liquidation).**
+  Verified 9 Sep 2026 two ways: `get_account_summary` returns a single
+  net_liquidation, and `get_pa_performance_all_periods` returns a single
+  `accounts.account` entry. No tool takes an account_id, so there is no selector.
+- **The Joint account is NOT visible, and neither is Keli's IRA.** Proof it isn't
+  just stale data: 90 days of `get_account_trades` show only BUYS (plus two small
+  SGOV sells to raise cash) — no sales of GOOGL, NVDA, AMZN or AAPL — yet the app's
+  `his` figures are far larger than this account holds (NVDA 5 shares here vs
+  ~$18.9k recorded; AAPL absent here but $1,135 recorded). Those extra shares live
+  in an account the connector cannot reach, almost certainly the Joint.
+- **Therefore: never mirror IBKR onto `owned` wholesale.** `scripts/sync_ibkr_owned.py`
+  is additive by default and must stay that way; `--update-all` / `--prune` are only
+  safe if the API view is ever confirmed to cover every account. Joint and Keli's
+  IRA continue to come in via the paste-based import on the Buy tab.
 
 ### NEXT TASK when the connector is live: create 8 IBKR watchlists (Option A)
 Names = the 8 buckets above; contents = the ticker lists above. **Pull existing
