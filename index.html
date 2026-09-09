@@ -2135,7 +2135,7 @@ async function checkPw(){
 // compare the build stamp, and offer a genuine reload when they differ.
 // Bump APP_BUILD whenever index.html changes.
 // ============================================================
-const APP_BUILD = '2026-09-09a';
+const APP_BUILD = '2026-09-09b';
 
 async function checkForAppUpdate(announce) {
   try {
@@ -6605,7 +6605,11 @@ function canonTargetsBuckets() {
       // DIS, TDG and COF are held by tracked filers but were absent from every
       // bucket. DIS (+2) and TDG (+2) are being actively accumulated; COF is
       // the most widely held name we didn't own (6 filers).
-      tickers: ['LLY', 'DE', 'ROP', 'FICO', 'VRSN', 'ORLY', 'TXN', 'RACE', 'HHH', 'LOAR', 'TPL', 'DIS', 'TDG', 'COF'], weights: {}, locked: {} },
+      // NFLX added 9 Sep 2026: 11 of the 47 voting filers hold it and four opened
+      // NEW positions in Q2-2026 (Ackman 4.8% of book, Terry Smith 3.7%, Tom Gayner,
+      // JIA 2.1%) while the stock sat ~39% off its 52-week high. Radar pending the
+      // deep dive; Forever compounders is its natural home if it graduates.
+      tickers: ['LLY', 'DE', 'ROP', 'FICO', 'VRSN', 'ORLY', 'TXN', 'RACE', 'HHH', 'LOAR', 'TPL', 'DIS', 'TDG', 'COF', 'NFLX'], weights: {}, locked: {} },
     { id: 'dry', label: 'Dry powder', pct: 20,
       tickers: ['VOO', 'VTV', 'QQQ', 'IDGT', 'SGOV'],
       weights: { SGOV: 40, VOO: 30 }, locked: { SGOV: true } },
@@ -6839,6 +6843,16 @@ function migrateTargets(d) {
       });
     });
     d.version = 14;
+  }
+  if ((d.version || 0) < 15) {
+    // 9 Sep 2026: NFLX onto Radar. Skipped if the ticker already sits in some
+    // bucket on this device, so a deliberate placement isn't overridden.
+    const already = d.ira.buckets.some(b => (b.tickers || []).includes('NFLX'));
+    if (!already) {
+      const radar = d.ira.buckets.find(b => b.id === 'radar');
+      if (radar && Array.isArray(radar.tickers)) radar.tickers.push('NFLX');
+    }
+    d.version = 15;
   }
   d.ira.buckets.forEach(b => {
     if (!Array.isArray(b.tickers)) b.tickers = [];

@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_at": "2026-09-09T10:36:08.868336+00:00",
+ "generated_at": "2026-09-09T11:06:45.495933+00:00",
  "quarter": "2026-Q2",
  "investors": [
   "ALLEN HOLDING INC /NY",
@@ -63,12 +63,15 @@
     "Chase Coleman",
     "Chris Hohn",
     "Christopher Bloomstran",
+    "Cryder Capital Partners LLP",
     "Dan Niles",
     "Daniel Loeb",
     "David Abrams",
+    "Foxhaven Asset Management, LP",
     "GREENLEA LANE CAPITAL MANAGEMENT, LLC",
     "Gavin Baker",
     "Glenn Greenberg",
+    "Gobi Capital LLC",
     "Greenbrier Partners Capital Management, LLC",
     "Hikari Power Ltd",
     "Hyperion Asset Management Ltd",
@@ -81,14 +84,15 @@
     "Philippe Laffont",
     "SAYBROOK CAPITAL /NC",
     "STEGINSKY CAPITAL LLC",
+    "Seth Klarman",
     "Terry Smith",
     "Tom Gayner",
     "WEDGEWOOD PARTNERS INC",
     "WELLCOME TRUST LTD (THE) as trustee of the WELLCOME TRUST",
     "Warren Buffett"
    ],
-   "holder_count": 29,
-   "value_usd": 37778900025
+   "holder_count": 33,
+   "value_usd": 55380233275
   },
   {
    "ticker": "AMZN",
@@ -156,36 +160,6 @@
    ],
    "holder_count": 23,
    "value_usd": 9203904796
-  },
-  {
-   "ticker": "GOOG",
-   "company": "ALPHABET INC",
-   "holders": [
-    "Barton Investment Management",
-    "Cathie Wood",
-    "Chris Hohn",
-    "Christopher Bloomstran",
-    "Cryder Capital Partners LLP",
-    "Foxhaven Asset Management, LP",
-    "Glenn Greenberg",
-    "Gobi Capital LLC",
-    "Greenbrier Partners Capital Management, LLC",
-    "Hikari Power Ltd",
-    "Joel Greenblatt",
-    "Li Lu",
-    "Manitou Investment Management Ltd.",
-    "MayTech Global Investments, LLC",
-    "Nellore Capital Management LLC",
-    "Philippe Laffont",
-    "SAYBROOK CAPITAL /NC",
-    "STEGINSKY CAPITAL LLC",
-    "Seth Klarman",
-    "Tom Gayner",
-    "WELLCOME TRUST LTD (THE) as trustee of the WELLCOME TRUST",
-    "Warren Buffett"
-   ],
-   "holder_count": 22,
-   "value_usd": 17601333250
   },
   {
    "ticker": "MSFT",
@@ -272,7 +246,7 @@
    "value_usd": 4211740081
   },
   {
-   "ticker": "BRK-B",
+   "ticker": "BRK.B",
    "company": "BERKSHIRE HATHAWAY INC DEL",
    "holders": [
     "ALLEN HOLDING INC /NY",
@@ -292,7 +266,7 @@
     "WELLCOME TRUST LTD (THE) as trustee of the WELLCOME TRUST"
    ],
    "holder_count": 15,
-   "value_usd": 3551454420
+   "value_usd": 3556585919
   },
   {
    "ticker": "TSM",
@@ -3156,6 +3130,16 @@
    "value_usd": 204559235
   },
   {
+   "ticker": "UHAL",
+   "company": "U HAUL HOLDING COMPANY",
+   "holders": [
+    "David Abrams",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 2,
+   "value_usd": 204507416
+  },
+  {
    "ticker": "VOO",
    "company": "VANGUARD INDEX FDS",
    "holders": [
@@ -4766,16 +4750,6 @@
    "value_usd": 17362746
   },
   {
-   "ticker": "UHAL",
-   "company": "U HAUL HOLDING COMPANY",
-   "holders": [
-    "David Abrams",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 16897655
-  },
-  {
    "ticker": "AMGN",
    "company": "AMGEN INC",
    "holders": [
@@ -5294,15 +5268,6 @@
    ],
    "holder_count": 1,
    "value_usd": 191970072
-  },
-  {
-   "ticker": "UHAL-B",
-   "company": "U HAUL HOLDING COMPANY",
-   "holders": [
-    "David Abrams"
-   ],
-   "holder_count": 1,
-   "value_usd": 187609761
   },
   {
    "ticker": "BCAEF",
@@ -9704,15 +9669,6 @@
    ],
    "holder_count": 1,
    "value_usd": 5134220
-  },
-  {
-   "ticker": "BRK.B",
-   "company": "BERKSHIRE HATHAWAY CL B",
-   "holders": [
-    "Barton Investment Management"
-   ],
-   "holder_count": 1,
-   "value_usd": 5131499
   },
   {
    "ticker": "SMWB",

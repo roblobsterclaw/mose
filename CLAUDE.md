@@ -26,7 +26,7 @@ everywhere: Buy Targets, Joe's Watchlist, Command Center, Re-Entry.
 4. **AI core** — AVGO, LRCX, TSM, ASML, NVDA (SMH removed 9 Sep 2026 — same reason; Joe's $612 position kept in `owned` as outside-plan)
 5. **AI bench** — COHR, CIEN, FN, CLS, MKSI, MTSI, AEIS, TTMI, VIAV, SITM, WDC, TSEM, CBRS, MU, INTC, ARM, AMD
 6. **Opportunistic** — UBER, APP, MDB, DASH, RBLX, FROG, KVYO, BABA, CVNA, TSLA, SPCX (CODI removed 4 Sep 2026 — no tracked filer owns it; MBGL, BE dropped earlier)
-7. **Radar** (researched, circling, not yet bought) — LLY, DE, ROP, FICO, VRSN, ORLY, TXN, RACE
+7. **Radar** (researched, circling, not yet bought) — LLY, DE, ROP, FICO, VRSN, ORLY, TXN, RACE, HHH, LOAR, TPL, DIS, TDG, COF, NFLX (NFLX added 9 Sep 2026 — 11 of 47 filers, 4 opened NEW in Q2; deep dive published)
 8. **Dry powder** — VOO, VTV, QQQ, IDGT, SGOV
 
 Bucket %s (starting points, editable in ⚙️ Edit goals): Forever 35 / Toll 10 /

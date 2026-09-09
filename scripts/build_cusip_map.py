@@ -106,6 +106,19 @@ def votes_now(inv: dict) -> bool:
     return str(inv.get("status") or "active").lower() in VOTING_STATUSES
 
 
+# Berkshire files BRK-A and BRK-B, Alphabet GOOGL and GOOG — different CUSIPs,
+# same company. Counting them separately made the guard-rail chip read "held by
+# 1" for Berkshire when 15 filers own it. Fold each class onto one ticker so a
+# filer is counted once per company.
+SHARE_CLASS = {"BRK-A": "BRK.B", "BRK-B": "BRK.B", "BRKA": "BRK.B", "BRKB": "BRK.B",
+               "GOOG": "GOOGL", "UHAL-B": "UHAL", "LEN-B": "LEN", "HEI-A": "HEI",
+               "LGF-A": "LGF-A", "BF-B": "BF-B"}
+
+
+def company_ticker(t: str) -> str:
+    return SHARE_CLASS.get(t, t)
+
+
 def main() -> None:
     raw = json.load(open(RAW))
     directory = json.load(open(DIR))["symbols"]
@@ -169,7 +182,7 @@ def main() -> None:
                 if f["quarter"] == latest:
                     v = float(h.get("market_value") or 0) / 1000.0  # raw file is x1000
                     total_val += v; by_method[cmap[c]["method"]] += 1; by_val[cmap[c]["method"]] += v
-                    t = cmap[c]["ticker"]
+                    t = company_ticker(cmap[c]["ticker"])
                     if t:
                         d = holders[t]
                         if inv["name"] not in d["holders"]: d["holders"].append(inv["name"])

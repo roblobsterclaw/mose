@@ -6,6 +6,15 @@
 
 ---
 
+## Session 16 — September 9, 2026 (Claude) — NFLX to Radar, deep dive, share-class fix
+- **Dual-class eligibility bug fixed.** `build_cusip_map.py` counted share classes separately, so the guard-rail chip read **BRK.B = 1 holder** when 15 filers own Berkshire, and GOOGL = 29 when 33 do. Added `SHARE_CLASS`/`company_ticker()` folding (BRK-A/BRK-B→BRK.B, GOOG→GOOGL, UHAL-B, LEN-B, HEI-A) so a filer counts once per company. BRK.B now 15, GOOGL 33.
+- **NFLX added to Radar** (targets **v15**, skipped if already placed on a device) and to the IBKR Radar watchlist. 11 of 47 voting filers hold it; four opened NEW in Q2-2026 — Ackman 4.8% of book, Terry Smith 3.7%, Tom Gayner, JIA 2.1% — while the stock sat ~39% below its 52-week high.
+- **Deep dive published**: `deep-dives/nflx-deep-dive-2026-09-09.html`, indexed in `research-library.json` (78 reports). Verdict BUY THE DRAWDOWN, half-size on the September tranche. Fundamentals from Q2-2026 results (revenue $12.56B +13.4%, op margin 33.4%, FY guidance $51.0–51.4B / 31.5% margin / ~$12.5B FCF, ads doubling to ~$3B); price and range from IBKR ($76.81; $65.08–$126.70). Valuation figures are marked **estimated** — share count is derived from reported EPS and net income, and Netflix did a 10-for-1 split, so historical prices need adjusting.
+- Counter-signal recorded in the dive: Barton (22.1% of its book) and Coatue both **trimmed** into the drawdown while the newcomers bought.
+- `APP_BUILD` → `2026-09-09b`.
+
+---
+
 ## Session 15 — September 9, 2026 (Claude) — NLR and SMH out; guard rail clean
 Joe: "remove NLR and SMH." Both were VanEck sector ETFs that no voting filer owns.
 
