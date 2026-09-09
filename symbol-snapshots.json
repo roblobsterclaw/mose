@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-09T10:41:27.671196+00:00",
+  "generated_at": "2026-09-09T11:11:11.912998+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -798,11 +798,11 @@
         "time": "16:00:02",
         "volume": 3222139,
         "week52_high": 637.51,
-        "week52_low": 123.65
+        "week52_low": 117.94
       },
       "metrics": {
         "week52High": 637.51,
-        "week52Low": 123.65
+        "week52Low": 117.94
       },
       "profile": {
         "company": "Ciena Corporation",
@@ -1361,11 +1361,11 @@
         "date": "2026-09-08",
         "time": "16:04:23",
         "volume": 7332699,
-        "week52_high": 117.51,
+        "week52_high": 119.05,
         "week52_low": 92.19
       },
       "metrics": {
-        "week52High": 117.51,
+        "week52High": 119.05,
         "week52Low": 92.19,
         "marketCap": 181757935616,
         "peRatio": 15.472754050073638
@@ -3133,6 +3133,37 @@
         "company": null,
         "owned": null,
         "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "NFLX": {
+      "ticker": "NFLX",
+      "name": "Netflix, Inc.",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "NFLX",
+        "symbol": "NFLX",
+        "price": 76.77,
+        "prev_close": 78.25,
+        "change_pct": -1.8913738019169382,
+        "date": "2026-09-08",
+        "time": "16:00:00",
+        "volume": 33754561,
+        "week52_high": 126.7,
+        "week52_low": 65.08
+      },
+      "metrics": {
+        "week52High": 126.7,
+        "week52Low": 65.08,
+        "marketCap": 389246222336,
+        "peRatio": 24.764516129032256
+      },
+      "profile": {
+        "company": "Netflix, Inc.",
+        "owned": null,
+        "hasResearch": true
       },
       "source": "yahoo"
     },
@@ -5459,8 +5490,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 16.14,
-        "change_pct": 2.6717557251908395,
+        "price": 16.48,
+        "change_pct": 4.834605597964375,
         "source": "yahoo"
       },
       "metrics": {},

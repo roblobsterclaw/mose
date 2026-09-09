@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-09T10:41:27.671196+00:00",
+  "generated_at": "2026-09-09T11:11:11.912998+00:00",
   "source": "yahoo",
   "market_status": "closed",
   "indices": [
@@ -38,8 +38,8 @@
     {
       "name": "VIX",
       "ticker": "^VIX",
-      "price": 16.14,
-      "change_pct": 2.6717557251908395,
+      "price": 16.48,
+      "change_pct": 4.834605597964375,
       "vs_exit": null,
       "source": "yahoo"
     }
@@ -367,7 +367,7 @@
       "time": "16:00:02",
       "volume": 3222139,
       "week52_high": 637.51,
-      "week52_low": 123.65
+      "week52_low": 117.94
     },
     {
       "ticker": "CLS",
@@ -594,7 +594,7 @@
       "date": "2026-09-08",
       "time": "16:04:23",
       "volume": 7332699,
-      "week52_high": 117.51,
+      "week52_high": 119.05,
       "week52_low": 92.19
     },
     {
@@ -1304,6 +1304,18 @@
       "volume": 7592602,
       "week52_high": 98.75,
       "week52_low": 69.37
+    },
+    {
+      "ticker": "NFLX",
+      "symbol": "NFLX",
+      "price": 76.77,
+      "prev_close": 78.25,
+      "change_pct": -1.8913738019169382,
+      "date": "2026-09-08",
+      "time": "16:00:00",
+      "volume": 33754561,
+      "week52_high": 126.7,
+      "week52_low": 65.08
     },
     {
       "ticker": "NLR",
