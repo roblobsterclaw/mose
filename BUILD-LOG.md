@@ -6,6 +6,30 @@
 
 ---
 
+## Session 17 — September 9, 2026 (Claude) — the simplification: 4 buckets, consensus leaderboard
+Joe's brief: "I really just want to use my Buy tab as my guide to purchase stocks." Eight buckets → four, plus a consensus page that surfaces names moving in and out of favour.
+
+**Buy tab**
+- `canonTargetsBuckets()` rebuilt: **Forever compounders 60%** (13 names), **Toll booths 20%** (4), **Dry powder 20%** (VOO, VTV, QQQ, SGOV), **Other positions 0%** (38 owned-but-untargeted names). Buy list = the 15 highest-consensus names across the 47 voting filers + UBER + SPCX, per Joe's pick. TSLA/UBER/SPCX sit inside Forever at his instruction — he'll set weights by hand.
+- **targets v16** migration preserves every `owned` and `plan` value; anything owned that isn't a target is swept into Other positions so nothing disappears. Existing per-stock weights and locks carry over.
+- Guard rail now exempts `other` as well as `dry`. Result: **all 17 buy-list names are held by at least one voting filer.**
+- Tab order changed — Watchlist moved to the **far right**; 18 non-owned names (FICO, SOLS, DASH, LLY, DE, VRSN, ORLY, TXN, RACE, HHH, LOAR, TPL, DIS, TDG, ROP, MU, AMD, IDGT) moved into `customWatchlist` in Firebase.
+
+**Consensus Leaderboard** (replaces the old Consensus tab — no new tab, since the brief was to simplify)
+- **`scripts/build_consensus_history.py`** → `consensus-history.json`: all **1,548 tickers** the voting filers own across **9 quarters**, with holder count per quarter, quarter and year deltas, who joined/left this quarter, average % of book, add/trim counts, and share-class folding so Alphabet and Berkshire count each investor once.
+- Page shows the full ranking with an 8-quarter sparkline per name, filters (Rising / Falling / Not on my list / I own it), and two computed alert rails: **⭐ coming into favour** (gaining holders, not on the buy list) and **📉 falling out of favour**.
+- Live output: rising — INTC 1→6, CBRS 0→5, NU 5→8, NTRA 2→5, AVGO 5→7, AMAT/UNP/CME 4→6. Falling — INTU 8→2, ADBE 7→2, Z 7→2, CSGP 6→2, PYPL and BAC 8→5, NKE 7→4.
+
+**Owned data fixed (Joe's Q5)** — **`scripts/sync_ibkr_owned.py`**. SGOV was missing entirely; recorded holdings went **$138,717 → $995,730** with SGOV at **$844,087**. Two safeguards worth keeping: Firebase rejects `.` in keys, so class shares must be written the way `canonicalTicker` stores them (`BRK-B`, not `BRK.B`) or the PUT 400s; and the connector is bound to **one account view** (net liquidation $948,158 = the IRA), so the script is **additive by default** — it adds and renames but never deletes, because a ticker missing from the API may simply live in an account it cannot see. `--update-all` / `--prune` are opt-in.
+
+**Open question for Joe:** the API shows NVDA at $1,123, GOOGL $18,909 and AMZN $15,418 where the app recorded $18,932 / $34,484 / $27,079, and AAPL ($1,135) is absent entirely. Either those were sold down, or they sit in the Joint account the connector can't see. Left untouched pending his answer.
+
+**Verification:** `node --check` OK; headless render — tab order correct with Watchlist last, 108 consensus rows with sparklines, both alert rails populated, guard rail clean, Buy tab showing exactly the four new buckets. `APP_BUILD` → `2026-09-09c`.
+
+*(Note: a first attempt at the consensus rewrite sliced out `escapeHtml`, `canonicalTicker`, `normalizeBucket` and other shared helpers along with the old consensus functions. Caught by the headless render — the page failed to initialise — and redone against a clean checkout with exact function boundaries.)*
+
+---
+
 ## Session 16 — September 9, 2026 (Claude) — NFLX to Radar, deep dive, share-class fix
 - **Dual-class eligibility bug fixed.** `build_cusip_map.py` counted share classes separately, so the guard-rail chip read **BRK.B = 1 holder** when 15 filers own Berkshire, and GOOGL = 29 when 33 do. Added `SHARE_CLASS`/`company_ticker()` folding (BRK-A/BRK-B→BRK.B, GOOG→GOOGL, UHAL-B, LEN-B, HEI-A) so a filer counts once per company. BRK.B now 15, GOOGL 33.
 - **NFLX added to Radar** (targets **v15**, skipped if already placed on a device) and to the IBKR Radar watchlist. 11 of 47 voting filers hold it; four opened NEW in Q2-2026 — Ackman 4.8% of book, Terry Smith 3.7%, Tom Gayner, JIA 2.1% — while the stock sat ~39% below its 52-week high.

@@ -16,21 +16,26 @@ it first.
   reach Firebase/SEC/Stooq/Nasdaq). So the app can't be driven from here — it's a
   static site; research is hand-authored and committed.
 
-## The 8-bucket taxonomy (LOCKED — Joe approved)
-One shared set of 8 buckets feeds **all three accounts** identically. Same names
-everywhere: Buy Targets, Joe's Watchlist, Command Center, Re-Entry.
+## The 4-bucket taxonomy (rebuilt 9 Sep 2026 — Joe's call)
+The Buy tab is the ONE place Joe decides what to purchase. Eight buckets became
+four; the buy list is the 15 highest-consensus names across the 47 voting filers
+plus UBER and SPCX. Retired: Hard assets, AI core, Opportunistic, AI bench, Radar.
 
-1. **Forever compounders** — GOOGL, AMZN, BRK.B, AAPL, MSFT, META, COST, MELI, CSU, WMT
-2. **Toll booths** — V, MA, AXP, MCO, SPGI, PGR
-3. **Hard assets** — BN, PLD, CP, CVX, OXY, GE, HON, SOLS (NLR removed 9 Sep 2026 — sector ETF, no voting filer owns it)
-4. **AI core** — AVGO, LRCX, TSM, ASML, NVDA (SMH removed 9 Sep 2026 — same reason; Joe's $612 position kept in `owned` as outside-plan)
-5. **AI bench** — COHR, CIEN, FN, CLS, MKSI, MTSI, AEIS, TTMI, VIAV, SITM, WDC, TSEM, CBRS, MU, INTC, ARM, AMD
-6. **Opportunistic** — UBER, APP, MDB, DASH, RBLX, FROG, KVYO, BABA, CVNA, TSLA, SPCX (CODI removed 4 Sep 2026 — no tracked filer owns it; MBGL, BE dropped earlier)
-7. **Radar** (researched, circling, not yet bought) — LLY, DE, ROP, FICO, VRSN, ORLY, TXN, RACE, HHH, LOAR, TPL, DIS, TDG, COF, NFLX (NFLX added 9 Sep 2026 — 11 of 47 filers, 4 opened NEW in Q2; deep dive published)
-8. **Dry powder** — VOO, VTV, QQQ, IDGT, SGOV
+1. **Forever compounders** (60%) — GOOGL, AMZN, META, MSFT, AAPL, BRK.B, NFLX, TSM, NVDA, ASML, TSLA, UBER, SPCX
+2. **Toll booths** (20%) — V, MA, MCO, SPGI
+3. **Dry powder** (20%) — VOO, VTV, QQQ, SGOV
+4. **Other positions** (0%) — owned but NOT a buy target; exists so nothing he holds
+   disappears from view. **No dollar goals** — Buy More stays blank. 38 names.
 
-Bucket %s (starting points, editable in ⚙️ Edit goals): Forever 35 / Toll 10 /
-Hard 10 / AI core 8 / AI bench 4 / Opp 8 / Radar 5 / Dry powder 20 (=100).
+Percentages are starting points; Joe changes them in-app (⚙️ Edit goals) and by
+per-stock weight. `targetsData` is at **v16**; the migration preserves every
+`owned`/`plan` value and drops anything owned-but-untargeted into Other positions.
+
+**Guard rail exemptions:** `dry` and `other` (cash management and a record of what
+he already owns — neither is a stock pick).
+
+**Watchlist = names he does NOT own and is only watching.** Its tab sits FAR RIGHT
+(tab order: Buy → My Holdings → Super Investors → Valuation → Research → Watchlist).
 
 ## The account model (implemented in the Buy Targets page, v7 data)
 - Three accounts, all sharing the 8 buckets: **Joe's IRA** ($950k, key `his`),
