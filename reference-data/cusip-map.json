@@ -1,9 +1,9 @@
 {
  "schema_version": 1,
- "generated_at": "2026-09-07T15:32:47.395670+00:00",
+ "generated_at": "2026-09-09T10:29:28.026978+00:00",
  "source": "offline bootstrap (scripts/build_cusip_map.py) \u2014 replace/extend with OpenFIGI pass",
- "resolved": 1884,
- "total": 2713,
+ "resolved": 1865,
+ "total": 2688,
  "map": {
   "025816109": {
    "ticker": "AXP",
@@ -495,166 +495,6 @@
    "name": "CAMPING WORLD HLDGS INC",
    "method": "name-exact"
   },
-  "550021109": {
-   "ticker": "LULU",
-   "name": "LULULEMON ATHLETICA INC",
-   "method": "name-exact"
-  },
-  "78442P106": {
-   "ticker": "SLM",
-   "name": "SLM CORP",
-   "method": "name-exact"
-  },
-  "116794207": {
-   "ticker": "BRKR",
-   "name": "BRUKER CORP",
-   "method": "name-exact"
-  },
-  "116794108": {
-   "ticker": "BRKR",
-   "name": "BRUKER CORP",
-   "method": "name-exact"
-  },
-  "75886F107": {
-   "ticker": "REGN",
-   "name": "REGENERON PHARMACEUTICALS",
-   "method": "name-exact"
-  },
-  "58733R102": {
-   "ticker": "MELI",
-   "name": "MERCADOLIBRE INC",
-   "method": "cusip-seed"
-  },
-  "01609W102": {
-   "ticker": "BABA",
-   "name": "ALIBABA GROUP HLDG LTD",
-   "method": "alias"
-  },
-  "056752108": {
-   "ticker": "BAIDF",
-   "name": "BAIDU INC",
-   "method": "name-exact"
-  },
-  "47215P106": {
-   "ticker": "JD",
-   "name": "JD.COM INC",
-   "method": "name-exact"
-  },
-  "722304102": {
-   "ticker": "PDD",
-   "name": "PDD HOLDINGS INC",
-   "method": "alias"
-  },
-  "40412C101": {
-   "ticker": "HCA",
-   "name": "HCA HEALTHCARE INC",
-   "method": "name-exact"
-  },
-  "918204108": {
-   "ticker": "VFC",
-   "name": "V F CORP",
-   "method": "name-exact"
-  },
-  "55939A107": {
-   "ticker": "MAGN",
-   "name": "MAGNERA CORP",
-   "method": "name-exact"
-  },
-  "687793109": {
-   "ticker": "OSCR",
-   "name": "OSCAR HEALTH INC",
-   "method": "name-exact"
-  },
-  "135086106": {
-   "ticker": "GOOS",
-   "name": "CANADA GOOSE HLDGS INC",
-   "method": "name-exact"
-  },
-  "444097109": {
-   "ticker": "HPP",
-   "name": "HUDSON PAC PPTYS INC",
-   "method": "name-expand"
-  },
-  "09077B104": {
-   "ticker": "BCAB",
-   "name": "BIOATLA INC",
-   "method": "name-exact"
-  },
-  "852234103": {
-   "ticker": "XYZ",
-   "name": "BLOCK INC",
-   "method": "alias"
-  },
-  "125523100": {
-   "ticker": "CI",
-   "name": "THE CIGNA GROUP",
-   "method": "name-exact"
-  },
-  "00751Y106": {
-   "ticker": "AAP",
-   "name": "ADVANCE AUTO PARTS INC",
-   "method": "name-exact"
-  },
-  "055622104": {
-   "ticker": "BP",
-   "name": "BP PLC",
-   "method": "name-exact"
-  },
-  "Y8162K204": {
-   "ticker": "SBLK",
-   "name": "STAR BULK CARRIERS CORP.",
-   "method": "name-exact"
-  },
-  "336433107": {
-   "ticker": "FSLR",
-   "name": "FIRST SOLAR INC",
-   "method": "name-exact"
-  },
-  "Y7388L103": {
-   "ticker": "SB",
-   "name": "SAFE BULKERS INC",
-   "method": "name-exact"
-  },
-  "68389X105": {
-   "ticker": "ORCL",
-   "name": "ORACLE CORP",
-   "method": "alias"
-  },
-  "126650100": {
-   "ticker": "CVS",
-   "name": "CVS HEALTH CORP",
-   "method": "name-exact"
-  },
-  "65336K103": {
-   "ticker": "NXST",
-   "name": "NEXSTAR MEDIA GROUP INC",
-   "method": "name-exact"
-  },
-  "552953101": {
-   "ticker": "MGM",
-   "name": "MGM RESORTS INTERNATIONAL",
-   "method": "name-exact"
-  },
-  "09857L108": {
-   "ticker": "BKNG",
-   "name": "BOOKING HOLDINGS INC",
-   "method": "alias"
-  },
-  "934423104": {
-   "ticker": "WBD",
-   "name": "WARNER BROS DISCOVERY INC",
-   "method": "name-exact"
-  },
-  "888787108": {
-   "ticker": "TOST",
-   "name": "TOAST INC",
-   "method": "name-exact"
-  },
-  "592688105": {
-   "ticker": "MTD",
-   "name": "METTLER TOLEDO INTERNATIONAL",
-   "method": "name-exact"
-  },
   "392709101": {
    "ticker": "GRBK",
    "name": "GREEN BRICK PARTNERS INC",
@@ -750,6 +590,11 @@
    "name": "ROIVANT SCIENCES LTD",
    "method": "name-exact"
   },
+  "934423104": {
+   "ticker": "WBD",
+   "name": "WARNER BROS DISCOVERY INC",
+   "method": "name-exact"
+  },
   "70450Y103": {
    "ticker": "PYPL",
    "name": "PAYPAL HLDGS INC",
@@ -805,6 +650,11 @@
    "name": "TRIPADVISOR INC",
    "method": "name-exact"
   },
+  "125523100": {
+   "ticker": "CI",
+   "name": "THE CIGNA GROUP",
+   "method": "name-exact"
+  },
   "22407B108": {
    "ticker": "COYA",
    "name": "COYA THERAPEUTICS INC",
@@ -828,6 +678,11 @@
   "36269B105": {
    "ticker": "GANX",
    "name": "GAIN THERAPEUTICS INC",
+   "method": "name-exact"
+  },
+  "78442P106": {
+   "ticker": "SLM",
+   "name": "SLM CORP",
    "method": "name-exact"
   },
   "70614W100": {
@@ -863,6 +718,11 @@
   "G7997W102": {
    "ticker": "SDRL",
    "name": "SEADRILL LTD",
+   "method": "name-exact"
+  },
+  "65336K103": {
+   "ticker": "NXST",
+   "name": "NEXSTAR MEDIA GROUP INC",
    "method": "name-exact"
   },
   "40434L105": {
@@ -1180,6 +1040,11 @@
    "name": "TYSON FOODS INC",
    "method": "name-exact"
   },
+  "58733R102": {
+   "ticker": "MELI",
+   "name": "MERCADOLIBRE INC",
+   "method": "cusip-seed"
+  },
   "988498101": {
    "ticker": "YUM",
    "name": "YUM BRANDS INC",
@@ -1218,6 +1083,11 @@
   "539830109": {
    "ticker": "LMT",
    "name": "LOCKHEED MARTIN CORP",
+   "method": "name-exact"
+  },
+  "40412C101": {
+   "ticker": "HCA",
+   "name": "HCA HEALTHCARE INC",
    "method": "name-exact"
   },
   "824348106": {
@@ -1383,6 +1253,11 @@
   "084423102": {
    "ticker": "WRB",
    "name": "BERKLEY W R CORP",
+   "method": "name-exact"
+  },
+  "552953101": {
+   "ticker": "MGM",
+   "name": "MGM RESORTS INTERNATIONAL",
    "method": "name-exact"
   },
   "45866F104": {
@@ -1710,6 +1585,11 @@
    "name": "DUPONT DE NEMOURS INC",
    "method": "name-exact"
   },
+  "09857L108": {
+   "ticker": "BKNG",
+   "name": "BOOKING HOLDINGS INC",
+   "method": "alias"
+  },
   "086516101": {
    "ticker": "BBY",
    "name": "BEST BUY INC",
@@ -1778,6 +1658,11 @@
   "682189105": {
    "ticker": "ON",
    "name": "ON SEMICONDUCTOR CORP",
+   "method": "name-exact"
+  },
+  "75886F107": {
+   "ticker": "REGN",
+   "name": "REGENERON PHARMACEUTICALS",
    "method": "name-exact"
   },
   "30034W106": {
@@ -1909,6 +1794,11 @@
    "ticker": "JCI",
    "name": "JOHNSON CONTROLS INTERNATION",
    "method": "alias"
+  },
+  "550021109": {
+   "ticker": "LULU",
+   "name": "LULULEMON ATHLETICA INC",
+   "method": "name-exact"
   },
   "12541W209": {
    "ticker": "CHRW",
@@ -2128,6 +2018,11 @@
   "256163106": {
    "ticker": "DOCU",
    "name": "DOCUSIGN INC",
+   "method": "name-exact"
+  },
+  "126650100": {
+   "ticker": "CVS",
+   "name": "CVS HEALTH CORP",
    "method": "name-exact"
   },
   "831865209": {
@@ -2650,6 +2545,11 @@
    "name": "ONEOK INC NEW",
    "method": "name-exact"
   },
+  "116794108": {
+   "ticker": "BRKR",
+   "name": "BRUKER CORP",
+   "method": "name-exact"
+  },
   "133131102": {
    "ticker": "CPT",
    "name": "CAMDEN PPTY TR",
@@ -2744,6 +2644,11 @@
    "ticker": "INGR",
    "name": "INGREDION INC",
    "method": "name-exact"
+  },
+  "852234103": {
+   "ticker": "XYZ",
+   "name": "BLOCK INC",
+   "method": "alias"
   },
   "101121101": {
    "ticker": "BXP",
@@ -3350,6 +3255,11 @@
    "name": "DUOLINGO INC",
    "method": "name-exact"
   },
+  "336433107": {
+   "ticker": "FSLR",
+   "name": "FIRST SOLAR INC",
+   "method": "name-exact"
+  },
   "18915M107": {
    "ticker": "NET",
    "name": "CLOUDFLARE INC",
@@ -3489,6 +3399,11 @@
    "ticker": "TKO",
    "name": "TKO GROUP HOLDINGS INC",
    "method": "name-exact"
+  },
+  "68389X105": {
+   "ticker": "ORCL",
+   "name": "ORACLE CORP",
+   "method": "alias"
   },
   "268150109": {
    "ticker": "DT",
@@ -3645,6 +3560,11 @@
    "name": "AMERICAN ELEC PWR CO INC",
    "method": "name-expand"
   },
+  "918204108": {
+   "ticker": "VFC",
+   "name": "V F CORP",
+   "method": "name-exact"
+  },
   "172908105": {
    "ticker": "CTAS",
    "name": "CINTAS CORP",
@@ -3728,6 +3648,11 @@
   "74758T303": {
    "ticker": "QLYS",
    "name": "QUALYS INC",
+   "method": "name-exact"
+  },
+  "592688105": {
+   "ticker": "MTD",
+   "name": "METTLER TOLEDO INTERNATIONAL",
    "method": "name-exact"
   },
   "70975L107": {
@@ -4155,6 +4080,11 @@
    "name": "CRANE NXT CO",
    "method": "name-exact"
   },
+  "888787108": {
+   "ticker": "TOST",
+   "name": "TOAST INC",
+   "method": "name-exact"
+  },
   "98956P102": {
    "ticker": "ZBH",
    "name": "ZIMMER BIOMET HOLDINGS INC",
@@ -4403,6 +4333,11 @@
   "023939101": {
    "ticker": "AMTM",
    "name": "AMENTUM HOLDINGS INC",
+   "method": "name-exact"
+  },
+  "00751Y106": {
+   "ticker": "AAP",
+   "name": "ADVANCE AUTO PARTS INC",
    "method": "name-exact"
   },
   "05577W200": {
@@ -5425,6 +5360,11 @@
    "name": "UNDER ARMOUR INC",
    "method": "name-exact"
   },
+  "687793109": {
+   "ticker": "OSCR",
+   "name": "OSCAR HEALTH INC",
+   "method": "name-exact"
+  },
   "358039105": {
    "ticker": "FRPT",
    "name": "FRESHPET INC",
@@ -5638,6 +5578,11 @@
   "741511109": {
    "ticker": "PSMT",
    "name": "PRICESMART INC",
+   "method": "name-exact"
+  },
+  "Y8162K204": {
+   "ticker": "SBLK",
+   "name": "STAR BULK CARRIERS CORP.",
    "method": "name-exact"
   },
   "46428Q109": {
@@ -6850,6 +6795,11 @@
    "name": "ISHARES ETHEREUM TR",
    "method": "fund"
   },
+  "01609W102": {
+   "ticker": "BABA",
+   "name": "ALIBABA GROUP HLDG LTD",
+   "method": "alias"
+  },
   "78435P105": {
    "ticker": "SEZL",
    "name": "SEZZLE INC",
@@ -7640,6 +7590,11 @@
    "name": "B & G FOODS INC NEW",
    "method": "name-exact"
   },
+  "444097109": {
+   "ticker": "HPP",
+   "name": "HUDSON PAC PPTYS INC",
+   "method": "name-expand"
+  },
   "374163103": {
    "ticker": "GERN",
    "name": "GERON CORP",
@@ -7803,6 +7758,11 @@
   "81663L200": {
    "ticker": "WGS",
    "name": "GENEDX HOLDINGS CORP",
+   "method": "name-exact"
+  },
+  "135086106": {
+   "ticker": "GOOS",
+   "name": "CANADA GOOSE HLDGS INC",
    "method": "name-exact"
   },
   "78377T107": {
@@ -8395,6 +8355,11 @@
    "name": "CARDLYTICS, INC.",
    "method": "name-exact"
   },
+  "722304102": {
+   "ticker": "PDD",
+   "name": "PDD HOLDINGS INC",
+   "method": "alias"
+  },
   "Y1968P121": {
    "ticker": "DAC",
    "name": "DANAOS CORPORATION",
@@ -8500,81 +8465,6 @@
    "name": "SEA LTD",
    "method": "name-exact"
   },
-  "21874A106": {
-   "ticker": "CORZ",
-   "name": "CORE SCIENTIFIC INC NEW",
-   "method": "alias"
-  },
-  "861012102": {
-   "ticker": "STM",
-   "name": "STMICROELECTRONICS",
-   "method": "alias"
-  },
-  "767292105": {
-   "ticker": "RIOT",
-   "name": "RIOT PLATFORMS INC",
-   "method": "name-exact"
-  },
-  "778920306": {
-   "ticker": "SHAZ",
-   "name": "SHARONAI HOLDINGS INC",
-   "method": "name-exact"
-  },
-  "Q4982L109": {
-   "ticker": "IREN",
-   "name": "IREN LIMITED",
-   "method": "name-exact"
-  },
-  "G96115103": {
-   "ticker": "WYFI",
-   "name": "WHITEFIBER INC",
-   "method": "name-exact"
-  },
-  "G11448100": {
-   "ticker": "BTDR",
-   "name": "BITDEER TECHNOLOGIES GROUP",
-   "method": "name-exact"
-  },
-  "35834F104": {
-   "ticker": "TE",
-   "name": "T1 ENERGY INC",
-   "method": "name-exact"
-  },
-  "M87915274": {
-   "ticker": "TSEM",
-   "name": "TOWER SEMICONDUCTOR LTD",
-   "method": "name-exact"
-  },
-  "44812J104": {
-   "ticker": "HUT",
-   "name": "HUT 8 CORP",
-   "method": "name-exact"
-  },
-  "36317J209": {
-   "ticker": "GLXY",
-   "name": "GALAXY DIGITAL INC.",
-   "method": "name-exact"
-  },
-  "17253JAA4": {
-   "ticker": "CIFR",
-   "name": "CIPHER MINING INC",
-   "method": "alias"
-  },
-  "55024UAD1": {
-   "ticker": "LITE",
-   "name": "LUMENTUM HLDGS INC",
-   "method": "name-exact"
-  },
-  "093712AH0": {
-   "ticker": "BE",
-   "name": "BLOOM ENERGY CORP",
-   "method": "name-exact"
-  },
-  "958102AT2": {
-   "ticker": "WDC",
-   "name": "WESTERN DIGITAL CORP",
-   "method": "name-exact"
-  },
   "G4124C117": {
    "ticker": "GRAB",
    "name": "GRAB HOLDINGS LIMITED",
@@ -8598,6 +8488,11 @@
   "36118L106": {
    "ticker": "FUTU",
    "name": "FUTU HLDGS LTD",
+   "method": "name-exact"
+  },
+  "44812J104": {
+   "ticker": "HUT",
+   "name": "HUT 8 CORP",
    "method": "name-exact"
   },
   "34631F102": {
@@ -8705,6 +8600,11 @@
    "name": "KE HLDGS INC",
    "method": "name-exact"
   },
+  "47215P106": {
+   "ticker": "JD",
+   "name": "JD.COM INC",
+   "method": "name-exact"
+  },
   "83417M104": {
    "ticker": "SEDG",
    "name": "SOLAREDGE TECHNOLOGIES INC",
@@ -8768,6 +8668,11 @@
   "010911105": {
    "ticker": "ALMR",
    "name": "Alamar Biosciences Inc",
+   "method": "name-exact"
+  },
+  "056752108": {
+   "ticker": "BAIDF",
+   "name": "Baidu Inc",
    "method": "name-exact"
   },
   "74168J101": {
@@ -8893,6 +8798,11 @@
   "M81873107": {
    "ticker": "RDWR",
    "name": "Radware Ltd",
+   "method": "name-exact"
+  },
+  "M87915274": {
+   "ticker": "TSEM",
+   "name": "Tower Semiconductor Ltd",
    "method": "name-exact"
   },
   "M0854Q105": {
@@ -9135,6 +9045,11 @@
    "name": "ATRENEW INC",
    "method": "name-exact"
   },
+  "21874A106": {
+   "ticker": "CORZ",
+   "name": "CORE SCIENTIFIC INC NEW",
+   "method": "alias"
+  },
   "G00894108": {
    "ticker": "ARX",
    "name": "ACCELERANT HOLDINGS",
@@ -9285,6 +9200,11 @@
    "name": "ITAU UNIBANCO HLDG S A",
    "method": "name-exact"
   },
+  "767292105": {
+   "ticker": "RIOT",
+   "name": "RIOT PLATFORMS INC",
+   "method": "name-exact"
+  },
   "75120L100": {
    "ticker": "RLYB",
    "name": "RALLYBIO CORP",
@@ -9315,30 +9235,15 @@
    "name": "ZAI LAB LTD",
    "method": "name-exact"
   },
-  "87305R109": {
-   "ticker": "TTMI",
-   "name": "TTM TECHNOLOGIES INC",
-   "method": "name-exact"
-  },
-  "01644J108": {
-   "ticker": "ALKT",
-   "name": "ALKAMI TECHNOLOGY INC",
-   "method": "name-exact"
-  },
-  "226718104": {
-   "ticker": "CRTO",
-   "name": "CRITEO S A",
-   "method": "name-exact"
-  },
-  "03823U102": {
-   "ticker": "AAOI",
-   "name": "APPLIED OPTOELECTRONICS INC",
-   "method": "name-exact"
-  },
   "879433829": {
    "ticker": "TDS",
    "name": "TELEPHONE & DATA SYS INC",
    "method": "alias"
+  },
+  "87305R109": {
+   "ticker": "TTMI",
+   "name": "TTM TECHNOLOGIES INC",
+   "method": "name-exact"
   },
   "02079K404": {
    "ticker": "GOOGL",
@@ -9441,11 +9346,6 @@
    "cusip": "45841N107",
    "name": "INTERACTIVE BROKERS GROUP IN",
    "latest_value_usd": 429984302
-  },
-  {
-   "cusip": "55405Y100",
-   "name": "MACOM TECH SOLUTIONS HLDGS I",
-   "latest_value_usd": 411229798
   },
   {
    "cusip": "314352105",
@@ -9556,11 +9456,6 @@
    "cusip": "159864107",
    "name": "CHARLES RIV LABS INTL INC",
    "latest_value_usd": 98233181
-  },
-  {
-   "cusip": "83418M103",
-   "name": "SOLARIS ENERGY INFRAS INC",
-   "latest_value_usd": 90889306
   },
   {
    "cusip": "410867105",
@@ -9783,6 +9678,11 @@
    "latest_value_usd": 35428067
   },
   {
+   "cusip": "55405Y100",
+   "name": "MACOM TECH SOLUTIONS HLDGS I",
+   "latest_value_usd": 35125648
+  },
+  {
    "cusip": "695156109",
    "name": "PACKAGING CORP AMER",
    "latest_value_usd": 34524151
@@ -9801,11 +9701,6 @@
    "cusip": "577081102",
    "name": "MATTEL INC",
    "latest_value_usd": 33334166
-  },
-  {
-   "cusip": "433921103",
-   "name": "HIVE DIGITAL TECHNOLOGIES LT",
-   "latest_value_usd": 33246763
   },
   {
    "cusip": "G1151C101",

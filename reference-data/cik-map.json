@@ -4,21 +4,24 @@
   "fund": "Berkshire Hathaway",
   "tier": 1,
   "source_type": "13F",
-  "cik": "1067983"
+  "cik": "1067983",
+  "status": "approved"
  },
  {
   "name": "Seth Klarman",
   "fund": "Baupost Group",
   "tier": 1,
   "source_type": "13F",
-  "cik": "1061768"
+  "cik": "1061768",
+  "status": "approved"
  },
  {
   "name": "David Abrams",
   "fund": "Abrams Capital Management",
   "tier": 1,
   "source_type": "13F",
-  "cik": "1358706"
+  "cik": "1358706",
+  "status": "approved"
  },
  {
   "name": "Michael Burry",
@@ -26,8 +29,9 @@
   "tier": 2,
   "source_type": "13F",
   "cik": "1649339",
-  "status": "dormant",
-  "note": "Scion Asset Management: last 13F for 30-SEP-2025 (filed Nov 2025); no filings since \u2014 Burry wound down the fund. Kept for history; does not vote on current consensus."
+  "status": "pruned",
+  "note": "Scion Asset Management: last 13F for 30-SEP-2025 (filed Nov 2025); no filings since \u2014 Burry wound down the fund. Kept for history; does not vote on current consensus.",
+  "pruned_at": "2026-09-09"
  },
  {
   "name": "David Einhorn",
@@ -35,35 +39,40 @@
   "tier": 2,
   "source_type": "13F",
   "cik": "1489933",
-  "note": "Greenlight's adviser files as DME Capital Management (CIK 1489933); old CIK 1079114 stopped filing. Fixed 2026-09-07."
+  "note": "Greenlight's adviser files as DME Capital Management (CIK 1489933); old CIK 1079114 stopped filing. Fixed 2026-09-07.",
+  "status": "approved"
  },
  {
   "name": "Chris Hohn",
   "fund": "TCI Fund Management",
   "tier": 1,
   "source_type": "13F",
-  "cik": "1647251"
+  "cik": "1647251",
+  "status": "approved"
  },
  {
   "name": "Chuck Akre",
   "fund": "Akre Capital Management",
   "tier": 1,
   "source_type": "13F",
-  "cik": "1112520"
+  "cik": "1112520",
+  "status": "approved"
  },
  {
   "name": "Tom Gayner",
   "fund": "Markel Group",
   "tier": 1,
   "source_type": "13F",
-  "cik": "1096343"
+  "cik": "1096343",
+  "status": "approved"
  },
  {
   "name": "Glenn Greenberg",
   "fund": "Brave Warrior Advisors",
   "tier": 2,
   "source_type": "13F",
-  "cik": "1553733"
+  "cik": "1553733",
+  "status": "approved"
  },
  {
   "name": "Joel Greenblatt",
@@ -71,56 +80,64 @@
   "tier": 2,
   "source_type": "13F",
   "cik": "1510387",
-  "note": "Gotham Asset Management LLC, CIK 1510387 (CRD 149335). Was 1446114 = Ancora Advisors LLC, a Cleveland RIA with 2,454 positions \u2014 a mis-map that polluted holdings/consensus/eligibility. Fixed 2026-09-07."
+  "note": "Gotham Asset Management LLC, CIK 1510387 (CRD 149335). Was 1446114 = Ancora Advisors LLC, a Cleveland RIA with 2,454 positions \u2014 a mis-map that polluted holdings/consensus/eligibility. Fixed 2026-09-07.",
+  "status": "approved"
  },
  {
   "name": "Clifford Sosin",
   "fund": "CAS Investment Partners",
   "tier": 2,
   "source_type": "13F",
-  "cik": "1697591"
+  "cik": "1697591",
+  "status": "approved"
  },
  {
   "name": "Norbert Lou",
   "fund": "Punch Card Management",
   "tier": 2,
   "source_type": "13F",
-  "cik": "1631664"
+  "cik": "1631664",
+  "status": "approved"
  },
  {
   "name": "Mohnish Pabrai",
   "fund": "Dalal Street LLC",
   "tier": 1,
   "source_type": "13F",
-  "cik": "1549575"
+  "cik": "1549575",
+  "status": "approved"
  },
  {
   "name": "Li Lu",
   "fund": "Himalaya Capital Management",
   "tier": 1,
   "source_type": "13F",
-  "cik": "1709323"
+  "cik": "1709323",
+  "status": "approved"
  },
  {
   "name": "Christopher Bloomstran",
   "fund": "Semper Augustus Investments",
   "tier": 2,
   "source_type": "13F",
-  "cik": "1115373"
+  "cik": "1115373",
+  "status": "approved"
  },
  {
   "name": "Dev Kantesaria",
   "fund": "Valley Forge Capital Management",
   "tier": 1,
   "source_type": "13F",
-  "cik": "1697868"
+  "cik": "1697868",
+  "status": "approved"
  },
  {
   "name": "Tom Bancroft",
   "fund": "Makaira Partners",
   "tier": 2,
   "source_type": "13F",
-  "cik": "1540866"
+  "cik": "1540866",
+  "status": "approved"
  },
  {
   "name": "Gavin Baker",
@@ -128,7 +145,8 @@
   "tier": 2,
   "source_type": "13F",
   "cik": "1777813",
-  "note": "AI-buildout radar, not a value investor"
+  "note": "AI-buildout radar, not a value investor",
+  "status": "approved"
  },
  {
   "name": "Leopold Aschenbrenner",
@@ -136,7 +154,9 @@
   "tier": 2,
   "source_type": "13F",
   "cik": "2045724",
-  "note": "AGI-thesis fund; uses options/puts. Not a value investor"
+  "note": "AGI-thesis fund; uses options/puts. Not a value investor Pruned 2026-09-09 by Joe.",
+  "status": "pruned",
+  "pruned_at": "2026-09-09"
  },
  {
   "name": "Brad Gerstner",
@@ -144,7 +164,8 @@
   "tier": 2,
   "source_type": "13F",
   "cik": "1541617",
-  "note": "AI/growth; not a value investor"
+  "note": "AI/growth; not a value investor",
+  "status": "approved"
  },
  {
   "name": "Philippe Laffont",
@@ -152,7 +173,8 @@
   "tier": 2,
   "source_type": "13F",
   "cik": "1135730",
-  "note": "Tech growth (Tiger Cub); not a value investor"
+  "note": "Tech growth (Tiger Cub); not a value investor",
+  "status": "approved"
  },
  {
   "name": "Cathie Wood",
@@ -160,7 +182,8 @@
   "tier": 2,
   "source_type": "13F",
   "cik": "1697748",
-  "note": "Disruptive-innovation ETFs; not a value investor"
+  "note": "Disruptive-innovation ETFs; not a value investor",
+  "status": "approved"
  },
  {
   "name": "Chase Coleman",
@@ -168,7 +191,8 @@
   "tier": 2,
   "source_type": "13F",
   "cik": "1167483",
-  "note": "Large-cap tech + private growth (Tiger Cub); not a value investor"
+  "note": "Large-cap tech + private growth (Tiger Cub); not a value investor",
+  "status": "approved"
  },
  {
   "name": "Dan Niles",
@@ -176,7 +200,8 @@
   "tier": 2,
   "source_type": "13F",
   "cik": "2016708",
-  "note": "Tech/semis trader; uses puts/hedges. Not a value investor"
+  "note": "Tech/semis trader; uses puts/hedges. Not a value investor",
+  "status": "approved"
  },
  {
   "name": "Ole Andreas Halvorsen",
@@ -184,7 +209,8 @@
   "tier": 2,
   "source_type": "13F",
   "cik": "1103804",
-  "note": "Quality-growth long/short (Tiger Cub); not deep value"
+  "note": "Quality-growth long/short (Tiger Cub); not deep value",
+  "status": "approved"
  },
  {
   "name": "Whale Rock",
@@ -192,21 +218,25 @@
   "tier": 2,
   "source_type": "13F",
   "cik": "1387322",
-  "note": "Tech-focused growth (A. Sacerdote); not a value investor"
+  "note": "Tech-focused growth (A. Sacerdote); not a value investor Pruned 2026-09-09 by Joe.",
+  "status": "pruned",
+  "pruned_at": "2026-09-09"
  },
  {
   "name": "Terry Smith",
   "fund": "Fundsmith LLP",
   "tier": 1,
   "source_type": "13F",
-  "cik": "1569205"
+  "cik": "1569205",
+  "status": "approved"
  },
  {
   "name": "Daniel Loeb",
   "fund": "Third Point",
   "tier": 1,
   "source_type": "13F",
-  "cik": "1040273"
+  "cik": "1040273",
+  "status": "approved"
  },
  {
   "name": "Bill Ackman",
@@ -217,6 +247,196 @@
   "note": "Pershing Square moved its filing entity: CIK 1336528 (Pershing Square Capital Management, L.P.) filed the book through Q1-2026, then filed 13F-NT for Q2-2026 while CIK 2026053 (Pershing Square Inc.) filed the holdings report. Both CIKs are pulled and merged by quarter. Fixed 2026-09-07.",
   "alt_ciks": [
    "1336528"
-  ]
+  ],
+  "status": "approved"
+ },
+ {
+  "name": "WEDGEWOOD PARTNERS INC",
+  "fund": "WEDGEWOOD PARTNERS INC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "859804",
+  "status": "approved",
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 80, 22 positions, $0.5B)."
+ },
+ {
+  "name": "ALLEN HOLDING INC /NY",
+  "fund": "ALLEN HOLDING INC /NY",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "919489",
+  "status": "approved",
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 96, 9 positions, $1.0B)."
+ },
+ {
+  "name": "WELLCOME TRUST LTD (THE) as trustee of the WELLCOME TRUST",
+  "fund": "WELLCOME TRUST LTD (THE) as trustee of the WELLCOME TRUST",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1026720",
+  "status": "approved",
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 87, 21 positions, $8.1B)."
+ },
+ {
+  "name": "SAYBROOK CAPITAL /NC",
+  "fund": "SAYBROOK CAPITAL /NC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1044924",
+  "status": "approved",
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 81, 42 positions, $0.4B)."
+ },
+ {
+  "name": "STEGINSKY CAPITAL LLC",
+  "fund": "STEGINSKY CAPITAL LLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1120048",
+  "status": "approved",
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 100, 8 positions, $0.6B)."
+ },
+ {
+  "name": "Barton Investment Management",
+  "fund": "Barton Investment Management",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1387818",
+  "status": "approved",
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 82, 54 positions, $0.8B)."
+ },
+ {
+  "name": "Greenbrier Partners Capital Management, LLC",
+  "fund": "Greenbrier Partners Capital Management, LLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1532262",
+  "status": "approved",
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 100, 11 positions, $1.3B)."
+ },
+ {
+  "name": "SPRUCE HOUSE INVESTMENT MANAGEMENT LLC",
+  "fund": "SPRUCE HOUSE INVESTMENT MANAGEMENT LLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1543170",
+  "status": "approved",
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 95, 11 positions, $2.8B)."
+ },
+ {
+  "name": "Foxhaven Asset Management, LP",
+  "fund": "Foxhaven Asset Management, LP",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1590531",
+  "status": "approved",
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 81, 14 positions, $3.2B)."
+ },
+ {
+  "name": "Strategy Capital LLC",
+  "fund": "Strategy Capital LLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1592413",
+  "status": "approved",
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 96, 11 positions, $1.2B)."
+ },
+ {
+  "name": "Hikari Power Ltd",
+  "fund": "Hikari Power Ltd",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1606152",
+  "status": "approved",
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 83, 51 positions, $1.1B)."
+ },
+ {
+  "name": "Hyperion Asset Management Ltd",
+  "fund": "Hyperion Asset Management Ltd",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1619844",
+  "status": "approved",
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 89, 18 positions, $3.1B)."
+ },
+ {
+  "name": "Cryder Capital Partners LLP",
+  "fund": "Cryder Capital Partners LLP",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1633969",
+  "status": "approved",
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 100, 10 positions, $1.5B)."
+ },
+ {
+  "name": "Manitou Investment Management Ltd.",
+  "fund": "Manitou Investment Management Ltd.",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1657428",
+  "status": "approved",
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 83, 52 positions, $0.5B)."
+ },
+ {
+  "name": "Gobi Capital LLC",
+  "fund": "Gobi Capital LLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1698060",
+  "status": "approved",
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 95, 10 positions, $1.7B)."
+ },
+ {
+  "name": "Milestone Resources Group Ltd",
+  "fund": "Milestone Resources Group Ltd",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1708139",
+  "status": "approved",
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 82, 9 positions, $1.6B)."
+ },
+ {
+  "name": "MayTech Global Investments, LLC",
+  "fund": "MayTech Global Investments, LLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1731134",
+  "status": "approved",
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 80, 23 positions, $0.8B)."
+ },
+ {
+  "name": "GREENLEA LANE CAPITAL MANAGEMENT, LLC",
+  "fund": "GREENLEA LANE CAPITAL MANAGEMENT, LLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1766504",
+  "status": "approved",
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 93, 9 positions, $0.3B)."
+ },
+ {
+  "name": "Nellore Capital Management LLC",
+  "fund": "Nellore Capital Management LLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1846677",
+  "status": "approved",
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 85, 11 positions, $0.8B)."
+ },
+ {
+  "name": "Gavilan Investment Partners LLC",
+  "fund": "Gavilan Investment Partners LLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1963404",
+  "status": "approved",
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 93, 14 positions, $0.4B)."
+ },
+ {
+  "name": "JIA INVESTMENT ALLIANCE PTE. LTD.",
+  "fund": "JIA INVESTMENT ALLIANCE PTE. LTD.",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1966595",
+  "status": "approved",
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 85, 24 positions, $1.0B)."
  }
 ]

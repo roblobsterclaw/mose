@@ -95,6 +95,17 @@ def is_fund(name: str) -> bool:
     u = (name or "").upper()
     return any(re.search(r"(^|\W)" + re.escape(w.strip()) + r"(\W|$)", u) for w in ETF_WORDS)
 
+# A filer only votes on the current picture if Joe still tracks them and they are
+# still filing. "pruned" (removed by Joe) and "dormant" (stopped filing) keep
+# their history in data/sec-13f-filings.json but must not drive consensus,
+# eligibility or the guard rail.
+VOTING_STATUSES = {"active", "approved", ""}
+
+
+def votes_now(inv: dict) -> bool:
+    return str(inv.get("status") or "active").lower() in VOTING_STATUSES
+
+
 def main() -> None:
     raw = json.load(open(RAW))
     directory = json.load(open(DIR))["symbols"]
@@ -141,13 +152,13 @@ def main() -> None:
             if t: return t, ("fund" if is_fund(nm) else m)
         return ("", "fund") if any(is_fund(x) for x in names_by_cusip.get(cusip, [name])) else best
 
-    latest = max(f["quarter"] for inv in raw["investors"] for f in inv["filings"])
+    latest = max(f["quarter"] for inv in raw["investors"] if votes_now(inv) for f in inv["filings"])
     cmap: dict[str, dict] = {}
     unresolved: collections.Counter = collections.Counter()
     unresolved_name: dict[str, str] = {}
     holders: dict[str, dict] = collections.defaultdict(lambda: {"holders": [], "value_usd": 0.0, "company": ""})
     by_method = collections.Counter(); by_val = collections.Counter(); total_val = 0.0
-    for inv in raw["investors"]:
+    for inv in [i for i in raw["investors"] if votes_now(i)]:
         for f in inv["filings"]:
             for h in f["holdings"]:
                 c = h.get("cusip"); nm = h.get("company") or ""

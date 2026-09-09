@@ -78,6 +78,17 @@ def price_of(row: dict) -> float | None:
     return None
 
 
+# A filer only votes on the current picture if Joe still tracks them and they are
+# still filing. "pruned" (removed by Joe) and "dormant" (stopped filing) keep
+# their history in data/sec-13f-filings.json but must not drive consensus,
+# eligibility or the guard rail.
+VOTING_STATUSES = {"active", "approved", ""}
+
+
+def votes_now(inv: dict) -> bool:
+    return str(inv.get("status") or "active").lower() in VOTING_STATUSES
+
+
 def main() -> int:
     history = load_json(SEC_HISTORY, {})
     investors = history.get("investors") or []
@@ -87,7 +98,7 @@ def main() -> int:
 
     quotes = live_prices()
     all_quarters = sorted(
-        {f.get("quarter") for inv in investors for f in inv.get("filings", []) if f.get("quarter")},
+        {f.get("quarter") for inv in investors if votes_now(inv) for f in inv.get("filings", []) if f.get("quarter")},
         key=quarter_key,
     )
     if not all_quarters:
@@ -98,6 +109,8 @@ def main() -> int:
     convergence: dict[str, set] = defaultdict(set)
 
     for inv in investors:
+        if not votes_now(inv):
+            continue  # pruned or dormant: history kept, no vote
         name = inv.get("name")
         fund = inv.get("fund") or ""
         by_quarter = {f.get("quarter"): aggregate(f.get("holdings", [])) for f in inv.get("filings", [])}

@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-07T16:40:55.673983+00:00",
+  "generated_at": "2026-09-09T10:29:27.684052+00:00",
   "source": "data/sec-13f-filings.json (latest 13F per investor)",
-  "total_holdings": 185,
-  "total_investors": 25,
+  "total_holdings": 181,
+  "total_investors": 24,
   "latest_quarter": "2026-Q2",
   "holdings": [
     {
@@ -21,8 +21,8 @@
       "pct_change_since_entry": 39.23,
       "trend": "ADDING",
       "hold_duration": 4,
-      "convergence": 17,
-      "convergence_score": 17,
+      "convergence": 16,
+      "convergence_score": 16,
       "conviction": 10
     },
     {
@@ -41,8 +41,8 @@
       "pct_change_since_entry": 104.08,
       "trend": "TRIMMING",
       "hold_duration": 8,
-      "convergence": 17,
-      "convergence_score": 17,
+      "convergence": 16,
+      "convergence_score": 16,
       "conviction": 10
     },
     {
@@ -61,8 +61,8 @@
       "pct_change_since_entry": 104.08,
       "trend": "ADDING",
       "hold_duration": 8,
-      "convergence": 17,
-      "convergence_score": 17,
+      "convergence": 16,
+      "convergence_score": 16,
       "conviction": 10
     },
     {
@@ -81,8 +81,8 @@
       "pct_change_since_entry": 104.08,
       "trend": "HOLDING",
       "hold_duration": 8,
-      "convergence": 17,
-      "convergence_score": 17,
+      "convergence": 16,
+      "convergence_score": 16,
       "conviction": 10
     },
     {
@@ -101,28 +101,8 @@
       "pct_change_since_entry": 104.08,
       "trend": "HOLDING",
       "hold_duration": 8,
-      "convergence": 17,
-      "convergence_score": 17,
-      "conviction": 10
-    },
-    {
-      "ticker": "GOOGL",
-      "company": "ALPHABET INC",
-      "investor": "Whale Rock",
-      "fund": "Whale Rock Capital Management",
-      "shares": 2396352,
-      "value_usd": 856384314,
-      "pct_portfolio": 6.88,
-      "current_price": 338.46,
-      "entry_quarter": "2024-Q3",
-      "entry_price": 165.85,
-      "entry_price_45d": 165.85,
-      "unrealized_pct": 104.08,
-      "pct_change_since_entry": 104.08,
-      "trend": "TRIMMING",
-      "hold_duration": 8,
-      "convergence": 17,
-      "convergence_score": 17,
+      "convergence": 16,
+      "convergence_score": 16,
       "conviction": 10
     },
     {
@@ -141,8 +121,8 @@
       "pct_change_since_entry": 104.08,
       "trend": "TRIMMING",
       "hold_duration": 8,
-      "convergence": 17,
-      "convergence_score": 17,
+      "convergence": 16,
+      "convergence_score": 16,
       "conviction": 10
     },
     {
@@ -161,8 +141,8 @@
       "pct_change_since_entry": 104.08,
       "trend": "TRIMMING",
       "hold_duration": 8,
-      "convergence": 17,
-      "convergence_score": 17,
+      "convergence": 16,
+      "convergence_score": 16,
       "conviction": 10
     },
     {
@@ -181,8 +161,8 @@
       "pct_change_since_entry": 17.7,
       "trend": "ADDING",
       "hold_duration": 2,
-      "convergence": 17,
-      "convergence_score": 17,
+      "convergence": 16,
+      "convergence_score": 16,
       "conviction": 10
     },
     {
@@ -201,8 +181,8 @@
       "pct_change_since_entry": 104.08,
       "trend": "HOLDING",
       "hold_duration": 8,
-      "convergence": 17,
-      "convergence_score": 17,
+      "convergence": 16,
+      "convergence_score": 16,
       "conviction": 10
     },
     {
@@ -221,8 +201,8 @@
       "pct_change_since_entry": 104.08,
       "trend": "HOLDING",
       "hold_duration": 8,
-      "convergence": 17,
-      "convergence_score": 17,
+      "convergence": 16,
+      "convergence_score": 16,
       "conviction": 10
     },
     {
@@ -241,8 +221,8 @@
       "pct_change_since_entry": 104.08,
       "trend": "TRIMMING",
       "hold_duration": 8,
-      "convergence": 17,
-      "convergence_score": 17,
+      "convergence": 16,
+      "convergence_score": 16,
       "conviction": 10
     },
     {
@@ -261,8 +241,8 @@
       "pct_change_since_entry": 104.08,
       "trend": "NEW",
       "hold_duration": 8,
-      "convergence": 17,
-      "convergence_score": 17,
+      "convergence": 16,
+      "convergence_score": 16,
       "conviction": 10
     },
     {
@@ -281,8 +261,8 @@
       "pct_change_since_entry": -5.29,
       "trend": "NEW",
       "hold_duration": 1,
-      "convergence": 17,
-      "convergence_score": 17,
+      "convergence": 16,
+      "convergence_score": 16,
       "conviction": 10
     },
     {
@@ -301,8 +281,8 @@
       "pct_change_since_entry": 104.08,
       "trend": "HOLDING",
       "hold_duration": 8,
-      "convergence": 17,
-      "convergence_score": 17,
+      "convergence": 16,
+      "convergence_score": 16,
       "conviction": 10
     },
     {
@@ -321,8 +301,8 @@
       "pct_change_since_entry": 8.13,
       "trend": "TRIMMING",
       "hold_duration": 3,
-      "convergence": 17,
-      "convergence_score": 17,
+      "convergence": 16,
+      "convergence_score": 16,
       "conviction": 10
     },
     {
@@ -341,8 +321,8 @@
       "pct_change_since_entry": 8.13,
       "trend": "HOLDING",
       "hold_duration": 3,
-      "convergence": 17,
-      "convergence_score": 17,
+      "convergence": 16,
+      "convergence_score": 16,
       "conviction": 10
     },
     {
@@ -361,8 +341,8 @@
       "pct_change_since_entry": -6.56,
       "trend": "ADDING",
       "hold_duration": 3,
-      "convergence": 14,
-      "convergence_score": 14,
+      "convergence": 13,
+      "convergence_score": 13,
       "conviction": 10
     },
     {
@@ -381,8 +361,8 @@
       "pct_change_since_entry": 7.74,
       "trend": "TRIMMING",
       "hold_duration": 8,
-      "convergence": 14,
-      "convergence_score": 14,
+      "convergence": 13,
+      "convergence_score": 13,
       "conviction": 10
     },
     {
@@ -401,8 +381,8 @@
       "pct_change_since_entry": 7.74,
       "trend": "TRIMMING",
       "hold_duration": 8,
-      "convergence": 14,
-      "convergence_score": 14,
+      "convergence": 13,
+      "convergence_score": 13,
       "conviction": 10
     },
     {
@@ -421,8 +401,8 @@
       "pct_change_since_entry": 7.01,
       "trend": "ADDING",
       "hold_duration": 6,
-      "convergence": 14,
-      "convergence_score": 14,
+      "convergence": 13,
+      "convergence_score": 13,
       "conviction": 10
     },
     {
@@ -441,8 +421,8 @@
       "pct_change_since_entry": 7.74,
       "trend": "TRIMMING",
       "hold_duration": 8,
-      "convergence": 14,
-      "convergence_score": 14,
+      "convergence": 13,
+      "convergence_score": 13,
       "conviction": 10
     },
     {
@@ -461,28 +441,8 @@
       "pct_change_since_entry": 5.34,
       "trend": "TRIMMING",
       "hold_duration": 7,
-      "convergence": 14,
-      "convergence_score": 14,
-      "conviction": 10
-    },
-    {
-      "ticker": "META",
-      "company": "META PLATFORMS INC",
-      "investor": "Whale Rock",
-      "fund": "Whale Rock Capital Management",
-      "shares": 455982,
-      "value_usd": 256850101,
-      "pct_portfolio": 2.06,
-      "current_price": 616.77,
-      "entry_quarter": "2024-Q3",
-      "entry_price": 572.44,
-      "entry_price_45d": 572.44,
-      "unrealized_pct": 7.74,
-      "pct_change_since_entry": 7.74,
-      "trend": "TRIMMING",
-      "hold_duration": 8,
-      "convergence": 14,
-      "convergence_score": 14,
+      "convergence": 13,
+      "convergence_score": 13,
       "conviction": 10
     },
     {
@@ -501,8 +461,8 @@
       "pct_change_since_entry": 7.01,
       "trend": "NEW",
       "hold_duration": 6,
-      "convergence": 14,
-      "convergence_score": 14,
+      "convergence": 13,
+      "convergence_score": 13,
       "conviction": 10
     },
     {
@@ -521,8 +481,8 @@
       "pct_change_since_entry": 7.74,
       "trend": "HOLDING",
       "hold_duration": 8,
-      "convergence": 14,
-      "convergence_score": 14,
+      "convergence": 13,
+      "convergence_score": 13,
       "conviction": 10
     },
     {
@@ -541,8 +501,8 @@
       "pct_change_since_entry": 7.74,
       "trend": "ADDING",
       "hold_duration": 8,
-      "convergence": 14,
-      "convergence_score": 14,
+      "convergence": 13,
+      "convergence_score": 13,
       "conviction": 10
     },
     {
@@ -561,8 +521,8 @@
       "pct_change_since_entry": 7.74,
       "trend": "TRIMMING",
       "hold_duration": 8,
-      "convergence": 14,
-      "convergence_score": 14,
+      "convergence": 13,
+      "convergence_score": 13,
       "conviction": 10
     },
     {
@@ -581,8 +541,8 @@
       "pct_change_since_entry": 7.74,
       "trend": "HOLDING",
       "hold_duration": 8,
-      "convergence": 14,
-      "convergence_score": 14,
+      "convergence": 13,
+      "convergence_score": 13,
       "conviction": 10
     },
     {
@@ -601,8 +561,8 @@
       "pct_change_since_entry": 9.49,
       "trend": "NEW",
       "hold_duration": 1,
-      "convergence": 14,
-      "convergence_score": 14,
+      "convergence": 13,
+      "convergence_score": 13,
       "conviction": 10
     },
     {
@@ -621,8 +581,8 @@
       "pct_change_since_entry": -16.44,
       "trend": "HOLDING",
       "hold_duration": 5,
-      "convergence": 14,
-      "convergence_score": 14,
+      "convergence": 13,
+      "convergence_score": 13,
       "conviction": 10
     },
     {
@@ -641,8 +601,8 @@
       "pct_change_since_entry": 38.74,
       "trend": "ADDING",
       "hold_duration": 8,
-      "convergence": 13,
-      "convergence_score": 13,
+      "convergence": 12,
+      "convergence_score": 12,
       "conviction": 10
     },
     {
@@ -661,8 +621,8 @@
       "pct_change_since_entry": 38.74,
       "trend": "TRIMMING",
       "hold_duration": 8,
-      "convergence": 13,
-      "convergence_score": 13,
+      "convergence": 12,
+      "convergence_score": 12,
       "conviction": 10
     },
     {
@@ -681,8 +641,8 @@
       "pct_change_since_entry": 17.83,
       "trend": "TRIMMING",
       "hold_duration": 5,
-      "convergence": 13,
-      "convergence_score": 13,
+      "convergence": 12,
+      "convergence_score": 12,
       "conviction": 10
     },
     {
@@ -701,28 +661,8 @@
       "pct_change_since_entry": 38.74,
       "trend": "ADDING",
       "hold_duration": 8,
-      "convergence": 13,
-      "convergence_score": 13,
-      "conviction": 10
-    },
-    {
-      "ticker": "AMZN",
-      "company": "AMAZON COM INC",
-      "investor": "Whale Rock",
-      "fund": "Whale Rock Capital Management",
-      "shares": 2447732,
-      "value_usd": 583392445,
-      "pct_portfolio": 4.68,
-      "current_price": 258.51,
-      "entry_quarter": "2024-Q3",
-      "entry_price": 186.33,
-      "entry_price_45d": 186.33,
-      "unrealized_pct": 38.74,
-      "pct_change_since_entry": 38.74,
-      "trend": "ADDING",
-      "hold_duration": 8,
-      "convergence": 13,
-      "convergence_score": 13,
+      "convergence": 12,
+      "convergence_score": 12,
       "conviction": 10
     },
     {
@@ -741,8 +681,8 @@
       "pct_change_since_entry": 38.74,
       "trend": "ADDING",
       "hold_duration": 8,
-      "convergence": 13,
-      "convergence_score": 13,
+      "convergence": 12,
+      "convergence_score": 12,
       "conviction": 10
     },
     {
@@ -761,8 +701,8 @@
       "pct_change_since_entry": 38.74,
       "trend": "HOLDING",
       "hold_duration": 8,
-      "convergence": 13,
-      "convergence_score": 13,
+      "convergence": 12,
+      "convergence_score": 12,
       "conviction": 10
     },
     {
@@ -781,8 +721,8 @@
       "pct_change_since_entry": 38.74,
       "trend": "TRIMMING",
       "hold_duration": 8,
-      "convergence": 13,
-      "convergence_score": 13,
+      "convergence": 12,
+      "convergence_score": 12,
       "conviction": 10
     },
     {
@@ -801,8 +741,8 @@
       "pct_change_since_entry": 38.74,
       "trend": "ADDING",
       "hold_duration": 8,
-      "convergence": 13,
-      "convergence_score": 13,
+      "convergence": 12,
+      "convergence_score": 12,
       "conviction": 10
     },
     {
@@ -821,8 +761,8 @@
       "pct_change_since_entry": 38.74,
       "trend": "ADDING",
       "hold_duration": 8,
-      "convergence": 13,
-      "convergence_score": 13,
+      "convergence": 12,
+      "convergence_score": 12,
       "conviction": 10
     },
     {
@@ -841,8 +781,8 @@
       "pct_change_since_entry": 12.0,
       "trend": "TRIMMING",
       "hold_duration": 3,
-      "convergence": 13,
-      "convergence_score": 13,
+      "convergence": 12,
+      "convergence_score": 12,
       "conviction": 10
     },
     {
@@ -861,8 +801,8 @@
       "pct_change_since_entry": 111896.47,
       "trend": "ADDING",
       "hold_duration": 3,
-      "convergence": 13,
-      "convergence_score": 13,
+      "convergence": 12,
+      "convergence_score": 12,
       "conviction": 10
     },
     {
@@ -881,8 +821,8 @@
       "pct_change_since_entry": 38.74,
       "trend": "ADDING",
       "hold_duration": 8,
-      "convergence": 13,
-      "convergence_score": 13,
+      "convergence": 12,
+      "convergence_score": 12,
       "conviction": 10
     },
     {
@@ -1986,26 +1926,6 @@
       "conviction": 7
     },
     {
-      "ticker": "AAPL",
-      "company": "APPLE INC",
-      "investor": "Warren Buffett",
-      "fund": "Berkshire Hathaway",
-      "shares": 227917808,
-      "value_usd": 65950296923,
-      "pct_portfolio": 22.04,
-      "current_price": 319.97,
-      "entry_quarter": "2024-Q3",
-      "entry_price": 233.0,
-      "entry_price_45d": 233.0,
-      "unrealized_pct": 37.33,
-      "pct_change_since_entry": 37.33,
-      "trend": "HOLDING",
-      "hold_duration": 8,
-      "convergence": 6,
-      "convergence_score": 6,
-      "conviction": 6
-    },
-    {
       "ticker": "UBER",
       "company": "UBER TECHNOLOGIES INC",
       "investor": "Bill Ackman",
@@ -2039,26 +1959,6 @@
       "entry_price_45d": 962.16,
       "unrealized_pct": -47.41,
       "pct_change_since_entry": -47.41,
-      "trend": "HOLDING",
-      "hold_duration": 8,
-      "convergence": 6,
-      "convergence_score": 6,
-      "conviction": 6
-    },
-    {
-      "ticker": "AAPL",
-      "company": "APPLE INC",
-      "investor": "Joel Greenblatt",
-      "fund": "Gotham Asset Management",
-      "shares": 2860500,
-      "value_usd": 827714280,
-      "pct_portfolio": 1.93,
-      "current_price": 319.97,
-      "entry_quarter": "2024-Q3",
-      "entry_price": 233.0,
-      "entry_price_45d": 233.0,
-      "unrealized_pct": 37.33,
-      "pct_change_since_entry": 37.33,
       "trend": "HOLDING",
       "hold_duration": 8,
       "convergence": 6,
@@ -2140,26 +2040,6 @@
       "unrealized_pct": 0.8,
       "pct_change_since_entry": 0.8,
       "trend": "TRIMMING",
-      "hold_duration": 8,
-      "convergence": 6,
-      "convergence_score": 6,
-      "conviction": 6
-    },
-    {
-      "ticker": "AAPL",
-      "company": "APPLE INC",
-      "investor": "Tom Gayner",
-      "fund": "Markel Group",
-      "shares": 1227290,
-      "value_usd": 355128634,
-      "pct_portfolio": 2.7,
-      "current_price": 319.97,
-      "entry_quarter": "2024-Q3",
-      "entry_price": 233.0,
-      "entry_price_45d": 233.0,
-      "unrealized_pct": 37.33,
-      "pct_change_since_entry": 37.33,
-      "trend": "HOLDING",
       "hold_duration": 8,
       "convergence": 6,
       "convergence_score": 6,
@@ -2306,46 +2186,6 @@
       "conviction": 6
     },
     {
-      "ticker": "AAPL",
-      "company": "APPLE INC",
-      "investor": "Li Lu",
-      "fund": "Himalaya Capital Management",
-      "shares": 110600,
-      "value_usd": 32003216,
-      "pct_portfolio": 0.86,
-      "current_price": 319.97,
-      "entry_quarter": "2024-Q3",
-      "entry_price": 233.0,
-      "entry_price_45d": 233.0,
-      "unrealized_pct": 37.33,
-      "pct_change_since_entry": 37.33,
-      "trend": "HOLDING",
-      "hold_duration": 8,
-      "convergence": 6,
-      "convergence_score": 6,
-      "conviction": 6
-    },
-    {
-      "ticker": "AAPL",
-      "company": "APPLE INC",
-      "investor": "Whale Rock",
-      "fund": "Whale Rock Capital Management",
-      "shares": 99766,
-      "value_usd": 28868290,
-      "pct_portfolio": 0.23,
-      "current_price": 319.97,
-      "entry_quarter": "2024-Q4",
-      "entry_price": 250.42,
-      "entry_price_45d": 250.42,
-      "unrealized_pct": 27.77,
-      "pct_change_since_entry": 27.77,
-      "trend": "ADDING",
-      "hold_duration": 7,
-      "convergence": 6,
-      "convergence_score": 6,
-      "conviction": 6
-    },
-    {
       "ticker": "COF",
       "company": "CAPITAL ONE FINL CORP",
       "investor": "Tom Gayner",
@@ -2448,6 +2288,86 @@
     {
       "ticker": "AAPL",
       "company": "APPLE INC",
+      "investor": "Warren Buffett",
+      "fund": "Berkshire Hathaway",
+      "shares": 227917808,
+      "value_usd": 65950296923,
+      "pct_portfolio": 22.04,
+      "current_price": 319.97,
+      "entry_quarter": "2024-Q3",
+      "entry_price": 233.0,
+      "entry_price_45d": 233.0,
+      "unrealized_pct": 37.33,
+      "pct_change_since_entry": 37.33,
+      "trend": "HOLDING",
+      "hold_duration": 8,
+      "convergence": 5,
+      "convergence_score": 5,
+      "conviction": 5
+    },
+    {
+      "ticker": "AAPL",
+      "company": "APPLE INC",
+      "investor": "Joel Greenblatt",
+      "fund": "Gotham Asset Management",
+      "shares": 2860500,
+      "value_usd": 827714280,
+      "pct_portfolio": 1.93,
+      "current_price": 319.97,
+      "entry_quarter": "2024-Q3",
+      "entry_price": 233.0,
+      "entry_price_45d": 233.0,
+      "unrealized_pct": 37.33,
+      "pct_change_since_entry": 37.33,
+      "trend": "HOLDING",
+      "hold_duration": 8,
+      "convergence": 5,
+      "convergence_score": 5,
+      "conviction": 5
+    },
+    {
+      "ticker": "AAPL",
+      "company": "APPLE INC",
+      "investor": "Tom Gayner",
+      "fund": "Markel Group",
+      "shares": 1227290,
+      "value_usd": 355128634,
+      "pct_portfolio": 2.7,
+      "current_price": 319.97,
+      "entry_quarter": "2024-Q3",
+      "entry_price": 233.0,
+      "entry_price_45d": 233.0,
+      "unrealized_pct": 37.33,
+      "pct_change_since_entry": 37.33,
+      "trend": "HOLDING",
+      "hold_duration": 8,
+      "convergence": 5,
+      "convergence_score": 5,
+      "conviction": 5
+    },
+    {
+      "ticker": "AAPL",
+      "company": "APPLE INC",
+      "investor": "Li Lu",
+      "fund": "Himalaya Capital Management",
+      "shares": 110600,
+      "value_usd": 32003216,
+      "pct_portfolio": 0.86,
+      "current_price": 319.97,
+      "entry_quarter": "2024-Q3",
+      "entry_price": 233.0,
+      "entry_price_45d": 233.0,
+      "unrealized_pct": 37.33,
+      "pct_change_since_entry": 37.33,
+      "trend": "HOLDING",
+      "hold_duration": 8,
+      "convergence": 5,
+      "convergence_score": 5,
+      "conviction": 5
+    },
+    {
+      "ticker": "AAPL",
+      "company": "APPLE INC",
       "investor": "Christopher Bloomstran",
       "fund": "Semper Augustus Investments",
       "shares": 4640,
@@ -2461,9 +2381,9 @@
       "pct_change_since_entry": 37.33,
       "trend": "ADDING",
       "hold_duration": 8,
-      "convergence": 6,
-      "convergence_score": 6,
-      "conviction": 6
+      "convergence": 5,
+      "convergence_score": 5,
+      "conviction": 5
     },
     {
       "ticker": "AXP",
@@ -3708,6 +3628,6 @@
   ],
   "summary": {
     "unique_stocks": 37,
-    "holdings": 185
+    "holdings": 181
   }
 }

@@ -6,6 +6,19 @@
 
 ---
 
+## Session 14 — September 9, 2026 (Claude) — roster settled at 47 voting filers
+**Goal:** Joe: "remove Leopold and Whale Rock from the list and approve the rest."
+
+**What changed:**
+- **Pruned:** Leopold Aschenbrenner (Situational Awareness — July 2026 forced liquidation, see Session 13) and Whale Rock. Michael Burry too, via his existing dormant flag (last 13F 30-SEP-2025). History is kept in `data/sec-13f-filings.json`; they no longer vote.
+- **Pruning is now enforced, not just recorded.** No builder honoured a status before, so a "pruned" filer would have carried on driving consensus. Added `status` to the puller's investor records (carried from `cik-map.json`) and a shared `votes_now()` rule to `build_holdings_from_13f.py` and `build_cusip_map.py`: `pruned` and `dormant` filers are excluded from holdings, consensus, eligibility and the guard rail, while their history stays intact. In `build_cusip_map.py` the filter is deliberately applied only to the eligibility pass — the CUSIP→ticker seed maps still read every filer, since that is ticker resolution, not a vote.
+- **Joe's 21 candidate approvals applied** via `sync_universe_decisions.py`: Wedgewood, Steginsky, Spruce House, Strategy Capital, Cryder, Greenbrier, Gobi, Gavilan, Greenlea Lane, Manitou, Hyperion, MayTech, Barton, Nellore, Foxhaven, Saybrook, Allen Holding, Wellcome Trust, Hikari, Milestone, JIA. Roster: **50 filers, 47 voting, 3 pruned**. Full 8-quarter history pulled for the new names.
+- Decisions written to Firebase `mose/universeDecisions` so the Universe tab matches (Joe's 21 candidate decisions and the 29 roster decisions merged with no conflicts).
+
+**Consequence Joe needs to see:** with Whale Rock gone, **KVYO (Klaviyo)** loses its only tracked holder and now fails the guard rail, joining **NLR** and **SMH** (both only ever "eligible" through Ancora, the wrong-entity Greenblatt mapping fixed in Session 13). CSU stays exempt as a foreign listing.
+
+---
+
 ## Session 13 — September 7, 2026 (Claude) — dossiers, and three filer-identity fixes
 **Goal:** finish what Session 12 started — research write-ups per firm — and repair the investor identity errors the research surfaced.
 

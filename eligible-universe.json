@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_at": "2026-09-07T15:32:47.406262+00:00",
+ "generated_at": "2026-09-09T10:29:28.045400+00:00",
  "quarter": "2026-Q2",
  "investors": [
   "Bill Ackman",
@@ -54,11 +54,10 @@
     "Philippe Laffont",
     "Terry Smith",
     "Tom Gayner",
-    "Warren Buffett",
-    "Whale Rock"
+    "Warren Buffett"
    ],
-   "holder_count": 17,
-   "value_usd": 36879343197
+   "holder_count": 16,
+   "value_usd": 36022958883
   },
   {
    "ticker": "AMZN",
@@ -76,11 +75,10 @@
     "Ole Andreas Halvorsen",
     "Philippe Laffont",
     "Seth Klarman",
-    "Tom Gayner",
-    "Whale Rock"
+    "Tom Gayner"
    ],
-   "holder_count": 14,
-   "value_usd": 10931404728
+   "holder_count": 13,
+   "value_usd": 10348012283
   },
   {
    "ticker": "META",
@@ -98,11 +96,10 @@
     "Ole Andreas Halvorsen",
     "Philippe Laffont",
     "Terry Smith",
-    "Tom Gayner",
-    "Whale Rock"
+    "Tom Gayner"
    ],
-   "holder_count": 14,
-   "value_usd": 8311761719
+   "holder_count": 13,
+   "value_usd": 8054911618
   },
   {
    "ticker": "V",
@@ -161,24 +158,6 @@
    "value_usd": 15713725380
   },
   {
-   "ticker": "TSM",
-   "company": "TAIWAN SEMICONDUCTOR MANUFAC",
-   "holders": [
-    "Brad Gerstner",
-    "Cathie Wood",
-    "Chase Coleman",
-    "Daniel Loeb",
-    "Joel Greenblatt",
-    "Leopold Aschenbrenner",
-    "Ole Andreas Halvorsen",
-    "Philippe Laffont",
-    "Terry Smith",
-    "Whale Rock"
-   ],
-   "holder_count": 10,
-   "value_usd": 11333056072
-  },
-  {
    "ticker": "MA",
    "company": "MASTERCARD INCORPORATED",
    "holders": [
@@ -196,20 +175,20 @@
    "value_usd": 3500316599
   },
   {
-   "ticker": "SPCX",
-   "company": "SPACE EXPLORATION TECHN CORP",
+   "ticker": "TSM",
+   "company": "TAIWAN SEMICONDUCTOR MANUFAC",
    "holders": [
     "Brad Gerstner",
     "Cathie Wood",
     "Chase Coleman",
     "Daniel Loeb",
-    "Gavin Baker",
+    "Joel Greenblatt",
     "Ole Andreas Halvorsen",
     "Philippe Laffont",
-    "Whale Rock"
+    "Terry Smith"
    ],
    "holder_count": 8,
-   "value_usd": 9236205142
+   "value_usd": 9786232631
   },
   {
    "ticker": "MCO",
@@ -227,6 +206,21 @@
    "value_usd": 18906735961
   },
   {
+   "ticker": "SPCX",
+   "company": "SPACE EXPLORATION TECHN CORP",
+   "holders": [
+    "Brad Gerstner",
+    "Cathie Wood",
+    "Chase Coleman",
+    "Daniel Loeb",
+    "Gavin Baker",
+    "Ole Andreas Halvorsen",
+    "Philippe Laffont"
+   ],
+   "holder_count": 7,
+   "value_usd": 9210146087
+  },
+  {
    "ticker": "SPGI",
    "company": "S&P GLOBAL INC",
    "holders": [
@@ -240,36 +234,6 @@
    ],
    "holder_count": 7,
    "value_usd": 7495541290
-  },
-  {
-   "ticker": "NVDA",
-   "company": "NVIDIA CORPORATION",
-   "holders": [
-    "Brad Gerstner",
-    "Cathie Wood",
-    "Chase Coleman",
-    "Gavin Baker",
-    "Joel Greenblatt",
-    "Philippe Laffont",
-    "Whale Rock"
-   ],
-   "holder_count": 7,
-   "value_usd": 6741886117
-  },
-  {
-   "ticker": "CBRS",
-   "company": "CEREBRAS SYSTEMS INC",
-   "holders": [
-    "Brad Gerstner",
-    "Cathie Wood",
-    "Chase Coleman",
-    "Gavin Baker",
-    "Leopold Aschenbrenner",
-    "Philippe Laffont",
-    "Whale Rock"
-   ],
-   "holder_count": 7,
-   "value_usd": 4678671660
   },
   {
    "ticker": "NFLX",
@@ -287,18 +251,18 @@
    "value_usd": 1832755675
   },
   {
-   "ticker": "AAPL",
-   "company": "APPLE INC",
+   "ticker": "NVDA",
+   "company": "NVIDIA CORPORATION",
    "holders": [
-    "Christopher Bloomstran",
+    "Brad Gerstner",
+    "Cathie Wood",
+    "Chase Coleman",
+    "Gavin Baker",
     "Joel Greenblatt",
-    "Li Lu",
-    "Tom Gayner",
-    "Warren Buffett",
-    "Whale Rock"
+    "Philippe Laffont"
    ],
    "holder_count": 6,
-   "value_usd": 67195353973
+   "value_usd": 6666411369
   },
   {
    "ticker": "AMAT",
@@ -343,20 +307,6 @@
    "value_usd": 2554416623
   },
   {
-   "ticker": "INTC",
-   "company": "INTEL CORP",
-   "holders": [
-    "Chase Coleman",
-    "Dan Niles",
-    "Gavin Baker",
-    "Joel Greenblatt",
-    "Philippe Laffont",
-    "Whale Rock"
-   ],
-   "holder_count": 6,
-   "value_usd": 2430815737
-  },
-  {
    "ticker": "TSLA",
    "company": "TESLA INC",
    "holders": [
@@ -385,30 +335,30 @@
    "value_usd": 1065076132
   },
   {
-   "ticker": "MU",
-   "company": "MICRON TECHNOLOGY INC",
+   "ticker": "AAPL",
+   "company": "APPLE INC",
+   "holders": [
+    "Christopher Bloomstran",
+    "Joel Greenblatt",
+    "Li Lu",
+    "Tom Gayner",
+    "Warren Buffett"
+   ],
+   "holder_count": 5,
+   "value_usd": 67166485683
+  },
+  {
+   "ticker": "CBRS",
+   "company": "CEREBRAS SYSTEMS INC",
    "holders": [
     "Brad Gerstner",
+    "Cathie Wood",
+    "Chase Coleman",
     "Gavin Baker",
-    "Joel Greenblatt",
-    "Leopold Aschenbrenner",
     "Philippe Laffont"
    ],
    "holder_count": 5,
-   "value_usd": 10410666175
-  },
-  {
-   "ticker": "LRCX",
-   "company": "LAM RESEARCH CORP",
-   "holders": [
-    "Brad Gerstner",
-    "Chase Coleman",
-    "Joel Greenblatt",
-    "Philippe Laffont",
-    "Whale Rock"
-   ],
-   "holder_count": 5,
-   "value_usd": 6074656537
+   "value_usd": 4665257844
   },
   {
    "ticker": "GEV",
@@ -424,69 +374,17 @@
    "value_usd": 4445471688
   },
   {
-   "ticker": "AVGO",
-   "company": "BROADCOM INC",
+   "ticker": "INTC",
+   "company": "INTEL CORP",
    "holders": [
-    "Cathie Wood",
     "Chase Coleman",
-    "Joel Greenblatt",
-    "Philippe Laffont",
-    "Whale Rock"
-   ],
-   "holder_count": 5,
-   "value_usd": 3175260731
-  },
-  {
-   "ticker": "CVNA",
-   "company": "CARVANA CO",
-   "holders": [
-    "Clifford Sosin",
-    "Joel Greenblatt",
-    "Ole Andreas Halvorsen",
-    "Philippe Laffont",
-    "Whale Rock"
-   ],
-   "holder_count": 5,
-   "value_usd": 2809779713
-  },
-  {
-   "ticker": "AMD",
-   "company": "ADVANCED MICRO DEVICES INC",
-   "holders": [
-    "Cathie Wood",
-    "Chase Coleman",
-    "Joel Greenblatt",
-    "Philippe Laffont",
-    "Whale Rock"
-   ],
-   "holder_count": 5,
-   "value_usd": 2223762547
-  },
-  {
-   "ticker": "CRWV",
-   "company": "COREWEAVE INC",
-   "holders": [
-    "Brad Gerstner",
-    "Cathie Wood",
+    "Dan Niles",
     "Gavin Baker",
     "Joel Greenblatt",
-    "Leopold Aschenbrenner"
+    "Philippe Laffont"
    ],
    "holder_count": 5,
-   "value_usd": 1862422286
-  },
-  {
-   "ticker": "SNOW",
-   "company": "SNOWFLAKE INC",
-   "holders": [
-    "Brad Gerstner",
-    "Cathie Wood",
-    "Joel Greenblatt",
-    "Ole Andreas Halvorsen",
-    "Whale Rock"
-   ],
-   "holder_count": 5,
-   "value_usd": 1290962504
+   "value_usd": 2394525481
   },
   {
    "ticker": "SPOT",
@@ -565,6 +463,30 @@
    "value_usd": 17747679775
   },
   {
+   "ticker": "LRCX",
+   "company": "LAM RESEARCH CORP",
+   "holders": [
+    "Brad Gerstner",
+    "Chase Coleman",
+    "Joel Greenblatt",
+    "Philippe Laffont"
+   ],
+   "holder_count": 4,
+   "value_usd": 5752849212
+  },
+  {
+   "ticker": "MU",
+   "company": "MICRON TECHNOLOGY INC",
+   "holders": [
+    "Brad Gerstner",
+    "Gavin Baker",
+    "Joel Greenblatt",
+    "Philippe Laffont"
+   ],
+   "holder_count": 4,
+   "value_usd": 4836846783
+  },
+  {
    "ticker": "BN",
    "company": "BROOKFIELD CORP",
    "holders": [
@@ -575,6 +497,30 @@
    ],
    "holder_count": 4,
    "value_usd": 3673841981
+  },
+  {
+   "ticker": "AVGO",
+   "company": "BROADCOM INC",
+   "holders": [
+    "Cathie Wood",
+    "Chase Coleman",
+    "Joel Greenblatt",
+    "Philippe Laffont"
+   ],
+   "holder_count": 4,
+   "value_usd": 3152678836
+  },
+  {
+   "ticker": "CVNA",
+   "company": "CARVANA CO",
+   "holders": [
+    "Clifford Sosin",
+    "Joel Greenblatt",
+    "Ole Andreas Halvorsen",
+    "Philippe Laffont"
+   ],
+   "holder_count": 4,
+   "value_usd": 2528920507
   },
   {
    "ticker": "SHW",
@@ -589,16 +535,16 @@
    "value_usd": 1466860703
   },
   {
-   "ticker": "APP",
-   "company": "APPLOVIN CORP",
+   "ticker": "AMD",
+   "company": "ADVANCED MICRO DEVICES INC",
    "holders": [
+    "Cathie Wood",
+    "Chase Coleman",
     "Joel Greenblatt",
-    "Philippe Laffont",
-    "Terry Smith",
-    "Whale Rock"
+    "Philippe Laffont"
    ],
    "holder_count": 4,
-   "value_usd": 1276552397
+   "value_usd": 1346791765
   },
   {
    "ticker": "FICO",
@@ -625,6 +571,18 @@
    "value_usd": 1214552973
   },
   {
+   "ticker": "CRWV",
+   "company": "COREWEAVE INC",
+   "holders": [
+    "Brad Gerstner",
+    "Cathie Wood",
+    "Gavin Baker",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 4,
+   "value_usd": 1117907083
+  },
+  {
    "ticker": "JPM",
    "company": "JPMORGAN CHASE & CO",
    "holders": [
@@ -635,6 +593,18 @@
    ],
    "holder_count": 4,
    "value_usd": 1066330175
+  },
+  {
+   "ticker": "SNOW",
+   "company": "SNOWFLAKE INC",
+   "holders": [
+    "Brad Gerstner",
+    "Cathie Wood",
+    "Joel Greenblatt",
+    "Ole Andreas Halvorsen"
+   ],
+   "holder_count": 4,
+   "value_usd": 1065808644
   },
   {
    "ticker": "MAR",
@@ -755,18 +725,6 @@
    ],
    "holder_count": 4,
    "value_usd": 569823262
-  },
-  {
-   "ticker": "APLD",
-   "company": "APPLIED DIGITAL CORP",
-   "holders": [
-    "Chase Coleman",
-    "Daniel Loeb",
-    "Joel Greenblatt",
-    "Leopold Aschenbrenner"
-   ],
-   "holder_count": 4,
-   "value_usd": 503057752
   },
   {
    "ticker": "AON",
@@ -909,28 +867,6 @@
    "value_usd": 11843466816
   },
   {
-   "ticker": "SNDK",
-   "company": "SANDISK CORP",
-   "holders": [
-    "Joel Greenblatt",
-    "Leopold Aschenbrenner",
-    "Whale Rock"
-   ],
-   "holder_count": 3,
-   "value_usd": 7170821462
-  },
-  {
-   "ticker": "BE",
-   "company": "BLOOM ENERGY CORP",
-   "holders": [
-    "Joel Greenblatt",
-    "Leopold Aschenbrenner",
-    "Whale Rock"
-   ],
-   "holder_count": 3,
-   "value_usd": 2390886545
-  },
-  {
    "ticker": "VRSN",
    "company": "VERISIGN INC",
    "holders": [
@@ -997,17 +933,6 @@
    "value_usd": 1416373102
   },
   {
-   "ticker": "ALAB",
-   "company": "ASTERA LABS INC",
-   "holders": [
-    "Gavin Baker",
-    "Joel Greenblatt",
-    "Whale Rock"
-   ],
-   "holder_count": 3,
-   "value_usd": 1358813027
-  },
-  {
    "ticker": "SCHW",
    "company": "SCHWAB CHARLES CORP",
    "holders": [
@@ -1030,6 +955,17 @@
    "value_usd": 1077931019
   },
   {
+   "ticker": "APP",
+   "company": "APPLOVIN CORP",
+   "holders": [
+    "Joel Greenblatt",
+    "Philippe Laffont",
+    "Terry Smith"
+   ],
+   "holder_count": 3,
+   "value_usd": 1038716561
+  },
+  {
    "ticker": "DE",
    "company": "DEERE & CO",
    "holders": [
@@ -1039,17 +975,6 @@
    ],
    "holder_count": 3,
    "value_usd": 826668408
-  },
-  {
-   "ticker": "COHR",
-   "company": "COHERENT CORP",
-   "holders": [
-    "Gavin Baker",
-    "Joel Greenblatt",
-    "Whale Rock"
-   ],
-   "holder_count": 3,
-   "value_usd": 773735153
   },
   {
    "ticker": "BA",
@@ -1094,17 +1019,6 @@
    ],
    "holder_count": 3,
    "value_usd": 688999880
-  },
-  {
-   "ticker": "CORZ",
-   "company": "CORE SCIENTIFIC INC NEW",
-   "holders": [
-    "Chase Coleman",
-    "Daniel Loeb",
-    "Leopold Aschenbrenner"
-   ],
-   "holder_count": 3,
-   "value_usd": 687845714
   },
   {
    "ticker": "WBD",
@@ -1173,17 +1087,6 @@
    "value_usd": 437381873
   },
   {
-   "ticker": "STX",
-   "company": "SEAGATE TECHNOLOGY HLDNGS PL",
-   "holders": [
-    "Chase Coleman",
-    "Joel Greenblatt",
-    "Whale Rock"
-   ],
-   "holder_count": 3,
-   "value_usd": 428848895
-  },
-  {
    "ticker": "ELV",
    "company": "ELEVANCE HEALTH INC FORMERLY",
    "holders": [
@@ -1193,17 +1096,6 @@
    ],
    "holder_count": 3,
    "value_usd": 424307453
-  },
-  {
-   "ticker": "FROG",
-   "company": "JFROG LTD",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt",
-    "Whale Rock"
-   ],
-   "holder_count": 3,
-   "value_usd": 410261946
   },
   {
    "ticker": "MTZ",
@@ -1281,17 +1173,6 @@
    ],
    "holder_count": 3,
    "value_usd": 338069167
-  },
-  {
-   "ticker": "TWLO",
-   "company": "TWILIO INC",
-   "holders": [
-    "Gavin Baker",
-    "Joel Greenblatt",
-    "Whale Rock"
-   ],
-   "holder_count": 3,
-   "value_usd": 320291424
   },
   {
    "ticker": "ATI",
@@ -1591,6 +1472,17 @@
    "value_usd": 39036233
   },
   {
+   "ticker": "APLD",
+   "company": "APPLIED DIGITAL CORP",
+   "holders": [
+    "Chase Coleman",
+    "Daniel Loeb",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 3,
+   "value_usd": 34034945
+  },
+  {
    "ticker": "EXP",
    "company": "EAGLE MATLS INC",
    "holders": [
@@ -1743,16 +1635,6 @@
    "value_usd": 1273413302
   },
   {
-   "ticker": "NBIS",
-   "company": "NEBIUS GROUP N.V.",
-   "holders": [
-    "Gavin Baker",
-    "Leopold Aschenbrenner"
-   ],
-   "holder_count": 2,
-   "value_usd": 1250604085
-  },
-  {
    "ticker": "FTV",
    "company": "FORTIVE CORP",
    "holders": [
@@ -1811,16 +1693,6 @@
    ],
    "holder_count": 2,
    "value_usd": 928750231
-  },
-  {
-   "ticker": "TTMI",
-   "company": "TTM TECHNOLOGIES INC",
-   "holders": [
-    "Daniel Loeb",
-    "Whale Rock"
-   ],
-   "holder_count": 2,
-   "value_usd": 885647237
   },
   {
    "ticker": "CPNG",
@@ -1943,16 +1815,6 @@
    "value_usd": 643802089
   },
   {
-   "ticker": "MKSI",
-   "company": "MKS INC.",
-   "holders": [
-    "Joel Greenblatt",
-    "Whale Rock"
-   ],
-   "holder_count": 2,
-   "value_usd": 641223235
-  },
-  {
    "ticker": "PG",
    "company": "PROCTER & GAMBLE CO",
    "holders": [
@@ -1963,6 +1825,16 @@
    "value_usd": 632108583
   },
   {
+   "ticker": "ALAB",
+   "company": "ASTERA LABS INC",
+   "holders": [
+    "Gavin Baker",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 2,
+   "value_usd": 601494663
+  },
+  {
    "ticker": "FTNT",
    "company": "FORTINET INC",
    "holders": [
@@ -1971,16 +1843,6 @@
    ],
    "holder_count": 2,
    "value_usd": 593741147
-  },
-  {
-   "ticker": "GLW",
-   "company": "CORNING INC",
-   "holders": [
-    "Joel Greenblatt",
-    "Whale Rock"
-   ],
-   "holder_count": 2,
-   "value_usd": 588933968
   },
   {
    "ticker": "TEM",
@@ -2031,26 +1893,6 @@
    ],
    "holder_count": 2,
    "value_usd": 546590029
-  },
-  {
-   "ticker": "CLS",
-   "company": "CELESTICA INC",
-   "holders": [
-    "Joel Greenblatt",
-    "Whale Rock"
-   ],
-   "holder_count": 2,
-   "value_usd": 541088870
-  },
-  {
-   "ticker": "RIOT",
-   "company": "RIOT PLATFORMS INC",
-   "holders": [
-    "Daniel Loeb",
-    "Leopold Aschenbrenner"
-   ],
-   "holder_count": 2,
-   "value_usd": 475231950
   },
   {
    "ticker": "ROP",
@@ -2163,26 +2005,6 @@
    "value_usd": 427067048
   },
   {
-   "ticker": "SITM",
-   "company": "SITIME CORP",
-   "holders": [
-    "Joel Greenblatt",
-    "Whale Rock"
-   ],
-   "holder_count": 2,
-   "value_usd": 422001126
-  },
-  {
-   "ticker": "FN",
-   "company": "FABRINET",
-   "holders": [
-    "Joel Greenblatt",
-    "Whale Rock"
-   ],
-   "holder_count": 2,
-   "value_usd": 419136311
-  },
-  {
    "ticker": "CIEN",
    "company": "CIENA CORP",
    "holders": [
@@ -2253,16 +2075,6 @@
    "value_usd": 363708454
   },
   {
-   "ticker": "WDC",
-   "company": "WESTERN DIGITAL CORP",
-   "holders": [
-    "Joel Greenblatt",
-    "Whale Rock"
-   ],
-   "holder_count": 2,
-   "value_usd": 362437193
-  },
-  {
    "ticker": "BEAM",
    "company": "BEAM THERAPEUTICS INC",
    "holders": [
@@ -2301,16 +2113,6 @@
    ],
    "holder_count": 2,
    "value_usd": 347318290
-  },
-  {
-   "ticker": "VIAV",
-   "company": "VIAVI SOLUTIONS INC",
-   "holders": [
-    "Joel Greenblatt",
-    "Whale Rock"
-   ],
-   "holder_count": 2,
-   "value_usd": 329658122
   },
   {
    "ticker": "PANW",
@@ -2353,6 +2155,16 @@
    "value_usd": 304376571
   },
   {
+   "ticker": "COHR",
+   "company": "COHERENT CORP",
+   "holders": [
+    "Gavin Baker",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 2,
+   "value_usd": 291679007
+  },
+  {
    "ticker": "FCNCA",
    "company": "FIRST CTZNS BANCSHARES INC D",
    "holders": [
@@ -2381,6 +2193,16 @@
    ],
    "holder_count": 2,
    "value_usd": 287318307
+  },
+  {
+   "ticker": "STX",
+   "company": "SEAGATE TECHNOLOGY HLDNGS PL",
+   "holders": [
+    "Chase Coleman",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 2,
+   "value_usd": 285504900
   },
   {
    "ticker": "AVB",
@@ -2593,16 +2415,6 @@
    "value_usd": 183501022
   },
   {
-   "ticker": "CLSK",
-   "company": "CLEANSPARK INC",
-   "holders": [
-    "Joel Greenblatt",
-    "Leopold Aschenbrenner"
-   ],
-   "holder_count": 2,
-   "value_usd": 178767585
-  },
-  {
    "ticker": "CAI",
    "company": "CARIS LIFE SCIENCES INC",
    "holders": [
@@ -2713,14 +2525,14 @@
    "value_usd": 152498822
   },
   {
-   "ticker": "KEEL",
-   "company": "KEEL INFRASTRUCTURE CORP",
+   "ticker": "TWLO",
+   "company": "TWILIO INC",
    "holders": [
-    "Joel Greenblatt",
-    "Leopold Aschenbrenner"
+    "Gavin Baker",
+    "Joel Greenblatt"
    ],
    "holder_count": 2,
-   "value_usd": 151960611
+   "value_usd": 150736033
   },
   {
    "ticker": "ABSI",
@@ -3143,16 +2955,6 @@
    "value_usd": 83679026
   },
   {
-   "ticker": "MDB",
-   "company": "MONGODB INC",
-   "holders": [
-    "Joel Greenblatt",
-    "Whale Rock"
-   ],
-   "holder_count": 2,
-   "value_usd": 81674085
-  },
-  {
    "ticker": "PINS",
    "company": "PINTEREST INC",
    "holders": [
@@ -3241,16 +3043,6 @@
    ],
    "holder_count": 2,
    "value_usd": 71111475
-  },
-  {
-   "ticker": "DUOL",
-   "company": "DUOLINGO INC",
-   "holders": [
-    "Joel Greenblatt",
-    "Whale Rock"
-   ],
-   "holder_count": 2,
-   "value_usd": 71014498
   },
   {
    "ticker": "COMP",
@@ -3963,16 +3755,6 @@
    "value_usd": 31395938
   },
   {
-   "ticker": "BW",
-   "company": "BABCOCK & WILCOX ENTERPRISES",
-   "holders": [
-    "Joel Greenblatt",
-    "Leopold Aschenbrenner"
-   ],
-   "holder_count": 2,
-   "value_usd": 30244359
-  },
-  {
    "ticker": "AGX",
    "company": "ARGAN INC",
    "holders": [
@@ -4063,16 +3845,6 @@
    "value_usd": 26368495
   },
   {
-   "ticker": "VSH",
-   "company": "VISHAY INTERTECHNOLOGY INC",
-   "holders": [
-    "Joel Greenblatt",
-    "Leopold Aschenbrenner"
-   ],
-   "holder_count": 2,
-   "value_usd": 24854911
-  },
-  {
    "ticker": "MGM",
    "company": "MGM RESORTS INTERNATIONAL",
    "holders": [
@@ -4091,6 +3863,16 @@
    ],
    "holder_count": 2,
    "value_usd": 22713361
+  },
+  {
+   "ticker": "CORZ",
+   "company": "CORE SCIENTIFIC INC NEW",
+   "holders": [
+    "Chase Coleman",
+    "Daniel Loeb"
+   ],
+   "holder_count": 2,
+   "value_usd": 22288890
   },
   {
    "ticker": "EFX",
@@ -4353,6 +4135,16 @@
    "value_usd": 5626342
   },
   {
+   "ticker": "FROG",
+   "company": "JFROG LTD",
+   "holders": [
+    "Cathie Wood",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 2,
+   "value_usd": 5080464
+  },
+  {
    "ticker": "LMND",
    "company": "LEMONADE INC",
    "holders": [
@@ -4546,15 +4338,6 @@
    "value_usd": 741017831
   },
   {
-   "ticker": "STM",
-   "company": "STMICROELECTRONICS",
-   "holders": [
-    "Leopold Aschenbrenner"
-   ],
-   "holder_count": 1,
-   "value_usd": 584344203
-  },
-  {
    "ticker": "ICLR",
    "company": "ICON PUB LTD CO",
    "holders": [
@@ -4571,24 +4354,6 @@
    ],
    "holder_count": 1,
    "value_usd": 515999631
-  },
-  {
-   "ticker": "SHAZ",
-   "company": "SHARONAI HOLDINGS INC",
-   "holders": [
-    "Leopold Aschenbrenner"
-   ],
-   "holder_count": 1,
-   "value_usd": 456836112
-  },
-  {
-   "ticker": "IREN",
-   "company": "IREN LIMITED",
-   "holders": [
-    "Leopold Aschenbrenner"
-   ],
-   "holder_count": 1,
-   "value_usd": 433250547
   },
   {
    "ticker": "EWBC",
@@ -4771,6 +4536,15 @@
    "value_usd": 142458886
   },
   {
+   "ticker": "SNDK",
+   "company": "SANDISK CORP",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 140700686
+  },
+  {
    "ticker": "SION",
    "company": "SIONNA THERAPEUTICS INC",
    "holders": [
@@ -4888,6 +4662,15 @@
    "value_usd": 107923531
   },
   {
+   "ticker": "WDC",
+   "company": "WESTERN DIGITAL CORP",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 106510392
+  },
+  {
    "ticker": "INBX",
    "company": "INHIBRX BIOSCIENCES INC",
    "holders": [
@@ -4951,6 +4734,15 @@
    "value_usd": 95683657
   },
   {
+   "ticker": "TTMI",
+   "company": "TTM TECHNOLOGIES INC",
+   "holders": [
+    "Daniel Loeb"
+   ],
+   "holder_count": 1,
+   "value_usd": 94445100
+  },
+  {
    "ticker": "TPR",
    "company": "TAPESTRY INC",
    "holders": [
@@ -5003,15 +4795,6 @@
    ],
    "holder_count": 1,
    "value_usd": 84683933
-  },
-  {
-   "ticker": "KVYO",
-   "company": "KLAVIYO INC",
-   "holders": [
-    "Whale Rock"
-   ],
-   "holder_count": 1,
-   "value_usd": 83475307
   },
   {
    "ticker": "INCY",
@@ -5084,6 +4867,15 @@
    ],
    "holder_count": 1,
    "value_usd": 76013787
+  },
+  {
+   "ticker": "MKSI",
+   "company": "MKS INC.",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 75716525
   },
   {
    "ticker": "RL",
@@ -5192,15 +4984,6 @@
    ],
    "holder_count": 1,
    "value_usd": 68780406
-  },
-  {
-   "ticker": "WYFI",
-   "company": "WHITEFIBER INC",
-   "holders": [
-    "Leopold Aschenbrenner"
-   ],
-   "holder_count": 1,
-   "value_usd": 68282760
   },
   {
    "ticker": "TKR",
@@ -5518,15 +5301,6 @@
    "value_usd": 58151799
   },
   {
-   "ticker": "PI",
-   "company": "IMPINJ INC",
-   "holders": [
-    "Whale Rock"
-   ],
-   "holder_count": 1,
-   "value_usd": 58043098
-  },
-  {
    "ticker": "MCK",
    "company": "MCKESSON CORP",
    "holders": [
@@ -5606,15 +5380,6 @@
    ],
    "holder_count": 1,
    "value_usd": 54980691
-  },
-  {
-   "ticker": "BTDR",
-   "company": "BITDEER TECHNOLOGIES GROUP",
-   "holders": [
-    "Leopold Aschenbrenner"
-   ],
-   "holder_count": 1,
-   "value_usd": 54584072
   },
   {
    "ticker": "STUB",
@@ -5921,15 +5686,6 @@
    ],
    "holder_count": 1,
    "value_usd": 46511281
-  },
-  {
-   "ticker": "TE",
-   "company": "T1 ENERGY INC",
-   "holders": [
-    "Leopold Aschenbrenner"
-   ],
-   "holder_count": 1,
-   "value_usd": 46452000
   },
   {
    "ticker": "NFG",
@@ -6877,15 +6633,6 @@
    "value_usd": 28247068
   },
   {
-   "ticker": "PUMP",
-   "company": "PROPETRO HLDG CORP",
-   "holders": [
-    "Leopold Aschenbrenner"
-   ],
-   "holder_count": 1,
-   "value_usd": 28111878
-  },
-  {
    "ticker": "BXP",
    "company": "BXP INC",
    "holders": [
@@ -7804,6 +7551,15 @@
    "value_usd": 18380462
   },
   {
+   "ticker": "GLW",
+   "company": "CORNING INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 18303603
+  },
+  {
    "ticker": "RYAN",
    "company": "RYAN SPECIALTY HOLDINGS INC",
    "holders": [
@@ -7838,6 +7594,15 @@
    ],
    "holder_count": 1,
    "value_usd": 18034260
+  },
+  {
+   "ticker": "NBIS",
+   "company": "NEBIUS GROUP N.V.",
+   "holders": [
+    "Gavin Baker"
+   ],
+   "holder_count": 1,
+   "value_usd": 17709401
   },
   {
    "ticker": "DLB",
@@ -7919,6 +7684,15 @@
    ],
    "holder_count": 1,
    "value_usd": 16875154
+  },
+  {
+   "ticker": "DUOL",
+   "company": "DUOLINGO INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 16752203
   },
   {
    "ticker": "FSLR",
@@ -9001,6 +8775,15 @@
    "value_usd": 7041859
   },
   {
+   "ticker": "RIOT",
+   "company": "RIOT PLATFORMS INC",
+   "holders": [
+    "Daniel Loeb"
+   ],
+   "holder_count": 1,
+   "value_usd": 7033950
+  },
+  {
    "ticker": "DXCM",
    "company": "DEXCOM INC",
    "holders": [
@@ -9154,6 +8937,15 @@
    "value_usd": 6263256
   },
   {
+   "ticker": "MDB",
+   "company": "MONGODB INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 6214822
+  },
+  {
    "ticker": "GPOR",
    "company": "GULFPORT ENERGY CORP",
    "holders": [
@@ -9251,6 +9043,15 @@
    ],
    "holder_count": 1,
    "value_usd": 5590469
+  },
+  {
+   "ticker": "BE",
+   "company": "BLOOM ENERGY CORP",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 5273639
   },
   {
    "ticker": "CORT",
@@ -9377,6 +9178,15 @@
    ],
    "holder_count": 1,
    "value_usd": 4727133
+  },
+  {
+   "ticker": "VSH",
+   "company": "VISHAY INTERTECHNOLOGY INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 4687411
   },
   {
    "ticker": "PGNY",
@@ -9512,6 +9322,15 @@
    ],
    "holder_count": 1,
    "value_usd": 4014512
+  },
+  {
+   "ticker": "SITM",
+   "company": "SITIME CORP",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 3964888
   },
   {
    "ticker": "CALY",
@@ -10043,6 +9862,15 @@
    ],
    "holder_count": 1,
    "value_usd": 2493337
+  },
+  {
+   "ticker": "CLS",
+   "company": "CELESTICA INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 2487206
   },
   {
    "ticker": "ECHO",
@@ -10702,6 +10530,15 @@
    "value_usd": 1658060
   },
   {
+   "ticker": "BW",
+   "company": "BABCOCK & WILCOX ENTERPRISES",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 1657300
+  },
+  {
    "ticker": "SFL",
    "company": "SFL CORPORATION LTD",
    "holders": [
@@ -11006,6 +10843,15 @@
    ],
    "holder_count": 1,
    "value_usd": 1334869
+  },
+  {
+   "ticker": "VIAV",
+   "company": "VIAVI SOLUTIONS INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 1331891
   },
   {
    "ticker": "NGVT",
@@ -12113,6 +11959,15 @@
    ],
    "holder_count": 1,
    "value_usd": 518819
+  },
+  {
+   "ticker": "FN",
+   "company": "FABRINET",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 518800
   },
   {
    "ticker": "KOP",
@@ -13420,6 +13275,15 @@
    "value_usd": 150586
   },
   {
+   "ticker": "CLSK",
+   "company": "CLEANSPARK INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 149763
+  },
+  {
    "ticker": "OCTLF",
    "company": "Octave Intelligence PLC",
    "holders": [
@@ -13472,6 +13336,15 @@
    ],
    "holder_count": 1,
    "value_usd": 130787
+  },
+  {
+   "ticker": "KEEL",
+   "company": "KEEL INFRASTRUCTURE CORP",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 129615
   },
   {
    "ticker": "HLF",

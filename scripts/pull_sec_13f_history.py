@@ -40,6 +40,9 @@ class InvestorConfig:
     tier: int
     cik: str
     source_type: str = "13F"
+    # "pruned"  = Joe removed them from the roster; history kept, no longer votes
+    # "dormant" = stopped filing (fund wound down); latest book is stale, no vote
+    status: str = "active"
     # Some managers move the filing entity between quarters (Pershing Square filed
     # under the fund CIK through Q1-2026, then a 13F-NT there and the real holdings
     # report under the holdco CIK from Q2-2026). List every CIK that has ever filed
@@ -104,6 +107,7 @@ def load_cik_map() -> list[InvestorConfig]:
                 tier=int(item.get("tier") or 1),
                 cik=cik,
                 source_type=str(item.get("source_type") or "13F"),
+                status=str(item.get("status") or "active"),
                 alt_ciks=tuple(str(c).strip().lstrip("0") for c in (item.get("alt_ciks") or []) if str(c).strip()),
             )
         )
@@ -435,6 +439,7 @@ def main() -> int:
                     "tier": config.tier,
                     "cik": config.cik,
                     "source_type": config.source_type,
+                    "status": config.status,
                     "filings": good_filings,
                     "filing_errors": errors,
                 }
