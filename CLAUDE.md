@@ -112,9 +112,14 @@ token. Output goes to **Firebase** (`mose/ibkrPositions`), keyed by IBKR
 account id, prior-business-day close. **Nothing is committed — the repo is
 PUBLIC**, and the snapshot carries account numbers, balances and holdings;
 `data/ibkr-positions.json` is gitignored and the workflow has no commit step.
-`reference-data/ibkr-accounts.json` maps account id -> MOSE column (`his`
-U25747451, `joint` U25995036, U25302175 unidentified); unmapped accounts are
-reported, never guessed. The Flex host IS reachable from the sandbox
+`reference-data/ibkr-accounts.json` maps account id -> MOSE column; unmapped
+accounts are reported, never guessed. **First successful run 10 Sep 2026**
+(3 accounts, 59 positions): `his` U25747451 $937,821 / 53 positions; `joint`
+U25995036 $319,096 / 4 positions (SGOV, NVDA 85sh, GOOGL 45sh, AMZN 55sh);
+U25302175 = the in-flight **Schwab transfer, taxable**, only $2,827 so far —
+MOSE has no column for it yet. This run **confirmed** the old NVDA puzzle: the
+app's ~$18.9k NVDA under `his` is the Joint's 85 shares ($19,012), so the
+additive-only sync was right and nothing was ever sold. The Flex host IS reachable from the sandbox
 (unlike SEC/Firebase), so a token in the environment can be tested here. Read-only; it never stages or places anything. The AI
 connector stays on whichever account Joe wants to stage trades in.
 

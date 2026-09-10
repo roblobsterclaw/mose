@@ -21,12 +21,12 @@
   },
   "U25302175": {
    "key": null,
-   "label": "UNIDENTIFIED",
+   "label": "Schwab transfer (taxable)",
    "title": null,
-   "type": null,
-   "taxable": null,
-   "balance_2026_09_10": null,
-   "note": "Third account on Joe's login. Does NOT match ...7390 (Keli L Lynch Rollover IRA), which is absent from his account chips. Most likely the incoming Charles Schwab transfer Joe described as non-IRA, i.e. taxable. Resolve from the acctAlias/accountType the Flex pull returns, then set key."
+   "type": "Individual",
+   "taxable": true,
+   "balance_2026_09_10": 2827.05,
+   "note": "Identified 10 Sep 2026 from the first Flex pull: individual account holding only NVDA 7sh + AAPL 4sh ($2,827) \u2014 consistent with Joe's description of an in-flight Charles Schwab transfer into a non-IRA account. key stays null because MOSE models only his/hers/joint; decide whether this becomes a 4th column or folds into joint once the transfer lands. Taxable, so it is NOT interchangeable with the IRAs."
   }
  },
  "expected_but_unseen": {
@@ -37,7 +37,7 @@
    "type": "IRA",
    "taxable": false,
    "balance_2026_09_10": 202096.14,
-   "note": "Not among the three account chips on Joe's login, so probably behind Keli's separate login. If the Flex pull does not return it, she needs her own query + IBKR_FLEX_TOKEN_2."
+   "note": "Confirmed absent from Joe's login by the 10 Sep 2026 Flex pull, which returned only U25747451, U25995036 and U25302175. Needs Keli's own token in IBKR_FLEX_TOKEN_2 \u2014 that secret was EMPTY on the first run, so her IRA is not yet syncing."
   }
  }
 }
