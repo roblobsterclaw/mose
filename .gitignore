@@ -5,3 +5,6 @@ data/*.db-*
 
 # Personal Claude Code settings (permissions etc.)
 .claude/settings.local.json
+
+# IBKR account numbers, balances and holdings — the repo is public.
+data/ibkr-positions.json

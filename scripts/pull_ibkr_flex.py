@@ -22,8 +22,11 @@ Environment (never commit these):
   IBKR_FLEX_TOKEN       / IBKR_FLEX_QUERY_ID        Joe's login (IRA + Joint)
   IBKR_FLEX_TOKEN_2     / IBKR_FLEX_QUERY_ID_2      Keli's login  (optional)
 
+The repo is PUBLIC, so this data must never be committed. The snapshot goes to
+Firebase (where the app already syncs holdings) and the local file is gitignored.
+
 Usage:
-  python3 scripts/pull_ibkr_flex.py [--out data/ibkr-positions.json] [--print]
+  python3 scripts/pull_ibkr_flex.py [--firebase] [--out data/ibkr-positions.json] [--print]
 
 Output shape (data/ibkr-positions.json):
   {"generated_at": ..., "source": ..., "accounts": {
@@ -51,6 +54,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUT = ROOT / "data" / "ibkr-positions.json"
 ACCOUNT_MAP = ROOT / "reference-data" / "ibkr-accounts.json"
 
+FB = "https://jfl-ttd-default-rtdb.firebaseio.com/mose/ibkrPositions.json"
 BASE = "https://ndcdyn.interactivebrokers.com/AccountManagement/FlexWebService"
 SEND = BASE + "/SendRequest"
 GET = BASE + "/GetStatement"
@@ -212,6 +216,20 @@ def pull(token: str, query_id: str, label: str) -> dict[str, dict]:
     return accounts
 
 
+def push_firebase(payload: dict) -> None:
+    """Publish the snapshot where the app already reads its state from.
+
+    Account numbers and balances must not land in git — the repo is public.
+    """
+    body = json.dumps(payload).encode()
+    req = urllib.request.Request(FB, data=body, method="PUT",
+                                 headers={**UA, "Content-Type": "application/json"})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        if r.status not in (200, 204):
+            raise FlexError(f"Firebase PUT returned HTTP {r.status}")
+    print(f"  pushed to Firebase ({len(body)} bytes)")
+
+
 def main(argv: list[str]) -> int:
     out_path = Path(argv[argv.index("--out") + 1]) if "--out" in argv else DEFAULT_OUT
     creds = [
@@ -257,10 +275,13 @@ def main(argv: list[str]) -> int:
               f"type={a.get('type')!r}")
     if "--print" in argv:
         print(json.dumps(payload, indent=1))
-    else:
-        out_path.parent.mkdir(parents=True, exist_ok=True)
-        out_path.write_text(json.dumps(payload, indent=1) + "\n")
-        print(f"wrote {out_path.relative_to(ROOT)} — {len(accounts)} account(s)")
+        return 0
+
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(json.dumps(payload, indent=1) + "\n")
+    print(f"wrote {out_path.relative_to(ROOT)} (gitignored) — {len(accounts)} account(s)")
+    if "--firebase" in argv:
+        push_firebase(payload)
     return 0
 
 

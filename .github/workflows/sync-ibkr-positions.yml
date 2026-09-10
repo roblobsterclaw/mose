@@ -37,15 +37,7 @@ jobs:
           IBKR_FLEX_QUERY_ID: ${{ secrets.IBKR_FLEX_QUERY_ID || '1633580' }}
           IBKR_FLEX_TOKEN_2: ${{ secrets.IBKR_FLEX_TOKEN_2 }}
           IBKR_FLEX_QUERY_ID_2: ${{ secrets.IBKR_FLEX_QUERY_ID_2 }}
-        run: python scripts/pull_ibkr_flex.py
-      - name: Commit positions snapshot
-        run: |
-          if git diff --quiet data/ibkr-positions.json; then
-            echo "No position changes"
-          else
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add data/ibkr-positions.json
-            git commit -m "Refresh IBKR positions"
-            git push origin main
-          fi
+        run: python scripts/pull_ibkr_flex.py --firebase
+      # Nothing is committed on purpose: this repo is public, and the snapshot
+      # carries account numbers, balances and holdings. It goes to Firebase,
+      # which is where the app already reads its state from.

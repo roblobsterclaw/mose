@@ -100,8 +100,13 @@ rate-limited statement service, not a quote feed. Only `IBKR_FLEX_TOKEN` is a
 secret; query id 1633580 is the workflow default (`IBKR_FLEX_QUERY_ID` overrides
 it), with an optional `_2` pair if a second login is ever needed. Joe's login
 covers three accounts (U25995036, U25302175, U25747451), so one token is likely
-enough for all three. Output: `data/ibkr-positions.json`, keyed by IBKR account
-id, prior-business-day close. The Flex host IS reachable from the sandbox
+enough for all three. Output goes to **Firebase** (`mose/ibkrPositions`), keyed by IBKR
+account id, prior-business-day close. **Nothing is committed — the repo is
+PUBLIC**, and the snapshot carries account numbers, balances and holdings;
+`data/ibkr-positions.json` is gitignored and the workflow has no commit step.
+`reference-data/ibkr-accounts.json` maps account id -> MOSE column (`his`
+U25747451, `joint` U25995036, U25302175 unidentified); unmapped accounts are
+reported, never guessed. The Flex host IS reachable from the sandbox
 (unlike SEC/Firebase), so a token in the environment can be tested here. Read-only; it never stages or places anything. The AI
 connector stays on whichever account Joe wants to stage trades in.
 
