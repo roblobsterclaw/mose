@@ -1,0 +1,43 @@
+{
+ "_comment": "IBKR account id -> the MOSE account column it belongs to. Balances confirmed by Joe 10 Sep 2026 from his aggregator export; the ...NNNN suffixes are the masked numbers in that export. Any account id absent from this map is reported under 'unmapped' by pull_ibkr_flex.py rather than being filed somewhere arbitrary.",
+ "accounts": {
+  "U25747451": {
+   "key": "his",
+   "label": "Joe's IRA",
+   "title": "Joseph F Lynch IRA, Interactive Brokers LLC Custodian",
+   "type": "IRA",
+   "taxable": false,
+   "balance_2026_09_10": 947850.75,
+   "note": "Matches the single account the AI connector is bound to (net liq $948,105)."
+  },
+  "U25995036": {
+   "key": "joint",
+   "label": "Joint Cash",
+   "title": "Joseph F Lynch and Keli L Lynch",
+   "type": "Joint",
+   "taxable": true,
+   "balance_2026_09_10": 338237.34,
+   "note": "Taxable. Sales realise capital gains, unlike the IRAs."
+  },
+  "U25302175": {
+   "key": null,
+   "label": "UNIDENTIFIED",
+   "title": null,
+   "type": null,
+   "taxable": null,
+   "balance_2026_09_10": null,
+   "note": "Third account on Joe's login. Does NOT match ...7390 (Keli L Lynch Rollover IRA), which is absent from his account chips. Most likely the incoming Charles Schwab transfer Joe described as non-IRA, i.e. taxable. Resolve from the acctAlias/accountType the Flex pull returns, then set key."
+  }
+ },
+ "expected_but_unseen": {
+  "...7390": {
+   "key": "hers",
+   "label": "Keli's IRA",
+   "title": "Keli L Lynch Rollover IRA, Interactive Brokers LLC Custodian",
+   "type": "IRA",
+   "taxable": false,
+   "balance_2026_09_10": 202096.14,
+   "note": "Not among the three account chips on Joe's login, so probably behind Keli's separate login. If the Flex pull does not return it, she needs her own query + IBKR_FLEX_TOKEN_2."
+  }
+ }
+}

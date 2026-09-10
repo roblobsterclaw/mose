@@ -49,6 +49,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUT = ROOT / "data" / "ibkr-positions.json"
+ACCOUNT_MAP = ROOT / "reference-data" / "ibkr-accounts.json"
 
 BASE = "https://ndcdyn.interactivebrokers.com/AccountManagement/FlexWebService"
 SEND = BASE + "/SendRequest"
@@ -176,6 +177,33 @@ def parse_accounts(root: ET.Element) -> dict[str, dict]:
     return out
 
 
+def load_account_map() -> dict[str, dict]:
+    try:
+        return json.loads(ACCOUNT_MAP.read_text()).get("accounts", {})
+    except (OSError, ValueError) as e:
+        print(f"  account map unreadable ({e}); accounts stay unmapped", file=sys.stderr)
+        return {}
+
+
+def apply_account_map(accounts: dict[str, dict]) -> list[str]:
+    """Stamp each account with its MOSE column. Returns the ids we cannot place.
+
+    An unknown account is reported, never guessed at — filing a quarter of a
+    million dollars into the wrong column silently is the failure mode worth
+    engineering against.
+    """
+    known = load_account_map()
+    unmapped = []
+    for acct_id, acct in accounts.items():
+        m = known.get(acct_id) or {}
+        acct["mose_key"] = m.get("key")
+        acct["label"] = m.get("label") or acct.get("alias") or acct_id
+        acct["taxable"] = m.get("taxable")
+        if not m.get("key"):
+            unmapped.append(acct_id)
+    return unmapped
+
+
 def pull(token: str, query_id: str, label: str) -> dict[str, dict]:
     ref = request_statement(token, query_id)
     accounts = parse_accounts(fetch_statement(token, ref))
@@ -210,6 +238,7 @@ def main(argv: list[str]) -> int:
         print("No positions retrieved; leaving the existing file untouched.", file=sys.stderr)
         return 1
 
+    unmapped = apply_account_map(accounts)
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "source": "IBKR Flex Web Service v3 (open positions)",
@@ -217,6 +246,15 @@ def main(argv: list[str]) -> int:
     }
     if failures:
         payload["partial"] = failures
+    if unmapped:
+        payload["unmapped"] = unmapped
+        print("  UNMAPPED account(s) — add them to reference-data/ibkr-accounts.json "
+              "before trusting any per-account total: " + ", ".join(unmapped),
+              file=sys.stderr)
+    for acct_id, a in sorted(accounts.items()):
+        print(f"  {acct_id}  {a['label']:<18} key={a['mose_key'] or '?':<6} "
+              f"{len(a['positions'])} positions  alias={a.get('alias')!r} "
+              f"type={a.get('type')!r}")
     if "--print" in argv:
         print(json.dumps(payload, indent=1))
     else:
