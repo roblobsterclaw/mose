@@ -1,0 +1,51 @@
+name: Sync IBKR positions
+
+# Pulls open positions for every IBKR account through the Flex Web Service.
+# Kept out of update-live-market-data.yml on purpose: that job runs every five
+# minutes during market hours, and Flex is a statement service with request
+# limits, not a quote feed. Positions only change when Joe trades, so once a
+# weekday morning is plenty.
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 8:15 AM ET weekdays — the prior business day's statement is ready by then.
+    - cron: "15 12 * * 1-5"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ibkr-positions
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Pull positions from IBKR Flex
+        env:
+          IBKR_FLEX_TOKEN: ${{ secrets.IBKR_FLEX_TOKEN }}
+          # Query IDs are not secrets; the token is. Override via secret only if
+          # the query is ever rebuilt under a different id.
+          IBKR_FLEX_QUERY_ID: ${{ secrets.IBKR_FLEX_QUERY_ID || '1633580' }}
+          IBKR_FLEX_TOKEN_2: ${{ secrets.IBKR_FLEX_TOKEN_2 }}
+          IBKR_FLEX_QUERY_ID_2: ${{ secrets.IBKR_FLEX_QUERY_ID_2 }}
+        run: python scripts/pull_ibkr_flex.py
+      - name: Commit positions snapshot
+        run: |
+          if git diff --quiet data/ibkr-positions.json; then
+            echo "No position changes"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/ibkr-positions.json
+            git commit -m "Refresh IBKR positions"
+            git push origin main
+          fi
