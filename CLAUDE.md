@@ -8,6 +8,12 @@ it first.
 ## Deploy / workflow rules (standing)
 - Develop on **`main`**. Deploy by triggering the **`update-live-market-data.yml`**
   GitHub Action (force-pushes `main` → `gh-pages`).
+- **The repo's default branch is `gh-pages`, not `main`.** GitHub only offers
+  `workflow_dispatch` for workflows that exist on the DEFAULT branch, so a newly
+  added workflow returns 404 on dispatch until a deploy run copies it across.
+  Add a workflow on `main` → run the deploy Action → only then can you trigger it.
+- **The repo is PUBLIC.** Never commit account numbers, balances, positions or
+  anything else personal; route that data to Firebase and gitignore the local file.
 - **Never open a PR** unless Joe explicitly asks.
 - Never push to other branches without permission. Don't expose the model ID in
   commits/code.
