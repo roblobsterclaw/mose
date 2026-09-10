@@ -1894,6 +1894,7 @@ async function checkPw(){
           <option value="his">Joe's IRA</option>
           <option value="hers">Keli's IRA</option>
           <option value="joint">Joint Cash</option>
+          <option value="schwab">Schwab transfer</option>
         </select>
         <button class="filter-btn" onclick="targImportPreview()">Preview</button>
         <button class="watchlist-add-btn" onclick="targImport()">Import → fill Owned</button>
@@ -1936,6 +1937,12 @@ async function checkPw(){
       <div id="targets-joint"></div>
     </div>
 
+    <div class="reentry-section">
+      <h3 id="targets-schwab-title">🏦 Schwab transfer</h3>
+      <div class="sub" id="targets-schwab-sub"></div>
+      <div id="targets-schwab"></div>
+    </div>
+
     <div id="targets-history"></div>
 
     <div id="targets-extra"></div>
@@ -1949,7 +1956,7 @@ async function checkPw(){
     </details>
 
     <div class="info-blurb">
-      How to use it: one shared set of 8 buckets feeds all three accounts. When you sit down to buy, each account (<strong>Joe's IRA</strong>, <strong>Keli's IRA</strong>, <strong>Joint Cash</strong>) shows its own dollar target per stock — scaled to that account's size — plus a "Buy This Month" order size. The Combined table up top rolls up the two IRAs. Print the buy list (below) to get the per-account order sheet you take into IBKR. IRAs and the joint cash account stay legally separate; this just lets you plan them as one. Not financial advice — this is your own plan.
+      How to use it: one shared set of buckets feeds every account. When you sit down to buy, each account (<strong>Joe's IRA</strong>, <strong>Keli's IRA</strong>, <strong>Joint Cash</strong>, <strong>Schwab transfer</strong>) shows its own dollar target per stock — scaled to that account's size — plus a "Buy This Month" order size. The Combined table up top rolls up the two IRAs. Print the buy list (below) to get the per-account order sheet you take into IBKR. IRAs and the joint cash account stay legally separate; this just lets you plan them as one. Not financial advice — this is your own plan.
     </div>
   </div>
 
@@ -2109,7 +2116,7 @@ async function checkPw(){
 // compare the build stamp, and offer a genuine reload when they differ.
 // Bump APP_BUILD whenever index.html changes.
 // ============================================================
-const APP_BUILD = '2026-09-09c';
+const APP_BUILD = '2026-09-10a';
 
 async function checkForAppUpdate(announce) {
   try {
@@ -6583,9 +6590,12 @@ function defaultTargetsData() {
     ira: {
       total: 1150000,
       accounts: {
-        his:   { label: "Joe's IRA",  total: 950000 },
-        hers:  { label: "Keli's IRA", total: 200000 },
-        joint: { label: 'Joint Cash', total: 344000 }
+        his:    { label: "Joe's IRA",  total: 950000 },
+        hers:   { label: "Keli's IRA", total: 200000 },
+        joint:  { label: 'Joint Cash', total: 344000 },
+        // Taxable, solely Joe's — the Schwab transfer. Total starts at 0 until
+        // the transfer settles and Joe sets it in Edit goals.
+        schwab: { label: 'Schwab transfer', total: 0, taxable: true }
       },
       buckets: canonTargetsBuckets()
     },
@@ -6599,9 +6609,11 @@ function defaultTargetsData() {
     ]
   };
 }
-// The three accounts, in display order. Single source of truth for the render,
+// The accounts, in display order. Single source of truth for the render,
 // print, CSV, and import so no account gets special-cased or missed.
-const TARG_ACCTS = ['his', 'hers', 'joint'];
+const TARG_ACCTS = ['his', 'hers', 'joint', 'schwab'];
+// Accounts whose sales realise capital gains. The IRAs do not; these do.
+const TARG_TAXABLE = new Set(['joint', 'schwab']);
 
 let targetsData = (function() {
   let d = null;
@@ -6619,6 +6631,8 @@ function migrateTargets(d) {
   if (!d.ira.accounts || typeof d.ira.accounts !== 'object') d.ira.accounts = {};
   if (!d.ira.accounts.his || typeof d.ira.accounts.his !== 'object') d.ira.accounts.his = { label: "Joe's IRA", total: 950000 };
   if (!d.ira.accounts.hers || typeof d.ira.accounts.hers !== 'object') d.ira.accounts.hers = { label: "Keli's IRA", total: 200000 };
+  if (!d.ira.accounts.schwab || typeof d.ira.accounts.schwab !== 'object') d.ira.accounts.schwab = { label: 'Schwab transfer', total: 0, taxable: true };
+  if (typeof d.ira.accounts.schwab.total !== 'number') d.ira.accounts.schwab.total = 0;
   if (!d.ira.accounts.joint || typeof d.ira.accounts.joint !== 'object') d.ira.accounts.joint = { label: 'Joint Cash', total: (d.mose && typeof d.mose.total === 'number') ? d.mose.total : 344000 };
   if (typeof d.ira.accounts.his.total !== 'number') d.ira.accounts.his.total = 950000;
   if (typeof d.ira.accounts.hers.total !== 'number') d.ira.accounts.hers.total = 200000;
@@ -6744,7 +6758,7 @@ function migrateTargets(d) {
     //  - Add DIS, TDG and COF to Radar: filer-held names that were in no bucket.
     // Anything Joe actually owns is never removed, only left in place, so a
     // stale snapshot of this list can't orphan real dollars.
-    const ownedQty = t => ['his','hers','joint'].reduce((s,a) =>
+    const ownedQty = t => TARG_ACCTS.reduce((s,a) =>
       s + (Number((d.owned || {})[a + '|' + t]) || 0), 0);
     const dropFrom = (id, list) => {
       const b = d.ira.buckets.find(x => x.id === id);
@@ -6831,6 +6845,17 @@ function migrateTargets(d) {
     }));
     d.ira.buckets = canon;
     d.version = 16;
+    _targetsRepaired = true;
+  }
+  if ((d.version || 0) < 17) {
+    // Fourth account: the Charles Schwab transfer, which IBKR holds as a
+    // separate individual (taxable) account rather than inside the Joint.
+    // Total stays 0 until the transfer settles — a real number here would
+    // spread meaningless dollar targets across all 17 names. Owned/plan are
+    // keyed account|ticker, so nothing existing is touched.
+    if (!d.ira.accounts.schwab) d.ira.accounts.schwab = { label: 'Schwab transfer', total: 0 };
+    d.ira.accounts.schwab.taxable = true;
+    d.version = 17;
     _targetsRepaired = true;
   }
   d.ira.buckets.forEach(b => {
@@ -7016,6 +7041,7 @@ function targSetCfg(path, val) {
   if (path === 'his.total') targetsData.ira.accounts.his.total = n;
   else if (path === 'hers.total') targetsData.ira.accounts.hers.total = n;
   else if (path === 'joint.total') targetsData.ira.accounts.joint.total = n;
+  else if (path === 'schwab.total') targetsData.ira.accounts.schwab.total = n;
   else if (path.startsWith('bucket.')) { const i = +path.split('.')[1]; if (targetsData.ira.buckets[i]) targetsData.ira.buckets[i].pct = n; }
   targetsSave();
 }
@@ -7760,9 +7786,12 @@ function targApplyPositions(acct, parsed) {
 
 // ---- Progress history (snapshots) ----
 function targCurrentSnapshot() {
-  let his = 0, hers = 0, joint = 0;
-  targetsData.ira.buckets.forEach(b => b.tickers.forEach(t => { his += targOwned('his', t); hers += targOwned('hers', t); joint += targOwned('joint', t); }));
-  return { date: new Date().toISOString().slice(0, 10), his: Math.round(his), hers: Math.round(hers), joint: Math.round(joint), iraGoal: targetsData.ira.total, jointGoal: Math.round(targetsData.ira.accounts.joint.total) };
+  let his = 0, hers = 0, joint = 0, schwab = 0;
+  targetsData.ira.buckets.forEach(b => b.tickers.forEach(t => {
+    his += targOwned('his', t); hers += targOwned('hers', t);
+    joint += targOwned('joint', t); schwab += targOwned('schwab', t);
+  }));
+  return { date: new Date().toISOString().slice(0, 10), his: Math.round(his), hers: Math.round(hers), joint: Math.round(joint), schwab: Math.round(schwab), iraGoal: targetsData.ira.total, jointGoal: Math.round(targetsData.ira.accounts.joint.total) };
 }
 function targSnapshot() {
   const s = targCurrentSnapshot();
@@ -7831,6 +7860,7 @@ function renderTargetsSettings() {
   h += `<label>Joe's IRA total<input type="number" class="reentry-input" value="${targetsData.ira.accounts.his.total}" onchange="targSetCfg('his.total',this.value)"></label>`;
   h += `<label>Keli's IRA total<input type="number" class="reentry-input" value="${targetsData.ira.accounts.hers.total}" onchange="targSetCfg('hers.total',this.value)"></label>`;
   h += `<label>Joint Cash total<input type="number" class="reentry-input" value="${targetsData.ira.accounts.joint.total}" onchange="targSetCfg('joint.total',this.value)"></label>`;
+  h += `<label>Schwab transfer total<input type="number" class="reentry-input" value="${targetsData.ira.accounts.schwab.total}" onchange="targSetCfg('schwab.total',this.value)"></label>`;
   targetsData.ira.buckets.forEach((b, i) => {
     h += `<label>${escapeHtml(b.label)} %<input type="number" class="reentry-input short" value="${b.pct}" onchange="targSetCfg('bucket.${i}',this.value)"></label>`;
   });
@@ -7862,9 +7892,10 @@ function _renderTargetsBody() {
   targetsData.ira.total = targetsData.ira.accounts.his.total + targetsData.ira.accounts.hers.total;
 
   const acctOwned = a => { let o = 0; targetsData.ira.buckets.forEach(b => b.tickers.forEach(t => { o += targOwned(a, t); })); return o; };
-  const hisTot = targetsData.ira.accounts.his.total, hersTot = targetsData.ira.accounts.hers.total, jointTot = targetsData.ira.accounts.joint.total;
-  const grandGoal = hisTot + hersTot + jointTot;
-  const grandOwned = acctOwned('his') + acctOwned('hers') + acctOwned('joint');
+  const hisTot = targetsData.ira.accounts.his.total, hersTot = targetsData.ira.accounts.hers.total,
+        jointTot = targetsData.ira.accounts.joint.total, schwabTot = targetsData.ira.accounts.schwab.total;
+  const grandGoal = TARG_ACCTS.reduce((s, a) => s + (targetsData.ira.accounts[a].total || 0), 0);
+  const grandOwned = TARG_ACCTS.reduce((s, a) => s + acctOwned(a), 0);
   const grandPct = grandGoal > 0 ? grandOwned / grandGoal * 100 : 0;
   const iraOwned = acctOwned('his') + acctOwned('hers');
   const iraGoal = targetsData.ira.total;
@@ -7875,7 +7906,10 @@ function _renderTargetsBody() {
     <div class="stat-card"><div class="stat-val orange">${reentryFmt(grandGoal - grandOwned)}</div><div class="stat-label">Left to buy</div></div>
     <div class="stat-card"><div class="stat-val" style="color:var(--purple)">${reentryFmt(hisTot)}</div><div class="stat-label">Joe's IRA</div></div>
     <div class="stat-card"><div class="stat-val" style="color:var(--purple)">${reentryFmt(hersTot)}</div><div class="stat-label">Keli's IRA</div></div>
-    <div class="stat-card"><div class="stat-val yellow">${reentryFmt(jointTot)}</div><div class="stat-label">Joint Cash</div></div>`;
+    <div class="stat-card"><div class="stat-val yellow">${reentryFmt(jointTot)}</div><div class="stat-label">Joint Cash</div></div>
+    ${(schwabTot > 0 || acctOwned('schwab') > 0)
+      ? `<div class="stat-card"><div class="stat-val yellow">${reentryFmt(schwabTot)}</div><div class="stat-label">Schwab transfer</div></div>`
+      : ''}`;
 
   const gr = document.getElementById('targets-guardrail');
   if (gr) gr.innerHTML = targGuardrailHtml();
@@ -7898,6 +7932,13 @@ function _renderTargetsBody() {
   document.getElementById('targets-joint-title').textContent = `💎 ${targetsData.ira.accounts.joint.label} — ${reentryFmt(jointTot)}`;
   document.getElementById('targets-joint-sub').innerHTML = `Deployed <strong>${reentryFmt(joint.deployed)}</strong> · ${reentryFmt(Math.max(0, jointTot - joint.deployed))} left to put to work. Same 8 buckets as the IRAs, scaled to the ${reentryFmt(jointTot)} joint cash — legally separate, planned as one.`;
 
+  const schwab = targAcctTableHtml('schwab');
+  document.getElementById('targets-schwab').innerHTML = schwab.html;
+  document.getElementById('targets-schwab-title').textContent = `🏦 ${targetsData.ira.accounts.schwab.label} — ${reentryFmt(schwabTot)}`;
+  document.getElementById('targets-schwab-sub').innerHTML = schwabTot > 0
+    ? `Deployed <strong>${reentryFmt(schwab.deployed)}</strong> · ${reentryFmt(Math.max(0, schwabTot - schwab.deployed))} left to put to work. <strong>Taxable</strong> — sales here realise capital gains, unlike the IRAs.`
+    : `⏳ <strong>Transfer from Schwab still in flight.</strong> ${schwab.deployed > 0 ? `Holding ${reentryFmt(schwab.deployed)} so far. ` : ''}Set the expected total in ⚙️ Edit goals to start planning it. <strong>Taxable</strong> — sales here realise capital gains, unlike the IRAs.`;
+
   document.getElementById('targets-history').innerHTML = targHistoryHtml();
   document.getElementById('targets-extra').innerHTML = targExtraHtml();
   renderTargetsSettings();
@@ -7918,15 +7959,15 @@ function targetsExportCSV() {
   const sect = title => rows.push([title]);
 
   const acctTot = a => targetsData.ira.accounts[a].total;
-  const grandGoal = acctTot('his') + acctTot('hers') + acctTot('joint');
+  const grandGoal = TARG_ACCTS.reduce((s, a) => s + acctTot(a), 0);
   let grandOwned = 0;
-  targetsData.ira.buckets.forEach(b => b.tickers.forEach(t => { grandOwned += targOwned('his', t) + targOwned('hers', t) + targOwned('joint', t); }));
+  targetsData.ira.buckets.forEach(b => b.tickers.forEach(t => { TARG_ACCTS.forEach(a => { grandOwned += targOwned(a, t); }); }));
 
   // ---- Title + summary ----
   sect('MOSE — Buy Targets / Monthly Buy List');
   rows.push(['Exported', new Date().toLocaleString()]);
   rows.push(['All accounts goal', dollar(grandGoal), 'Deployed', dollar(grandOwned), 'Left to buy', dollar(Math.max(0, grandGoal - grandOwned))]);
-  rows.push(['Accounts', `Joe's IRA ${dollar(acctTot('his'))}`, `Keli's IRA ${dollar(acctTot('hers'))}`, `Joint Cash ${dollar(acctTot('joint'))}`, 'Buckets', targetsData.ira.buckets.map(b => `${b.label} ${b.pct}%`).join(' / ')]);
+  rows.push(['Accounts', ...TARG_ACCTS.map(a => `${targetsData.ira.accounts[a].label} ${dollar(acctTot(a))}`), 'Buckets', targetsData.ira.buckets.map(b => `${b.label} ${b.pct}%`).join(' / ')]);
   blank();
 
   // ---- Combined IRA (his + hers) ----
@@ -8000,8 +8041,9 @@ function targPrintBuyList() {
   const nameOf = t => nameMap[canonicalTicker(t)] || '';
   const esc = s => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   const acctTot = a => targetsData.ira.accounts[a].total;
-  const grandGoal = acctTot('his') + acctTot('hers') + acctTot('joint');
-  let grandOwned = 0; targetsData.ira.buckets.forEach(b => b.tickers.forEach(t => { grandOwned += targOwned('his', t) + targOwned('hers', t) + targOwned('joint', t); }));
+  const grandGoal = TARG_ACCTS.reduce((s, a) => s + acctTot(a), 0);
+  let grandOwned = 0; targetsData.ira.buckets.forEach(b => b.tickers.forEach(t => { TARG_ACCTS.forEach(a => { grandOwned += targOwned(a, t); }); }));
+  const acctHasOwned = a => targetsData.ira.buckets.some(b => b.tickers.some(t => targOwned(a, t) > 0));
   let iraOwned = 0; targetsData.ira.buckets.forEach(b => b.tickers.forEach(t => { iraOwned += targOwned('his', t) + targOwned('hers', t); }));
 
   // Combined IRA sheet
@@ -8062,9 +8104,9 @@ function targPrintBuyList() {
       <button onclick="window.print()" style="padding:8px 18px;font-size:14px;cursor:pointer;white-space:nowrap">🖨 Print</button>
     </div>
     ${sheet('Combined IRA Goal (Joe + Keli)', `$${(targetsData.ira.total).toLocaleString()} total`, combined)}
-    ${sheet(targetsData.ira.accounts.his.label, reentryFmt(targetsData.ira.accounts.his.total), acctSheet('his'))}
-    ${sheet(targetsData.ira.accounts.hers.label, reentryFmt(targetsData.ira.accounts.hers.total), acctSheet('hers'))}
-    ${sheet(targetsData.ira.accounts.joint.label, reentryFmt(targetsData.ira.accounts.joint.total), acctSheet('joint'))}
+    ${TARG_ACCTS.filter(a => targetsData.ira.accounts[a].total > 0 || acctHasOwned(a))
+        .map(a => sheet(targetsData.ira.accounts[a].label, reentryFmt(targetsData.ira.accounts[a].total), acctSheet(a)))
+        .join('\n    ')}
   </body></html>`;
 
   const w = window.open('', '_blank');

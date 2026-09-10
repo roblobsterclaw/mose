@@ -34,7 +34,7 @@ plus UBER and SPCX. Retired: Hard assets, AI core, Opportunistic, AI bench, Rada
    disappears from view. **No dollar goals** — Buy More stays blank. 38 names.
 
 Percentages are starting points; Joe changes them in-app (⚙️ Edit goals) and by
-per-stock weight. `targetsData` is at **v16**; the migration preserves every
+per-stock weight. `targetsData` is at **v17**; the migration preserves every
 `owned`/`plan` value and drops anything owned-but-untargeted into Other positions.
 
 **Guard rail exemptions:** `dry` and `other` (cash management and a record of what
@@ -43,9 +43,16 @@ he already owns — neither is a stock pick).
 **Watchlist = names he does NOT own and is only watching.** Its tab sits FAR RIGHT
 (tab order: Buy → My Holdings → Super Investors → Valuation → Research → Watchlist).
 
-## The account model (implemented in the Buy Targets page, v7 data)
-- Three accounts, all sharing the 8 buckets: **Joe's IRA** ($950k, key `his`),
-  **Keli's IRA** ($200k, key `hers`), **Joint Cash** ($344k, key `joint`).
+## The account model (implemented in the Buy Targets page)
+- **Four** accounts, all sharing the buckets: **Joe's IRA** ($950k, key `his`),
+  **Keli's IRA** ($200k, key `hers`), **Joint Cash** ($344k, key `joint`), and
+  **Schwab transfer** (key `schwab`, IBKR U25302175) — added 10 Sep 2026 at Joe's
+  call. The Schwab account is **solely Joe's and taxable**, so it is deliberately
+  NOT folded into Joint. Its total starts at **0** until the transfer settles;
+  Joe sets it in ⚙️ Edit goals. Until then its panel shows "transfer in flight"
+  and it is hidden from the stat bar and the printed buy list. `TARG_ACCTS` and
+  `TARG_TAXABLE` in `index.html` are the single sources of truth — render, print,
+  CSV and import all derive from them, so a fifth account is a one-line change.
 - One list, "feels like one account." Each account's per-stock $ target =
   `account size × bucket% × stock's share of bucket` — an **auto proportional
   split** (Joe ~63.6% / Keli ~13.4% / Joint ~23%). Override per stock via the

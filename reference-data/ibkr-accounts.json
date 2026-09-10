@@ -20,13 +20,13 @@
    "note": "Taxable. Sales realise capital gains, unlike the IRAs."
   },
   "U25302175": {
-   "key": null,
+   "key": "schwab",
    "label": "Schwab transfer (taxable)",
    "title": null,
    "type": "Individual",
    "taxable": true,
    "balance_2026_09_10": 2827.05,
-   "note": "Identified 10 Sep 2026 from the first Flex pull: individual account holding only NVDA 7sh + AAPL 4sh ($2,827) \u2014 consistent with Joe's description of an in-flight Charles Schwab transfer into a non-IRA account. key stays null because MOSE models only his/hers/joint; decide whether this becomes a 4th column or folds into joint once the transfer lands. Taxable, so it is NOT interchangeable with the IRAs."
+   "note": "Identified 10 Sep 2026 from the first Flex pull: individual account holding only NVDA 7sh + AAPL 4sh ($2,827) \u2014 the in-flight Charles Schwab transfer. Joe's call: it gets its OWN fourth column in MOSE (targetsData v17, key `schwab`), not folded into joint, because it is solely his and taxable."
   }
  },
  "expected_but_unseen": {
