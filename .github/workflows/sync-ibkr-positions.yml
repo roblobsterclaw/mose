@@ -35,8 +35,9 @@ jobs:
           # Query IDs are not secrets; the token is. Override via secret only if
           # the query is ever rebuilt under a different id.
           IBKR_FLEX_QUERY_ID: ${{ secrets.IBKR_FLEX_QUERY_ID || '1633580' }}
+          # Keli's login — her own query, since her IRA is not on Joe's login.
           IBKR_FLEX_TOKEN_2: ${{ secrets.IBKR_FLEX_TOKEN_2 }}
-          IBKR_FLEX_QUERY_ID_2: ${{ secrets.IBKR_FLEX_QUERY_ID_2 }}
+          IBKR_FLEX_QUERY_ID_2: ${{ secrets.IBKR_FLEX_QUERY_ID_2 || '1633600' }}
         run: python scripts/pull_ibkr_flex.py --firebase
       # Nothing is committed on purpose: this repo is public, and the snapshot
       # carries account numbers, balances and holdings. It goes to Firebase,

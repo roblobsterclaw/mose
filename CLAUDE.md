@@ -96,11 +96,13 @@ cover all three accounts with zero connector swapping, and it runs unattended in
 the GitHub Action (the runner has the network access the sandbox lacks).
 Runs from `.github/workflows/sync-ibkr-positions.yml` (weekday 8:15 AM ET +
 manual) — deliberately NOT folded into the 5-minute quote job, because Flex is a
-rate-limited statement service, not a quote feed. Only `IBKR_FLEX_TOKEN` is a
-secret; query id 1633580 is the workflow default (`IBKR_FLEX_QUERY_ID` overrides
-it), with an optional `_2` pair if a second login is ever needed. Joe's login
-covers three accounts (U25995036, U25302175, U25747451), so one token is likely
-enough for all three. Output goes to **Firebase** (`mose/ibkrPositions`), keyed by IBKR
+rate-limited statement service, not a quote feed. Both query ids are workflow defaults — **1633580** (Joe's
+login) and **1633600** (Keli's) — so the only secrets to configure are
+`IBKR_FLEX_TOKEN` and `IBKR_FLEX_TOKEN_2`; the `IBKR_FLEX_QUERY_ID*` secrets
+exist only to override a rebuilt query. Joe's login covers three accounts
+(U25995036, U25302175, U25747451) but **NOT Keli's IRA** — her masked number
+(...7390) matches none of his chips — so her login genuinely needs the second
+token. Output goes to **Firebase** (`mose/ibkrPositions`), keyed by IBKR
 account id, prior-business-day close. **Nothing is committed — the repo is
 PUBLIC**, and the snapshot carries account numbers, balances and holdings;
 `data/ibkr-positions.json` is gitignored and the workflow has no commit step.
