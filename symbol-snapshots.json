@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T22:00:17.845468+00:00",
+  "generated_at": "2026-09-11T22:20:05.778673+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -4982,11 +4982,11 @@
       "quote": {
         "ticker": "VFIAX",
         "symbol": "VFIAX",
-        "price": 701.95,
-        "prev_close": 706.0,
-        "change_pct": -0.5736543909348377,
+        "price": 708.02,
+        "prev_close": 701.95,
+        "change_pct": 0.8647339554099203,
         "date": "2026-09-11",
-        "time": "08:10:24",
+        "time": "17:47:03",
         "volume": null,
         "week52_high": 720.28,
         "week52_low": 585.37
@@ -5462,7 +5462,7 @@
       "quote": {
         "ticker": "^VIX",
         "price": 15.84,
-        "change_pct": -11.210762331838566,
+        "change_pct": -3.766707168894295,
         "source": "yahoo"
       },
       "metrics": {},
