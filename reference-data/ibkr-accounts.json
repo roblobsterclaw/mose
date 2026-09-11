@@ -1,5 +1,5 @@
 {
- "_comment": "IBKR account id -> the MOSE account column it belongs to. Balances confirmed by Joe 10 Sep 2026 from his aggregator export; the ...NNNN suffixes are the masked numbers in that export. Any account id absent from this map is reported under 'unmapped' by pull_ibkr_flex.py rather than being filed somewhere arbitrary.",
+ "_comment": "IBKR account id -> the MOSE account column it belongs to. All four accounts confirmed by Flex pulls on 10-11 Sep 2026. Any account id absent from this map is reported under 'unmapped' by pull_ibkr_flex.py rather than being filed somewhere arbitrary.",
  "accounts": {
   "U25747451": {
    "key": "his",
@@ -27,17 +27,15 @@
    "taxable": true,
    "balance_2026_09_10": 2827.05,
    "note": "Identified 10 Sep 2026 from the first Flex pull: individual account holding only NVDA 7sh + AAPL 4sh ($2,827) \u2014 the in-flight Charles Schwab transfer. Joe's call: it gets its OWN fourth column in MOSE (targetsData v17, key `schwab`), not folded into joint, because it is solely his and taxable."
-  }
- },
- "expected_but_unseen": {
-  "...7390": {
+  },
+  "U25767390": {
    "key": "hers",
    "label": "Keli's IRA",
    "title": "Keli L Lynch Rollover IRA, Interactive Brokers LLC Custodian",
    "type": "IRA",
    "taxable": false,
    "balance_2026_09_10": 202096.14,
-   "note": "Confirmed absent from Joe's login by the 10 Sep 2026 Flex pull, which returned only U25747451, U25995036 and U25302175. Needs Keli's own token in IBKR_FLEX_TOKEN_2 \u2014 that secret was EMPTY on the first run, so her IRA is not yet syncing."
+   "note": "Arrived 11 Sep 2026 via Keli's own Flex token (login 2, query 1633600): 15 positions, $191,304 in equities. Confirmed as the ...7390 account from Joe's aggregator export. Not reachable from Joe's login \u2014 only IBKR_FLEX_TOKEN_2 pulls it."
   }
  }
 }

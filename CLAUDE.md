@@ -113,20 +113,25 @@ rate-limited statement service, not a quote feed. Both query ids are workflow de
 login) and **1633600** (Keli's) — so the only secrets to configure are
 `IBKR_FLEX_TOKEN` and `IBKR_FLEX_TOKEN_2`; the `IBKR_FLEX_QUERY_ID*` secrets
 exist only to override a rebuilt query. Joe's login covers three accounts
-(U25995036, U25302175, U25747451) but **NOT Keli's IRA** — her masked number
-(...7390) matches none of his chips — so her login genuinely needs the second
-token. Output goes to **Firebase** (`mose/ibkrPositions`), keyed by IBKR
+(U25995036, U25302175, U25747451) but **NOT Keli's IRA** (U25767390), which only
+her own token reaches — confirmed empirically, not assumed. Output goes to **Firebase** (`mose/ibkrPositions`), keyed by IBKR
 account id, prior-business-day close. **Nothing is committed — the repo is
 PUBLIC**, and the snapshot carries account numbers, balances and holdings;
 `data/ibkr-positions.json` is gitignored and the workflow has no commit step.
 `reference-data/ibkr-accounts.json` maps account id -> MOSE column; unmapped
-accounts are reported, never guessed. **First successful run 10 Sep 2026**
-(3 accounts, 59 positions): `his` U25747451 $937,821 / 53 positions; `joint`
-U25995036 $319,096 / 4 positions (SGOV, NVDA 85sh, GOOGL 45sh, AMZN 55sh);
-U25302175 = the in-flight **Schwab transfer, taxable**, only $2,827 so far —
-MOSE has no column for it yet. This run **confirmed** the old NVDA puzzle: the
-app's ~$18.9k NVDA under `his` is the Joint's 85 shares ($19,012), so the
-additive-only sync was right and nothing was ever sold. The Flex host IS reachable from the sandbox
+accounts are reported, never guessed. **ALL FOUR ACCOUNTS NOW SYNC** (11 Sep 2026,
+74 positions, $1,450,568 total):
+
+| IBKR id | MOSE key | Login | Equities | Positions |
+|---|---|---|---|---|
+| U25747451 | `his` | Joe (token 1) | $937,697 | 53 |
+| U25995036 | `joint` | Joe (token 1) | $318,732 | 4 |
+| U25302175 | `schwab` | Joe (token 1) | $2,835 | 2 |
+| U25767390 | `hers` | **Keli (token 2)** | $191,304 | 15 |
+
+The first run also **confirmed** the old NVDA puzzle: the app's ~$18.9k NVDA
+under `his` is the Joint's 85 shares ($19,012), so the additive-only sync was
+right and nothing was ever sold. The Flex host IS reachable from the sandbox
 (unlike SEC/Firebase), so a token in the environment can be tested here. Read-only; it never stages or places anything. The AI
 connector stays on whichever account Joe wants to stage trades in.
 
