@@ -6,6 +6,41 @@
 
 ---
 
+## Session 18 — September 10-11, 2026 (Claude) — all four IBKR accounts sync automatically
+Joe: "every time I trade one of these accounts, I'm gonna have to swap amongst the three of them to get an updated version to you. Is there a workaround?" His idea was three AI models each bound to one account, writing files to a Mac mini. There was a simpler route.
+
+**The constraint, established first.** IBKR's AI connector authorizes **one account per connection**, chosen on IBKR's own consent screen at authorization time. No tool takes an `account_id`, so there is no selector to switch. Linking Joint under the same username does not widen it, and authorizing a second AI platform disconnects the first. Confirmed against IBKR's own documentation, not inferred.
+
+**The workaround: Flex Web Service.** A separate read-only reporting API with no one-account limit — a token taken from the master account of a linked structure covers every account included in the query. Two tokens (Joe's login, Keli's) cover all four accounts with zero swapping, and it runs unattended in the Action.
+- **`scripts/pull_ibkr_flex.py`** — async SendRequest/GetStatement handshake, polls through the 1019 "generation in progress" warning, folds every FlexStatement into one snapshot. Drops non-equity rows and closed positions, sums lots, spells class shares the way the app stores them (`BRK B` → `BRK-B`). One login failing never discards the other's data; an empty pull leaves the existing snapshot untouched. Read-only — it cannot stage or place anything.
+- **`.github/workflows/sync-ibkr-positions.yml`** — weekday 08:15 ET plus manual. Deliberately not folded into the five-minute quote job: Flex is a rate-limited statement service, not a quote feed. Query ids are workflow defaults (**1633580** Joe, **1633600** Keli), so the two tokens are the only secrets.
+- **`reference-data/ibkr-accounts.json`** — account id → MOSE column. Unmapped accounts are reported loudly, never guessed; a silent misfile would move six figures into the wrong account's plan.
+
+**Privacy correction caught before the first run.** The workflow originally committed the snapshot. The repo is **public**, so that would have published account numbers, balances and every holding into permanent git history. Commit step removed, `data/ibkr-positions.json` gitignored, snapshot PUT to Firebase `mose/ibkrPositions` where the app already reads its synced state.
+
+**Result — all four accounts, 74 positions, $1,450,568** (11 Sep, prior-day close):
+
+| IBKR id | MOSE key | Login | Equities | Positions |
+|---|---|---|---|---|
+| U25747451 | `his` Joe's IRA | token 1 | $937,697 | 53 |
+| U25995036 | `joint` Joint Cash | token 1 | $318,732 | 4 |
+| U25767390 | `hers` Keli's IRA | **token 2** | $191,304 | 15 |
+| U25302175 | `schwab` Schwab transfer | token 1 | $2,835 | 2 |
+
+**Two open questions closed by real data.** The NVDA discrepancy flagged in Session 17 — ~$18.9k recorded under `his` against 5 shares visible — is the **Joint's 85 shares ($19,012)**. Nothing was ever sold, and the additive-only sync was the right call. And U25302175, absent from Joe's aggregator export, is the **in-flight Schwab transfer**: an individual, taxable account holding $2,835 so far.
+
+**Fourth account column (targets v17).** Joe's call: the Schwab account gets its own column rather than folding into Joint, because Joint is jointly owned and this one is solely his, so ownership and tax treatment differ. Its total starts at **0** — spreading $2,835 across seventeen names produces targets too small to act on — and until Joe sets it in ⚙️ Edit goals the panel reads "transfer in flight" and stays off the stat bar and the printed buy list. Render, print, CSV and import now derive from `TARG_ACCTS`/`TARG_TAXABLE` instead of naming accounts inline, so a fifth account is a one-line change.
+
+**Two repo facts learned the hard way, now in CLAUDE.md.** The default branch is **`gh-pages`, not `main`** — GitHub only exposes `workflow_dispatch` for workflows on the default branch, so a new workflow 404s until a deploy run copies it across. And the repo is **public**, which governs what may ever be committed.
+
+**The number this surfaced:** **86.6% of the book ($1,256,250 of $1,450,568) is sitting in SGOV.** Only ~$194k is in equities. First time that figure has come from the accounts rather than an estimate.
+
+**Verification:** `node --check` OK; headless render — all four account tables build, zero unrendered templates, Schwab panel shows the in-flight state. Flex error path verified against the live endpoint (bad token → `Fail`/`1020`). Final run: zero unmapped, both logins succeeded. `APP_BUILD` → `2026-09-10a`.
+
+**Open:** Keli's Flex token was visible in a screenshot and should be rotated (read-only, cannot trade). The Schwab total needs setting once the transfer settles. The Buy tab still reads `owned` from the older sync path rather than this feed, and the account totals are still the estimates ($950k/$200k/$344k) rather than the actuals.
+
+---
+
 ## Session 17 — September 9, 2026 (Claude) — the simplification: 4 buckets, consensus leaderboard
 Joe's brief: "I really just want to use my Buy tab as my guide to purchase stocks." Eight buckets → four, plus a consensus page that surfaces names moving in and out of favour.
 
