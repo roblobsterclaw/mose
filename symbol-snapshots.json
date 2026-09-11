@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T00:41:08.698360+00:00",
+  "generated_at": "2026-09-11T05:25:49.097351+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -2147,7 +2147,7 @@
         "prev_close": 65.0,
         "change_pct": -1.153846153846154,
         "date": "2026-09-10",
-        "time": "10:16:49",
+        "time": "16:00:00",
         "volume": 200,
         "week52_high": 103.5,
         "week52_low": 37.05
@@ -2591,11 +2591,11 @@
         "time": "16:00:01",
         "volume": 9841410,
         "week52_high": 438.5,
-        "week52_low": 108.29
+        "week52_low": 115.88
       },
       "metrics": {
         "week52High": 438.5,
-        "week52Low": 108.29
+        "week52Low": 115.88
       },
       "profile": {
         "company": "Lam Research Corporation",
@@ -2947,11 +2947,11 @@
         "time": "16:00:01",
         "volume": 961318,
         "week52_high": 447.62,
-        "week52_low": 110.6
+        "week52_low": 114.36
       },
       "metrics": {
         "week52High": 447.62,
-        "week52Low": 110.6
+        "week52Low": 114.36
       },
       "profile": {
         "company": "MKS Instruments, Inc.",
@@ -3094,11 +3094,11 @@
         "time": "16:00:01",
         "volume": 25554875,
         "week52_high": 1255.0,
-        "week52_low": 147.61
+        "week52_low": 153.21
       },
       "metrics": {
         "week52High": 1255.0,
-        "week52Low": 147.61
+        "week52Low": 153.21
       },
       "profile": {
         "company": "Micron Technology, Inc.",
@@ -3361,11 +3361,11 @@
         "date": "2026-09-10",
         "time": "16:05:08",
         "volume": 50925752,
-        "week52_high": 331.0,
+        "week52_high": 329.5,
         "week52_low": 114.5
       },
       "metrics": {
-        "week52High": 331.0,
+        "week52High": 329.5,
         "week52Low": 114.5
       },
       "profile": {
@@ -3571,11 +3571,11 @@
         "time": "16:03:28",
         "volume": 2845851,
         "week52_high": 153.35,
-        "week52_low": 111.0
+        "week52_low": 111.03
       },
       "metrics": {
         "week52High": 153.35,
-        "week52Low": 111.0,
+        "week52Low": 111.03,
         "marketCap": 132469981184,
         "peRatio": 37.64985994397759
       },
@@ -3955,11 +3955,11 @@
         "time": "16:00:02",
         "volume": 2624059,
         "week52_high": 226.88,
-        "week52_low": 154.36
+        "week52_low": 155.64
       },
       "metrics": {
         "week52High": 226.88,
-        "week52Low": 154.36
+        "week52Low": 155.64
       },
       "profile": {
         "company": null,
@@ -4044,11 +4044,11 @@
         "date": "2026-09-10",
         "time": "16:00:02",
         "volume": 6459278,
-        "week52_high": 96.985,
+        "week52_high": 96.99,
         "week52_low": 68.625
       },
       "metrics": {
-        "week52High": 96.985,
+        "week52High": 96.99,
         "week52Low": 68.625
       },
       "profile": {
@@ -4691,11 +4691,11 @@
         "time": "16:00:00",
         "volume": 1126606,
         "week52_high": 319.94,
-        "week52_low": 64.59
+        "week52_low": 64.81
       },
       "metrics": {
         "week52High": 319.94,
-        "week52Low": 64.59
+        "week52Low": 64.81
       },
       "profile": {
         "company": "Tower Semiconductor Ltd.",
@@ -5047,11 +5047,11 @@
         "time": "16:00:00",
         "volume": 4479196,
         "week52_high": 60.43,
-        "week52_low": 11.89
+        "week52_low": 11.93
       },
       "metrics": {
         "week52High": 60.43,
-        "week52Low": 11.89
+        "week52Low": 11.93
       },
       "profile": {
         "company": "Viavi Solutions Inc.",
@@ -5194,11 +5194,11 @@
         "time": "16:00:00",
         "volume": 4500675,
         "week52_high": 799.87,
-        "week52_low": 94.41
+        "week52_low": 95.98
       },
       "metrics": {
         "week52High": 799.87,
-        "week52Low": 94.41
+        "week52Low": 95.98
       },
       "profile": {
         "company": "Western Digital Corporation",
@@ -5414,7 +5414,7 @@
       "quote": {
         "ticker": "^DJI",
         "price": 52064.1,
-        "change_pct": -0.6043451915268058,
+        "change_pct": -0.6044210940289049,
         "source": "yahoo"
       },
       "metrics": {},
@@ -5446,7 +5446,7 @@
       "quote": {
         "ticker": "^RUT",
         "price": 2890.947,
-        "change_pct": -1.0368014288753997,
+        "change_pct": -1.0369911407484378,
         "source": "yahoo"
       },
       "metrics": {},
@@ -5462,7 +5462,7 @@
       "quote": {
         "ticker": "^VIX",
         "price": 17.84,
-        "change_pct": 13.48600508905852,
+        "change_pct": 8.383961117861476,
         "source": "yahoo"
       },
       "metrics": {},
