@@ -29,12 +29,15 @@ plus UBER and SPCX. Retired: Hard assets, AI core, Opportunistic, AI bench, Rada
 
 1. **Forever compounders** (60%) — GOOGL, AMZN, META, MSFT, AAPL, BRK.B, NFLX, TSM, NVDA, ASML, TSLA, UBER, SPCX
 2. **Toll booths** (20%) — V, MA, MCO, SPGI
-3. **Dry powder** (20%) — VOO, VTV, QQQ, SGOV
+3. **Dry powder** (20%) — VOO, VTV, QQQ, **RSP**, **VO**, SGOV
+   RSP (equal-weight S&P) and VO (Vanguard Mid-Cap) added 11 Sep 2026 at Joe's
+   request, to lean the index sleeve away from mega-cap tech. Note QQQ remains
+   in the bucket and pulls the other way.
 4. **Other positions** (0%) — owned but NOT a buy target; exists so nothing he holds
    disappears from view. **No dollar goals** — Buy More stays blank. 38 names.
 
 Percentages are starting points; Joe changes them in-app (⚙️ Edit goals) and by
-per-stock weight. `targetsData` is at **v17**; the migration preserves every
+per-stock weight. `targetsData` is at **v18**; the migration preserves every
 `owned`/`plan` value and drops anything owned-but-untargeted into Other positions.
 
 **Guard rail exemptions:** `dry` and `other` (cash management and a record of what

@@ -2116,7 +2116,7 @@ async function checkPw(){
 // compare the build stamp, and offer a genuine reload when they differ.
 // Bump APP_BUILD whenever index.html changes.
 // ============================================================
-const APP_BUILD = '2026-09-10a';
+const APP_BUILD = '2026-09-11a';
 
 async function checkForAppUpdate(announce) {
   try {
@@ -6571,7 +6571,9 @@ function canonTargetsBuckets() {
     { id: 'toll', label: 'Toll booths', pct: 20,
       tickers: ['V', 'MA', 'MCO', 'SPGI'], weights: {}, locked: {} },
     { id: 'dry', label: 'Dry powder', pct: 20,
-      tickers: ['VOO', 'VTV', 'QQQ', 'SGOV'], weights: {}, locked: {} },
+      // RSP (equal-weight S&P) and VO (mid-caps) added 11 Sep 2026 to dilute the
+      // mega-cap concentration that VOO and QQQ carry.
+      tickers: ['VOO', 'VTV', 'QQQ', 'RSP', 'VO', 'SGOV'], weights: {}, locked: {} },
     { id: 'other', label: 'Other positions', pct: 0,
       // Owned, not targeted. No dollar goals — the Buy More column stays blank.
       tickers: ['WMT', 'PLD', 'MELI', 'BN', 'COST', 'SITM', 'SMH', 'WDC', 'FN', 'CIEN',
@@ -6856,6 +6858,23 @@ function migrateTargets(d) {
     if (!d.ira.accounts.schwab) d.ira.accounts.schwab = { label: 'Schwab transfer', total: 0 };
     d.ira.accounts.schwab.taxable = true;
     d.version = 17;
+    _targetsRepaired = true;
+  }
+  if ((d.version || 0) < 18) {
+    // Joe's call: add RSP (equal-weight S&P 500) and VO (Vanguard Mid-Cap) to
+    // Dry powder to lean the index sleeve away from the mega-caps. Additive —
+    // existing tickers, weights, locks and owned values are untouched, and the
+    // bucket re-spreads its % across the wider list on the next render.
+    const dry = (d.ira.buckets || []).find(b => b.id === 'dry');
+    if (dry) {
+      const at = dry.tickers.indexOf('SGOV');   // keep cash last in the list
+      ['RSP', 'VO'].forEach(t => {
+        if (dry.tickers.includes(t)) return;
+        if (at >= 0) dry.tickers.splice(dry.tickers.indexOf('SGOV'), 0, t);
+        else dry.tickers.push(t);
+      });
+    }
+    d.version = 18;
     _targetsRepaired = true;
   }
   d.ira.buckets.forEach(b => {
