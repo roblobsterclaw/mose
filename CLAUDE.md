@@ -37,7 +37,7 @@ plus UBER and SPCX. Retired: Hard assets, AI core, Opportunistic, AI bench, Rada
    disappears from view. **No dollar goals** — Buy More stays blank. 38 names.
 
 Percentages are starting points; Joe changes them in-app (⚙️ Edit goals) and by
-per-stock weight. `targetsData` is at **v18**; the migration preserves every
+per-stock weight. `targetsData` is at **v19**; the migration preserves every
 `owned`/`plan` value and drops anything owned-but-untargeted into Other positions.
 
 **Guard rail exemptions:** `dry` and `other` (cash management and a record of what
@@ -56,6 +56,19 @@ he already owns — neither is a stock pick).
   and it is hidden from the stat bar and the printed buy list. `TARG_ACCTS` and
   `TARG_TAXABLE` in `index.html` are the single sources of truth — render, print,
   CSV and import all derive from them, so a fifth account is a one-line change.
+- **Owned and account totals now come from the IBKR Flex sync** (v19), not by
+  hand. `applyIbkrSnapshot()` reads Firebase `mose/ibkrPositions` and, for each
+  account PRESENT in the snapshot, replaces that account's `owned` entries and
+  sets its total from the equity positions. Two load-bearing safety rules:
+  **(1)** an account missing from a run keeps its previous values instead of
+  being zeroed — the additive-only lesson, preserved; **(2)** typing a total in
+  ⚙️ Edit goals stamps `totalSource: 'manual'` and the sync never touches it
+  again, with "↺ use IBKR values" (`targUnpinTotals()`) handing it back. Newly
+  synced tickers in no bucket are swept into Other positions. Totals are equity
+  positions only — a small uninvested cash balance sits outside them; adding a
+  NAV/Cash section to the Flex query would close that gap.
+- **`moseFbPut()` uses PATCH, not PUT.** A PUT to `/mose.json` replaces the whole
+  node and used to delete `ibkrPositions` on every app save. Never change it back.
 - One list, "feels like one account." Each account's per-stock $ target =
   `account size × bucket% × stock's share of bucket` — an **auto proportional
   split** (Joe ~63.6% / Keli ~13.4% / Joint ~23%). Override per stock via the

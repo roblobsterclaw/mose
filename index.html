@@ -1915,6 +1915,7 @@ async function checkPw(){
     <div class="reentry-section">
       <h3>🎯 Combined IRA Goal Progress (his + hers)</h3>
       <div class="sub">The number that matters: your end goal per stock across both IRAs combined, regardless of which account holds it. $1.15M total · Forever 45% / S&amp;P 35% / For Now 20%.</div>
+      <div id="targets-ibkr-sync"></div>
       <div id="targets-combined"></div>
     </div>
 
@@ -2116,7 +2117,7 @@ async function checkPw(){
 // compare the build stamp, and offer a genuine reload when they differ.
 // Bump APP_BUILD whenever index.html changes.
 // ============================================================
-const APP_BUILD = '2026-09-11a';
+const APP_BUILD = '2026-09-11b';
 
 async function checkForAppUpdate(announce) {
   try {
@@ -2688,6 +2689,10 @@ let ddRequestsData = JSON.parse(localStorage.getItem('mose_dd_requests_local') |
 // ============================================================
 const MOSE_FB_URL = 'https://jfl-ttd-default-rtdb.firebaseio.com/mose';
 let moseSyncing = false, moseSyncPending = false, moseFbListening = false;
+// Written by .github/workflows/sync-ibkr-positions.yml, never by this app.
+// Read-only here: { generated_at, accounts: { <ibkrId>: { mose_key, label,
+// as_of, positions: { TICKER: {shares, market_value, cost_basis} } } } }
+let ibkrPositions = JSON.parse(localStorage.getItem('mose_ibkr_positions') || 'null');
 
 function getMoseState() {
   return {
@@ -2730,6 +2735,11 @@ function hydrateMoseState(state) {
   if (state.universeDecisions && typeof state.universeDecisions === 'object' && JSON.stringify(state.universeDecisions) !== JSON.stringify(universeDecisions)) { universeDecisions = state.universeDecisions; changed = true; if (typeof renderUniverse === 'function') renderUniverse(); }
   if (state.reentry && state.reentry.plans && JSON.stringify(state.reentry) !== JSON.stringify(reentryData)) { reentryData = migrateReentry(state.reentry); changed = true; }
   if (state.targets && state.targets.ira && JSON.stringify(state.targets) !== JSON.stringify(targetsData)) { targetsData = migrateTargets(state.targets); changed = true; }
+  if (state.ibkrPositions && typeof state.ibkrPositions === 'object' && JSON.stringify(state.ibkrPositions) !== JSON.stringify(ibkrPositions)) {
+    ibkrPositions = state.ibkrPositions;
+    localStorage.setItem('mose_ibkr_positions', JSON.stringify(ibkrPositions));
+    if (applyIbkrSnapshot()) changed = true;
+  }
   if (state.viewPrefs) {
     if (state.viewPrefs.view) watchlistView = state.viewPrefs.view;
     if (state.viewPrefs.sort) watchlistSort = state.viewPrefs.sort;
@@ -2780,8 +2790,13 @@ async function moseFbPut() {
   setMoseSyncStatus('⏳');
   try {
     const state = getMoseState();
+    // PATCH, not PUT: a PUT replaces the entire /mose node and would delete
+    // children this app does not own — ibkrPositions is written by the Flex
+    // sync Action, and a PUT here used to wipe it on every save. PATCH merges
+    // the keys we send and leaves siblings alone. getMoseState() always sends
+    // every key it owns, so nothing goes stale.
     const r = await fetch(MOSE_FB_URL + '.json', {
-      method: 'PUT',
+      method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(state)
     });
@@ -6623,6 +6638,9 @@ let targetsData = (function() {
   if (!(d && d.ira && d.ira.buckets)) d = defaultTargetsData();
   return migrateTargets(d);
 })();
+// A snapshot cached from the last session applies immediately, so the Buy tab
+// opens on real numbers rather than waiting for the Firebase read to land.
+try { if (ibkrPositions) applyIbkrSnapshot(); } catch (e) { console.warn('IBKR snapshot skipped', e); }
 
 // Bring older saved/synced state up to date: v3 recalibrates the bucket split to
 // 50/25/25, and ensures every bucket has weights + locked maps.
@@ -6877,6 +6895,16 @@ function migrateTargets(d) {
     d.version = 18;
     _targetsRepaired = true;
   }
+  if ((d.version || 0) < 19) {
+    // Joe's call: account totals come from the IBKR Flex sync rather than the
+    // estimates typed months ago ($950k/$200k/$344k vs the real $937,697 /
+    // $191,304 / $318,732). Leaving totalSource unset lets the first snapshot
+    // claim them. Typing a total in Edit goals stamps it `manual` and the sync
+    // leaves it alone from then on; "↺ use IBKR values" hands it back.
+    Object.keys(d.ira.accounts || {}).forEach(k => { delete d.ira.accounts[k].totalSource; });
+    d.version = 19;
+    _targetsRepaired = true;
+  }
   d.ira.buckets.forEach(b => {
     if (!Array.isArray(b.tickers)) b.tickers = [];
     if (!b.weights || typeof b.weights !== 'object') b.weights = {};
@@ -6888,6 +6916,85 @@ function migrateTargets(d) {
   if (!d.verify || typeof d.verify !== 'object') d.verify = {}; // accounts committed but awaiting IBKR confirmation
   if (!Array.isArray(d.history)) d.history = [];
   return d;
+}
+
+// ---- IBKR Flex snapshot -> owned + account totals -------------------------
+// The Flex feed covers every account, so it is authoritative for what is held.
+// Two safety properties, both load-bearing:
+//   1. Only accounts PRESENT in the snapshot are touched. If one login fails,
+//      that account keeps its previous values instead of being zeroed — the
+//      same lesson that made sync_ibkr_owned.py additive-only.
+//   2. A total Joe has typed himself is never overwritten. Editing a total in
+//      Edit goals marks it `manual`; only `ibkr`-sourced totals auto-update.
+function ibkrAccountMap() {
+  const out = {};
+  const accts = (ibkrPositions && ibkrPositions.accounts) || {};
+  Object.keys(accts).forEach(id => {
+    const a = accts[id] || {};
+    if (a.mose_key && TARG_ACCTS.includes(a.mose_key)) out[a.mose_key] = a;
+  });
+  return out;
+}
+
+function applyIbkrSnapshot() {
+  const byKey = ibkrAccountMap();
+  const keys = Object.keys(byKey);
+  if (!keys.length) return false;
+  const before = JSON.stringify([targetsData.owned, targetsData.ira.accounts]);
+
+  keys.forEach(key => {
+    const positions = byKey[key].positions || {};
+    // Replace this account's owned values wholesale — the snapshot is the full
+    // position list for it, so a ticker missing here really was sold.
+    Object.keys(targetsData.owned || {}).forEach(k => {
+      if (k.indexOf(key + '|') === 0) delete targetsData.owned[k];
+    });
+    let total = 0;
+    Object.keys(positions).forEach(t => {
+      const v = Number(positions[t].market_value) || 0;
+      if (v <= 0) return;
+      targetsData.owned[key + '|' + canonicalTicker(t)] = Math.round(v * 100) / 100;
+      total += v;
+    });
+    const acct = targetsData.ira.accounts[key];
+    if (acct && acct.totalSource !== 'manual') {
+      acct.total = Math.round(total);
+      acct.totalSource = 'ibkr';
+    }
+  });
+  targetsData.ira.total = targetsData.ira.accounts.his.total + targetsData.ira.accounts.hers.total;
+
+  // Anything now held that sits in no bucket lands in Other positions, so a
+  // stock bought outside the plan shows up instead of quietly disappearing.
+  const other = targetsData.ira.buckets.find(b => b.id === 'other');
+  if (other) {
+    const targeted = new Set();
+    targetsData.ira.buckets.forEach(b => { if (b.id !== 'other') b.tickers.forEach(t => targeted.add(t)); });
+    Object.keys(targetsData.owned).forEach(k => {
+      const parts = k.split('|');
+      if (parts.length !== 2 || !(Number(targetsData.owned[k]) > 0)) return;
+      const t = parts[1], alt = t.replace(/-([A-Z])$/, '.$1');    // BRK-B -> BRK.B
+      if (targeted.has(t) || targeted.has(alt)) return;
+      if (other.tickers.includes(t) || other.tickers.includes(alt)) return;
+      other.tickers.push(t);
+    });
+  }
+  return JSON.stringify([targetsData.owned, targetsData.ira.accounts]) !== before;
+}
+
+function ibkrSyncNote() {
+  if (!ibkrPositions || !ibkrPositions.accounts) {
+    return `<span style="color:var(--muted)">Owned values are entered by hand — the IBKR sync has not reported yet.</span>`;
+  }
+  const byKey = ibkrAccountMap();
+  const names = Object.keys(byKey).map(k => targetsData.ira.accounts[k] ? targetsData.ira.accounts[k].label : k);
+  const asOf = (Object.values(byKey)[0] || {}).as_of || '';
+  const d = /^\d{8}$/.test(asOf) ? `${asOf.slice(4,6)}/${asOf.slice(6,8)}/${asOf.slice(0,4)}` : asOf;
+  const missing = TARG_ACCTS.filter(k => !byKey[k]).map(k => targetsData.ira.accounts[k].label);
+  return `🔄 <strong>Owned synced from IBKR</strong>${d ? ` — positions at ${escapeHtml(d)} close` : ''}. `
+       + `${names.length} account${names.length === 1 ? '' : 's'}: ${escapeHtml(names.join(', '))}.`
+       + (missing.length ? ` <span style="color:var(--orange)">Not reported this run: ${escapeHtml(missing.join(', '))} — their values are unchanged, not zeroed.</span>` : '')
+       + ` <span style="color:var(--muted)">Totals are equity positions; a small uninvested cash balance sits outside them. Type over any total in ⚙️ Edit goals to pin it.</span>`;
 }
 
 function targOwned(acct, ticker) {
@@ -7057,10 +7164,13 @@ function targResetWeights(bucketId) {
 function targSetCfg(path, val) {
   const n = Number(val);
   if (!Number.isFinite(n) || n < 0) { renderTargets(); return; }
-  if (path === 'his.total') targetsData.ira.accounts.his.total = n;
-  else if (path === 'hers.total') targetsData.ira.accounts.hers.total = n;
-  else if (path === 'joint.total') targetsData.ira.accounts.joint.total = n;
-  else if (path === 'schwab.total') targetsData.ira.accounts.schwab.total = n;
+  if (path.endsWith('.total')) {
+    const key = path.split('.')[0];
+    if (targetsData.ira.accounts[key]) {
+      targetsData.ira.accounts[key].total = n;
+      targetsData.ira.accounts[key].totalSource = 'manual';   // stop the IBKR sync overwriting it
+    }
+  }
   else if (path.startsWith('bucket.')) { const i = +path.split('.')[1]; if (targetsData.ira.buckets[i]) targetsData.ira.buckets[i].pct = n; }
   targetsSave();
 }
@@ -7819,6 +7929,13 @@ function targSnapshot() {
   targetsData.history.push(s);
   targetsData.history.sort((a, b) => a.date.localeCompare(b.date));
 }
+function targUnpinTotals() {
+  TARG_ACCTS.forEach(k => { if (targetsData.ira.accounts[k]) delete targetsData.ira.accounts[k].totalSource; });
+  applyIbkrSnapshot();
+  targetsSave();
+  showWatchlistToast('Account totals back on the IBKR sync');
+}
+
 function targSaveSnapshotManual() { targSnapshot(); targetsSave(); showWatchlistToast('Progress snapshot saved'); }
 function targSparkline(vals, w, h) {
   if (!vals || vals.length < 2) return '';
@@ -7880,6 +7997,11 @@ function renderTargetsSettings() {
   h += `<label>Keli's IRA total<input type="number" class="reentry-input" value="${targetsData.ira.accounts.hers.total}" onchange="targSetCfg('hers.total',this.value)"></label>`;
   h += `<label>Joint Cash total<input type="number" class="reentry-input" value="${targetsData.ira.accounts.joint.total}" onchange="targSetCfg('joint.total',this.value)"></label>`;
   h += `<label>Schwab transfer total<input type="number" class="reentry-input" value="${targetsData.ira.accounts.schwab.total}" onchange="targSetCfg('schwab.total',this.value)"></label>`;
+  const pinned = TARG_ACCTS.filter(k => targetsData.ira.accounts[k].totalSource === 'manual');
+  if (pinned.length && ibkrPositions) {
+    h += `<label style="align-self:end">Pinned by hand<a onclick="targUnpinTotals()" style="cursor:pointer;color:var(--blue);display:block;font-weight:600">`
+       + `↺ use IBKR values for ${escapeHtml(pinned.map(k => targetsData.ira.accounts[k].label).join(', '))}</a></label>`;
+  }
   targetsData.ira.buckets.forEach((b, i) => {
     h += `<label>${escapeHtml(b.label)} %<input type="number" class="reentry-input short" value="${b.pct}" onchange="targSetCfg('bucket.${i}',this.value)"></label>`;
   });
@@ -7930,6 +8052,8 @@ function _renderTargetsBody() {
       ? `<div class="stat-card"><div class="stat-val yellow">${reentryFmt(schwabTot)}</div><div class="stat-label">Schwab transfer</div></div>`
       : ''}`;
 
+  const sync = document.getElementById('targets-ibkr-sync');
+  if (sync) sync.innerHTML = `<div class="sub" style="margin:6px 0 10px">${ibkrSyncNote()}</div>`;
   const gr = document.getElementById('targets-guardrail');
   if (gr) gr.innerHTML = targGuardrailHtml();
   document.getElementById('targets-combined').innerHTML = targCombinedHtml();
@@ -7955,8 +8079,8 @@ function _renderTargetsBody() {
   document.getElementById('targets-schwab').innerHTML = schwab.html;
   document.getElementById('targets-schwab-title').textContent = `🏦 ${targetsData.ira.accounts.schwab.label} — ${reentryFmt(schwabTot)}`;
   document.getElementById('targets-schwab-sub').innerHTML = schwabTot > 0
-    ? `Deployed <strong>${reentryFmt(schwab.deployed)}</strong> · ${reentryFmt(Math.max(0, schwabTot - schwab.deployed))} left to put to work. <strong>Taxable</strong> — sales here realise capital gains, unlike the IRAs.`
-    : `⏳ <strong>Transfer from Schwab still in flight.</strong> ${schwab.deployed > 0 ? `Holding ${reentryFmt(schwab.deployed)} so far. ` : ''}Set the expected total in ⚙️ Edit goals to start planning it. <strong>Taxable</strong> — sales here realise capital gains, unlike the IRAs.`;
+    ? `Deployed <strong>${reentryFmt(schwab.deployed)}</strong> · ${reentryFmt(Math.max(0, schwabTot - schwab.deployed))} left to put to work. Its total tracks the IBKR balance, so it grows on its own as the transfer settles. <strong>Taxable</strong> — sales here realise capital gains, unlike the IRAs.`
+    : `⏳ <strong>Transfer from Schwab still in flight.</strong> Nothing has landed yet; the total follows the IBKR balance, so no typing needed. <strong>Taxable</strong> — sales here realise capital gains, unlike the IRAs.`;
 
   document.getElementById('targets-history').innerHTML = targHistoryHtml();
   document.getElementById('targets-extra').innerHTML = targExtraHtml();
