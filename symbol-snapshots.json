@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T22:54:03.546566+00:00",
+  "generated_at": "2026-09-12T00:48:30.869649+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -3939,6 +3939,35 @@
       },
       "source": "yahoo"
     },
+    "RSP": {
+      "ticker": "RSP",
+      "name": "RSP",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "RSP",
+        "symbol": "RSP",
+        "price": 214.87,
+        "prev_close": 213.17,
+        "change_pct": 0.7974855748932858,
+        "date": "2026-09-11",
+        "time": "16:00:00",
+        "volume": 5280593,
+        "week52_high": 223.44,
+        "week52_low": 182.11
+      },
+      "metrics": {
+        "week52High": 223.44,
+        "week52Low": 182.11
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "RTX": {
       "ticker": "RTX",
       "name": "RTX",
@@ -4986,7 +5015,7 @@
         "prev_close": 701.95,
         "change_pct": 0.8647339554099203,
         "date": "2026-09-11",
-        "time": "18:33:31",
+        "time": "20:08:30",
         "volume": null,
         "week52_high": 720.28,
         "week52_low": 585.37
@@ -5081,6 +5110,35 @@
       "metrics": {
         "week52High": 399.255,
         "week52Low": 155.29
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
+    "VO": {
+      "ticker": "VO",
+      "name": "VO",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "VO",
+        "symbol": "VO",
+        "price": 81.03,
+        "prev_close": 80.4,
+        "change_pct": 0.783582089552233,
+        "date": "2026-09-11",
+        "time": "16:00:00",
+        "volume": 1722077,
+        "week52_high": 84.59,
+        "week52_low": 69.442
+      },
+      "metrics": {
+        "week52High": 84.59,
+        "week52Low": 69.442
       },
       "profile": {
         "company": null,

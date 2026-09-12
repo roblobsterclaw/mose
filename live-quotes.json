@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T22:54:03.546566+00:00",
+  "generated_at": "2026-09-12T00:48:30.869649+00:00",
   "source": "yahoo",
   "market_status": "closed",
   "indices": [
@@ -1630,6 +1630,18 @@
       "week52_low": 305.96
     },
     {
+      "ticker": "RSP",
+      "symbol": "RSP",
+      "price": 214.87,
+      "prev_close": 213.17,
+      "change_pct": 0.7974855748932858,
+      "date": "2026-09-11",
+      "time": "16:00:00",
+      "volume": 5280593,
+      "week52_high": 223.44,
+      "week52_low": 182.11
+    },
+    {
       "ticker": "RTX",
       "symbol": "RTX",
       "price": 197.68,
@@ -2056,7 +2068,7 @@
       "prev_close": 701.95,
       "change_pct": 0.8647339554099203,
       "date": "2026-09-11",
-      "time": "18:33:31",
+      "time": "20:08:30",
       "volume": null,
       "week52_high": 720.28,
       "week52_low": 585.37
@@ -2096,6 +2108,18 @@
       "volume": 3051770,
       "week52_high": 399.255,
       "week52_low": 155.29
+    },
+    {
+      "ticker": "VO",
+      "symbol": "VO",
+      "price": 81.03,
+      "prev_close": 80.4,
+      "change_pct": 0.783582089552233,
+      "date": "2026-09-11",
+      "time": "16:00:00",
+      "volume": 1722077,
+      "week52_high": 84.59,
+      "week52_low": 69.442
     },
     {
       "ticker": "VOO",
