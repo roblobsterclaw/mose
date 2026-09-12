@@ -1,9 +1,9 @@
 {
  "schema_version": 1,
- "generated_at": "2026-09-09T11:06:45.455792+00:00",
+ "generated_at": "2026-09-12T11:35:15.270316+00:00",
  "source": "offline bootstrap (scripts/build_cusip_map.py) \u2014 replace/extend with OpenFIGI pass",
- "resolved": 1897,
- "total": 2733,
+ "resolved": 1817,
+ "total": 2626,
  "map": {
   "025816109": {
    "ticker": "AXP",
@@ -8655,416 +8655,6 @@
    "name": "KANZHUN LIMITED",
    "method": "name-exact"
   },
-  "45826J105": {
-   "ticker": "NTLA",
-   "name": "Intellia Therapeutics Inc",
-   "method": "name-exact"
-  },
-  "75629V104": {
-   "ticker": "RXRX",
-   "name": "Recursion Pharmaceuticals Inc",
-   "method": "name-exact"
-  },
-  "040919102": {
-   "ticker": "ARKB",
-   "name": "ARK 21Shares Bitcoin ETF",
-   "method": "fund"
-  },
-  "71535D106": {
-   "ticker": "PSNL",
-   "name": "Personalis Inc",
-   "method": "name-exact"
-  },
-  "98386P102": {
-   "ticker": "XE",
-   "name": "X-Energy Inc",
-   "method": "name-exact"
-  },
-  "20451W101": {
-   "ticker": "CMPS",
-   "name": "Compass Pathways Plc",
-   "method": "name-exact"
-  },
-  "67080M103": {
-   "ticker": "NRIX",
-   "name": "Nurix Therapeutics Inc",
-   "method": "name-exact"
-  },
-  "051774107": {
-   "ticker": "AUR",
-   "name": "Aurora Innovation Inc",
-   "method": "name-exact"
-  },
-  "010911105": {
-   "ticker": "ALMR",
-   "name": "Alamar Biosciences Inc",
-   "method": "name-exact"
-  },
-  "056752108": {
-   "ticker": "BAIDF",
-   "name": "Baidu Inc",
-   "method": "name-exact"
-  },
-  "74168J101": {
-   "ticker": "PRME",
-   "name": "Prime Medicine Inc",
-   "method": "name-exact"
-  },
-  "500081104": {
-   "ticker": "KDK",
-   "name": "Kodiak AI Inc",
-   "method": "name-exact"
-  },
-  "950915108": {
-   "ticker": "WRD",
-   "name": "WeRide Inc",
-   "method": "name-exact"
-  },
-  "370920100": {
-   "ticker": "GENB",
-   "name": "Generate Biomedicines Inc",
-   "method": "name-exact"
-  },
-  "03969T109": {
-   "ticker": "ARCT",
-   "name": "Arcturus Therapeutics Holdings",
-   "method": "name-exact"
-  },
-  "G3934V109": {
-   "ticker": "GENI",
-   "name": "Genius Sports Ltd",
-   "method": "name-exact"
-  },
-  "65443P102": {
-   "ticker": "MASS",
-   "name": "908 Devices Inc",
-   "method": "name-exact"
-  },
-  "732908108": {
-   "ticker": "PONY",
-   "name": "Pony AI Inc",
-   "method": "name-exact"
-  },
-  "092667104": {
-   "ticker": "SRTA",
-   "name": "Strata Critical Medical Inc",
-   "method": "name-exact"
-  },
-  "G32089107": {
-   "ticker": "ETOR",
-   "name": "Etoro Group Ltd",
-   "method": "name-exact"
-  },
-  "09075V102": {
-   "ticker": "BNTX",
-   "name": "BioNTech SE",
-   "method": "name-exact"
-  },
-  "432705309": {
-   "ticker": "CNTN",
-   "name": "Canton Strategic Holdings Inc",
-   "method": "name-exact"
-  },
-  "00214Q104": {
-   "ticker": "ARKK",
-   "name": "ARK Innovation ETF",
-   "method": "fund"
-  },
-  "74765K105": {
-   "ticker": "QSI",
-   "name": "Quantum-Si Inc",
-   "method": "name-exact"
-  },
-  "M84137104": {
-   "ticker": "SMWB",
-   "name": "SimilarWeb Ltd",
-   "method": "name-exact"
-  },
-  "M85548101": {
-   "ticker": "SSYS",
-   "name": "Stratasys Ltd",
-   "method": "name-exact"
-  },
-  "M96088105": {
-   "ticker": "URGN",
-   "name": "UroGen Pharma Ltd",
-   "method": "name-exact"
-  },
-  "70450C101": {
-   "ticker": "PAYP",
-   "name": "PayPay Corp",
-   "method": "name-exact"
-  },
-  "M0740A108": {
-   "ticker": "DRTS",
-   "name": "Alpha Tau Medical Ltd",
-   "method": "name-exact"
-  },
-  "92259N302": {
-   "ticker": "VELO",
-   "name": "Velo3D Inc",
-   "method": "name-exact"
-  },
-  "M9607U115": {
-   "ticker": "VLN",
-   "name": "Valens Semiconductor Ltd",
-   "method": "name-exact"
-  },
-  "88554D205": {
-   "ticker": "DDD",
-   "name": "3D Systems Corp",
-   "method": "name-exact"
-  },
-  "57667T100": {
-   "ticker": "MTLS",
-   "name": "Materialise NV",
-   "method": "name-exact"
-  },
-  "M7S64L123": {
-   "ticker": "PGY",
-   "name": "Pagaya Technologies Ltd",
-   "method": "name-exact"
-  },
-  "M81873107": {
-   "ticker": "RDWR",
-   "name": "Radware Ltd",
-   "method": "name-exact"
-  },
-  "M87915274": {
-   "ticker": "TSEM",
-   "name": "Tower Semiconductor Ltd",
-   "method": "name-exact"
-  },
-  "M0854Q105": {
-   "ticker": "ALLT",
-   "name": "Allot Ltd",
-   "method": "name-exact"
-  },
-  "M8740S227": {
-   "ticker": "TATT",
-   "name": "TAT Technologies Ltd",
-   "method": "name-exact"
-  },
-  "M2197Q107": {
-   "ticker": "CLBT",
-   "name": "Cellebrite DI Ltd",
-   "method": "name-exact"
-  },
-  "M8216R109": {
-   "ticker": "RSKD",
-   "name": "Riskified Ltd",
-   "method": "name-exact"
-  },
-  "M81865111": {
-   "ticker": "RDCM",
-   "name": "RADCOM Ltd",
-   "method": "name-exact"
-  },
-  "M15342104": {
-   "ticker": "AUDC",
-   "name": "AudioCodes Ltd",
-   "method": "name-exact"
-  },
-  "M7516K103": {
-   "ticker": "NVMI",
-   "name": "Nova Ltd",
-   "method": "name-exact"
-  },
-  "72815L107": {
-   "ticker": "PLTK",
-   "name": "Playtika Holding Corp",
-   "method": "name-exact"
-  },
-  "M5425M103": {
-   "ticker": "INMD",
-   "name": "Inmode Ltd",
-   "method": "name-exact"
-  },
-  "10501L106": {
-   "ticker": "BRSYF",
-   "name": "Brainsway Ltd",
-   "method": "name-exact"
-  },
-  "M7S750159": {
-   "ticker": "NYAX",
-   "name": "Nayax Ltd",
-   "method": "name-exact"
-  },
-  "M22465104": {
-   "ticker": "CHKP",
-   "name": "Check Point Software Technologies Ltd",
-   "method": "name-exact"
-  },
-  "M4R82T106": {
-   "ticker": "FVRR",
-   "name": "Fiverr International Ltd",
-   "method": "name-exact"
-  },
-  "M78673114": {
-   "ticker": "PERI",
-   "name": "Perion Network Ltd",
-   "method": "name-exact"
-  },
-  "M20791105": {
-   "ticker": "CAMT",
-   "name": "Camtek Ltd",
-   "method": "name-exact"
-  },
-  "M25133105": {
-   "ticker": "CGNT",
-   "name": "Cognyte Software Ltd",
-   "method": "name-exact"
-  },
-  "M6240T109": {
-   "ticker": "KMDA",
-   "name": "Kamada Ltd",
-   "method": "name-exact"
-  },
-  "653656108": {
-   "ticker": "NCSYF",
-   "name": "Nice Ltd",
-   "method": "name-exact"
-  },
-  "M68830112": {
-   "ticker": "MDWD",
-   "name": "MediWound Ltd",
-   "method": "name-exact"
-  },
-  "63008G203": {
-   "ticker": "NNDM",
-   "name": "Nano Dimension Ltd",
-   "method": "name-exact"
-  },
-  "M25722105": {
-   "ticker": "CGEN",
-   "name": "Compugen Ltd",
-   "method": "name-exact"
-  },
-  "M51474118": {
-   "ticker": "GILT",
-   "name": "Gilat Satellite Networks Ltd",
-   "method": "name-exact"
-  },
-  "M4130Y106": {
-   "ticker": "ENLV",
-   "name": "Enlivex Ltd",
-   "method": "name-exact"
-  },
-  "M70700105": {
-   "ticker": "NNOX",
-   "name": "Nano-X Imaging Ltd",
-   "method": "name-exact"
-  },
-  "G22845104": {
-   "ticker": "OCTLF",
-   "name": "Octave Intelligence PLC",
-   "method": "name-exact"
-  },
-  "00214Q302": {
-   "ticker": "ARKG",
-   "name": "ARK Genomic Revolution ETF",
-   "method": "fund"
-  },
-  "78464A870": {
-   "ticker": "STT",
-   "name": "State Street SPDR S&P Biotech ETF",
-   "method": "fund"
-  },
-  "464287515": {
-   "ticker": "IGV",
-   "name": "iShares Expanded Tech-Software Sector ETF",
-   "method": "fund"
-  },
-  "78464A771": {
-   "ticker": "STT",
-   "name": "State Street SPDR S&P Capital Markets ETF",
-   "method": "fund"
-  },
-  "78464A581": {
-   "ticker": "STT",
-   "name": "State Street SPDR S&P Health Care Equipment ETF",
-   "method": "fund"
-  },
-  "316092873": {
-   "ticker": "FCOM",
-   "name": "Fidelity MSCI Communication Services Index ETF",
-   "method": "fund"
-  },
-  "464288794": {
-   "ticker": "IAI",
-   "name": "iShares U.S. Broker-Dealers & Securities Exchanges ETF",
-   "method": "fund"
-  },
-  "G13311116": {
-   "ticker": "SLMT",
-   "name": "Brera Holdings PLC",
-   "method": "name-exact"
-  },
-  "69553P100": {
-   "ticker": "PD",
-   "name": "PagerDuty Inc",
-   "method": "name-exact"
-  },
-  "M5216V106": {
-   "ticker": "GLBE",
-   "name": "Global-E Online Ltd",
-   "method": "name-exact"
-  },
-  "34385P108": {
-   "ticker": "LAB",
-   "name": "Standard BioTools Inc",
-   "method": "name-exact"
-  },
-  "00214Q500": {
-   "ticker": "PRNT",
-   "name": "The 3D Printing ETF",
-   "method": "fund"
-  },
-  "559166103": {
-   "ticker": "RMTHF",
-   "name": "Magic Software Enterprises Ltd",
-   "method": "name-exact"
-  },
-  "277461406": {
-   "ticker": "KODK",
-   "name": "Eastman Kodak Co",
-   "method": "name-exact"
-  },
-  "451051106": {
-   "ticker": "IBTA",
-   "name": "Ibotta Inc",
-   "method": "name-exact"
-  },
-  "81726A209": {
-   "ticker": "SNTI",
-   "name": "Senti Biosciences Inc",
-   "method": "name-exact"
-  },
-  "78643B500": {
-   "ticker": "ALAR",
-   "name": "Alarum Technologies Ltd",
-   "method": "name-exact"
-  },
-  "92921W300": {
-   "ticker": "VUZI",
-   "name": "Vuzix Corp",
-   "method": "name-exact"
-  },
-  "87918A105": {
-   "ticker": "TDOC",
-   "name": "Teladoc Health Inc",
-   "method": "name-exact"
-  },
-  "74349Y100": {
-   "ticker": "EETH",
-   "name": "ProShares Ether ETF",
-   "method": "fund"
-  },
-  "92259N203": {
-   "ticker": "VELO",
-   "name": "Velo3D Inc",
-   "method": "name-exact"
-  },
   "947002101": {
    "ticker": "WLTH",
    "name": "WEALTHFRONT CORP",
@@ -9080,6 +8670,11 @@
    "name": "CORE SCIENTIFIC INC NEW",
    "method": "alias"
   },
+  "732908108": {
+   "ticker": "PONY",
+   "name": "PONY AI INC",
+   "method": "name-exact"
+  },
   "G00894108": {
    "ticker": "ARX",
    "name": "ACCELERANT HOLDINGS",
@@ -9094,6 +8689,16 @@
    "ticker": "HOOD",
    "name": "ROBINHOOD VENTURES FD I",
    "method": "alias"
+  },
+  "70450C101": {
+   "ticker": "PAYP",
+   "name": "PAYPAY CORP",
+   "method": "name-exact"
+  },
+  "G32089107": {
+   "ticker": "ETOR",
+   "name": "ETORO GROUP LTD",
+   "method": "name-exact"
   },
   "89679E300": {
    "ticker": "TFIN",
@@ -9118,6 +8723,11 @@
   "G85158106": {
    "ticker": "STNE",
    "name": "STONECO LTD",
+   "method": "name-exact"
+  },
+  "056752108": {
+   "ticker": "BAIDF",
+   "name": "BAIDU INC",
    "method": "name-exact"
   },
   "25063F107": {
@@ -9185,6 +8795,11 @@
    "name": "ORIC PHARMACEUTICALS INC",
    "method": "name-exact"
   },
+  "34385P108": {
+   "ticker": "LAB",
+   "name": "STANDARD BIOTOOLS INC",
+   "method": "name-exact"
+  },
   "37611X209": {
    "ticker": "DNA",
    "name": "GINKGO BIOWORKS HOLDINGS INC",
@@ -9208,6 +8823,11 @@
   "G2R11M108": {
    "ticker": "DPC",
    "name": "DPC HOLDINGS PLC",
+   "method": "name-exact"
+  },
+  "98386P102": {
+   "ticker": "XE",
+   "name": "X-ENERGY INC",
    "method": "name-exact"
   },
   "75120L209": {
@@ -9250,6 +8870,11 @@
    "name": "ROYALTY PHARMA PLC",
    "method": "name-exact"
   },
+  "09075V102": {
+   "ticker": "BNTX",
+   "name": "BIONTECH SE",
+   "method": "name-exact"
+  },
   "28036F105": {
    "ticker": "EWTX",
    "name": "EDGEWISE THERAPEUTICS INC",
@@ -9280,10 +8905,20 @@
    "name": "ALPHABET INC",
    "method": "cusip-seed"
   },
+  "092667104": {
+   "ticker": "SRTA",
+   "name": "STRATA CRITICAL MEDICAL INC",
+   "method": "name-exact"
+  },
   "02079K602": {
    "ticker": "GOOGL",
    "name": "ALPHABET INC",
    "method": "cusip-seed"
+  },
+  "051774107": {
+   "ticker": "AUR",
+   "name": "AURORA INNOVATION INC",
+   "method": "name-exact"
   },
   "767292AB1": {
    "ticker": "RIOT",
@@ -9360,14 +8995,14 @@
    "name": "SEAPORT ENTMT GROUP INC",
    "method": "name-expand"
   },
-  "640979100": {
-   "ticker": "NMRA",
-   "name": "NEUMORA THERAPEUTICS INC.",
-   "method": "name-exact"
-  },
   "641069406": {
    "ticker": "NSRGY",
    "name": "Nestle Sa",
+   "method": "name-exact"
+  },
+  "451051106": {
+   "ticker": "IBTA",
+   "name": "Ibotta Inc CL A",
    "method": "name-exact"
   },
   "N39338194": {
@@ -9383,6 +9018,11 @@
   "30233Q108": {
    "ticker": "XOM",
    "name": "Exxon Mobil Corp",
+   "method": "name-exact"
+  },
+  "M5216V106": {
+   "ticker": "GLBE",
+   "name": "GLOBAL E ONLINE LTD",
    "method": "name-exact"
   },
   "09581B103": {
@@ -9410,41 +9050,6 @@
    "name": "1STDIBS COM INC",
    "method": "name-exact"
   },
-  "922040852": {
-   "ticker": "VGUS",
-   "name": "VANGUARD ULTRA SHORT TREASURY ETF",
-   "method": "fund"
-  },
-  "92203C303": {
-   "ticker": "VUSB",
-   "name": "VANGUARD ULTRA SHORT BOND ETF",
-   "method": "fund"
-  },
-  "221015100": {
-   "ticker": "CRVS",
-   "name": "CORVUS PHARMACEUTICALS INC",
-   "method": "name-exact"
-  },
-  "032797300": {
-   "ticker": "AVXL",
-   "name": "ANAVEX LIFE SCIENCES CORP",
-   "method": "name-exact"
-  },
-  "67576A100": {
-   "ticker": "OCUL",
-   "name": "OCULAR THERAPEUTIX INC",
-   "method": "name-exact"
-  },
-  "01438T106": {
-   "ticker": "ALDX",
-   "name": "ALDEYRA THERAPEUTICS INC",
-   "method": "name-exact"
-  },
-  "09290C756": {
-   "ticker": "PMMF",
-   "name": "ISHARES PRIME MONEY MARKET ETF",
-   "method": "fund"
-  },
   "83671M105": {
    "ticker": "SOBO",
    "name": "SOUTH BOW CORP",
@@ -9458,11 +9063,6 @@
   "Y4600W108": {
    "ticker": "KARO",
    "name": "KAROOOOO LTD",
-   "method": "name-exact"
-  },
-  "45104G104": {
-   "ticker": "IBN",
-   "name": "ICICI BANK LIMITED",
    "method": "name-exact"
   },
   "40415F101": {
@@ -9495,7 +9095,7 @@
   {
    "cusip": "81141R100",
    "name": "SEA LTD",
-   "latest_value_usd": 1762068435
+   "latest_value_usd": 1746887849
   },
   {
    "cusip": "03769M106",
@@ -9578,11 +9178,6 @@
    "latest_value_usd": 184382964
   },
   {
-   "cusip": "G1151C101",
-   "name": "ACCENTURE PLC IRELAND",
-   "latest_value_usd": 170122172
-  },
-  {
    "cusip": "351858105",
    "name": "FRANCO NEV CORP",
    "latest_value_usd": 161781540
@@ -9596,11 +9191,6 @@
    "cusip": "679580100",
    "name": "OLD DOMINION FREIGHT LINE IN",
    "latest_value_usd": 149367956
-  },
-  {
-   "cusip": "502431109",
-   "name": "L3Harris Technologies Inc",
-   "latest_value_usd": 147845509
   },
   {
    "cusip": "85208M102",
@@ -9863,6 +9453,11 @@
    "latest_value_usd": 33334166
   },
   {
+   "cusip": "G1151C101",
+   "name": "ACCENTURE PLC IRELAND",
+   "latest_value_usd": 33238172
+  },
+  {
    "cusip": "553530106",
    "name": "MSC INDL DIRECT INC",
    "latest_value_usd": 33068576
@@ -9961,6 +9556,11 @@
    "cusip": "758849103",
    "name": "REGENCY CTRS CORP",
    "latest_value_usd": 23160244
+  },
+  {
+   "cusip": "502431109",
+   "name": "L3HARRIS TECHNOLOGIES INC",
+   "latest_value_usd": 22549203
   },
   {
    "cusip": "38267D109",
@@ -10074,8 +9674,8 @@
   },
   {
    "cusip": "929740108",
-   "name": "WABTEC CORPORATION",
-   "latest_value_usd": 16385787
+   "name": "WABTEC",
+   "latest_value_usd": 16384131
   },
   {
    "cusip": "G0692U109",
@@ -10119,8 +9719,8 @@
   },
   {
    "cusip": "45167R104",
-   "name": "IDEX CORPORATION",
-   "latest_value_usd": 13850001
+   "name": "IDEX CORP",
+   "latest_value_usd": 13849624
   },
   {
    "cusip": "37940X102",
@@ -10348,11 +9948,6 @@
    "latest_value_usd": 3796526
   },
   {
-   "cusip": "48581R205",
-   "name": "Kaspi.KZ JSC",
-   "latest_value_usd": 3745187
-  },
-  {
    "cusip": "46138G870",
    "name": "INVESCO EXCH TRADED FD TR II",
    "latest_value_usd": 3626396
@@ -10431,11 +10026,6 @@
    "cusip": "69374H360",
    "name": "PACER FDS TR",
    "latest_value_usd": 2463825
-  },
-  {
-   "cusip": "M6158M104",
-   "name": "Ituran Location and Control Ltd",
-   "latest_value_usd": 2448758
   },
   {
    "cusip": "46138G649",
@@ -11088,6 +10678,11 @@
    "latest_value_usd": 168574
   },
   {
+   "cusip": "48581R205",
+   "name": "KASPI KZ JSC",
+   "latest_value_usd": 147461
+  },
+  {
    "cusip": "678026105",
    "name": "OIL STS INTL INC",
    "latest_value_usd": 138525
@@ -11106,11 +10701,6 @@
    "cusip": "40054J109",
    "name": "GRUPO AEROMEXICO SAB DE CV",
    "latest_value_usd": 87843
-  },
-  {
-   "cusip": "38964R203",
-   "name": "Grayscale Ethereum Staking Min",
-   "latest_value_usd": 64328
   },
   {
    "cusip": "071734107",

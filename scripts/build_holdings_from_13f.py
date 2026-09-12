@@ -84,9 +84,28 @@ def price_of(row: dict) -> float | None:
 # eligibility or the guard rail.
 VOTING_STATUSES = {"active", "approved", ""}
 
+# reference-data/cik-map.json is the roster's source of truth for `status`.
+# The filings file only carries a copy taken at pull time, so a prune made in
+# cik-map.json must win here — otherwise a pruned filer keeps voting until the
+# next full SEC pull, which is exactly the bug this closes.
+_CIKMAP_STATUS = {}
+try:
+    import json as _json
+    _cm = _json.load(open(ROOT / "reference-data" / "cik-map.json"))
+    for _r in (_cm if isinstance(_cm, list) else _cm.get("investors", [])):
+        if _r.get("cik"):
+            _CIKMAP_STATUS[str(_r["cik"]).lstrip("0")] = str(_r.get("status") or "approved").lower()
+except Exception:
+    pass
+
+
+def roster_status(inv: dict) -> str:
+    cik = str(inv.get("cik") or "").lstrip("0")
+    return _CIKMAP_STATUS.get(cik) or str(inv.get("status") or "active").lower()
+
 
 def votes_now(inv: dict) -> bool:
-    return str(inv.get("status") or "active").lower() in VOTING_STATUSES
+    return roster_status(inv) in VOTING_STATUSES
 
 
 def main() -> int:

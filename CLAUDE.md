@@ -24,7 +24,7 @@ it first.
 
 ## The 4-bucket taxonomy (rebuilt 9 Sep 2026 — Joe's call)
 The Buy tab is the ONE place Joe decides what to purchase. Eight buckets became
-four; the buy list is the 15 highest-consensus names across the 47 voting filers
+four; the buy list is the 15 highest-consensus names across the voting filers (42 as of 12 Sep 2026)
 plus UBER and SPCX. Retired: Hard assets, AI core, Opportunistic, AI bench, Radar.
 
 1. **Forever compounders** (60%) — GOOGL, AMZN, META, MSFT, AAPL, BRK.B, NFLX, TSM, NVDA, ASML, TSLA, UBER, SPCX
@@ -196,7 +196,7 @@ model numbers as fact — flag caveats.
   (`targetsData.overrides`). Dry powder bucket is exempt. Buy Targets shows an audit banner.
 - `reference-data/cusip-map.json` = offline CUSIP→ticker bootstrap (99%+ of value). Codex's
   OpenFIGI pass should extend it, not replace the format.
-- **Filer roster**: `cik-map.json` carries `status` — `approved` votes, `pruned`/`dormant` keep history but are excluded from holdings, consensus and eligibility by `votes_now()` in `build_holdings_from_13f.py` / `build_cusip_map.py`. Pruned 9 Sep 2026: Leopold Aschenbrenner, Whale Rock, Michael Burry. Roster is 50 filers / 47 voting.
+- **Filer roster**: `cik-map.json` carries `status` — `approved` votes, `pruned`/`dormant` keep history but are excluded from holdings, consensus and eligibility by `votes_now()` in `build_holdings_from_13f.py` / `build_cusip_map.py`. Pruned 9 Sep 2026: Leopold Aschenbrenner, Whale Rock, Michael Burry; **12 Sep 2026: Wellcome Trust, Allen Holding, Hikari Power, Milestone Resources, Cathie Wood** (not stock-picking value managers). Roster is **50 filers / 42 voting**. **`cik-map.json` is authoritative for `status`** — all three builders overlay it via `roster_status()` at load time, because `data/sec-13f-filings.json` only carries a copy from pull time and a prune there used to stay invisible until the next full SEC pull. Rebuilt 12 Sep: 1,379 eligible tickers, 1,469 consensus rows, all 17 buy-list names still held by ≥7 voting filers.
 - Universe tab data: `reference-data/investor-universe.json` (screen + fit + 13F-implied perf + Form ADV access), built by `build_investor_universe.py` → `build_investor_performance.py` → `build_investor_access.py` → `merge_universe_enrichment.py`; dossiers in `investor-dossiers.json`. Decisions sync via Firebase → `sync_universe_decisions.py` → `cik-map.json`.
 - `signals/feed-latest.json` = between-quarter signal feed (📡 Feed tab). Contract in the
   handoff §6. **Words raise a watch flag; only filings move a score.**

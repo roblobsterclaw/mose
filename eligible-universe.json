@@ -1,13 +1,11 @@
 {
  "schema_version": 1,
- "generated_at": "2026-09-09T11:06:45.495933+00:00",
+ "generated_at": "2026-09-12T11:35:15.285912+00:00",
  "quarter": "2026-Q2",
  "investors": [
-  "ALLEN HOLDING INC /NY",
   "Barton Investment Management",
   "Bill Ackman",
   "Brad Gerstner",
-  "Cathie Wood",
   "Chase Coleman",
   "Chris Hohn",
   "Christopher Bloomstran",
@@ -26,14 +24,12 @@
   "Glenn Greenberg",
   "Gobi Capital LLC",
   "Greenbrier Partners Capital Management, LLC",
-  "Hikari Power Ltd",
   "Hyperion Asset Management Ltd",
   "JIA INVESTMENT ALLIANCE PTE. LTD.",
   "Joel Greenblatt",
   "Li Lu",
   "Manitou Investment Management Ltd.",
   "MayTech Global Investments, LLC",
-  "Milestone Resources Group Ltd",
   "Mohnish Pabrai",
   "Nellore Capital Management LLC",
   "Norbert Lou",
@@ -48,7 +44,6 @@
   "Tom Bancroft",
   "Tom Gayner",
   "WEDGEWOOD PARTNERS INC",
-  "WELLCOME TRUST LTD (THE) as trustee of the WELLCOME TRUST",
   "Warren Buffett"
  ],
  "rule": "eligible = held by >=1 tracked 13F filer in the latest quarter",
@@ -59,7 +54,6 @@
    "holders": [
     "Barton Investment Management",
     "Brad Gerstner",
-    "Cathie Wood",
     "Chase Coleman",
     "Chris Hohn",
     "Christopher Bloomstran",
@@ -73,7 +67,6 @@
     "Glenn Greenberg",
     "Gobi Capital LLC",
     "Greenbrier Partners Capital Management, LLC",
-    "Hikari Power Ltd",
     "Hyperion Asset Management Ltd",
     "JIA INVESTMENT ALLIANCE PTE. LTD.",
     "Joel Greenblatt",
@@ -88,11 +81,10 @@
     "Terry Smith",
     "Tom Gayner",
     "WEDGEWOOD PARTNERS INC",
-    "WELLCOME TRUST LTD (THE) as trustee of the WELLCOME TRUST",
     "Warren Buffett"
    ],
-   "holder_count": 33,
-   "value_usd": 55380233275
+   "holder_count": 30,
+   "value_usd": 53682214793
   },
   {
    "ticker": "AMZN",
@@ -101,7 +93,6 @@
     "Barton Investment Management",
     "Bill Ackman",
     "Brad Gerstner",
-    "Cathie Wood",
     "Chase Coleman",
     "Dan Niles",
     "Daniel Loeb",
@@ -116,7 +107,6 @@
     "Joel Greenblatt",
     "Manitou Investment Management Ltd.",
     "MayTech Global Investments, LLC",
-    "Milestone Resources Group Ltd",
     "Nellore Capital Management LLC",
     "Ole Andreas Halvorsen",
     "Philippe Laffont",
@@ -124,11 +114,10 @@
     "Seth Klarman",
     "Strategy Capital LLC",
     "Tom Gayner",
-    "WEDGEWOOD PARTNERS INC",
-    "WELLCOME TRUST LTD (THE) as trustee of the WELLCOME TRUST"
+    "WEDGEWOOD PARTNERS INC"
    ],
-   "holder_count": 28,
-   "value_usd": 12987845738
+   "holder_count": 25,
+   "value_usd": 11821719715
   },
   {
    "ticker": "META",
@@ -137,7 +126,6 @@
     "Barton Investment Management",
     "Bill Ackman",
     "Brad Gerstner",
-    "Cathie Wood",
     "Chase Coleman",
     "Clifford Sosin",
     "David Abrams",
@@ -158,38 +146,8 @@
     "Tom Gayner",
     "WEDGEWOOD PARTNERS INC"
    ],
-   "holder_count": 23,
-   "value_usd": 9203904796
-  },
-  {
-   "ticker": "MSFT",
-   "company": "MICROSOFT CORP",
-   "holders": [
-    "Barton Investment Management",
-    "Bill Ackman",
-    "Brad Gerstner",
-    "Cathie Wood",
-    "Chase Coleman",
-    "Christopher Bloomstran",
-    "Cryder Capital Partners LLP",
-    "Glenn Greenberg",
-    "Greenbrier Partners Capital Management, LLC",
-    "Hyperion Asset Management Ltd",
-    "JIA INVESTMENT ALLIANCE PTE. LTD.",
-    "Joel Greenblatt",
-    "Manitou Investment Management Ltd.",
-    "Milestone Resources Group Ltd",
-    "Nellore Capital Management LLC",
-    "Ole Andreas Halvorsen",
-    "Philippe Laffont",
-    "SAYBROOK CAPITAL /NC",
-    "Terry Smith",
-    "Tom Gayner",
-    "WEDGEWOOD PARTNERS INC",
-    "WELLCOME TRUST LTD (THE) as trustee of the WELLCOME TRUST"
-   ],
    "holder_count": 22,
-   "value_usd": 7487489454
+   "value_usd": 9069293886
   },
   {
    "ticker": "V",
@@ -204,7 +162,6 @@
     "Foxhaven Asset Management, LP",
     "Gavilan Investment Partners LLC",
     "Glenn Greenberg",
-    "Hikari Power Ltd",
     "Hyperion Asset Management Ltd",
     "JIA INVESTMENT ALLIANCE PTE. LTD.",
     "Joel Greenblatt",
@@ -214,11 +171,37 @@
     "Seth Klarman",
     "Terry Smith",
     "Tom Gayner",
-    "WEDGEWOOD PARTNERS INC",
-    "WELLCOME TRUST LTD (THE) as trustee of the WELLCOME TRUST"
+    "WEDGEWOOD PARTNERS INC"
    ],
-   "holder_count": 21,
-   "value_usd": 17136678239
+   "holder_count": 19,
+   "value_usd": 16313219603
+  },
+  {
+   "ticker": "MSFT",
+   "company": "MICROSOFT CORP",
+   "holders": [
+    "Barton Investment Management",
+    "Bill Ackman",
+    "Brad Gerstner",
+    "Chase Coleman",
+    "Christopher Bloomstran",
+    "Cryder Capital Partners LLP",
+    "Glenn Greenberg",
+    "Greenbrier Partners Capital Management, LLC",
+    "Hyperion Asset Management Ltd",
+    "JIA INVESTMENT ALLIANCE PTE. LTD.",
+    "Joel Greenblatt",
+    "Manitou Investment Management Ltd.",
+    "Nellore Capital Management LLC",
+    "Ole Andreas Halvorsen",
+    "Philippe Laffont",
+    "SAYBROOK CAPITAL /NC",
+    "Terry Smith",
+    "Tom Gayner",
+    "WEDGEWOOD PARTNERS INC"
+   ],
+   "holder_count": 19,
+   "value_usd": 6852558998
   },
   {
    "ticker": "MA",
@@ -239,41 +222,16 @@
     "MayTech Global Investments, LLC",
     "SAYBROOK CAPITAL /NC",
     "Terry Smith",
-    "Tom Gayner",
-    "WELLCOME TRUST LTD (THE) as trustee of the WELLCOME TRUST"
+    "Tom Gayner"
    ],
-   "holder_count": 17,
-   "value_usd": 4211740081
-  },
-  {
-   "ticker": "BRK.B",
-   "company": "BERKSHIRE HATHAWAY INC DEL",
-   "holders": [
-    "ALLEN HOLDING INC /NY",
-    "Barton Investment Management",
-    "Christopher Bloomstran",
-    "Chuck Akre",
-    "GREENLEA LANE CAPITAL MANAGEMENT, LLC",
-    "Greenbrier Partners Capital Management, LLC",
-    "Hikari Power Ltd",
-    "Joel Greenblatt",
-    "Li Lu",
-    "Manitou Investment Management Ltd.",
-    "Norbert Lou",
-    "SAYBROOK CAPITAL /NC",
-    "STEGINSKY CAPITAL LLC",
-    "Tom Gayner",
-    "WELLCOME TRUST LTD (THE) as trustee of the WELLCOME TRUST"
-   ],
-   "holder_count": 15,
-   "value_usd": 3556585919
+   "holder_count": 16,
+   "value_usd": 3843232081
   },
   {
    "ticker": "TSM",
    "company": "TAIWAN SEMICONDUCTOR MANUFAC",
    "holders": [
     "Brad Gerstner",
-    "Cathie Wood",
     "Chase Coleman",
     "Daniel Loeb",
     "Gavilan Investment Partners LLC",
@@ -287,8 +245,8 @@
     "Terry Smith",
     "WEDGEWOOD PARTNERS INC"
    ],
-   "holder_count": 14,
-   "value_usd": 10250260211
+   "holder_count": 13,
+   "value_usd": 10019934886
   },
   {
    "ticker": "AAPL",
@@ -305,11 +263,30 @@
     "SAYBROOK CAPITAL /NC",
     "Tom Gayner",
     "WEDGEWOOD PARTNERS INC",
-    "WELLCOME TRUST LTD (THE) as trustee of the WELLCOME TRUST",
     "Warren Buffett"
    ],
-   "holder_count": 13,
-   "value_usd": 68505115469
+   "holder_count": 12,
+   "value_usd": 67694907469
+  },
+  {
+   "ticker": "BRK.B",
+   "company": "BERKSHIRE HATHAWAY INC DEL",
+   "holders": [
+    "Barton Investment Management",
+    "Christopher Bloomstran",
+    "Chuck Akre",
+    "GREENLEA LANE CAPITAL MANAGEMENT, LLC",
+    "Greenbrier Partners Capital Management, LLC",
+    "Joel Greenblatt",
+    "Li Lu",
+    "Manitou Investment Management Ltd.",
+    "Norbert Lou",
+    "SAYBROOK CAPITAL /NC",
+    "STEGINSKY CAPITAL LLC",
+    "Tom Gayner"
+   ],
+   "holder_count": 12,
+   "value_usd": 2811706228
   },
   {
    "ticker": "NVDA",
@@ -317,7 +294,6 @@
    "holders": [
     "Barton Investment Management",
     "Brad Gerstner",
-    "Cathie Wood",
     "Chase Coleman",
     "Foxhaven Asset Management, LP",
     "Gavin Baker",
@@ -327,8 +303,8 @@
     "MayTech Global Investments, LLC",
     "Philippe Laffont"
    ],
-   "holder_count": 11,
-   "value_usd": 7330602957
+   "holder_count": 10,
+   "value_usd": 7054229211
   },
   {
    "ticker": "NFLX",
@@ -336,7 +312,6 @@
    "holders": [
     "Barton Investment Management",
     "Bill Ackman",
-    "Cathie Wood",
     "Christopher Bloomstran",
     "GREENLEA LANE CAPITAL MANAGEMENT, LLC",
     "Gobi Capital LLC",
@@ -346,25 +321,8 @@
     "Terry Smith",
     "Tom Gayner"
    ],
-   "holder_count": 11,
-   "value_usd": 2186992424
-  },
-  {
-   "ticker": "MCO",
-   "company": "MOODYS CORP",
-   "holders": [
-    "Chris Hohn",
-    "Chuck Akre",
-    "Dev Kantesaria",
-    "Glenn Greenberg",
-    "Hikari Power Ltd",
-    "Joel Greenblatt",
-    "SAYBROOK CAPITAL /NC",
-    "Tom Gayner",
-    "Warren Buffett"
-   ],
-   "holder_count": 9,
-   "value_usd": 18907041782
+   "holder_count": 10,
+   "value_usd": 2170936635
   },
   {
    "ticker": "SPGI",
@@ -384,71 +342,20 @@
    "value_usd": 7545711156
   },
   {
-   "ticker": "TSLA",
-   "company": "TESLA INC",
+   "ticker": "MCO",
+   "company": "MOODYS CORP",
    "holders": [
-    "Cathie Wood",
-    "Dan Niles",
-    "GREENLEA LANE CAPITAL MANAGEMENT, LLC",
-    "Gavin Baker",
-    "Hyperion Asset Management Ltd",
-    "Joel Greenblatt",
-    "Ole Andreas Halvorsen",
-    "Philippe Laffont",
-    "Strategy Capital LLC"
-   ],
-   "holder_count": 9,
-   "value_usd": 2176771330
-  },
-  {
-   "ticker": "ASML",
-   "company": "ASML HLDG NV",
-   "holders": [
-    "Barton Investment Management",
-    "Daniel Loeb",
+    "Chris Hohn",
+    "Chuck Akre",
     "Dev Kantesaria",
-    "Gavilan Investment Partners LLC",
-    "Hyperion Asset Management Ltd",
+    "Glenn Greenberg",
     "Joel Greenblatt",
-    "MayTech Global Investments, LLC",
-    "Milestone Resources Group Ltd",
-    "Philippe Laffont"
-   ],
-   "holder_count": 9,
-   "value_usd": 1371563006
-  },
-  {
-   "ticker": "SPOT",
-   "company": "SPOTIFY TECHNOLOGY S A",
-   "holders": [
-    "Cathie Wood",
-    "Chase Coleman",
-    "GREENLEA LANE CAPITAL MANAGEMENT, LLC",
-    "Gavilan Investment Partners LLC",
-    "Greenbrier Partners Capital Management, LLC",
-    "Hyperion Asset Management Ltd",
-    "Joel Greenblatt",
-    "Philippe Laffont",
-    "Tom Gayner"
-   ],
-   "holder_count": 9,
-   "value_usd": 1348126977
-  },
-  {
-   "ticker": "SPCX",
-   "company": "SPACE EXPLORATION TECHN CORP",
-   "holders": [
-    "Brad Gerstner",
-    "Cathie Wood",
-    "Chase Coleman",
-    "Daniel Loeb",
-    "Gavin Baker",
-    "Hyperion Asset Management Ltd",
-    "Ole Andreas Halvorsen",
-    "Philippe Laffont"
+    "SAYBROOK CAPITAL /NC",
+    "Tom Gayner",
+    "Warren Buffett"
    ],
    "holder_count": 8,
-   "value_usd": 9411282992
+   "value_usd": 18907027189
   },
   {
    "ticker": "UBER",
@@ -467,52 +374,52 @@
    "value_usd": 3752495436
   },
   {
-   "ticker": "DASH",
-   "company": "DOORDASH INC",
+   "ticker": "ASML",
+   "company": "ASML HLDG NV",
    "holders": [
     "Barton Investment Management",
-    "Cathie Wood",
-    "Chase Coleman",
-    "Foxhaven Asset Management, LP",
-    "Joel Greenblatt",
-    "Nellore Capital Management LLC",
-    "Philippe Laffont",
-    "WELLCOME TRUST LTD (THE) as trustee of the WELLCOME TRUST"
-   ],
-   "holder_count": 8,
-   "value_usd": 1088897507
-  },
-  {
-   "ticker": "NU",
-   "company": "NU HLDGS LTD",
-   "holders": [
-    "Cathie Wood",
-    "Chase Coleman",
-    "Foxhaven Asset Management, LP",
-    "Glenn Greenberg",
+    "Daniel Loeb",
+    "Dev Kantesaria",
+    "Gavilan Investment Partners LLC",
+    "Hyperion Asset Management Ltd",
     "Joel Greenblatt",
     "MayTech Global Investments, LLC",
+    "Philippe Laffont"
+   ],
+   "holder_count": 8,
+   "value_usd": 1371497854
+  },
+  {
+   "ticker": "SPOT",
+   "company": "SPOTIFY TECHNOLOGY S A",
+   "holders": [
+    "Chase Coleman",
+    "GREENLEA LANE CAPITAL MANAGEMENT, LLC",
+    "Gavilan Investment Partners LLC",
+    "Greenbrier Partners Capital Management, LLC",
+    "Hyperion Asset Management Ltd",
+    "Joel Greenblatt",
+    "Philippe Laffont",
+    "Tom Gayner"
+   ],
+   "holder_count": 8,
+   "value_usd": 1313642554
+  },
+  {
+   "ticker": "TSLA",
+   "company": "TESLA INC",
+   "holders": [
+    "Dan Niles",
+    "GREENLEA LANE CAPITAL MANAGEMENT, LLC",
+    "Gavin Baker",
+    "Hyperion Asset Management Ltd",
+    "Joel Greenblatt",
+    "Ole Andreas Halvorsen",
     "Philippe Laffont",
     "Strategy Capital LLC"
    ],
    "holder_count": 8,
-   "value_usd": 766326770
-  },
-  {
-   "ticker": "JNJ",
-   "company": "JOHNSON & JOHNSON",
-   "holders": [
-    "Barton Investment Management",
-    "Christopher Bloomstran",
-    "Hikari Power Ltd",
-    "Joel Greenblatt",
-    "Manitou Investment Management Ltd.",
-    "SAYBROOK CAPITAL /NC",
-    "Tom Gayner",
-    "WELLCOME TRUST LTD (THE) as trustee of the WELLCOME TRUST"
-   ],
-   "holder_count": 8,
-   "value_usd": 618903069
+   "value_usd": 1015999257
   },
   {
    "ticker": "COST",
@@ -531,64 +438,34 @@
    "value_usd": 335371862
   },
   {
-   "ticker": "BN",
-   "company": "BROOKFIELD CORP",
+   "ticker": "SPCX",
+   "company": "SPACE EXPLORATION TECHN CORP",
    "holders": [
-    "Bill Ackman",
-    "Chuck Akre",
-    "GREENLEA LANE CAPITAL MANAGEMENT, LLC",
-    "Hikari Power Ltd",
-    "Joel Greenblatt",
-    "Manitou Investment Management Ltd.",
-    "Tom Gayner"
-   ],
-   "holder_count": 7,
-   "value_usd": 3738544418
-  },
-  {
-   "ticker": "AVGO",
-   "company": "BROADCOM INC",
-   "holders": [
-    "Barton Investment Management",
-    "Cathie Wood",
+    "Brad Gerstner",
     "Chase Coleman",
-    "JIA INVESTMENT ALLIANCE PTE. LTD.",
-    "Joel Greenblatt",
-    "Milestone Resources Group Ltd",
+    "Daniel Loeb",
+    "Gavin Baker",
+    "Hyperion Asset Management Ltd",
+    "Ole Andreas Halvorsen",
     "Philippe Laffont"
    ],
    "holder_count": 7,
-   "value_usd": 3184853012
+   "value_usd": 8646169711
   },
   {
-   "ticker": "MELI",
-   "company": "MERCADOLIBRE INC",
+   "ticker": "NU",
+   "company": "NU HLDGS LTD",
    "holders": [
-    "Cathie Wood",
     "Chase Coleman",
     "Foxhaven Asset Management, LP",
-    "Gavilan Investment Partners LLC",
-    "MayTech Global Investments, LLC",
-    "Nellore Capital Management LLC",
-    "Tom Gayner"
-   ],
-   "holder_count": 7,
-   "value_usd": 1084566212
-  },
-  {
-   "ticker": "SHOP",
-   "company": "SHOPIFY INC",
-   "holders": [
-    "Barton Investment Management",
-    "Cathie Wood",
-    "Foxhaven Asset Management, LP",
-    "Gavilan Investment Partners LLC",
+    "Glenn Greenberg",
     "Joel Greenblatt",
-    "Strategy Capital LLC",
-    "Tom Gayner"
+    "MayTech Global Investments, LLC",
+    "Philippe Laffont",
+    "Strategy Capital LLC"
    ],
    "holder_count": 7,
-   "value_usd": 888147481
+   "value_usd": 752011276
   },
   {
    "ticker": "AXP",
@@ -619,6 +496,20 @@
    "value_usd": 4540527483
   },
   {
+   "ticker": "BN",
+   "company": "BROOKFIELD CORP",
+   "holders": [
+    "Bill Ackman",
+    "Chuck Akre",
+    "GREENLEA LANE CAPITAL MANAGEMENT, LLC",
+    "Joel Greenblatt",
+    "Manitou Investment Management Ltd.",
+    "Tom Gayner"
+   ],
+   "holder_count": 6,
+   "value_usd": 3738544156
+  },
+  {
    "ticker": "CVNA",
    "company": "CARVANA CO",
    "holders": [
@@ -647,34 +538,6 @@
    "value_usd": 2395065850
   },
   {
-   "ticker": "SHW",
-   "company": "SHERWIN WILLIAMS CO",
-   "holders": [
-    "Chase Coleman",
-    "Joel Greenblatt",
-    "Milestone Resources Group Ltd",
-    "Ole Andreas Halvorsen",
-    "SAYBROOK CAPITAL /NC",
-    "Tom Gayner"
-   ],
-   "holder_count": 6,
-   "value_usd": 1485962180
-  },
-  {
-   "ticker": "JPM",
-   "company": "JPMORGAN CHASE & CO",
-   "holders": [
-    "ALLEN HOLDING INC /NY",
-    "Glenn Greenberg",
-    "Joel Greenblatt",
-    "Manitou Investment Management Ltd.",
-    "Ole Andreas Halvorsen",
-    "Tom Gayner"
-   ],
-   "holder_count": 6,
-   "value_usd": 1089896626
-  },
-  {
    "ticker": "COF",
    "company": "CAPITAL ONE FINL CORP",
    "holders": [
@@ -689,18 +552,18 @@
    "value_usd": 1065076132
   },
   {
-   "ticker": "XYZ",
-   "company": "BLOCK INC",
+   "ticker": "MELI",
+   "company": "MERCADOLIBRE INC",
    "holders": [
-    "Cathie Wood",
     "Chase Coleman",
-    "Daniel Loeb",
-    "Hyperion Asset Management Ltd",
-    "Joel Greenblatt",
-    "Manitou Investment Management Ltd."
+    "Foxhaven Asset Management, LP",
+    "Gavilan Investment Partners LLC",
+    "MayTech Global Investments, LLC",
+    "Nellore Capital Management LLC",
+    "Tom Gayner"
    ],
    "holder_count": 6,
-   "value_usd": 1009786770
+   "value_usd": 1047148947
   },
   {
    "ticker": "DIS",
@@ -731,32 +594,46 @@
    "value_usd": 713351573
   },
   {
-   "ticker": "ISRG",
-   "company": "INTUITIVE SURGICAL INC",
+   "ticker": "DASH",
+   "company": "DOORDASH INC",
    "holders": [
-    "Cathie Wood",
-    "Hikari Power Ltd",
-    "Hyperion Asset Management Ltd",
+    "Barton Investment Management",
+    "Chase Coleman",
+    "Foxhaven Asset Management, LP",
     "Joel Greenblatt",
-    "MayTech Global Investments, LLC",
+    "Nellore Capital Management LLC",
     "Philippe Laffont"
    ],
    "holder_count": 6,
-   "value_usd": 546084194
+   "value_usd": 465160457
   },
   {
-   "ticker": "NOW",
-   "company": "SERVICENOW INC",
+   "ticker": "SHOP",
+   "company": "SHOPIFY INC",
    "holders": [
-    "Chase Coleman",
-    "Chuck Akre",
-    "Hyperion Asset Management Ltd",
-    "JIA INVESTMENT ALLIANCE PTE. LTD.",
+    "Barton Investment Management",
+    "Foxhaven Asset Management, LP",
+    "Gavilan Investment Partners LLC",
     "Joel Greenblatt",
-    "WELLCOME TRUST LTD (THE) as trustee of the WELLCOME TRUST"
+    "Strategy Capital LLC",
+    "Tom Gayner"
    ],
    "holder_count": 6,
-   "value_usd": 501900410
+   "value_usd": 413624016
+  },
+  {
+   "ticker": "JNJ",
+   "company": "JOHNSON & JOHNSON",
+   "holders": [
+    "Barton Investment Management",
+    "Christopher Bloomstran",
+    "Joel Greenblatt",
+    "Manitou Investment Management Ltd.",
+    "SAYBROOK CAPITAL /NC",
+    "Tom Gayner"
+   ],
+   "holder_count": 6,
+   "value_usd": 212510921
   },
   {
    "ticker": "CME",
@@ -773,45 +650,6 @@
    "value_usd": 100539814
   },
   {
-   "ticker": "KO",
-   "company": "COCA COLA CO",
-   "holders": [
-    "ALLEN HOLDING INC /NY",
-    "Christopher Bloomstran",
-    "Joel Greenblatt",
-    "SAYBROOK CAPITAL /NC",
-    "Warren Buffett"
-   ],
-   "holder_count": 5,
-   "value_usd": 33051360412
-  },
-  {
-   "ticker": "BAC",
-   "company": "BANK OF AMER CORP",
-   "holders": [
-    "ALLEN HOLDING INC /NY",
-    "Glenn Greenberg",
-    "Joel Greenblatt",
-    "Manitou Investment Management Ltd.",
-    "Warren Buffett"
-   ],
-   "holder_count": 5,
-   "value_usd": 27576295899
-  },
-  {
-   "ticker": "CBRS",
-   "company": "CEREBRAS SYSTEMS INC",
-   "holders": [
-    "Brad Gerstner",
-    "Cathie Wood",
-    "Chase Coleman",
-    "Gavin Baker",
-    "Philippe Laffont"
-   ],
-   "holder_count": 5,
-   "value_usd": 4665257844
-  },
-  {
    "ticker": "GEV",
    "company": "GE VERNOVA INC",
    "holders": [
@@ -825,17 +663,30 @@
    "value_usd": 4445471688
   },
   {
-   "ticker": "AMD",
-   "company": "ADVANCED MICRO DEVICES INC",
+   "ticker": "AVGO",
+   "company": "BROADCOM INC",
    "holders": [
     "Barton Investment Management",
-    "Cathie Wood",
     "Chase Coleman",
+    "JIA INVESTMENT ALLIANCE PTE. LTD.",
     "Joel Greenblatt",
     "Philippe Laffont"
    ],
    "holder_count": 5,
-   "value_usd": 1347178071
+   "value_usd": 3030576099
+  },
+  {
+   "ticker": "SHW",
+   "company": "SHERWIN WILLIAMS CO",
+   "holders": [
+    "Chase Coleman",
+    "Joel Greenblatt",
+    "Ole Andreas Halvorsen",
+    "SAYBROOK CAPITAL /NC",
+    "Tom Gayner"
+   ],
+   "holder_count": 5,
+   "value_usd": 1485850742
   },
   {
    "ticker": "TMO",
@@ -864,17 +715,17 @@
    "value_usd": 1150574974
   },
   {
-   "ticker": "NTRA",
-   "company": "NATERA INC",
+   "ticker": "JPM",
+   "company": "JPMORGAN CHASE & CO",
    "holders": [
-    "Cathie Wood",
-    "Gavin Baker",
+    "Glenn Greenberg",
     "Joel Greenblatt",
+    "Manitou Investment Management Ltd.",
     "Ole Andreas Halvorsen",
-    "Philippe Laffont"
+    "Tom Gayner"
    ],
    "holder_count": 5,
-   "value_usd": 1029181404
+   "value_usd": 1080076726
   },
   {
    "ticker": "QCOM",
@@ -903,17 +754,17 @@
    "value_usd": 908033174
   },
   {
-   "ticker": "LIN",
-   "company": "LINDE PLC",
+   "ticker": "XYZ",
+   "company": "BLOCK INC",
    "holders": [
-    "Hikari Power Ltd",
+    "Chase Coleman",
+    "Daniel Loeb",
+    "Hyperion Asset Management Ltd",
     "Joel Greenblatt",
-    "Manitou Investment Management Ltd.",
-    "Tom Gayner",
-    "WELLCOME TRUST LTD (THE) as trustee of the WELLCOME TRUST"
+    "Manitou Investment Management Ltd."
    ],
    "holder_count": 5,
-   "value_usd": 733803682
+   "value_usd": 774340820
   },
   {
    "ticker": "AON",
@@ -929,19 +780,6 @@
    "value_usd": 561135896
   },
   {
-   "ticker": "CAT",
-   "company": "CATERPILLAR INC",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt",
-    "Manitou Investment Management Ltd.",
-    "SAYBROOK CAPITAL /NC",
-    "Tom Gayner"
-   ],
-   "holder_count": 5,
-   "value_usd": 523743377
-  },
-  {
    "ticker": "HCA",
    "company": "HCA HEALTHCARE INC",
    "holders": [
@@ -955,17 +793,17 @@
    "value_usd": 446709839
   },
   {
-   "ticker": "DHR",
-   "company": "DANAHER CORP DEL",
+   "ticker": "NOW",
+   "company": "SERVICENOW INC",
    "holders": [
     "Chase Coleman",
-    "Daniel Loeb",
-    "Hikari Power Ltd",
-    "Joel Greenblatt",
-    "Manitou Investment Management Ltd."
+    "Chuck Akre",
+    "Hyperion Asset Management Ltd",
+    "JIA INVESTMENT ALLIANCE PTE. LTD.",
+    "Joel Greenblatt"
    ],
    "holder_count": 5,
-   "value_usd": 236572827
+   "value_usd": 278520410
   },
   {
    "ticker": "PYPL",
@@ -979,32 +817,6 @@
    ],
    "holder_count": 5,
    "value_usd": 213049903
-  },
-  {
-   "ticker": "NONOF",
-   "company": "NOVO-NORDISK A S",
-   "holders": [
-    "Hikari Power Ltd",
-    "JIA INVESTMENT ALLIANCE PTE. LTD.",
-    "Joel Greenblatt",
-    "Manitou Investment Management Ltd.",
-    "Tom Gayner"
-   ],
-   "holder_count": 5,
-   "value_usd": 158294611
-  },
-  {
-   "ticker": "LLY",
-   "company": "ELI LILLY & CO",
-   "holders": [
-    "Cathie Wood",
-    "Dan Niles",
-    "Joel Greenblatt",
-    "Manitou Investment Management Ltd.",
-    "MayTech Global Investments, LLC"
-   ],
-   "holder_count": 5,
-   "value_usd": 153774686
   },
   {
    "ticker": "MKL",
@@ -1033,16 +845,28 @@
    "value_usd": 40430424
   },
   {
-   "ticker": "GE",
-   "company": "GE AEROSPACE",
+   "ticker": "KO",
+   "company": "COCA COLA CO",
    "holders": [
-    "Cathie Wood",
-    "Chris Hohn",
     "Christopher Bloomstran",
-    "Joel Greenblatt"
+    "Joel Greenblatt",
+    "SAYBROOK CAPITAL /NC",
+    "Warren Buffett"
    ],
    "holder_count": 4,
-   "value_usd": 17747679775
+   "value_usd": 32563740412
+  },
+  {
+   "ticker": "BAC",
+   "company": "BANK OF AMER CORP",
+   "holders": [
+    "Glenn Greenberg",
+    "Joel Greenblatt",
+    "Manitou Investment Management Ltd.",
+    "Warren Buffett"
+   ],
+   "holder_count": 4,
+   "value_usd": 27559201899
   },
   {
    "ticker": "CB",
@@ -1081,6 +905,18 @@
    "value_usd": 4836846783
   },
   {
+   "ticker": "CBRS",
+   "company": "CEREBRAS SYSTEMS INC",
+   "holders": [
+    "Brad Gerstner",
+    "Chase Coleman",
+    "Gavin Baker",
+    "Philippe Laffont"
+   ],
+   "holder_count": 4,
+   "value_usd": 4496278371
+  },
+  {
    "ticker": "VRSN",
    "company": "VERISIGN INC",
    "holders": [
@@ -1103,18 +939,6 @@
    ],
    "holder_count": 4,
    "value_usd": 1960978261
-  },
-  {
-   "ticker": "WAT",
-   "company": "WATERS CORP",
-   "holders": [
-    "Hikari Power Ltd",
-    "Joel Greenblatt",
-    "Ole Andreas Halvorsen",
-    "Terry Smith"
-   ],
-   "holder_count": 4,
-   "value_usd": 1500617469
   },
   {
    "ticker": "FICO",
@@ -1141,30 +965,6 @@
    "value_usd": 1214552973
   },
   {
-   "ticker": "CRWV",
-   "company": "COREWEAVE INC",
-   "holders": [
-    "Brad Gerstner",
-    "Cathie Wood",
-    "Gavin Baker",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 4,
-   "value_usd": 1117907083
-  },
-  {
-   "ticker": "SNOW",
-   "company": "SNOWFLAKE INC",
-   "holders": [
-    "Brad Gerstner",
-    "Cathie Wood",
-    "Joel Greenblatt",
-    "Ole Andreas Halvorsen"
-   ],
-   "holder_count": 4,
-   "value_usd": 1065808644
-  },
-  {
    "ticker": "MAR",
    "company": "MARRIOTT INTL INC NEW",
    "holders": [
@@ -1189,28 +989,16 @@
    "value_usd": 1008970861
   },
   {
-   "ticker": "DE",
-   "company": "DEERE & CO",
+   "ticker": "NTRA",
+   "company": "NATERA INC",
    "holders": [
-    "Cathie Wood",
+    "Gavin Baker",
     "Joel Greenblatt",
-    "SAYBROOK CAPITAL /NC",
-    "Tom Gayner"
+    "Ole Andreas Halvorsen",
+    "Philippe Laffont"
    ],
    "holder_count": 4,
-   "value_usd": 829015429
-  },
-  {
-   "ticker": "CSCO",
-   "company": "CISCO SYS INC",
-   "holders": [
-    "Barton Investment Management",
-    "Joel Greenblatt",
-    "Tom Gayner",
-    "WELLCOME TRUST LTD (THE) as trustee of the WELLCOME TRUST"
-   ],
-   "holder_count": 4,
-   "value_usd": 826777566
+   "value_usd": 842191812
   },
   {
    "ticker": "TXN",
@@ -1223,18 +1011,6 @@
    ],
    "holder_count": 4,
    "value_usd": 789476847
-  },
-  {
-   "ticker": "PLTR",
-   "company": "PALANTIR TECHNOLOGIES INC",
-   "holders": [
-    "ALLEN HOLDING INC /NY",
-    "Cathie Wood",
-    "Hyperion Asset Management Ltd",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 4,
-   "value_usd": 738437771
   },
   {
    "ticker": "TTWO",
@@ -1273,18 +1049,6 @@
    "value_usd": 667508763
   },
   {
-   "ticker": "HOOD",
-   "company": "ROBINHOOD MKTS INC",
-   "holders": [
-    "Brad Gerstner",
-    "Cathie Wood",
-    "Dan Niles",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 4,
-   "value_usd": 622937634
-  },
-  {
    "ticker": "PM",
    "company": "PHILIP MORRIS INTL INC",
    "holders": [
@@ -1297,28 +1061,40 @@
    "value_usd": 569823262
   },
   {
-   "ticker": "EW",
-   "company": "EDWARDS LIFESCIENCES CORP",
+   "ticker": "AMD",
+   "company": "ADVANCED MICRO DEVICES INC",
+   "holders": [
+    "Barton Investment Management",
+    "Chase Coleman",
+    "Joel Greenblatt",
+    "Philippe Laffont"
+   ],
+   "holder_count": 4,
+   "value_usd": 524352023
+  },
+  {
+   "ticker": "ISRG",
+   "company": "INTUITIVE SURGICAL INC",
+   "holders": [
+    "Hyperion Asset Management Ltd",
+    "Joel Greenblatt",
+    "MayTech Global Investments, LLC",
+    "Philippe Laffont"
+   ],
+   "holder_count": 4,
+   "value_usd": 518091845
+  },
+  {
+   "ticker": "CAT",
+   "company": "CATERPILLAR INC",
    "holders": [
     "Joel Greenblatt",
     "Manitou Investment Management Ltd.",
-    "WEDGEWOOD PARTNERS INC",
-    "WELLCOME TRUST LTD (THE) as trustee of the WELLCOME TRUST"
+    "SAYBROOK CAPITAL /NC",
+    "Tom Gayner"
    ],
    "holder_count": 4,
-   "value_usd": 475371100
-  },
-  {
-   "ticker": "ROP",
-   "company": "ROPER TECHNOLOGIES INC",
-   "holders": [
-    "Chuck Akre",
-    "Hikari Power Ltd",
-    "Joel Greenblatt",
-    "Manitou Investment Management Ltd."
-   ],
-   "holder_count": 4,
-   "value_usd": 473207960
+   "value_usd": 464100458
   },
   {
    "ticker": "PANW",
@@ -1345,18 +1121,6 @@
    "value_usd": 437673793
   },
   {
-   "ticker": "ABNB",
-   "company": "AIRBNB INC",
-   "holders": [
-    "Cathie Wood",
-    "Chuck Akre",
-    "Joel Greenblatt",
-    "Tom Gayner"
-   ],
-   "holder_count": 4,
-   "value_usd": 359349314
-  },
-  {
    "ticker": "VRT",
    "company": "VERTIV HOLDINGS CO",
    "holders": [
@@ -1379,18 +1143,6 @@
    ],
    "holder_count": 4,
    "value_usd": 319958623
-  },
-  {
-   "ticker": "PEP",
-   "company": "PEPSICO INC",
-   "holders": [
-    "Joel Greenblatt",
-    "SAYBROOK CAPITAL /NC",
-    "Tom Gayner",
-    "WELLCOME TRUST LTD (THE) as trustee of the WELLCOME TRUST"
-   ],
-   "holder_count": 4,
-   "value_usd": 319571023
   },
   {
    "ticker": "NSC",
@@ -1417,30 +1169,6 @@
    "value_usd": 288134444
   },
   {
-   "ticker": "HEI",
-   "company": "HEICO CORP NEW",
-   "holders": [
-    "Cathie Wood",
-    "Gobi Capital LLC",
-    "Joel Greenblatt",
-    "Tom Gayner"
-   ],
-   "holder_count": 4,
-   "value_usd": 287816545
-  },
-  {
-   "ticker": "AFRM",
-   "company": "AFFIRM HLDGS INC",
-   "holders": [
-    "ALLEN HOLDING INC /NY",
-    "Foxhaven Asset Management, LP",
-    "Gavin Baker",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 4,
-   "value_usd": 284750500
-  },
-  {
    "ticker": "CROX",
    "company": "CROCS INC",
    "holders": [
@@ -1465,28 +1193,16 @@
    "value_usd": 253619912
   },
   {
-   "ticker": "VEEV",
-   "company": "VEEVA SYS INC",
+   "ticker": "DHR",
+   "company": "DANAHER CORP DEL",
    "holders": [
-    "Hikari Power Ltd",
+    "Chase Coleman",
+    "Daniel Loeb",
     "Joel Greenblatt",
-    "Nellore Capital Management LLC",
-    "Terry Smith"
+    "Manitou Investment Management Ltd."
    ],
    "holder_count": 4,
-   "value_usd": 252831088
-  },
-  {
-   "ticker": "SNPS",
-   "company": "SYNOPSYS INC",
-   "holders": [
-    "Brad Gerstner",
-    "Cathie Wood",
-    "Joel Greenblatt",
-    "Philippe Laffont"
-   ],
-   "holder_count": 4,
-   "value_usd": 241879228
+   "value_usd": 236568922
   },
   {
    "ticker": "PGR",
@@ -1501,76 +1217,16 @@
    "value_usd": 224411302
   },
   {
-   "ticker": "CRWD",
-   "company": "CROWDSTRIKE HLDGS INC",
+   "ticker": "NONOF",
+   "company": "NOVO-NORDISK A S",
    "holders": [
-    "Cathie Wood",
     "JIA INVESTMENT ALLIANCE PTE. LTD.",
     "Joel Greenblatt",
-    "Strategy Capital LLC"
-   ],
-   "holder_count": 4,
-   "value_usd": 215767151
-  },
-  {
-   "ticker": "NKE",
-   "company": "NIKE INC",
-   "holders": [
-    "Joel Greenblatt",
-    "SAYBROOK CAPITAL /NC",
-    "Tom Gayner",
-    "WELLCOME TRUST LTD (THE) as trustee of the WELLCOME TRUST"
-   ],
-   "holder_count": 4,
-   "value_usd": 169160901
-  },
-  {
-   "ticker": "GTLB",
-   "company": "GITLAB INC",
-   "holders": [
-    "Barton Investment Management",
-    "Cathie Wood",
-    "Gavin Baker",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 4,
-   "value_usd": 143327543
-  },
-  {
-   "ticker": "AUR",
-   "company": "Aurora Innovation Inc",
-   "holders": [
-    "ALLEN HOLDING INC /NY",
-    "Cathie Wood",
-    "Daniel Loeb",
-    "Foxhaven Asset Management, LP"
-   ],
-   "holder_count": 4,
-   "value_usd": 131656101
-  },
-  {
-   "ticker": "LMT",
-   "company": "LOCKHEED MARTIN CORP",
-   "holders": [
-    "Cathie Wood",
-    "Hikari Power Ltd",
-    "Joel Greenblatt",
+    "Manitou Investment Management Ltd.",
     "Tom Gayner"
    ],
    "holder_count": 4,
-   "value_usd": 78965124
-  },
-  {
-   "ticker": "PFE",
-   "company": "PFIZER INC",
-   "holders": [
-    "ALLEN HOLDING INC /NY",
-    "Barton Investment Management",
-    "Joel Greenblatt",
-    "SAYBROOK CAPITAL /NC"
-   ],
-   "holder_count": 4,
-   "value_usd": 70799729
+   "value_usd": 158291888
   },
   {
    "ticker": "CCZ",
@@ -1585,40 +1241,27 @@
    "value_usd": 69648768
   },
   {
-   "ticker": "ZTS",
-   "company": "ZOETIS INC",
+   "ticker": "LLY",
+   "company": "ELI LILLY & CO",
    "holders": [
-    "Hikari Power Ltd",
-    "JIA INVESTMENT ALLIANCE PTE. LTD.",
-    "Joel Greenblatt",
-    "Tom Gayner"
-   ],
-   "holder_count": 4,
-   "value_usd": 55477271
-  },
-  {
-   "ticker": "WFC",
-   "company": "WELLS FARGO & CO",
-   "holders": [
-    "Hikari Power Ltd",
+    "Dan Niles",
     "Joel Greenblatt",
     "Manitou Investment Management Ltd.",
-    "Tom Gayner"
+    "MayTech Global Investments, LLC"
    ],
    "holder_count": 4,
-   "value_usd": 33837403
+   "value_usd": 61113789
   },
   {
-   "ticker": "MMM",
-   "company": "3M CO",
+   "ticker": "GE",
+   "company": "GE AEROSPACE",
    "holders": [
-    "Cathie Wood",
-    "Hikari Power Ltd",
-    "Joel Greenblatt",
-    "Manitou Investment Management Ltd."
+    "Chris Hohn",
+    "Christopher Bloomstran",
+    "Joel Greenblatt"
    ],
-   "holder_count": 4,
-   "value_usd": 8348365
+   "holder_count": 3,
+   "value_usd": 17746330610
   },
   {
    "ticker": "CVX",
@@ -1632,17 +1275,6 @@
    "value_usd": 14004265591
   },
   {
-   "ticker": "STT",
-   "company": "STATE STR SPDR S&P 500 ETF T",
-   "holders": [
-    "Barton Investment Management",
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 3,
-   "value_usd": 8508885879
-  },
-  {
    "ticker": "QSR",
    "company": "RESTAURANT BRANDS INTL INC",
    "holders": [
@@ -1652,6 +1284,17 @@
    ],
    "holder_count": 3,
    "value_usd": 1891676217
+  },
+  {
+   "ticker": "WAT",
+   "company": "WATERS CORP",
+   "holders": [
+    "Joel Greenblatt",
+    "Ole Andreas Halvorsen",
+    "Terry Smith"
+   ],
+   "holder_count": 3,
+   "value_usd": 1500615676
   },
   {
    "ticker": "LEN",
@@ -1698,17 +1341,6 @@
    "value_usd": 1297856442
   },
   {
-   "ticker": "FTV",
-   "company": "FORTIVE CORP",
-   "holders": [
-    "Hikari Power Ltd",
-    "Joel Greenblatt",
-    "Ole Andreas Halvorsen"
-   ],
-   "holder_count": 3,
-   "value_usd": 1230668237
-  },
-  {
    "ticker": "SCHW",
    "company": "SCHWAB CHARLES CORP",
    "holders": [
@@ -1729,6 +1361,28 @@
    ],
    "holder_count": 3,
    "value_usd": 1026667230
+  },
+  {
+   "ticker": "SNOW",
+   "company": "SNOWFLAKE INC",
+   "holders": [
+    "Brad Gerstner",
+    "Joel Greenblatt",
+    "Ole Andreas Halvorsen"
+   ],
+   "holder_count": 3,
+   "value_usd": 997210913
+  },
+  {
+   "ticker": "CRWV",
+   "company": "COREWEAVE INC",
+   "holders": [
+    "Brad Gerstner",
+    "Gavin Baker",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 3,
+   "value_usd": 853410172
   },
   {
    "ticker": "MLM",
@@ -1786,17 +1440,6 @@
    "value_usd": 711235706
   },
   {
-   "ticker": "ADPT",
-   "company": "ADAPTIVE BIOTECHNOLOGIES COR",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt",
-    "Ole Andreas Halvorsen"
-   ],
-   "holder_count": 3,
-   "value_usd": 689805096
-  },
-  {
    "ticker": "PG",
    "company": "PROCTER & GAMBLE CO",
    "holders": [
@@ -1841,6 +1484,17 @@
    "value_usd": 594913332
   },
   {
+   "ticker": "DE",
+   "company": "DEERE & CO",
+   "holders": [
+    "Joel Greenblatt",
+    "SAYBROOK CAPITAL /NC",
+    "Tom Gayner"
+   ],
+   "holder_count": 3,
+   "value_usd": 579707843
+  },
+  {
    "ticker": "SNX",
    "company": "TD SYNNEX CORPORATION",
    "holders": [
@@ -1850,6 +1504,17 @@
    ],
    "holder_count": 3,
    "value_usd": 566869072
+  },
+  {
+   "ticker": "ROP",
+   "company": "ROPER TECHNOLOGIES INC",
+   "holders": [
+    "Chuck Akre",
+    "Joel Greenblatt",
+    "Manitou Investment Management Ltd."
+   ],
+   "holder_count": 3,
+   "value_usd": 473187657
   },
   {
    "ticker": "ELV",
@@ -1885,17 +1550,6 @@
    "value_usd": 384345804
   },
   {
-   "ticker": "RBLX",
-   "company": "ROBLOX CORP",
-   "holders": [
-    "Cathie Wood",
-    "Gavilan Investment Partners LLC",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 3,
-   "value_usd": 380566254
-  },
-  {
    "ticker": "W",
    "company": "WAYFAIR INC",
    "holders": [
@@ -1905,17 +1559,6 @@
    ],
    "holder_count": 3,
    "value_usd": 368519944
-  },
-  {
-   "ticker": "COIN",
-   "company": "COINBASE GLOBAL INC",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt",
-    "Manitou Investment Management Ltd."
-   ],
-   "holder_count": 3,
-   "value_usd": 367478376
   },
   {
    "ticker": "ICE",
@@ -1995,6 +1638,17 @@
    "value_usd": 340546370
   },
   {
+   "ticker": "ABNB",
+   "company": "AIRBNB INC",
+   "holders": [
+    "Chuck Akre",
+    "Joel Greenblatt",
+    "Tom Gayner"
+   ],
+   "holder_count": 3,
+   "value_usd": 338124695
+  },
+  {
    "ticker": "KLAC",
    "company": "KLA CORP",
    "holders": [
@@ -2004,50 +1658,6 @@
    ],
    "holder_count": 3,
    "value_usd": 336049425
-  },
-  {
-   "ticker": "NET",
-   "company": "CLOUDFLARE INC",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt",
-    "Strategy Capital LLC"
-   ],
-   "holder_count": 3,
-   "value_usd": 330912889
-  },
-  {
-   "ticker": "ABT",
-   "company": "ABBOTT LABORATORIES",
-   "holders": [
-    "Barton Investment Management",
-    "Joel Greenblatt",
-    "WELLCOME TRUST LTD (THE) as trustee of the WELLCOME TRUST"
-   ],
-   "holder_count": 3,
-   "value_usd": 328754559
-  },
-  {
-   "ticker": "DKNG",
-   "company": "DRAFTKINGS INC NEW",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt",
-    "SPRUCE HOUSE INVESTMENT MANAGEMENT LLC"
-   ],
-   "holder_count": 3,
-   "value_usd": 290887711
-  },
-  {
-   "ticker": "ATI",
-   "company": "ATI INC",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt",
-    "Ole Andreas Halvorsen"
-   ],
-   "holder_count": 3,
-   "value_usd": 280658377
   },
   {
    "ticker": "BLDR",
@@ -2072,26 +1682,59 @@
    "value_usd": 273883299
   },
   {
-   "ticker": "DDOG",
-   "company": "DATADOG INC",
+   "ticker": "HEI",
+   "company": "HEICO CORP NEW",
    "holders": [
-    "Cathie Wood",
+    "Gobi Capital LLC",
+    "Joel Greenblatt",
+    "Tom Gayner"
+   ],
+   "holder_count": 3,
+   "value_usd": 269988523
+  },
+  {
+   "ticker": "AFRM",
+   "company": "AFFIRM HLDGS INC",
+   "holders": [
+    "Foxhaven Asset Management, LP",
+    "Gavin Baker",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 3,
+   "value_usd": 265994000
+  },
+  {
+   "ticker": "VEEV",
+   "company": "VEEVA SYS INC",
+   "holders": [
+    "Joel Greenblatt",
+    "Nellore Capital Management LLC",
+    "Terry Smith"
+   ],
+   "holder_count": 3,
+   "value_usd": 252830683
+  },
+  {
+   "ticker": "SNPS",
+   "company": "SYNOPSYS INC",
+   "holders": [
+    "Brad Gerstner",
+    "Joel Greenblatt",
+    "Philippe Laffont"
+   ],
+   "holder_count": 3,
+   "value_usd": 205621320
+  },
+  {
+   "ticker": "CRWD",
+   "company": "CROWDSTRIKE HLDGS INC",
+   "holders": [
+    "JIA INVESTMENT ALLIANCE PTE. LTD.",
     "Joel Greenblatt",
     "Strategy Capital LLC"
    ],
    "holder_count": 3,
-   "value_usd": 265521637
-  },
-  {
-   "ticker": "CRS",
-   "company": "CARPENTER TECHNOLOGY CORP",
-   "holders": [
-    "Cathie Wood",
-    "Daniel Loeb",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 3,
-   "value_usd": 196985387
+   "value_usd": 197737968
   },
   {
    "ticker": "NVR",
@@ -2125,6 +1768,17 @@
    ],
    "holder_count": 3,
    "value_usd": 155303795
+  },
+  {
+   "ticker": "LIN",
+   "company": "LINDE PLC",
+   "holders": [
+    "Joel Greenblatt",
+    "Manitou Investment Management Ltd.",
+    "Tom Gayner"
+   ],
+   "holder_count": 3,
+   "value_usd": 152569917
   },
   {
    "ticker": "FIX",
@@ -2182,17 +1836,6 @@
    "value_usd": 133082477
   },
   {
-   "ticker": "ECL",
-   "company": "ECOLAB INC",
-   "holders": [
-    "Hikari Power Ltd",
-    "Joel Greenblatt",
-    "Tom Gayner"
-   ],
-   "holder_count": 3,
-   "value_usd": 130778395
-  },
-  {
    "ticker": "BKNG",
    "company": "BOOKING HOLDINGS INC",
    "holders": [
@@ -2202,6 +1845,28 @@
    ],
    "holder_count": 3,
    "value_usd": 122843863
+  },
+  {
+   "ticker": "CSCO",
+   "company": "CISCO SYS INC",
+   "holders": [
+    "Barton Investment Management",
+    "Joel Greenblatt",
+    "Tom Gayner"
+   ],
+   "holder_count": 3,
+   "value_usd": 122017566
+  },
+  {
+   "ticker": "GTLB",
+   "company": "GITLAB INC",
+   "holders": [
+    "Barton Investment Management",
+    "Gavin Baker",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 3,
+   "value_usd": 119880564
   },
   {
    "ticker": "FDS",
@@ -2224,6 +1889,17 @@
    ],
    "holder_count": 3,
    "value_usd": 110007490
+  },
+  {
+   "ticker": "HOOD",
+   "company": "ROBINHOOD MKTS INC",
+   "holders": [
+    "Brad Gerstner",
+    "Dan Niles",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 3,
+   "value_usd": 97868466
   },
   {
    "ticker": "ROL",
@@ -2303,26 +1979,15 @@
    "value_usd": 74752049
   },
   {
-   "ticker": "DCH",
-   "company": "DAUCH CORP",
+   "ticker": "ZTS",
+   "company": "ZOETIS INC",
    "holders": [
-    "Cathie Wood",
-    "David Einhorn",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 3,
-   "value_usd": 67327641
-  },
-  {
-   "ticker": "HON",
-   "company": "HONEYWELL INTL INC",
-   "holders": [
-    "Cathie Wood",
+    "JIA INVESTMENT ALLIANCE PTE. LTD.",
     "Joel Greenblatt",
-    "SAYBROOK CAPITAL /NC"
+    "Tom Gayner"
    ],
    "holder_count": 3,
-   "value_usd": 50622790
+   "value_usd": 55476639
   },
   {
    "ticker": "TOL",
@@ -2336,15 +2001,26 @@
    "value_usd": 50308114
   },
   {
-   "ticker": "AME",
-   "company": "AMETEK INC",
+   "ticker": "PEP",
+   "company": "PEPSICO INC",
    "holders": [
-    "Cathie Wood",
-    "Hikari Power Ltd",
-    "Joel Greenblatt"
+    "Joel Greenblatt",
+    "SAYBROOK CAPITAL /NC",
+    "Tom Gayner"
    ],
    "holder_count": 3,
-   "value_usd": 45668822
+   "value_usd": 48771023
+  },
+  {
+   "ticker": "NKE",
+   "company": "NIKE INC",
+   "holders": [
+    "Joel Greenblatt",
+    "SAYBROOK CAPITAL /NC",
+    "Tom Gayner"
+   ],
+   "holder_count": 3,
+   "value_usd": 46010901
   },
   {
    "ticker": "TROW",
@@ -2367,6 +2043,17 @@
    ],
    "holder_count": 3,
    "value_usd": 41251896
+  },
+  {
+   "ticker": "EW",
+   "company": "EDWARDS LIFESCIENCES CORP",
+   "holders": [
+    "Joel Greenblatt",
+    "Manitou Investment Management Ltd.",
+    "WEDGEWOOD PARTNERS INC"
+   ],
+   "holder_count": 3,
+   "value_usd": 41163100
   },
   {
    "ticker": "QXO",
@@ -2402,6 +2089,17 @@
    "value_usd": 34034945
   },
   {
+   "ticker": "WFC",
+   "company": "WELLS FARGO & CO",
+   "holders": [
+    "Joel Greenblatt",
+    "Manitou Investment Management Ltd.",
+    "Tom Gayner"
+   ],
+   "holder_count": 3,
+   "value_usd": 33836948
+  },
+  {
    "ticker": "FAST",
    "company": "FASTENAL CO",
    "holders": [
@@ -2413,15 +2111,15 @@
    "value_usd": 27379512
   },
   {
-   "ticker": "BNY",
-   "company": "BANK NEW YORK MELLON CORP",
+   "ticker": "PFE",
+   "company": "PFIZER INC",
    "holders": [
-    "Hikari Power Ltd",
+    "Barton Investment Management",
     "Joel Greenblatt",
-    "Tom Gayner"
+    "SAYBROOK CAPITAL /NC"
    ],
    "holder_count": 3,
-   "value_usd": 22674912
+   "value_usd": 22639729
   },
   {
    "ticker": "ORCL",
@@ -2446,28 +2144,6 @@
    "value_usd": 19425097
   },
   {
-   "ticker": "PSX",
-   "company": "PHILLIPS 66",
-   "holders": [
-    "Christopher Bloomstran",
-    "Hikari Power Ltd",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 3,
-   "value_usd": 13975245
-  },
-  {
-   "ticker": "XRAY",
-   "company": "DENTSPLY SIRONA INC",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt",
-    "Manitou Investment Management Ltd."
-   ],
-   "holder_count": 3,
-   "value_usd": 9286031
-  },
-  {
    "ticker": "NUVB",
    "company": "NUVATION BIO INC",
    "holders": [
@@ -2479,17 +2155,6 @@
    "value_usd": 8449858
   },
   {
-   "ticker": "RYDAF",
-   "company": "SHELL PLC",
-   "holders": [
-    "Christopher Bloomstran",
-    "Hikari Power Ltd",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 3,
-   "value_usd": 964629
-  },
-  {
    "ticker": "OXY",
    "company": "OCCIDENTAL PETE CORP",
    "holders": [
@@ -2498,6 +2163,16 @@
    ],
    "holder_count": 2,
    "value_usd": 12916866567
+  },
+  {
+   "ticker": "STT",
+   "company": "STATE STR SPDR S&P 500 ETF T",
+   "holders": [
+    "Barton Investment Management",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 2,
+   "value_usd": 8508865404
   },
   {
    "ticker": "KHC",
@@ -2600,6 +2275,16 @@
    "value_usd": 1273413302
   },
   {
+   "ticker": "FTV",
+   "company": "FORTIVE CORP",
+   "holders": [
+    "Joel Greenblatt",
+    "Ole Andreas Halvorsen"
+   ],
+   "holder_count": 2,
+   "value_usd": 1230667764
+  },
+  {
    "ticker": "NYT",
    "company": "NEW YORK TIMES CO MTN BE",
    "holders": [
@@ -2700,6 +2385,16 @@
    "value_usd": 673726506
   },
   {
+   "ticker": "ADPT",
+   "company": "ADAPTIVE BIOTECHNOLOGIES COR",
+   "holders": [
+    "Joel Greenblatt",
+    "Ole Andreas Halvorsen"
+   ],
+   "holder_count": 2,
+   "value_usd": 644968038
+  },
+  {
    "ticker": "CHD",
    "company": "CHURCH & DWIGHT CO INC",
    "holders": [
@@ -2720,16 +2415,6 @@
    "value_usd": 593741147
   },
   {
-   "ticker": "TEM",
-   "company": "TEMPUS AI INC",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 583368842
-  },
-  {
    "ticker": "RRX",
    "company": "REGAL REXNORD CORPORATION",
    "holders": [
@@ -2748,16 +2433,6 @@
    ],
    "holder_count": 2,
    "value_usd": 546590029
-  },
-  {
-   "ticker": "TWST",
-   "company": "TWIST BIOSCIENCE CORP",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 468409783
   },
   {
    "ticker": "DLR",
@@ -2850,16 +2525,6 @@
    "value_usd": 393203463
   },
   {
-   "ticker": "TXG",
-   "company": "10X GENOMICS INC",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 387759927
-  },
-  {
    "ticker": "GS",
    "company": "GOLDMAN SACHS GROUP INC",
    "holders": [
@@ -2878,26 +2543,6 @@
    ],
    "holder_count": 2,
    "value_usd": 379500594
-  },
-  {
-   "ticker": "TER",
-   "company": "TERADYNE INC",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 364245494
-  },
-  {
-   "ticker": "BEAM",
-   "company": "BEAM THERAPEUTICS INC",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 351628357
   },
   {
    "ticker": "CSGP",
@@ -2980,14 +2625,14 @@
    "value_usd": 288361583
   },
   {
-   "ticker": "CRCL",
-   "company": "CIRCLE INTERNET GROUP INC",
+   "ticker": "NET",
+   "company": "CLOUDFLARE INC",
    "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
+    "Joel Greenblatt",
+    "Strategy Capital LLC"
    ],
    "holder_count": 2,
-   "value_usd": 287318307
+   "value_usd": 287811552
   },
   {
    "ticker": "STX",
@@ -2998,6 +2643,16 @@
    ],
    "holder_count": 2,
    "value_usd": 285504900
+  },
+  {
+   "ticker": "ATI",
+   "company": "ATI INC",
+   "holders": [
+    "Joel Greenblatt",
+    "Ole Andreas Halvorsen"
+   ],
+   "holder_count": 2,
+   "value_usd": 280562389
   },
   {
    "ticker": "WSO",
@@ -3020,6 +2675,16 @@
    "value_usd": 263317269
   },
   {
+   "ticker": "DKNG",
+   "company": "DRAFTKINGS INC NEW",
+   "holders": [
+    "Joel Greenblatt",
+    "SPRUCE HOUSE INVESTMENT MANAGEMENT LLC"
+   ],
+   "holder_count": 2,
+   "value_usd": 259847069
+  },
+  {
    "ticker": "CIGI",
    "company": "COLLIERS INTL GROUP INC",
    "holders": [
@@ -3038,16 +2703,6 @@
    ],
    "holder_count": 2,
    "value_usd": 251077555
-  },
-  {
-   "ticker": "ILMN",
-   "company": "ILLUMINA INC",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 246371815
   },
   {
    "ticker": "FLR",
@@ -3110,6 +2765,16 @@
    "value_usd": 212760581
   },
   {
+   "ticker": "DDOG",
+   "company": "DATADOG INC",
+   "holders": [
+    "Joel Greenblatt",
+    "Strategy Capital LLC"
+   ],
+   "holder_count": 2,
+   "value_usd": 210807504
+  },
+  {
    "ticker": "GD",
    "company": "GENERAL DYNAMICS CORP",
    "holders": [
@@ -3118,16 +2783,6 @@
    ],
    "holder_count": 2,
    "value_usd": 208038067
-  },
-  {
-   "ticker": "IRDM",
-   "company": "IRIDIUM COMMUNICATIONS INC",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 204559235
   },
   {
    "ticker": "UHAL",
@@ -3140,14 +2795,14 @@
    "value_usd": 204507416
   },
   {
-   "ticker": "VOO",
-   "company": "VANGUARD INDEX FDS",
+   "ticker": "CRS",
+   "company": "CARPENTER TECHNOLOGY CORP",
    "holders": [
-    "Hikari Power Ltd",
+    "Daniel Loeb",
     "Joel Greenblatt"
    ],
    "holder_count": 2,
-   "value_usd": 196475874
+   "value_usd": 196875589
   },
   {
    "ticker": "MDLN",
@@ -3168,6 +2823,16 @@
    ],
    "holder_count": 2,
    "value_usd": 190015777
+  },
+  {
+   "ticker": "PLTR",
+   "company": "PALANTIR TECHNOLOGIES INC",
+   "holders": [
+    "Hyperion Asset Management Ltd",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 2,
+   "value_usd": 188655390
   },
   {
    "ticker": "LOW",
@@ -3220,16 +2885,6 @@
    "value_usd": 173211139
   },
   {
-   "ticker": "RKLB",
-   "company": "ROCKET LAB CORP",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 171545760
-  },
-  {
    "ticker": "GNRC",
    "company": "GENERAC HLDGS INC",
    "holders": [
@@ -3238,16 +2893,6 @@
    ],
    "holder_count": 2,
    "value_usd": 168768364
-  },
-  {
-   "ticker": "BLSH",
-   "company": "BULLISH",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 166203010
   },
   {
    "ticker": "TDG",
@@ -3268,16 +2913,6 @@
    ],
    "holder_count": 2,
    "value_usd": 157161898
-  },
-  {
-   "ticker": "ABSI",
-   "company": "ABSCI CORPORATION",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 150144213
   },
   {
    "ticker": "ADM",
@@ -3320,16 +2955,6 @@
    "value_usd": 141388812
   },
   {
-   "ticker": "BWXT",
-   "company": "BWX TECHNOLOGIES INC",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 138613185
-  },
-  {
    "ticker": "SRAD",
    "company": "SPORTRADAR GROUP AG",
    "holders": [
@@ -3340,16 +2965,6 @@
    "value_usd": 137052221
   },
   {
-   "ticker": "VCYT",
-   "company": "VERACYTE INC",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 136211921
-  },
-  {
    "ticker": "DELL",
    "company": "DELL TECHNOLOGIES INC",
    "holders": [
@@ -3358,6 +2973,16 @@
    ],
    "holder_count": 2,
    "value_usd": 132865950
+  },
+  {
+   "ticker": "ECL",
+   "company": "ECOLAB INC",
+   "holders": [
+    "Joel Greenblatt",
+    "Tom Gayner"
+   ],
+   "holder_count": 2,
+   "value_usd": 130778141
   },
   {
    "ticker": "ROK",
@@ -3470,16 +3095,6 @@
    "value_usd": 112570004
   },
   {
-   "ticker": "XE",
-   "company": "X-Energy Inc",
-   "holders": [
-    "Cathie Wood",
-    "Ole Andreas Halvorsen"
-   ],
-   "holder_count": 2,
-   "value_usd": 112475784
-  },
-  {
    "ticker": "PCG",
    "company": "PG&E CORP",
    "holders": [
@@ -3550,36 +3165,6 @@
    "value_usd": 101647045
   },
   {
-   "ticker": "LUNR",
-   "company": "INTUITIVE MACHINES INC",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 100947987
-  },
-  {
-   "ticker": "TEVA",
-   "company": "TEVA PHARMACEUTICAL INDS LTD",
-   "holders": [
-    "Cathie Wood",
-    "David Einhorn"
-   ],
-   "holder_count": 2,
-   "value_usd": 100105643
-  },
-  {
-   "ticker": "TRMB",
-   "company": "TRIMBLE INC",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 97110876
-  },
-  {
    "ticker": "CPRI",
    "company": "CAPRI HOLDINGS LIMITED",
    "holders": [
@@ -3630,16 +3215,6 @@
    "value_usd": 92108037
   },
   {
-   "ticker": "ROKU",
-   "company": "ROKU INC",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 90713470
-  },
-  {
    "ticker": "IOT",
    "company": "SAMSARA INC",
    "holders": [
@@ -3650,14 +3225,14 @@
    "value_usd": 87998448
   },
   {
-   "ticker": "JBL",
-   "company": "JABIL INC",
+   "ticker": "AUR",
+   "company": "AURORA INNOVATION INC",
    "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
+    "Daniel Loeb",
+    "Foxhaven Asset Management, LP"
    ],
    "holder_count": 2,
-   "value_usd": 87648130
+   "value_usd": 86427014
   },
   {
    "ticker": "DHT",
@@ -3700,36 +3275,6 @@
    "value_usd": 81367888
   },
   {
-   "ticker": "TDY",
-   "company": "TELEDYNE TECHNOLOGIES INC",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 80645550
-  },
-  {
-   "ticker": "GH",
-   "company": "GUARDANT HEALTH INC",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 79009290
-  },
-  {
-   "ticker": "KLAR",
-   "company": "Klarna Group PLC",
-   "holders": [
-    "Cathie Wood",
-    "WELLCOME TRUST LTD (THE) as trustee of the WELLCOME TRUST"
-   ],
-   "holder_count": 2,
-   "value_usd": 78339750
-  },
-  {
    "ticker": "BAH",
    "company": "BOOZ ALLEN HAMILTON HLDG COR",
    "holders": [
@@ -3748,6 +3293,16 @@
    ],
    "holder_count": 2,
    "value_usd": 72535190
+  },
+  {
+   "ticker": "LMT",
+   "company": "LOCKHEED MARTIN CORP",
+   "holders": [
+    "Joel Greenblatt",
+    "Tom Gayner"
+   ],
+   "holder_count": 2,
+   "value_usd": 71421707
   },
   {
    "ticker": "ON",
@@ -3800,24 +3355,14 @@
    "value_usd": 67655623
   },
   {
-   "ticker": "WIX",
-   "company": "WIX COM LTD",
+   "ticker": "DCH",
+   "company": "DAUCH CORP",
    "holders": [
-    "Cathie Wood",
-    "Gavin Baker"
-   ],
-   "holder_count": 2,
-   "value_usd": 67636234
-  },
-  {
-   "ticker": "SOFI",
-   "company": "SOFI TECHNOLOGIES INC",
-   "holders": [
-    "Cathie Wood",
+    "David Einhorn",
     "Joel Greenblatt"
    ],
    "holder_count": 2,
-   "value_usd": 67395260
+   "value_usd": 67293029
   },
   {
    "ticker": "HSIC",
@@ -3830,16 +3375,6 @@
    "value_usd": 61735144
   },
   {
-   "ticker": "JOBY",
-   "company": "JOBY AVIATION INC",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 60108169
-  },
-  {
    "ticker": "BF.A",
    "company": "BROWN FORMAN CORP",
    "holders": [
@@ -3850,16 +3385,6 @@
    "value_usd": 59060849
   },
   {
-   "ticker": "SOLV",
-   "company": "SOLVENTUM CORP",
-   "holders": [
-    "Hikari Power Ltd",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 58897906
-  },
-  {
    "ticker": "PAYC",
    "company": "PAYCOM SOFTWARE INC",
    "holders": [
@@ -3868,16 +3393,6 @@
    ],
    "holder_count": 2,
    "value_usd": 58440320
-  },
-  {
-   "ticker": "CDNA",
-   "company": "CAREDX INC",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 57772624
   },
   {
    "ticker": "CG",
@@ -3898,16 +3413,6 @@
    ],
    "holder_count": 2,
    "value_usd": 57681009
-  },
-  {
-   "ticker": "TOST",
-   "company": "TOAST INC",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 56873538
   },
   {
    "ticker": "LBTYA",
@@ -4030,16 +3535,6 @@
    "value_usd": 48546077
   },
   {
-   "ticker": "ESLT",
-   "company": "ELBIT SYS LTD",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 47881301
-  },
-  {
    "ticker": "MEDP",
    "company": "MEDPACE HLDGS INC",
    "holders": [
@@ -4080,26 +3575,6 @@
    "value_usd": 47162777
   },
   {
-   "ticker": "BFLY",
-   "company": "BUTTERFLY NETWORK INC",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 46710886
-  },
-  {
-   "ticker": "PPLI",
-   "company": "PEOPLE INC",
-   "holders": [
-    "ALLEN HOLDING INC /NY",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 46172602
-  },
-  {
    "ticker": "FIVE",
    "company": "FIVE BELOW INC",
    "holders": [
@@ -4108,6 +3583,16 @@
    ],
    "holder_count": 2,
    "value_usd": 45350769
+  },
+  {
+   "ticker": "ABT",
+   "company": "ABBOTT LABORATORIES",
+   "holders": [
+    "Barton Investment Management",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 2,
+   "value_usd": 45192059
   },
   {
    "ticker": "PSKY",
@@ -4128,16 +3613,6 @@
    ],
    "holder_count": 2,
    "value_usd": 44052297
-  },
-  {
-   "ticker": "HPQ",
-   "company": "HP INC",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 43966312
   },
   {
    "ticker": "KGC",
@@ -4170,26 +3645,6 @@
    "value_usd": 42627278
   },
   {
-   "ticker": "CCJ",
-   "company": "CAMECO CORP",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 42382316
-  },
-  {
-   "ticker": "LECO",
-   "company": "LINCOLN ELEC HLDGS INC",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 41783574
-  },
-  {
    "ticker": "MSI",
    "company": "MOTOROLA SOLUTIONS INC",
    "holders": [
@@ -4200,16 +3655,6 @@
    "value_usd": 41323147
   },
   {
-   "ticker": "SRTA",
-   "company": "Strata Critical Medical Inc",
-   "holders": [
-    "Cathie Wood",
-    "Daniel Loeb"
-   ],
-   "holder_count": 2,
-   "value_usd": 40741606
-  },
-  {
    "ticker": "CARR",
    "company": "CARRIER GLOBAL CORPORATION",
    "holders": [
@@ -4218,6 +3663,16 @@
    ],
    "holder_count": 2,
    "value_usd": 40343087
+  },
+  {
+   "ticker": "HON",
+   "company": "HONEYWELL INTL INC",
+   "holders": [
+    "Joel Greenblatt",
+    "SAYBROOK CAPITAL /NC"
+   ],
+   "holder_count": 2,
+   "value_usd": 40271665
   },
   {
    "ticker": "HII",
@@ -4250,26 +3705,6 @@
    "value_usd": 38753574
   },
   {
-   "ticker": "Z",
-   "company": "ZILLOW GROUP INC",
-   "holders": [
-    "Cathie Wood",
-    "Philippe Laffont"
-   ],
-   "holder_count": 2,
-   "value_usd": 38419797
-  },
-  {
-   "ticker": "SYM",
-   "company": "Symbotic Inc",
-   "holders": [
-    "Barton Investment Management",
-    "Cathie Wood"
-   ],
-   "holder_count": 2,
-   "value_usd": 38216895
-  },
-  {
    "ticker": "PATH",
    "company": "UIPATH INC",
    "holders": [
@@ -4278,16 +3713,6 @@
    ],
    "holder_count": 2,
    "value_usd": 38168245
-  },
-  {
-   "ticker": "RBRK",
-   "company": "RUBRIK INC.",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 37988415
   },
   {
    "ticker": "BC",
@@ -4310,16 +3735,6 @@
    "value_usd": 36246526
   },
   {
-   "ticker": "P",
-   "company": "EVERPURE INC",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 36163507
-  },
-  {
    "ticker": "OTIS",
    "company": "OTIS WORLDWIDE CORP",
    "holders": [
@@ -4330,16 +3745,6 @@
    "value_usd": 34715045
   },
   {
-   "ticker": "A",
-   "company": "AGILENT TECHNOLOGIES INC",
-   "holders": [
-    "Hikari Power Ltd",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 34062709
-  },
-  {
    "ticker": "RNG",
    "company": "RINGCENTRAL INC",
    "holders": [
@@ -4348,16 +3753,6 @@
    ],
    "holder_count": 2,
    "value_usd": 34034490
-  },
-  {
-   "ticker": "IONS",
-   "company": "IONIS PHARMACEUTICALS INC",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 33462135
   },
   {
    "ticker": "TRV",
@@ -4388,16 +3783,6 @@
    ],
    "holder_count": 2,
    "value_usd": 32619563
-  },
-  {
-   "ticker": "ALGN",
-   "company": "ALIGN TECHNOLOGY INC",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 32250828
   },
   {
    "ticker": "EMN",
@@ -4500,6 +3885,16 @@
    "value_usd": 29240318
   },
   {
+   "ticker": "RBLX",
+   "company": "ROBLOX CORP",
+   "holders": [
+    "Gavilan Investment Partners LLC",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 2,
+   "value_usd": 28951151
+  },
+  {
    "ticker": "ZS",
    "company": "ZSCALER INC",
    "holders": [
@@ -4528,16 +3923,6 @@
    ],
    "holder_count": 2,
    "value_usd": 28280078
-  },
-  {
-   "ticker": "NDAQ",
-   "company": "NASDAQ INC",
-   "holders": [
-    "Hikari Power Ltd",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 27249216
   },
   {
    "ticker": "HSY",
@@ -4600,6 +3985,16 @@
    "value_usd": 22713361
   },
   {
+   "ticker": "BNY",
+   "company": "BANK NEW YORK MELLON CORP",
+   "holders": [
+    "Joel Greenblatt",
+    "Tom Gayner"
+   ],
+   "holder_count": 2,
+   "value_usd": 22657639
+  },
+  {
    "ticker": "CORZ",
    "company": "CORE SCIENTIFIC INC NEW",
    "holders": [
@@ -4628,26 +4023,6 @@
    ],
    "holder_count": 2,
    "value_usd": 22213602
-  },
-  {
-   "ticker": "PTC",
-   "company": "PTC INC",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 21979900
-  },
-  {
-   "ticker": "GRMN",
-   "company": "GARMIN LTD",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 21952021
   },
   {
    "ticker": "ADBE",
@@ -4730,16 +4105,6 @@
    "value_usd": 17645245
   },
   {
-   "ticker": "PONY",
-   "company": "Pony AI Inc",
-   "holders": [
-    "Cathie Wood",
-    "Chase Coleman"
-   ],
-   "holder_count": 2,
-   "value_usd": 17533050
-  },
-  {
    "ticker": "DPZ",
    "company": "DOMINOS PIZZA INC",
    "holders": [
@@ -4750,26 +4115,6 @@
    "value_usd": 17362746
   },
   {
-   "ticker": "AMGN",
-   "company": "AMGEN INC",
-   "holders": [
-    "Hikari Power Ltd",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 16878377
-  },
-  {
-   "ticker": "ADSK",
-   "company": "AUTODESK INC",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 16489344
-  },
-  {
    "ticker": "ADMA",
    "company": "ADMA BIOLOGICS INC",
    "holders": [
@@ -4778,6 +4123,16 @@
    ],
    "holder_count": 2,
    "value_usd": 14424205
+  },
+  {
+   "ticker": "PSX",
+   "company": "PHILLIPS 66",
+   "holders": [
+    "Christopher Bloomstran",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 2,
+   "value_usd": 13948992
   },
   {
    "ticker": "WY",
@@ -4830,16 +4185,6 @@
    "value_usd": 11300136
   },
   {
-   "ticker": "MTD",
-   "company": "METTLER TOLEDO INTERNATIONAL",
-   "holders": [
-    "Hikari Power Ltd",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 10265093
-  },
-  {
    "ticker": "COLD",
    "company": "AMERICOLD REALTY TRUST INC",
    "holders": [
@@ -4860,14 +4205,14 @@
    "value_usd": 9200516
   },
   {
-   "ticker": "SN",
-   "company": "SHARKNINJA INC",
+   "ticker": "MMM",
+   "company": "3M CO",
    "holders": [
     "Joel Greenblatt",
-    "Milestone Resources Group Ltd"
+    "Manitou Investment Management Ltd."
    ],
    "holder_count": 2,
-   "value_usd": 9125871
+   "value_usd": 8271982
   },
   {
    "ticker": "NSRGY",
@@ -4880,24 +4225,14 @@
    "value_usd": 7908568
   },
   {
-   "ticker": "IBRX",
-   "company": "IMMUNITYBIO INC",
+   "ticker": "XRAY",
+   "company": "DENTSPLY SIRONA INC",
    "holders": [
-    "ALLEN HOLDING INC /NY",
-    "Joel Greenblatt"
+    "Joel Greenblatt",
+    "Manitou Investment Management Ltd."
    ],
    "holder_count": 2,
-   "value_usd": 7556747
-  },
-  {
-   "ticker": "TBLA",
-   "company": "TABOOLA.COM LTD",
-   "holders": [
-    "Cathie Wood",
-    "Gavin Baker"
-   ],
-   "holder_count": 2,
-   "value_usd": 7189190
+   "value_usd": 6786973
   },
   {
    "ticker": "NCLH",
@@ -4908,16 +4243,6 @@
    ],
    "holder_count": 2,
    "value_usd": 5626342
-  },
-  {
-   "ticker": "FROG",
-   "company": "JFROG LTD",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 5080464
   },
   {
    "ticker": "LMND",
@@ -4938,66 +4263,6 @@
    ],
    "holder_count": 2,
    "value_usd": 4763078
-  },
-  {
-   "ticker": "PRLB",
-   "company": "PROTO LABS INC",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 3690936
-  },
-  {
-   "ticker": "KALU",
-   "company": "KAISER ALUMINIUM CORPORATION",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 2878891
-  },
-  {
-   "ticker": "KMT",
-   "company": "KENNAMETAL INC",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 2484975
-  },
-  {
-   "ticker": "TGTX",
-   "company": "TG THERAPEUTICS INC",
-   "holders": [
-    "Hikari Power Ltd",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 2467356
-  },
-  {
-   "ticker": "MOG.A",
-   "company": "MOOG INC",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 2401053
-  },
-  {
-   "ticker": "VHT",
-   "company": "VANGUARD WORLD FD",
-   "holders": [
-    "Hikari Power Ltd",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 2325951
   },
   {
    "ticker": "UFPI",
@@ -5030,16 +4295,6 @@
    "value_usd": 1262963
   },
   {
-   "ticker": "AVNT",
-   "company": "AVIENT CORPORATION",
-   "holders": [
-    "Cathie Wood",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 1043048
-  },
-  {
    "ticker": "NTRS",
    "company": "NORTHERN TR CORP",
    "holders": [
@@ -5050,34 +4305,24 @@
    "value_usd": 1015226
   },
   {
-   "ticker": "MTRN",
-   "company": "MATERION CORP",
+   "ticker": "RYDAF",
+   "company": "SHELL PLC",
    "holders": [
-    "Cathie Wood",
+    "Christopher Bloomstran",
     "Joel Greenblatt"
    ],
    "holder_count": 2,
-   "value_usd": 961461
+   "value_usd": 962970
   },
   {
-   "ticker": "NTR",
-   "company": "NUTRIEN LTD",
+   "ticker": "COIN",
+   "company": "COINBASE GLOBAL INC",
    "holders": [
-    "Hikari Power Ltd",
-    "Joel Greenblatt"
+    "Joel Greenblatt",
+    "Manitou Investment Management Ltd."
    ],
    "holder_count": 2,
-   "value_usd": 913594
-  },
-  {
-   "ticker": "XOM",
-   "company": "Exxon Mobil Corp",
-   "holders": [
-    "Hikari Power Ltd",
-    "SAYBROOK CAPITAL /NC"
-   ],
-   "holder_count": 2,
-   "value_usd": 307278
+   "value_usd": 348663
   },
   {
    "ticker": "BYND",
@@ -5162,15 +4407,6 @@
    "value_usd": 547761133
   },
   {
-   "ticker": "CRSP",
-   "company": "CRISPR Therapeutics AG",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 515999631
-  },
-  {
    "ticker": "EWBC",
    "company": "EAST WEST BANCORP INC",
    "holders": [
@@ -5207,15 +4443,6 @@
    "value_usd": 289820707
   },
   {
-   "ticker": "NTLA",
-   "company": "Intellia Therapeutics Inc",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 285536575
-  },
-  {
    "ticker": "HGV",
    "company": "HILTON GRAND VACATIONS",
    "holders": [
@@ -5243,15 +4470,6 @@
    "value_usd": 236903556
   },
   {
-   "ticker": "KTOS",
-   "company": "Kratos Defense & Security Solutions Inc.",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 232974116
-  },
-  {
    "ticker": "TDS",
    "company": "TELEPHONE & DATA SYS INC",
    "holders": [
@@ -5259,6 +4477,15 @@
    ],
    "holder_count": 1,
    "value_usd": 232237750
+  },
+  {
+   "ticker": "VOO",
+   "company": "VANGUARD INDEX FDS",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 196462687
   },
   {
    "ticker": "MANE",
@@ -5295,24 +4522,6 @@
    ],
    "holder_count": 1,
    "value_usd": 157726999
-  },
-  {
-   "ticker": "RXRX",
-   "company": "Recursion Pharmaceuticals Inc",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 151709111
-  },
-  {
-   "ticker": "ACHR",
-   "company": "Archer Aviation Inc",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 151189352
   },
   {
    "ticker": "PSUS",
@@ -5360,6 +4569,15 @@
    "value_usd": 140556012
   },
   {
+   "ticker": "IRDM",
+   "company": "IRIDIUM COMMUNICATIONS INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 137910287
+  },
+  {
    "ticker": "WLTH",
    "company": "WEALTHFRONT CORP",
    "holders": [
@@ -5387,15 +4605,6 @@
    "value_usd": 126331460
   },
   {
-   "ticker": "ARKB",
-   "company": "ARK 21Shares Bitcoin ETF",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 125605835
-  },
-  {
    "ticker": "CMPR",
    "company": "CIMPRESS PLC",
    "holders": [
@@ -5403,15 +4612,6 @@
    ],
    "holder_count": 1,
    "value_usd": 124341776
-  },
-  {
-   "ticker": "BMNP",
-   "company": "BitMine Immersion Technologies",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 117282236
   },
   {
    "ticker": "KARO",
@@ -5430,24 +4630,6 @@
    ],
    "holder_count": 1,
    "value_usd": 110984410
-  },
-  {
-   "ticker": "PSNL",
-   "company": "Personalis Inc",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 110835941
-  },
-  {
-   "ticker": "WGS",
-   "company": "GeneDx Holdings Corp",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 110539494
   },
   {
    "ticker": "DEO",
@@ -5513,13 +4695,13 @@
    "value_usd": 103545623
   },
   {
-   "ticker": "AVAV",
-   "company": "AeroVironment Inc",
+   "ticker": "TEVA",
+   "company": "TEVA PHARMACEUTICAL INDS LTD",
    "holders": [
-    "Cathie Wood"
+    "David Einhorn"
    ],
    "holder_count": 1,
-   "value_usd": 100280355
+   "value_usd": 97779679
   },
   {
    "ticker": "EXE",
@@ -5592,6 +4774,15 @@
    ],
    "holder_count": 1,
    "value_usd": 89213986
+  },
+  {
+   "ticker": "JBL",
+   "company": "JABIL INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 87553687
   },
   {
    "ticker": "NDSN",
@@ -5801,6 +4992,15 @@
    "value_usd": 66839780
   },
   {
+   "ticker": "WIX",
+   "company": "WIX COM LTD",
+   "holders": [
+    "Gavin Baker"
+   ],
+   "holder_count": 1,
+   "value_usd": 66170239
+  },
+  {
    "ticker": "ESI",
    "company": "ELEMENT SOLUTIONS INC",
    "holders": [
@@ -5898,6 +5098,15 @@
    ],
    "holder_count": 1,
    "value_usd": 63023216
+  },
+  {
+   "ticker": "ILMN",
+   "company": "ILLUMINA INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 62627657
   },
   {
    "ticker": "NBIX",
@@ -6044,6 +5253,15 @@
    "value_usd": 58984007
   },
   {
+   "ticker": "SOLV",
+   "company": "SOLVENTUM CORP",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 58897544
+  },
+  {
    "ticker": "HWM",
    "company": "HOWMET AEROSPACE INC",
    "holders": [
@@ -6143,15 +5361,6 @@
    "value_usd": 55033481
   },
   {
-   "ticker": "FIG",
-   "company": "Figma Inc",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 55030051
-  },
-  {
    "ticker": "MKC",
    "company": "MCCORMICK & CO INC",
    "holders": [
@@ -6215,13 +5424,13 @@
    "value_usd": 52542861
   },
   {
-   "ticker": "CERS",
-   "company": "Cerus Corp",
+   "ticker": "TER",
+   "company": "TERADYNE INC",
    "holders": [
-    "Cathie Wood"
+    "Joel Greenblatt"
    ],
    "holder_count": 1,
-   "value_usd": 52361728
+   "value_usd": 52274074
   },
   {
    "ticker": "KRC",
@@ -6251,15 +5460,6 @@
    "value_usd": 51335673
   },
   {
-   "ticker": "PACB",
-   "company": "Pacific Biosciences of California, Inc.",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 50032778
-  },
-  {
    "ticker": "CTVA",
    "company": "CORTEVA INC",
    "holders": [
@@ -6276,15 +5476,6 @@
    ],
    "holder_count": 1,
    "value_usd": 49040585
-  },
-  {
-   "ticker": "CMPS",
-   "company": "Compass Pathways Plc",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 48845310
   },
   {
    "ticker": "BIO",
@@ -6494,6 +5685,15 @@
    "value_usd": 44781966
   },
   {
+   "ticker": "AME",
+   "company": "AMETEK INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 44655108
+  },
+  {
    "ticker": "PII",
    "company": "POLARIS INC",
    "holders": [
@@ -6510,6 +5710,15 @@
    ],
    "holder_count": 1,
    "value_usd": 44481468
+  },
+  {
+   "ticker": "TDY",
+   "company": "TELEDYNE TECHNOLOGIES INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 44050746
   },
   {
    "ticker": "HAL",
@@ -6539,15 +5748,6 @@
    "value_usd": 43841373
   },
   {
-   "ticker": "NRIX",
-   "company": "Nurix Therapeutics Inc",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 43502930
-  },
-  {
    "ticker": "CHE",
    "company": "CHEMED CORP NEW",
    "holders": [
@@ -6555,6 +5755,15 @@
    ],
    "holder_count": 1,
    "value_usd": 43353408
+  },
+  {
+   "ticker": "LUNR",
+   "company": "INTUITIVE MACHINES INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 43207800
   },
   {
    "ticker": "VLTO",
@@ -6638,6 +5847,15 @@
    "value_usd": 41547449
   },
   {
+   "ticker": "HPQ",
+   "company": "HP INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 41468026
+  },
+  {
    "ticker": "VMI",
    "company": "VALMONT INDS INC",
    "holders": [
@@ -6663,6 +5881,15 @@
    ],
    "holder_count": 1,
    "value_usd": 40752000
+  },
+  {
+   "ticker": "LECO",
+   "company": "LINCOLN ELEC HLDGS INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 40670291
   },
   {
    "ticker": "WH",
@@ -6744,15 +5971,6 @@
    ],
    "holder_count": 1,
    "value_usd": 37297314
-  },
-  {
-   "ticker": "ALMR",
-   "company": "Alamar Biosciences Inc",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 37220549
   },
   {
    "ticker": "LYB",
@@ -6890,15 +6108,6 @@
    "value_usd": 35026908
   },
   {
-   "ticker": "SDGR",
-   "company": "Schrodinger Inc",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 35002797
-  },
-  {
    "ticker": "POOL",
    "company": "POOL CORP",
    "holders": [
@@ -6906,15 +6115,6 @@
    ],
    "holder_count": 1,
    "value_usd": 34893528
-  },
-  {
-   "ticker": "BAIDF",
-   "company": "Baidu Inc",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 34508037
   },
   {
    "ticker": "CAG",
@@ -6951,6 +6151,24 @@
    ],
    "holder_count": 1,
    "value_usd": 34186456
+  },
+  {
+   "ticker": "A",
+   "company": "AGILENT TECHNOLOGIES INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 34062261
+  },
+  {
+   "ticker": "Z",
+   "company": "ZILLOW GROUP INC",
+   "holders": [
+    "Philippe Laffont"
+   ],
+   "holder_count": 1,
+   "value_usd": 33610633
   },
   {
    "ticker": "RRC",
@@ -7106,6 +6324,15 @@
    "value_usd": 31681724
   },
   {
+   "ticker": "BWXT",
+   "company": "BWX TECHNOLOGIES INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 31578848
+  },
+  {
    "ticker": "AEE",
    "company": "AMEREN CORP",
    "holders": [
@@ -7122,6 +6349,15 @@
    ],
    "holder_count": 1,
    "value_usd": 31387890
+  },
+  {
+   "ticker": "ALGN",
+   "company": "ALIGN TECHNOLOGY INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 31363002
   },
   {
    "ticker": "PCTY",
@@ -7167,15 +6403,6 @@
    ],
    "holder_count": 1,
    "value_usd": 30857652
-  },
-  {
-   "ticker": "PRME",
-   "company": "Prime Medicine Inc",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 30806875
   },
   {
    "ticker": "AFG",
@@ -7302,6 +6529,15 @@
    ],
    "holder_count": 1,
    "value_usd": 29004303
+  },
+  {
+   "ticker": "TRMB",
+   "company": "TRIMBLE INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 28955494
   },
   {
    "ticker": "OMC",
@@ -7439,6 +6675,15 @@
    "value_usd": 27359621
   },
   {
+   "ticker": "NDAQ",
+   "company": "NASDAQ INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 27241295
+  },
+  {
    "ticker": "INFQ",
    "company": "INFLEQTION INC",
    "holders": [
@@ -7493,6 +6738,15 @@
    "value_usd": 26371570
   },
   {
+   "ticker": "SRTA",
+   "company": "STRATA CRITICAL MEDICAL INC",
+   "holders": [
+    "Daniel Loeb"
+   ],
+   "holder_count": 1,
+   "value_usd": 26350000
+  },
+  {
    "ticker": "SWKS",
    "company": "SKYWORKS SOLUTIONS INC",
    "holders": [
@@ -7509,15 +6763,6 @@
    ],
    "holder_count": 1,
    "value_usd": 26227784
-  },
-  {
-   "ticker": "KDK",
-   "company": "Kodiak AI Inc",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 26163153
   },
   {
    "ticker": "IT",
@@ -7880,15 +7125,6 @@
    "value_usd": 21833923
   },
   {
-   "ticker": "WRD",
-   "company": "WeRide Inc",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 21783963
-  },
-  {
    "ticker": "UI",
    "company": "UBIQUITI INC",
    "holders": [
@@ -7896,15 +7132,6 @@
    ],
    "holder_count": 1,
    "value_usd": 21729147
-  },
-  {
-   "ticker": "GENB",
-   "company": "Generate Biomedicines Inc",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 21671492
   },
   {
    "ticker": "SOPH",
@@ -8060,6 +7287,15 @@
    "value_usd": 19623583
   },
   {
+   "ticker": "PTC",
+   "company": "PTC INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 19588523
+  },
+  {
    "ticker": "SAIC",
    "company": "SCIENCE APPLICATIONS INTL CO",
    "holders": [
@@ -8076,24 +7312,6 @@
    ],
    "holder_count": 1,
    "value_usd": 19505286
-  },
-  {
-   "ticker": "ARCT",
-   "company": "Arcturus Therapeutics Holdings",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 19498987
-  },
-  {
-   "ticker": "OKLO",
-   "company": "Oklo Inc",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 19480209
   },
   {
    "ticker": "RGEN",
@@ -8168,15 +7386,6 @@
    "value_usd": 18685775
   },
   {
-   "ticker": "GENI",
-   "company": "Genius Sports Ltd",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 18578566
-  },
-  {
    "ticker": "CHRD",
    "company": "CHORD ENERGY CORPORATION",
    "holders": [
@@ -8220,6 +7429,15 @@
    ],
    "holder_count": 1,
    "value_usd": 18429711
+  },
+  {
+   "ticker": "PPLI",
+   "company": "PEOPLE INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 18425826
   },
   {
    "ticker": "BAX",
@@ -8285,15 +7503,6 @@
    "value_usd": 17665671
   },
   {
-   "ticker": "MASS",
-   "company": "908 Devices Inc",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 17642905
-  },
-  {
    "ticker": "KDP",
    "company": "KEURIG DR PEPPER INC",
    "holders": [
@@ -8346,6 +7555,15 @@
    ],
    "holder_count": 1,
    "value_usd": 16954907
+  },
+  {
+   "ticker": "AMGN",
+   "company": "AMGEN INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 16875154
   },
   {
    "ticker": "DUOL",
@@ -8645,6 +7863,15 @@
    "value_usd": 14156849
   },
   {
+   "ticker": "ADSK",
+   "company": "AUTODESK INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 14112365
+  },
+  {
    "ticker": "EIX",
    "company": "EDISON INTL",
    "holders": [
@@ -8780,6 +8007,15 @@
    "value_usd": 13141321
   },
   {
+   "ticker": "XE",
+   "company": "X-ENERGY INC",
+   "holders": [
+    "Ole Andreas Halvorsen"
+   ],
+   "holder_count": 1,
+   "value_usd": 13114291
+  },
+  {
    "ticker": "CUBE",
    "company": "CUBESMART",
    "holders": [
@@ -8814,24 +8050,6 @@
    ],
    "holder_count": 1,
    "value_usd": 12620660
-  },
-  {
-   "ticker": "ETOR",
-   "company": "Etoro Group Ltd",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 12458508
-  },
-  {
-   "ticker": "BNTX",
-   "company": "BioNTech SE",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 12406622
   },
   {
    "ticker": "XPO",
@@ -8915,15 +8133,6 @@
    "value_usd": 11575674
   },
   {
-   "ticker": "BABA",
-   "company": "Alibaba Group Holding Ltd",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 11474896
-  },
-  {
    "ticker": "ELAN",
    "company": "ELANCO ANIMAL HEALTH INC",
    "holders": [
@@ -8969,13 +8178,13 @@
    "value_usd": 10382420
   },
   {
-   "ticker": "CNTN",
-   "company": "Canton Strategic Holdings Inc",
+   "ticker": "MTD",
+   "company": "METTLER TOLEDO INTERNATIONAL",
    "holders": [
-    "Cathie Wood"
+    "Joel Greenblatt"
    ],
    "holder_count": 1,
-   "value_usd": 10314285
+   "value_usd": 10264793
   },
   {
    "ticker": "PEN",
@@ -9032,6 +8241,15 @@
    "value_usd": 9771307
   },
   {
+   "ticker": "IONS",
+   "company": "IONIS PHARMACEUTICALS INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 9614071
+  },
+  {
    "ticker": "FLUT",
    "company": "FLUTTER ENTMT PLC",
    "holders": [
@@ -9066,6 +8284,15 @@
    ],
    "holder_count": 1,
    "value_usd": 9213714
+  },
+  {
+   "ticker": "SN",
+   "company": "SHARKNINJA INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 9062654
   },
   {
    "ticker": "VKTX",
@@ -9113,6 +8340,15 @@
    "value_usd": 8680176
   },
   {
+   "ticker": "RBRK",
+   "company": "RUBRIK INC.",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 8652016
+  },
+  {
    "ticker": "LKQ",
    "company": "LKQ CORP",
    "holders": [
@@ -9129,6 +8365,15 @@
    ],
    "holder_count": 1,
    "value_usd": 8418120
+  },
+  {
+   "ticker": "ROKU",
+   "company": "ROKU INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 8398636
   },
   {
    "ticker": "RLYB",
@@ -9156,6 +8401,15 @@
    ],
    "holder_count": 1,
    "value_usd": 8156570
+  },
+  {
+   "ticker": "BLSH",
+   "company": "BULLISH",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 8139863
   },
   {
    "ticker": "TCKRF",
@@ -9311,15 +8565,6 @@
    "value_usd": 7372568
   },
   {
-   "ticker": "ARKK",
-   "company": "ARK Innovation ETF",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 7363075
-  },
-  {
    "ticker": "CR",
    "company": "CRANE COMPANY",
    "holders": [
@@ -9327,6 +8572,15 @@
    ],
    "holder_count": 1,
    "value_usd": 7358856
+  },
+  {
+   "ticker": "GRMN",
+   "company": "GARMIN LTD",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 7300079
   },
   {
    "ticker": "VISN",
@@ -9491,15 +8745,6 @@
    "value_usd": 6343538
   },
   {
-   "ticker": "QSI",
-   "company": "Quantum-Si Inc",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 6343448
-  },
-  {
    "ticker": "PEPG",
    "company": "PEPGEN INC",
    "holders": [
@@ -9599,6 +8844,15 @@
    "value_usd": 5861718
   },
   {
+   "ticker": "RKLB",
+   "company": "ROCKET LAB CORP",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 5733568
+  },
+  {
    "ticker": "ALGT",
    "company": "ALLEGIANT TRAVEL CO",
    "holders": [
@@ -9606,15 +8860,6 @@
    ],
    "holder_count": 1,
    "value_usd": 5707598
-  },
-  {
-   "ticker": "NMRA",
-   "company": "NEUMORA THERAPEUTICS INC.",
-   "holders": [
-    "WELLCOME TRUST LTD (THE) as trustee of the WELLCOME TRUST"
-   ],
-   "holder_count": 1,
-   "value_usd": 5625509
   },
   {
    "ticker": "TEL",
@@ -9633,6 +8878,15 @@
    ],
    "holder_count": 1,
    "value_usd": 5590469
+  },
+  {
+   "ticker": "CCJ",
+   "company": "CAMECO CORP",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 5552796
   },
   {
    "ticker": "BE",
@@ -9671,13 +8925,13 @@
    "value_usd": 5134220
   },
   {
-   "ticker": "SMWB",
-   "company": "SimilarWeb Ltd",
+   "ticker": "TOST",
+   "company": "TOAST INC",
    "holders": [
-    "Cathie Wood"
+    "Joel Greenblatt"
    ],
    "holder_count": 1,
-   "value_usd": 5116484
+   "value_usd": 5131482
   },
   {
    "ticker": "ZBH",
@@ -9761,6 +9015,15 @@
    "value_usd": 4872458
   },
   {
+   "ticker": "P",
+   "company": "EVERPURE INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 4808869
+  },
+  {
    "ticker": "TPC",
    "company": "TUTOR PERINI CORP",
    "holders": [
@@ -9815,15 +9078,6 @@
    "value_usd": 4473626
   },
   {
-   "ticker": "XMTR",
-   "company": "Xometry Inc",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 4444553
-  },
-  {
    "ticker": "PCAR",
    "company": "PACCAR INC",
    "holders": [
@@ -9831,15 +9085,6 @@
    ],
    "holder_count": 1,
    "value_usd": 4438194
-  },
-  {
-   "ticker": "SSYS",
-   "company": "Stratasys Ltd",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 4384261
   },
   {
    "ticker": "EAT",
@@ -9860,6 +9105,15 @@
    "value_usd": 4272446
   },
   {
+   "ticker": "TXG",
+   "company": "10X GENOMICS INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 4242704
+  },
+  {
    "ticker": "TRU",
    "company": "TRANSUNION",
    "holders": [
@@ -9876,6 +9130,15 @@
    ],
    "holder_count": 1,
    "value_usd": 4205007
+  },
+  {
+   "ticker": "TBLA",
+   "company": "TABOOLA.COM LTD",
+   "holders": [
+    "Gavin Baker"
+   ],
+   "holder_count": 1,
+   "value_usd": 4175130
   },
   {
    "ticker": "BB",
@@ -9950,6 +9213,15 @@
    "value_usd": 3891696
   },
   {
+   "ticker": "BFLY",
+   "company": "BUTTERFLY NETWORK INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 3891345
+  },
+  {
    "ticker": "GPI",
    "company": "GROUP 1 AUTOMOTIVE INC",
    "holders": [
@@ -9957,15 +9229,6 @@
    ],
    "holder_count": 1,
    "value_usd": 3793072
-  },
-  {
-   "ticker": "URGN",
-   "company": "UroGen Pharma Ltd",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 3735494
   },
   {
    "ticker": "QTWO",
@@ -10040,24 +9303,6 @@
    "value_usd": 3515271
   },
   {
-   "ticker": "PAYP",
-   "company": "PayPay Corp",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 3510635
-  },
-  {
-   "ticker": "DRTS",
-   "company": "Alpha Tau Medical Ltd",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 3485742
-  },
-  {
    "ticker": "PSN",
    "company": "PARSONS CORP DEL",
    "holders": [
@@ -10065,15 +9310,6 @@
    ],
    "holder_count": 1,
    "value_usd": 3446267
-  },
-  {
-   "ticker": "VELO",
-   "company": "Velo3D Inc",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 3417915
   },
   {
    "ticker": "KOS",
@@ -10166,33 +9402,6 @@
    "value_usd": 3193786
   },
   {
-   "ticker": "VLN",
-   "company": "Valens Semiconductor Ltd",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 3192408
-  },
-  {
-   "ticker": "DDD",
-   "company": "3D Systems Corp",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 3119014
-  },
-  {
-   "ticker": "MTLS",
-   "company": "Materialise NV",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 3118995
-  },
-  {
    "ticker": "PPTA",
    "company": "PERPETUA RESOURCES CORP",
    "holders": [
@@ -10218,6 +9427,15 @@
    ],
    "holder_count": 1,
    "value_usd": 3073449
+  },
+  {
+   "ticker": "GH",
+   "company": "GUARDANT HEALTH INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 3031656
   },
   {
    "ticker": "SFIX",
@@ -10301,6 +9519,15 @@
    "value_usd": 2767164
   },
   {
+   "ticker": "TEM",
+   "company": "TEMPUS AI INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 2757642
+  },
+  {
    "ticker": "MOD",
    "company": "MODINE MFG CO",
    "holders": [
@@ -10308,24 +9535,6 @@
    ],
    "holder_count": 1,
    "value_usd": 2745233
-  },
-  {
-   "ticker": "MBLY",
-   "company": "Mobileye Global Inc",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 2721087
-  },
-  {
-   "ticker": "PGY",
-   "company": "Pagaya Technologies Ltd",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 2693755
   },
   {
    "ticker": "WAY",
@@ -10346,24 +9555,6 @@
    "value_usd": 2687854
   },
   {
-   "ticker": "RDWR",
-   "company": "Radware Ltd",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 2662601
-  },
-  {
-   "ticker": "TSEM",
-   "company": "Tower Semiconductor Ltd",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 2639241
-  },
-  {
    "ticker": "D",
    "company": "DOMINION ENERGY INC",
    "holders": [
@@ -10380,15 +9571,6 @@
    ],
    "holder_count": 1,
    "value_usd": 2608334
-  },
-  {
-   "ticker": "ALLT",
-   "company": "Allot Ltd",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 2587620
   },
   {
    "ticker": "NE",
@@ -10436,24 +9618,6 @@
    "value_usd": 2509016
   },
   {
-   "ticker": "TATT",
-   "company": "TAT Technologies Ltd",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 2508930
-  },
-  {
-   "ticker": "CLBT",
-   "company": "Cellebrite DI Ltd",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 2495476
-  },
-  {
    "ticker": "POWL",
    "company": "POWELL INDS INC",
    "holders": [
@@ -10481,22 +9645,13 @@
    "value_usd": 2482284
   },
   {
-   "ticker": "RSKD",
-   "company": "Riskified Ltd",
+   "ticker": "TGTX",
+   "company": "TG THERAPEUTICS INC",
    "holders": [
-    "Cathie Wood"
+    "Joel Greenblatt"
    ],
    "holder_count": 1,
-   "value_usd": 2463537
-  },
-  {
-   "ticker": "RDCM",
-   "company": "RADCOM Ltd",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 2456417
+   "value_usd": 2467081
   },
   {
    "ticker": "SKE",
@@ -10517,13 +9672,22 @@
    "value_usd": 2426317
   },
   {
-   "ticker": "MNDY",
-   "company": "Monday.com Ltd",
+   "ticker": "KMT",
+   "company": "KENNAMETAL INC",
    "holders": [
-    "Cathie Wood"
+    "Joel Greenblatt"
    ],
    "holder_count": 1,
-   "value_usd": 2400959
+   "value_usd": 2415611
+  },
+  {
+   "ticker": "SYM",
+   "company": "SYMBOTIC INC",
+   "holders": [
+    "Barton Investment Management"
+   ],
+   "holder_count": 1,
+   "value_usd": 2403027
   },
   {
    "ticker": "FIVN",
@@ -10533,15 +9697,6 @@
    ],
    "holder_count": 1,
    "value_usd": 2389034
-  },
-  {
-   "ticker": "AUDC",
-   "company": "AudioCodes Ltd",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 2385520
   },
   {
    "ticker": "AEIS",
@@ -10562,6 +9717,15 @@
    "value_usd": 2334232
   },
   {
+   "ticker": "VHT",
+   "company": "VANGUARD WORLD FD",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 2325700
+  },
+  {
    "ticker": "DOCN",
    "company": "DIGITALOCEAN HLDGS INC",
    "holders": [
@@ -10571,15 +9735,6 @@
    "value_usd": 2298919
   },
   {
-   "ticker": "NVMI",
-   "company": "Nova Ltd",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 2291207
-  },
-  {
    "ticker": "PTGX",
    "company": "PROTAGONIST THERAPEUTICS INC",
    "holders": [
@@ -10587,15 +9742,6 @@
    ],
    "holder_count": 1,
    "value_usd": 2287711
-  },
-  {
-   "ticker": "PLTK",
-   "company": "Playtika Holding Corp",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 2284095
   },
   {
    "ticker": "PAY",
@@ -10616,24 +9762,6 @@
    "value_usd": 2243748
   },
   {
-   "ticker": "INMD",
-   "company": "Inmode Ltd",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 2240135
-  },
-  {
-   "ticker": "ODD",
-   "company": "Oddity Tech Ltd",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 2220388
-  },
-  {
    "ticker": "GLOB",
    "company": "GLOBANT S A",
    "holders": [
@@ -10641,15 +9769,6 @@
    ],
    "holder_count": 1,
    "value_usd": 2211826
-  },
-  {
-   "ticker": "BRSYF",
-   "company": "Brainsway Ltd",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 2210175
   },
   {
    "ticker": "JBTM",
@@ -10697,13 +9816,13 @@
    "value_usd": 2173385
   },
   {
-   "ticker": "NYAX",
-   "company": "Nayax Ltd",
+   "ticker": "PONY",
+   "company": "PONY AI INC",
    "holders": [
-    "Cathie Wood"
+    "Chase Coleman"
    ],
    "holder_count": 1,
-   "value_usd": 2163772
+   "value_usd": 2156495
   },
   {
    "ticker": "ENSG",
@@ -10742,15 +9861,6 @@
    "value_usd": 2121175
   },
   {
-   "ticker": "CHKP",
-   "company": "Check Point Software Technologies Ltd",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 2117600
-  },
-  {
    "ticker": "CDLX",
    "company": "CARDLYTICS, INC.",
    "holders": [
@@ -10758,6 +9868,15 @@
    ],
    "holder_count": 1,
    "value_usd": 2114727
+  },
+  {
+   "ticker": "CDNA",
+   "company": "CAREDX INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 2097002
   },
   {
    "ticker": "MD",
@@ -10778,15 +9897,6 @@
    "value_usd": 2087609
   },
   {
-   "ticker": "FVRR",
-   "company": "Fiverr International Ltd",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 2085042
-  },
-  {
    "ticker": "AAON",
    "company": "AAON INC",
    "holders": [
@@ -10803,15 +9913,6 @@
    ],
    "holder_count": 1,
    "value_usd": 2058413
-  },
-  {
-   "ticker": "PERI",
-   "company": "Perion Network Ltd",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 2058365
   },
   {
    "ticker": "ACLS",
@@ -10886,24 +9987,6 @@
    "value_usd": 2000700
   },
   {
-   "ticker": "CAMT",
-   "company": "Camtek Ltd",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 1983702
-  },
-  {
-   "ticker": "CGNT",
-   "company": "Cognyte Software Ltd",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 1982480
-  },
-  {
    "ticker": "WCN",
    "company": "WASTE CONNECTIONS INC",
    "holders": [
@@ -10931,24 +10014,6 @@
    "value_usd": 1941976
   },
   {
-   "ticker": "KMDA",
-   "company": "Kamada Ltd",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 1931485
-  },
-  {
-   "ticker": "NCSYF",
-   "company": "Nice Ltd",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 1911030
-  },
-  {
    "ticker": "RAMP",
    "company": "LIVERAMP HLDGS INC",
    "holders": [
@@ -10958,15 +10023,6 @@
    "value_usd": 1871047
   },
   {
-   "ticker": "MDWD",
-   "company": "MediWound Ltd",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 1860667
-  },
-  {
    "ticker": "DBD",
    "company": "DIEBOLD NIXDORF INC",
    "holders": [
@@ -10974,6 +10030,15 @@
    ],
    "holder_count": 1,
    "value_usd": 1854881
+  },
+  {
+   "ticker": "CRCL",
+   "company": "CIRCLE INTERNET GROUP INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 1840633
   },
   {
    "ticker": "GIB",
@@ -10992,15 +10057,6 @@
    ],
    "holder_count": 1,
    "value_usd": 1812642
-  },
-  {
-   "ticker": "NNDM",
-   "company": "Nano Dimension Ltd",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 1808872
   },
   {
    "ticker": "LEVI",
@@ -11102,15 +10158,6 @@
    "value_usd": 1683334
   },
   {
-   "ticker": "CGEN",
-   "company": "Compugen Ltd",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 1683187
-  },
-  {
    "ticker": "BTU",
    "company": "PEABODY ENGR CORP",
    "holders": [
@@ -11210,15 +10257,6 @@
    "value_usd": 1592539
   },
   {
-   "ticker": "GILT",
-   "company": "Gilat Satellite Networks Ltd",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 1578579
-  },
-  {
    "ticker": "SONO",
    "company": "SONOS INC",
    "holders": [
@@ -11262,6 +10300,15 @@
    ],
    "holder_count": 1,
    "value_usd": 1564210
+  },
+  {
+   "ticker": "IBRX",
+   "company": "IMMUNITYBIO INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 1537063
   },
   {
    "ticker": "LMAT",
@@ -11354,6 +10401,15 @@
    "value_usd": 1420881
   },
   {
+   "ticker": "KALU",
+   "company": "KAISER ALUMINIUM CORPORATION",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 1405797
+  },
+  {
    "ticker": "CBT",
    "company": "CABOT CORP",
    "holders": [
@@ -11379,6 +10435,15 @@
    ],
    "holder_count": 1,
    "value_usd": 1378044
+  },
+  {
+   "ticker": "VCYT",
+   "company": "VERACYTE INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 1370699
   },
   {
    "ticker": "CALM",
@@ -11469,15 +10534,6 @@
    ],
    "holder_count": 1,
    "value_usd": 1311805
-  },
-  {
-   "ticker": "ENLV",
-   "company": "Enlivex Ltd",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 1310264
   },
   {
    "ticker": "CRI",
@@ -11795,6 +10851,15 @@
    "value_usd": 969058
   },
   {
+   "ticker": "AVNT",
+   "company": "AVIENT CORPORATION",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 968574
+  },
+  {
    "ticker": "ARRY",
    "company": "ARRAY TECHNOLOGIES INC",
    "holders": [
@@ -11840,13 +10905,13 @@
    "value_usd": 937270
   },
   {
-   "ticker": "NNOX",
-   "company": "Nano-X Imaging Ltd",
+   "ticker": "MOG.A",
+   "company": "MOOG INC",
    "holders": [
-    "Cathie Wood"
+    "Joel Greenblatt"
    ],
    "holder_count": 1,
-   "value_usd": 935672
+   "value_usd": 936686
   },
   {
    "ticker": "ITRI",
@@ -11883,6 +10948,15 @@
    ],
    "holder_count": 1,
    "value_usd": 904316
+  },
+  {
+   "ticker": "NTR",
+   "company": "NUTRIEN LTD",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 904151
   },
   {
    "ticker": "FA",
@@ -11993,6 +11067,15 @@
    "value_usd": 831074
   },
   {
+   "ticker": "MTRN",
+   "company": "MATERION CORP",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 826149
+  },
+  {
    "ticker": "YELP",
    "company": "YELP INC",
    "holders": [
@@ -12000,6 +11083,15 @@
    ],
    "holder_count": 1,
    "value_usd": 807983
+  },
+  {
+   "ticker": "PRLB",
+   "company": "PROTO LABS INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 804015
   },
   {
    "ticker": "SU",
@@ -12623,6 +11715,15 @@
    "value_usd": 482500
   },
   {
+   "ticker": "FROG",
+   "company": "JFROG LTD",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 480028
+  },
+  {
    "ticker": "TENB",
    "company": "TENABLE HLDGS INC",
    "holders": [
@@ -12920,6 +12021,15 @@
    "value_usd": 397497
   },
   {
+   "ticker": "JOBY",
+   "company": "JOBY AVIATION INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 394915
+  },
+  {
    "ticker": "IOSP",
    "company": "INNOSPEC INC",
    "holders": [
@@ -12972,6 +12082,15 @@
    ],
    "holder_count": 1,
    "value_usd": 367990
+  },
+  {
+   "ticker": "BEAM",
+   "company": "BEAM THERAPEUTICS INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 367910
   },
   {
    "ticker": "SR",
@@ -13091,6 +12210,15 @@
    "value_usd": 340800
   },
   {
+   "ticker": "ABSI",
+   "company": "ABSCI CORPORATION",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 340317
+  },
+  {
    "ticker": "PRIM",
    "company": "PRIMORIS SVCS CORP",
    "holders": [
@@ -13161,6 +12289,15 @@
    ],
    "holder_count": 1,
    "value_usd": 329357
+  },
+  {
+   "ticker": "TWST",
+   "company": "TWIST BIOSCIENCE CORP",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 326027
   },
   {
    "ticker": "BCC",
@@ -13298,6 +12435,15 @@
    "value_usd": 304386
   },
   {
+   "ticker": "ESLT",
+   "company": "ELBIT SYS LTD",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 302729
+  },
+  {
    "ticker": "CC",
    "company": "CHEMOURS CO",
    "holders": [
@@ -13341,6 +12487,15 @@
    ],
    "holder_count": 1,
    "value_usd": 295666
+  },
+  {
+   "ticker": "SOFI",
+   "company": "SOFI TECHNOLOGIES INC",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 292618
   },
   {
    "ticker": "BJRI",
@@ -13404,6 +12559,15 @@
    ],
    "holder_count": 1,
    "value_usd": 274522
+  },
+  {
+   "ticker": "XOM",
+   "company": "Exxon Mobil Corp",
+   "holders": [
+    "SAYBROOK CAPITAL /NC"
+   ],
+   "holder_count": 1,
+   "value_usd": 272756
   },
   {
    "ticker": "PDS",
@@ -13566,15 +12730,6 @@
    ],
    "holder_count": 1,
    "value_usd": 229142
-  },
-  {
-   "ticker": "IBN",
-   "company": "ICICI BANK LIMITED",
-   "holders": [
-    "Milestone Resources Group Ltd"
-   ],
-   "holder_count": 1,
-   "value_usd": 229059
   },
   {
    "ticker": "AEHR",
@@ -13856,15 +13011,6 @@
    "value_usd": 149763
   },
   {
-   "ticker": "OCTLF",
-   "company": "Octave Intelligence PLC",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 145021
-  },
-  {
    "ticker": "GAU",
    "company": "GALIANO GOLD INC",
    "holders": [
@@ -14018,15 +13164,6 @@
    "value_usd": 70344
   },
   {
-   "ticker": "ARKG",
-   "company": "ARK Genomic Revolution ETF",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 69794
-  },
-  {
    "ticker": "CYH",
    "company": "COMMUNITY HEALTH SYS INC NEW",
    "holders": [
@@ -14126,15 +13263,6 @@
    "value_usd": 36160
   },
   {
-   "ticker": "HDB",
-   "company": "HDFC BANK LTD",
-   "holders": [
-    "Milestone Resources Group Ltd"
-   ],
-   "holder_count": 1,
-   "value_usd": 35368
-  },
-  {
    "ticker": "CCO",
    "company": "CLEAR CHANNEL OUTDOOR HLDGS",
    "holders": [
@@ -14171,15 +13299,6 @@
    "value_usd": 12881
   },
   {
-   "ticker": "VGUS",
-   "company": "VANGUARD ULTRA SHORT TREASURY ETF",
-   "holders": [
-    "Hikari Power Ltd"
-   ],
-   "holder_count": 1,
-   "value_usd": 10362
-  },
-  {
    "ticker": "DVLT",
    "company": "DATAVAULT AI INC",
    "holders": [
@@ -14187,78 +13306,6 @@
    ],
    "holder_count": 1,
    "value_usd": 6823
-  },
-  {
-   "ticker": "IGV",
-   "company": "iShares Expanded Tech-Software Sector ETF",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 5109
-  },
-  {
-   "ticker": "VUSB",
-   "company": "VANGUARD ULTRA SHORT BOND ETF",
-   "holders": [
-    "Hikari Power Ltd"
-   ],
-   "holder_count": 1,
-   "value_usd": 4511
-  },
-  {
-   "ticker": "CRVS",
-   "company": "CORVUS PHARMACEUTICALS INC",
-   "holders": [
-    "Hikari Power Ltd"
-   ],
-   "holder_count": 1,
-   "value_usd": 746
-  },
-  {
-   "ticker": "FCOM",
-   "company": "Fidelity MSCI Communication Services Index ETF",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 482
-  },
-  {
-   "ticker": "IAI",
-   "company": "iShares U.S. Broker-Dealers & Securities Exchanges ETF",
-   "holders": [
-    "Cathie Wood"
-   ],
-   "holder_count": 1,
-   "value_usd": 424
-  },
-  {
-   "ticker": "AVXL",
-   "company": "ANAVEX LIFE SCIENCES CORP",
-   "holders": [
-    "Hikari Power Ltd"
-   ],
-   "holder_count": 1,
-   "value_usd": 222
-  },
-  {
-   "ticker": "OCUL",
-   "company": "OCULAR THERAPEUTIX INC",
-   "holders": [
-    "Hikari Power Ltd"
-   ],
-   "holder_count": 1,
-   "value_usd": 167
-  },
-  {
-   "ticker": "ALDX",
-   "company": "ALDEYRA THERAPEUTICS INC",
-   "holders": [
-    "Hikari Power Ltd"
-   ],
-   "holder_count": 1,
-   "value_usd": 43
   }
  ]
 }
