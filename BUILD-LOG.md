@@ -6,6 +6,21 @@
 
 ---
 
+## Session 19 — September 11-12, 2026 (Claude) — Buy tab on live balances; roster trimmed to 42
+**Buy tab reads the IBKR sync (targets v19).** `applyIbkrSnapshot()` feeds `owned` and each account's total from Firebase `mose/ibkrPositions`. Real figures now drive every per-stock target: $937,697 / $191,304 / $318,732 / $2,835. Two safety rules, both tested against the live snapshot: an account absent from a run keeps its previous values (replayed with Keli dropped — her 15 positions survived); a total typed in Edit goals is stamped `manual` and left alone, with "↺ use IBKR values" handing it back. Newly synced tickers in no bucket sweep into Other positions.
+
+**Latent bug fixed on the way in.** `moseFbPut()` did a `PUT` to `/mose.json`, which replaces the whole node — every app save would have deleted the `ibkrPositions` key the Action writes. Now `PATCH`.
+
+**Dry powder widened (v18).** RSP and VO added at Joe's request to lean the index sleeve off mega-cap tech. Flagged that QQQ in the same bucket pulls the other way and that Forever compounders (60%) is where the concentration really lives; Joe tabled that until he's placed the next tranche.
+
+**Roster: 47 → 42 voting.** Joe pruned Wellcome Trust (UK medical endowment), Allen Holding (Allen & Co's balance sheet), Hikari Power and Milestone Resources (Asian holdcos) and Cathie Wood (ARK). All passed the screen's numbers; none is a stock-picking value manager. This exposed a second bug: the builders read `status` from the pull-time copy in `data/sec-13f-filings.json`, so a prune in `cik-map.json` did nothing until the next SEC pull. All three now overlay `cik-map.json` via `roster_status()`. Rebuilt: 39 filers with Q2 holdings, 1,379 eligible tickers, 1,469 consensus rows, every buy-list name still held by ≥7 voters. Decisions mirrored to Firebase so the Universe tab agrees.
+
+**Answered:** the signal feed (letters/interviews/Substack) is an empty shell — `items: 0` since 4 Sep. Scoped as a post-deployment project; words raise a watch flag, only filings move a score.
+
+`APP_BUILD` → `2026-09-12a`.
+
+---
+
 ## Session 18 — September 10-11, 2026 (Claude) — all four IBKR accounts sync automatically
 Joe: "every time I trade one of these accounts, I'm gonna have to swap amongst the three of them to get an updated version to you. Is there a workaround?" His idea was three AI models each bound to one account, writing files to a Mac mini. There was a simpler route.
 
