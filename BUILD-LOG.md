@@ -6,6 +6,17 @@
 
 ---
 
+## Session 20 — September 13, 2026 (Claude) — the daily email was six weeks stale
+Joe: the report shows SpaceX at $108; it's $151. The app's data was right (live-quotes $151.21, Yahoo $151.21, IBKR $150.28). The **daily Buy Zone email** was wrong: every send since early August read "As of Aug 01, 2026" — the Mac mini clone's `git pull` had been failing and the script ignored the return code, so it kept emailing a frozen `live-quotes.json`. $108 was SPCX's 31 Jul close.
+
+**Fixed in `scripts/daily_buyzone_email.py`:** quotes fetched over HTTPS from `raw.githubusercontent.com/.../main/live-quotes.json` (local clone is a fallback only); a snapshot older than 3 days stamps **⚠ STALE DATA** into the subject and header; pull failures print. Bucket list moved from the retired 8-bucket set (NLR, SMH, CODI, HHH…) to the four-bucket taxonomy — Forever + Toll booths only. BRK.B was being skipped because the feed spells it BRK-B; both spellings are indexed now. Dry run against live data: 17 names, 0 skipped, SPCX $151.21 at 38% of its 52-week range.
+
+**Also fixed:** `index.html` described SPCX as the SPAC & New Issue ETF "renamed SPCK". SPCX is **SpaceX Class A** (NASDAQ, listed June 2026; IBKR 890493863); the ETF is what became SPCK. Label corrected, ETF tag removed.
+
+**Open on Joe's side:** the Mac still runs its *local* copy of the script, so the clone has to be reset once (`git fetch origin && git reset --hard origin/main` in `/Users/joemac/Documents/mose`) before the next 9:40 AM run picks up the fix. `APP_BUILD` → `2026-09-13a`.
+
+---
+
 ## Session 19 — September 11-12, 2026 (Claude) — Buy tab on live balances; roster trimmed to 42
 **Buy tab reads the IBKR sync (targets v19).** `applyIbkrSnapshot()` feeds `owned` and each account's total from Firebase `mose/ibkrPositions`. Real figures now drive every per-stock target: $937,697 / $191,304 / $318,732 / $2,835. Two safety rules, both tested against the live snapshot: an account absent from a run keeps its previous values (replayed with Keli dropped — her 15 positions survived); a total typed in Edit goals is stamped `manual` and left alone, with "↺ use IBKR values" handing it back. Newly synced tickers in no bucket sweep into Other positions.
 
