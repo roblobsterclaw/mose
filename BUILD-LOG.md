@@ -13,7 +13,13 @@ Joe: the report shows SpaceX at $108; it's $151. The app's data was right (live-
 
 **Also fixed:** `index.html` described SPCX as the SPAC & New Issue ETF "renamed SPCK". SPCX is **SpaceX Class A** (NASDAQ, listed June 2026; IBKR 890493863); the ETF is what became SPCK. Label corrected, ETF tag removed.
 
-**Moved off the Mac entirely (same day).** Joe: "let's switch it." The report is now a **Claude Routine** — weekdays 13:40 UTC, fresh session with the Gmail connector, runs `--build-only` (new mode: writes subject/text/HTML/PDF, sends nothing) and emails the result via `send_message`. Tested end to end in the sandbox: 17 names, 6 in zone, PDF 128 KB via headless Chromium. The legacy send path is retired — without `--build-only` the script prints a notice and exits — so once the Mac clone is reset its cron becomes a no-op; Joe deletes the crontab line when he's next at the machine. A corrected report for 13 Sep was sent by hand from this session so he had live numbers today. `APP_BUILD` → `2026-09-13a`.
+**Moved off the Mac entirely (same day).** Joe: "let's switch it." The report is now a **Claude Routine** — weekdays 13:40 UTC, fresh session with the Gmail connector, runs `--build-only` (new mode: writes subject/text/HTML/PDF, sends nothing) and emails the result via `send_message`. Tested end to end in the sandbox: 17 names, 6 in zone, PDF 128 KB via headless Chromium. The legacy send path is retired — without `--build-only` the script prints a notice and exits — so once the Mac clone is reset its cron becomes a no-op; Joe deletes the crontab line when he's next at the machine. A corrected report for 13 Sep was sent by hand from this session so he had live numbers today.
+
+**Routine wrinkle.** `create_trigger` in this org cannot attach connectors, so a fresh-session Routine has no Gmail tool — the first trigger was created that way, would have fired into nothing, and was deleted. The live Routine (`trig_…`, "MOSE Buy Zone — daily email", `40 13 * * 1-5`) is **bound to this session**, which holds Gmail; it wakes this conversation each weekday and sends from here. Bridge, not home. Permanent options: (a) Joe recreates it in the claude.ai Routines UI with Gmail attached, using this prompt —
+
+> Daily Buy Zone email run. 1) `git fetch origin main && git checkout -q -B main origin/main` 2) `python3 scripts/daily_buyzone_email.py --build-only /tmp/buyzone` — if it fails, send nothing. 3) Send ONE email via Gmail to rob.lobster.claw@gmail.com: subject = /tmp/buyzone/subject.txt verbatim; body = report.txt; htmlBody = report.html; attach report.pdf (application/pdf). 4) No commits, no second email. Reply with the subject sent and in-zone count.
+
+— or (b) a Gmail App Password as a repo secret and the send moves into the GitHub Action. `APP_BUILD` → `2026-09-13a`.
 
 ---
 

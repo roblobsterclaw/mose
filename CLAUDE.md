@@ -172,10 +172,18 @@ means three authorization swaps, or Joe entering the other two by hand.
 ## Daily Buy Zone email (`scripts/daily_buyzone_email.py`) — now a Claude Routine, not the Mac
 - **Since 13 Sep 2026 it is sent by a scheduled Claude Routine** ("MOSE Buy Zone — daily
   email", weekdays 13:40 UTC = 9:40 AM EDT; drifts to 8:40 AM after the November clock
-  change — adjust the cron then). Each firing starts a fresh session with the **Gmail
-  connector**, runs `python3 scripts/daily_buyzone_email.py --build-only /tmp/buyzone`
-  (writes subject.txt / report.txt / report.html / report.pdf), and sends the result via
-  `send_message`. No token on disk, no cron, no clone to reset. Push notification on failure.
+  change — adjust the cron then). It runs `python3 scripts/daily_buyzone_email.py
+  --build-only /tmp/buyzone` (writes subject.txt / report.txt / report.html / report.pdf)
+  and sends the result through the **Gmail connector** via `send_message`. No token on
+  disk, no cron, no clone to reset.
+- **Connector caveat (learned 13 Sep):** `create_trigger` cannot attach connectors in this
+  org, so a fresh-session-per-fire Routine has NO Gmail tool and cannot send. The Routine
+  is therefore **bound to the session that created it** (session_01WhEXe2nE7L98gVhsQ6WGjV,
+  which holds Gmail) — it wakes that conversation each weekday and sends from there. That
+  is a bridge, not a home: if that session is archived the binding clears and the email
+  stops. **Permanent fix, Joe's 2 minutes:** recreate the Routine from the claude.ai
+  Routines UI with the Gmail connector attached (the prompt is in BUILD-LOG Session 20),
+  or add a Gmail App Password as a repo secret and move the send into the GitHub Action.
 - Quotes come over HTTPS from `raw.githubusercontent.com/.../main/live-quotes.json`; a
   snapshot older than 3 days stamps **⚠ STALE DATA** into the subject. Bucket list = the
   4-bucket taxonomy, Forever + Toll booths only (Dry powder and Other positions are not
