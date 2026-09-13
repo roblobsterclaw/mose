@@ -12,7 +12,7 @@ Schedule: Mon-Fri 9:40 AM ET via cron
 
 Author: Hermes Agent for Joe Lynch
 """
-import json, os, sys, subprocess, tempfile, base64, datetime
+import json, os, sys, subprocess, tempfile, base64, datetime, urllib.request
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
@@ -22,39 +22,68 @@ from email import encoders
 REPO_PATH = "/Users/joemac/Documents/mose"
 REPO_URL = "https://github.com/roblobsterclaw/mose.git"
 DATA_FILE = "live-quotes.json"
+# The Action commits fresh quotes to main every five minutes in market hours.
+# Read them straight from GitHub so this report never depends on the state of
+# the local clone — a silently failing `git pull` fed it August prices for six
+# weeks.
+DATA_URL = "https://raw.githubusercontent.com/roblobsterclaw/mose/main/live-quotes.json"
+STALE_AFTER_DAYS = 3
 RECIPIENT = "rob.lobster.claw@gmail.com"
 GMAIL_TOKEN = "/Users/joemac/.openclaw/workspace/config/gmail/token.json"
 CHROME_PATH = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
 # --- Buckets: name -> (threshold, [tickers]) ---
-# AI bench and Dry powder EXCLUDED per Joe's request
+# The four-bucket taxonomy (9 Sep 2026). Only the two buy-target buckets are
+# reported: Dry powder is cash management and Other positions carries no
+# dollar goals, so neither belongs on a buy-zone sheet. Keep this in step with
+# canonTargetsBuckets() in index.html.
 BUCKETS = [
-    ("Forever compounders", 50, ["GOOGL", "AMZN", "BRK.B", "AAPL", "MSFT", "META", "COST", "MELI", "CSU", "WMT"]),
-    ("Toll booths",         45, ["V", "MA", "AXP", "MCO", "SPGI", "PGR"]),
-    ("Hard assets",         40, ["BN", "PLD", "CP", "CVX", "OXY", "GE", "HON", "NLR", "SOLS"]),
-    ("AI core",             30, ["AVGO", "LRCX", "TSM", "ASML", "NVDA", "SMH"]),
-    ("Radar",               35, ["LLY", "DE", "ROP", "FICO", "VRSN", "ORLY", "TXN", "RACE"]),
-    ("Opportunistic",       25, ["UBER", "APP", "MDB", "DASH", "RBLX", "FROG", "KVYO", "BABA", "CVNA", "TSLA", "SPCX", "CODI", "MBGL", "BE", "HHH"]),
+    ("Forever compounders", 50, ["GOOGL", "AMZN", "META", "MSFT", "AAPL", "BRK.B", "NFLX", "TSM", "NVDA", "ASML", "TSLA", "UBER", "SPCX"]),
+    ("Toll booths",         45, ["V", "MA", "MCO", "SPGI"]),
 ]
 
 def git_pull():
-    """Pull latest MOSE repo data."""
+    """Pull latest MOSE repo data. Best effort — quotes come over HTTPS now."""
     if not os.path.exists(REPO_PATH):
         os.makedirs(os.path.dirname(REPO_PATH), exist_ok=True)
         subprocess.run(["git", "clone", REPO_URL, REPO_PATH], capture_output=True, timeout=30)
-    result = subprocess.run(["git", "-C", REPO_PATH, "pull"], capture_output=True, timeout=30)
+    result = subprocess.run(["git", "-C", REPO_PATH, "pull"], capture_output=True, text=True, timeout=30)
+    if result.returncode != 0:
+        # Say so. This failed silently from 1 Aug to 13 Sep 2026 and nobody knew.
+        print(f"WARNING: git pull failed (exit {result.returncode}): {result.stderr.strip()[:300]}")
     return result.returncode == 0
 
 def load_quotes():
-    """Load live-quotes.json from the repo."""
+    """Fresh quotes from GitHub; the local clone is only a fallback."""
+    try:
+        with urllib.request.urlopen(DATA_URL, timeout=30) as r:
+            data = json.load(r)
+        print(f"Quotes fetched from GitHub ({DATA_URL})")
+        return data
+    except Exception as e:
+        print(f"WARNING: GitHub fetch failed ({e}); falling back to local clone")
     path = os.path.join(REPO_PATH, DATA_FILE)
     with open(path) as f:
         return json.load(f)
 
+def data_age_days(generated_at):
+    """How old the quote snapshot is, in days; None if unparseable."""
+    try:
+        gen = datetime.datetime.fromisoformat(str(generated_at).replace("Z", "+00:00"))
+        return (datetime.datetime.now(datetime.timezone.utc) - gen).total_seconds() / 86400
+    except Exception:
+        return None
+
 def compute_all(data):
     """Compute 52-wk range for ALL tickers across all included buckets.
     Returns (all_items sorted by range_pos asc, skipped_list, buyzone_count)."""
-    quotes = {q["ticker"]: q for q in data.get("quotes", [])}
+    # The quote feed spells share classes with a hyphen (BRK-B); the bucket
+    # lists use the exchange form (BRK.B). Index both so neither is skipped.
+    quotes = {}
+    for q in data.get("quotes", []):
+        t = str(q.get("ticker", "")).upper()
+        quotes[t] = q
+        quotes[t.replace("-", ".")] = q
     all_items = []
     skipped = []
     buyzone_count = 0
@@ -273,6 +302,10 @@ def main():
     data = load_quotes()
     generated_at = data.get("generated_at", "unknown")
     print(f"Data generated: {generated_at}")
+    age = data_age_days(generated_at)
+    stale = age is None or age > STALE_AFTER_DAYS
+    if stale:
+        print(f"WARNING: quote snapshot is {'unreadable' if age is None else f'{age:.1f} days old'} — report will be flagged STALE")
     print(f"Quotes loaded: {len(data.get('quotes', []))} tickers")
 
     # 3. Compute all items
@@ -297,6 +330,8 @@ def main():
 
     # 6. Send email
     print(f"Sending email to {RECIPIENT}...")
+    if stale:
+        date_str = f"⚠ STALE DATA ({str(generated_at)[:10]}) — {date_str}"
     msg_id, subject = send_email(html, pdf_path, date_str, buyzone_count, len(all_items))
     print(f"\n✅ SENT! Message ID: {msg_id}")
     print(f"To: {RECIPIENT}")

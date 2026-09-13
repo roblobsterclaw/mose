@@ -169,6 +169,19 @@ connector is one-account-per-authorization, so a staging flow can only ever stag
 into whichever single account is currently connected. Staging across all three
 means three authorization swaps, or Joe entering the other two by hand.
 
+## Daily Buy Zone email (`scripts/daily_buyzone_email.py`, cron on Joe's Mac mini)
+- Runs from the Mac's clone at `/Users/joemac/Documents/mose`. From **1 Aug to 13 Sep 2026
+  it silently emailed August prices** (SPCX $108 vs real $151): the clone's `git pull` was
+  failing and the return code was ignored. Fixed 13 Sep: quotes now come over HTTPS from
+  `raw.githubusercontent.com/.../main/live-quotes.json` (local clone is only a fallback),
+  a snapshot older than 3 days stamps **⚠ STALE DATA** into the subject, and pull failures
+  print. Bucket list moved to the 4-bucket taxonomy (Forever + Toll booths only; Dry powder
+  and Other positions are not buy-zone material). **The Mac still runs its local copy of
+  the script**, so Joe must reset that clone once for the fix to take effect.
+- **SPCX = SpaceX** (Space Exploration Technologies Class A, NASDAQ, listed June 2026;
+  IBKR contract 890493863). The old SPAC & New Issue ETF is **SPCK**. `index.html` said
+  the opposite until 13 Sep 2026.
+
 ## Research library
 Deep dives are hand-authored HTML in `deep-dives/`, indexed in
 `research-library.json` (versioned per ticker). ~77 reports. Write full,
