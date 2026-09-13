@@ -169,15 +169,24 @@ connector is one-account-per-authorization, so a staging flow can only ever stag
 into whichever single account is currently connected. Staging across all three
 means three authorization swaps, or Joe entering the other two by hand.
 
-## Daily Buy Zone email (`scripts/daily_buyzone_email.py`, cron on Joe's Mac mini)
-- Runs from the Mac's clone at `/Users/joemac/Documents/mose`. From **1 Aug to 13 Sep 2026
-  it silently emailed August prices** (SPCX $108 vs real $151): the clone's `git pull` was
-  failing and the return code was ignored. Fixed 13 Sep: quotes now come over HTTPS from
-  `raw.githubusercontent.com/.../main/live-quotes.json` (local clone is only a fallback),
-  a snapshot older than 3 days stamps **⚠ STALE DATA** into the subject, and pull failures
-  print. Bucket list moved to the 4-bucket taxonomy (Forever + Toll booths only; Dry powder
-  and Other positions are not buy-zone material). **The Mac still runs its local copy of
-  the script**, so Joe must reset that clone once for the fix to take effect.
+## Daily Buy Zone email (`scripts/daily_buyzone_email.py`) — now a Claude Routine, not the Mac
+- **Since 13 Sep 2026 it is sent by a scheduled Claude Routine** ("MOSE Buy Zone — daily
+  email", weekdays 13:40 UTC = 9:40 AM EDT; drifts to 8:40 AM after the November clock
+  change — adjust the cron then). Each firing starts a fresh session with the **Gmail
+  connector**, runs `python3 scripts/daily_buyzone_email.py --build-only /tmp/buyzone`
+  (writes subject.txt / report.txt / report.html / report.pdf), and sends the result via
+  `send_message`. No token on disk, no cron, no clone to reset. Push notification on failure.
+- Quotes come over HTTPS from `raw.githubusercontent.com/.../main/live-quotes.json`; a
+  snapshot older than 3 days stamps **⚠ STALE DATA** into the subject. Bucket list = the
+  4-bucket taxonomy, Forever + Toll booths only (Dry powder and Other positions are not
+  buy-zone material). Share classes are indexed both ways (BRK.B / BRK-B).
+- **History:** built May 2026 by Hermes as a cron job on Joe's Mac mini sending through a
+  local Gmail token. From **1 Aug to 13 Sep 2026 it silently emailed August prices** (SPCX
+  $108 vs real $151) because the clone's `git pull` failed and the return code was ignored.
+  **The Mac send path is retired:** run without `--build-only` the script prints a notice
+  and exits without sending, so a reset clone turns the old cron into a no-op. Joe still
+  has to delete the crontab line (`run_buyzone_cron.sh`) on the Mac when he is next there;
+  until the clone is reset, the Mac keeps emailing the stale August report each morning.
 - **SPCX = SpaceX** (Space Exploration Technologies Class A, NASDAQ, listed June 2026;
   IBKR contract 890493863). The old SPAC & New Issue ETF is **SPCK**. `index.html` said
   the opposite until 13 Sep 2026.

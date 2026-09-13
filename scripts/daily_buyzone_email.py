@@ -1,16 +1,24 @@
 #!/usr/bin/env python3
 """
-MOSE Buy Zone — Daily Email Report
-Shows ALL stocks from ALL buckets (except AI bench), sorted cheapest to most
-expensive by 52-week range position. Buy zone names (within threshold) are
-highlighted. Emailed as HTML with one-page PDF attachment.
+MOSE Buy Zone — Daily Report
+Shows every buy-target name (Forever compounders + Toll booths), sorted
+cheapest to most expensive by 52-week range position. Buy-zone names (within
+the bucket threshold) are highlighted.
 
-Usage:
-  /usr/bin/python3 /Users/joemac/Documents/mose/scripts/daily_buyzone_email.py
+HOW IT RUNS NOW (13 Sep 2026): a scheduled Claude Routine calls
 
-Schedule: Mon-Fri 9:40 AM ET via cron
+  python3 scripts/daily_buyzone_email.py --build-only /tmp/buyzone
 
-Author: Hermes Agent for Joe Lynch
+which writes report.html, report.pdf (if a Chromium is available) and
+subject.txt, and the Routine sends them through Joe's Gmail connector. No
+local token, no cron, no Mac.
+
+HOW IT USED TO RUN: cron on Joe's Mac mini, sending through a Gmail token
+stored on that machine. That path emailed August prices for six weeks
+because its git pull failed silently, so the Mac send path is retired: run
+without --build-only it now prints a notice and exits without sending.
+
+Original author: Hermes Agent for Joe Lynch (May 2026).
 """
 import json, os, sys, subprocess, tempfile, base64, datetime, urllib.request
 from email.mime.text import MIMEText
@@ -230,6 +238,42 @@ Not financial advice — my plan.
 """
     return html
 
+def find_chromium():
+    """First usable headless browser: the Mac's Chrome, or the sandbox Chromium."""
+    for c in (CHROME_PATH, "/opt/pw-browsers/chromium", "/usr/bin/chromium", "/usr/bin/chromium-browser", "/usr/bin/google-chrome"):
+        if os.path.exists(c):
+            return c
+    return None
+
+def build_only(out_dir):
+    """Write report.html / report.pdf / subject.txt and exit — the caller sends."""
+    os.makedirs(out_dir, exist_ok=True)
+    data = load_quotes()
+    generated_at = data.get("generated_at", "unknown")
+    age = data_age_days(generated_at)
+    stale = age is None or age > STALE_AFTER_DAYS
+    all_items, skipped, buyzone_count = compute_all(data)
+    date_str = datetime.datetime.now().strftime("%b %-d, %Y")
+    html = build_html(all_items, skipped, buyzone_count, generated_at, date_str)
+    subject = f"MOSE Buy Zone — {date_str} ({buyzone_count} of {len(all_items)} in zone)"
+    if stale:
+        subject = f"⚠ STALE DATA ({str(generated_at)[:10]}) — " + subject
+    with open(os.path.join(out_dir, "report.html"), "w") as f:
+        f.write(html)
+    with open(os.path.join(out_dir, "subject.txt"), "w") as f:
+        f.write(subject + "\n")
+    pdf_path = os.path.join(out_dir, "report.pdf")
+    if not generate_pdf(html, pdf_path):
+        pdf_path = ""
+    # A plain-text twin for the email body, and a one-line summary for the log.
+    lines = [f"{'⭐' if it.get('star') else '  '} {it['ticker']:<6} {it['bucket']:<20} {'IN ZONE' if it.get('in_zone') else '—':<8} {it['range_pos']:5.1f}%  ${it['price']:>9,.2f}   ${it['week52_low']:,.2f} – ${it['week52_high']:,.2f}" for it in all_items]
+    with open(os.path.join(out_dir, "report.txt"), "w") as f:
+        f.write(f"MOSE — Buy Zone\nAs of {generated_at} | {buyzone_count} of {len(all_items)} names in buy zone\n\n" + "\n".join(lines) + "\n\nNot financial advice — my plan.\n")
+    print(f"subject: {subject}")
+    print(f"data: {generated_at} ({'STALE' if stale else f'{age:.1f}d old'}) | names {len(all_items)} | in zone {buyzone_count} | skipped {len(skipped)}")
+    print(f"wrote: {out_dir}/report.html, report.txt, subject.txt{', report.pdf' if pdf_path else ' (no PDF — no browser found)'}")
+    return 0
+
 def generate_pdf(html_content, output_path):
     """Generate PDF from HTML using headless Chrome."""
     with tempfile.NamedTemporaryFile(suffix=".html", mode="w", delete=False) as f:
@@ -238,7 +282,7 @@ def generate_pdf(html_content, output_path):
 
     try:
         subprocess.run([
-            CHROME_PATH,
+            find_chromium() or CHROME_PATH,
             "--headless",
             "--disable-gpu",
             "--no-sandbox",
@@ -293,6 +337,16 @@ def send_email(html_body, pdf_path, date_str, buyzone_count, total_count):
 
 def main():
     print("=== MOSE Buy Zone Report ===")
+    if "--build-only" in sys.argv:
+        i = sys.argv.index("--build-only")
+        out_dir = sys.argv[i + 1] if len(sys.argv) > i + 1 else "/tmp/buyzone"
+        return build_only(out_dir)
+    # The Mac cron path is retired — sending now happens from the Routine.
+    # Exiting here (rather than sending) means a reset clone turns the old
+    # cron into a harmless no-op instead of a second copy of every email.
+    print("This send path is retired. The report is now built with --build-only and sent by the MOSE Buy Zone Routine.")
+    print("Remove the crontab entry on this machine: crontab -e  (delete the run_buyzone_cron.sh line)")
+    return 0
 
     # 1. Git pull
     print("Pulling latest MOSE data...")

@@ -13,7 +13,7 @@ Joe: the report shows SpaceX at $108; it's $151. The app's data was right (live-
 
 **Also fixed:** `index.html` described SPCX as the SPAC & New Issue ETF "renamed SPCK". SPCX is **SpaceX Class A** (NASDAQ, listed June 2026; IBKR 890493863); the ETF is what became SPCK. Label corrected, ETF tag removed.
 
-**Open on Joe's side:** the Mac still runs its *local* copy of the script, so the clone has to be reset once (`git fetch origin && git reset --hard origin/main` in `/Users/joemac/Documents/mose`) before the next 9:40 AM run picks up the fix. `APP_BUILD` → `2026-09-13a`.
+**Moved off the Mac entirely (same day).** Joe: "let's switch it." The report is now a **Claude Routine** — weekdays 13:40 UTC, fresh session with the Gmail connector, runs `--build-only` (new mode: writes subject/text/HTML/PDF, sends nothing) and emails the result via `send_message`. Tested end to end in the sandbox: 17 names, 6 in zone, PDF 128 KB via headless Chromium. The legacy send path is retired — without `--build-only` the script prints a notice and exits — so once the Mac clone is reset its cron becomes a no-op; Joe deletes the crontab line when he's next at the machine. A corrected report for 13 Sep was sent by hand from this session so he had live numbers today. `APP_BUILD` → `2026-09-13a`.
 
 ---
 
