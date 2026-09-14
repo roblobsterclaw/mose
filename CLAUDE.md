@@ -176,14 +176,21 @@ means three authorization swaps, or Joe entering the other two by hand.
   --build-only /tmp/buyzone` (writes subject.txt / report.txt / report.html / report.pdf)
   and sends the result through the **Gmail connector** via `send_message`. No token on
   disk, no cron, no clone to reset.
-- **Connector caveat (learned 13 Sep):** `create_trigger` cannot attach connectors in this
-  org, so a fresh-session-per-fire Routine has NO Gmail tool and cannot send. The Routine
-  is therefore **bound to the session that created it** (session_01WhEXe2nE7L98gVhsQ6WGjV,
-  which holds Gmail) — it wakes that conversation each weekday and sends from there. That
-  is a bridge, not a home: if that session is archived the binding clears and the email
-  stops. **Permanent fix, Joe's 2 minutes:** recreate the Routine from the claude.ai
-  Routines UI with the Gmail connector attached (the prompt is in BUILD-LOG Session 20),
-  or add a Gmail App Password as a repo secret and move the send into the GitHub Action.
+- **How it is actually delivered (settled 14 Sep):** Joe's account already had a
+  fresh-session Routine from July (`trig_01MvgcgWser9C8tP4cP129Tj`, disabled 1 Aug — the
+  day the Mac cron took over and its data froze). Those Routines carry
+  `notifications {push, email}`: **the run's final assistant message becomes Joe's email
+  and push notification automatically** — no Gmail connector, no session to keep alive.
+  Re-enabled 14 Sep with the `--build-only` prompt (final message = subject line + the
+  plain-text `report.txt`, formatting is stripped by the channel, so no HTML/PDF). Cron
+  `40 13 * * 1-5`. Test-fired 14 Sep 13:06 UTC → session ran clean (4.6k output tokens).
+- **Connector caveat:** `create_trigger` cannot attach connectors in this org, so a
+  fresh-session Routine has no Gmail tool — which is why the notification channel above
+  is the right delivery route. A second, **session-bound** bridge Routine
+  (`trig_01QLBZ9mZbAUFTnJ4U3h4699`, wakes session_01WhEXe2nE7L98gVhsQ6WGjV and sends the
+  HTML+PDF via the Gmail connector held there) exists as a fallback; delete it once the
+  notification email is confirmed arriving, or Joe gets two a day.
+- The old **"MSFT buy reminder"** Routine was disabled 14 Sep — Joe holds 26 MSFT shares.
 - Quotes come over HTTPS from `raw.githubusercontent.com/.../main/live-quotes.json`; a
   snapshot older than 3 days stamps **⚠ STALE DATA** into the subject. Bucket list = the
   4-bucket taxonomy, Forever + Toll booths only (Dry powder and Other positions are not
