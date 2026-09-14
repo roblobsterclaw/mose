@@ -19,7 +19,9 @@ Joe: the report shows SpaceX at $108; it's $151. The app's data was right (live-
 
 > Daily Buy Zone email run. 1) `git fetch origin main && git checkout -q -B main origin/main` 2) `python3 scripts/daily_buyzone_email.py --build-only /tmp/buyzone` — if it fails, send nothing. 3) Send ONE email via Gmail to rob.lobster.claw@gmail.com: subject = /tmp/buyzone/subject.txt verbatim; body = report.txt; htmlBody = report.html; attach report.pdf (application/pdf). 4) No commits, no second email. Reply with the subject sent and in-zone count.
 
-— or (b) a Gmail App Password as a repo secret and the send moves into the GitHub Action. `APP_BUILD` → `2026-09-13a`.
+— or (b) a Gmail App Password as a repo secret and the send moves into the GitHub Action.
+
+**Settled 14 Sep — route (b) won.** Joe wanted the HTML table and PDF back, which the Routine notification channel cannot carry (and its test-fire email never arrived). Added `--send-smtp` to the script and `.github/workflows/daily-buyzone-email.yml` (build → SMTP send, weekdays 13:40 UTC). Joe created a Gmail App Password and stored it as `GMAIL_APP_PASSWORD`. Manual dispatch, run 34870186361: green in 33 s, `sent via Gmail SMTP … (+PDF)`, 132 KB email with the PDF in the inbox. Plain-text Routine disabled, session-bound bridge deleted, MSFT reminder Routine disabled (he owns 26 shares). Two Routines re-checked and left alone: the quarterly 13F consensus review and the Honeywell spin-off watch. `APP_BUILD` → `2026-09-13a`.
 
 ---
 

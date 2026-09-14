@@ -169,46 +169,30 @@ connector is one-account-per-authorization, so a staging flow can only ever stag
 into whichever single account is currently connected. Staging across all three
 means three authorization swaps, or Joe entering the other two by hand.
 
-## Daily Buy Zone email (`scripts/daily_buyzone_email.py`) — now a Claude Routine, not the Mac
-- **Since 13 Sep 2026 it is sent by a scheduled Claude Routine** ("MOSE Buy Zone — daily
-  email", weekdays 13:40 UTC = 9:40 AM EDT; drifts to 8:40 AM after the November clock
-  change — adjust the cron then). It runs `python3 scripts/daily_buyzone_email.py
-  --build-only /tmp/buyzone` (writes subject.txt / report.txt / report.html / report.pdf)
-  and sends the result through the **Gmail connector** via `send_message`. No token on
-  disk, no cron, no clone to reset.
-- **How it is actually delivered (settled 14 Sep):** Joe's account already had a
-  fresh-session Routine from July (`trig_01MvgcgWser9C8tP4cP129Tj`, disabled 1 Aug — the
-  day the Mac cron took over and its data froze). Those Routines carry
-  `notifications {push, email}`: **the run's final assistant message becomes Joe's email
-  and push notification automatically** — no Gmail connector, no session to keep alive.
-  Re-enabled 14 Sep with the `--build-only` prompt (final message = subject line + the
-  plain-text `report.txt`, formatting is stripped by the channel, so no HTML/PDF). Cron
-  `40 13 * * 1-5`. Test-fired 14 Sep 13:06 UTC → session ran clean (4.6k output tokens).
-- **Connector caveat:** `create_trigger` cannot attach connectors in this org, so a
-  fresh-session Routine has no Gmail tool — which is why the notification channel above
-  is the right delivery route. A second, **session-bound** bridge Routine
-  (`trig_01QLBZ9mZbAUFTnJ4U3h4699`, wakes session_01WhEXe2nE7L98gVhsQ6WGjV and sends the
-  HTML+PDF via the Gmail connector held there) exists as a fallback; delete it once the
-  notification email is confirmed arriving, or Joe gets two a day.
-- The old **"MSFT buy reminder"** Routine was disabled 14 Sep — Joe holds 26 MSFT shares.
-- **Joe wants HTML + PDF (14 Sep).** The notification channel is plain text only, so the
-  durable route is **`.github/workflows/daily-buyzone-email.yml`**: builds with
-  `--build-only`, sends with `--send-smtp` through Gmail SMTP (`smtp.gmail.com:465`)
-  using repo secrets **`GMAIL_APP_PASSWORD`** (required) and `GMAIL_USER` (optional).
-  Cron `40 13 * * 1-5`. Scheduled workflows run from the DEFAULT branch, so it needs a
-  deploy run to reach `gh-pages` before its first fire. Once the secret is in and one
-  run is green, disable the plain-text Routine and delete the session-bound bridge.
+## Daily Buy Zone email — GitHub Action, HTML + PDF (settled 14 Sep 2026)
+- **Live route:** `.github/workflows/daily-buyzone-email.yml`, weekdays `40 13 * * 1-5`
+  (9:40 AM EDT; 8:40 after the November clock change — bump to `40 14` then). Builds with
+  `python3 scripts/daily_buyzone_email.py --build-only /tmp/buyzone` (HTML, text, PDF via
+  the runner's Chrome) and sends with `--send-smtp` through `smtp.gmail.com:465` using the
+  repo secret **`GMAIL_APP_PASSWORD`** (App Password on rob.lobster.claw@gmail.com;
+  `GMAIL_USER` optional). **First verified run 14 Sep 16:42 UTC:** run 34870186361 green,
+  email in the inbox with the PDF attached. Scheduled workflows run from the DEFAULT
+  branch (`gh-pages`), so any edit needs a deploy run before the next fire.
 - Quotes come over HTTPS from `raw.githubusercontent.com/.../main/live-quotes.json`; a
   snapshot older than 3 days stamps **⚠ STALE DATA** into the subject. Bucket list = the
   4-bucket taxonomy, Forever + Toll booths only (Dry powder and Other positions are not
   buy-zone material). Share classes are indexed both ways (BRK.B / BRK-B).
-- **History:** built May 2026 by Hermes as a cron job on Joe's Mac mini sending through a
-  local Gmail token. From **1 Aug to 13 Sep 2026 it silently emailed August prices** (SPCX
-  $108 vs real $151) because the clone's `git pull` failed and the return code was ignored.
-  **The Mac send path is retired:** run without `--build-only` the script prints a notice
-  and exits without sending, so a reset clone turns the old cron into a no-op. Joe still
-  has to delete the crontab line (`run_buyzone_cron.sh`) on the Mac when he is next there;
-  until the clone is reset, the Mac keeps emailing the stale August report each morning.
+- **Retired routes, kept for the record:** (1) the Mac mini cron — from 1 Aug to 13 Sep
+  2026 it silently emailed August prices (SPCX $108 vs real $151) because the clone's
+  `git pull` failed and the return code was ignored; run without a mode flag the script now
+  prints a retirement notice and exits, so a reset clone makes that cron a no-op. Joe still
+  deletes the crontab line (`run_buyzone_cron.sh`) when next at the Mac; until then the Mac
+  keeps emailing the stale August report. (2) The plain-text Claude Routine
+  (`trig_01MvgcgWser9C8tP4cP129Tj`) — its notification email never showed up and it cannot
+  carry HTML/PDF; **disabled**. (3) The session-bound bridge Routine — **deleted**.
+  `create_trigger` cannot attach connectors in this org, which is why neither Routine
+  route was viable for HTML+PDF.
+- The old **"MSFT buy reminder"** Routine was disabled 14 Sep — Joe holds 26 MSFT shares.
 - **SPCX = SpaceX** (Space Exploration Technologies Class A, NASDAQ, listed June 2026;
   IBKR contract 890493863). The old SPAC & New Issue ETF is **SPCK**. `index.html` said
   the opposite until 13 Sep 2026.
