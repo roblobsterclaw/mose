@@ -6,6 +6,19 @@
 
 ---
 
+## Session 21 — September 14, 2026 (Claude) — the roster rebuilt: 121 voters, Core vs Bench, conviction-weighted top 15
+Joe reviewed every filer in the Voter Roster Review artifact and made the calls: **139 entries / 121 voting — 41 Core, 80 Bench, 17 out** (9 pruned this round: Gavin Baker, Gerstner, Laffont, Coleman, Niles, Halvorsen, Foxhaven, Manitou, JIA; Bancroft dormant). 89 filers added. After reading dossiers he moved Giverny, Dorsey and Ruane Cunniff to Core and kept MayTech Core despite the flag that it is a self-described global-growth shop. `cik-map.json` now carries `wing`.
+
+**Pipeline:** `pull_sec_13f_history.py --quarters 8` for all 139 → 1,095 filings, 0 failures (first run died silently in the sandbox; relaunched as a tracked job; the per-filing loop now survives any exception). `build_holdings_from_13f.py` resolves raw CUSIPs via cusip-map — 264 → **4,020 holdings** across 121 investors (Einhorn went from 1 row to 39). `build_cusip_map.py`: 1,582 eligible tickers, 96.8% of value resolved. `build_consensus_history.py` (schema v2): per-row core counts, `core_15` / `all_15` / `agree` / `bench_watch`; conviction = holders × avg % of book, ≥3 holders in the wing to rank. 1,675 tickers over 10 quarters.
+
+**First Core 15 (2026-Q2):** GOOGL, AMZN, BRK.B, CVNA, MA, V, META, MSFT, AAPL, BN, MCO, ASML, SPGI, TSM, FICO. 12 of 15 agree with the All-in 15 (which adds TDG, AXP, WSM). Buy-list names outside the Core 15: NFLX (#18), UBER (#21), NVDA (#29, 3 core holders), TSLA (2), SPCX (2). CVNA at #4 is the conviction-weighting artifact — 4 holders, one of them ~100% in it — worth a floor discussion with Joe. Bench watch: LLYVA, NU, FDXF, AMD, VSNT, AMAT, SYK, AVGO, BLDR, ARES, WWD, AVTR.
+
+**App:** Investors tab is now roster-driven (`investorCards()`: cik-map + dossiers + each filer's top positions; 131 cards; Core / Bench / Has-dossier filters; dossier toggle per card). Consensus tab has the four-block **Core check** and a Core / All-in rank toggle, plus a Core column. `APP_BUILD 2026-09-14a`. Six new dossiers (Ruane Cunniff, Giverny, Dorsey, Tweedy Browne, Chou, MayTech) → 100 firms; every Core voter has one. Dossier file is a dict keyed by CIK — a list-style save wiped it once today; restored from git.
+
+**Open:** annual dossier refresh capturing letters; monthly deep-dive data blocks; a conviction floor (or a cap on any one filer's weight) for the Core 15; ~635 unresolved CUSIP rows (3.2% of value); Joe still to delete the Mac crontab line and rotate Keli's Flex token.
+
+---
+
 ## Session 20 — September 13, 2026 (Claude) — the daily email was six weeks stale
 Joe: the report shows SpaceX at $108; it's $151. The app's data was right (live-quotes $151.21, Yahoo $151.21, IBKR $150.28). The **daily Buy Zone email** was wrong: every send since early August read "As of Aug 01, 2026" — the Mac mini clone's `git pull` had been failing and the script ignored the return code, so it kept emailing a frozen `live-quotes.json`. $108 was SPCX's 31 Jul close.
 
