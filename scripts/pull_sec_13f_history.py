@@ -379,7 +379,7 @@ def build_filings_from_full_indexes(configs: list[InvestorConfig], quarters: int
             if not existing or enriched["filing_date"] > existing["filing_date"]:
                 by_cik[cik][q] = enriched
             time.sleep(0.15)
-        except (urllib.error.URLError, RuntimeError, ElementTree.ParseError, ValueError) as exc:
+        except Exception as exc:  # one bad filing must not abort a 1,000-filing pull
             errors[cik].append(f"{row.get('accession')}: {exc}")
 
     return {
