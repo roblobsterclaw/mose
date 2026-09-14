@@ -15,6 +15,8 @@ Joe reviewed every filer in the Voter Roster Review artifact and made the calls:
 
 **App:** Investors tab is now roster-driven (`investorCards()`: cik-map + dossiers + each filer's top positions; 131 cards; Core / Bench / Has-dossier filters; dossier toggle per card). Consensus tab has the four-block **Core check** and a Core / All-in rank toggle, plus a Core column. `APP_BUILD 2026-09-14a`. Six new dossiers (Ruane Cunniff, Giverny, Dorsey, Tweedy Browne, Chou, MayTech) → 100 firms; every Core voter has one. Dossier file is a dict keyed by CIK — a list-style save wiped it once today; restored from git.
 
+**Later the same evening:** Joe: "cap it" — any one filer now counts for at most 25 conviction points (CVNA drops from #4 to #8), and the Core check shows the top 25 with a line after 15 so NFLX (#18) and UBER (#21) stay in view. `APP_BUILD 2026-09-14b`.
+
 **Open:** annual dossier refresh capturing letters; monthly deep-dive data blocks; a conviction floor (or a cap on any one filer's weight) for the Core 15; ~635 unresolved CUSIP rows (3.2% of value); Joe still to delete the Mac crontab line and rotate Keli's Flex token.
 
 ---
