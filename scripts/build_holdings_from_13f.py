@@ -24,6 +24,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SEC_HISTORY = ROOT / "data" / "sec-13f-filings.json"
+CUSIP_MAP = ROOT / "reference-data" / "cusip-map.json"
 LIVE_QUOTES = ROOT / "live-quotes.json"
 OUTPUT = ROOT / "holdings-latest.json"
 
@@ -54,12 +55,32 @@ def live_prices() -> dict[str, float]:
     return prices
 
 
+# CUSIP -> ticker, the same lookup the consensus builder and the guard rail use.
+# The pull only resolves tickers it finds in ticker-map.json, so a raw CUSIP
+# used to fall through TICKER_RE here and silently drop most of a filer's book
+# (Einhorn, Pabrai and Spruce House were three-quarters missing).
+_CUSIP_TICKER: dict[str, str] = {}
+try:
+    _CUSIP_TICKER = {c: (v.get("ticker") or "") for c, v in json.loads(CUSIP_MAP.read_text()).get("map", {}).items()}
+except Exception:
+    pass
+
+
+def resolve_ticker(h: dict) -> str:
+    """Prefer the pull's resolved ticker; otherwise map the CUSIP; else skip."""
+    ticker = str(h.get("ticker") or "").upper().strip()
+    if TICKER_RE.match(ticker) and ticker != str(h.get("cusip") or "").upper():
+        return ticker
+    via = _CUSIP_TICKER.get(str(h.get("cusip") or "").strip(), "")
+    return via.upper() if via and TICKER_RE.match(via.upper()) else ""
+
+
 def aggregate(holdings: list[dict]) -> dict[str, dict]:
     """Sum shares/value per resolved ticker within one filing."""
     agg: dict[str, dict] = {}
     for h in holdings:
-        ticker = str(h.get("ticker") or "").upper().strip()
-        if not TICKER_RE.match(ticker):
+        ticker = resolve_ticker(h)
+        if not ticker:
             continue
         row = agg.setdefault(ticker, {
             "ticker": ticker, "company": h.get("company") or ticker,

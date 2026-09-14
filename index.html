@@ -1516,6 +1516,7 @@ async function checkPw(){
       <button class="csv-btn" onclick="consensusExportCSV()">⬇ Export CSV</button>
     </div>
     <div class="stats-bar" id="consensus-stats-bar"></div>
+    <div id="consensus-core"></div>
     <div id="consensus-alerts"></div>
     <div class="si-search-row" style="margin-bottom:10px">
       <input class="si-search" id="consensus-search" placeholder="🔍 Filter ticker or investor…" oninput="renderConsensus()">
@@ -1524,21 +1525,24 @@ async function checkPw(){
       <button class="si-sort-btn"        id="cfilt-falling"onclick="setConsensusFilter('falling', this)">📉 Falling</button>
       <button class="si-sort-btn"        id="cfilt-new"    onclick="setConsensusFilter('notmine', this)">⭐ Not on my list</button>
       <button class="si-sort-btn"        id="cfilt-mine"   onclick="setConsensusFilter('mine', this)">💼 I own it</button>
+      <span class="si-sort-label" style="margin-left:8px">Rank by:</span>
+      <button class="si-sort-btn active" id="cbasis-core" onclick="setConsensusBasis('core', this)">🏛 Core</button>
+      <button class="si-sort-btn"        id="cbasis-all"  onclick="setConsensusBasis('all', this)">👥 All-in</button>
       <label style="font-size:12px;color:var(--muted)">Min holders
         <select id="consensus-min" class="bucket-dropdown" onchange="renderConsensus()">
           <option value="1">1+</option><option value="2">2+</option><option value="4" selected>4+</option><option value="8">8+</option>
         </select></label>
     </div>
     <div class="info-blurb" style="border:none;margin:0 0 10px;padding:0;font-size:12px">
-      Every stock your <span id="consensus-invcount">47</span> voting investors own, ranked by how many hold it. <b>Δ qtr</b> and <b>Δ yr</b> are the change in holder count — that's the movement in and out of favour. Names <b>gaining</b> consensus that aren't on your buy list are flagged ⭐; names <b>losing</b> it are flagged 📉. Share classes are folded, so Alphabet and Berkshire count each investor once.
+      Every stock your <span id="consensus-invcount">47</span> voting investors own. <b>Core</b> ranks by the core wing's conviction (holders × average % of book); <b>All-in</b> ranks every voter by headcount. <b>Δ qtr</b> and <b>Δ yr</b> are the change in holder count — that's the movement in and out of favour. Names <b>gaining</b> consensus that aren't on your buy list are flagged ⭐; names <b>losing</b> it are flagged 📉. Share classes are folded, so Alphabet and Berkshire count each investor once.
     </div>
     <div class="table-wrap"><table>
       <thead><tr>
-        <th>#</th><th>Ticker</th><th class="hide-sm">Company</th><th>Holders</th><th class="hide-sm">8-qtr trend</th>
+        <th>#</th><th>Ticker</th><th class="hide-sm">Company</th><th>Holders</th><th>Core</th><th class="hide-sm">8-qtr trend</th>
         <th>Δ qtr</th><th>Δ yr</th><th class="hide-sm">Avg % of book</th><th class="hide-sm">Add / trim</th>
         <th class="hide-sm">Moved this quarter</th><th>Status</th>
       </tr></thead>
-      <tbody id="consensus-body"><tr><td colspan="11" class="no-data">Loading consensus-history.json…</td></tr></tbody>
+      <tbody id="consensus-body"><tr><td colspan="12" class="no-data">Loading consensus-history.json…</td></tr></tbody>
     </table></div>
   </div>
 
@@ -1780,8 +1784,8 @@ async function checkPw(){
 
     <div class="stats-bar si-stats-row" id="si-stats-bar">
       <div class="stat-card"><div class="stat-val orange" id="si-stat-total">33</div><div class="stat-label">Investors</div></div>
-      <div class="stat-card"><div class="stat-val" style="color:var(--accent)" id="si-stat-rated">—</div><div class="stat-label">JFL Rated</div></div>
-      <div class="stat-card"><div class="stat-val blue" id="si-stat-13f">—</div><div class="stat-label">13F Filers</div></div>
+      <div class="stat-card"><div class="stat-val" style="color:var(--accent)" id="si-stat-rated">—</div><div class="stat-label">Core voters</div></div>
+      <div class="stat-card"><div class="stat-val blue" id="si-stat-13f">—</div><div class="stat-label">Bench voters</div></div>
       <div class="stat-card"><div class="stat-val green" id="si-stat-showing">33</div><div class="stat-label">Showing</div></div>
     </div>
 
@@ -1798,6 +1802,9 @@ async function checkPw(){
     <!-- Category filter buttons -->
     <div class="toolbar" style="margin-bottom:14px">
       <button class="filter-btn active" onclick="setSIFilter('All', this)">All</button>
+      <button class="filter-btn" onclick="setSIFilter('Core', this)">🏛 Core</button>
+      <button class="filter-btn" onclick="setSIFilter('Bench', this)">🪑 Bench</button>
+      <button class="filter-btn" onclick="setSIFilter('Dossier', this)">📄 Has dossier</button>
       <button class="filter-btn" onclick="setSIFilter('BRK Inner Circle', this)">👑 BRK Inner Circle</button>
       <button class="filter-btn" onclick="setSIFilter('Buffett Disciples', this)">📚 Buffett Disciples</button>
       <button class="filter-btn" onclick="setSIFilter('Deep Value / Contrarian', this)">💎 Deep Value</button>
@@ -1814,9 +1821,9 @@ async function checkPw(){
       <div class="si-no-results">Loading investors…</div>
     </div>
 
-    <div class="info-blurb" style="margin-top:16px">
-      33 tracked super investors · Data sources: 13F SEC filings, public letters, legacy research · JFL Cloner Rating = Joe's personal conviction score<br>
-      ⚠️ Holdings shown are representative positions, not exhaustive. Not financial advice.
+    <div class="info-blurb" style="margin-top:16px" id="si-blurb">
+      Roster from <code>reference-data/cik-map.json</code> · <b>Core</b> voters set the top 15, <b>Bench</b> voters feed the watch rails · Tickers are each filer's largest positions from their latest 13F · 📄 opens the dossier<br>
+      ⚠️ Positions shown are the top of each book, not exhaustive. Not financial advice.
     </div>
   </div>
 
@@ -2117,7 +2124,7 @@ async function checkPw(){
 // compare the build stamp, and offer a genuine reload when they differ.
 // Bump APP_BUILD whenever index.html changes.
 // ============================================================
-const APP_BUILD = '2026-09-13a';
+const APP_BUILD = '2026-09-14a';
 
 async function checkForAppUpdate(announce) {
   try {
@@ -2294,6 +2301,8 @@ const SI_CAT_MAP = {
   'AI & Growth':            { cls: 'si-cat-ai',       label: '🤖 AI & Growth' },
   'Other Notable':          { cls: 'si-cat-other',     label: '⭐ Other' },
   'Creators':               { cls: 'si-cat-other',     label: '📹 Creators' },
+  'Core voter':             { cls: 'si-cat-disciple',  label: '🏛 Core voter' },
+  'Bench voter':            { cls: 'si-cat-other',     label: '🪑 Bench voter' },
 };
 const SI_SRC_MAP = {
   '13F':    { cls: 'si-src-13f',     label: '📊 13F' },
@@ -2306,6 +2315,82 @@ const SI_SRC_MAP = {
   // 13F position, and excluded from convergence/consensus scoring.
   'YouTube':{ cls: 'si-src-youtube', label: '📹 YouTube · unverified' },
 };
+
+// ---- Roster-driven cards (14 Sep 2026) ----
+// The Investors tab used to be the hardcoded INVESTORS_DATA array, so the 89
+// filers Joe added in his roster review never appeared. Cards now come from
+// reference-data/cik-map.json (every approved/dormant filer, with its wing),
+// decorated with: the old hand-written category/rating/notes when we have
+// them, the filer's largest current positions from holdings-latest.json, and
+// the dossier from investor-dossiers.json. Non-filers in INVESTORS_DATA
+// (legends, creators, Joe) stay; filers Joe pruned are dropped.
+let rosterData = [];
+async function loadRoster() {
+  try {
+    const r = await fetch('reference-data/cik-map.json?' + Date.now());
+    if (r.ok) { const d = await r.json(); rosterData = Array.isArray(d) ? d : (d.investors || []); }
+  } catch {}
+  renderInvestors();
+}
+function siNorm(n) { return String(n || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim(); }
+function siTitleCase(n) {
+  const s = String(n || '');
+  if (s !== s.toUpperCase()) return s;                       // already mixed case
+  return s.toLowerCase().replace(/\b([a-z])/g, m => m.toUpperCase())
+    .replace(/\b(Llc|Lp|Llp|Ltd|Inc|Plc|Sa|Ag)\b/g, m => m.toUpperCase())
+    .replace(/\bLp\b/g, 'LP');
+}
+function investorCards() {
+  const ann = {};
+  INVESTORS_DATA.forEach(d => { ann[siNorm(d.name)] = d; ann[siNorm(d.fund)] = ann[siNorm(d.fund)] || d; });
+  // top positions per filer from the latest 13F
+  const byInv = {};
+  (typeof allHoldings !== 'undefined' ? allHoldings : []).forEach(h => {
+    (byInv[siNorm(h.investor)] = byInv[siNorm(h.investor)] || []).push(h);
+  });
+  const holdersOf = {};
+  Object.values(byInv).forEach(list => list.forEach(h => { holdersOf[h.ticker] = (holdersOf[h.ticker] || 0) + 1; }));
+  const cards = [];
+  const seen = new Set();
+  rosterData.forEach(r => {
+    const status = String(r.status || 'approved').toLowerCase();
+    if (status === 'pruned') return;
+    const cik = String(r.cik || '').replace(/^0+/, '');
+    const a = ann[siNorm(r.name)] || ann[siNorm(r.fund)] || null;
+    if (a) seen.add(a.id);
+    const book = (byInv[siNorm(r.name)] || byInv[siNorm(r.fund)] || []).slice()
+      .sort((x, y) => (y.pct_portfolio || 0) - (x.pct_portfolio || 0));
+    const stocks = book.length ? book.slice(0, 6).map(h => h.ticker) : ((a && a.stocks) || []);
+    const dossier = universeDossiers[cik] || universeDossiers[r.cik] || null;
+    const wing = String(r.wing || 'bench').toLowerCase();
+    cards.push({
+      id: 'cik' + cik, cik, name: siTitleCase(r.name), fund: siTitleCase(r.fund || r.name),
+      wing, status, dossier, positions: book.length,
+      category: (a && a.category) || (wing === 'core' ? 'Core voter' : 'Bench voter'),
+      rating: a ? a.rating : null, source: '13F', stocks,
+      book: book.slice(0, 6),
+      notes: (a && a.notes) || (dossier && (dossier.mose_note || dossier.who)) || r.note || '',
+      _convergence: stocks.filter(t => (holdersOf[t] || 0) >= 2).length,
+      _sharedStocks: stocks.filter(t => (holdersOf[t] || 0) >= 2),
+    });
+  });
+  // Legacy non-filer entries (Munger, Lynch, Templeton, creators, Joe…)
+  INVESTORS_DATA.forEach(d => {
+    if (seen.has(d.id) || d.source === '13F') return;
+    cards.push({ ...d, cik: null, wing: null, status: null, dossier: null, positions: 0, book: [] });
+  });
+  return cards;
+}
+function siDossierBody(d) {
+  const sec = (label, txt) => txt ? `<div style="margin-top:6px"><strong>${label}</strong> ${escapeHtml(txt)}</div>` : '';
+  return `${sec('Who:', d.who)}${sec('Structure & terms:', d.terms)}${sec('Track record:', d.track_record)}${sec('The good:', d.good)}${sec('The bad:', d.bad)}${sec('The ugly:', d.ugly)}${sec('How to engage:', d.how_to_engage)}${sec('MOSE note:', d.mose_note)}
+    ${(d.sources || []).length ? `<div style="margin-top:6px;font-size:11px;color:var(--muted)">Sources: ${d.sources.slice(0, 8).map((s, i) => `<a href="${escapeAttr(s)}" target="_blank" rel="noopener">[${i + 1}]</a>`).join(' ')}</div>` : ''}
+    <div style="font-size:10px;color:var(--muted);margin-top:4px">Researched ${escapeHtml(d.researched_at || '')}${d.confidence ? ` · confidence ${escapeHtml(String(d.confidence))}` : ''}. Web-sourced write-up — verify anything you'd act on.</div>`;
+}
+function siToggleDossier(id) {
+  const el = document.getElementById('si-d-' + id);
+  if (el) el.hidden = !el.hidden;
+}
 
 function setSIFilter(f, btn) {
   siFilter = f;
@@ -2323,10 +2408,14 @@ function setSISort(s, btn) {
 function renderInvestors() {
   const query = (document.getElementById('si-search-input')?.value || '').toLowerCase().trim();
 
-  let data = [...INVESTORS_DATA];
+  const cards = investorCards();
+  let data = [...cards];
 
-  // Category filter
-  if (siFilter !== 'All') data = data.filter(d => d.category === siFilter);
+  // Category / wing filter
+  if (siFilter === 'Core') data = data.filter(d => d.wing === 'core');
+  else if (siFilter === 'Bench') data = data.filter(d => d.wing === 'bench');
+  else if (siFilter === 'Dossier') data = data.filter(d => d.dossier);
+  else if (siFilter !== 'All') data = data.filter(d => d.category === siFilter);
 
   // Search by name or ticker
   if (query) {
@@ -2334,12 +2423,13 @@ function renderInvestors() {
       d.name.toLowerCase().includes(query) ||
       d.fund.toLowerCase().includes(query) ||
       d.stocks.some(t => t.toLowerCase().includes(query)) ||
-      d.notes.toLowerCase().includes(query)
+      (d.notes || '').toLowerCase().includes(query) ||
+      (d.dossier && ['who', 'good', 'bad', 'ugly', 'track_record'].some(k => (d.dossier[k] || '').toLowerCase().includes(query)))
     );
   }
 
   // Sort
-  const catOrder = ['BRK Inner Circle','Buffett Disciples','Deep Value / Contrarian','Quality Compounders','Global / International','Legends','AI & Growth','Other Notable'];
+  const catOrder = ['Core voter','BRK Inner Circle','Buffett Disciples','Deep Value / Contrarian','Quality Compounders','Global / International','Bench voter','Legends','AI & Growth','Other Notable'];
   data.sort((a, b) => {
     if (siSort === 'name') return a.name.localeCompare(b.name);
     if (siSort === 'rating') {
@@ -2355,9 +2445,9 @@ function renderInvestors() {
   });
 
   // Update stats
-  const total = INVESTORS_DATA.length;
-  const rated = INVESTORS_DATA.filter(d => d.rating !== null).length;
-  const filers = INVESTORS_DATA.filter(d => d.source === '13F').length;
+  const total = cards.length;
+  const rated = cards.filter(d => d.wing === 'core' && d.status !== 'dormant').length;
+  const filers = cards.filter(d => d.wing === 'bench').length;
   document.getElementById('si-stat-total').textContent = total;
   document.getElementById('si-stat-rated').textContent = rated;
   document.getElementById('si-stat-13f').textContent = filers;
@@ -2370,12 +2460,19 @@ function renderInvestors() {
   }
 
   // Max convergence for bar scaling
-  const maxConv = Math.max(...INVESTORS_DATA.map(d => d._convergence), 1);
+  const maxConv = Math.max(...cards.map(d => d._convergence || 0), 1);
 
   grid.innerHTML = data.map(inv => {
     const cat = SI_CAT_MAP[inv.category] || SI_CAT_MAP['Other Notable'];
     const src = SI_SRC_MAP[inv.source] || SI_SRC_MAP['Public'];
     const isJoe = inv.id === 'joe';
+    const wingHtml = inv.wing
+      ? `<span class="si-source-badge ${inv.wing === 'core' ? 'si-src-13f' : 'si-src-public'}" title="${inv.wing === 'core' ? 'Core: helps set the top 15' : 'Bench: feeds the watch rails, does not set the top 15'}">${inv.wing === 'core' ? '🏛 Core' : '🪑 Bench'}${inv.status === 'dormant' ? ' · dormant' : ''}</span>`
+      : '';
+    const dossierHtml = inv.dossier
+      ? `<button class="si-sort-btn" style="margin-top:8px" onclick="siToggleDossier('${inv.id}')">${(inv.dossier.ugly && !/^(no|none|nothing)\b/i.test(inv.dossier.ugly.trim())) ? '⚠📄' : '📄'} Dossier</button>
+         <div id="si-d-${inv.id}" hidden style="font-size:12px;line-height:1.6;margin-top:8px;padding:10px 12px;background:var(--surface);border:1px solid var(--border);border-radius:8px">${siDossierBody(inv.dossier)}</div>`
+      : (inv.cik ? `<div style="font-size:11px;color:var(--muted);margin-top:8px">No dossier yet</div>` : '');
 
     // Rating badge
     let ratingHtml = '';
@@ -2391,11 +2488,13 @@ function renderInvestors() {
     // Stocks
     let stocksHtml = '';
     if (inv.stocks.length > 0) {
+      const pctOf = {}; (inv.book || []).forEach(h => { pctOf[h.ticker] = h.pct_portfolio; });
       stocksHtml = `<div class="si-stocks">${inv.stocks.map(t => {
-        const isShared = inv._sharedStocks.includes(t);
+        const isShared = (inv._sharedStocks || []).includes(t);
         const cls = isShared ? ' si-ticker-badge is-shared' : ' si-ticker-badge';
-        return `<span class="${cls.trim()}">${t}</span>`;
-      }).join('')}</div>`;
+        const pct = pctOf[t] ? ` <span style="opacity:.7;font-weight:600">${Math.round(pctOf[t])}%</span>` : '';
+        return `<span class="${cls.trim()}" title="${isShared ? 'Held by 2+ roster filers' : ''}">${escapeHtml(t)}${pct}</span>`;
+      }).join('')}${inv.positions > 6 ? `<span class="si-no-stocks" style="align-self:center">+${inv.positions - 6} more</span>` : ''}</div>`;
     } else {
       stocksHtml = '<div class="si-no-stocks">Study their philosophy</div>';
     }
@@ -2423,10 +2522,12 @@ function renderInvestors() {
       <div class="si-badges">
         <span class="si-cat-badge ${cat.cls}">${cat.label}</span>
         <span class="si-source-badge ${src.cls}">${src.label}</span>
+        ${wingHtml}
       </div>
       ${stocksHtml}
       ${convHtml}
-      <div class="si-notes">${inv.notes}</div>
+      <div class="si-notes">${escapeHtml(inv.notes || '')}</div>
+      ${dossierHtml}
     </div>`;
   }).join('');
 }
@@ -3498,6 +3599,7 @@ async function loadDossiers() {
     if (r.ok) { const d = await r.json(); universeDossiers = d.firms || {}; }
   } catch {}
   renderUniverse();
+  renderInvestors();
 }
 // Marker next to a firm name: 📄 there's a write-up, ⚠ it contains a regulatory
 // action, blow-up or lawsuit worth reading before you act.
@@ -3635,6 +3737,7 @@ async function loadHoldings() {
     updateHoldingsStats();
     renderHeatmap();
     renderConsensus();
+    renderInvestors();
     renderPortfolio();
     renderCockpit();
     renderResearchQueue();
@@ -4100,6 +4203,75 @@ function sortHeatmap(key) {
 // ============================================================
 let consensusData = null;
 let consensusFilter = 'all';
+let consensusBasis = 'core';   // 'core' = core wing conviction, 'all' = every voter by headcount
+function setConsensusBasis(b, btn) {
+  consensusBasis = b;
+  document.querySelectorAll('[id^="cbasis-"]').forEach(x => x.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  renderConsensus();
+}
+// $ Joe holds in a ticker across all four accounts (targetsData.owned is keyed account|ticker).
+function consensusOwnedDollars() {
+  const o = (targetsData && targetsData.owned) || {};
+  const m = {};
+  Object.keys(o).forEach(k => {
+    const p = String(k).split('|');
+    if (p.length !== 2) return;
+    const t = p[1].replace(/-([A-Z])$/, '.$1');
+    m[t] = (m[t] || 0) + (Number(o[k]) || 0);
+  });
+  return m;
+}
+const consUsd = v => v ? '$' + Math.round(v).toLocaleString() : '<span class="muted">—</span>';
+// ---- The Core check: four blocks Joe reads every 6-12 months ----
+// 1 My buy list vs the Core 15 · 2 what the core moved this quarter ·
+// 3 Core 15 vs All-in 15 · 4 what the bench is piling into.
+function renderConsensusCore() {
+  const el = document.getElementById('consensus-core');
+  if (!el || !consensusData || !(consensusData.core_15 || []).length) { if (el) el.innerHTML = ''; return; }
+  const D = consensusData, rows = D.rows || [];
+  const byT = {}; rows.forEach(r => { byT[r.ticker] = r; });
+  const buy = D.buy_list || [];
+  const ownedUsd = consensusOwnedDollars();
+  const tick = t => `<span class="ticker" style="cursor:pointer" onclick="document.getElementById('consensus-search').value='${t}';renderConsensus()">${escapeHtml(t)}</span>`;
+  // Block 1
+  const core15 = D.core_15.map((t, i) => {
+    const r = byT[t] || {};
+    const onList = buy.includes(t);
+    return `<tr><td class="mono muted">${i + 1}</td><td>${tick(t)}</td>
+      <td title="${escapeAttr((r.core_holders || []).join(', '))}">${r.core_now || 0}<span class="muted" style="font-size:11px">/${D.core_count}</span></td>
+      <td class="hide-sm">${r.core_avg_pct || 0}%</td>
+      <td>${onList ? '<span class="elig-chip ok">✓ on list</span>' : '<span class="elig-chip warn">not on list</span>'}</td>
+      <td style="text-align:right">${consUsd(ownedUsd[t])}</td></tr>`;
+  }).join('');
+  const missing = buy.filter(t => !D.core_15.includes(t)).map(t => {
+    const r = byT[t] || {};
+    return `${tick(t)} <span class="muted" style="font-size:11px">core #${r.core_rank || '—'} · ${r.core_now || 0} holders</span>`;
+  });
+  // Block 2 — core movement this quarter
+  const moved = rows.filter(r => r.core_d_q).sort((a, b) => Math.abs(b.core_d_q) - Math.abs(a.core_d_q));
+  const ups = moved.filter(r => r.core_d_q > 0).slice(0, 10), downs = moved.filter(r => r.core_d_q < 0).slice(0, 10);
+  const mv = (r, cls) => `<span class="elig-chip ${cls}" title="${escapeAttr(cls === 'ok' ? 'added: ' + (r.core_added || []).join(', ') : 'dropped: ' + (r.core_dropped || []).join(', '))}"><strong>${escapeHtml(r.ticker)}</strong> ${r.core_prior}→${r.core_now}</span>`;
+  // Block 3 — core vs all-in
+  const onlyAll = D.all_15.filter(t => !D.core_15.includes(t));
+  const onlyCore = D.core_15.filter(t => !D.all_15.includes(t));
+  const side = (list, other) => list.map((t, i) => `<div style="display:flex;gap:6px;align-items:center;font-size:12px"><span class="mono muted" style="width:18px">${i + 1}</span>${tick(t)}${other.includes(t) ? '' : ' <span class="muted" style="font-size:10px">only here</span>'}</div>`).join('');
+  // Block 4 — bench watch
+  const bench = (D.bench_watch || []).map(t => { const r = byT[t] || {}; return `<span class="elig-chip" title="${escapeAttr((r.holders || []).join(', '))}"><strong>${escapeHtml(t)}</strong> bench ${r.bench_now || 0} · core ${r.core_now || 0} · ${r.d_y > 0 ? '+' : ''}${r.d_y || 0} yr</span>`; });
+  const box = (title, body, sub) => `<div class="stat-card" style="text-align:left;padding:12px 14px;min-width:0"><div style="font-weight:800;margin-bottom:6px">${title}</div>${sub ? `<div class="muted" style="font-size:11px;margin-bottom:8px">${sub}</div>` : ''}${body}</div>`;
+  el.innerHTML = `<div class="guardrail" style="margin-bottom:10px;border-color:var(--accent)">🏛 <strong>Core check</strong> — ${D.core_count} core voters set the list, ${D.bench_count} bench voters watch. Conviction = holders × avg % of book. Filings as of ${escapeHtml(D.latest || '')}.</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:10px;margin-bottom:12px">
+    ${box('1 · Core 15 vs my buy list', `<div class="table-wrap"><table style="font-size:12px"><thead><tr><th>#</th><th>Ticker</th><th>Core</th><th class="hide-sm">Avg %</th><th>My list</th><th style="text-align:right">I own</th></tr></thead><tbody>${core15}</tbody></table></div>
+      ${missing.length ? `<div style="font-size:12px;margin-top:8px"><strong>On my list, not in the Core 15:</strong><br>${missing.join('<br>')}</div>` : '<div class="muted" style="font-size:12px;margin-top:8px">Every name on my list is in the Core 15.</div>'}`,
+      'Ranked by core conviction. "I own" is across all four IBKR accounts.')}
+    ${box('2 · What the core moved this quarter', `${ups.length ? `<div style="margin-bottom:6px"><span style="color:var(--green);font-weight:800">Gained core holders</span><br>${ups.map(r => mv(r, 'ok')).join(' ')}</div>` : ''}${downs.length ? `<div><span style="color:var(--red);font-weight:800">Lost core holders</span><br>${downs.map(r => mv(r, 'warn')).join(' ')}</div>` : ''}${!ups.length && !downs.length ? '<span class="muted">No core holder-count changes vs last quarter.</span>' : ''}`,
+      `${escapeHtml(D.prior || '')} → ${escapeHtml(D.latest || '')}. Hover a chip for who.`)}
+    ${box('3 · Core 15 vs All-in 15', `<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><div><div style="font-size:11px;font-weight:800;margin-bottom:4px">🏛 Core (${D.core_count})</div>${side(D.core_15, D.all_15)}</div><div><div style="font-size:11px;font-weight:800;margin-bottom:4px">👥 All-in (${D.investor_count})</div>${side(D.all_15, D.core_15)}</div></div>`,
+      `${(D.agree || []).length} of 15 agree. Only-Core: ${onlyCore.join(', ') || 'none'} · Only-All-in: ${onlyAll.join(', ') || 'none'}.`)}
+    ${box('4 · Bench watch', bench.length ? bench.join(' ') : '<span class="muted">Nothing the bench is piling into that the core lacks.</span>',
+      'Bench holders ≥4, gaining over the year, core ≤2. Ideas to research — never a buy signal.')}
+  </div>`;
+}
 
 async function loadConsensusHistory() {
   try {
@@ -4147,6 +4319,9 @@ function renderConsensus() {
   if (asof) asof.textContent = consensusData.latest ? `${consensusData.latest} filings · ${consensusData.investor_count} voting investors · vs ${consensusData.yr_ago}` : '—';
   const ic = document.getElementById('consensus-invcount');
   if (ic && consensusData.investor_count) ic.textContent = consensusData.investor_count;
+  renderConsensusCore();
+  const hasCore = rows.length && rows[0].core_now !== undefined;
+  const basis = hasCore ? consensusBasis : 'all';
 
   const rising = rows.filter(r => !r.in_buy_list && r.now >= 4 && r.d_y >= 2);
   const falling = rows.filter(r => r.yr_ago >= 4 && r.d_y <= -2);
@@ -4168,14 +4343,16 @@ function renderConsensus() {
 
   const q = (document.getElementById('consensus-search').value || '').trim().toUpperCase();
   const minH = Number(document.getElementById('consensus-min').value) || 1;
-  let out = rows.filter(r => r.now >= minH);
-  if (consensusFilter === 'rising') out = out.filter(r => r.d_y >= 2);
-  else if (consensusFilter === 'falling') out = out.filter(r => r.d_y <= -2);
+  let out = basis === 'core'
+    ? rows.filter(r => r.core_now >= minH).sort((a, b) => (b.core_sum_pct - a.core_sum_pct) || (b.core_now - a.core_now))
+    : rows.filter(r => r.now >= minH);
+  if (consensusFilter === 'rising') out = out.filter(r => (basis === 'core' ? r.core_d_y : r.d_y) >= 2);
+  else if (consensusFilter === 'falling') out = out.filter(r => (basis === 'core' ? r.core_d_y : r.d_y) <= -2);
   else if (consensusFilter === 'notmine') out = out.filter(r => !r.in_buy_list);
   else if (consensusFilter === 'mine') out = out.filter(r => owned.has(r.ticker));
   if (q) out = out.filter(r => r.ticker.includes(q) || (r.company || '').toUpperCase().includes(q) || (r.holders || []).some(h => h.toUpperCase().includes(q)));
 
-  if (!out.length) { body.innerHTML = `<tr><td colspan="11" class="no-data">${rows.length ? 'Nothing matches this filter.' : 'consensus-history.json not loaded' + (consensusData.error ? ` (${escapeHtml(consensusData.error)})` : '')}</td></tr>`; return; }
+  if (!out.length) { body.innerHTML = `<tr><td colspan="12" class="no-data">${rows.length ? 'Nothing matches this filter.' : 'consensus-history.json not loaded' + (consensusData.error ? ` (${escapeHtml(consensusData.error)})` : '')}</td></tr>`; return; }
   body.innerHTML = out.slice(0, 400).map((r, i) => {
     const status = r.in_buy_list ? '<span class="elig-chip ok">🟢 buy list</span>'
       : owned.has(r.ticker) ? '<span class="elig-chip">🔵 owned</span>'
@@ -4189,7 +4366,8 @@ function renderConsensus() {
       <td><span class="ticker">${escapeHtml(r.ticker)}</span></td>
       <td class="hide-sm" style="font-size:12px;color:var(--soft-text)">${escapeHtml((r.company || '').slice(0, 28))}</td>
       <td title="${escapeAttr((r.holders || []).join(', '))}"><strong>${r.now}</strong><span class="muted" style="font-size:11px"> / ${consensusData.investor_count}</span></td>
-      <td class="hide-sm">${consensusSpark(r.series)}</td>
+      <td title="${escapeAttr((r.core_holders || []).join(', '))}">${hasCore ? `<strong>${r.core_now}</strong><span class="muted" style="font-size:11px"> / ${consensusData.core_count} · ${r.core_sum_pct}</span>` : '<span class="muted">—</span>'}</td>
+      <td class="hide-sm">${consensusSpark(basis === 'core' ? r.core_series : r.series)}</td>
       <td>${consensusDelta(r.d_q)}</td>
       <td>${consensusDelta(r.d_y)}</td>
       <td class="hide-sm">${r.avg_pct}%</td>
@@ -8316,6 +8494,7 @@ window.addEventListener('DOMContentLoaded', () => {
   loadFeed();
   loadUniverse();
   loadDossiers();
+  loadRoster();
   loadConsensusHistory();
   renderReentry();
   renderTargets();
