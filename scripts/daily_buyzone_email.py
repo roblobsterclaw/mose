@@ -20,7 +20,7 @@ without --build-only it now prints a notice and exits without sending.
 
 Original author: Hermes Agent for Joe Lynch (May 2026).
 """
-import json, os, sys, subprocess, tempfile, base64, datetime, urllib.request
+import json, os, sys, subprocess, tempfile, base64, datetime, urllib.request, smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
@@ -274,6 +274,48 @@ def build_only(out_dir):
     print(f"wrote: {out_dir}/report.html, report.txt, subject.txt{', report.pdf' if pdf_path else ' (no PDF — no browser found)'}")
     return 0
 
+def send_smtp(out_dir):
+    """Send the built report through Gmail SMTP using an App Password.
+
+    Runs in the GitHub Action. Needs GMAIL_USER and GMAIL_APP_PASSWORD in the
+    environment (repo secrets). HTML body, plain-text alternative, PDF attached.
+    Refuses to send if the build did not happen first.
+    """
+    user = os.environ.get("GMAIL_USER") or RECIPIENT
+    pw = os.environ.get("GMAIL_APP_PASSWORD")
+    if not pw:
+        print("ERROR: GMAIL_APP_PASSWORD is not set — nothing sent.")
+        return 2
+    try:
+        subject = open(os.path.join(out_dir, "subject.txt")).read().strip()
+        html = open(os.path.join(out_dir, "report.html")).read()
+        text = open(os.path.join(out_dir, "report.txt")).read()
+    except FileNotFoundError as e:
+        print(f"ERROR: build output missing ({e}) — run --build-only first. Nothing sent.")
+        return 2
+    msg = MIMEMultipart("mixed")
+    msg["From"] = user
+    msg["To"] = RECIPIENT
+    msg["Subject"] = subject
+    alt = MIMEMultipart("alternative")
+    alt.attach(MIMEText(text, "plain", "utf-8"))
+    alt.attach(MIMEText(html, "html", "utf-8"))
+    msg.attach(alt)
+    pdf_path = os.path.join(out_dir, "report.pdf")
+    if os.path.exists(pdf_path) and os.path.getsize(pdf_path) > 0:
+        part = MIMEBase("application", "pdf")
+        with open(pdf_path, "rb") as f:
+            part.set_payload(f.read())
+        encoders.encode_base64(part)
+        part.add_header("Content-Disposition", "attachment",
+                        filename=f"MOSE_BuyZone_{datetime.datetime.now().strftime('%Y-%m-%d')}.pdf")
+        msg.attach(part)
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=60) as smtp:
+        smtp.login(user, pw)
+        smtp.sendmail(user, [RECIPIENT], msg.as_string())
+    print(f"sent via Gmail SMTP: {subject}{' (+PDF)' if os.path.exists(pdf_path) else ''}")
+    return 0
+
 def generate_pdf(html_content, output_path):
     """Generate PDF from HTML using headless Chrome."""
     with tempfile.NamedTemporaryFile(suffix=".html", mode="w", delete=False) as f:
@@ -341,6 +383,10 @@ def main():
         i = sys.argv.index("--build-only")
         out_dir = sys.argv[i + 1] if len(sys.argv) > i + 1 else "/tmp/buyzone"
         return build_only(out_dir)
+    if "--send-smtp" in sys.argv:
+        i = sys.argv.index("--send-smtp")
+        out_dir = sys.argv[i + 1] if len(sys.argv) > i + 1 else "/tmp/buyzone"
+        return send_smtp(out_dir)
     # The Mac cron path is retired — sending now happens from the Routine.
     # Exiting here (rather than sending) means a reset clone turns the old
     # cron into a harmless no-op instead of a second copy of every email.

@@ -1,0 +1,40 @@
+name: Daily Buy Zone email
+
+# Builds the Buy Zone report from live quotes and emails it (HTML + PDF)
+# through Gmail SMTP with an App Password. Replaces the Mac mini cron, which
+# emailed six-week-old prices because its git pull failed silently.
+#
+# Secrets: GMAIL_APP_PASSWORD (required), GMAIL_USER (optional; defaults to
+# the recipient address in the script).
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 9:40 AM ET during daylight time. (13:40 UTC = 8:40 AM after the November
+    # clock change — bump to "40 14" then if the earlier hour matters.)
+    - cron: "40 13 * * 1-5"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: buyzone-email
+  cancel-in-progress: false
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Build the report (HTML, text, PDF)
+        run: python scripts/daily_buyzone_email.py --build-only /tmp/buyzone
+      - name: Send through Gmail SMTP
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+        run: python scripts/daily_buyzone_email.py --send-smtp /tmp/buyzone

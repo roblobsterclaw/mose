@@ -191,6 +191,13 @@ means three authorization swaps, or Joe entering the other two by hand.
   HTML+PDF via the Gmail connector held there) exists as a fallback; delete it once the
   notification email is confirmed arriving, or Joe gets two a day.
 - The old **"MSFT buy reminder"** Routine was disabled 14 Sep — Joe holds 26 MSFT shares.
+- **Joe wants HTML + PDF (14 Sep).** The notification channel is plain text only, so the
+  durable route is **`.github/workflows/daily-buyzone-email.yml`**: builds with
+  `--build-only`, sends with `--send-smtp` through Gmail SMTP (`smtp.gmail.com:465`)
+  using repo secrets **`GMAIL_APP_PASSWORD`** (required) and `GMAIL_USER` (optional).
+  Cron `40 13 * * 1-5`. Scheduled workflows run from the DEFAULT branch, so it needs a
+  deploy run to reach `gh-pages` before its first fire. Once the secret is in and one
+  run is green, disable the plain-text Routine and delete the session-bound bridge.
 - Quotes come over HTTPS from `raw.githubusercontent.com/.../main/live-quotes.json`; a
   snapshot older than 3 days stamps **⚠ STALE DATA** into the subject. Bucket list = the
   4-bucket taxonomy, Forever + Toll booths only (Dry powder and Other positions are not
