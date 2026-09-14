@@ -5,7 +5,8 @@
   "tier": 1,
   "source_type": "13F",
   "cik": "1067983",
-  "status": "approved"
+  "status": "approved",
+  "wing": "core"
  },
  {
   "name": "Seth Klarman",
@@ -13,7 +14,8 @@
   "tier": 1,
   "source_type": "13F",
   "cik": "1061768",
-  "status": "approved"
+  "status": "approved",
+  "wing": "core"
  },
  {
   "name": "David Abrams",
@@ -21,7 +23,8 @@
   "tier": 1,
   "source_type": "13F",
   "cik": "1358706",
-  "status": "approved"
+  "status": "approved",
+  "wing": "core"
  },
  {
   "name": "Michael Burry",
@@ -40,7 +43,8 @@
   "source_type": "13F",
   "cik": "1489933",
   "note": "Greenlight's adviser files as DME Capital Management (CIK 1489933); old CIK 1079114 stopped filing. Fixed 2026-09-07.",
-  "status": "approved"
+  "status": "approved",
+  "wing": "bench"
  },
  {
   "name": "Chris Hohn",
@@ -48,7 +52,8 @@
   "tier": 1,
   "source_type": "13F",
   "cik": "1647251",
-  "status": "approved"
+  "status": "approved",
+  "wing": "core"
  },
  {
   "name": "Chuck Akre",
@@ -56,7 +61,8 @@
   "tier": 1,
   "source_type": "13F",
   "cik": "1112520",
-  "status": "approved"
+  "status": "approved",
+  "wing": "core"
  },
  {
   "name": "Tom Gayner",
@@ -64,7 +70,8 @@
   "tier": 1,
   "source_type": "13F",
   "cik": "1096343",
-  "status": "approved"
+  "status": "approved",
+  "wing": "core"
  },
  {
   "name": "Glenn Greenberg",
@@ -72,7 +79,8 @@
   "tier": 2,
   "source_type": "13F",
   "cik": "1553733",
-  "status": "approved"
+  "status": "approved",
+  "wing": "bench"
  },
  {
   "name": "Joel Greenblatt",
@@ -81,7 +89,8 @@
   "source_type": "13F",
   "cik": "1510387",
   "note": "Gotham Asset Management LLC, CIK 1510387 (CRD 149335). Was 1446114 = Ancora Advisors LLC, a Cleveland RIA with 2,454 positions \u2014 a mis-map that polluted holdings/consensus/eligibility. Fixed 2026-09-07.",
-  "status": "approved"
+  "status": "approved",
+  "wing": "bench"
  },
  {
   "name": "Clifford Sosin",
@@ -89,7 +98,8 @@
   "tier": 2,
   "source_type": "13F",
   "cik": "1697591",
-  "status": "approved"
+  "status": "approved",
+  "wing": "core"
  },
  {
   "name": "Norbert Lou",
@@ -97,7 +107,8 @@
   "tier": 2,
   "source_type": "13F",
   "cik": "1631664",
-  "status": "approved"
+  "status": "approved",
+  "wing": "core"
  },
  {
   "name": "Mohnish Pabrai",
@@ -105,7 +116,8 @@
   "tier": 1,
   "source_type": "13F",
   "cik": "1549575",
-  "status": "approved"
+  "status": "approved",
+  "wing": "core"
  },
  {
   "name": "Li Lu",
@@ -113,7 +125,8 @@
   "tier": 1,
   "source_type": "13F",
   "cik": "1709323",
-  "status": "approved"
+  "status": "approved",
+  "wing": "core"
  },
  {
   "name": "Christopher Bloomstran",
@@ -121,7 +134,8 @@
   "tier": 2,
   "source_type": "13F",
   "cik": "1115373",
-  "status": "approved"
+  "status": "approved",
+  "wing": "core"
  },
  {
   "name": "Dev Kantesaria",
@@ -129,7 +143,8 @@
   "tier": 1,
   "source_type": "13F",
   "cik": "1697868",
-  "status": "approved"
+  "status": "approved",
+  "wing": "core"
  },
  {
   "name": "Tom Bancroft",
@@ -137,7 +152,9 @@
   "tier": 2,
   "source_type": "13F",
   "cik": "1540866",
-  "status": "approved"
+  "status": "dormant",
+  "wing": "core",
+  "note": "Marked dormant 2026-09-14: 13F book went to $0 in Q1-2026 and no Q2 filing; re-admit as Core when a real filing reappears."
  },
  {
   "name": "Gavin Baker",
@@ -145,8 +162,9 @@
   "tier": 2,
   "source_type": "13F",
   "cik": "1777813",
-  "note": "AI-buildout radar, not a value investor",
-  "status": "approved"
+  "note": "AI-buildout radar, not a value investor Pruned 2026-09-14 by Joe in the roster review.",
+  "status": "pruned",
+  "pruned_at": "2026-09-14"
  },
  {
   "name": "Leopold Aschenbrenner",
@@ -164,8 +182,9 @@
   "tier": 2,
   "source_type": "13F",
   "cik": "1541617",
-  "note": "AI/growth; not a value investor",
-  "status": "approved"
+  "note": "AI/growth; not a value investor Pruned 2026-09-14 by Joe in the roster review.",
+  "status": "pruned",
+  "pruned_at": "2026-09-14"
  },
  {
   "name": "Philippe Laffont",
@@ -173,8 +192,9 @@
   "tier": 2,
   "source_type": "13F",
   "cik": "1135730",
-  "note": "Tech growth (Tiger Cub); not a value investor",
-  "status": "approved"
+  "note": "Tech growth (Tiger Cub); not a value investor Pruned 2026-09-14 by Joe in the roster review.",
+  "status": "pruned",
+  "pruned_at": "2026-09-14"
  },
  {
   "name": "Cathie Wood",
@@ -192,8 +212,9 @@
   "tier": 2,
   "source_type": "13F",
   "cik": "1167483",
-  "note": "Large-cap tech + private growth (Tiger Cub); not a value investor",
-  "status": "approved"
+  "note": "Large-cap tech + private growth (Tiger Cub); not a value investor Pruned 2026-09-14 by Joe in the roster review.",
+  "status": "pruned",
+  "pruned_at": "2026-09-14"
  },
  {
   "name": "Dan Niles",
@@ -201,8 +222,9 @@
   "tier": 2,
   "source_type": "13F",
   "cik": "2016708",
-  "note": "Tech/semis trader; uses puts/hedges. Not a value investor",
-  "status": "approved"
+  "note": "Tech/semis trader; uses puts/hedges. Not a value investor Pruned 2026-09-14 by Joe in the roster review.",
+  "status": "pruned",
+  "pruned_at": "2026-09-14"
  },
  {
   "name": "Ole Andreas Halvorsen",
@@ -210,8 +232,9 @@
   "tier": 2,
   "source_type": "13F",
   "cik": "1103804",
-  "note": "Quality-growth long/short (Tiger Cub); not deep value",
-  "status": "approved"
+  "note": "Quality-growth long/short (Tiger Cub); not deep value Pruned 2026-09-14 by Joe in the roster review.",
+  "status": "pruned",
+  "pruned_at": "2026-09-14"
  },
  {
   "name": "Whale Rock",
@@ -229,7 +252,8 @@
   "tier": 1,
   "source_type": "13F",
   "cik": "1569205",
-  "status": "approved"
+  "status": "approved",
+  "wing": "core"
  },
  {
   "name": "Daniel Loeb",
@@ -237,7 +261,8 @@
   "tier": 1,
   "source_type": "13F",
   "cik": "1040273",
-  "status": "approved"
+  "status": "approved",
+  "wing": "core"
  },
  {
   "name": "Bill Ackman",
@@ -249,7 +274,8 @@
   "alt_ciks": [
    "1336528"
   ],
-  "status": "approved"
+  "status": "approved",
+  "wing": "core"
  },
  {
   "name": "WEDGEWOOD PARTNERS INC",
@@ -258,7 +284,8 @@
   "source_type": "13F",
   "cik": "859804",
   "status": "approved",
-  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 80, 22 positions, $0.5B)."
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 80, 22 positions, $0.5B).",
+  "wing": "core"
  },
  {
   "name": "ALLEN HOLDING INC /NY",
@@ -287,7 +314,8 @@
   "source_type": "13F",
   "cik": "1044924",
   "status": "approved",
-  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 81, 42 positions, $0.4B)."
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 81, 42 positions, $0.4B).",
+  "wing": "core"
  },
  {
   "name": "STEGINSKY CAPITAL LLC",
@@ -296,7 +324,8 @@
   "source_type": "13F",
   "cik": "1120048",
   "status": "approved",
-  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 100, 8 positions, $0.6B)."
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 100, 8 positions, $0.6B).",
+  "wing": "core"
  },
  {
   "name": "Barton Investment Management",
@@ -305,7 +334,8 @@
   "source_type": "13F",
   "cik": "1387818",
   "status": "approved",
-  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 82, 54 positions, $0.8B)."
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 82, 54 positions, $0.8B).",
+  "wing": "core"
  },
  {
   "name": "Greenbrier Partners Capital Management, LLC",
@@ -314,7 +344,8 @@
   "source_type": "13F",
   "cik": "1532262",
   "status": "approved",
-  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 100, 11 positions, $1.3B)."
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 100, 11 positions, $1.3B).",
+  "wing": "core"
  },
  {
   "name": "SPRUCE HOUSE INVESTMENT MANAGEMENT LLC",
@@ -323,7 +354,8 @@
   "source_type": "13F",
   "cik": "1543170",
   "status": "approved",
-  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 95, 11 positions, $2.8B)."
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 95, 11 positions, $2.8B).",
+  "wing": "core"
  },
  {
   "name": "Foxhaven Asset Management, LP",
@@ -331,8 +363,9 @@
   "tier": 1,
   "source_type": "13F",
   "cik": "1590531",
-  "status": "approved",
-  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 81, 14 positions, $3.2B)."
+  "status": "pruned",
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 81, 14 positions, $3.2B). Pruned 2026-09-14 by Joe in the roster review.",
+  "pruned_at": "2026-09-14"
  },
  {
   "name": "Strategy Capital LLC",
@@ -341,7 +374,8 @@
   "source_type": "13F",
   "cik": "1592413",
   "status": "approved",
-  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 96, 11 positions, $1.2B)."
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 96, 11 positions, $1.2B).",
+  "wing": "bench"
  },
  {
   "name": "Hikari Power Ltd",
@@ -360,7 +394,8 @@
   "source_type": "13F",
   "cik": "1619844",
   "status": "approved",
-  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 89, 18 positions, $3.1B)."
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 89, 18 positions, $3.1B).",
+  "wing": "core"
  },
  {
   "name": "Cryder Capital Partners LLP",
@@ -369,7 +404,8 @@
   "source_type": "13F",
   "cik": "1633969",
   "status": "approved",
-  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 100, 10 positions, $1.5B)."
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 100, 10 positions, $1.5B).",
+  "wing": "core"
  },
  {
   "name": "Manitou Investment Management Ltd.",
@@ -377,8 +413,9 @@
   "tier": 1,
   "source_type": "13F",
   "cik": "1657428",
-  "status": "approved",
-  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 83, 52 positions, $0.5B)."
+  "status": "pruned",
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 83, 52 positions, $0.5B). Pruned 2026-09-14 by Joe in the roster review.",
+  "pruned_at": "2026-09-14"
  },
  {
   "name": "Gobi Capital LLC",
@@ -387,7 +424,8 @@
   "source_type": "13F",
   "cik": "1698060",
   "status": "approved",
-  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 95, 10 positions, $1.7B)."
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 95, 10 positions, $1.7B).",
+  "wing": "bench"
  },
  {
   "name": "Milestone Resources Group Ltd",
@@ -406,7 +444,8 @@
   "source_type": "13F",
   "cik": "1731134",
   "status": "approved",
-  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 80, 23 positions, $0.8B)."
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 80, 23 positions, $0.8B).",
+  "wing": "core"
  },
  {
   "name": "GREENLEA LANE CAPITAL MANAGEMENT, LLC",
@@ -415,7 +454,8 @@
   "source_type": "13F",
   "cik": "1766504",
   "status": "approved",
-  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 93, 9 positions, $0.3B)."
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 93, 9 positions, $0.3B).",
+  "wing": "core"
  },
  {
   "name": "Nellore Capital Management LLC",
@@ -424,7 +464,8 @@
   "source_type": "13F",
   "cik": "1846677",
   "status": "approved",
-  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 85, 11 positions, $0.8B)."
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 85, 11 positions, $0.8B).",
+  "wing": "core"
  },
  {
   "name": "Gavilan Investment Partners LLC",
@@ -433,7 +474,8 @@
   "source_type": "13F",
   "cik": "1963404",
   "status": "approved",
-  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 93, 14 positions, $0.4B)."
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 93, 14 positions, $0.4B).",
+  "wing": "core"
  },
  {
   "name": "JIA INVESTMENT ALLIANCE PTE. LTD.",
@@ -441,7 +483,987 @@
   "tier": 1,
   "source_type": "13F",
   "cik": "1966595",
+  "status": "pruned",
+  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 85, 24 positions, $1.0B). Pruned 2026-09-14 by Joe in the roster review.",
+  "pruned_at": "2026-09-14"
+ },
+ {
+  "name": "ALTAROCK PARTNERS LP",
+  "fund": "ALTAROCK PARTNERS LP",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1631014",
   "status": "approved",
-  "note": "Approved in MOSE Universe tab 2026-09-07 (fit 85, 24 positions, $1.0B)."
+  "wing": "core",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 100, 8 positions, $4.1B)."
+ },
+ {
+  "name": "Lindsell Train Ltd",
+  "fund": "Lindsell Train Ltd",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1484150",
+  "status": "approved",
+  "wing": "core",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 95, 27 positions, $3.1B)."
+ },
+ {
+  "name": "Metropolis Capital Ltd",
+  "fund": "Metropolis Capital Ltd",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1765388",
+  "status": "approved",
+  "wing": "core",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 92, 16 positions, $3.0B)."
+ },
+ {
+  "name": "MARSHFIELD ASSOCIATES",
+  "fund": "MARSHFIELD ASSOCIATES",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "914976",
+  "status": "approved",
+  "wing": "core",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 91, 17 positions, $5.0B)."
+ },
+ {
+  "name": "GUARDCAP ASSET MANAGEMENT Ltd",
+  "fund": "GUARDCAP ASSET MANAGEMENT Ltd",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1732008",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 91, 27 positions, $1.7B)."
+ },
+ {
+  "name": "Camrose Capital Investment Partners LLP",
+  "fund": "Camrose Capital Investment Partners LLP",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "2040608",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 91, 10 positions, $0.8B)."
+ },
+ {
+  "name": "PARK PRESIDIO CAPITAL LLC",
+  "fund": "PARK PRESIDIO CAPITAL LLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1596510",
+  "status": "approved",
+  "wing": "core",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 91, 13 positions, $1.4B)."
+ },
+ {
+  "name": "MCDONALD CAPITAL INVESTORS INC/CA",
+  "fund": "MCDONALD CAPITAL INVESTORS INC/CA",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1033225",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 90, 21 positions, $1.5B)."
+ },
+ {
+  "name": "RV Capital AG",
+  "fund": "RV Capital AG",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1766596",
+  "status": "approved",
+  "wing": "core",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 90, 13 positions, $0.4B)."
+ },
+ {
+  "name": "Troy Asset Management Ltd",
+  "fund": "Troy Asset Management Ltd",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1601407",
+  "status": "approved",
+  "wing": "core",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 89, 30 positions, $3.4B)."
+ },
+ {
+  "name": "Broad Run Investment Management, LLC",
+  "fund": "Broad Run Investment Management, LLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1568621",
+  "status": "approved",
+  "wing": "core",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 88, 24 positions, $0.6B)."
+ },
+ {
+  "name": "WINDACRE PARTNERSHIP LLC",
+  "fund": "WINDACRE PARTNERSHIP LLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1599383",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 93, 11 positions, $9.3B)."
+ },
+ {
+  "name": "BLS CAPITAL FONDSMAEGLERSELSKAB A/S",
+  "fund": "BLS CAPITAL FONDSMAEGLERSELSKAB A/S",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1670104",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 93, 11 positions, $2.9B)."
+ },
+ {
+  "name": "Heard Capital LLC",
+  "fund": "Heard Capital LLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1796409",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 94, 21 positions, $1.9B)."
+ },
+ {
+  "name": "LFL Advisers, LLC",
+  "fund": "LFL Advisers, LLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1694127",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 96, 9 positions, $0.3B)."
+ },
+ {
+  "name": "Global Frontier Investments LLC",
+  "fund": "Global Frontier Investments LLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1821219",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 92, 23 positions, $0.4B)."
+ },
+ {
+  "name": "Focused Investors LLC",
+  "fund": "Focused Investors LLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1426398",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 81, 22 positions, $3.1B)."
+ },
+ {
+  "name": "Seilern Investment Management Ltd",
+  "fund": "Seilern Investment Management Ltd",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1817797",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 82, 24 positions, $0.8B)."
+ },
+ {
+  "name": "PineStone Asset Management Inc.",
+  "fund": "PineStone Asset Management Inc.",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1904893",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 78, 44 positions, $14.2B)."
+ },
+ {
+  "name": "MFF Capital Investments Ltd",
+  "fund": "MFF Capital Investments Ltd",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "2104888",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 78, 19 positions, $1.5B)."
+ },
+ {
+  "name": "TIMUCUAN ASSET MANAGEMENT INC/FL",
+  "fund": "TIMUCUAN ASSET MANAGEMENT INC/FL",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1034541",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 76, 28 positions, $2.7B)."
+ },
+ {
+  "name": "Maj Invest Holding A/S",
+  "fund": "Maj Invest Holding A/S",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1730525",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 76, 38 positions, $2.3B)."
+ },
+ {
+  "name": "Vulcan Value Partners, LLC",
+  "fund": "Vulcan Value Partners, LLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1556785",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 71, 33 positions, $3.8B)."
+ },
+ {
+  "name": "Dorsey Asset Management, LLC",
+  "fund": "Dorsey Asset Management, LLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1671657",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 70, 11 positions, $1.3B)."
+ },
+ {
+  "name": "Ruane, Cunniff & Goldfarb L.P.",
+  "fund": "Ruane, Cunniff & Goldfarb L.P.",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1720792",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 69, 50 positions, $6.0B)."
+ },
+ {
+  "name": "WEITZ INVESTMENT MANAGEMENT, INC.",
+  "fund": "WEITZ INVESTMENT MANAGEMENT, INC.",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "883965",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 65, 49 positions, $1.4B)."
+ },
+ {
+  "name": "EAGLE CAPITAL MANAGEMENT LLC",
+  "fund": "EAGLE CAPITAL MANAGEMENT LLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "945631",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 64, 60 positions, $29.8B)."
+ },
+ {
+  "name": "Independent Franchise Partners LLP",
+  "fund": "Independent Franchise Partners LLP",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1483866",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 62, 26 positions, $14.3B)."
+ },
+ {
+  "name": "EdgePoint Investment Group Inc.",
+  "fund": "EdgePoint Investment Group Inc.",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1481669",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 62, 37 positions, $12.5B)."
+ },
+ {
+  "name": "Giverny Capital Inc.",
+  "fund": "Giverny Capital Inc.",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1641864",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 61, 51 positions, $2.7B)."
+ },
+ {
+  "name": "Smead Capital Management, Inc.",
+  "fund": "Smead Capital Management, Inc.",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1427008",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 58, 32 positions, $4.6B)."
+ },
+ {
+  "name": "GREENHAVEN ASSOCIATES INC",
+  "fund": "GREENHAVEN ASSOCIATES INC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "846222",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 54, 27 positions, $6.1B)."
+ },
+ {
+  "name": "BLACKHILL CAPITAL INC",
+  "fund": "BLACKHILL CAPITAL INC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "872162",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 54, 49 positions, $1.9B)."
+ },
+ {
+  "name": "LYRICAL ASSET MANAGEMENT LP",
+  "fund": "LYRICAL ASSET MANAGEMENT LP",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1542302",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 52, 39 positions, $6.6B)."
+ },
+ {
+  "name": "KAHN BROTHERS GROUP INC",
+  "fund": "KAHN BROTHERS GROUP INC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1039565",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 47, 48 positions, $0.6B)."
+ },
+ {
+  "name": "FAIRFAX FINANCIAL HOLDINGS LTD/ CAN",
+  "fund": "FAIRFAX FINANCIAL HOLDINGS LTD/ CAN",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "915191",
+  "status": "approved",
+  "wing": "core",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 41, 29 positions, $1.9B)."
+ },
+ {
+  "name": "Oldfield Partners LLP",
+  "fund": "Oldfield Partners LLP",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1492815",
+  "status": "approved",
+  "wing": "core",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 63, 18 positions, $0.4B)."
+ },
+ {
+  "name": "Kiltearn Partners LLP",
+  "fund": "Kiltearn Partners LLP",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1582633",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 57, 25 positions, $0.4B)."
+ },
+ {
+  "name": "YCG, LLC",
+  "fund": "YCG, LLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1584801",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 66, 42 positions, $1.1B)."
+ },
+ {
+  "name": "AKO CAPITAL LLP",
+  "fund": "AKO CAPITAL LLP",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1376879",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 75, 27 positions, $5.1B)."
+ },
+ {
+  "name": "Trinity Street Asset Management LLP",
+  "fund": "Trinity Street Asset Management LLP",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1592579",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 70, 22 positions, $1.5B)."
+ },
+ {
+  "name": "Saratoga Research & Investment Management",
+  "fund": "Saratoga Research & Investment Management",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1477872",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 74, 46 positions, $1.8B)."
+ },
+ {
+  "name": "BRUNI J V & CO /CO",
+  "fund": "BRUNI J V & CO /CO",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1078841",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 48, 31 positions, $1.0B)."
+ },
+ {
+  "name": "Consulta Ltd",
+  "fund": "Consulta Ltd",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1510677",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 71, 13 positions, $2.0B)."
+ },
+ {
+  "name": "Prescott General Partners LLC",
+  "fund": "Prescott General Partners LLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1538653",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 48, 10 positions, $1.4B)."
+ },
+ {
+  "name": "Aquamarine Financial (Cayman) Ltd",
+  "fund": "Aquamarine Financial (Cayman) Ltd",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "2104187",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 31, 17 positions, $1.4B)."
+ },
+ {
+  "name": "Chou Associates Management Inc.",
+  "fund": "Chou Associates Management Inc.",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1389403",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 65, 31 positions, $0.2B)."
+ },
+ {
+  "name": "GARDNER RUSSO & QUINN LLC",
+  "fund": "GARDNER RUSSO & QUINN LLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "860643",
+  "status": "approved",
+  "wing": "core",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 74, 86 positions, $8.5B)."
+ },
+ {
+  "name": "Cantillon Capital Management LLC",
+  "fund": "Cantillon Capital Management LLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1279936",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 70, 38 positions, $15.1B)."
+ },
+ {
+  "name": "Tweedy, Browne Co LLC",
+  "fund": "Tweedy, Browne Co LLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "732905",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 50, 93 positions, $1.3B)."
+ },
+ {
+  "name": "FAIRHOLME CAPITAL MANAGEMENT LLC",
+  "fund": "FAIRHOLME CAPITAL MANAGEMENT LLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1056831",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 48, 10 positions, $1.5B)."
+ },
+ {
+  "name": "SOUTHEASTERN ASSET MANAGEMENT INC/TN/",
+  "fund": "SOUTHEASTERN ASSET MANAGEMENT INC/TN/",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "807985",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 36, 49 positions, $2.0B)."
+ },
+ {
+  "name": "THIRD AVENUE MANAGEMENT LLC",
+  "fund": "THIRD AVENUE MANAGEMENT LLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1099281",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 36, 53 positions, $0.6B)."
+ },
+ {
+  "name": "TURTLE CREEK ASSET MANAGEMENT INC.",
+  "fund": "TURTLE CREEK ASSET MANAGEMENT INC.",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1484148",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 34, 40 positions, $3.9B)."
+ },
+ {
+  "name": "Miller Value Partners, LLC",
+  "fund": "Miller Value Partners, LLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1135778",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 29, 55 positions, $0.4B)."
+ },
+ {
+  "name": "ROBOTTI ROBERT",
+  "fund": "ROBOTTI ROBERT",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1105838",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 39, 59 positions, $0.6B)."
+ },
+ {
+  "name": "MUHLENKAMP & CO INC",
+  "fund": "MUHLENKAMP & CO INC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1133219",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 54, 29 positions, $0.4B)."
+ },
+ {
+  "name": "SOUTHERNSUN ASSET MANAGEMENT, LLC",
+  "fund": "SOUTHERNSUN ASSET MANAGEMENT, LLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1089755",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 37, 31 positions, $0.7B)."
+ },
+ {
+  "name": "COOPERMAN LEON G",
+  "fund": "COOPERMAN LEON G",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "898382",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 68, 41 positions, $3.0B)."
+ },
+ {
+  "name": "APPALOOSA LP",
+  "fund": "APPALOOSA LP",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1656456",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 68, 31 positions, $5.9B)."
+ },
+ {
+  "name": "TRIAN FUND MANAGEMENT, L.P.",
+  "fund": "TRIAN FUND MANAGEMENT, L.P.",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1345471",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 66, 8 positions, $3.9B)."
+ },
+ {
+  "name": "Corvex Management LP",
+  "fund": "Corvex Management LP",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1535472",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 70, 25 positions, $2.5B)."
+ },
+ {
+  "name": "JANA Partners Management, LP",
+  "fund": "JANA Partners Management, LP",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1998597",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 44, 10 positions, $1.6B)."
+ },
+ {
+  "name": "Starboard Value LP",
+  "fund": "Starboard Value LP",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1517137",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 36, 23 positions, $4.6B)."
+ },
+ {
+  "name": "ValueAct Holdings, L.P.",
+  "fund": "ValueAct Holdings, L.P.",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1418814",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 61, 18 positions, $5.7B)."
+ },
+ {
+  "name": "KENSICO CAPITAL MANAGEMENT CORP",
+  "fund": "KENSICO CAPITAL MANAGEMENT CORP",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1113000",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 71, 20 positions, $4.9B)."
+ },
+ {
+  "name": "Soroban Capital Partners LP",
+  "fund": "Soroban Capital Partners LP",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1517857",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 64, 27 positions, $14.0B)."
+ },
+ {
+  "name": "GENERATION INVESTMENT MANAGEMENT LLP",
+  "fund": "GENERATION INVESTMENT MANAGEMENT LLP",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1375534",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 73, 29 positions, $11.2B)."
+ },
+ {
+  "name": "COMGEST GLOBAL INVESTORS S.A.S.",
+  "fund": "COMGEST GLOBAL INVESTORS S.A.S.",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1574947",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 67, 52 positions, $4.6B)."
+ },
+ {
+  "name": "Veritas Asset Management LLP",
+  "fund": "Veritas Asset Management LLP",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1541448",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 75, 21 positions, $5.9B)."
+ },
+ {
+  "name": "SPRUCEGROVE INVESTMENT MANAGEMENT LTD",
+  "fund": "SPRUCEGROVE INVESTMENT MANAGEMENT LTD",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1234074",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 44, 42 positions, $0.6B)."
+ },
+ {
+  "name": "SCHWERIN BOYLE CAPITAL MANAGEMENT INC",
+  "fund": "SCHWERIN BOYLE CAPITAL MANAGEMENT INC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "937522",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 66, 47 positions, $0.8B)."
+ },
+ {
+  "name": "OAKTOP CAPITAL MANAGEMENT II, L.P.",
+  "fund": "OAKTOP CAPITAL MANAGEMENT II, L.P.",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1550660",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 98, 14 positions, $1.3B)."
+ },
+ {
+  "name": "Stockbridge Partners LLC",
+  "fund": "Stockbridge Partners LLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1505183",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 75, 16 positions, $4.1B)."
+ },
+ {
+  "name": "CALEDONIA INVESTMENTS PLC",
+  "fund": "CALEDONIA INVESTMENTS PLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1037766",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 95, 15 positions, $0.9B)."
+ },
+ {
+  "name": "Kopernik Global Investors, LLC",
+  "fund": "Kopernik Global Investors, LLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1599814",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 36, 27 positions, $1.4B)."
+ },
+ {
+  "name": "Holowesko Partners Ltd.",
+  "fund": "Holowesko Partners Ltd.",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1428569",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 53, 31 positions, $0.4B)."
+ },
+ {
+  "name": "JENSEN INVESTMENT MANAGEMENT INC",
+  "fund": "JENSEN INVESTMENT MANAGEMENT INC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1106129",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 67, 84 positions, $5.1B)."
+ },
+ {
+  "name": "Findlay Park Partners LLP",
+  "fund": "Findlay Park Partners LLP",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1351950",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 54, 56 positions, $7.2B)."
+ },
+ {
+  "name": "OAKMONT Corp",
+  "fund": "OAKMONT Corp",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "924171",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 89, 31 positions, $0.5B)."
+ },
+ {
+  "name": "Night Owl Capital Management, LLC",
+  "fund": "Night Owl Capital Management, LLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1410833",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 75, 30 positions, $0.9B)."
+ },
+ {
+  "name": "CAT ROCK CAPITAL MANAGEMENT LP",
+  "fund": "CAT ROCK CAPITAL MANAGEMENT LP",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1654648",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 89, 14 positions, $0.6B)."
+ },
+ {
+  "name": "Linonia Partnership LP",
+  "fund": "Linonia Partnership LP",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1985479",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 64, 14 positions, $5.4B)."
+ },
+ {
+  "name": "L1 Capital International Pty Ltd",
+  "fund": "L1 Capital International Pty Ltd",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "2009023",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 80, 23 positions, $1.7B)."
+ },
+ {
+  "name": "Intermede Investment Partners Ltd",
+  "fund": "Intermede Investment Partners Ltd",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1664713",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 61, 28 positions, $2.2B)."
+ },
+ {
+  "name": "REIK & CO., LLC",
+  "fund": "REIK & CO., LLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1388028",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 80, 56 positions, $0.4B)."
+ },
+ {
+  "name": "ACR Alpine Capital Research, LLC",
+  "fund": "ACR Alpine Capital Research, LLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1508822",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 68, 36 positions, $6.7B)."
+ },
+ {
+  "name": "ALTRINSIC GLOBAL ADVISORS LLC",
+  "fund": "ALTRINSIC GLOBAL ADVISORS LLC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1167388",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 64, 43 positions, $2.8B)."
+ },
+ {
+  "name": "NEW SOUTH CAPITAL MANAGEMENT INC",
+  "fund": "NEW SOUTH CAPITAL MANAGEMENT INC",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1044797",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-14",
+  "note": "Added 2026-09-14 in Joe's roster review (fit 46, 51 positions, $2.1B)."
  }
 ]
