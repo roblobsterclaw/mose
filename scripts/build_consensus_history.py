@@ -63,6 +63,11 @@ OUT = ROOT / "consensus-history.json"
 SHARE_CLASS = {"BRK-A": "BRK.B", "BRK-B": "BRK.B", "GOOG": "GOOGL",
                "UHAL-B": "UHAL", "LEN-B": "LEN", "HEI-A": "HEI"}
 VOTING = {"active", "approved", ""}
+# Joe's call, 14 Sep 2026: one filer's stake in a name counts for at most 25
+# points of conviction, so a single all-in book (Sosin's Carvana) cannot buy a
+# seat by itself. The ranking shows the top 25 with a line after 15.
+CAP_PCT = 25.0
+TOP_N = 25
 # The Buy-tab list (Forever + Toll booths). Kept here so "not on my list" is
 # computed, not hand-maintained.
 BUY_LIST = ["GOOGL", "AMZN", "META", "MSFT", "AAPL", "BRK.B", "NFLX", "TSM", "NVDA",
@@ -103,7 +108,7 @@ def main() -> None:
                 company.setdefault(t, h.get("company") or "")
             if q == latest:
                 for t, p in agg.items():
-                    pct[t][inv["name"]] = round(p, 2)
+                    pct[t][inv["name"]] = round(min(p, CAP_PCT), 2)
                 prev = by_q.get(prior)
                 if prev:
                     psh = collections.defaultdict(float)
@@ -141,7 +146,7 @@ def main() -> None:
             "holders": now,
             "added": sorted(set(now) - pr), "dropped": sorted(pr - set(now)),
             "sum_pct": round(sum(pct.get(t, {}).values()), 1),
-            "avg_pct": round(sum(pct.get(t, {}).values()) / len(now), 2) if now else 0,
+            "avg_pct": round(sum(pct.get(t, {}).values()) / len(now), 2) if now else 0,  # capped at CAP_PCT per filer
             "adding": moves[t]["adding"], "trimming": moves[t]["trimming"],
             "first_seen": seen[0] if seen else None,
             "in_buy_list": t in BUY_LIST,
@@ -166,14 +171,15 @@ def main() -> None:
         r["core_rank"] = i + 1
     for i, r in enumerate(all_rank):
         r["all_rank"] = i + 1
-    core_15 = [r["ticker"] for r in core_rank[:15]]
-    all_15 = [r["ticker"] for r in all_rank[:15]]
-    agree = [t for t in core_15 if t in all_15]
+    core_top = [r["ticker"] for r in core_rank[:TOP_N]]
+    all_top = [r["ticker"] for r in all_rank[:TOP_N]]
+    core_15, all_15 = core_top[:15], all_top[:15]
+    agree = [t for t in core_top if t in all_top]
     # Bench watch: the bench is piling in (4+ bench holders, gaining over the
     # year) and the core has not caught up. Idea rail, never a buy signal.
     bench_watch = [r["ticker"] for r in sorted(
         [r for r in rows if r["bench_now"] >= 4 and r["d_y"] >= 2 and r["core_now"] <= 2
-         and r["ticker"] not in core_15],
+         and r["ticker"] not in core_top],
         key=lambda r: (-r["d_y"], -r["bench_now"]))[:12]]
     OUT.write_text(json.dumps({
         "schema_version": 2,
@@ -186,12 +192,14 @@ def main() -> None:
         "investors": sorted(i["name"] for i in voting),
         "core_investors": sorted(core_names),
         "buy_list": BUY_LIST,
-        "core_15": core_15, "all_15": all_15, "agree": agree, "bench_watch": bench_watch,
+        "core_15": core_15, "all_15": all_15,
+        "top_n": TOP_N, "cap_pct": CAP_PCT,
+        "core_top": core_top, "all_top": all_top, "agree": agree, "bench_watch": bench_watch,
         "rows": rows,
     }, indent=1))
     print(f"core {len(core_names)} / bench {len(voting) - len(core_names)}")
-    print("CORE 15:", " ".join(core_15))
-    print("ALL  15:", " ".join(all_15))
+    print(f"CORE {TOP_N}:", " ".join(core_top))
+    print(f"ALL  {TOP_N}:", " ".join(all_top))
     print("agree:", len(agree), "| bench watch:", " ".join(bench_watch))
     rising = [r for r in rows if not r["in_buy_list"] and r["now"] >= 4 and r["d_y"] >= 2]
     falling = [r for r in rows if r["yr_ago"] >= 4 and r["d_y"] <= -2]

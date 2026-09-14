@@ -2124,7 +2124,7 @@ async function checkPw(){
 // compare the build stamp, and offer a genuine reload when they differ.
 // Bump APP_BUILD whenever index.html changes.
 // ============================================================
-const APP_BUILD = '2026-09-14a';
+const APP_BUILD = '2026-09-14b';
 
 async function checkForAppUpdate(announce) {
   try {
@@ -4230,21 +4230,23 @@ function renderConsensusCore() {
   const el = document.getElementById('consensus-core');
   if (!el || !consensusData || !(consensusData.core_15 || []).length) { if (el) el.innerHTML = ''; return; }
   const D = consensusData, rows = D.rows || [];
+  const coreTop = D.core_top || D.core_15, allTop = D.all_top || D.all_15, N = coreTop.length;
+  const divider = i => i === 14 ? 'border-bottom:2px solid var(--accent)' : '';
   const byT = {}; rows.forEach(r => { byT[r.ticker] = r; });
   const buy = D.buy_list || [];
   const ownedUsd = consensusOwnedDollars();
   const tick = t => `<span class="ticker" style="cursor:pointer" onclick="document.getElementById('consensus-search').value='${t}';renderConsensus()">${escapeHtml(t)}</span>`;
   // Block 1
-  const core15 = D.core_15.map((t, i) => {
+  const core15 = coreTop.map((t, i) => {
     const r = byT[t] || {};
     const onList = buy.includes(t);
-    return `<tr><td class="mono muted">${i + 1}</td><td>${tick(t)}</td>
+    return `<tr style="${divider(i)}"><td class="mono muted">${i + 1}</td><td>${tick(t)}</td>
       <td title="${escapeAttr((r.core_holders || []).join(', '))}">${r.core_now || 0}<span class="muted" style="font-size:11px">/${D.core_count}</span></td>
       <td class="hide-sm">${r.core_avg_pct || 0}%</td>
       <td>${onList ? '<span class="elig-chip ok">✓ on list</span>' : '<span class="elig-chip warn">not on list</span>'}</td>
       <td style="text-align:right">${consUsd(ownedUsd[t])}</td></tr>`;
   }).join('');
-  const missing = buy.filter(t => !D.core_15.includes(t)).map(t => {
+  const missing = buy.filter(t => !coreTop.includes(t)).map(t => {
     const r = byT[t] || {};
     return `${tick(t)} <span class="muted" style="font-size:11px">core #${r.core_rank || '—'} · ${r.core_now || 0} holders</span>`;
   });
@@ -4253,21 +4255,21 @@ function renderConsensusCore() {
   const ups = moved.filter(r => r.core_d_q > 0).slice(0, 10), downs = moved.filter(r => r.core_d_q < 0).slice(0, 10);
   const mv = (r, cls) => `<span class="elig-chip ${cls}" title="${escapeAttr(cls === 'ok' ? 'added: ' + (r.core_added || []).join(', ') : 'dropped: ' + (r.core_dropped || []).join(', '))}"><strong>${escapeHtml(r.ticker)}</strong> ${r.core_prior}→${r.core_now}</span>`;
   // Block 3 — core vs all-in
-  const onlyAll = D.all_15.filter(t => !D.core_15.includes(t));
-  const onlyCore = D.core_15.filter(t => !D.all_15.includes(t));
-  const side = (list, other) => list.map((t, i) => `<div style="display:flex;gap:6px;align-items:center;font-size:12px"><span class="mono muted" style="width:18px">${i + 1}</span>${tick(t)}${other.includes(t) ? '' : ' <span class="muted" style="font-size:10px">only here</span>'}</div>`).join('');
+  const onlyAll = allTop.filter(t => !coreTop.includes(t));
+  const onlyCore = coreTop.filter(t => !allTop.includes(t));
+  const side = (list, other) => list.map((t, i) => `<div style="display:flex;gap:6px;align-items:center;font-size:12px;${divider(i)}"><span class="mono muted" style="width:18px">${i + 1}</span>${tick(t)}${other.includes(t) ? '' : ' <span class="muted" style="font-size:10px">only here</span>'}</div>`).join('');
   // Block 4 — bench watch
   const bench = (D.bench_watch || []).map(t => { const r = byT[t] || {}; return `<span class="elig-chip" title="${escapeAttr((r.holders || []).join(', '))}"><strong>${escapeHtml(t)}</strong> bench ${r.bench_now || 0} · core ${r.core_now || 0} · ${r.d_y > 0 ? '+' : ''}${r.d_y || 0} yr</span>`; });
   const box = (title, body, sub) => `<div class="stat-card" style="text-align:left;padding:12px 14px;min-width:0"><div style="font-weight:800;margin-bottom:6px">${title}</div>${sub ? `<div class="muted" style="font-size:11px;margin-bottom:8px">${sub}</div>` : ''}${body}</div>`;
-  el.innerHTML = `<div class="guardrail" style="margin-bottom:10px;border-color:var(--accent)">🏛 <strong>Core check</strong> — ${D.core_count} core voters set the list, ${D.bench_count} bench voters watch. Conviction = holders × avg % of book. Filings as of ${escapeHtml(D.latest || '')}.</div>
+  el.innerHTML = `<div class="guardrail" style="margin-bottom:10px;border-color:var(--accent)">🏛 <strong>Core check</strong> — ${D.core_count} core voters set the list, ${D.bench_count} bench voters watch. Conviction = holders × avg % of book, any one filer capped at ${D.cap_pct || 25} points. Top ${N} shown, line after 15. Filings as of ${escapeHtml(D.latest || '')}.</div>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:10px;margin-bottom:12px">
-    ${box('1 · Core 15 vs my buy list', `<div class="table-wrap"><table style="font-size:12px"><thead><tr><th>#</th><th>Ticker</th><th>Core</th><th class="hide-sm">Avg %</th><th>My list</th><th style="text-align:right">I own</th></tr></thead><tbody>${core15}</tbody></table></div>
-      ${missing.length ? `<div style="font-size:12px;margin-top:8px"><strong>On my list, not in the Core 15:</strong><br>${missing.join('<br>')}</div>` : '<div class="muted" style="font-size:12px;margin-top:8px">Every name on my list is in the Core 15.</div>'}`,
+    ${box(`1 · Core ${N} vs my buy list`, `<div class="table-wrap"><table style="font-size:12px"><thead><tr><th>#</th><th>Ticker</th><th>Core</th><th class="hide-sm">Avg %</th><th>My list</th><th style="text-align:right">I own</th></tr></thead><tbody>${core15}</tbody></table></div>
+      ${missing.length ? `<div style="font-size:12px;margin-top:8px"><strong>On my list, not in the Core ${N}:</strong><br>${missing.join('<br>')}</div>` : `<div class="muted" style="font-size:12px;margin-top:8px">Every name on my list is in the Core ${N}.</div>`}`,
       'Ranked by core conviction. "I own" is across all four IBKR accounts.')}
     ${box('2 · What the core moved this quarter', `${ups.length ? `<div style="margin-bottom:6px"><span style="color:var(--green);font-weight:800">Gained core holders</span><br>${ups.map(r => mv(r, 'ok')).join(' ')}</div>` : ''}${downs.length ? `<div><span style="color:var(--red);font-weight:800">Lost core holders</span><br>${downs.map(r => mv(r, 'warn')).join(' ')}</div>` : ''}${!ups.length && !downs.length ? '<span class="muted">No core holder-count changes vs last quarter.</span>' : ''}`,
       `${escapeHtml(D.prior || '')} → ${escapeHtml(D.latest || '')}. Hover a chip for who.`)}
-    ${box('3 · Core 15 vs All-in 15', `<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><div><div style="font-size:11px;font-weight:800;margin-bottom:4px">🏛 Core (${D.core_count})</div>${side(D.core_15, D.all_15)}</div><div><div style="font-size:11px;font-weight:800;margin-bottom:4px">👥 All-in (${D.investor_count})</div>${side(D.all_15, D.core_15)}</div></div>`,
-      `${(D.agree || []).length} of 15 agree. Only-Core: ${onlyCore.join(', ') || 'none'} · Only-All-in: ${onlyAll.join(', ') || 'none'}.`)}
+    ${box(`3 · Core ${N} vs All-in ${N}`, `<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><div><div style="font-size:11px;font-weight:800;margin-bottom:4px">🏛 Core (${D.core_count})</div>${side(coreTop, allTop)}</div><div><div style="font-size:11px;font-weight:800;margin-bottom:4px">👥 All-in (${D.investor_count})</div>${side(allTop, coreTop)}</div></div>`,
+      `${(D.agree || []).length} of ${N} agree. Only-Core: ${onlyCore.join(', ') || 'none'} · Only-All-in: ${onlyAll.join(', ') || 'none'}.`)}
     ${box('4 · Bench watch', bench.length ? bench.join(' ') : '<span class="muted">Nothing the bench is piling into that the core lacks.</span>',
       'Bench holders ≥4, gaining over the year, core ≤2. Ideas to research — never a buy signal.')}
   </div>`;

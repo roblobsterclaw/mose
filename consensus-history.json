@@ -1,6 +1,6 @@
 {
  "schema_version": 2,
- "generated_at": "2026-09-14T18:57:09.983414+00:00",
+ "generated_at": "2026-09-14T21:05:28.073501+00:00",
  "source": "data/sec-13f-filings.json, voting filers only, share classes folded",
  "quarters": [
   "2024-Q1",
@@ -209,11 +209,11 @@
   "GOOGL",
   "AMZN",
   "BRK.B",
-  "CVNA",
   "MA",
   "V",
   "META",
   "MSFT",
+  "CVNA",
   "AAPL",
   "BN",
   "MCO",
@@ -225,33 +225,95 @@
  "all_15": [
   "GOOGL",
   "AMZN",
-  "BRK.B",
   "MSFT",
+  "BRK.B",
   "MA",
   "V",
   "META",
   "TSM",
-  "CVNA",
   "SPGI",
-  "TDG",
   "AAPL",
+  "TDG",
   "MCO",
   "AXP",
-  "WSM"
+  "UNH",
+  "NVDA"
+ ],
+ "top_n": 25,
+ "cap_pct": 25.0,
+ "core_top": [
+  "GOOGL",
+  "AMZN",
+  "BRK.B",
+  "MA",
+  "V",
+  "META",
+  "MSFT",
+  "CVNA",
+  "AAPL",
+  "BN",
+  "MCO",
+  "ASML",
+  "SPGI",
+  "TSM",
+  "FICO",
+  "APP",
+  "DIS",
+  "NFLX",
+  "MKL",
+  "COST",
+  "UBER",
+  "CB",
+  "BKNG",
+  "SUNB",
+  "SHOP"
+ ],
+ "all_top": [
+  "GOOGL",
+  "AMZN",
+  "MSFT",
+  "BRK.B",
+  "MA",
+  "V",
+  "META",
+  "TSM",
+  "SPGI",
+  "AAPL",
+  "TDG",
+  "MCO",
+  "AXP",
+  "UNH",
+  "NVDA",
+  "CVNA",
+  "BN",
+  "FICO",
+  "AON",
+  "PGR",
+  "DIS",
+  "APP",
+  "MELI",
+  "NFLX",
+  "ASML"
  ],
  "agree": [
   "GOOGL",
   "AMZN",
   "BRK.B",
-  "CVNA",
   "MA",
   "V",
   "META",
   "MSFT",
+  "CVNA",
   "AAPL",
+  "BN",
   "MCO",
+  "ASML",
   "SPGI",
-  "TSM"
+  "TSM",
+  "FICO",
+  "APP",
+  "DIS",
+  "NFLX"
  ],
  "bench_watch": [
   "LLYVA",
@@ -358,8 +420,8 @@
     "CAT ROCK CAPITAL MANAGEMENT LP",
     "COOPERMAN LEON G"
    ],
-   "sum_pct": 571.0,
-   "avg_pct": 9.21,
+   "sum_pct": 533.4,
+   "avg_pct": 8.6,
    "adding": 9,
    "trimming": 33,
    "first_seen": "2024-Q3",
@@ -414,8 +476,8 @@
    "core_dropped": [
     "Bill Ackman"
    ],
-   "core_sum_pct": 351.4,
-   "core_avg_pct": 13.01,
+   "core_sum_pct": 313.8,
+   "core_avg_pct": 11.62,
    "bench_now": 35,
    "core_rank": 1,
    "all_rank": 1
@@ -557,8 +619,8 @@
    "core_sum_pct": 94.4,
    "core_avg_pct": 5.25,
    "bench_now": 37,
-   "core_rank": 8,
-   "all_rank": 4
+   "core_rank": 7,
+   "all_rank": 3
   },
   {
    "ticker": "AMZN",
@@ -635,8 +697,8 @@
    ],
    "added": [],
    "dropped": [],
-   "sum_pct": 407.1,
-   "avg_pct": 7.98,
+   "sum_pct": 396.0,
+   "avg_pct": 7.76,
    "adding": 10,
    "trimming": 28,
    "first_seen": "2024-Q3",
@@ -679,8 +741,8 @@
    ],
    "core_added": [],
    "core_dropped": [],
-   "core_sum_pct": 189.6,
-   "core_avg_pct": 11.15,
+   "core_sum_pct": 178.5,
+   "core_avg_pct": 10.5,
    "bench_now": 34,
    "core_rank": 2,
    "all_rank": 2
@@ -807,7 +869,7 @@
    "core_sum_pct": 118.7,
    "core_avg_pct": 6.6,
    "bench_now": 26,
-   "core_rank": 5,
+   "core_rank": 4,
    "all_rank": 5
   },
   {
@@ -931,7 +993,7 @@
    "core_sum_pct": 117.8,
    "core_avg_pct": 6.2,
    "bench_now": 23,
-   "core_rank": 6,
+   "core_rank": 5,
    "all_rank": 6
   },
   {
@@ -1054,7 +1116,7 @@
    "core_sum_pct": 113.0,
    "core_avg_pct": 6.65,
    "bench_now": 21,
-   "core_rank": 7,
+   "core_rank": 6,
    "all_rank": 7
   },
   {
@@ -1119,8 +1181,8 @@
    "dropped": [
     "MayTech Global Investments, LLC"
    ],
-   "sum_pct": 302.0,
-   "avg_pct": 8.39,
+   "sum_pct": 278.6,
+   "avg_pct": 7.74,
    "adding": 6,
    "trimming": 11,
    "first_seen": "2024-Q1",
@@ -1162,11 +1224,11 @@
    "core_dropped": [
     "MayTech Global Investments, LLC"
    ],
-   "core_sum_pct": 162.4,
-   "core_avg_pct": 11.6,
+   "core_sum_pct": 144.4,
+   "core_avg_pct": 10.31,
    "bench_now": 22,
    "core_rank": 3,
-   "all_rank": 3
+   "all_rank": 4
   },
   {
    "ticker": "TSM",
@@ -1388,7 +1450,7 @@
    "core_avg_pct": 5.02,
    "bench_now": 16,
    "core_rank": 13,
-   "all_rank": 10
+   "all_rank": 9
   },
   {
    "ticker": "AAPL",
@@ -1482,7 +1544,7 @@
    "core_avg_pct": 5.97,
    "bench_now": 13,
    "core_rank": 9,
-   "all_rank": 12
+   "all_rank": 10
   },
   {
    "ticker": "AXP",
@@ -1575,7 +1637,7 @@
    "core_avg_pct": 2.17,
    "bench_now": 14,
    "core_rank": 33,
-   "all_rank": 14
+   "all_rank": 13
   },
   {
    "ticker": "MCO",
@@ -1667,7 +1729,7 @@
    "core_avg_pct": 6.04,
    "bench_now": 13,
    "core_rank": 11,
-   "all_rank": 13
+   "all_rank": 12
   },
   {
    "ticker": "DIS",
@@ -1761,7 +1823,7 @@
    "core_avg_pct": 3.79,
    "bench_now": 10,
    "core_rank": 17,
-   "all_rank": 24
+   "all_rank": 21
   },
   {
    "ticker": "JNJ",
@@ -1848,7 +1910,7 @@
    "core_avg_pct": 0.51,
    "bench_now": 14,
    "core_rank": 73,
-   "all_rank": 43
+   "all_rank": 38
   },
   {
    "ticker": "UNH",
@@ -1931,7 +1993,7 @@
    "core_sum_pct": 19.4,
    "core_avg_pct": 9.71,
    "bench_now": 16,
-   "all_rank": 16
+   "all_rank": 14
   },
   {
    "ticker": "NVDA",
@@ -2012,7 +2074,7 @@
    "core_avg_pct": 8.79,
    "bench_now": 14,
    "core_rank": 29,
-   "all_rank": 17
+   "all_rank": 15
   },
   {
    "ticker": "AON",
@@ -2094,7 +2156,7 @@
    "core_avg_pct": 4.26,
    "bench_now": 13,
    "core_rank": 39,
-   "all_rank": 21
+   "all_rank": 19
   },
   {
    "ticker": "NFLX",
@@ -2187,7 +2249,7 @@
    "core_avg_pct": 5.07,
    "bench_now": 8,
    "core_rank": 18,
-   "all_rank": 26
+   "all_rank": 24
   },
   {
    "ticker": "UNP",
@@ -2266,7 +2328,7 @@
    "core_avg_pct": 2.66,
    "bench_now": 10,
    "core_rank": 42,
-   "all_rank": 50
+   "all_rank": 46
   },
   {
    "ticker": "IWB",
@@ -2351,7 +2413,7 @@
    "core_avg_pct": 3.74,
    "bench_now": 11,
    "core_rank": 35,
-   "all_rank": 52
+   "all_rank": 48
   },
   {
    "ticker": "JPM",
@@ -2427,7 +2489,7 @@
    "core_avg_pct": 0.42,
    "bench_now": 13,
    "core_rank": 79,
-   "all_rank": 56
+   "all_rank": 52
   },
   {
    "ticker": "TDG",
@@ -2468,8 +2530,8 @@
    ],
    "added": [],
    "dropped": [],
-   "sum_pct": 116.6,
-   "avg_pct": 7.77,
+   "sum_pct": 114.1,
+   "avg_pct": 7.61,
    "adding": 8,
    "trimming": 4,
    "first_seen": "2024-Q3",
@@ -2498,10 +2560,10 @@
    ],
    "core_added": [],
    "core_dropped": [],
-   "core_sum_pct": 32.0,
-   "core_avg_pct": 10.66,
+   "core_sum_pct": 29.5,
+   "core_avg_pct": 9.82,
    "bench_now": 12,
-   "core_rank": 23,
+   "core_rank": 27,
    "all_rank": 11
   },
   {
@@ -2580,7 +2642,7 @@
    "core_avg_pct": 5.26,
    "bench_now": 11,
    "core_rank": 32,
-   "all_rank": 23
+   "all_rank": 20
   },
   {
    "ticker": "UBER",
@@ -2665,7 +2727,7 @@
    "core_avg_pct": 5.19,
    "bench_now": 8,
    "core_rank": 21,
-   "all_rank": 29
+   "all_rank": 27
   },
   {
    "ticker": "ADI",
@@ -2743,7 +2805,7 @@
    "core_avg_pct": 1.44,
    "bench_now": 12,
    "core_rank": 70,
-   "all_rank": 59
+   "all_rank": 57
   },
   {
    "ticker": "BKNG",
@@ -2823,8 +2885,8 @@
    "core_sum_pct": 31.7,
    "core_avg_pct": 5.28,
    "bench_now": 8,
-   "core_rank": 24,
-   "all_rank": 30
+   "core_rank": 23,
+   "all_rank": 28
   },
   {
    "ticker": "ACN",
@@ -2987,7 +3049,7 @@
    "core_avg_pct": 7.61,
    "bench_now": 6,
    "core_rank": 12,
-   "all_rank": 27
+   "all_rank": 25
   },
   {
    "ticker": "SUNB",
@@ -3070,8 +3132,8 @@
    "core_sum_pct": 31.1,
    "core_avg_pct": 3.89,
    "bench_now": 5,
-   "core_rank": 25,
-   "all_rank": 31
+   "core_rank": 24,
+   "all_rank": 29
   },
   {
    "ticker": "SPOT",
@@ -3461,7 +3523,7 @@
    "core_avg_pct": 4.98,
    "bench_now": 4,
    "core_rank": 19,
-   "all_rank": 35
+   "all_rank": 32
   },
   {
    "ticker": "SCHW",
@@ -3534,7 +3596,7 @@
    "core_avg_pct": 4.72,
    "bench_now": 8,
    "core_rank": 34,
-   "all_rank": 44
+   "all_rank": 39
   },
   {
    "ticker": "TXN",
@@ -3609,7 +3671,7 @@
    "core_avg_pct": 2.0,
    "bench_now": 8,
    "core_rank": 56,
-   "all_rank": 51
+   "all_rank": 47
   },
   {
    "ticker": "CME",
@@ -3687,7 +3749,7 @@
    "core_avg_pct": 1.13,
    "bench_now": 7,
    "core_rank": 64,
-   "all_rank": 70
+   "all_rank": 68
   },
   {
    "ticker": "CPRT",
@@ -3908,7 +3970,7 @@
    "core_avg_pct": 11.24,
    "bench_now": 6,
    "core_rank": 10,
-   "all_rank": 19
+   "all_rank": 17
   },
   {
    "ticker": "FICO",
@@ -3947,8 +4009,8 @@
     "Terry Smith"
    ],
    "dropped": [],
-   "sum_pct": 77.1,
-   "avg_pct": 7.01,
+   "sum_pct": 76.3,
+   "avg_pct": 6.94,
    "adding": 3,
    "trimming": 6,
    "first_seen": "2024-Q3",
@@ -3980,11 +4042,11 @@
     "Terry Smith"
    ],
    "core_dropped": [],
-   "core_sum_pct": 44.7,
-   "core_avg_pct": 11.17,
+   "core_sum_pct": 43.9,
+   "core_avg_pct": 10.98,
    "bench_now": 7,
    "core_rank": 15,
-   "all_rank": 20
+   "all_rank": 18
   },
   {
    "ticker": "MELI",
@@ -4057,8 +4119,8 @@
    "core_sum_pct": 30.1,
    "core_avg_pct": 7.53,
    "bench_now": 7,
-   "core_rank": 28,
-   "all_rank": 25
+   "core_rank": 26,
+   "all_rank": 23
   },
   {
    "ticker": "HCA",
@@ -4131,7 +4193,7 @@
    "core_avg_pct": 8.34,
    "bench_now": 8,
    "core_rank": 30,
-   "all_rank": 33
+   "all_rank": 30
   },
   {
    "ticker": "ELV",
@@ -4204,7 +4266,7 @@
    "core_sum_pct": 15.0,
    "core_avg_pct": 7.5,
    "bench_now": 9,
-   "all_rank": 40
+   "all_rank": 35
   },
   {
    "ticker": "AMAT",
@@ -4275,7 +4337,7 @@
    "core_sum_pct": 16.6,
    "core_avg_pct": 8.3,
    "bench_now": 9,
-   "all_rank": 45
+   "all_rank": 40
   },
   {
    "ticker": "ADP",
@@ -4351,7 +4413,7 @@
    "core_avg_pct": 3.27,
    "bench_now": 7,
    "core_rank": 44,
-   "all_rank": 64
+   "all_rank": 61
   },
   {
    "ticker": "PM",
@@ -4425,7 +4487,7 @@
    "core_avg_pct": 2.33,
    "bench_now": 5,
    "core_rank": 43,
-   "all_rank": 69
+   "all_rank": 67
   },
   {
    "ticker": "MSCI",
@@ -4498,7 +4560,7 @@
    "core_sum_pct": 0.8,
    "core_avg_pct": 0.41,
    "bench_now": 9,
-   "all_rank": 71
+   "all_rank": 69
   },
   {
    "ticker": "COF",
@@ -4576,7 +4638,7 @@
    "core_avg_pct": 2.5,
    "bench_now": 7,
    "core_rank": 51,
-   "all_rank": 73
+   "all_rank": 72
   },
   {
    "ticker": "INTU",
@@ -5109,7 +5171,7 @@
    "core_avg_pct": 7.78,
    "bench_now": 7,
    "core_rank": 31,
-   "all_rank": 34
+   "all_rank": 31
   },
   {
    "ticker": "DHR",
@@ -5181,7 +5243,7 @@
    "core_avg_pct": 3.98,
    "bench_now": 7,
    "core_rank": 46,
-   "all_rank": 41
+   "all_rank": 36
   },
   {
    "ticker": "COST",
@@ -5255,7 +5317,7 @@
    "core_avg_pct": 5.29,
    "bench_now": 3,
    "core_rank": 20,
-   "all_rank": 47
+   "all_rank": 43
   },
   {
    "ticker": "MLM",
@@ -5331,7 +5393,7 @@
    "core_avg_pct": 6.0,
    "bench_now": 7,
    "core_rank": 37,
-   "all_rank": 53
+   "all_rank": 49
   },
   {
    "ticker": "CI",
@@ -6114,7 +6176,7 @@
    "core_avg_pct": 3.73,
    "bench_now": 6,
    "core_rank": 49,
-   "all_rank": 58
+   "all_rank": 56
   },
   {
    "ticker": "LEN",
@@ -6180,7 +6242,7 @@
    "core_sum_pct": 0.4,
    "core_avg_pct": 0.41,
    "bench_now": 8,
-   "all_rank": 63
+   "all_rank": 60
   },
   {
    "ticker": "VMC",
@@ -6256,7 +6318,7 @@
    "core_avg_pct": 3.57,
    "bench_now": 6,
    "core_rank": 50,
-   "all_rank": 74
+   "all_rank": 73
   },
   {
    "ticker": "AVGO",
@@ -6329,7 +6391,7 @@
    "core_sum_pct": 0.1,
    "core_avg_pct": 0.05,
    "bench_now": 8,
-   "all_rank": 75
+   "all_rank": 74
   },
   {
    "ticker": "CP",
@@ -6406,7 +6468,7 @@
    "core_avg_pct": 2.01,
    "bench_now": 5,
    "core_rank": 58,
-   "all_rank": 76
+   "all_rank": 75
   },
   {
    "ticker": "LYV",
@@ -6648,8 +6710,8 @@
     "Oldfield Partners LLP"
    ],
    "dropped": [],
-   "sum_pct": 35.1,
-   "avg_pct": 4.38,
+   "sum_pct": 32.9,
+   "avg_pct": 4.11,
    "adding": 2,
    "trimming": 3,
    "first_seen": "2024-Q3",
@@ -6680,11 +6742,11 @@
     "Oldfield Partners LLP"
    ],
    "core_dropped": [],
-   "core_sum_pct": 30.7,
-   "core_avg_pct": 10.23,
+   "core_sum_pct": 28.5,
+   "core_avg_pct": 9.49,
    "bench_now": 5,
-   "core_rank": 27,
-   "all_rank": 60
+   "core_rank": 28,
+   "all_rank": 62
   },
   {
    "ticker": "FAST",
@@ -7879,8 +7941,8 @@
    ],
    "added": [],
    "dropped": [],
-   "sum_pct": 82.6,
-   "avg_pct": 11.8,
+   "sum_pct": 63.4,
+   "avg_pct": 9.06,
    "adding": 0,
    "trimming": 3,
    "first_seen": "2024-Q3",
@@ -7908,10 +7970,10 @@
    ],
    "core_added": [],
    "core_dropped": [],
-   "core_sum_pct": 34.0,
-   "core_avg_pct": 17.0,
+   "core_sum_pct": 25.4,
+   "core_avg_pct": 12.7,
    "bench_now": 5,
-   "all_rank": 18
+   "all_rank": 26
   },
   {
    "ticker": "CB",
@@ -7979,7 +8041,7 @@
    "core_avg_pct": 8.77,
    "bench_now": 3,
    "core_rank": 22,
-   "all_rank": 37
+   "all_rank": 34
   },
   {
    "ticker": "ICLR",
@@ -8045,7 +8107,7 @@
    "core_sum_pct": 5.5,
    "core_avg_pct": 5.54,
    "bench_now": 6,
-   "all_rank": 42
+   "all_rank": 37
   },
   {
    "ticker": "STT",
@@ -8114,7 +8176,7 @@
    "core_sum_pct": 0.1,
    "core_avg_pct": 0.07,
    "bench_now": 5,
-   "all_rank": 49
+   "all_rank": 45
   },
   {
    "ticker": "GS",
@@ -8178,7 +8240,7 @@
    "core_sum_pct": 2.8,
    "core_avg_pct": 2.77,
    "bench_now": 6,
-   "all_rank": 54
+   "all_rank": 50
   },
   {
    "ticker": "YUMC",
@@ -8243,7 +8305,7 @@
    "core_sum_pct": 4.3,
    "core_avg_pct": 2.15,
    "bench_now": 5,
-   "all_rank": 55
+   "all_rank": 51
   },
   {
    "ticker": "FWONA",
@@ -9646,7 +9708,7 @@
    "core_sum_pct": 12.6,
    "core_avg_pct": 6.32,
    "bench_now": 4,
-   "all_rank": 57
+   "all_rank": 55
   },
   {
    "ticker": "QSR",
@@ -9714,7 +9776,7 @@
    "core_sum_pct": 18.7,
    "core_avg_pct": 9.33,
    "bench_now": 4,
-   "all_rank": 66
+   "all_rank": 64
   },
   {
    "ticker": "AZO",
@@ -9777,7 +9839,7 @@
    "core_sum_pct": 10.2,
    "core_avg_pct": 10.22,
    "bench_now": 5,
-   "all_rank": 67
+   "all_rank": 65
   },
   {
    "ticker": "AER",
@@ -9840,7 +9902,7 @@
    "core_sum_pct": 7.2,
    "core_avg_pct": 7.16,
    "bench_now": 5,
-   "all_rank": 72
+   "all_rank": 70
   },
   {
    "ticker": "ARW",
@@ -12391,8 +12453,8 @@
    ],
    "added": [],
    "dropped": [],
-   "sum_pct": 139.7,
-   "avg_pct": 27.95,
+   "sum_pct": 80.6,
+   "avg_pct": 16.12,
    "adding": 5,
    "trimming": 0,
    "first_seen": "2024-Q3",
@@ -12422,11 +12484,11 @@
    ],
    "core_added": [],
    "core_dropped": [],
-   "core_sum_pct": 139.7,
-   "core_avg_pct": 34.92,
+   "core_sum_pct": 80.5,
+   "core_avg_pct": 20.13,
    "bench_now": 1,
-   "core_rank": 4,
-   "all_rank": 9
+   "core_rank": 8,
+   "all_rank": 16
   },
   {
    "ticker": "APP",
@@ -12459,8 +12521,8 @@
     "Terry Smith"
    ],
    "dropped": [],
-   "sum_pct": 72.6,
-   "avg_pct": 14.51,
+   "sum_pct": 67.3,
+   "avg_pct": 13.46,
    "adding": 2,
    "trimming": 1,
    "first_seen": "2024-Q3",
@@ -12491,8 +12553,8 @@
     "Terry Smith"
    ],
    "core_dropped": [],
-   "core_sum_pct": 44.3,
-   "core_avg_pct": 14.75,
+   "core_sum_pct": 42.1,
+   "core_avg_pct": 14.04,
    "bench_now": 2,
    "core_rank": 16,
    "all_rank": 22
@@ -12526,8 +12588,8 @@
    ],
    "added": [],
    "dropped": [],
-   "sum_pct": 59.7,
-   "avg_pct": 11.94,
+   "sum_pct": 50.1,
+   "avg_pct": 10.01,
    "adding": 3,
    "trimming": 1,
    "first_seen": "2024-Q3",
@@ -12557,139 +12619,7 @@
    "core_sum_pct": 7.4,
    "core_avg_pct": 7.4,
    "bench_now": 4,
-   "all_rank": 28
-  },
-  {
-   "ticker": "KLAC",
-   "company": "KLA CORP",
-   "now": 5,
-   "prior": 7,
-   "yr_ago": 4,
-   "d_q": -2,
-   "d_y": 1,
-   "series": [
-    0,
-    0,
-    4,
-    4,
-    4,
-    4,
-    5,
-    5,
-    7,
-    5
-   ],
-   "holders": [
-    "Findlay Park Partners LLP",
-    "JENSEN INVESTMENT MANAGEMENT INC",
-    "Joel Greenblatt",
-    "OAKTOP CAPITAL MANAGEMENT II, L.P.",
-    "PineStone Asset Management Inc."
-   ],
-   "added": [],
-   "dropped": [
-    "Daniel Loeb",
-    "Stockbridge Partners LLC"
-   ],
-   "sum_pct": 51.9,
-   "avg_pct": 10.38,
-   "adding": 5,
-   "trimming": 0,
-   "first_seen": "2024-Q3",
-   "in_buy_list": false,
-   "core_now": 0,
-   "core_prior": 1,
-   "core_yr_ago": 0,
-   "core_d_q": -1,
-   "core_d_y": 0,
-   "core_series": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    0
-   ],
-   "core_holders": [],
-   "core_added": [],
-   "core_dropped": [
-    "Daniel Loeb"
-   ],
-   "core_sum_pct": 0,
-   "core_avg_pct": 0,
-   "bench_now": 5,
-   "all_rank": 36
-  },
-  {
-   "ticker": "ROP",
-   "company": "ROPER TECHNOLOGIES INC",
-   "now": 5,
-   "prior": 4,
-   "yr_ago": 4,
-   "d_q": 1,
-   "d_y": 1,
-   "series": [
-    0,
-    0,
-    4,
-    4,
-    4,
-    4,
-    4,
-    5,
-    4,
-    5
-   ],
-   "holders": [
-    "Camrose Capital Investment Partners LLP",
-    "Chuck Akre",
-    "Joel Greenblatt",
-    "Ruane, Cunniff & Goldfarb L.P.",
-    "WINDACRE PARTNERSHIP LLC"
-   ],
-   "added": [
-    "Ruane, Cunniff & Goldfarb L.P."
-   ],
-   "dropped": [],
-   "sum_pct": 45.2,
-   "avg_pct": 9.05,
-   "adding": 3,
-   "trimming": 1,
-   "first_seen": "2024-Q3",
-   "in_buy_list": false,
-   "core_now": 2,
-   "core_prior": 1,
-   "core_yr_ago": 1,
-   "core_d_q": 1,
-   "core_d_y": 1,
-   "core_series": [
-    0,
-    0,
-    2,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    2
-   ],
-   "core_holders": [
-    "Chuck Akre",
-    "Ruane, Cunniff & Goldfarb L.P."
-   ],
-   "core_added": [
-    "Ruane, Cunniff & Goldfarb L.P."
-   ],
-   "core_dropped": [],
-   "core_sum_pct": 11.3,
-   "core_avg_pct": 5.67,
-   "bench_now": 3,
-   "all_rank": 39
+   "all_rank": 33
   },
   {
    "ticker": "SHOP",
@@ -12753,8 +12683,140 @@
    "core_sum_pct": 30.9,
    "core_avg_pct": 10.31,
    "bench_now": 2,
-   "core_rank": 26,
-   "all_rank": 46
+   "core_rank": 25,
+   "all_rank": 41
+  },
+  {
+   "ticker": "ROP",
+   "company": "ROPER TECHNOLOGIES INC",
+   "now": 5,
+   "prior": 4,
+   "yr_ago": 4,
+   "d_q": 1,
+   "d_y": 1,
+   "series": [
+    0,
+    0,
+    4,
+    4,
+    4,
+    4,
+    4,
+    5,
+    4,
+    5
+   ],
+   "holders": [
+    "Camrose Capital Investment Partners LLP",
+    "Chuck Akre",
+    "Joel Greenblatt",
+    "Ruane, Cunniff & Goldfarb L.P.",
+    "WINDACRE PARTNERSHIP LLC"
+   ],
+   "added": [
+    "Ruane, Cunniff & Goldfarb L.P."
+   ],
+   "dropped": [],
+   "sum_pct": 41.4,
+   "avg_pct": 8.27,
+   "adding": 3,
+   "trimming": 1,
+   "first_seen": "2024-Q3",
+   "in_buy_list": false,
+   "core_now": 2,
+   "core_prior": 1,
+   "core_yr_ago": 1,
+   "core_d_q": 1,
+   "core_d_y": 1,
+   "core_series": [
+    0,
+    0,
+    2,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    2
+   ],
+   "core_holders": [
+    "Chuck Akre",
+    "Ruane, Cunniff & Goldfarb L.P."
+   ],
+   "core_added": [
+    "Ruane, Cunniff & Goldfarb L.P."
+   ],
+   "core_dropped": [],
+   "core_sum_pct": 11.3,
+   "core_avg_pct": 5.67,
+   "bench_now": 3,
+   "all_rank": 44
+  },
+  {
+   "ticker": "KLAC",
+   "company": "KLA CORP",
+   "now": 5,
+   "prior": 7,
+   "yr_ago": 4,
+   "d_q": -2,
+   "d_y": 1,
+   "series": [
+    0,
+    0,
+    4,
+    4,
+    4,
+    4,
+    5,
+    5,
+    7,
+    5
+   ],
+   "holders": [
+    "Findlay Park Partners LLP",
+    "JENSEN INVESTMENT MANAGEMENT INC",
+    "Joel Greenblatt",
+    "OAKTOP CAPITAL MANAGEMENT II, L.P.",
+    "PineStone Asset Management Inc."
+   ],
+   "added": [],
+   "dropped": [
+    "Daniel Loeb",
+    "Stockbridge Partners LLC"
+   ],
+   "sum_pct": 37.7,
+   "avg_pct": 7.54,
+   "adding": 5,
+   "trimming": 0,
+   "first_seen": "2024-Q3",
+   "in_buy_list": false,
+   "core_now": 0,
+   "core_prior": 1,
+   "core_yr_ago": 0,
+   "core_d_q": -1,
+   "core_d_y": 0,
+   "core_series": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   "core_holders": [],
+   "core_added": [],
+   "core_dropped": [
+    "Daniel Loeb"
+   ],
+   "core_sum_pct": 0,
+   "core_avg_pct": 0,
+   "bench_now": 5,
+   "all_rank": 53
   },
   {
    "ticker": "VRT",
@@ -12817,7 +12879,7 @@
    "core_sum_pct": 0.2,
    "core_avg_pct": 0.1,
    "bench_now": 3,
-   "all_rank": 68
+   "all_rank": 66
   },
   {
    "ticker": "ALLY",
@@ -16122,8 +16184,8 @@
    "dropped": [
     "Daniel Loeb"
    ],
-   "sum_pct": 54.5,
-   "avg_pct": 13.64,
+   "sum_pct": 41.5,
+   "avg_pct": 10.39,
    "adding": 0,
    "trimming": 3,
    "first_seen": "2024-Q3",
@@ -16153,7 +16215,7 @@
    "core_sum_pct": 0,
    "core_avg_pct": 0,
    "bench_now": 4,
-   "all_rank": 32
+   "all_rank": 42
   },
   {
    "ticker": "TDDWW",
@@ -16183,8 +16245,8 @@
    ],
    "added": [],
    "dropped": [],
-   "sum_pct": 41.4,
-   "avg_pct": 10.34,
+   "sum_pct": 35.1,
+   "avg_pct": 8.78,
    "adding": 1,
    "trimming": 1,
    "first_seen": "2024-Q3",
@@ -16212,68 +16274,7 @@
    "core_sum_pct": 0,
    "core_avg_pct": 0,
    "bench_now": 4,
-   "all_rank": 48
-  },
-  {
-   "ticker": "CHD",
-   "company": "CHURCH & DWIGHT CO INC",
-   "now": 4,
-   "prior": 4,
-   "yr_ago": 4,
-   "d_q": 0,
-   "d_y": 0,
-   "series": [
-    0,
-    0,
-    4,
-    4,
-    4,
-    4,
-    4,
-    4,
-    4,
-    4
-   ],
-   "holders": [
-    "JENSEN INVESTMENT MANAGEMENT INC",
-    "Joel Greenblatt",
-    "REIK & CO., LLC",
-    "Terry Smith"
-   ],
-   "added": [],
-   "dropped": [],
-   "sum_pct": 34.2,
-   "avg_pct": 8.56,
-   "adding": 0,
-   "trimming": 2,
-   "first_seen": "2024-Q3",
-   "in_buy_list": false,
-   "core_now": 1,
-   "core_prior": 1,
-   "core_yr_ago": 1,
-   "core_d_q": 0,
-   "core_d_y": 0,
-   "core_series": [
-    0,
-    0,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1
-   ],
-   "core_holders": [
-    "Terry Smith"
-   ],
-   "core_added": [],
-   "core_dropped": [],
-   "core_sum_pct": 4.6,
-   "core_avg_pct": 4.58,
-   "bench_now": 3,
-   "all_rank": 62
+   "all_rank": 58
   },
   {
    "ticker": "TKO",
@@ -16334,7 +16335,68 @@
    "core_sum_pct": 16.1,
    "core_avg_pct": 16.07,
    "bench_now": 3,
-   "all_rank": 65
+   "all_rank": 63
+  },
+  {
+   "ticker": "CHD",
+   "company": "CHURCH & DWIGHT CO INC",
+   "now": 4,
+   "prior": 4,
+   "yr_ago": 4,
+   "d_q": 0,
+   "d_y": 0,
+   "series": [
+    0,
+    0,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   "holders": [
+    "JENSEN INVESTMENT MANAGEMENT INC",
+    "Joel Greenblatt",
+    "REIK & CO., LLC",
+    "Terry Smith"
+   ],
+   "added": [],
+   "dropped": [],
+   "sum_pct": 29.7,
+   "avg_pct": 7.42,
+   "adding": 0,
+   "trimming": 2,
+   "first_seen": "2024-Q3",
+   "in_buy_list": false,
+   "core_now": 1,
+   "core_prior": 1,
+   "core_yr_ago": 1,
+   "core_d_q": 0,
+   "core_d_y": 0,
+   "core_series": [
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "core_holders": [
+    "Terry Smith"
+   ],
+   "core_added": [],
+   "core_dropped": [],
+   "core_sum_pct": 4.6,
+   "core_avg_pct": 4.58,
+   "bench_now": 3,
+   "all_rank": 71
   },
   {
    "ticker": "SOLV",
@@ -21437,8 +21499,8 @@
    ],
    "added": [],
    "dropped": [],
-   "sum_pct": 87.0,
-   "avg_pct": 28.99,
+   "sum_pct": 37.7,
+   "avg_pct": 12.55,
    "adding": 1,
    "trimming": 0,
    "first_seen": "2024-Q3",
@@ -21466,67 +21528,7 @@
    "core_sum_pct": 0,
    "core_avg_pct": 0,
    "bench_now": 3,
-   "all_rank": 15
-  },
-  {
-   "ticker": "HCC",
-   "company": "WARRIOR MET COAL INC",
-   "now": 3,
-   "prior": 3,
-   "yr_ago": 3,
-   "d_q": 0,
-   "d_y": 0,
-   "series": [
-    0,
-    0,
-    3,
-    3,
-    3,
-    3,
-    3,
-    3,
-    3,
-    3
-   ],
-   "holders": [
-    "Joel Greenblatt",
-    "Mohnish Pabrai",
-    "THIRD AVENUE MANAGEMENT LLC"
-   ],
-   "added": [],
-   "dropped": [],
-   "sum_pct": 47.0,
-   "avg_pct": 15.67,
-   "adding": 0,
-   "trimming": 3,
-   "first_seen": "2024-Q3",
-   "in_buy_list": false,
-   "core_now": 1,
-   "core_prior": 1,
-   "core_yr_ago": 1,
-   "core_d_q": 0,
-   "core_d_y": 0,
-   "core_series": [
-    0,
-    0,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1
-   ],
-   "core_holders": [
-    "Mohnish Pabrai"
-   ],
-   "core_added": [],
-   "core_dropped": [],
-   "core_sum_pct": 43.3,
-   "core_avg_pct": 43.32,
-   "bench_now": 2,
-   "all_rank": 38
+   "all_rank": 54
   },
   {
    "ticker": "PDD",
@@ -21591,7 +21593,67 @@
    "core_sum_pct": 34.5,
    "core_avg_pct": 17.27,
    "bench_now": 1,
-   "all_rank": 61
+   "all_rank": 59
+  },
+  {
+   "ticker": "HCC",
+   "company": "WARRIOR MET COAL INC",
+   "now": 3,
+   "prior": 3,
+   "yr_ago": 3,
+   "d_q": 0,
+   "d_y": 0,
+   "series": [
+    0,
+    0,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3
+   ],
+   "holders": [
+    "Joel Greenblatt",
+    "Mohnish Pabrai",
+    "THIRD AVENUE MANAGEMENT LLC"
+   ],
+   "added": [],
+   "dropped": [],
+   "sum_pct": 28.7,
+   "avg_pct": 9.57,
+   "adding": 0,
+   "trimming": 3,
+   "first_seen": "2024-Q3",
+   "in_buy_list": false,
+   "core_now": 1,
+   "core_prior": 1,
+   "core_yr_ago": 1,
+   "core_d_q": 0,
+   "core_d_y": 0,
+   "core_series": [
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "core_holders": [
+    "Mohnish Pabrai"
+   ],
+   "core_added": [],
+   "core_dropped": [],
+   "core_sum_pct": 25.0,
+   "core_avg_pct": 25.0,
+   "bench_now": 2,
+   "all_rank": 76
   },
   {
    "ticker": "HWM",
@@ -30917,62 +30979,6 @@
    "all_rank": 469
   },
   {
-   "ticker": "JOE",
-   "company": "ST JOE CO",
-   "now": 2,
-   "prior": 2,
-   "yr_ago": 1,
-   "d_q": 0,
-   "d_y": 1,
-   "series": [
-    0,
-    0,
-    1,
-    1,
-    1,
-    1,
-    2,
-    2,
-    2,
-    2
-   ],
-   "holders": [
-    "FAIRHOLME CAPITAL MANAGEMENT LLC",
-    "Joel Greenblatt"
-   ],
-   "added": [],
-   "dropped": [],
-   "sum_pct": 76.4,
-   "avg_pct": 38.22,
-   "adding": 0,
-   "trimming": 2,
-   "first_seen": "2024-Q3",
-   "in_buy_list": false,
-   "core_now": 0,
-   "core_prior": 0,
-   "core_yr_ago": 0,
-   "core_d_q": 0,
-   "core_d_y": 0,
-   "core_series": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "core_holders": [],
-   "core_added": [],
-   "core_dropped": [],
-   "core_sum_pct": 0,
-   "core_avg_pct": 0,
-   "bench_now": 2
-  },
-  {
    "ticker": "LOAR",
    "company": "LOAR HOLDINGS INC",
    "now": 2,
@@ -30998,8 +31004,8 @@
    ],
    "added": [],
    "dropped": [],
-   "sum_pct": 47.2,
-   "avg_pct": 23.58,
+   "sum_pct": 25.0,
+   "avg_pct": 12.51,
    "adding": 1,
    "trimming": 0,
    "first_seen": "2024-Q3",
@@ -31026,8 +31032,8 @@
    ],
    "core_added": [],
    "core_dropped": [],
-   "core_sum_pct": 47.1,
-   "core_avg_pct": 47.15,
+   "core_sum_pct": 25.0,
+   "core_avg_pct": 25.0,
    "bench_now": 1
   },
   {
@@ -31056,8 +31062,8 @@
    ],
    "added": [],
    "dropped": [],
-   "sum_pct": 30.5,
-   "avg_pct": 15.27,
+   "sum_pct": 25.0,
+   "avg_pct": 12.51,
    "adding": 1,
    "trimming": 0,
    "first_seen": "2024-Q3",
@@ -31084,8 +31090,8 @@
    ],
    "core_added": [],
    "core_dropped": [],
-   "core_sum_pct": 30.5,
-   "core_avg_pct": 30.53,
+   "core_sum_pct": 25.0,
+   "core_avg_pct": 25.0,
    "bench_now": 1
   },
   {
@@ -31116,10 +31122,66 @@
     "JANA Partners Management, LP"
    ],
    "dropped": [],
-   "sum_pct": 25.5,
-   "avg_pct": 12.73,
+   "sum_pct": 25.0,
+   "avg_pct": 12.5,
    "adding": 0,
    "trimming": 0,
+   "first_seen": "2024-Q3",
+   "in_buy_list": false,
+   "core_now": 0,
+   "core_prior": 0,
+   "core_yr_ago": 0,
+   "core_d_q": 0,
+   "core_d_y": 0,
+   "core_series": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "core_holders": [],
+   "core_added": [],
+   "core_dropped": [],
+   "core_sum_pct": 0,
+   "core_avg_pct": 0,
+   "bench_now": 2
+  },
+  {
+   "ticker": "JOE",
+   "company": "ST JOE CO",
+   "now": 2,
+   "prior": 2,
+   "yr_ago": 1,
+   "d_q": 0,
+   "d_y": 1,
+   "series": [
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    2,
+    2,
+    2,
+    2
+   ],
+   "holders": [
+    "FAIRHOLME CAPITAL MANAGEMENT LLC",
+    "Joel Greenblatt"
+   ],
+   "added": [],
+   "dropped": [],
+   "sum_pct": 25.0,
+   "avg_pct": 12.5,
+   "adding": 0,
+   "trimming": 2,
    "first_seen": "2024-Q3",
    "in_buy_list": false,
    "core_now": 0,
@@ -48797,8 +48859,8 @@
    ],
    "added": [],
    "dropped": [],
-   "sum_pct": 31.2,
-   "avg_pct": 31.24,
+   "sum_pct": 25.0,
+   "avg_pct": 25.0,
    "adding": 1,
    "trimming": 0,
    "first_seen": "2025-Q3",
