@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-15T08:10:14.393275+00:00",
+  "generated_at": "2026-09-15T12:45:57.588224+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -18,11 +18,11 @@
         "time": "16:00:01",
         "volume": 38702066,
         "week52_high": 344.57,
-        "week52_low": 235.03
+        "week52_low": 236.32
       },
       "metrics": {
         "week52High": 344.57,
-        "week52Low": 235.03,
+        "week52Low": 236.32,
         "marketCap": 3979469914112,
         "peRatio": 42.21546261089987
       },
@@ -286,11 +286,11 @@
         "time": "16:00:01",
         "volume": 1960126,
         "week52_high": 1999.96,
-        "week52_low": 833.92
+        "week52_low": 861.18
       },
       "metrics": {
         "week52High": 1999.96,
-        "week52Low": 833.92,
+        "week52Low": 861.18,
         "marketCap": 561823285248,
         "peRatio": 51.95085751978892
       },
@@ -798,11 +798,11 @@
         "time": "16:00:02",
         "volume": 2198966,
         "week52_high": 637.51,
-        "week52_low": 131.45
+        "week52_low": 132.93
       },
       "metrics": {
         "week52High": 637.51,
-        "week52Low": 131.45
+        "week52Low": 132.93
       },
       "profile": {
         "company": "Ciena Corporation",
@@ -2179,11 +2179,11 @@
         "time": "16:00:01",
         "volume": 95866322,
         "week52_high": 142.35,
-        "week52_low": 24.22
+        "week52_low": 24.45
       },
       "metrics": {
         "week52High": 142.35,
-        "week52Low": 24.22
+        "week52Low": 24.45
       },
       "profile": {
         "company": "Intel Corporation",
@@ -3005,11 +3005,11 @@
         "time": "16:00:01",
         "volume": 21964872,
         "week52_high": 329.88,
-        "week52_low": 66.33
+        "week52_low": 67.36
       },
       "metrics": {
         "week52High": 329.88,
-        "week52Low": 66.33
+        "week52Low": 67.36
       },
       "profile": {
         "company": "Marvell Technology, Inc.",
@@ -3510,11 +3510,11 @@
         "date": "2026-09-14",
         "time": "16:00:02",
         "volume": 1514910,
-        "week52_high": 249.14,
+        "week52_high": 248.17,
         "week52_low": 189.2
       },
       "metrics": {
-        "week52High": 249.14,
+        "week52High": 248.17,
         "week52Low": 189.2,
         "marketCap": 117400117248,
         "peRatio": 11.4934997399896
@@ -4366,11 +4366,11 @@
         "time": "16:00:00",
         "volume": 4143960,
         "week52_high": 1145.0,
-        "week52_low": 199.65
+        "week52_low": 206.26
       },
       "metrics": {
         "week52High": 1145.0,
-        "week52Low": 199.65
+        "week52Low": 206.26
       },
       "profile": {
         "company": null,
@@ -4632,11 +4632,11 @@
         "date": "2026-09-14",
         "time": "16:00:00",
         "volume": 2835730,
-        "week52_high": 244.24,
+        "week52_high": 242.37,
         "week52_low": 165.66
       },
       "metrics": {
-        "week52High": 244.24,
+        "week52High": 242.37,
         "week52Low": 165.66
       },
       "profile": {
@@ -4840,11 +4840,11 @@
         "time": "16:00:00",
         "volume": 2634621,
         "week52_high": 223.83,
-        "week52_low": 46.01
+        "week52_low": 47.88
       },
       "metrics": {
         "week52High": 223.83,
-        "week52Low": 46.01
+        "week52Low": 47.88
       },
       "profile": {
         "company": "TTM Technologies, Inc.",
@@ -5014,8 +5014,8 @@
         "price": 704.62,
         "prev_close": 708.02,
         "change_pct": -0.4802124233778675,
-        "date": "2026-09-14",
-        "time": "20:09:00",
+        "date": "2026-09-15",
+        "time": "08:10:25",
         "volume": null,
         "week52_high": 720.28,
         "week52_low": 585.37
@@ -5076,11 +5076,11 @@
         "time": "16:00:00",
         "volume": 6331919,
         "week52_high": 60.43,
-        "week52_low": 11.96
+        "week52_low": 12.05
       },
       "metrics": {
         "week52High": 60.43,
-        "week52Low": 11.96
+        "week52Low": 12.05
       },
       "profile": {
         "company": "Viavi Solutions Inc.",
@@ -5519,8 +5519,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 17.73,
-        "change_pct": 3.6842105263157836,
+        "price": 17.05,
+        "change_pct": -0.2923976608187176,
         "source": "yahoo"
       },
       "metrics": {},
