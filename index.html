@@ -604,6 +604,12 @@
     font-family: inherit; font-size: 12px; font-weight: 800; cursor: pointer;
   }
   .build-stamp { color: var(--muted); font-size: 9px; cursor: pointer; }
+  .build-badge { display: inline-block; font-size: 11px; font-weight: 800; color: var(--accent); background: var(--bg); border: 1px solid var(--accent); border-radius: 999px; padding: 1px 9px; margin-right: 8px; cursor: pointer; white-space: nowrap; vertical-align: middle; }
+  .build-badge:hover { background: var(--accent); color: #fff; }
+  .targ-divider { margin: 30px 0 14px; padding-top: 12px; border-top: 5px solid var(--accent); }
+  .targ-divider-title { font-size: 17px; font-weight: 900; color: var(--heading); letter-spacing: .02em; }
+  .targ-divider-sub { font-size: 12px; color: var(--muted); margin-top: 3px; max-width: 70ch; }
+  #targets-architecture { border: 2px solid var(--accent); }
   .build-stamp:hover { color: var(--accent); }
 
   .si-cat-badge {
@@ -1300,7 +1306,7 @@ async function checkPw(){
     </div>
   </div>
   <div class="refresh-info">
-    <span id="market-status">—</span>
+    <span class="build-badge" id="build-badge" title="Page build currently loaded. Tap to check for a newer one." onclick="checkForAppUpdate(true)">build —</span><span id="market-status">—</span>
     <span class="refresh-line"><span class="refresh-stamp">Updated: <span id="last-updated">—</span> · </span><a onclick="loadIndices()">↻ refresh</a> · <button class="hard-refresh-btn" onclick="hardRefreshAll()" title="Reload all data from GitHub">🔄 hard refresh</button> · <button class="theme-toggle" id="theme-toggle" type="button" onclick="toggleTheme()">☀️ Light</button> · <span class="build-stamp" id="build-stamp" title="Page build currently loaded. Tap to check for a newer one." onclick="checkForAppUpdate(true)"></span></span>
   </div>
 </div>
@@ -1919,11 +1925,16 @@ async function checkPw(){
       <div id="targets-import-preview" style="font-size:12px;color:var(--soft-text);margin-top:8px;line-height:1.7"></div>
     </details>
 
-    <div class="reentry-section">
-      <h3>🎯 Combined IRA Goal Progress (his + hers)</h3>
-      <div class="sub">The number that matters: your end goal per stock across both IRAs combined, regardless of which account holds it. $1.15M total · Forever 45% / S&amp;P 35% / For Now 20%.</div>
+    <div class="reentry-section" id="targets-architecture">
+      <h3 id="targets-arch-title">🏛 Portfolio architecture — all accounts</h3>
+      <div class="sub" id="targets-arch-sub">Loading…</div>
       <div id="targets-ibkr-sync"></div>
       <div id="targets-combined"></div>
+    </div>
+
+    <div class="targ-divider" id="targets-divider">
+      <div class="targ-divider-title">⬇ Individual accounts</div>
+      <div class="targ-divider-sub">What each account buys to match the architecture above. Same buckets and names, scaled to each account's size; per-stock overrides via the lock/% control up top.</div>
     </div>
 
     <div class="targ-grid">
@@ -1959,7 +1970,7 @@ async function checkPw(){
       <summary>⚙️ Edit goals, pools &amp; allocations</summary>
       <div id="targets-settings"></div>
       <div class="info-blurb" style="border:none;margin-top:8px;padding-top:4px">
-        Changing the IRA totals or bucket %s re-spreads every per-stock goal automatically. To weight individual stocks inside a bucket, edit the "% of Bucket" column in the Combined table up top (the others rebalance to keep the bucket at 100%). To add/remove tickers, just tell me and I'll update the lists.
+        Changing the account totals or bucket %s re-spreads every per-stock goal automatically. To weight individual stocks inside a bucket, edit the "% of Bucket" column in the Portfolio architecture table up top (the others rebalance to keep the bucket at 100%). To add/remove tickers, just tell me and I'll update the lists.
       </div>
     </details>
 
@@ -2124,7 +2135,7 @@ async function checkPw(){
 // compare the build stamp, and offer a genuine reload when they differ.
 // Bump APP_BUILD whenever index.html changes.
 // ============================================================
-const APP_BUILD = '2026-09-14b';
+const APP_BUILD = '2026-09-15a';
 
 async function checkForAppUpdate(announce) {
   try {
@@ -6755,12 +6766,13 @@ function canonTargetsBuckets() {
   //   Forever + Toll booths = the 15 highest-consensus names across the 47 voting
   //     filers, plus UBER and SPCX. Nothing else is a buy target.
   //   Dry powder = cash management.
-  //   Other positions = everything he owns that isn't a target. pct 0 on purpose:
-  //     it exists so nothing he holds disappears, not to be bought into.
+  //   Other positions = everything he owns that isn't a target, under a 5% cap
+  //     (was 0% until 15 Sep 2026): it exists so nothing he holds disappears and
+  //     so his small plays have a budget, not per-stock buy targets.
   // Hard assets, AI core, Opportunistic, AI bench and Radar are retired; their
   // names moved up to the buy list, down to Other positions, or out to the Watchlist.
   return [
-    { id: 'forever', label: 'Forever compounders', pct: 60,
+    { id: 'forever', label: 'Forever compounders', pct: 55,
       tickers: ['GOOGL', 'AMZN', 'META', 'MSFT', 'AAPL', 'BRK.B', 'NFLX', 'TSM', 'NVDA', 'ASML', 'TSLA', 'UBER', 'SPCX'],
       weights: {}, locked: {} },
     { id: 'toll', label: 'Toll booths', pct: 20,
@@ -6769,8 +6781,11 @@ function canonTargetsBuckets() {
       // RSP (equal-weight S&P) and VO (mid-caps) added 11 Sep 2026 to dilute the
       // mega-cap concentration that VOO and QQQ carry.
       tickers: ['VOO', 'VTV', 'QQQ', 'RSP', 'VO', 'SGOV'], weights: {}, locked: {} },
-    { id: 'other', label: 'Other positions', pct: 0,
-      // Owned, not targeted. No dollar goals — the Buy More column stays blank.
+    { id: 'other', label: 'Other positions', pct: 5,
+      // 5% CAP, not a goal (Joe, 15 Sep 2026; taken from Forever 60 -> 55): room
+      // for small plays and things he wants to play with. No per-stock targets —
+      // the Target and Buy More columns stay blank; the bucket row shows the cap
+      // and how far over/under it he is.
       tickers: ['WMT', 'PLD', 'MELI', 'BN', 'COST', 'SITM', 'SMH', 'WDC', 'FN', 'CIEN',
                 'APP', 'COF', 'MKSI', 'COHR', 'LRCX', 'GE', 'MTSI', 'AVGO', 'AEIS', 'CVX',
                 'AXP', 'CLS', 'ARM', 'MDB', 'BABA', 'CP', 'BE', 'TSEM', 'PGR', 'OXY',
@@ -7085,6 +7100,16 @@ function migrateTargets(d) {
     d.version = 19;
     _targetsRepaired = true;
   }
+  if ((d.version || 0) < 20) {
+    // Joe's call 15 Sep 2026: Other positions gets a 5% cap, paid for by Forever
+    // compounders (60 -> 55). Only untouched defaults move — a custom % stays.
+    const bk = Array.isArray(d.ira.buckets) ? d.ira.buckets : [];
+    const f = bk.find(b => b.id === 'forever'), o = bk.find(b => b.id === 'other');
+    if (f && f.pct === 60) f.pct = 55;
+    if (o && (!o.pct || o.pct === 0)) o.pct = 5;
+    d.version = 20;
+    _targetsRepaired = true;
+  }
   d.ira.buckets.forEach(b => {
     if (!Array.isArray(b.tickers)) b.tickers = [];
     if (!b.weights || typeof b.weights !== 'object') b.weights = {};
@@ -7211,6 +7236,30 @@ function targStockPctOfBucket(bucket, ticker) {
 function targStockTarget(acctTotal, bucket, ticker) {
   return acctTotal * bucket.pct / 100 * targStockPctOfBucket(bucket, ticker) / 100;
 }
+// ---- All-account helpers (15 Sep 2026) ----
+// The architecture table used to be IRA-only (his + hers). It is now the plan
+// for every account in TARG_ACCTS: goal = sum of the four totals, owned = the
+// four owned figures added up. Cash-like tickers (T-bill ETFs) count as owned
+// but NOT as deployed — Joe's rule: money in SGOV is not "in the market".
+const TARG_CASH_LIKE = new Set(['SGOV', 'BIL', 'SHV', 'USFR', 'TFLO', 'SGOV', 'CASH']);
+function targGrandTotal() { return TARG_ACCTS.reduce((s, a) => s + (Number((targetsData.ira.accounts[a] || {}).total) || 0), 0); }
+function targOwnedAll(t) { return TARG_ACCTS.reduce((s, a) => s + targOwned(a, t), 0); }
+function targCashLike(acctKey) {
+  let c = 0;
+  targetsData.ira.buckets.forEach(b => b.tickers.forEach(t => {
+    if (TARG_CASH_LIKE.has(String(t).toUpperCase())) c += acctKey ? targOwned(acctKey, t) : targOwnedAll(t);
+  }));
+  return c;
+}
+function targBucketOwned(b, acctKey) { return b.tickers.reduce((s, t) => s + (acctKey ? targOwned(acctKey, t) : targOwnedAll(t)), 0); }
+// Bucket-row note for a CAP bucket (Other positions): how much room is left, or how far over.
+function targCapNote(cap, owned) {
+  const d = owned - cap;
+  return d > 0.5
+    ? ` · owned ${reentryFmt(owned)} · <span style="color:var(--red);font-weight:800">over the cap by ${reentryFmt(d)}</span>`
+    : ` · owned ${reentryFmt(owned)} · <span style="color:var(--green);font-weight:700">${reentryFmt(-d)} of room</span>`;
+}
+function targIsCap(b) { return b.id === 'other'; }
 
 function targetsSave() {
   targetsData.ira.total = targetsData.ira.accounts.his.total + targetsData.ira.accounts.hers.total;
@@ -7393,12 +7442,12 @@ function targAcctTableHtml(acctKey) {
   let html = targPlanControls(acctKey) + `<div class="table-wrap"><table><thead><tr><th>Ticker</th><th>Target</th><th>Owned</th><th>Remaining</th><th>Buy This Month</th><th title="This month's purchase vs target">Today</th><th title="Owned + this month's buy vs target">After Buy</th></tr></thead><tbody>`;
   let deployed = 0;
   targetsData.ira.buckets.forEach(b => {
-    html += `<tr class="targ-bucket-row"><td colspan="7">${escapeHtml(b.label)} · ${b.pct}% · ${reentryFmt(acct.total * b.pct / 100)}</td></tr>`;
+    html += `<tr class="targ-bucket-row"><td colspan="7">${escapeHtml(b.label)} · ${b.pct}% · ${targIsCap(b) ? 'cap' : ''} ${reentryFmt(acct.total * b.pct / 100)}${targIsCap(b) ? targCapNote(acct.total * b.pct / 100, targBucketOwned(b, acctKey)) : ''}</td></tr>`;
     b.tickers.forEach(t => {
       const tgt = targStockTarget(acct.total, b, t);
       const owned = targOwned(acctKey, t); deployed += owned;
       const plan = targPlan(acctKey, t);
-      html += `<tr><td><strong title="${escapeAttr(stockBlurb(t))}">${escapeHtml(t)}</strong>${ideaOriginChip(t)} <a onclick="showStockInfo('${escapeHtml(t)}')" title="What is ${escapeHtml(t)}?" style="cursor:pointer;color:var(--blue);margin-left:2px;font-size:12px">ⓘ</a>${targLivePrice(t)}</td><td>${reentryFmt(tgt)}</td><td style="font-weight:700">${reentryFmt(owned)}</td>${targMoreCell(owned, tgt, t)}<td><input type="number" class="targ-input" value="${plan || ''}" placeholder="0" onchange="targSetPlan('${acctKey}','${t}',this.value)">${targShareHint(plan, t)}</td>${targGaugeCell(plan, tgt)}${targGaugeCell(owned + plan, tgt)}</tr>`;
+      html += `<tr><td><strong title="${escapeAttr(stockBlurb(t))}">${escapeHtml(t)}</strong>${ideaOriginChip(t)} <a onclick="showStockInfo('${escapeHtml(t)}')" title="What is ${escapeHtml(t)}?" style="cursor:pointer;color:var(--blue);margin-left:2px;font-size:12px">ⓘ</a>${targLivePrice(t)}</td><td>${targIsCap(b) ? '<span class="muted">—</span>' : reentryFmt(tgt)}</td><td style="font-weight:700">${reentryFmt(owned)}</td>${(targIsCap(b) ? '<td class="muted">—</td>' : targMoreCell(owned, tgt, t))}<td><input type="number" class="targ-input" value="${plan || ''}" placeholder="0" onchange="targSetPlan('${acctKey}','${t}',this.value)">${targShareHint(plan, t)}</td>${targIsCap(b) ? '<td class=\"muted\">—</td>' : targGaugeCell(plan, tgt)}${targIsCap(b) ? '<td class=\"muted\">—</td>' : targGaugeCell(owned + plan, tgt)}</tr>`;
     });
   });
   html += `</tbody></table></div>`;
@@ -7681,19 +7730,19 @@ function targSparkCell(t) {
   return `<td><svg width="${w}" height="${ht}" viewBox="0 0 ${w} ${ht}" preserveAspectRatio="none" style="display:block"><polyline points="${pts}" fill="none" stroke="${col}" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"/></svg></td>`;
 }
 function targCombinedHtml() {
-  let html = `<div class="table-wrap"><table><thead><tr><th></th><th>Ticker</th><th title="Where the price sits in its 52-week range — 0% = at the 52-week low (cheap), 100% = at the high">52w Range</th><th title="1-year price trend">1-yr</th><th>% of Bucket</th><th>Combined Goal</th><th>Owned (his+hers)</th><th>Remaining</th><th>% to Goal</th></tr></thead>`;
+  let html = `<div class="table-wrap"><table><thead><tr><th></th><th>Ticker</th><th title="Where the price sits in its 52-week range — 0% = at the 52-week low (cheap), 100% = at the high">52w Range</th><th title="1-year price trend">1-yr</th><th>% of Bucket</th><th>Goal (all accounts)</th><th>Owned (all accounts)</th><th>Remaining</th><th>% to Goal</th></tr></thead>`;
   targetsData.ira.buckets.forEach(b => {
-    const bucketGoal = targetsData.ira.total * b.pct / 100;
+    const bucketGoal = targGrandTotal() * b.pct / 100;
     html += `<tbody data-targ-bucket="${b.id}">`;
-    html += `<tr class="targ-bucket-row"><td colspan="9">${escapeHtml(b.label)} · ${b.pct}% · goal ${reentryFmt(bucketGoal)} · ${b.tickers.length} name${b.tickers.length !== 1 ? 's' : ''}${b.tickers.length > 1 ? ` <a onclick="targResetWeights('${b.id}')" style="cursor:pointer;color:var(--blue);font-weight:600;font-size:11px;margin-left:8px">reset to equal</a>` : ''} <span style="color:var(--muted);font-weight:600;font-size:11px;margin-left:6px">🔒 lock a % to hold it; unlocked names split the rest · ⠿ drag to reorder or move buckets</span></td></tr>`;
+    html += `<tr class="targ-bucket-row"><td colspan="9">${escapeHtml(b.label)} · ${b.pct}% · ${targIsCap(b) ? 'cap' : 'goal'} ${reentryFmt(bucketGoal)}${targIsCap(b) ? targCapNote(bucketGoal, targBucketOwned(b)) : ''} · ${b.tickers.length} name${b.tickers.length !== 1 ? 's' : ''}${(b.tickers.length > 1 && !targIsCap(b)) ? ` <a onclick="targResetWeights('${b.id}')" style="cursor:pointer;color:var(--blue);font-weight:600;font-size:11px;margin-left:8px">reset to equal</a>` : ''} <span style="color:var(--muted);font-weight:600;font-size:11px;margin-left:6px">🔒 lock a % to hold it; unlocked names split the rest · ⠿ drag to reorder or move buckets</span></td></tr>`;
     b.tickers.forEach(t => {
-      const tgt = targStockTarget(targetsData.ira.total, b, t);
-      const owned = targOwned('his', t) + targOwned('hers', t);
+      const tgt = targStockTarget(targGrandTotal(), b, t);
+      const owned = targOwnedAll(t);
       const locked = targIsLocked(b, t);
-      const pctCell = b.tickers.length === 1
+      const pctCell = targIsCap(b) ? `<td class="muted" title="Cap bucket: no per-stock weights">—</td>` : b.tickers.length === 1
         ? `<td style="color:var(--muted)">100%</td>`
         : `<td style="white-space:nowrap"><input type="number" step="0.5" class="targ-input" style="width:58px${locked ? ';border-color:var(--accent);color:var(--accent);font-weight:700' : ''}" value="${targStockPctOfBucket(b, t).toFixed(1)}" onchange="targSetPctOfBucket('${b.id}','${t}',this.value)">% <a onclick="targToggleLock('${b.id}','${escapeHtml(t)}')" title="${locked ? 'Locked — holds this %. Click to unlock and let it recalc.' : 'Click to lock this % so it holds while the others recalc.'}" style="cursor:pointer;margin-left:2px">${locked ? '🔒' : '🔓'}</a></td>`;
-      html += `<tr data-targ-bucket="${b.id}" data-targ-ticker="${escapeHtml(t)}"><td class="targ-drag-handle" onpointerdown="targDragStart(event,'${b.id}','${escapeHtml(t)}')" title="Drag to reorder or move to another bucket">⠿</td><td><strong title="${escapeAttr(stockBlurb(t))}">${escapeHtml(t)}</strong>${ideaOriginChip(t)}${eligibilityChip(t, b.id)} <a onclick="showStockInfo('${escapeHtml(t)}')" title="What is ${escapeHtml(t)}?" style="cursor:pointer;color:var(--blue);margin-left:2px;font-size:12px">ⓘ</a>${targLivePrice(t)} <a onclick="targRemoveTicker('${b.id}','${escapeHtml(t)}')" title="Remove from bucket" style="cursor:pointer;color:var(--muted);margin-left:6px">✕</a></td>${targRangeCell(t)}${targSparkCell(t)}${pctCell}<td>${reentryFmt(tgt)}</td><td>${reentryFmt(owned)}</td>${targMoreCell(owned, tgt)}${targPctCell(owned, tgt)}</tr>`;
+      html += `<tr data-targ-bucket="${b.id}" data-targ-ticker="${escapeHtml(t)}"><td class="targ-drag-handle" onpointerdown="targDragStart(event,'${b.id}','${escapeHtml(t)}')" title="Drag to reorder or move to another bucket">⠿</td><td><strong title="${escapeAttr(stockBlurb(t))}">${escapeHtml(t)}</strong>${ideaOriginChip(t)}${eligibilityChip(t, b.id)} <a onclick="showStockInfo('${escapeHtml(t)}')" title="What is ${escapeHtml(t)}?" style="cursor:pointer;color:var(--blue);margin-left:2px;font-size:12px">ⓘ</a>${targLivePrice(t)} <a onclick="targRemoveTicker('${b.id}','${escapeHtml(t)}')" title="Remove from bucket" style="cursor:pointer;color:var(--muted);margin-left:6px">✕</a></td>${targRangeCell(t)}${targSparkCell(t)}${pctCell}<td>${targIsCap(b) ? '<span class="muted">—</span>' : reentryFmt(tgt)}</td><td>${reentryFmt(owned)}</td>${(targIsCap(b) ? '<td class="muted">—</td>' : targMoreCell(owned, tgt))}${targIsCap(b) ? '<td class="muted">—</td>' : targPctCell(owned, tgt)}</tr>`;
     });
     html += targAddRow(b.id, 9);
     html += `</tbody>`;
@@ -8217,14 +8266,17 @@ function _renderTargetsBody() {
         jointTot = targetsData.ira.accounts.joint.total, schwabTot = targetsData.ira.accounts.schwab.total;
   const grandGoal = TARG_ACCTS.reduce((s, a) => s + (targetsData.ira.accounts[a].total || 0), 0);
   const grandOwned = TARG_ACCTS.reduce((s, a) => s + acctOwned(a), 0);
+  const grandCash = targCashLike();
+  const grandDeployed = Math.max(0, grandOwned - grandCash);
+  const pctOf = v => grandGoal > 0 ? (v / grandGoal * 100).toFixed(1) : '0.0';
   const grandPct = grandGoal > 0 ? grandOwned / grandGoal * 100 : 0;
   const iraOwned = acctOwned('his') + acctOwned('hers');
   const iraGoal = targetsData.ira.total;
 
   sb.innerHTML = `
-    <div class="stat-card"><div class="stat-val blue">${reentryFmt(grandGoal)}</div><div class="stat-label">All accounts goal</div></div>
-    <div class="stat-card"><div class="stat-val green">${reentryFmt(grandOwned)}</div><div class="stat-label">Deployed · ${grandPct.toFixed(1)}%</div></div>
-    <div class="stat-card"><div class="stat-val orange">${reentryFmt(grandGoal - grandOwned)}</div><div class="stat-label">Left to buy</div></div>
+    <div class="stat-card"><div class="stat-val blue">${reentryFmt(grandGoal)}</div><div class="stat-label">All accounts</div></div>
+    <div class="stat-card"><div class="stat-val yellow">${reentryFmt(grandCash)}</div><div class="stat-label">Cash &amp; T-bills · ${pctOf(grandCash)}%</div></div>
+    <div class="stat-card"><div class="stat-val green">${reentryFmt(grandDeployed)}</div><div class="stat-label">Deployed in stocks &amp; funds · ${pctOf(grandDeployed)}%</div></div>
     <div class="stat-card"><div class="stat-val" style="color:var(--purple)">${reentryFmt(hisTot)}</div><div class="stat-label">Joe's IRA</div></div>
     <div class="stat-card"><div class="stat-val" style="color:var(--purple)">${reentryFmt(hersTot)}</div><div class="stat-label">Keli's IRA</div></div>
     <div class="stat-card"><div class="stat-val yellow">${reentryFmt(jointTot)}</div><div class="stat-label">Joint Cash</div></div>
@@ -8232,6 +8284,8 @@ function _renderTargetsBody() {
       ? `<div class="stat-card"><div class="stat-val yellow">${reentryFmt(schwabTot)}</div><div class="stat-label">Schwab transfer</div></div>`
       : ''}`;
 
+  const archSub = document.getElementById('targets-arch-sub');
+  if (archSub) archSub.innerHTML = `The grand plan every account follows — one bucket mix and one per-stock goal across <strong>${TARG_ACCTS.map(a => escapeHtml(targetsData.ira.accounts[a].label)).join('</strong>, <strong>')}</strong>, regardless of which account holds a name. <strong>${reentryFmt(grandGoal)}</strong> all accounts · ${targetsData.ira.buckets.map(b => `${escapeHtml(b.label)} ${b.pct}%${targIsCap(b) ? ' (cap)' : ''}`).join(' / ')}.`;
   const sync = document.getElementById('targets-ibkr-sync');
   if (sync) sync.innerHTML = `<div class="sub" style="margin:6px 0 10px">${ibkrSyncNote()}</div>`;
   const gr = document.getElementById('targets-guardrail');
@@ -8241,25 +8295,25 @@ function _renderTargetsBody() {
   const his = targAcctTableHtml('his');
   document.getElementById('targets-his').innerHTML = his.html;
   document.getElementById('targets-his-title').textContent = `🧑 ${targetsData.ira.accounts.his.label} — ${reentryFmt(hisTot)}`;
-  document.getElementById('targets-his-sub').innerHTML = `Deployed <strong>${reentryFmt(his.deployed)}</strong> · ${reentryFmt(Math.max(0, hisTot - his.deployed))} left to put to work (SGOV/cash). Owned is set from IBKR; plan this month's tranche in "Buy This Month".`;
+  document.getElementById('targets-his-sub').innerHTML = `Deployed <strong>${reentryFmt(Math.max(0, his.deployed - targCashLike('his')))}</strong> in stocks &amp; funds · ${reentryFmt(targCashLike('his'))} in cash &amp; T-bills. Owned is set from IBKR; plan this month's tranche in "Buy This Month".`;
 
   const hers = targAcctTableHtml('hers');
   document.getElementById('targets-hers').innerHTML = hers.html;
   document.getElementById('targets-hers-title').textContent = `🧑‍🤝‍🧑 ${targetsData.ira.accounts.hers.label} — ${reentryFmt(hersTot)}`;
   document.getElementById('targets-hers-sub').innerHTML = hers.deployed > 0
-    ? `Deployed <strong>${reentryFmt(hers.deployed)}</strong> · ${reentryFmt(Math.max(0, hersTot - hers.deployed))} left to put to work.`
+    ? `Deployed <strong>${reentryFmt(Math.max(0, hers.deployed - targCashLike('hers')))}</strong> in stocks &amp; funds · ${reentryFmt(targCashLike('hers'))} in cash &amp; T-bills.`
     : `⏳ <strong>Awaiting Keli's IBKR positions.</strong> Same buckets/%s as Joe's, scaled to ${reentryFmt(hersTot)}. Import her positions above to fill in Owned.`;
 
   const joint = targAcctTableHtml('joint');
   document.getElementById('targets-joint').innerHTML = joint.html;
   document.getElementById('targets-joint-title').textContent = `💎 ${targetsData.ira.accounts.joint.label} — ${reentryFmt(jointTot)}`;
-  document.getElementById('targets-joint-sub').innerHTML = `Deployed <strong>${reentryFmt(joint.deployed)}</strong> · ${reentryFmt(Math.max(0, jointTot - joint.deployed))} left to put to work. Same 8 buckets as the IRAs, scaled to the ${reentryFmt(jointTot)} joint cash — legally separate, planned as one.`;
+  document.getElementById('targets-joint-sub').innerHTML = `Deployed <strong>${reentryFmt(Math.max(0, joint.deployed - targCashLike('joint')))}</strong> in stocks &amp; funds · ${reentryFmt(targCashLike('joint'))} in cash &amp; T-bills. Same buckets as the IRAs, scaled to the ${reentryFmt(jointTot)} joint cash — legally separate, planned as one.`;
 
   const schwab = targAcctTableHtml('schwab');
   document.getElementById('targets-schwab').innerHTML = schwab.html;
   document.getElementById('targets-schwab-title').textContent = `🏦 ${targetsData.ira.accounts.schwab.label} — ${reentryFmt(schwabTot)}`;
   document.getElementById('targets-schwab-sub').innerHTML = schwabTot > 0
-    ? `Deployed <strong>${reentryFmt(schwab.deployed)}</strong> · ${reentryFmt(Math.max(0, schwabTot - schwab.deployed))} left to put to work. Its total tracks the IBKR balance, so it grows on its own as the transfer settles. <strong>Taxable</strong> — sales here realise capital gains, unlike the IRAs.`
+    ? `Deployed <strong>${reentryFmt(Math.max(0, schwab.deployed - targCashLike('schwab')))}</strong> in stocks &amp; funds · ${reentryFmt(targCashLike('schwab'))} in cash &amp; T-bills. Its total tracks the IBKR balance, so it grows on its own as the transfer settles. <strong>Taxable</strong> — sales here realise capital gains, unlike the IRAs.`
     : `⏳ <strong>Transfer from Schwab still in flight.</strong> Nothing has landed yet; the total follows the IBKR balance, so no typing needed. <strong>Taxable</strong> — sales here realise capital gains, unlike the IRAs.`;
 
   document.getElementById('targets-history').innerHTML = targHistoryHtml();
@@ -8289,22 +8343,23 @@ function targetsExportCSV() {
   // ---- Title + summary ----
   sect('MOSE — Buy Targets / Monthly Buy List');
   rows.push(['Exported', new Date().toLocaleString()]);
-  rows.push(['All accounts goal', dollar(grandGoal), 'Deployed', dollar(grandOwned), 'Left to buy', dollar(Math.max(0, grandGoal - grandOwned))]);
+  const grandCash = targCashLike();
+  rows.push(['All accounts', dollar(grandGoal), 'Cash & T-bills', dollar(grandCash), 'Deployed in stocks & funds', dollar(Math.max(0, grandOwned - grandCash))]);
   rows.push(['Accounts', ...TARG_ACCTS.map(a => `${targetsData.ira.accounts[a].label} ${dollar(acctTot(a))}`), 'Buckets', targetsData.ira.buckets.map(b => `${b.label} ${b.pct}%`).join(' / ')]);
   blank();
 
-  // ---- Combined IRA (his + hers) ----
-  sect('COMBINED IRA GOAL (Joe + Keli)');
-  rows.push(['Bucket', 'Ticker', 'Name', 'Price', '% of Bucket', 'Combined Goal', 'Owned (his+hers)', 'Remaining', 'Buy This Month', 'Buy (sh)', 'Today %', 'After Buy %']);
+  // ---- Portfolio architecture (all accounts) ----
+  sect('PORTFOLIO ARCHITECTURE (all accounts)');
+  rows.push(['Bucket', 'Ticker', 'Name', 'Price', '% of Bucket', 'Goal (all accounts)', 'Owned (all accounts)', 'Remaining', 'Buy This Month', 'Buy (sh)', 'Today %', 'After Buy %']);
   targetsData.ira.buckets.forEach(b => {
-    const bucketGoal = targetsData.ira.total * b.pct / 100;
+    const bucketGoal = targGrandTotal() * b.pct / 100;
     rows.push([`${b.label} · ${b.pct}% · goal ${dollar(bucketGoal)} · ${b.tickers.length} names`]);
     let bg = 0, bo = 0, br = 0, bb = 0;
     b.tickers.forEach(t => {
-      const goal = targStockTarget(targetsData.ira.total, b, t);
-      const owned = targOwned('his', t) + targOwned('hers', t);
+      const goal = targStockTarget(targGrandTotal(), b, t);
+      const owned = targOwnedAll(t);
       const rem = Math.max(0, goal - owned);
-      const buy = plan('his', t) + plan('hers', t);
+      const buy = TARG_ACCTS.reduce((q, a) => q + plan(a, t), 0);
       bg += goal; bo += owned; br += rem; bb += buy;
       rows.push([b.label, t, nameOf(t), px(t) ? px(t).toFixed(2) : '', targStockPctOfBucket(b, t).toFixed(1) + '%', dollar(goal), dollar(owned), dollar(rem), dollar(buy), sh(buy, t), pctStr(buy, goal), pctStr(owned + buy, goal)]);
     });
@@ -8367,16 +8422,16 @@ function targPrintBuyList() {
   const grandGoal = TARG_ACCTS.reduce((s, a) => s + acctTot(a), 0);
   let grandOwned = 0; targetsData.ira.buckets.forEach(b => b.tickers.forEach(t => { TARG_ACCTS.forEach(a => { grandOwned += targOwned(a, t); }); }));
   const acctHasOwned = a => targetsData.ira.buckets.some(b => b.tickers.some(t => targOwned(a, t) > 0));
-  let iraOwned = 0; targetsData.ira.buckets.forEach(b => b.tickers.forEach(t => { iraOwned += targOwned('his', t) + targOwned('hers', t); }));
+  let iraOwned = 0; targetsData.ira.buckets.forEach(b => b.tickers.forEach(t => { iraOwned += targOwnedAll(t); }));
 
   // Combined IRA sheet
-  let combined = `<table><thead><tr><th class="l">Ticker</th><th class="l">Name</th><th>Price</th><th>% Bkt</th><th>Combined Goal</th><th>Owned</th><th>Remaining</th><th>Buy This Month</th><th>Shares</th><th>Today</th><th>After Buy</th></tr></thead><tbody>`;
+  let combined = `<table><thead><tr><th class="l">Ticker</th><th class="l">Name</th><th>Price</th><th>% Bkt</th><th>Goal (all)</th><th>Owned (all)</th><th>Remaining</th><th>Buy This Month</th><th>Shares</th><th>Today</th><th>After Buy</th></tr></thead><tbody>`;
   targetsData.ira.buckets.forEach(b => {
-    combined += `<tr class="bkt"><td class="l" colspan="11">${esc(b.label)} · ${b.pct}% · goal ${reentryFmt(targetsData.ira.total * b.pct / 100)} · ${b.tickers.length} names</td></tr>`;
+    combined += `<tr class="bkt"><td class="l" colspan="11">${esc(b.label)} · ${b.pct}% · ${targIsCap(b) ? 'cap' : 'goal'} ${reentryFmt(targGrandTotal() * b.pct / 100)} · ${b.tickers.length} names</td></tr>`;
     let bg = 0, bo = 0, br = 0, bb = 0;
     b.tickers.forEach(t => {
-      const goal = targStockTarget(targetsData.ira.total, b, t), owned = targOwned('his', t) + targOwned('hers', t);
-      const rem = Math.max(0, goal - owned), buy = targPlan('his', t) + targPlan('hers', t);
+      const goal = targStockTarget(targGrandTotal(), b, t), owned = targOwnedAll(t);
+      const rem = Math.max(0, goal - owned), buy = TARG_ACCTS.reduce((q, a) => q + targPlan(a, t), 0);
       bg += goal; bo += owned; br += rem; bb += buy;
       combined += `<tr><td class="l"><b>${esc(t)}</b></td><td class="l muted">${esc(nameOf(t))}</td><td>${px(t) ? '$' + px(t).toFixed(2) : ''}</td><td>${targStockPctOfBucket(b, t).toFixed(1)}%</td><td>${reentryFmt(goal)}</td><td>${reentryFmt(owned)}</td><td><b>${reentryFmt(rem)}</b></td><td>${buy ? reentryFmt(buy) : ''}</td><td class="muted">${sh(buy, t)}</td><td>${pctStr(buy, goal)}</td><td>${pctStr(owned + buy, goal)}</td></tr>`;
     });
@@ -8400,7 +8455,7 @@ function targPrintBuyList() {
   };
 
   const today = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-  const summary = `All accounts ${reentryFmt(grandGoal)} · deployed ${reentryFmt(grandOwned)} · left ${reentryFmt(Math.max(0, grandGoal - grandOwned))} — Joe ${reentryFmt(acctTot('his'))} · Keli ${reentryFmt(acctTot('hers'))} · Joint ${reentryFmt(acctTot('joint'))}`;
+  const summary = `All accounts ${reentryFmt(grandGoal)} · cash & T-bills ${reentryFmt(targCashLike())} · deployed ${reentryFmt(Math.max(0, grandOwned - targCashLike()))} — Joe ${reentryFmt(acctTot('his'))} · Keli ${reentryFmt(acctTot('hers'))} · Joint ${reentryFmt(acctTot('joint'))}`;
   const sheet = (title, sub, body) => `<div class="sheet"><h1>🦞 MOSE — Buy Targets</h1><div class="sub">${esc(today)} · ${esc(summary)}</div><h2>${esc(title)}</h2>${sub ? `<div class="sub">${esc(sub)}</div>` : ''}${body}</div>`;
 
   const html = `<!DOCTYPE html><html><head><meta charset="utf-8"><title>MOSE Buy Targets — ${esc(today)}</title><style>
@@ -8426,7 +8481,7 @@ function targPrintBuyList() {
       <div style="font-size:13px;color:#444;line-height:1.4">💡 For one page per sheet, set <b>Two-sided → Off (1-sided)</b> in the print dialog — in Chrome it's under <b>More settings</b>. (Browsers can't change a printer's two-sided default automatically.)</div>
       <button onclick="window.print()" style="padding:8px 18px;font-size:14px;cursor:pointer;white-space:nowrap">🖨 Print</button>
     </div>
-    ${sheet('Combined IRA Goal (Joe + Keli)', `$${(targetsData.ira.total).toLocaleString()} total`, combined)}
+    ${sheet('Portfolio architecture — all accounts', `${reentryFmt(targGrandTotal())} total`, combined)}
     ${TARG_ACCTS.filter(a => targetsData.ira.accounts[a].total > 0 || acctHasOwned(a))
         .map(a => sheet(targetsData.ira.accounts[a].label, reentryFmt(targetsData.ira.accounts[a].total), acctSheet(a)))
         .join('\n    ')}
@@ -8535,6 +8590,8 @@ window.addEventListener('DOMContentLoaded', () => {
   // Show which build is loaded, and watch for a newer one being deployed.
   const bs = document.getElementById('build-stamp');
   if (bs) bs.textContent = 'build ' + APP_BUILD;
+  const bb = document.getElementById('build-badge');
+  if (bb) bb.textContent = 'build ' + APP_BUILD;
   checkForAppUpdate(false);
   setInterval(() => checkForAppUpdate(false), 15 * 60 * 1000);
 

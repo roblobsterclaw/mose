@@ -27,17 +27,18 @@ The Buy tab is the ONE place Joe decides what to purchase. Eight buckets became
 four; the buy list is the 15 highest-consensus names across the voting filers (42 as of 12 Sep 2026)
 plus UBER and SPCX. Retired: Hard assets, AI core, Opportunistic, AI bench, Radar.
 
-1. **Forever compounders** (60%) — GOOGL, AMZN, META, MSFT, AAPL, BRK.B, NFLX, TSM, NVDA, ASML, TSLA, UBER, SPCX
+1. **Forever compounders** (55% — was 60 until 15 Sep 2026) — GOOGL, AMZN, META, MSFT, AAPL, BRK.B, NFLX, TSM, NVDA, ASML, TSLA, UBER, SPCX
 2. **Toll booths** (20%) — V, MA, MCO, SPGI
 3. **Dry powder** (20%) — VOO, VTV, QQQ, **RSP**, **VO**, SGOV
    RSP (equal-weight S&P) and VO (Vanguard Mid-Cap) added 11 Sep 2026 at Joe's
    request, to lean the index sleeve away from mega-cap tech. Note QQQ remains
    in the bucket and pulls the other way.
-4. **Other positions** (0%) — owned but NOT a buy target; exists so nothing he holds
-   disappears from view. **No dollar goals** — Buy More stays blank. 38 names.
+4. **Other positions** (5% **cap**, Joe's call 15 Sep 2026; was 0%) — owned but NOT a buy
+   target: room for small plays. The bucket row shows cap / owned / over-or-room; per-stock
+   Target, % of bucket, Buy More and gauges are blank (`targIsCap(b)`). 38 names.
 
 Percentages are starting points; Joe changes them in-app (⚙️ Edit goals) and by
-per-stock weight. `targetsData` is at **v19**; the migration preserves every
+per-stock weight. `targetsData` is at **v20** (v20 moves untouched defaults 60→55 / 0→5 only); the migration preserves every
 `owned`/`plan` value and drops anything owned-but-untargeted into Other positions.
 
 **Guard rail exemptions:** `dry` and `other` (cash management and a record of what
@@ -47,6 +48,17 @@ he already owns — neither is a stock pick).
 (tab order: Buy → My Holdings → Super Investors → Valuation → Research → Watchlist).
 
 ## The account model (implemented in the Buy Targets page)
+- **The Buy tab reads top-down: 🏛 Portfolio architecture — all accounts, then a heavy
+  divider, then the four individual account panels** (Joe, 15 Sep 2026). The architecture
+  table used to be IRA-only (goal and Owned = his + hers); it is now summed over
+  `TARG_ACCTS` via `targGrandTotal()` / `targOwnedAll()` — print sheet and CSV too.
+  Its subtitle (totals + bucket %s) is generated live, never hand-typed.
+- **Stat bar = All accounts · Cash & T-bills · Deployed in stocks & funds.** "Deployed"
+  used to include SGOV (so it equalled the total); now Deployed = owned − cash-like
+  (`TARG_CASH_LIKE`: SGOV, BIL, SHV, USFR, TFLO). Same rule in the per-account subtitles.
+  The Flex sync sees positions only, so true uninvested cash is not in the number yet.
+- **Build badge top-right** (`#build-badge`, `build YYYY-MM-DDx`) so Joe can tell which
+  build he is on; bump `APP_BUILD` on every index.html change.
 - **Four** accounts, all sharing the buckets: **Joe's IRA** ($950k, key `his`),
   **Keli's IRA** ($200k, key `hers`), **Joint Cash** ($344k, key `joint`), and
   **Schwab transfer** (key `schwab`, IBKR U25302175) — added 10 Sep 2026 at Joe's

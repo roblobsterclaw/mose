@@ -17,6 +17,8 @@ Joe reviewed every filer in the Voter Roster Review artifact and made the calls:
 
 **Later the same evening:** Joe: "cap it" — any one filer now counts for at most 25 conviction points (CVNA drops from #4 to #8), and the Core check shows the top 25 with a line after 15 so NFLX (#18) and UBER (#21) stay in view. `APP_BUILD 2026-09-14b`.
 
+**15 Sep 2026, same session — the Buy tab's grand architecture (all Joe's calls):** Other positions becomes a **5% cap** paid for by Forever compounders (60→55), with the bucket row showing cap / owned / over-by and no per-stock targets (`targetsData` v20). The old "Combined IRA Goal Progress (his + hers)" section is renamed **🏛 Portfolio architecture — all accounts** and, more importantly, now actually sums all four accounts (it was his+hers only; Joint and Schwab were missing from the table while the stat cards included them) — print sheet and CSV follow. A heavy divider separates the architecture from the individual account panels. Stat bar reads All accounts · Cash & T-bills · Deployed in stocks & funds (SGOV no longer counts as deployed; 86% of the money is in T-bills). The stale "$1.15M · Forever 45% / S&P 35% / For Now 20%" fine print is replaced by live text. Build badge top-right. `APP_BUILD 2026-09-15a`.
+
 **Open:** annual dossier refresh capturing letters; monthly deep-dive data blocks; a conviction floor (or a cap on any one filer's weight) for the Core 15; ~635 unresolved CUSIP rows (3.2% of value); Joe still to delete the Mac crontab line and rotate Keli's Flex token.
 
 ---
