@@ -2135,7 +2135,7 @@ async function checkPw(){
 // compare the build stamp, and offer a genuine reload when they differ.
 // Bump APP_BUILD whenever index.html changes.
 // ============================================================
-const APP_BUILD = '2026-09-15a';
+const APP_BUILD = '2026-09-16a';
 
 async function checkForAppUpdate(announce) {
   try {
@@ -7109,6 +7109,30 @@ function migrateTargets(d) {
     if (o && (!o.pct || o.pct === 0)) o.pct = 5;
     d.version = 20;
     _targetsRepaired = true;
+  }
+  // Self-heal (16 Sep 2026): Joe's synced copy showed the architecture table
+  // without Toll booths and Dry powder. Whatever dropped them, the four canonical
+  // buckets must always exist, in canonical order, and Toll booths / Dry powder
+  // must never be empty. Additive only: a missing bucket is re-inserted with its
+  // canonical names (minus any already living in another bucket); an empty
+  // toll/dry bucket is refilled the same way; nothing Joe has is removed.
+  {
+    const canon = canonTargetsBuckets();
+    if (!Array.isArray(d.ira.buckets)) d.ira.buckets = [];
+    const elsewhere = id => new Set(d.ira.buckets.filter(b => b.id !== id).flatMap(b => Array.isArray(b.tickers) ? b.tickers : []));
+    let healed = false;
+    canon.forEach((cb, i) => {
+      let b = d.ira.buckets.find(x => x && x.id === cb.id);
+      if (!b) {
+        b = { ...cb, tickers: cb.tickers.filter(t => !elsewhere(cb.id).has(t)) };
+        d.ira.buckets.splice(Math.min(i, d.ira.buckets.length), 0, b);
+        healed = true;
+      } else if ((cb.id === 'toll' || cb.id === 'dry') && (!Array.isArray(b.tickers) || !b.tickers.length)) {
+        b.tickers = cb.tickers.filter(t => !elsewhere(cb.id).has(t));
+        healed = true;
+      }
+    });
+    if (healed) { _targetsRepaired = true; d.healedAt = new Date().toISOString(); }
   }
   d.ira.buckets.forEach(b => {
     if (!Array.isArray(b.tickers)) b.tickers = [];
