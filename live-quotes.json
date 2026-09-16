@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T10:35:06.117095+00:00",
+  "generated_at": "2026-09-16T10:59:03.771389+00:00",
   "source": "yahoo",
   "market_status": "closed",
   "indices": [
@@ -38,8 +38,8 @@
     {
       "name": "VIX",
       "ticker": "^VIX",
-      "price": 17.0,
-      "change_pct": -1.1627906976744147,
+      "price": 16.97,
+      "change_pct": -1.337209302325584,
       "vs_exit": null,
       "source": "yahoo"
     }
@@ -55,7 +55,7 @@
       "time": "16:00:01",
       "volume": 31420574,
       "week52_high": 344.57,
-      "week52_low": 236.65
+      "week52_low": 236.32
     },
     {
       "ticker": "AEIS",
@@ -67,7 +67,7 @@
       "time": "16:00:01",
       "volume": 720293,
       "week52_high": 397.44,
-      "week52_low": 155.25
+      "week52_low": 155.07
     },
     {
       "ticker": "ALL",
@@ -1630,6 +1630,18 @@
       "week52_low": 305.96
     },
     {
+      "ticker": "RSP",
+      "symbol": "RSP",
+      "price": 213.96,
+      "prev_close": 215.01,
+      "change_pct": -0.4883493790986387,
+      "date": "2026-09-15",
+      "time": "16:00:00",
+      "volume": 7067409,
+      "week52_high": 223.44,
+      "week52_low": 182.11
+    },
+    {
       "ticker": "RTX",
       "symbol": "RTX",
       "price": 195.5,
@@ -2084,6 +2096,18 @@
       "volume": 3614074,
       "week52_high": 399.76,
       "week52_low": 155.29
+    },
+    {
+      "ticker": "VO",
+      "symbol": "VO",
+      "price": 80.05,
+      "prev_close": 80.61,
+      "change_pct": -0.6947028904602435,
+      "date": "2026-09-15",
+      "time": "16:00:00",
+      "volume": 2438755,
+      "week52_high": 84.59,
+      "week52_low": 69.442
     },
     {
       "ticker": "VOO",
