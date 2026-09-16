@@ -178,6 +178,26 @@ def parse_accounts(root: ET.Element) -> dict[str, dict]:
                     "market_value": round(value, 2),
                     "cost_basis": _num(p.get("costBasisMoney")),
                 }
+        # Cash Report section (added to the Flex queries 16 Sep 2026): one row per
+        # currency plus a BASE_SUMMARY row. Ending cash in the base currency is the
+        # uninvested balance the app files under Cash & T-bills as ticker CASH.
+        # Absent section -> cash stays None and the app says so, never zero.
+        for c in stmt.iter("CashReportCurrency"):
+            row_acct = c.get("accountId") or acct_id
+            target = out.setdefault(
+                row_acct,
+                {"alias": None, "type": None, "net_liq": None,
+                 "as_of": stmt.get("toDate"), "positions": {}},
+            )
+            cur = (c.get("currency") or "").upper()
+            ending = _num(c.get("endingCash"))
+            settled = _num(c.get("endingSettledCash"))
+            if cur == "BASE_SUMMARY" and ending is not None:
+                target["cash"] = round(ending, 2)
+                target["cash_settled"] = round(settled, 2) if settled is not None else None
+            elif cur == "USD" and ending is not None and target.get("cash") is None:
+                target["cash"] = round(ending, 2)
+                target["cash_settled"] = round(settled, 2) if settled is not None else None
     return out
 
 

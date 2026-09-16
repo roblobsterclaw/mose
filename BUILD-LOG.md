@@ -25,6 +25,8 @@ Joe reviewed every filer in the Voter Roster Review artifact and made the calls:
 
 **16 Sep 2026, the cash bucket (Joe's call, build `2026-09-16c`):** Dry powder split in two — **Index funds** 10% (VOO/VTV/QQQ/RSP/VO) and **Cash & T-bills** 10% (SGOV, anything cash-like). The cash % is a parked *target*, not a goal: the bucket row reads "target $X · holding $Y · $Z above target — to deploy", the stat bar gets a **To deploy** card, and the bucket has no per-stock targets. `targetsData` v22 creates the bucket (from Dry powder's 20 only if untouched), moves every cash-like ticker into it, renames Dry powder → Index funds. The IBKR sweep now routes new cash-like tickers to the cash bucket instead of Other; guard rail exempts it. Buckets sum to 100: 55 / 20 / 10 / 10 / 5. Tested headless from a v21 copy of Joe's state.
 
+**16 Sep 2026, cash from IBKR (`2026-09-16d`):** Joe: why doesn't my ~$14k IBKR cash show? Because the Flex queries only carry Open Positions. Added `CashReportCurrency` parsing to `pull_ibkr_flex.py` (BASE_SUMMARY ending cash → `cash` per account, USD fallback) and app support: `applyIbkrSnapshot` files it as ticker `CASH` in the Cash & T-bills bucket and adds it to the account total; sync note turns orange until the Cash Report section is present. Joe to add the section to both Flex queries; then run the sync workflow.
+
 **Open:** annual dossier refresh capturing letters; monthly deep-dive data blocks; a conviction floor (or a cap on any one filer's weight) for the Core 15; ~635 unresolved CUSIP rows (3.2% of value); Joe still to delete the Mac crontab line and rotate Keli's Flex token.
 
 ---

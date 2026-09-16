@@ -2138,7 +2138,7 @@ async function checkPw(){
 // compare the build stamp, and offer a genuine reload when they differ.
 // Bump APP_BUILD whenever index.html changes.
 // ============================================================
-const APP_BUILD = '2026-09-16c';
+const APP_BUILD = '2026-09-16d';
 
 async function checkForAppUpdate(announce) {
   try {
@@ -7264,6 +7264,13 @@ function applyIbkrSnapshot() {
       targetsData.owned[key + '|' + canonicalTicker(t)] = Math.round(v * 100) / 100;
       total += v;
     });
+    // Uninvested cash (Flex "Cash Report" section, since 16 Sep 2026) is filed as
+    // ticker CASH so it lands in the Cash & T-bills bucket and counts in the total.
+    const cashV = Number(byKey[key].cash);
+    if (Number.isFinite(cashV) && cashV > 0) {
+      targetsData.owned[key + '|CASH'] = Math.round(cashV * 100) / 100;
+      total += cashV;
+    }
     const acct = targetsData.ira.accounts[key];
     if (acct && acct.totalSource !== 'manual') {
       acct.total = Math.round(total);
@@ -7304,7 +7311,9 @@ function ibkrSyncNote() {
   return `🔄 <strong>Owned synced from IBKR</strong>${d ? ` — positions at ${escapeHtml(d)} close` : ''}. `
        + `${names.length} account${names.length === 1 ? '' : 's'}: ${escapeHtml(names.join(', '))}.`
        + (missing.length ? ` <span style="color:var(--orange)">Not reported this run: ${escapeHtml(missing.join(', '))} — their values are unchanged, not zeroed.</span>` : '')
-       + ` <span style="color:var(--muted)">Totals are equity positions; a small uninvested cash balance sits outside them. Type over any total in ⚙️ Edit goals to pin it.</span>`;
+       + (Object.values(byKey).some(a => Number.isFinite(Number(a.cash)))
+            ? ` <span style="color:var(--muted)">Totals include uninvested cash (filed as CASH under Cash &amp; T-bills). Type over any total in ⚙️ Edit goals to pin it.</span>`
+            : ` <span style="color:var(--orange)">Uninvested cash is not in the feed yet — the Flex query needs its "Cash Report" section; totals are positions only until then.</span>`);
 }
 
 function targOwned(acct, ticker) {
@@ -7571,6 +7580,7 @@ function targAcctTableHtml(acctKey) {
 // Brief one-line business descriptions for the stock-info hover/tap on the
 // Combined IRA table. Keyed by canonical ticker; falls back to the company name.
 const STOCK_INFO = {
+  'CASH': 'Uninvested cash in the account (from the IBKR Cash Report) — not a security.',
   'AMZN': 'Amazon — online retail marketplace plus AWS cloud computing, advertising, and devices.',
   'GOOGL': 'Alphabet (Google) — Search & ads, YouTube, Android, Google Cloud, and AI (Gemini).',
   'BRK-B': "Berkshire Hathaway — Buffett's holding company: insurance (GEICO), BNSF railroad, energy, and large equity stakes.",

@@ -60,7 +60,12 @@ he already owns — neither is a stock pick).
 - **Stat bar = All accounts · Cash & T-bills · Deployed in stocks & funds · To deploy (cash above its target).** "Deployed"
   used to include SGOV (so it equalled the total); now Deployed = owned − cash-like
   (`TARG_CASH_LIKE`: SGOV, BIL, SHV, USFR, TFLO). Same rule in the per-account subtitles.
-  The Flex sync sees positions only, so true uninvested cash is not in the number yet.
+  **Uninvested cash** arrives once each Flex query carries a **"Cash Report"** section
+  (Joe adds it in IBKR → Performance & Reports → Flex Queries → edit 1633580 and 1633600;
+  fields Account ID, Currency, Ending Cash, Ending Settled Cash). `pull_ibkr_flex.py` reads
+  `CashReportCurrency` BASE_SUMMARY → `accounts[id].cash`; the app files it as ticker
+  **CASH** under Cash & T-bills and adds it to the account total. Until the section exists
+  the sync note says so in orange and totals stay positions-only — never a fake zero.
 - **Touch-drag bug (found 16 Sep 2026, fixed in `2026-09-16b`):** the ⠿ drag handle had
   `touch-action:none` and armed a drag on pointerdown with edge auto-scroll, so on the iPad a
   thumb-scroll starting on a handle carried the row to the bottom and dropped it into Other
