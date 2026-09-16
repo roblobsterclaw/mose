@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T10:59:03.771389+00:00",
+  "generated_at": "2026-09-16T11:10:29.287532+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -18,11 +18,11 @@
         "time": "16:00:01",
         "volume": 31420574,
         "week52_high": 344.57,
-        "week52_low": 236.32
+        "week52_low": 236.65
       },
       "metrics": {
         "week52High": 344.57,
-        "week52Low": 236.32,
+        "week52Low": 236.65,
         "marketCap": 3979469914112,
         "peRatio": 41.99493029150824
       },
@@ -49,11 +49,11 @@
         "time": "16:00:01",
         "volume": 720293,
         "week52_high": 397.44,
-        "week52_low": 155.07
+        "week52_low": 155.25
       },
       "metrics": {
         "week52High": 397.44,
-        "week52Low": 155.07
+        "week52Low": 155.25
       },
       "profile": {
         "company": "Advanced Energy Industries, Inc.",
@@ -2377,12 +2377,12 @@
       "quote": {
         "ticker": "KHC",
         "symbol": "KHC",
-        "price": 24.6,
+        "price": 24.73,
         "prev_close": 24.27,
-        "change_pct": 1.359703337453654,
-        "date": "2026-09-11",
-        "time": "16:00:00",
-        "volume": 22591692,
+        "change_pct": 1.8953440461475106,
+        "date": "2026-09-15",
+        "time": "16:00:03",
+        "volume": 22951372,
         "week52_high": 28.09,
         "week52_low": 21.035
       },
@@ -2390,7 +2390,7 @@
         "week52High": 28.09,
         "week52Low": 21.035,
         "marketCap": 25971361792,
-        "peRatio": -4.989858012170386
+        "peRatio": -5.016227180527384
       },
       "profile": {
         "company": "The Kraft Heinz Company",
@@ -4261,6 +4261,35 @@
       },
       "source": "yahoo"
     },
+    "SPCX": {
+      "ticker": "SPCX",
+      "name": "SPCX",
+      "type": "Equity",
+      "bucket": null,
+      "note": null,
+      "quote": {
+        "ticker": "SPCX",
+        "symbol": "SPCX",
+        "price": 143.49,
+        "prev_close": 148.15,
+        "change_pct": -3.1454606817414756,
+        "date": "2026-09-15",
+        "time": "16:00:00",
+        "volume": 71511608,
+        "week52_high": 225.64,
+        "week52_low": 104.83
+      },
+      "metrics": {
+        "week52High": 225.64,
+        "week52Low": 104.83
+      },
+      "profile": {
+        "company": null,
+        "owned": null,
+        "hasResearch": false
+      },
+      "source": "yahoo"
+    },
     "SPG": {
       "ticker": "SPG",
       "name": "SPG",
@@ -5490,8 +5519,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 16.97,
-        "change_pct": -1.337209302325584,
+        "price": 16.98,
+        "change_pct": -1.2790697674418539,
         "source": "yahoo"
       },
       "metrics": {},
