@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T02:21:11.134914+00:00",
+  "generated_at": "2026-09-16T08:04:23.285433+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -18,11 +18,11 @@
         "time": "16:00:01",
         "volume": 31420574,
         "week52_high": 344.57,
-        "week52_low": 236.32
+        "week52_low": 236.65
       },
       "metrics": {
         "week52High": 344.57,
-        "week52Low": 236.32,
+        "week52Low": 236.65,
         "marketCap": 3979469914112,
         "peRatio": 41.99493029150824
       },
@@ -2147,7 +2147,7 @@
         "prev_close": 62.0,
         "change_pct": -0.8064516129032258,
         "date": "2026-09-15",
-        "time": "13:37:20",
+        "time": "16:00:00",
         "volume": 7336,
         "week52_high": 103.5,
         "week52_low": 37.05
@@ -2377,12 +2377,12 @@
       "quote": {
         "ticker": "KHC",
         "symbol": "KHC",
-        "price": 24.73,
+        "price": 24.6,
         "prev_close": 24.27,
-        "change_pct": 1.8953440461475106,
-        "date": "2026-09-15",
-        "time": "16:00:03",
-        "volume": 22567502,
+        "change_pct": 1.359703337453654,
+        "date": "2026-09-11",
+        "time": "16:00:00",
+        "volume": 22591692,
         "week52_high": 28.09,
         "week52_low": 21.035
       },
@@ -2390,7 +2390,7 @@
         "week52High": 28.09,
         "week52Low": 21.035,
         "marketCap": 25971361792,
-        "peRatio": -5.016227180527384
+        "peRatio": -4.989858012170386
       },
       "profile": {
         "company": "The Kraft Heinz Company",
@@ -5384,13 +5384,13 @@
       "type": "Index",
       "quote": {
         "ticker": "^DJI",
-        "price": 52093.11,
-        "change_pct": -0.6258727385103671,
+        "price": 52093.1,
+        "change_pct": -0.6258918147619639,
         "source": "yahoo"
       },
       "metrics": {},
       "profile": {
-        "vsExit": 12.198324814681365
+        "vsExit": 12.198303276645944
       },
       "source": "yahoo"
     },
@@ -5416,8 +5416,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^RUT",
-        "price": 2870.2854,
-        "change_pct": -0.7589697191439999,
+        "price": 2870.285,
+        "change_pct": -0.7591002129837057,
         "source": "yahoo"
       },
       "metrics": {},
@@ -5432,8 +5432,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 17.2,
-        "change_pct": 0.5847953216374144,
+        "price": 16.96,
+        "change_pct": -1.3953488372092933,
         "source": "yahoo"
       },
       "metrics": {},
