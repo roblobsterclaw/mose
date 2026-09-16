@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T08:04:23.285433+00:00",
+  "generated_at": "2026-09-16T10:35:06.117095+00:00",
   "source": "yahoo",
   "market_status": "closed",
   "indices": [
@@ -14,9 +14,9 @@
     {
       "name": "Dow Jones",
       "ticker": "^DJI",
-      "price": 52093.1,
-      "change_pct": -0.6258918147619639,
-      "vs_exit": 12.198303276645944,
+      "price": 52093.11,
+      "change_pct": -0.6258727385103671,
+      "vs_exit": 12.198324814681365,
       "source": "yahoo"
     },
     {
@@ -38,8 +38,8 @@
     {
       "name": "VIX",
       "ticker": "^VIX",
-      "price": 16.96,
-      "change_pct": -1.3953488372092933,
+      "price": 17.0,
+      "change_pct": -1.1627906976744147,
       "vs_exit": null,
       "source": "yahoo"
     }
@@ -67,7 +67,7 @@
       "time": "16:00:01",
       "volume": 720293,
       "week52_high": 397.44,
-      "week52_low": 155.07
+      "week52_low": 155.25
     },
     {
       "ticker": "ALL",

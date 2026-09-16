@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T08:04:23.285433+00:00",
+  "generated_at": "2026-09-16T10:35:06.117095+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -49,11 +49,11 @@
         "time": "16:00:01",
         "volume": 720293,
         "week52_high": 397.44,
-        "week52_low": 155.07
+        "week52_low": 155.25
       },
       "metrics": {
         "week52High": 397.44,
-        "week52Low": 155.07
+        "week52Low": 155.25
       },
       "profile": {
         "company": "Advanced Energy Industries, Inc.",
@@ -5384,13 +5384,13 @@
       "type": "Index",
       "quote": {
         "ticker": "^DJI",
-        "price": 52093.1,
-        "change_pct": -0.6258918147619639,
+        "price": 52093.11,
+        "change_pct": -0.6258727385103671,
         "source": "yahoo"
       },
       "metrics": {},
       "profile": {
-        "vsExit": 12.198303276645944
+        "vsExit": 12.198324814681365
       },
       "source": "yahoo"
     },
@@ -5432,8 +5432,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 16.96,
-        "change_pct": -1.3953488372092933,
+        "price": 17.0,
+        "change_pct": -1.1627906976744147,
         "source": "yahoo"
       },
       "metrics": {},
