@@ -57,6 +57,15 @@ he already owns — neither is a stock pick).
   used to include SGOV (so it equalled the total); now Deployed = owned − cash-like
   (`TARG_CASH_LIKE`: SGOV, BIL, SHV, USFR, TFLO). Same rule in the per-account subtitles.
   The Flex sync sees positions only, so true uninvested cash is not in the number yet.
+- **Touch-drag bug (found 16 Sep 2026, fixed in `2026-09-16b`):** the ⠿ drag handle had
+  `touch-action:none` and armed a drag on pointerdown with edge auto-scroll, so on the iPad a
+  thumb-scroll starting on a handle carried the row to the bottom and dropped it into Other
+  positions. That is how V/MA/MCO/SPGI, VOO/VTV/QQQ/SGOV and half of Forever ended up in
+  Other (48 names, $1.16M). Now touch/pen needs a 450 ms still press-and-hold to arm
+  (`targDragStart` → `targDragBegin`), handle is `touch-action:pan-y`. **v21 migration**
+  moved every canonical name back to its bucket (`healLog` on targetsData, shown under ⚙️)
+  and a per-load self-heal re-inserts any missing canonical bucket. Canonical names are the
+  lists in `canonTargetsBuckets()`; Joe's own additions in Other are never touched.
 - **Build badge top-right** (`#build-badge`, `build YYYY-MM-DDx`) so Joe can tell which
   build he is on; bump `APP_BUILD` on every index.html change.
 - **Four** accounts, all sharing the buckets: **Joe's IRA** ($950k, key `his`),

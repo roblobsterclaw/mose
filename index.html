@@ -499,7 +499,8 @@
   @media (max-width: 980px) { .targ-grid { grid-template-columns: 1fr; } }
   #tab-targets table td, #tab-targets table th { padding: 7px 10px; }
   #tab-targets .reentry-section h3 { font-size: 15px; }
-  .targ-drag-handle { cursor: grab; color: var(--muted); user-select: none; touch-action: none; text-align: center; font-size: 16px; width: 26px; }
+  .targ-drag-handle { cursor: grab; color: var(--muted); user-select: none; touch-action: pan-y; text-align: center; font-size: 16px; width: 26px; }
+  .targ-drag-handle.armed { color: var(--accent); background: var(--surface); }
   .targ-drag-handle:active { cursor: grabbing; color: var(--accent); }
   tr[data-targ-ticker].targ-drop-before td { box-shadow: inset 0 2px 0 0 var(--accent); }
   tr[data-targ-ticker].targ-drop-after td { box-shadow: inset 0 -2px 0 0 var(--accent); }
@@ -1970,6 +1971,7 @@ async function checkPw(){
       <summary>⚙️ Edit goals, pools &amp; allocations</summary>
       <div id="targets-settings"></div>
       <div class="info-blurb" style="border:none;margin-top:8px;padding-top:4px">
+        <div id="targets-heal-log"></div>
         Changing the account totals or bucket %s re-spreads every per-stock goal automatically. To weight individual stocks inside a bucket, edit the "% of Bucket" column in the Portfolio architecture table up top (the others rebalance to keep the bucket at 100%). To add/remove tickers, just tell me and I'll update the lists.
       </div>
     </details>
@@ -2135,7 +2137,7 @@ async function checkPw(){
 // compare the build stamp, and offer a genuine reload when they differ.
 // Bump APP_BUILD whenever index.html changes.
 // ============================================================
-const APP_BUILD = '2026-09-16a';
+const APP_BUILD = '2026-09-16b';
 
 async function checkForAppUpdate(announce) {
   try {
@@ -6760,6 +6762,7 @@ function renderReentry() {
 // default and as the v5 recovery (a sync bug overwrote the cloud copy with the
 // stripped-down old defaults; this restores the full lists + pinned weights).
 let _targetsRepaired = false;
+let _targetsHealMsg = '';
 function canonTargetsBuckets() {
   // Rebuilt 9 Sep 2026 (Joe's call): eight buckets down to four, and the Buy tab
   // becomes the single place he decides what to purchase.
@@ -7108,6 +7111,38 @@ function migrateTargets(d) {
     if (f && f.pct === 60) f.pct = 55;
     if (o && (!o.pct || o.pct === 0)) o.pct = 5;
     d.version = 20;
+    _targetsRepaired = true;
+  }
+  if ((d.version || 0) < 21) {
+    // 16 Sep 2026: the touch-drag bug (see targDragStart) had quietly moved the
+    // canonical names of Forever, Toll booths and Dry powder into Other
+    // positions on Joe's iPad. One-time repair: every canonical name goes back
+    // to its own bucket — pulled out of Other if it sits there, re-added if it
+    // is gone altogether. Nothing Joe added himself is touched.
+    const canon = canonTargetsBuckets();
+    const bk = Array.isArray(d.ira.buckets) ? d.ira.buckets : (d.ira.buckets = []);
+    const other = bk.find(b => b.id === 'other');
+    const same = (a, b) => a === b || a.replace(/-([A-Z])$/, '.$1') === b.replace(/-([A-Z])$/, '.$1');
+    const moved = [], restored = [];
+    canon.filter(cb => cb.id !== 'other').forEach(cb => {
+      let b = bk.find(x => x && x.id === cb.id);
+      if (!b) { b = { ...cb, tickers: [] }; bk.splice(Math.min(canon.indexOf(cb), bk.length), 0, b); }
+      if (!Array.isArray(b.tickers)) b.tickers = [];
+      cb.tickers.forEach(t => {
+        const inOther = other && Array.isArray(other.tickers) ? other.tickers.findIndex(x => same(x, t)) : -1;
+        const elsewhere = bk.some(x => x !== b && x.id !== 'other' && Array.isArray(x.tickers) && x.tickers.some(y => same(y, t)));
+        if (inOther >= 0) { other.tickers.splice(inOther, 1); if (other.weights) delete other.weights[t]; }
+        if (!b.tickers.some(y => same(y, t)) && !elsewhere) {
+          b.tickers.push(t);
+          (inOther >= 0 ? moved : restored).push(t + ' → ' + cb.label);
+        }
+      });
+    });
+    if (moved.length || restored.length) {
+      d.healLog = (d.healLog || []).concat([{ at: new Date().toISOString(), moved, restored }]);
+      _targetsHealMsg = `Repaired buckets: ${moved.length ? moved.length + ' moved back from Other positions' : ''}${moved.length && restored.length ? ', ' : ''}${restored.length ? restored.length + ' re-added' : ''}. See ⚙️ for the log.`;
+    }
+    d.version = 21;
     _targetsRepaired = true;
   }
   // Self-heal (16 Sep 2026): Joe's synced copy showed the architecture table
@@ -7787,10 +7822,41 @@ function targNextTickerRow(row) {
   while (n && !n.hasAttribute('data-targ-ticker')) n = n.nextElementSibling;
   return n;
 }
+// Touch guard (16 Sep 2026): on the iPad a thumb-scroll that started on the ⠿
+// handle used to become a drag, auto-scroll to the bottom, and drop the name
+// into Other positions — that is how the Toll booths and Dry powder buckets
+// were emptied. Touch and pen now need a 450 ms press-and-hold with the finger
+// still before a drag arms; a move before that is a scroll and nothing happens.
+// Mouse drags are unchanged.
+let targPress = null;
 function targDragStart(ev, bucketId, ticker) {
   if (ev.button != null && ev.button !== 0) return; // primary button / touch only
+  if (ev.pointerType && ev.pointerType !== 'mouse') {
+    const handle = ev.currentTarget;
+    const x0 = ev.clientX, y0 = ev.clientY;
+    const cancel = () => {
+      if (!targPress) return;
+      clearTimeout(targPress.timer);
+      window.removeEventListener('pointermove', onMove); window.removeEventListener('pointerup', cancel); window.removeEventListener('pointercancel', cancel);
+      targPress = null;
+    };
+    const onMove = e => { if (Math.abs(e.clientX - x0) > 8 || Math.abs(e.clientY - y0) > 8) cancel(); };
+    if (targPress) cancel();
+    targPress = { timer: setTimeout(() => {
+      cancel();
+      if (handle) { handle.classList.add('armed'); setTimeout(() => handle.classList.remove('armed'), 1500); }
+      if (navigator.vibrate) { try { navigator.vibrate(20); } catch {} }
+      targDragBegin(bucketId, ticker, x0, y0);
+    }, 450) };
+    window.addEventListener('pointermove', onMove); window.addEventListener('pointerup', cancel); window.addEventListener('pointercancel', cancel);
+    return; // do NOT preventDefault — let the page scroll if that's what the touch was
+  }
   ev.preventDefault();
-  targDrag = { src: bucketId, ticker: ticker, lastX: ev.clientX, lastY: ev.clientY, scrollTimer: setInterval(targAutoScrollTick, 16) };
+  targDragBegin(bucketId, ticker, ev.clientX, ev.clientY);
+  targDragMove(ev);
+}
+function targDragBegin(bucketId, ticker, x, y) {
+  targDrag = { src: bucketId, ticker: ticker, lastX: x, lastY: y, scrollTimer: setInterval(targAutoScrollTick, 16) };
   document.body.style.userSelect = 'none';
   const ghost = document.createElement('div');
   ghost.id = 'targ-drag-ghost';
@@ -7799,7 +7865,7 @@ function targDragStart(ev, bucketId, ticker) {
   window.addEventListener('pointermove', targDragMove);
   window.addEventListener('pointerup', targDragEnd);
   window.addEventListener('pointercancel', targDragCancel);
-  targDragMove(ev);
+  targUpdateDropTarget(x, y);
 }
 function targUpdateDropTarget(x, y) {
   targClearDropMarks();
@@ -8308,6 +8374,11 @@ function _renderTargetsBody() {
       ? `<div class="stat-card"><div class="stat-val yellow">${reentryFmt(schwabTot)}</div><div class="stat-label">Schwab transfer</div></div>`
       : ''}`;
 
+  const hl = document.getElementById('targets-heal-log');
+  if (hl) {
+    const log = Array.isArray(targetsData.healLog) ? targetsData.healLog.slice(-3) : [];
+    hl.innerHTML = log.length ? `<div style="margin-bottom:8px"><strong>Bucket repairs:</strong> ${log.map(e => `${escapeHtml(String(e.at || '').slice(0, 10))}: ${escapeHtml([...(e.moved || []), ...(e.restored || [])].join(', ') || 'none')}`).join('<br>')}</div>` : '';
+  }
   const archSub = document.getElementById('targets-arch-sub');
   if (archSub) archSub.innerHTML = `The grand plan every account follows — one bucket mix and one per-stock goal across <strong>${TARG_ACCTS.map(a => escapeHtml(targetsData.ira.accounts[a].label)).join('</strong>, <strong>')}</strong>, regardless of which account holds a name. <strong>${reentryFmt(grandGoal)}</strong> all accounts · ${targetsData.ira.buckets.map(b => `${escapeHtml(b.label)} ${b.pct}%${targIsCap(b) ? ' (cap)' : ''}`).join(' / ')}.`;
   const sync = document.getElementById('targets-ibkr-sync');
@@ -8315,6 +8386,7 @@ function _renderTargetsBody() {
   const gr = document.getElementById('targets-guardrail');
   if (gr) gr.innerHTML = targGuardrailHtml();
   document.getElementById('targets-combined').innerHTML = targCombinedHtml();
+  if (_targetsHealMsg) { const m = _targetsHealMsg; _targetsHealMsg = ''; setTimeout(() => showWatchlistToast(m), 600); }
 
   const his = targAcctTableHtml('his');
   document.getElementById('targets-his').innerHTML = his.html;
