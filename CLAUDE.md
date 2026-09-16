@@ -29,19 +29,23 @@ plus UBER and SPCX. Retired: Hard assets, AI core, Opportunistic, AI bench, Rada
 
 1. **Forever compounders** (55% — was 60 until 15 Sep 2026) — GOOGL, AMZN, META, MSFT, AAPL, BRK.B, NFLX, TSM, NVDA, ASML, TSLA, UBER, SPCX
 2. **Toll booths** (20%) — V, MA, MCO, SPGI
-3. **Dry powder** (20%) — VOO, VTV, QQQ, **RSP**, **VO**, SGOV
-   RSP (equal-weight S&P) and VO (Vanguard Mid-Cap) added 11 Sep 2026 at Joe's
-   request, to lean the index sleeve away from mega-cap tech. Note QQQ remains
-   in the bucket and pulls the other way.
+3. **Index funds** (10%, id `dry`; was "Dry powder" 20% with SGOV inside until 16 Sep 2026) —
+   VOO, VTV, QQQ, **RSP**, **VO**. RSP and VO added 11 Sep 2026 to lean the index sleeve
+   away from mega-cap tech; QQQ pulls the other way.
+3b. **Cash & T-bills** (10% **parked target**, id `cash`, Joe's call 16 Sep 2026) — SGOV and
+   anything in `TARG_CASH_LIKE`. The bucket Joe works OUT of: the % is how much he wants
+   parked long-term, the bucket row and the stat card show "above target — to deploy".
+   No per-stock targets (`targIsCap` is true for `cash` and `other`; `targIsCash` picks the
+   wording). Cash-like tickers synced later land here, never in Other. Guard-rail exempt.
 4. **Other positions** (5% **cap**, Joe's call 15 Sep 2026; was 0%) — owned but NOT a buy
    target: room for small plays. The bucket row shows cap / owned / over-or-room; per-stock
    Target, % of bucket, Buy More and gauges are blank (`targIsCap(b)`). 38 names.
 
 Percentages are starting points; Joe changes them in-app (⚙️ Edit goals) and by
-per-stock weight. `targetsData` is at **v20** (v20 moves untouched defaults 60→55 / 0→5 only); the migration preserves every
+per-stock weight. `targetsData` is at **v22** (v20: 60→55 / 0→5 defaults; v21: canonical names back out of Other after the touch-drag bug; v22: cash bucket carved out of Dry powder 20→10+10, cash-like tickers moved in); the migration preserves every
 `owned`/`plan` value and drops anything owned-but-untargeted into Other positions.
 
-**Guard rail exemptions:** `dry` and `other` (cash management and a record of what
+**Guard rail exemptions:** `dry`, `cash` and `other` (cash management and a record of what
 he already owns — neither is a stock pick).
 
 **Watchlist = names he does NOT own and is only watching.** Its tab sits FAR RIGHT
@@ -53,7 +57,7 @@ he already owns — neither is a stock pick).
   table used to be IRA-only (goal and Owned = his + hers); it is now summed over
   `TARG_ACCTS` via `targGrandTotal()` / `targOwnedAll()` — print sheet and CSV too.
   Its subtitle (totals + bucket %s) is generated live, never hand-typed.
-- **Stat bar = All accounts · Cash & T-bills · Deployed in stocks & funds.** "Deployed"
+- **Stat bar = All accounts · Cash & T-bills · Deployed in stocks & funds · To deploy (cash above its target).** "Deployed"
   used to include SGOV (so it equalled the total); now Deployed = owned − cash-like
   (`TARG_CASH_LIKE`: SGOV, BIL, SHV, USFR, TFLO). Same rule in the per-account subtitles.
   The Flex sync sees positions only, so true uninvested cash is not in the number yet.

@@ -1727,7 +1727,8 @@ async function checkPw(){
         <option value="aibench">AI bench</option>
         <option value="opp">Opportunistic</option>
         <option value="radar">Radar</option>
-        <option value="dry">Dry powder</option>
+        <option value="dry">Index funds</option>
+        <option value="cash">Cash &amp; T-bills</option>
         <option value="uncategorized">Uncategorized</option>
       </select>
       <button class="watchlist-add-btn" onclick="addWatchlistStock()">Add Stock</button>
@@ -2137,7 +2138,7 @@ async function checkPw(){
 // compare the build stamp, and offer a genuine reload when they differ.
 // Bump APP_BUILD whenever index.html changes.
 // ============================================================
-const APP_BUILD = '2026-09-16b';
+const APP_BUILD = '2026-09-16c';
 
 async function checkForAppUpdate(announce) {
   try {
@@ -2728,7 +2729,8 @@ const DEFAULT_BUCKET_DEFS = [
   { key: 'aibench',       label: '\uD83D\uDD2C AI bench',            color: '#5C4A8A' },
   { key: 'opp',           label: '\uD83D\uDCC8 Opportunistic',       color: '#8B2635' },
   { key: 'radar',         label: '\uD83D\uDC40 Radar',               color: '#5B5B5B' },
-  { key: 'dry',           label: '\uD83D\uDCB0 Dry powder',          color: '#7D6608' },
+  { key: 'dry',           label: '\uD83D\uDCCA Index funds',         color: '#7D6608' },
+  { key: 'cash',          label: '\uD83D\uDCB0 Cash & T-bills',      color: '#B7791F' },
   { key: 'uncategorized', label: '\u2B1C Uncategorized',            color: '#3A3A3A' },
 ];
 const BUCKET_COLOR_PALETTE = ['#2D5A27','#1B4F72','#5C4A8A','#7D4E00','#4A235A','#7D6608','#8B2635','#1F6F6B','#5B5B5B'];
@@ -2784,7 +2786,9 @@ const BUCKET_ALIASES = {
   watching: 'radar',
   dry: 'dry',
   'dry-powder': 'dry',
-  treasury: 'dry',
+  treasury: 'cash',
+  cash: 'cash',
+  tbills: 'cash',
   index: 'dry',
   'treasury-index': 'dry',
   uncategorized: 'uncategorized'
@@ -3389,7 +3393,7 @@ let eligibleMap = {};          // canonical ticker -> row
 // Dry powder is cash management (index ETFs / T-bills), not a stock pick — exempt.
 // Dry powder is cash management; Other positions records what Joe already owns
 // rather than what he's buying. Neither is a stock pick, so neither is railed.
-const GUARDRAIL_EXEMPT_BUCKETS = new Set(['dry', 'other']);
+const GUARDRAIL_EXEMPT_BUCKETS = new Set(['dry', 'cash', 'other']);
 // 13F covers US-listed securities only, so a foreign primary listing can never
 // appear in the eligible set however many great investors own it. Flagging those
 // as "not held" would be wrong — they're unverifiable, which is a different thing.
@@ -6763,6 +6767,10 @@ function renderReentry() {
 // stripped-down old defaults; this restores the full lists + pinned weights).
 let _targetsRepaired = false;
 let _targetsHealMsg = '';
+// Cash-like tickers: count as owned, never as "deployed"; live in the Cash & T-bills
+// bucket. Declared up here because migrateTargets() runs at load, before the
+// helper section below.
+const TARG_CASH_LIKE = new Set(['SGOV', 'BIL', 'SHV', 'USFR', 'TFLO', 'CASH']);
 function canonTargetsBuckets() {
   // Rebuilt 9 Sep 2026 (Joe's call): eight buckets down to four, and the Buy tab
   // becomes the single place he decides what to purchase.
@@ -6780,10 +6788,16 @@ function canonTargetsBuckets() {
       weights: {}, locked: {} },
     { id: 'toll', label: 'Toll booths', pct: 20,
       tickers: ['V', 'MA', 'MCO', 'SPGI'], weights: {}, locked: {} },
-    { id: 'dry', label: 'Dry powder', pct: 20,
+    { id: 'dry', label: 'Index funds', pct: 10,
       // RSP (equal-weight S&P) and VO (mid-caps) added 11 Sep 2026 to dilute the
-      // mega-cap concentration that VOO and QQQ carry.
-      tickers: ['VOO', 'VTV', 'QQQ', 'RSP', 'VO', 'SGOV'], weights: {}, locked: {} },
+      // mega-cap concentration that VOO and QQQ carry. Was "Dry powder" 20% with
+      // SGOV inside until 16 Sep 2026 — cash now has its own bucket below.
+      tickers: ['VOO', 'VTV', 'QQQ', 'RSP', 'VO'], weights: {}, locked: {} },
+    { id: 'cash', label: 'Cash & T-bills', pct: 10,
+      // Joe's call 16 Sep 2026: the money he works OUT of. The % is the amount he
+      // wants parked long-term; whatever sits above it is "to deploy". Like Other
+      // positions it has no per-stock targets — the bucket row carries the number.
+      tickers: ['SGOV'], weights: {}, locked: {} },
     { id: 'other', label: 'Other positions', pct: 5,
       // 5% CAP, not a goal (Joe, 15 Sep 2026; taken from Forever 60 -> 55): room
       // for small plays and things he wants to play with. No per-stock targets —
@@ -7145,6 +7159,36 @@ function migrateTargets(d) {
     d.version = 21;
     _targetsRepaired = true;
   }
+  if ((d.version || 0) < 22) {
+    // Joe's call 16 Sep 2026: cash gets its own bucket. Dry powder (20%) splits
+    // into Index funds 10% + Cash & T-bills 10% (only if still at the untouched
+    // 20; a custom % gives up at most 10 points). Every cash-like ticker moves
+    // into the new bucket from wherever it sits.
+    const bk = Array.isArray(d.ira.buckets) ? d.ira.buckets : (d.ira.buckets = []);
+    const dry = bk.find(b => b.id === 'dry');
+    let cash = bk.find(b => b.id === 'cash');
+    if (!cash) {
+      cash = { id: 'cash', label: 'Cash & T-bills', pct: 10, tickers: [], weights: {}, locked: {} };
+      const at = dry ? bk.indexOf(dry) + 1 : Math.max(0, bk.length - 1);
+      bk.splice(at, 0, cash);
+      if (dry) dry.pct = dry.pct === 20 ? 10 : Math.max(0, (dry.pct || 0) - 10);
+    }
+    if (dry && dry.label === 'Dry powder') dry.label = 'Index funds';
+    bk.forEach(b => {
+      if (b === cash || !Array.isArray(b.tickers)) return;
+      b.tickers.slice().forEach(t => {
+        if (TARG_CASH_LIKE.has(String(t).toUpperCase())) {
+          b.tickers.splice(b.tickers.indexOf(t), 1);
+          if (b.weights) delete b.weights[t];
+          if (b.locked) delete b.locked[t];
+          if (!cash.tickers.includes(t)) cash.tickers.push(t);
+        }
+      });
+    });
+    if (!cash.tickers.length) cash.tickers.push('SGOV');
+    d.version = 22;
+    _targetsRepaired = true;
+  }
   // Self-heal (16 Sep 2026): Joe's synced copy showed the architecture table
   // without Toll booths and Dry powder. Whatever dropped them, the four canonical
   // buckets must always exist, in canonical order, and Toll booths / Dry powder
@@ -7162,7 +7206,7 @@ function migrateTargets(d) {
         b = { ...cb, tickers: cb.tickers.filter(t => !elsewhere(cb.id).has(t)) };
         d.ira.buckets.splice(Math.min(i, d.ira.buckets.length), 0, b);
         healed = true;
-      } else if ((cb.id === 'toll' || cb.id === 'dry') && (!Array.isArray(b.tickers) || !b.tickers.length)) {
+      } else if ((cb.id === 'toll' || cb.id === 'dry' || cb.id === 'cash') && (!Array.isArray(b.tickers) || !b.tickers.length)) {
         b.tickers = cb.tickers.filter(t => !elsewhere(cb.id).has(t));
         healed = true;
       }
@@ -7240,6 +7284,8 @@ function applyIbkrSnapshot() {
       const t = parts[1], alt = t.replace(/-([A-Z])$/, '.$1');    // BRK-B -> BRK.B
       if (targeted.has(t) || targeted.has(alt)) return;
       if (other.tickers.includes(t) || other.tickers.includes(alt)) return;
+      const cashB = targetsData.ira.buckets.find(b => b.id === 'cash');
+      if (cashB && TARG_CASH_LIKE.has(t)) { if (!cashB.tickers.includes(t)) cashB.tickers.push(t); return; }
       other.tickers.push(t);
     });
   }
@@ -7300,7 +7346,6 @@ function targStockTarget(acctTotal, bucket, ticker) {
 // for every account in TARG_ACCTS: goal = sum of the four totals, owned = the
 // four owned figures added up. Cash-like tickers (T-bill ETFs) count as owned
 // but NOT as deployed — Joe's rule: money in SGOV is not "in the market".
-const TARG_CASH_LIKE = new Set(['SGOV', 'BIL', 'SHV', 'USFR', 'TFLO', 'SGOV', 'CASH']);
 function targGrandTotal() { return TARG_ACCTS.reduce((s, a) => s + (Number((targetsData.ira.accounts[a] || {}).total) || 0), 0); }
 function targOwnedAll(t) { return TARG_ACCTS.reduce((s, a) => s + targOwned(a, t), 0); }
 function targCashLike(acctKey) {
@@ -7318,7 +7363,17 @@ function targCapNote(cap, owned) {
     ? ` · owned ${reentryFmt(owned)} · <span style="color:var(--red);font-weight:800">over the cap by ${reentryFmt(d)}</span>`
     : ` · owned ${reentryFmt(owned)} · <span style="color:var(--green);font-weight:700">${reentryFmt(-d)} of room</span>`;
 }
-function targIsCap(b) { return b.id === 'other'; }
+function targIsCap(b) { return b.id === 'other' || b.id === 'cash'; }
+function targIsCash(b) { return b.id === 'cash'; }
+// Bucket-row note for the cash bucket: how much sits above the parked target (to deploy) or below it.
+function targCashNote(target, owned) {
+  const d = owned - target;
+  return d > 0.5
+    ? ` · holding ${reentryFmt(owned)} · <span style="color:var(--green);font-weight:800">${reentryFmt(d)} above target — to deploy</span>`
+    : ` · holding ${reentryFmt(owned)} · <span style="color:var(--yellow);font-weight:700">${reentryFmt(-d)} below target</span>`;
+}
+function targBucketNote(b, goal, owned) { return targIsCash(b) ? targCashNote(goal, owned) : targIsCap(b) ? targCapNote(goal, owned) : ''; }
+function targBucketWord(b) { return targIsCash(b) ? 'target' : targIsCap(b) ? 'cap' : 'goal'; }
 
 function targetsSave() {
   targetsData.ira.total = targetsData.ira.accounts.his.total + targetsData.ira.accounts.hers.total;
@@ -7501,7 +7556,7 @@ function targAcctTableHtml(acctKey) {
   let html = targPlanControls(acctKey) + `<div class="table-wrap"><table><thead><tr><th>Ticker</th><th>Target</th><th>Owned</th><th>Remaining</th><th>Buy This Month</th><th title="This month's purchase vs target">Today</th><th title="Owned + this month's buy vs target">After Buy</th></tr></thead><tbody>`;
   let deployed = 0;
   targetsData.ira.buckets.forEach(b => {
-    html += `<tr class="targ-bucket-row"><td colspan="7">${escapeHtml(b.label)} · ${b.pct}% · ${targIsCap(b) ? 'cap' : ''} ${reentryFmt(acct.total * b.pct / 100)}${targIsCap(b) ? targCapNote(acct.total * b.pct / 100, targBucketOwned(b, acctKey)) : ''}</td></tr>`;
+    html += `<tr class="targ-bucket-row"><td colspan="7">${escapeHtml(b.label)} · ${b.pct}% · ${targBucketWord(b)} ${reentryFmt(acct.total * b.pct / 100)}${targBucketNote(b, acct.total * b.pct / 100, targBucketOwned(b, acctKey))}</td></tr>`;
     b.tickers.forEach(t => {
       const tgt = targStockTarget(acct.total, b, t);
       const owned = targOwned(acctKey, t); deployed += owned;
@@ -7793,7 +7848,7 @@ function targCombinedHtml() {
   targetsData.ira.buckets.forEach(b => {
     const bucketGoal = targGrandTotal() * b.pct / 100;
     html += `<tbody data-targ-bucket="${b.id}">`;
-    html += `<tr class="targ-bucket-row"><td colspan="9">${escapeHtml(b.label)} · ${b.pct}% · ${targIsCap(b) ? 'cap' : 'goal'} ${reentryFmt(bucketGoal)}${targIsCap(b) ? targCapNote(bucketGoal, targBucketOwned(b)) : ''} · ${b.tickers.length} name${b.tickers.length !== 1 ? 's' : ''}${(b.tickers.length > 1 && !targIsCap(b)) ? ` <a onclick="targResetWeights('${b.id}')" style="cursor:pointer;color:var(--blue);font-weight:600;font-size:11px;margin-left:8px">reset to equal</a>` : ''} <span style="color:var(--muted);font-weight:600;font-size:11px;margin-left:6px">🔒 lock a % to hold it; unlocked names split the rest · ⠿ drag to reorder or move buckets</span></td></tr>`;
+    html += `<tr class="targ-bucket-row"><td colspan="9">${escapeHtml(b.label)} · ${b.pct}% · ${targBucketWord(b)} ${reentryFmt(bucketGoal)}${targBucketNote(b, bucketGoal, targBucketOwned(b))} · ${b.tickers.length} name${b.tickers.length !== 1 ? 's' : ''}${(b.tickers.length > 1 && !targIsCap(b)) ? ` <a onclick="targResetWeights('${b.id}')" style="cursor:pointer;color:var(--blue);font-weight:600;font-size:11px;margin-left:8px">reset to equal</a>` : ''} <span style="color:var(--muted);font-weight:600;font-size:11px;margin-left:6px">🔒 lock a % to hold it; unlocked names split the rest · ⠿ drag to reorder or move buckets</span></td></tr>`;
     b.tickers.forEach(t => {
       const tgt = targStockTarget(targGrandTotal(), b, t);
       const owned = targOwnedAll(t);
@@ -8367,6 +8422,7 @@ function _renderTargetsBody() {
     <div class="stat-card"><div class="stat-val blue">${reentryFmt(grandGoal)}</div><div class="stat-label">All accounts</div></div>
     <div class="stat-card"><div class="stat-val yellow">${reentryFmt(grandCash)}</div><div class="stat-label">Cash &amp; T-bills · ${pctOf(grandCash)}%</div></div>
     <div class="stat-card"><div class="stat-val green">${reentryFmt(grandDeployed)}</div><div class="stat-label">Deployed in stocks &amp; funds · ${pctOf(grandDeployed)}%</div></div>
+    ${(() => { const cb = targetsData.ira.buckets.find(targIsCash); if (!cb) return ''; const tgt = grandGoal * cb.pct / 100, d = grandCash - tgt; return `<div class="stat-card"><div class="stat-val ${d > 0 ? 'orange' : ''}" style="${d > 0 ? '' : 'color:var(--muted)'}">${reentryFmt(Math.max(0, d))}</div><div class="stat-label">To deploy · cash above its ${cb.pct}% target</div></div>`; })()}
     <div class="stat-card"><div class="stat-val" style="color:var(--purple)">${reentryFmt(hisTot)}</div><div class="stat-label">Joe's IRA</div></div>
     <div class="stat-card"><div class="stat-val" style="color:var(--purple)">${reentryFmt(hersTot)}</div><div class="stat-label">Keli's IRA</div></div>
     <div class="stat-card"><div class="stat-val yellow">${reentryFmt(jointTot)}</div><div class="stat-label">Joint Cash</div></div>
@@ -8380,7 +8436,7 @@ function _renderTargetsBody() {
     hl.innerHTML = log.length ? `<div style="margin-bottom:8px"><strong>Bucket repairs:</strong> ${log.map(e => `${escapeHtml(String(e.at || '').slice(0, 10))}: ${escapeHtml([...(e.moved || []), ...(e.restored || [])].join(', ') || 'none')}`).join('<br>')}</div>` : '';
   }
   const archSub = document.getElementById('targets-arch-sub');
-  if (archSub) archSub.innerHTML = `The grand plan every account follows — one bucket mix and one per-stock goal across <strong>${TARG_ACCTS.map(a => escapeHtml(targetsData.ira.accounts[a].label)).join('</strong>, <strong>')}</strong>, regardless of which account holds a name. <strong>${reentryFmt(grandGoal)}</strong> all accounts · ${targetsData.ira.buckets.map(b => `${escapeHtml(b.label)} ${b.pct}%${targIsCap(b) ? ' (cap)' : ''}`).join(' / ')}.`;
+  if (archSub) archSub.innerHTML = `The grand plan every account follows — one bucket mix and one per-stock goal across <strong>${TARG_ACCTS.map(a => escapeHtml(targetsData.ira.accounts[a].label)).join('</strong>, <strong>')}</strong>, regardless of which account holds a name. <strong>${reentryFmt(grandGoal)}</strong> all accounts · ${targetsData.ira.buckets.map(b => `${escapeHtml(b.label)} ${b.pct}%${targIsCash(b) ? ' (parked)' : targIsCap(b) ? ' (cap)' : ''}`).join(' / ')}.`;
   const sync = document.getElementById('targets-ibkr-sync');
   if (sync) sync.innerHTML = `<div class="sub" style="margin:6px 0 10px">${ibkrSyncNote()}</div>`;
   const gr = document.getElementById('targets-guardrail');
@@ -8523,7 +8579,7 @@ function targPrintBuyList() {
   // Combined IRA sheet
   let combined = `<table><thead><tr><th class="l">Ticker</th><th class="l">Name</th><th>Price</th><th>% Bkt</th><th>Goal (all)</th><th>Owned (all)</th><th>Remaining</th><th>Buy This Month</th><th>Shares</th><th>Today</th><th>After Buy</th></tr></thead><tbody>`;
   targetsData.ira.buckets.forEach(b => {
-    combined += `<tr class="bkt"><td class="l" colspan="11">${esc(b.label)} · ${b.pct}% · ${targIsCap(b) ? 'cap' : 'goal'} ${reentryFmt(targGrandTotal() * b.pct / 100)} · ${b.tickers.length} names</td></tr>`;
+    combined += `<tr class="bkt"><td class="l" colspan="11">${esc(b.label)} · ${b.pct}% · ${targBucketWord(b)} ${reentryFmt(targGrandTotal() * b.pct / 100)} · ${b.tickers.length} names</td></tr>`;
     let bg = 0, bo = 0, br = 0, bb = 0;
     b.tickers.forEach(t => {
       const goal = targStockTarget(targGrandTotal(), b, t), owned = targOwnedAll(t);
