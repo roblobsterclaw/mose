@@ -34,45 +34,50 @@ return since the account opened on 2026-05-27 is +0.7%.
 | Joe's IRA (IBKR) | $949k | live | 89% SGOV, not yet deployed |
 | Keli's Rollover IRA (IBKR) | ~$199k | Tiller, Aug 22 | separate login; keep titled as inherited until Joe is 59½ |
 | Joint brokerage (IBKR) | ~$326k | Tiller, Aug 22 | Keli's half gets a stepped-up basis |
-| Fourth IBKR account | ? | handoff says 4 accounts, $1.49M total | identify |
+| Schwab | ~$2k | Joe | the "fourth" brokerage account; negligible |
 | ADP Roth 401(k)s (Joe + Keli) | ~$63k | Tiller | roll Keli's into Joe's Roth IRA |
-| JPMorgan Funds | ~$154k | Tiller | type unknown |
-| Kearny Federal Savings | ~$758k | Tiller | 2 accounts; if this is personal cash it is the largest liquid pool after the IRA |
 | Vanguard | ~$6k | Tiller | $500/month going in |
-| Business interests (TLC/SurfBox 48.33%, Greenville Colorants 40%) | ~$4.75M net | Tiller balance sheet | book value at Joe's share, not a sale price |
+| Business interests (TLC/SurfBox 48.33%, Greenville Colorants 40%) | ~$4.75M net | Tiller balance sheet | book value at Joe's share. **Keli held part of these interests (confirmed 2026-09-17); her share steps up.** |
+| Primary home mortgage (Kearny Federal) | ~$758k owed | Joe | liability, not cash |
+| Shellpoint mortgage | ~$602k owed | Tiller | which property? |
 | Personal net worth at Joe's share | ~$6.36M | Tiller | includes real estate |
 | Total equity incl. businesses | ~$11.1M | Tiller | |
 
-Liquid and investable today, if Kearny is personal cash: **about $2.46M.**
+Liquid and investable today: **about $1.55M** (IBKR $1.49M, Roth 401(k)s
+$63k, Schwab $2k). There is no JPMorgan account; Kearny is the home mortgage.
+Two mortgages totaling ~$1.36M sit against the real estate.
 
 ## 3. When can Joe retire?
 
 Monte Carlo, 8,000 paths, 90/10 stocks/treasuries (9.0% mean, 15.3%
 volatility), 3% inflation, spending $162k real per year, Social Security ~$45k
-from age 70. "Assets at retire" = today's liquid money grown at 7% plus ~$150k a
-year of savings while working, plus after-tax sale proceeds.
+from age 70. "Assets at retire" = today's $1.55M liquid grown at 7% plus ~$150k
+a year of savings while working, plus after-tax sale proceeds with Keli's half
+of the business stepped up. Sale figures are Joe's share.
 
 | Scenario | Assets at retirement | Never runs out | Ends above start (real) | Median ending (real) |
 |---|---:|---:|---:|---:|
-| A. Sell businesses 2027 for $4.75M, retire at 58 | $6.1M | 98% | 83% | $18.6M |
-| B. Sell 2029 for $5.5M, retire at 60 | $7.3M | 99% | 87% | $25.4M |
-| C. Sell 2031 for $6.5M, retire at 62 | $8.7M | 100% | 90% | $33.1M |
-| D. Never sell; retire from operations at 60, live on $2.5M liquid plus $150k/yr of distributions | $3.5M | 100% | 97% | $17.4M |
+| A. Sell everything 2027 for $4.75M, retire at 58 | $5.9M | 98% | 82% | $17.4M |
+| B. Sell everything 2029 for $4.75M, retire at 60 | $6.4M | 99% | 85% | $20.9M |
+| **C. Sell the operating business 2029 (~$1M goodwill + ~$1M working capital), keep the real estate, net rent $150k/yr** | $4.2M | 100% | 97% | $21.2M |
+| D. Same as C with net rent of $100k/yr | $4.2M | 100% | 94% | $18.1M |
+| E. Keep everything, retire from operations 2029, distributions $150k/yr | $2.4M | 100% | 97% | $11.6M |
+| F. Sell everything 2029, retire at 62 | $7.4M | 99% | 88% | $26.5M |
 
-**Reading it.** On the money alone, Joe can retire at 58 the moment the
-businesses sell, at a 2.6% withdrawal rate, which is safer than anything we
-tested in the $8M runs. Each extra working year adds roughly $1M of assets and
-a few points of certainty, but the plan is already sound at A. **The real
-decision is not when, but whether to sell at all.** Scenario D, keeping the
-businesses as an income stream and stepping back from operations, is the most
-robust of the four because the distributions do the portfolio's work in bad
-market years. That only works if the businesses run without Joe and the
-distributions are dependable. If they need him, sell.
+**Reading it.** Every scenario works. Joe can retire at 58 the moment the
+businesses sell, at a 2.5% withdrawal rate. But **scenario C is the standout**:
+sell the operating business, keep the commercial real estate, and lease it to
+the buyer. Rent is the "outside income" that makes the skip-bad-years rule
+work, the withdrawal rate on the portfolio drops to almost nothing, and the
+real estate keeps compounding and passes to the girls with a step-up. It also
+sidesteps depreciation recapture and NJ's top bracket on the property gain.
+The buyer of an operating business usually prefers to lease anyway.
 
-**Recommended framing:** target retirement from operations at **60 (2029)**,
-with the businesses either sold in 2028 to 2029 or restructured to pay
-distributions without him. 2029 is also the first single-filer year, which
-matters for the sale (below), and 59½ is when Keli's IRA can be merged.
+**Recommended framing:** retire from operations at **60 (2029)**. Sell the
+goodwill and working capital in 2028 or 2029. Keep the real estate unless a
+buyer pays a premium for it, and even then consider a 1031 exchange into
+passive property rather than a taxable sale. 59½ is also when Keli's IRA can
+be merged into Joe's.
 
 ## 4. Selling the businesses: the tax is the plan
 
@@ -80,32 +85,39 @@ Assumed basis $500k; everything above is long-term capital gain. NJ has no
 capital-gains rate: gains are ordinary income, 8.97% from $500k to $1M and
 10.75% above $1M, so a $4M+ gain sits mostly in NJ's top bracket.
 
-| Sale price | Tax in one year | Net | Tax if paid in 3 installments after retiring |
-|---|---:|---:|---:|
-| $3.5M | $0.99M (33%) | $2.5M | $0.86M (29%) |
-| $4.75M | $1.43M (34%) | $3.3M | $1.29M (30%) |
-| $6.0M | $1.86M (34%) | $4.1M | $1.72M (31%) |
+**Keli owned part of the business interests.** Her share stepped up to its
+July 22, 2026 value, so the gain on that share is gone. Assuming her share was
+half of the family stake:
 
-Roughly a third of the price goes to tax. Things that move that number, for
-the CPA and a deal attorney, in order of size:
+| Proceeds (Joe's share) | Tax, no step-up | Tax with Keli's half stepped up | Saved | Net |
+|---|---:|---:|---:|---:|
+| $3.0M | $0.80M | $0.37M | $0.43M | $2.63M |
+| $4.0M | $1.15M | $0.54M | $0.60M | $3.46M |
+| $4.75M | $1.41M | $0.67M | $0.73M | $4.08M |
 
-1. **Did Keli own any part of the business interests?** If any share was in her
-   name or held jointly, that share steps up to its July 22, 2026 value and the
-   gain on it disappears. This is potentially the single largest tax item in
-   the whole plan. See the step-up worksheet.
-2. **Installment sale.** Spreading the gain over 3 to 5 years keeps each year
-   below NJ's 10.75% bracket and the federal 20% threshold. Saves about $140k
-   on a $4.75M sale, more if it also spreads NIIT.
-3. **Residency.** NJ taxes a resident's gain wherever it arises. The sourcing
-   rules for a nonresident selling an interest in a NJ business are complex and
-   changed in recent years; do not assume a move solves it. Ask.
-4. **Timing against the Roth window.** Do not convert in a sale year. The gain
-   stacks on top of ordinary income and pushes conversion dollars into 35%+.
-5. **Sell in 2028 or 2029, not 2027 if avoidable.** Gives one more year of
-   salary, one more joint-bracket conversion year, and lets the July 2026
-   step-up values settle before a transaction values the company.
-6. **Qualified Small Business Stock does not apply** to LLC interests. If any
-   entity is a C-corp, ask.
+The step-up is worth roughly $600k to $750k. Getting it requires paperwork now,
+not at sale:
+
+1. **Section 754 election.** For an LLC taxed as a partnership, the step-up
+   in Keli's interest only reaches the underlying assets (goodwill, real
+   estate, equipment) if the partnership makes a 754 election, which produces
+   a 743(b) basis adjustment for her share. Without it, an asset sale by the
+   company flows the full gain through. The election goes on the partnership
+   return for the year of death, i.e. the 2026 return. **Tell the CPA now.**
+2. **Retrospective business valuation as of July 22, 2026.** The step-up is to
+   fair market value on that date. A defensible appraisal fixes the number
+   before a buyer's price does. Also needed for Form 706.
+3. **Installment sale** of the goodwill: spreads NJ's 10.75% top bracket and
+   the federal 20% threshold. Worth ~$100k+ on a $2M+ gain.
+4. **Real estate: keep and lease, or 1031.** Selling it triggers depreciation
+   recapture at 25% federal plus NJ ordinary rates on Joe's half. Leasing it
+   to the buyer converts a taxable lump into an income stream that also
+   qualifies for the 20% qualified business income deduction in many cases.
+5. **Do not convert to Roth in the sale year.** The gain stacks on ordinary
+   income and pushes conversion dollars to 35%+.
+6. **Residency.** NJ taxes a resident's gain wherever it arises; nonresident
+   sourcing of a NJ business sale is complex. Do not assume a move solves it.
+7. **QSBS does not apply** to LLC interests; if any entity is a C-corp, ask.
 
 ## 5. Roth conversions, integrated with the sale
 
@@ -189,16 +201,26 @@ list, keeping the Cash & T-bills bucket at its parked target.
 ## 10. Assumptions and open questions
 
 Assumptions: 9% mean return on 90/10, 3% inflation, business basis $500k,
-sale prices as tabled, $150k/yr saved while working, Social Security $45k at
-70, spending flat in real terms, NJ residency throughout, 2026 tax law
-unchanged.
+Keli's share of the business = half of the family stake, sale prices as
+tabled, $150k/yr saved while working, Social Security $45k at 70, spending
+flat in real terms, NJ residency throughout, 2026 tax law unchanged.
 
-Open, in priority order:
-1. Did Keli own any share of TLC/SurfBox or Greenville Colorants? (step-up)
-2. What is Kearny Federal: personal cash, business cash, or CDs?
-3. What is the fourth IBKR account, and what is in JPMorgan Funds?
-4. Can the businesses run without Joe, and what do they distribute today?
-5. Realistic sale multiple and whether a buyer would do an installment deal.
-6. Social Security statements for Joe and for Keli's record.
-7. House value, mortgage balance (Shellpoint $602k?), and whether it stays.
-8. Do the kids still qualify as dependents through 2028 (ages)?
+Answered 2026-09-17: Keli held part of the businesses (share TBD). Kearny is
+the primary-home mortgage. No JPMorgan account. Fourth account is Schwab,
+~$2k. A sale would be ~$1M goodwill plus the real estate plus net working
+capital, with values and mortgages on the balance-sheet workbook. Daughters
+are 19 and 21 (in college) and 28.
+
+**Filing status, settled:** the 19- and 21-year-olds qualify Joe as a
+surviving spouse for 2027 and 2028 (joint brackets). From 2029 the 19-year-old
+still qualifies him for **head of household** until the year she turns 24,
+roughly 2031, which is better than single. The 28-year-old is not a dependent.
+
+Still open, in priority order:
+1. Keli's exact ownership percentage in each entity, and how it was titled.
+2. Book value and mortgage on the business real estate; current net rent it
+   could command if leased to a buyer. (Balance-sheet workbook, sheet 17.)
+3. Can the operating business run without Joe, and what does it distribute?
+4. Which property the Shellpoint mortgage is on.
+5. Social Security statements for Joe and for Keli's record.
+6. Primary-home value, and whether Joe stays in it.

@@ -60,9 +60,16 @@ current. Ordered by Joe's priority, then by deadline. Check items off in place.
 
 ## From the retirement plan (2026-09-17) — see `retirement-plan.md`
 
-- [ ] **Confirm whether Keli held any share of TLC/SurfBox or Greenville Colorants.**
-  If yes, that share steps up to its July 22, 2026 value and the gain vanishes
-  at sale. Largest single tax item in the plan. Pull operating agreements.
+- [ ] **Section 754 election on each business's 2026 partnership return.** Keli
+  held a share of the businesses (confirmed). The election is what lets her
+  step-up reach the goodwill and real estate at sale. Worth ~$600k-$750k. Tell
+  the CPA before the 2026 returns are prepared. Pull operating agreements for
+  her exact percentage.
+- [ ] **Order a retrospective valuation of each business as of July 22, 2026.**
+  Fixes the step-up number and feeds Form 706.
+- [ ] **Explore selling the operating business and keeping the real estate**
+  (lease to the buyer). Best-scoring scenario in the plan. Get the property
+  values, mortgages and achievable rent from the balance-sheet workbook.
 - [ ] **Give the CPA `step-up-basis-worksheet.md`** and order retrospective
   appraisals (house, other property, business) as of July 22, 2026.
 - [ ] **Deploy the IRA.** $845k of $949k is in SGOV. Do the 2026 Roth conversion

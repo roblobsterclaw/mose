@@ -19,7 +19,7 @@ from statements or appraisals as of July 22, 2026. Account numbers omitted.
 | Other real estate, jointly titled | **Yes, half** | Keli's 50%; depreciation on her half restarts at stepped-up value | 7/22/2026 | Appraisal per property. For rentals, new depreciation schedule on Keli's half. |
 | Real estate titled to Keli alone | **Yes, full** | 100% | 7/22/2026 | Appraisal. |
 | Real estate titled to Joe alone | No | none | n/a | |
-| **Business interests: TLC/SurfBox (48.33%), Greenville Colorants (40%)** | **Depends on titling — CONFIRM** | Any portion owned by Keli, or held jointly, steps up to DOD fair value | 7/22/2026 | **Highest-value question on this sheet.** If Keli held any share, the gain on that share vanishes at sale. Needs the operating agreements and a business valuation as of July 22, 2026. Even a formal valuation now is worth it. |
+| **Business interests: TLC/SurfBox (48.33%), Greenville Colorants (40%)** | **Yes — Keli held an ownership share (confirmed by Joe 2026-09-17)** | Keli's percentage steps up to DOD fair value; Joe's original percentage keeps its basis | 7/22/2026 | **Highest-value item on this sheet, worth ~$600k-$750k of tax on a sale.** Needs: (a) operating agreements showing Keli's exact percentage; (b) a retrospective valuation of each entity as of July 22, 2026; (c) **a Section 754 election on each partnership's 2026 return** so the step-up reaches the assets (743(b) adjustment) — without it, an asset sale flows the full gain through. Also determine whether the interest passed to Joe outright or under the operating agreement's transfer provisions. |
 | Bank accounts, CDs (Kearny, TD, Chase, Truist checking) | n/a | Cash has no gain | n/a | Just retitle. Interest after DOD is Joe's. |
 | Vehicles, boat (World Cat), personal property | Yes, on Keli's share | Usually irrelevant unless sold at a gain | 7/22/2026 | Note for completeness. |
 | Life insurance on Keli's life | n/a | Proceeds are income-tax-free to the beneficiary | n/a | Included in the gross estate for Form 706 if Keli owned the policy. |
@@ -58,7 +58,8 @@ from statements or appraisals as of July 22, 2026. Account numbers omitted.
 
 ## Questions for the accountant to answer back
 
-1. Does anything in the operating agreements give Keli an ownership share?
+1. Keli's exact percentage in each entity, per the operating agreements, and
+   whether a Section 754 election will be made on the 2026 partnership returns.
 2. Is the house titled jointly, as tenants by the entirety, or to one spouse?
 3. Are any rental properties held in an entity, and if so who owns the entity?
 4. Should the IBKR joint account be retitled to Joe before or after the
