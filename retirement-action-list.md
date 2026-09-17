@@ -58,6 +58,24 @@ current. Ordered by Joe's priority, then by deadline. Check items off in place.
   grandchildren are exempt.
 - [ ] **Update MOSE's three-account model** to a single-owner model when Joe is ready.
 
+## From the retirement plan (2026-09-17) — see `retirement-plan.md`
+
+- [ ] **Confirm whether Keli held any share of TLC/SurfBox or Greenville Colorants.**
+  If yes, that share steps up to its July 22, 2026 value and the gain vanishes
+  at sale. Largest single tax item in the plan. Pull operating agreements.
+- [ ] **Give the CPA `step-up-basis-worksheet.md`** and order retrospective
+  appraisals (house, other property, business) as of July 22, 2026.
+- [ ] **Deploy the IRA.** $845k of $949k is in SGOV. Do the 2026 Roth conversion
+  from SGOV (~$204k), buy growth targets inside the Roth, then deploy the rest
+  per the MOSE buy list over 6-12 months.
+- [ ] **Open a separate IBKR taxable "play money" account.** ~5% of liquid, capped
+  at $400k, refilled only from its own gains or a sale tranche.
+- [ ] **Answer the open questions in plan section 10** (Kearny, fourth IBKR
+  account, JPMorgan Funds, business distributions, sale multiple, SS
+  statements, house/mortgage, kids' ages).
+- [ ] **Do not convert to Roth in the business-sale year.** Sequence the sale into
+  2028-2029 if possible; installment structure saves ~$140k on $4.75M.
+
 ## Suggested (from the Truist/Tiller handoff, 2026-09-17)
 
 - [ ] **Request the July 2026 Truist statements** for the joint account and both IRAs.
