@@ -58,6 +58,30 @@ current. Ordered by Joe's priority, then by deadline. Check items off in place.
   grandchildren are exempt.
 - [ ] **Update MOSE's three-account model** to a single-owner model when Joe is ready.
 
+## Suggested (from the Truist/Tiller handoff, 2026-09-17)
+
+- [ ] **Request the July 2026 Truist statements** for the joint account and both IRAs.
+  Only source for date-of-death values (the Tiller feed has a gap 2026-03-09 to
+  2026-08-04). Needed for the joint-account basis step-up and for Form 706.
+- [ ] **Roll Keli's ADP Roth 401(k) into Joe's Roth IRA** (spousal rollover, keeps it
+  Roth, no tax). Two ADP Roth 401(k)s exist, ~$63k combined; they share a
+  last-4 and are told apart by account ID only.
+- [ ] **Confirm the $0 Truist account typed "Roth IRA"** is an empty shell and not an
+  unaccounted-for Roth balance. One call to Truist.
+- [ ] **Decide on the four MOHELA Parent PLUS loans (~$82k, interest-only).** Principal
+  never falls on the current plan. Candidate for payoff from the joint account.
+- [ ] **Confirm successor owner on the six real Iowa 529 accounts (~$44k)** if any are
+  titled to Keli.
+
+## Balance-sheet context (from the Tiller handoff, 2026-09-17)
+
+Personal net worth at Joe's ownership share ~$6.36M; total equity including
+businesses ~$11.1M. Truist brokerage (~$1.45M) fully moved to IBKR in Aug 2026;
+IBKR is the live picture. February 2026 Truist holdings with cost basis are in
+`truist-baseline-feb2026.json`. At this size, crossing the ~$15M federal estate
+exemption in Joe's lifetime is realistic, which makes the portability filing
+(item 1) necessary rather than optional.
+
 ## Reference: conversion cost at $235k income, New Jersey (2026 law)
 
 Federal 2026 brackets plus NJ gross income tax. Assumes itemized SALT at the
