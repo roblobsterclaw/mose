@@ -393,15 +393,27 @@ def main() -> int:
     parser.add_argument("--quarters", type=int, default=8)
     parser.add_argument("--output", default=str(OUTPUT_PATH))
     parser.add_argument("--max-investors", type=int, default=0)
+    parser.add_argument("--only", default="", help="comma-separated CIKs: pull just these via the submissions API and merge into the existing output")
     args = parser.parse_args()
 
     configs = [c for c in load_cik_map() if c.source_type.upper() == "13F"]
     if args.max_investors:
         configs = configs[: args.max_investors]
+    only = {c.strip().lstrip("0") for c in args.only.split(",") if c.strip()}
+    if only:
+        configs = [c for c in configs if c.cik.lstrip("0") in only]
+        if not configs:
+            raise SystemExit(f"--only: none of {sorted(only)} is in cik-map.json")
     ticker_map = load_ticker_map()
     output_path = Path(args.output)
 
-    filings_by_cik, full_index_errors = build_filings_from_full_indexes(configs, args.quarters, ticker_map)
+    if only:
+        # A couple of new filers don't justify 11 full-index downloads: the
+        # per-filer submissions path is enough, and the result merges into the
+        # existing file instead of replacing it.
+        filings_by_cik, full_index_errors = {}, defaultdict(list)
+    else:
+        filings_by_cik, full_index_errors = build_filings_from_full_indexes(configs, args.quarters, ticker_map)
     investors = []
     failed = []
     for config in configs:
@@ -450,6 +462,14 @@ def main() -> int:
 
     if not investors:
         raise SystemExit("No SEC 13F filings were pulled; leaving existing output untouched.")
+
+    if only and output_path.exists():
+        existing = load_json(output_path, {}) or {}
+        pulled = {i["cik"].lstrip("0") for i in investors}
+        kept = [i for i in existing.get("investors", []) if str(i.get("cik", "")).lstrip("0") not in pulled]
+        investors = kept + investors
+        failed = [f for f in existing.get("failed_investors", []) if str(f.get("cik", "")).lstrip("0") not in pulled] + failed
+        print(f"--only merge: {len(kept)} existing investors kept, {len(pulled)} pulled fresh")
 
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),

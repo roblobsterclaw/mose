@@ -988,10 +988,11 @@
   "tier": 1,
   "source_type": "13F",
   "cik": "2104187",
-  "status": "approved",
-  "wing": "bench",
+  "status": "pruned",
+  "wing": null,
   "added_at": "2026-09-14",
-  "note": "Added 2026-09-14 in Joe's roster review (fit 31, 17 positions, $1.4B)."
+  "note": "Added 2026-09-14 in Joe's roster review (fit 31, 17 positions, $1.4B). PRUNED 2026-09-17: this is NOT Guy Spier — a Cayman entity with a Latin American book (Bradesco, YPF, Galicia). Spier files as Aquamarine Zurich AG, CIK 1953324.",
+  "pruned_at": "2026-09-17"
  },
  {
   "name": "Chou Associates Management Inc.",
@@ -1465,5 +1466,30 @@
   "wing": "bench",
   "added_at": "2026-09-14",
   "note": "Added 2026-09-14 in Joe's roster review (fit 46, 51 positions, $2.1B)."
+ },
+ {
+  "name": "Guy Spier",
+  "fund": "Aquamarine Zurich AG (Aquamarine Fund)",
+  "tier": 1,
+  "source_type": "13F",
+  "cik": "1953324",
+  "status": "dormant",
+  "wing": "core",
+  "added_at": "2026-09-17",
+  "alt_ciks": [
+   "1404599"
+  ],
+  "note": "Added 2026-09-17 (Joe's 15-superinvestor check). Buffett/Munger school, Zurich; the old filer Aquamarine Capital Management LLC (CIK 1404599) stopped after Q2 2022 — kept as alt for history. DORMANT 2026-09-17: Spier announced 28 Mar 2026 he is returning capital (health; edge eroded) — book still 7 names at Q2 2026 but being sold down, so it is tracked, not voting. Flip to approved if Joe wants it voting while it lasts."
+ },
+ {
+  "name": "Howard Marks",
+  "fund": "Oaktree Capital Management LP",
+  "tier": 2,
+  "source_type": "13F",
+  "cik": "949509",
+  "status": "approved",
+  "wing": "bench",
+  "added_at": "2026-09-17",
+  "note": "Added 2026-09-17 at Joe's request. Credit and distressed house ($223B AUM, Brookfield-owned); the 13F is a small equity sliver, mostly post-reorganisation and cyclical names. Bench: his memos are the signal, not his equity book."
  }
 ]

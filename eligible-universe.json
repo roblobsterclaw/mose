@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_at": "2026-09-14T18:57:09.750586+00:00",
+ "generated_at": "2026-09-17T12:57:08.523228+00:00",
  "quarter": "2026-Q2",
  "investors": [
   "ACR Alpine Capital Research, LLC",
@@ -8,7 +8,6 @@
   "ALTAROCK PARTNERS LP",
   "ALTRINSIC GLOBAL ADVISORS LLC",
   "APPALOOSA LP",
-  "Aquamarine Financial (Cayman) Ltd",
   "BLACKHILL CAPITAL INC",
   "BLS CAPITAL FONDSMAEGLERSELSKAB A/S",
   "BRUNI J V & CO /CO",
@@ -53,6 +52,7 @@
   "Greenbrier Partners Capital Management, LLC",
   "Heard Capital LLC",
   "Holowesko Partners Ltd.",
+  "Howard Marks",
   "Hyperion Asset Management Ltd",
   "Independent Franchise Partners LLP",
   "Intermede Investment Partners Ltd",
@@ -814,6 +814,30 @@
    "value_usd": 2533993616
   },
   {
+   "ticker": "UBER",
+   "company": "UBER TECHNOLOGIES INC",
+   "holders": [
+    "APPALOOSA LP",
+    "Bill Ackman",
+    "COMGEST GLOBAL INVESTORS S.A.S.",
+    "Cantillon Capital Management LLC",
+    "Dorsey Asset Management, LLC",
+    "GARDNER RUSSO & QUINN LLC",
+    "Gavilan Investment Partners LLC",
+    "Howard Marks",
+    "Intermede Investment Partners Ltd",
+    "Joel Greenblatt",
+    "L1 Capital International Pty Ltd",
+    "LYRICAL ASSET MANAGEMENT LP",
+    "MayTech Global Investments, LLC",
+    "Terry Smith",
+    "Tom Gayner",
+    "Trinity Street Asset Management LLP"
+   ],
+   "holder_count": 16,
+   "value_usd": 4664276461
+  },
+  {
    "ticker": "NFLX",
    "company": "NETFLIX INC.",
    "holders": [
@@ -931,29 +955,6 @@
    ],
    "holder_count": 15,
    "value_usd": 4875027360
-  },
-  {
-   "ticker": "UBER",
-   "company": "UBER TECHNOLOGIES INC",
-   "holders": [
-    "APPALOOSA LP",
-    "Bill Ackman",
-    "COMGEST GLOBAL INVESTORS S.A.S.",
-    "Cantillon Capital Management LLC",
-    "Dorsey Asset Management, LLC",
-    "GARDNER RUSSO & QUINN LLC",
-    "Gavilan Investment Partners LLC",
-    "Intermede Investment Partners Ltd",
-    "Joel Greenblatt",
-    "L1 Capital International Pty Ltd",
-    "LYRICAL ASSET MANAGEMENT LP",
-    "MayTech Global Investments, LLC",
-    "Terry Smith",
-    "Tom Gayner",
-    "Trinity Street Asset Management LLP"
-   ],
-   "holder_count": 15,
-   "value_usd": 4655634281
   },
   {
    "ticker": "PGR",
@@ -1650,6 +1651,24 @@
    "value_usd": 2301984499
   },
   {
+   "ticker": "LYV",
+   "company": "LIVE NATION ENTERTAINMENT IN",
+   "holders": [
+    "Cantillon Capital Management LLC",
+    "Daniel Loeb",
+    "Dorsey Asset Management, LLC",
+    "Findlay Park Partners LLP",
+    "Howard Marks",
+    "Independent Franchise Partners LLP",
+    "Joel Greenblatt",
+    "Linonia Partnership LP",
+    "SOUTHEASTERN ASSET MANAGEMENT INC/TN/",
+    "ValueAct Holdings, L.P."
+   ],
+   "holder_count": 10,
+   "value_usd": 1833822438
+  },
+  {
    "ticker": "CRM",
    "company": "SALESFORCE INC",
    "holders": [
@@ -1882,23 +1901,6 @@
    "value_usd": 4117231936
   },
   {
-   "ticker": "LYV",
-   "company": "LIVE NATION ENTERTAINMENT IN",
-   "holders": [
-    "Cantillon Capital Management LLC",
-    "Daniel Loeb",
-    "Dorsey Asset Management, LLC",
-    "Findlay Park Partners LLP",
-    "Independent Franchise Partners LLP",
-    "Joel Greenblatt",
-    "Linonia Partnership LP",
-    "SOUTHEASTERN ASSET MANAGEMENT INC/TN/",
-    "ValueAct Holdings, L.P."
-   ],
-   "holder_count": 9,
-   "value_usd": 1831654090
-  },
-  {
    "ticker": "VMC",
    "company": "VULCAN MATLS CO",
    "holders": [
@@ -1982,6 +1984,23 @@
    ],
    "holder_count": 9,
    "value_usd": 308816017
+  },
+  {
+   "ticker": "BABA",
+   "company": "ALIBABA GROUP HOLDING-SP ADR",
+   "holders": [
+    "ALTRINSIC GLOBAL ADVISORS LLC",
+    "APPALOOSA LP",
+    "CALEDONIA INVESTMENTS PLC",
+    "Chou Associates Management Inc.",
+    "Global Frontier Investments LLC",
+    "Holowesko Partners Ltd.",
+    "Howard Marks",
+    "Maj Invest Holding A/S",
+    "Tweedy, Browne Co LLC"
+   ],
+   "holder_count": 9,
+   "value_usd": 232685893
   },
   {
    "ticker": "CVX",
@@ -2206,22 +2225,6 @@
    ],
    "holder_count": 8,
    "value_usd": 251311014
-  },
-  {
-   "ticker": "BABA",
-   "company": "ALIBABA GROUP HOLDING-SP ADR",
-   "holders": [
-    "ALTRINSIC GLOBAL ADVISORS LLC",
-    "APPALOOSA LP",
-    "CALEDONIA INVESTMENTS PLC",
-    "Chou Associates Management Inc.",
-    "Global Frontier Investments LLC",
-    "Holowesko Partners Ltd.",
-    "Maj Invest Holding A/S",
-    "Tweedy, Browne Co LLC"
-   ],
-   "holder_count": 8,
-   "value_usd": 231800143
   },
   {
    "ticker": "ADBE",
@@ -2555,21 +2558,6 @@
    ],
    "holder_count": 7,
    "value_usd": 291481942
-  },
-  {
-   "ticker": "NU",
-   "company": "NU HLDGS LTD",
-   "holders": [
-    "Aquamarine Financial (Cayman) Ltd",
-    "COMGEST GLOBAL INVESTORS S.A.S.",
-    "EdgePoint Investment Group Inc.",
-    "Glenn Greenberg",
-    "Joel Greenblatt",
-    "MayTech Global Investments, LLC",
-    "Strategy Capital LLC"
-   ],
-   "holder_count": 7,
-   "value_usd": 234730972
   },
   {
    "ticker": "PAYX",
@@ -3166,6 +3154,20 @@
    "value_usd": 253337400
   },
   {
+   "ticker": "SE",
+   "company": "SEA LTD",
+   "holders": [
+    "COOPERMAN LEON G",
+    "GENERATION INVESTMENT MANAGEMENT LLP",
+    "Howard Marks",
+    "Intermede Investment Partners Ltd",
+    "KENSICO CAPITAL MANAGEMENT CORP",
+    "ROBOTTI ROBERT"
+   ],
+   "holder_count": 6,
+   "value_usd": 211952962
+  },
+  {
    "ticker": "CCK",
    "company": "CROWN HLDGS INC",
    "holders": [
@@ -3192,6 +3194,20 @@
    ],
    "holder_count": 6,
    "value_usd": 133355132
+  },
+  {
+   "ticker": "NU",
+   "company": "NU HLDGS LTD",
+   "holders": [
+    "COMGEST GLOBAL INVESTORS S.A.S.",
+    "EdgePoint Investment Group Inc.",
+    "Glenn Greenberg",
+    "Joel Greenblatt",
+    "MayTech Global Investments, LLC",
+    "Strategy Capital LLC"
+   ],
+   "holder_count": 6,
+   "value_usd": 114789755
   },
   {
    "ticker": "ABBV",
@@ -3641,6 +3657,19 @@
    "value_usd": 403427399
   },
   {
+   "ticker": "GTX",
+   "company": "GARRETT MOTION INC",
+   "holders": [
+    "FAIRFAX FINANCIAL HOLDINGS LTD/ CAN",
+    "Howard Marks",
+    "Joel Greenblatt",
+    "NEW SOUTH CAPITAL MANAGEMENT INC",
+    "Smead Capital Management, Inc."
+   ],
+   "holder_count": 5,
+   "value_usd": 394800361
+  },
+  {
    "ticker": "AVTR",
    "company": "AVANTOR INC",
    "holders": [
@@ -3693,6 +3722,19 @@
    "value_usd": 339082929
   },
   {
+   "ticker": "FLR",
+   "company": "FLUOR CORP",
+   "holders": [
+    "David Einhorn",
+    "Holowesko Partners Ltd.",
+    "Howard Marks",
+    "Joel Greenblatt",
+    "Starboard Value LP"
+   ],
+   "holder_count": 5,
+   "value_usd": 334990956
+  },
+  {
    "ticker": "CPNG",
    "company": "COUPANG INC",
    "holders": [
@@ -3717,6 +3759,19 @@
    ],
    "holder_count": 5,
    "value_usd": 328666477
+  },
+  {
+   "ticker": "DASH",
+   "company": "DOORDASH INC",
+   "holders": [
+    "Barton Investment Management",
+    "GARDNER RUSSO & QUINN LLC",
+    "Howard Marks",
+    "Joel Greenblatt",
+    "Nellore Capital Management LLC"
+   ],
+   "holder_count": 5,
+   "value_usd": 323505992
   },
   {
    "ticker": "DELL",
@@ -3966,19 +4021,6 @@
    "value_usd": 108288472
   },
   {
-   "ticker": "SE",
-   "company": "SEA LTD",
-   "holders": [
-    "COOPERMAN LEON G",
-    "GENERATION INVESTMENT MANAGEMENT LLP",
-    "Intermede Investment Partners Ltd",
-    "KENSICO CAPITAL MANAGEMENT CORP",
-    "ROBOTTI ROBERT"
-   ],
-   "holder_count": 5,
-   "value_usd": 88998253
-  },
-  {
    "ticker": "VWO",
    "company": "VANGUARD INTL EQUITY INDEX F",
    "holders": [
@@ -3990,6 +4032,19 @@
    ],
    "holder_count": 5,
    "value_usd": 76555061
+  },
+  {
+   "ticker": "ECHO",
+   "company": "ECHOSTAR CORP",
+   "holders": [
+    "ACR Alpine Capital Research, LLC",
+    "EAGLE CAPITAL MANAGEMENT LLC",
+    "EdgePoint Investment Group Inc.",
+    "Howard Marks",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 5,
+   "value_usd": 68386929
   },
   {
    "ticker": "ALLE",
@@ -4163,6 +4218,18 @@
    "value_usd": 760325671
   },
   {
+   "ticker": "EXE",
+   "company": "EXPAND ENERGY CORPORATION",
+   "holders": [
+    "Holowesko Partners Ltd.",
+    "Howard Marks",
+    "Joel Greenblatt",
+    "Kopernik Global Investors, LLC"
+   ],
+   "holder_count": 4,
+   "value_usd": 755363518
+  },
+  {
    "ticker": "JLL",
    "company": "JONES LANG LASALLE INC",
    "holders": [
@@ -4221,6 +4288,18 @@
    ],
    "holder_count": 4,
    "value_usd": 542334809
+  },
+  {
+   "ticker": "LBTYA",
+   "company": "LIBERTY GLOBAL LTD",
+   "holders": [
+    "ACR Alpine Capital Research, LLC",
+    "David Einhorn",
+    "Howard Marks",
+    "Seth Klarman"
+   ],
+   "holder_count": 4,
+   "value_usd": 519291182
   },
   {
    "ticker": "LW",
@@ -4283,6 +4362,18 @@
    "value_usd": 454064431
   },
   {
+   "ticker": "XYZ",
+   "company": "BLOCK INC",
+   "holders": [
+    "Daniel Loeb",
+    "Howard Marks",
+    "Hyperion Asset Management Ltd",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 4,
+   "value_usd": 443632446
+  },
+  {
    "ticker": "GM",
    "company": "GENERAL MTRS CO",
    "holders": [
@@ -4305,6 +4396,18 @@
    ],
    "holder_count": 4,
    "value_usd": 419548323
+  },
+  {
+   "ticker": "NTNX",
+   "company": "NUTANIX INC",
+   "holders": [
+    "GENERATION INVESTMENT MANAGEMENT LLP",
+    "Howard Marks",
+    "Joel Greenblatt",
+    "Terry Smith"
+   ],
+   "holder_count": 4,
+   "value_usd": 416918884
   },
   {
    "ticker": "WTW",
@@ -4379,18 +4482,6 @@
    "value_usd": 346373842
   },
   {
-   "ticker": "FLR",
-   "company": "FLUOR CORP",
-   "holders": [
-    "David Einhorn",
-    "Holowesko Partners Ltd.",
-    "Joel Greenblatt",
-    "Starboard Value LP"
-   ],
-   "holder_count": 4,
-   "value_usd": 333304657
-  },
-  {
    "ticker": "WEX",
    "company": "WEX INC",
    "holders": [
@@ -4401,18 +4492,6 @@
    ],
    "holder_count": 4,
    "value_usd": 318953133
-  },
-  {
-   "ticker": "DASH",
-   "company": "DOORDASH INC",
-   "holders": [
-    "Barton Investment Management",
-    "GARDNER RUSSO & QUINN LLC",
-    "Joel Greenblatt",
-    "Nellore Capital Management LLC"
-   ],
-   "holder_count": 4,
-   "value_usd": 315528216
   },
   {
    "ticker": "SW",
@@ -4727,18 +4806,6 @@
    "value_usd": 119930815
   },
   {
-   "ticker": "GTX",
-   "company": "GARRETT MOTION INC",
-   "holders": [
-    "FAIRFAX FINANCIAL HOLDINGS LTD/ CAN",
-    "Joel Greenblatt",
-    "NEW SOUTH CAPITAL MANAGEMENT INC",
-    "Smead Capital Management, Inc."
-   ],
-   "holder_count": 4,
-   "value_usd": 119640178
-  },
-  {
    "ticker": "GIL",
    "company": "GILDAN ACTIVEWEAR INC",
    "holders": [
@@ -4809,6 +4876,18 @@
    ],
    "holder_count": 4,
    "value_usd": 101611767
+  },
+  {
+   "ticker": "DXCM",
+   "company": "DEXCOM INC",
+   "holders": [
+    "Howard Marks",
+    "Intermede Investment Partners Ltd",
+    "Joel Greenblatt",
+    "MayTech Global Investments, LLC"
+   ],
+   "holder_count": 4,
+   "value_usd": 83146907
   },
   {
    "ticker": "LULU",
@@ -4991,6 +5070,18 @@
    "value_usd": 28369081
   },
   {
+   "ticker": "ZD",
+   "company": "ZIFF DAVIS INC",
+   "holders": [
+    "ACR Alpine Capital Research, LLC",
+    "Howard Marks",
+    "Joel Greenblatt",
+    "Miller Value Partners, LLC"
+   ],
+   "holder_count": 4,
+   "value_usd": 22789946
+  },
+  {
    "ticker": "SEIC",
    "company": "SEI INVTS CO",
    "holders": [
@@ -5049,18 +5140,6 @@
    ],
    "holder_count": 4,
    "value_usd": 13007335
-  },
-  {
-   "ticker": "ECHO",
-   "company": "ECHOSTAR CORP",
-   "holders": [
-    "ACR Alpine Capital Research, LLC",
-    "EAGLE CAPITAL MANAGEMENT LLC",
-    "EdgePoint Investment Group Inc.",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 4,
-   "value_usd": 12136926
   },
   {
    "ticker": "SNEJF",
@@ -5350,28 +5429,6 @@
    "value_usd": 444516055
   },
   {
-   "ticker": "XYZ",
-   "company": "BLOCK INC",
-   "holders": [
-    "Daniel Loeb",
-    "Hyperion Asset Management Ltd",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 3,
-   "value_usd": 426562084
-  },
-  {
-   "ticker": "LBTYA",
-   "company": "LIBERTY GLOBAL LTD",
-   "holders": [
-    "ACR Alpine Capital Research, LLC",
-    "David Einhorn",
-    "Seth Klarman"
-   ],
-   "holder_count": 3,
-   "value_usd": 422064141
-  },
-  {
    "ticker": "RYAN",
    "company": "RYAN SPECIALTY HOLDINGS INC",
    "holders": [
@@ -5381,17 +5438,6 @@
    ],
    "holder_count": 3,
    "value_usd": 416934258
-  },
-  {
-   "ticker": "NTNX",
-   "company": "NUTANIX INC",
-   "holders": [
-    "GENERATION INVESTMENT MANAGEMENT LLP",
-    "Joel Greenblatt",
-    "Terry Smith"
-   ],
-   "holder_count": 3,
-   "value_usd": 414433984
   },
   {
    "ticker": "TRMB",
@@ -5482,6 +5528,17 @@
    "value_usd": 338695134
   },
   {
+   "ticker": "RIOT",
+   "company": "RIOT PLATFORMS INC",
+   "holders": [
+    "Daniel Loeb",
+    "Howard Marks",
+    "Starboard Value LP"
+   ],
+   "holder_count": 3,
+   "value_usd": 336249763
+  },
+  {
    "ticker": "BAX",
    "company": "BAXTER INTL INC",
    "holders": [
@@ -5493,6 +5550,17 @@
    "value_usd": 323143615
   },
   {
+   "ticker": "DKNG",
+   "company": "DRAFTKINGS INC NEW",
+   "holders": [
+    "Howard Marks",
+    "Joel Greenblatt",
+    "SPRUCE HOUSE INVESTMENT MANAGEMENT LLC"
+   ],
+   "holder_count": 3,
+   "value_usd": 314329361
+  },
+  {
    "ticker": "ITT",
    "company": "ITT INC",
    "holders": [
@@ -5502,6 +5570,17 @@
    ],
    "holder_count": 3,
    "value_usd": 312882029
+  },
+  {
+   "ticker": "NET",
+   "company": "CLOUDFLARE INC",
+   "holders": [
+    "Howard Marks",
+    "Joel Greenblatt",
+    "Strategy Capital LLC"
+   ],
+   "holder_count": 3,
+   "value_usd": 298010901
   },
   {
    "ticker": "NONOF",
@@ -5557,17 +5636,6 @@
    ],
    "holder_count": 3,
    "value_usd": 278871076
-  },
-  {
-   "ticker": "EXE",
-   "company": "EXPAND ENERGY CORPORATION",
-   "holders": [
-    "Holowesko Partners Ltd.",
-    "Joel Greenblatt",
-    "Kopernik Global Investors, LLC"
-   ],
-   "holder_count": 3,
-   "value_usd": 277757991
   },
   {
    "ticker": "HGV",
@@ -5634,6 +5702,17 @@
    ],
    "holder_count": 3,
    "value_usd": 264467547
+  },
+  {
+   "ticker": "BILL",
+   "company": "BILL HOLDINGS INC",
+   "holders": [
+    "Barton Investment Management",
+    "Howard Marks",
+    "Starboard Value LP"
+   ],
+   "holder_count": 3,
+   "value_usd": 260515843
   },
   {
    "ticker": "GPGI",
@@ -5713,6 +5792,17 @@
    "value_usd": 214568786
   },
   {
+   "ticker": "DDOG",
+   "company": "DATADOG INC",
+   "holders": [
+    "Howard Marks",
+    "Joel Greenblatt",
+    "Strategy Capital LLC"
+   ],
+   "holder_count": 3,
+   "value_usd": 212801104
+  },
+  {
    "ticker": "ALC",
    "company": "ALCON AG",
    "holders": [
@@ -5768,6 +5858,28 @@
    "value_usd": 195793200
   },
   {
+   "ticker": "ETSY",
+   "company": "ETSY INC",
+   "holders": [
+    "Findlay Park Partners LLP",
+    "Howard Marks",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 3,
+   "value_usd": 195607939
+  },
+  {
+   "ticker": "VAC",
+   "company": "MARRIOTT VACATIONS WORLDWIDE CORP.",
+   "holders": [
+    "Clifford Sosin",
+    "Howard Marks",
+    "NEW SOUTH CAPITAL MANAGEMENT INC"
+   ],
+   "holder_count": 3,
+   "value_usd": 193811863
+  },
+  {
    "ticker": "AWI",
    "company": "ARMSTRONG WORLD INDS INC NEW",
    "holders": [
@@ -5821,6 +5933,28 @@
    ],
    "holder_count": 3,
    "value_usd": 165749741
+  },
+  {
+   "ticker": "TLN",
+   "company": "TALEN ENERGY CORP",
+   "holders": [
+    "ACR Alpine Capital Research, LLC",
+    "Howard Marks",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 3,
+   "value_usd": 162774841
+  },
+  {
+   "ticker": "WEC",
+   "company": "WEC ENERGY GROUP INC",
+   "holders": [
+    "Howard Marks",
+    "Joel Greenblatt",
+    "Soroban Capital Partners LP"
+   ],
+   "holder_count": 3,
+   "value_usd": 161332645
   },
   {
    "ticker": "ASH",
@@ -5933,6 +6067,17 @@
    "value_usd": 127170328
   },
   {
+   "ticker": "B",
+   "company": "BARRICK MNG CORP",
+   "holders": [
+    "Howard Marks",
+    "Joel Greenblatt",
+    "Kopernik Global Investors, LLC"
+   ],
+   "holder_count": 3,
+   "value_usd": 126229439
+  },
+  {
    "ticker": "VTRS",
    "company": "VIATRIS INC",
    "holders": [
@@ -5975,6 +6120,17 @@
    ],
    "holder_count": 3,
    "value_usd": 105375665
+  },
+  {
+   "ticker": "CX",
+   "company": "CEMEX SAB DE CV",
+   "holders": [
+    "Corvex Management LP",
+    "Howard Marks",
+    "Oldfield Partners LLP"
+   ],
+   "holder_count": 3,
+   "value_usd": 102021516
   },
   {
    "ticker": "AM",
@@ -6041,6 +6197,17 @@
    ],
    "holder_count": 3,
    "value_usd": 96480323
+  },
+  {
+   "ticker": "NVST",
+   "company": "ENVISTA HOLDINGS CORPORATION",
+   "holders": [
+    "Howard Marks",
+    "Joel Greenblatt",
+    "Tweedy, Browne Co LLC"
+   ],
+   "holder_count": 3,
+   "value_usd": 94580451
   },
   {
    "ticker": "BC",
@@ -6173,6 +6340,17 @@
    ],
    "holder_count": 3,
    "value_usd": 73458468
+  },
+  {
+   "ticker": "SPB",
+   "company": "SPECTRUM BRANDS HOLDINGS INC",
+   "holders": [
+    "David Einhorn",
+    "Howard Marks",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 3,
+   "value_usd": 73046381
   },
   {
    "ticker": "DINO",
@@ -6395,6 +6573,17 @@
    "value_usd": 53179325
   },
   {
+   "ticker": "NBR",
+   "company": "NABORS INDUSTRIES LTD",
+   "holders": [
+    "Howard Marks",
+    "Joel Greenblatt",
+    "Miller Value Partners, LLC"
+   ],
+   "holder_count": 3,
+   "value_usd": 50219990
+  },
+  {
    "ticker": "BCC",
    "company": "BOISE CASCADE CO DEL",
    "holders": [
@@ -6593,17 +6782,6 @@
    "value_usd": 26579271
   },
   {
-   "ticker": "DXCM",
-   "company": "DEXCOM INC",
-   "holders": [
-    "Intermede Investment Partners Ltd",
-    "Joel Greenblatt",
-    "MayTech Global Investments, LLC"
-   ],
-   "holder_count": 3,
-   "value_usd": 26049962
-  },
-  {
    "ticker": "PATK",
    "company": "PATRICK INDS INC",
    "holders": [
@@ -6714,6 +6892,17 @@
    "value_usd": 12172717
   },
   {
+   "ticker": "MSTR",
+   "company": "STRATEGY INC",
+   "holders": [
+    "Howard Marks",
+    "Joel Greenblatt",
+    "Miller Value Partners, LLC"
+   ],
+   "holder_count": 3,
+   "value_usd": 9392654
+  },
+  {
    "ticker": "TCOM",
    "company": "TRIP COM GROUP LTD",
    "holders": [
@@ -6725,6 +6914,17 @@
    "value_usd": 9355458
   },
   {
+   "ticker": "NCLH",
+   "company": "NORWEGIAN CRUISE LINE HLDGS",
+   "holders": [
+    "Howard Marks",
+    "Joel Greenblatt",
+    "Seth Klarman"
+   ],
+   "holder_count": 3,
+   "value_usd": 8475913
+  },
+  {
    "ticker": "NUVB",
    "company": "NUVATION BIO INC",
    "holders": [
@@ -6734,17 +6934,6 @@
    ],
    "holder_count": 3,
    "value_usd": 8449858
-  },
-  {
-   "ticker": "ZD",
-   "company": "ZIFF DAVIS INC",
-   "holders": [
-    "ACR Alpine Capital Research, LLC",
-    "Joel Greenblatt",
-    "Miller Value Partners, LLC"
-   ],
-   "holder_count": 3,
-   "value_usd": 8160922
   },
   {
    "ticker": "PNC",
@@ -7004,6 +7193,16 @@
    "value_usd": 450937367
   },
   {
+   "ticker": "TDS",
+   "company": "TELEPHONE & DATA SYS INC",
+   "holders": [
+    "Daniel Loeb",
+    "Howard Marks"
+   ],
+   "holder_count": 2,
+   "value_usd": 427758064
+  },
+  {
    "ticker": "UA",
    "company": "UNDER ARMOUR INC",
    "holders": [
@@ -7104,26 +7303,6 @@
    "value_usd": 287859073
   },
   {
-   "ticker": "NET",
-   "company": "CLOUDFLARE INC",
-   "holders": [
-    "Joel Greenblatt",
-    "Strategy Capital LLC"
-   ],
-   "holder_count": 2,
-   "value_usd": 287811552
-  },
-  {
-   "ticker": "RIOT",
-   "company": "RIOT PLATFORMS INC",
-   "holders": [
-    "Daniel Loeb",
-    "Starboard Value LP"
-   ],
-   "holder_count": 2,
-   "value_usd": 283971041
-  },
-  {
    "ticker": "PS",
    "company": "PERSHING SQUARE INC",
    "holders": [
@@ -7144,6 +7323,16 @@
    "value_usd": 278105630
   },
   {
+   "ticker": "SNOW",
+   "company": "SNOWFLAKE INC",
+   "holders": [
+    "Howard Marks",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 2,
+   "value_usd": 274520997
+  },
+  {
    "ticker": "HUBB",
    "company": "HUBBELL INC",
    "holders": [
@@ -7154,24 +7343,24 @@
    "value_usd": 269615947
   },
   {
-   "ticker": "DKNG",
-   "company": "DRAFTKINGS INC NEW",
+   "ticker": "AU",
+   "company": "ANGLOGOLD ASHANTI PLC",
    "holders": [
-    "Joel Greenblatt",
-    "SPRUCE HOUSE INVESTMENT MANAGEMENT LLC"
+    "ALTRINSIC GLOBAL ADVISORS LLC",
+    "Howard Marks"
    ],
    "holder_count": 2,
-   "value_usd": 259847069
+   "value_usd": 257656327
   },
   {
-   "ticker": "BILL",
-   "company": "BILL HOLDINGS INC",
+   "ticker": "INDV",
+   "company": "INDIVIOR PHARMACEUTICALS INC",
    "holders": [
-    "Barton Investment Management",
-    "Starboard Value LP"
+    "Howard Marks",
+    "Joel Greenblatt"
    ],
    "holder_count": 2,
-   "value_usd": 254387770
+   "value_usd": 255291204
   },
   {
    "ticker": "ALGN",
@@ -7192,16 +7381,6 @@
    ],
    "holder_count": 2,
    "value_usd": 223227041
-  },
-  {
-   "ticker": "DDOG",
-   "company": "DATADOG INC",
-   "holders": [
-    "Joel Greenblatt",
-    "Strategy Capital LLC"
-   ],
-   "holder_count": 2,
-   "value_usd": 210807504
   },
   {
    "ticker": "CBDY",
@@ -7404,6 +7583,16 @@
    "value_usd": 162447277
   },
   {
+   "ticker": "AVAV",
+   "company": "AEROVIRONMENT INC",
+   "holders": [
+    "Heard Capital LLC",
+    "Howard Marks"
+   ],
+   "holder_count": 2,
+   "value_usd": 160497521
+  },
+  {
    "ticker": "KT",
    "company": "KT CORP - ADR",
    "holders": [
@@ -7422,16 +7611,6 @@
    ],
    "holder_count": 2,
    "value_usd": 158024881
-  },
-  {
-   "ticker": "WEC",
-   "company": "WEC ENERGY GROUP INC",
-   "holders": [
-    "Joel Greenblatt",
-    "Soroban Capital Partners LP"
-   ],
-   "holder_count": 2,
-   "value_usd": 157992496
   },
   {
    "ticker": "CRWD",
@@ -7574,16 +7753,6 @@
    "value_usd": 139998626
   },
   {
-   "ticker": "VAC",
-   "company": "MARRIOTT VACATIONS WORLDWIDE CORP.",
-   "holders": [
-    "Clifford Sosin",
-    "NEW SOUTH CAPITAL MANAGEMENT INC"
-   ],
-   "holder_count": 2,
-   "value_usd": 137857598
-  },
-  {
    "ticker": "INFY",
    "company": "INFOSYS LTD",
    "holders": [
@@ -7624,6 +7793,16 @@
    "value_usd": 130483670
   },
   {
+   "ticker": "CORZ",
+   "company": "CORE SCIENTIFIC INC NEW",
+   "holders": [
+    "Daniel Loeb",
+    "Howard Marks"
+   ],
+   "holder_count": 2,
+   "value_usd": 129170847
+  },
+  {
    "ticker": "ROIV",
    "company": "ROIVANT SCIENCES LTD",
    "holders": [
@@ -7634,6 +7813,16 @@
    "value_usd": 123940522
   },
   {
+   "ticker": "OCSL",
+   "company": "Oaktree Specialty Lending",
+   "holders": [
+    "BRUNI J V & CO /CO",
+    "Howard Marks"
+   ],
+   "holder_count": 2,
+   "value_usd": 123543216
+  },
+  {
    "ticker": "ALK",
    "company": "ALASKA AIR GROUP INC",
    "holders": [
@@ -7642,6 +7831,16 @@
    ],
    "holder_count": 2,
    "value_usd": 122310446
+  },
+  {
+   "ticker": "KRC",
+   "company": "KILROY REALTY CORP",
+   "holders": [
+    "Howard Marks",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 2,
+   "value_usd": 121231262
   },
   {
    "ticker": "MTH",
@@ -7672,6 +7871,16 @@
    ],
    "holder_count": 2,
    "value_usd": 120132119
+  },
+  {
+   "ticker": "FCX",
+   "company": "FREEPORT MCMORAN INC",
+   "holders": [
+    "Howard Marks",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 2,
+   "value_usd": 120020030
   },
   {
    "ticker": "MIDD",
@@ -7732,16 +7941,6 @@
    ],
    "holder_count": 2,
    "value_usd": 113978704
-  },
-  {
-   "ticker": "ETSY",
-   "company": "ETSY INC",
-   "holders": [
-    "Findlay Park Partners LLP",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 113677791
   },
   {
    "ticker": "SHC",
@@ -7822,16 +8021,6 @@
    ],
    "holder_count": 2,
    "value_usd": 103995227
-  },
-  {
-   "ticker": "CX",
-   "company": "CEMEX SAB DE CV",
-   "holders": [
-    "Corvex Management LP",
-    "Oldfield Partners LLP"
-   ],
-   "holder_count": 2,
-   "value_usd": 100821516
   },
   {
    "ticker": "ESLT",
@@ -7924,16 +8113,6 @@
    "value_usd": 84650675
   },
   {
-   "ticker": "NVST",
-   "company": "ENVISTA HOLDINGS CORPORATION",
-   "holders": [
-    "Joel Greenblatt",
-    "Tweedy, Browne Co LLC"
-   ],
-   "holder_count": 2,
-   "value_usd": 84330066
-  },
-  {
    "ticker": "P",
    "company": "EVERPURE INC",
    "holders": [
@@ -7984,6 +8163,16 @@
    "value_usd": 79157785
   },
   {
+   "ticker": "MMYT",
+   "company": "MAKEMYTRIP LIMITED MAURITIUS",
+   "holders": [
+    "COMGEST GLOBAL INVESTORS S.A.S.",
+    "Howard Marks"
+   ],
+   "holder_count": 2,
+   "value_usd": 78289511
+  },
+  {
    "ticker": "FA",
    "company": "FIRST ADVANTAGE CORP NEW",
    "holders": [
@@ -8012,6 +8201,26 @@
    ],
    "holder_count": 2,
    "value_usd": 73358034
+  },
+  {
+   "ticker": "BSY",
+   "company": "BENTLEY SYS INC",
+   "holders": [
+    "Howard Marks",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 2,
+   "value_usd": 72496386
+  },
+  {
+   "ticker": "AFRM",
+   "company": "AFFIRM HLDGS INC",
+   "holders": [
+    "Howard Marks",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 2,
+   "value_usd": 71359207
   },
   {
    "ticker": "COHR",
@@ -8044,6 +8253,16 @@
    "value_usd": 68470275
   },
   {
+   "ticker": "LILA",
+   "company": "LIBERTY LATIN AMERICA LTD",
+   "holders": [
+    "ACR Alpine Capital Research, LLC",
+    "Howard Marks"
+   ],
+   "holder_count": 2,
+   "value_usd": 68225833
+  },
+  {
    "ticker": "FG",
    "company": "F&G ANNUITIES & LIFE INC",
    "holders": [
@@ -8052,6 +8271,16 @@
    ],
    "holder_count": 2,
    "value_usd": 67655623
+  },
+  {
+   "ticker": "ON",
+   "company": "ON SEMICONDUCTOR CORP",
+   "holders": [
+    "Howard Marks",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 2,
+   "value_usd": 67281609
   },
   {
    "ticker": "MTB",
@@ -8074,6 +8303,16 @@
    "value_usd": 64588554
   },
   {
+   "ticker": "RPD",
+   "company": "RAPID7 INC",
+   "holders": [
+    "Howard Marks",
+    "JANA Partners Management, LP"
+   ],
+   "holder_count": 2,
+   "value_usd": 64383344
+  },
+  {
    "ticker": "ITIC",
    "company": "INVESTORS TITLE CO NC",
    "holders": [
@@ -8084,6 +8323,16 @@
    "value_usd": 64367895
   },
   {
+   "ticker": "BMRN",
+   "company": "BIOMARIN PHARMACEUTICAL INC",
+   "holders": [
+    "Howard Marks",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 2,
+   "value_usd": 64011993
+  },
+  {
    "ticker": "MKTX",
    "company": "MARKETAXESS HLDGS INC",
    "holders": [
@@ -8092,6 +8341,16 @@
    ],
    "holder_count": 2,
    "value_usd": 63498183
+  },
+  {
+   "ticker": "PEB",
+   "company": "PEBBLEBROOK HOTEL TR",
+   "holders": [
+    "Howard Marks",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 2,
+   "value_usd": 63493112
   },
   {
    "ticker": "MDB",
@@ -8134,6 +8393,16 @@
    "value_usd": 60635199
   },
   {
+   "ticker": "U",
+   "company": "UNITY SOFTWARE INC",
+   "holders": [
+    "Howard Marks",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 2,
+   "value_usd": 60186248
+  },
+  {
    "ticker": "L",
    "company": "LOEWS CORP",
    "holders": [
@@ -8154,6 +8423,16 @@
    "value_usd": 58402524
   },
   {
+   "ticker": "BLCO",
+   "company": "BAUSCH PLUS LOMB CORP",
+   "holders": [
+    "Daniel Loeb",
+    "Howard Marks"
+   ],
+   "holder_count": 2,
+   "value_usd": 58391255
+  },
+  {
    "ticker": "ADSK",
    "company": "AUTODESK INC",
    "holders": [
@@ -8162,6 +8441,16 @@
    ],
    "holder_count": 2,
    "value_usd": 58376939
+  },
+  {
+   "ticker": "VSAT",
+   "company": "VIASAT INC",
+   "holders": [
+    "Howard Marks",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 2,
+   "value_usd": 58092520
   },
   {
    "ticker": "AR",
@@ -8234,6 +8523,16 @@
    "value_usd": 53644803
   },
   {
+   "ticker": "CNMD",
+   "company": "CONMED CORP",
+   "holders": [
+    "Howard Marks",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 2,
+   "value_usd": 52954189
+  },
+  {
    "ticker": "AOS",
    "company": "SMITH A O CORP",
    "holders": [
@@ -8304,6 +8603,16 @@
    "value_usd": 49875935
   },
   {
+   "ticker": "FIVN",
+   "company": "FIVE9 INC",
+   "holders": [
+    "Howard Marks",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 2,
+   "value_usd": 49812716
+  },
+  {
    "ticker": "VMI",
    "company": "VALMONT INDS INC",
    "holders": [
@@ -8332,16 +8641,6 @@
    ],
    "holder_count": 2,
    "value_usd": 49073702
-  },
-  {
-   "ticker": "SPB",
-   "company": "SPECTRUM BRANDS HOLDINGS INC",
-   "holders": [
-    "David Einhorn",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 48546077
   },
   {
    "ticker": "AMRZ",
@@ -8464,6 +8763,16 @@
    "value_usd": 43229696
   },
   {
+   "ticker": "TAC",
+   "company": "TRANSALTA CORP",
+   "holders": [
+    "Howard Marks",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 2,
+   "value_usd": 42563972
+  },
+  {
    "ticker": "JAZZ",
    "company": "JAZZ PHARMACEUTICALS PLC",
    "holders": [
@@ -8544,14 +8853,14 @@
    "value_usd": 38994335
   },
   {
-   "ticker": "NBR",
-   "company": "NABORS INDUSTRIES LTD",
+   "ticker": "ENOV",
+   "company": "ENOVIS CORPORATION",
    "holders": [
-    "Joel Greenblatt",
-    "Miller Value Partners, LLC"
+    "Howard Marks",
+    "SOUTHEASTERN ASSET MANAGEMENT INC/TN/"
    ],
    "holder_count": 2,
-   "value_usd": 38928050
+   "value_usd": 38709728
   },
   {
    "ticker": "FR",
@@ -8634,16 +8943,6 @@
    "value_usd": 35646978
   },
   {
-   "ticker": "TLN",
-   "company": "TALEN ENERGY CORP",
-   "holders": [
-    "ACR Alpine Capital Research, LLC",
-    "Joel Greenblatt"
-   ],
-   "holder_count": 2,
-   "value_usd": 35539823
-  },
-  {
    "ticker": "EQH",
    "company": "EQUITABLE HLDGS INC",
    "holders": [
@@ -8702,6 +9001,16 @@
    ],
    "holder_count": 2,
    "value_usd": 33133903
+  },
+  {
+   "ticker": "ARRY",
+   "company": "ARRAY TECHNOLOGIES INC",
+   "holders": [
+    "Howard Marks",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 2,
+   "value_usd": 32583049
   },
   {
    "ticker": "EMN",
@@ -8884,6 +9193,16 @@
    "value_usd": 26009860
   },
   {
+   "ticker": "AD",
+   "company": "ARRAY DIGITAL INFRASTRUCTURE",
+   "holders": [
+    "Howard Marks",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 2,
+   "value_usd": 25874846
+  },
+  {
    "ticker": "COTY",
    "company": "COTY INC",
    "holders": [
@@ -8932,6 +9251,16 @@
    ],
    "holder_count": 2,
    "value_usd": 24116366
+  },
+  {
+   "ticker": "RVMD",
+   "company": "REVOLUTION MEDICINES INC",
+   "holders": [
+    "Howard Marks",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 2,
+   "value_usd": 24047844
   },
   {
    "ticker": "MOD",
@@ -9024,6 +9353,16 @@
    "value_usd": 19564809
   },
   {
+   "ticker": "FE",
+   "company": "FIRSTENERGY CORP",
+   "holders": [
+    "Howard Marks",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 2,
+   "value_usd": 19448123
+  },
+  {
    "ticker": "SABR",
    "company": "SABRE CORP",
    "holders": [
@@ -9052,6 +9391,16 @@
    ],
    "holder_count": 2,
    "value_usd": 19152142
+  },
+  {
+   "ticker": "WGO",
+   "company": "WINNEBAGO INDS INC",
+   "holders": [
+    "Howard Marks",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 2,
+   "value_usd": 18993855
   },
   {
    "ticker": "APTV",
@@ -9184,6 +9533,16 @@
    "value_usd": 15644975
   },
   {
+   "ticker": "UPWK",
+   "company": "UPWORK INC",
+   "holders": [
+    "Howard Marks",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 2,
+   "value_usd": 15545744
+  },
+  {
    "ticker": "DOX",
    "company": "AMDOCS LTD",
    "holders": [
@@ -9264,6 +9623,16 @@
    "value_usd": 14030063
   },
   {
+   "ticker": "RBRK",
+   "company": "RUBRIK INC.",
+   "holders": [
+    "Howard Marks",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 2,
+   "value_usd": 13261860
+  },
+  {
    "ticker": "PCOR",
    "company": "PROCORE TECHNOLOGIES INC",
    "holders": [
@@ -9324,6 +9693,26 @@
    "value_usd": 12128695
   },
   {
+   "ticker": "ITRI",
+   "company": "ITRON INC",
+   "holders": [
+    "Howard Marks",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 2,
+   "value_usd": 12121074
+  },
+  {
+   "ticker": "SITM",
+   "company": "SITIME CORP",
+   "holders": [
+    "Howard Marks",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 2,
+   "value_usd": 12064313
+  },
+  {
    "ticker": "ELAN",
    "company": "ELANCO ANIMAL HEALTH INC",
    "holders": [
@@ -9342,6 +9731,16 @@
    ],
    "holder_count": 2,
    "value_usd": 10643760
+  },
+  {
+   "ticker": "FRPT",
+   "company": "FRESHPET INC",
+   "holders": [
+    "Howard Marks",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 2,
+   "value_usd": 9890034
   },
   {
    "ticker": "CMG",
@@ -9524,6 +9923,26 @@
    "value_usd": 7448390
   },
   {
+   "ticker": "AKAM",
+   "company": "AKAMAI TECHNOLOGIES INC",
+   "holders": [
+    "Howard Marks",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 2,
+   "value_usd": 7417524
+  },
+  {
+   "ticker": "MX",
+   "company": "MAGNACHIP SEMICONDUCTOR CORP",
+   "holders": [
+    "FAIRFAX FINANCIAL HOLDINGS LTD/ CAN",
+    "Howard Marks"
+   ],
+   "holder_count": 2,
+   "value_usd": 7391250
+  },
+  {
    "ticker": "KALU",
    "company": "KAISER ALUMINIUM CORPORATION",
    "holders": [
@@ -9604,16 +10023,6 @@
    "value_usd": 5709071
   },
   {
-   "ticker": "NCLH",
-   "company": "NORWEGIAN CRUISE LINE HLDGS",
-   "holders": [
-    "Joel Greenblatt",
-    "Seth Klarman"
-   ],
-   "holder_count": 2,
-   "value_usd": 5626342
-  },
-  {
    "ticker": "CET",
    "company": "Central Securities Corp",
    "holders": [
@@ -9622,6 +10031,16 @@
    ],
    "holder_count": 2,
    "value_usd": 5569560
+  },
+  {
+   "ticker": "GPRE",
+   "company": "GREEN PLAINS INC",
+   "holders": [
+    "Howard Marks",
+    "Joel Greenblatt"
+   ],
+   "holder_count": 2,
+   "value_usd": 5252406
   },
   {
    "ticker": "GPI",
@@ -9664,16 +10083,6 @@
    "value_usd": 4763078
   },
   {
-   "ticker": "MSTR",
-   "company": "STRATEGY INC",
-   "holders": [
-    "Joel Greenblatt",
-    "Miller Value Partners, LLC"
-   ],
-   "holder_count": 2,
-   "value_usd": 4681355
-  },
-  {
    "ticker": "GLOB",
    "company": "GLOBANT S A",
    "holders": [
@@ -9682,6 +10091,16 @@
    ],
    "holder_count": 2,
    "value_usd": 3986022
+  },
+  {
+   "ticker": "DPC",
+   "company": "DPC HOLDINGS PLC",
+   "holders": [
+    "Howard Marks",
+    "KENSICO CAPITAL MANAGEMENT CORP"
+   ],
+   "holder_count": 2,
+   "value_usd": 3726843
   },
   {
    "ticker": "WDFC",
@@ -9971,13 +10390,13 @@
    "value_usd": 580995746
   },
   {
-   "ticker": "YPF",
-   "company": "YPF SOCIEDAD ANONIMA",
+   "ticker": "TRMD",
+   "company": "TORM PLC",
    "holders": [
-    "Aquamarine Financial (Cayman) Ltd"
+    "Howard Marks"
    ],
    "holder_count": 1,
-   "value_usd": 565871786
+   "value_usd": 524260745
   },
   {
    "ticker": "EWBC",
@@ -10034,24 +10453,6 @@
    "value_usd": 284533150
   },
   {
-   "ticker": "SNOW",
-   "company": "SNOWFLAKE INC",
-   "holders": [
-    "Joel Greenblatt"
-   ],
-   "holder_count": 1,
-   "value_usd": 262625167
-  },
-  {
-   "ticker": "TDS",
-   "company": "TELEPHONE & DATA SYS INC",
-   "holders": [
-    "Daniel Loeb"
-   ],
-   "holder_count": 1,
-   "value_usd": 232237750
-  },
-  {
    "ticker": "SA",
    "company": "SEABRIDGE GOLD INC",
    "holders": [
@@ -10059,6 +10460,15 @@
    ],
    "holder_count": 1,
    "value_usd": 194465494
+  },
+  {
+   "ticker": "VNOM",
+   "company": "VIPER ENERGY INC",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 160756716
   },
   {
    "ticker": "LPLA",
@@ -10086,15 +10496,6 @@
    ],
    "holder_count": 1,
    "value_usd": 150315097
-  },
-  {
-   "ticker": "AVAV",
-   "company": "AEROVIRONMENT INC",
-   "holders": [
-    "Heard Capital LLC"
-   ],
-   "holder_count": 1,
-   "value_usd": 149219153
   },
   {
    "ticker": "IRDM",
@@ -10167,6 +10568,15 @@
    ],
    "holder_count": 1,
    "value_usd": 103545623
+  },
+  {
+   "ticker": "ITUB",
+   "company": "ITAU UNIBANCO HOLDING SA",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 97857531
   },
   {
    "ticker": "TEVA",
@@ -10329,15 +10739,6 @@
    ],
    "holder_count": 1,
    "value_usd": 67230699
-  },
-  {
-   "ticker": "ON",
-   "company": "ON SEMICONDUCTOR CORP",
-   "holders": [
-    "Joel Greenblatt"
-   ],
-   "holder_count": 1,
-   "value_usd": 65772234
   },
   {
    "ticker": "RHP",
@@ -10547,6 +10948,15 @@
    "value_usd": 57862898
   },
   {
+   "ticker": "ENPH",
+   "company": "ENPHASE ENERGY INC",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 57609766
+  },
+  {
    "ticker": "HAS",
    "company": "HASBRO INC",
    "holders": [
@@ -10572,24 +10982,6 @@
    ],
    "holder_count": 1,
    "value_usd": 55122533
-  },
-  {
-   "ticker": "RPD",
-   "company": "RAPID7 INC",
-   "holders": [
-    "JANA Partners Management, LP"
-   ],
-   "holder_count": 1,
-   "value_usd": 54674482
-  },
-  {
-   "ticker": "BSBR",
-   "company": "BANCO SANTANDER BRASIL S A",
-   "holders": [
-    "Aquamarine Financial (Cayman) Ltd"
-   ],
-   "holder_count": 1,
-   "value_usd": 54569466
   },
   {
    "ticker": "STUB",
@@ -10664,13 +11056,22 @@
    "value_usd": 52274074
   },
   {
-   "ticker": "KRC",
-   "company": "KILROY REALTY CORP",
+   "ticker": "TDOC",
+   "company": "TELADOC HEALTH INC",
    "holders": [
-    "Joel Greenblatt"
+    "Howard Marks"
    ],
    "holder_count": 1,
-   "value_usd": 51911350
+   "value_usd": 52256588
+  },
+  {
+   "ticker": "MATW",
+   "company": "MATTHEWS INTERNATIONAL CORP",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 51847704
   },
   {
    "ticker": "RRX",
@@ -10689,6 +11090,15 @@
    ],
    "holder_count": 1,
    "value_usd": 51335673
+  },
+  {
+   "ticker": "XP",
+   "company": "XP INC",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 50679314
   },
   {
    "ticker": "OSW",
@@ -10808,6 +11218,15 @@
    "value_usd": 46423285
   },
   {
+   "ticker": "FOUR",
+   "company": "SHIFT4 PAYMENTS INC",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 46264020
+  },
+  {
    "ticker": "CNP",
    "company": "CENTERPOINT ENERGY INC",
    "holders": [
@@ -10817,6 +11236,15 @@
    "value_usd": 46069671
   },
   {
+   "ticker": "YPF",
+   "company": "YPF SA",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 45076502
+  },
+  {
    "ticker": "PII",
    "company": "POLARIS INC",
    "holders": [
@@ -10824,15 +11252,6 @@
    ],
    "holder_count": 1,
    "value_usd": 44521589
-  },
-  {
-   "ticker": "FCX",
-   "company": "FREEPORT MCMORAN INC",
-   "holders": [
-    "Joel Greenblatt"
-   ],
-   "holder_count": 1,
-   "value_usd": 44481468
   },
   {
    "ticker": "BOOT",
@@ -10871,6 +11290,15 @@
    "value_usd": 43891458
   },
   {
+   "ticker": "SNAP",
+   "company": "SNAP INC",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 43659126
+  },
+  {
    "ticker": "CHE",
    "company": "CHEMED CORP NEW",
    "holders": [
@@ -10907,6 +11335,15 @@
    "value_usd": 41074044
   },
   {
+   "ticker": "RWAY",
+   "company": "RUNWAY GROWTH FINANCE CORP",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 39436440
+  },
+  {
    "ticker": "LOB",
    "company": "Live Oak Bancshares Inc",
    "holders": [
@@ -10934,13 +11371,13 @@
    "value_usd": 37568706
   },
   {
-   "ticker": "AFRM",
-   "company": "AFFIRM HLDGS INC",
+   "ticker": "AMPH",
+   "company": "AMPHASTAR PHARMACEUTICALS INC",
    "holders": [
-    "Joel Greenblatt"
+    "Howard Marks"
    ],
    "holder_count": 1,
-   "value_usd": 37066432
+   "value_usd": 37200800
   },
   {
    "ticker": "Q",
@@ -11042,15 +11479,6 @@
    "value_usd": 33680038
   },
   {
-   "ticker": "BBAR",
-   "company": "BANCO BBVA ARGENTINA S A",
-   "holders": [
-    "Aquamarine Financial (Cayman) Ltd"
-   ],
-   "holder_count": 1,
-   "value_usd": 33358140
-  },
-  {
    "ticker": "PWR",
    "company": "QUANTA SVCS INC",
    "holders": [
@@ -11103,15 +11531,6 @@
    ],
    "holder_count": 1,
    "value_usd": 32462672
-  },
-  {
-   "ticker": "PGY",
-   "company": "PAGAYA TECHNOLOGIES LTD",
-   "holders": [
-    "Aquamarine Financial (Cayman) Ltd"
-   ],
-   "holder_count": 1,
-   "value_usd": 32324564
   },
   {
    "ticker": "STAG",
@@ -11258,15 +11677,6 @@
    "value_usd": 29861969
   },
   {
-   "ticker": "OCSL",
-   "company": "Oaktree Specialty Lending",
-   "holders": [
-    "BRUNI J V & CO /CO"
-   ],
-   "holder_count": 1,
-   "value_usd": 29549160
-  },
-  {
    "ticker": "ZM",
    "company": "ZOOM COMMUNICATIONS INC",
    "holders": [
@@ -11337,6 +11747,15 @@
    ],
    "holder_count": 1,
    "value_usd": 28111395
+  },
+  {
+   "ticker": "EMBJ",
+   "company": "EMBRAER SA",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 28053242
   },
   {
    "ticker": "ETN",
@@ -11465,6 +11884,15 @@
    "value_usd": 25609399
   },
   {
+   "ticker": "KRSP",
+   "company": "RICE ACQUISITION CORP 3",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 25595999
+  },
+  {
    "ticker": "BG",
    "company": "BUNGE GLOBAL SA",
    "holders": [
@@ -11517,6 +11945,15 @@
    ],
    "holder_count": 1,
    "value_usd": 24942319
+  },
+  {
+   "ticker": "SHAZ",
+   "company": "SHARONAI HOLDINGS INC",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 24505344
   },
   {
    "ticker": "MHK",
@@ -11609,15 +12046,6 @@
    "value_usd": 22656854
   },
   {
-   "ticker": "RVMD",
-   "company": "REVOLUTION MEDICINES INC",
-   "holders": [
-    "Joel Greenblatt"
-   ],
-   "holder_count": 1,
-   "value_usd": 22605071
-  },
-  {
    "ticker": "LYFT",
    "company": "LYFT INC",
    "holders": [
@@ -11681,6 +12109,15 @@
    "value_usd": 21280635
   },
   {
+   "ticker": "WK",
+   "company": "WORKIVA INC",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 21095487
+  },
+  {
    "ticker": "CEVA",
    "company": "CEVA INC",
    "holders": [
@@ -11697,15 +12134,6 @@
    ],
    "holder_count": 1,
    "value_usd": 20550108
-  },
-  {
-   "ticker": "BSY",
-   "company": "BENTLEY SYS INC",
-   "holders": [
-    "Joel Greenblatt"
-   ],
-   "holder_count": 1,
-   "value_usd": 20332403
   },
   {
    "ticker": "LVS",
@@ -12014,6 +12442,15 @@
    "value_usd": 15992537
   },
   {
+   "ticker": "SMPL",
+   "company": "SIMPLY GOOD FOODS CO/THE",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 15987645
+  },
+  {
    "ticker": "WYNN",
    "company": "WYNN RESORTS LTD",
    "holders": [
@@ -12167,13 +12604,13 @@
    "value_usd": 14776603
   },
   {
-   "ticker": "FE",
-   "company": "FIRSTENERGY CORP",
+   "ticker": "COGT",
+   "company": "COGENT BIOSCIENCES INC",
    "holders": [
-    "Joel Greenblatt"
+    "Howard Marks"
    ],
    "holder_count": 1,
-   "value_usd": 14771153
+   "value_usd": 14758452
   },
   {
    "ticker": "XMTR",
@@ -12183,6 +12620,15 @@
    ],
    "holder_count": 1,
    "value_usd": 14586778
+  },
+  {
+   "ticker": "SGRY",
+   "company": "SURGERY PARTNERS INC",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 14491478
   },
   {
    "ticker": "KSS",
@@ -12228,6 +12674,15 @@
    ],
    "holder_count": 1,
    "value_usd": 14083781
+  },
+  {
+   "ticker": "BXMT",
+   "company": "BLACKSTONE MORTGAGE TRUST INC",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 14064000
   },
   {
    "ticker": "GAP",
@@ -12410,13 +12865,13 @@
    "value_usd": 12101299
   },
   {
-   "ticker": "ORMP",
-   "company": "ORAMED PHARMACEUTICALS INC",
+   "ticker": "STWD",
+   "company": "STARWOOD PROPERTY TRUST INC",
    "holders": [
-    "Aquamarine Financial (Cayman) Ltd"
+    "Howard Marks"
    ],
    "holder_count": 1,
-   "value_usd": 12083562
+   "value_usd": 12070383
   },
   {
    "ticker": "DRI",
@@ -12464,15 +12919,6 @@
    "value_usd": 11613249
   },
   {
-   "ticker": "U",
-   "company": "UNITY SOFTWARE INC",
-   "holders": [
-    "Joel Greenblatt"
-   ],
-   "holder_count": 1,
-   "value_usd": 11551064
-  },
-  {
    "ticker": "UMBF",
    "company": "UMB Financial Corp",
    "holders": [
@@ -12482,6 +12928,24 @@
    "value_usd": 11170256
   },
   {
+   "ticker": "MINE",
+   "company": "MAYFAIR GOLD CORP",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 11069603
+  },
+  {
+   "ticker": "ARWR",
+   "company": "ARROWHEAD PHARMACEUTICALS INC",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 10951820
+  },
+  {
    "ticker": "DV",
    "company": "DOUBLEVERIFY HLDGS INC",
    "holders": [
@@ -12489,6 +12953,15 @@
    ],
    "holder_count": 1,
    "value_usd": 10839458
+  },
+  {
+   "ticker": "BMM",
+   "company": "BLUE MOON METALS INC",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 10688986
   },
   {
    "ticker": "EPR",
@@ -12563,13 +13036,13 @@
    "value_usd": 9394336
   },
   {
-   "ticker": "DRTS",
-   "company": "ALPHA TAU MEDICAL LTD",
+   "ticker": "ATEC",
+   "company": "ALPHATEC HOLDINGS INC",
    "holders": [
-    "Aquamarine Financial (Cayman) Ltd"
+    "Howard Marks"
    ],
    "holder_count": 1,
-   "value_usd": 9076483
+   "value_usd": 9144880
   },
   {
    "ticker": "VKTX",
@@ -12579,6 +13052,15 @@
    ],
    "holder_count": 1,
    "value_usd": 9001050
+  },
+  {
+   "ticker": "SMRT",
+   "company": "SMARTRENT INC",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 8931301
   },
   {
    "ticker": "FOSL",
@@ -12597,15 +13079,6 @@
    ],
    "holder_count": 1,
    "value_usd": 8680176
-  },
-  {
-   "ticker": "RBRK",
-   "company": "RUBRIK INC.",
-   "holders": [
-    "Joel Greenblatt"
-   ],
-   "holder_count": 1,
-   "value_usd": 8652016
   },
   {
    "ticker": "ROKU",
@@ -12633,6 +13106,15 @@
    ],
    "holder_count": 1,
    "value_usd": 8302119
+  },
+  {
+   "ticker": "UPST",
+   "company": "UPSTART HOLDINGS INC",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 8275427
   },
   {
    "ticker": "CRK",
@@ -12669,6 +13151,33 @@
    ],
    "holder_count": 1,
    "value_usd": 8010000
+  },
+  {
+   "ticker": "RWT",
+   "company": "REDWOOD TRUST INC",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 7999215
+  },
+  {
+   "ticker": "JD",
+   "company": "JD.COM INC",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 7931927
+  },
+  {
+   "ticker": "ALRM",
+   "company": "ALARM.COM HOLDINGS INC",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 7773072
   },
   {
    "ticker": "AVPT",
@@ -12770,6 +13279,15 @@
    "value_usd": 7271398
   },
   {
+   "ticker": "PMT",
+   "company": "PENNYMAC MORTGAGE INVESTMENT TRUST",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 7266453
+  },
+  {
    "ticker": "DOW",
    "company": "DOW HLDGS INC",
    "holders": [
@@ -12779,6 +13297,15 @@
    "value_usd": 7248540
   },
   {
+   "ticker": "CRNC",
+   "company": "CERENCE INC",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 7237466
+  },
+  {
    "ticker": "LITE",
    "company": "LUMENTUM HLDGS INC",
    "holders": [
@@ -12786,6 +13313,15 @@
    ],
    "holder_count": 1,
    "value_usd": 7167375
+  },
+  {
+   "ticker": "CELC",
+   "company": "CELCUITY INC",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 7133750
   },
   {
    "ticker": "EVR",
@@ -12813,6 +13349,15 @@
    ],
    "holder_count": 1,
    "value_usd": 6893600
+  },
+  {
+   "ticker": "CBRL",
+   "company": "CRACKER BARREL OLD COUNTRY STORE INC",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 6873687
   },
   {
    "ticker": "CERT",
@@ -12851,6 +13396,15 @@
    "value_usd": 6696468
   },
   {
+   "ticker": "PD",
+   "company": "PAGERDUTY INC",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 6693225
+  },
+  {
    "ticker": "TRGP",
    "company": "TARGA RES CORP",
    "holders": [
@@ -12887,6 +13441,15 @@
    "value_usd": 6391772
   },
   {
+   "ticker": "SRPT",
+   "company": "SAREPTA THERAPEUTICS INC",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 6344687
+  },
+  {
    "ticker": "CAVA",
    "company": "CAVA GROUP INC",
    "holders": [
@@ -12894,6 +13457,15 @@
    ],
    "holder_count": 1,
    "value_usd": 6343538
+  },
+  {
+   "ticker": "LCII",
+   "company": "LCI INDUSTRIES",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 6335062
   },
   {
    "ticker": "TTD",
@@ -12939,15 +13511,6 @@
    ],
    "holder_count": 1,
    "value_usd": 6089832
-  },
-  {
-   "ticker": "CSAN",
-   "company": "COSAN S A",
-   "holders": [
-    "Aquamarine Financial (Cayman) Ltd"
-   ],
-   "holder_count": 1,
-   "value_usd": 6039084
   },
   {
    "ticker": "BRBR",
@@ -13085,6 +13648,15 @@
    "value_usd": 4830045
   },
   {
+   "ticker": "GLAD",
+   "company": "GLADSTONE CAPITAL CORP",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 4824646
+  },
+  {
    "ticker": "OCFC",
    "company": "OceanFirst Financial Corp",
    "holders": [
@@ -13148,13 +13720,13 @@
    "value_usd": 4438194
   },
   {
-   "ticker": "INVZ",
-   "company": "INNOVIZ TECHNOLOGIES LTD",
+   "ticker": "NOG",
+   "company": "NORTHERN OIL & GAS INC",
    "holders": [
-    "Aquamarine Financial (Cayman) Ltd"
+    "Howard Marks"
    ],
    "holder_count": 1,
-   "value_usd": 4436996
+   "value_usd": 4432208
   },
   {
    "ticker": "EAT",
@@ -13164,15 +13736,6 @@
    ],
    "holder_count": 1,
    "value_usd": 4313232
-  },
-  {
-   "ticker": "AKAM",
-   "company": "AKAMAI TECHNOLOGIES INC",
-   "holders": [
-    "Joel Greenblatt"
-   ],
-   "holder_count": 1,
-   "value_usd": 4281803
   },
   {
    "ticker": "TRS",
@@ -13265,13 +13828,13 @@
    "value_usd": 3982810
   },
   {
-   "ticker": "SITM",
-   "company": "SITIME CORP",
+   "ticker": "BATL",
+   "company": "BATTALION OIL CORP",
    "holders": [
-    "Joel Greenblatt"
+    "Howard Marks"
    ],
    "holder_count": 1,
-   "value_usd": 3964888
+   "value_usd": 3942984
   },
   {
    "ticker": "CALY",
@@ -13281,15 +13844,6 @@
    ],
    "holder_count": 1,
    "value_usd": 3900034
-  },
-  {
-   "ticker": "INDV",
-   "company": "INDIVIOR PHARMACEUTICALS INC",
-   "holders": [
-    "Joel Greenblatt"
-   ],
-   "holder_count": 1,
-   "value_usd": 3891696
   },
   {
    "ticker": "BFLY",
@@ -13362,6 +13916,24 @@
    ],
    "holder_count": 1,
    "value_usd": 3446267
+  },
+  {
+   "ticker": "TMDX",
+   "company": "TRANSMEDICS GROUP INC",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 3396978
+  },
+  {
+   "ticker": "SVC",
+   "company": "SERVICE PROPERTIES TRUST",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 3360365
   },
   {
    "ticker": "KOS",
@@ -13544,15 +14116,6 @@
    "value_usd": 2870245
   },
   {
-   "ticker": "LILA",
-   "company": "LIBERTY LATIN AMERICA LTD",
-   "holders": [
-    "ACR Alpine Capital Research, LLC"
-   ],
-   "holder_count": 1,
-   "value_usd": 2762661
-  },
-  {
    "ticker": "TEM",
    "company": "TEMPUS AI INC",
    "holders": [
@@ -13679,6 +14242,15 @@
    "value_usd": 2467081
   },
   {
+   "ticker": "MGPI",
+   "company": "MGP INGREDIENTS INC",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 2450559
+  },
+  {
    "ticker": "SKE",
    "company": "SKEENA RES LTD NEW",
    "holders": [
@@ -13731,15 +14303,6 @@
    ],
    "holder_count": 1,
    "value_usd": 2403027
-  },
-  {
-   "ticker": "FIVN",
-   "company": "FIVE9 INC",
-   "holders": [
-    "Joel Greenblatt"
-   ],
-   "holder_count": 1,
-   "value_usd": 2389034
   },
   {
    "ticker": "CASH",
@@ -13877,6 +14440,15 @@
    "value_usd": 2124674
   },
   {
+   "ticker": "HAE",
+   "company": "HAEMONETICS CORP",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 2123022
+  },
+  {
    "ticker": "CDLX",
    "company": "CARDLYTICS, INC.",
    "holders": [
@@ -14003,13 +14575,13 @@
    "value_usd": 1964120
   },
   {
-   "ticker": "PLSM",
-   "company": "PULSENMORE LTD",
+   "ticker": "BTAI",
+   "company": "BIOXCEL THERAPEUTICS INC",
    "holders": [
-    "Aquamarine Financial (Cayman) Ltd"
+    "Howard Marks"
    ],
    "holder_count": 1,
-   "value_usd": 1951897
+   "value_usd": 1946150
   },
   {
    "ticker": "BLKB",
@@ -14055,6 +14627,15 @@
    ],
    "holder_count": 1,
    "value_usd": 1840633
+  },
+  {
+   "ticker": "NNBR",
+   "company": "NN INC",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 1834285
   },
   {
    "ticker": "PL",
@@ -14156,6 +14737,15 @@
    "value_usd": 1658060
   },
   {
+   "ticker": "GRPN",
+   "company": "GROUPON INC",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 1657882
+  },
+  {
    "ticker": "BW",
    "company": "BABCOCK & WILCOX ENTERPRISES",
    "holders": [
@@ -14172,15 +14762,6 @@
    ],
    "holder_count": 1,
    "value_usd": 1653451
-  },
-  {
-   "ticker": "BMRN",
-   "company": "BIOMARIN PHARMACEUTICAL INC",
-   "holders": [
-    "Joel Greenblatt"
-   ],
-   "holder_count": 1,
-   "value_usd": 1638838
   },
   {
    "ticker": "SKYW",
@@ -14345,22 +14926,13 @@
    "value_usd": 1514902
   },
   {
-   "ticker": "UPWK",
-   "company": "UPWORK INC",
+   "ticker": "TCMFF",
+   "company": "TELECOM ARGENTINA SA",
    "holders": [
-    "Joel Greenblatt"
+    "Howard Marks"
    ],
    "holder_count": 1,
-   "value_usd": 1497903
-  },
-  {
-   "ticker": "VSAT",
-   "company": "VIASAT INC",
-   "holders": [
-    "Joel Greenblatt"
-   ],
-   "holder_count": 1,
-   "value_usd": 1487074
+   "value_usd": 1509365
   },
   {
    "ticker": "BKSY",
@@ -14399,6 +14971,15 @@
    "value_usd": 1446528
   },
   {
+   "ticker": "ALVO",
+   "company": "ALVOTECH SA",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 1434886
+  },
+  {
    "ticker": "SNPS",
    "company": "SYNOPSYS INC",
    "holders": [
@@ -14424,15 +15005,6 @@
    ],
    "holder_count": 1,
    "value_usd": 1387506
-  },
-  {
-   "ticker": "CORZ",
-   "company": "CORE SCIENTIFIC INC NEW",
-   "holders": [
-    "Daniel Loeb"
-   ],
-   "holder_count": 1,
-   "value_usd": 1381860
   },
   {
    "ticker": "GCT",
@@ -14678,15 +15250,6 @@
    "value_usd": 1079151
   },
   {
-   "ticker": "TAC",
-   "company": "TRANSALTA CORP",
-   "holders": [
-    "Joel Greenblatt"
-   ],
-   "holder_count": 1,
-   "value_usd": 1076748
-  },
-  {
    "ticker": "OUST",
    "company": "OUSTER INC",
    "holders": [
@@ -14777,6 +15340,15 @@
    "value_usd": 981399
   },
   {
+   "ticker": "NEO",
+   "company": "NEOGENOMICS INC",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 979683
+  },
+  {
    "ticker": "ADUS",
    "company": "ADDUS HOMECARE CORP",
    "holders": [
@@ -14802,15 +15374,6 @@
    ],
    "holder_count": 1,
    "value_usd": 968574
-  },
-  {
-   "ticker": "ARRY",
-   "company": "ARRAY TECHNOLOGIES INC",
-   "holders": [
-    "Joel Greenblatt"
-   ],
-   "holder_count": 1,
-   "value_usd": 958306
   },
   {
    "ticker": "NOVT",
@@ -14865,24 +15428,6 @@
    ],
    "holder_count": 1,
    "value_usd": 936686
-  },
-  {
-   "ticker": "ITRI",
-   "company": "ITRON INC",
-   "holders": [
-    "Joel Greenblatt"
-   ],
-   "holder_count": 1,
-   "value_usd": 922583
-  },
-  {
-   "ticker": "ENOV",
-   "company": "ENOVIS CORPORATION",
-   "holders": [
-    "SOUTHEASTERN ASSET MANAGEMENT INC/TN/"
-   ],
-   "holder_count": 1,
-   "value_usd": 916141
   },
   {
    "ticker": "LEU",
@@ -15065,6 +15610,15 @@
    "value_usd": 780420
   },
   {
+   "ticker": "IMCR",
+   "company": "IMMUNOCORE HOLDINGS PLC",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 766360
+  },
+  {
    "ticker": "INSW",
    "company": "INTERNATIONAL SEAWAYS INC",
    "holders": [
@@ -15153,15 +15707,6 @@
    ],
    "holder_count": 1,
    "value_usd": 693015
-  },
-  {
-   "ticker": "FRPT",
-   "company": "FRESHPET INC",
-   "holders": [
-    "Joel Greenblatt"
-   ],
-   "holder_count": 1,
-   "value_usd": 691172
   },
   {
    "ticker": "STVN",
@@ -15326,15 +15871,6 @@
    "value_usd": 607389
   },
   {
-   "ticker": "AD",
-   "company": "ARRAY DIGITAL INFRASTRUCTURE",
-   "holders": [
-    "Joel Greenblatt"
-   ],
-   "holder_count": 1,
-   "value_usd": 606775
-  },
-  {
    "ticker": "ORN",
    "company": "ORION SA",
    "holders": [
@@ -15342,6 +15878,15 @@
    ],
    "holder_count": 1,
    "value_usd": 600148
+  },
+  {
+   "ticker": "CRDO",
+   "company": "CREDO TECHNOLOGY GROUP HOLDI",
+   "holders": [
+    "Joel Greenblatt"
+   ],
+   "holder_count": 1,
+   "value_usd": 595027
   },
   {
    "ticker": "CPAC",
@@ -15560,15 +16105,6 @@
    "value_usd": 512391
   },
   {
-   "ticker": "AU",
-   "company": "ANGLOGOLD ASHANTI PLC",
-   "holders": [
-    "ALTRINSIC GLOBAL ADVISORS LLC"
-   ],
-   "holder_count": 1,
-   "value_usd": 499576
-  },
-  {
    "ticker": "ARQT",
    "company": "ARCUTIS BIOTHERAPEUTICS INC",
    "holders": [
@@ -15603,15 +16139,6 @@
    ],
    "holder_count": 1,
    "value_usd": 493617
-  },
-  {
-   "ticker": "CNMD",
-   "company": "CONMED CORP",
-   "holders": [
-    "Joel Greenblatt"
-   ],
-   "holder_count": 1,
-   "value_usd": 489379
   },
   {
    "ticker": "SAIL",
@@ -15920,15 +16447,6 @@
    "value_usd": 397823
   },
   {
-   "ticker": "PEB",
-   "company": "PEBBLEBROOK HOTEL TR",
-   "holders": [
-    "Joel Greenblatt"
-   ],
-   "holder_count": 1,
-   "value_usd": 397497
-  },
-  {
    "ticker": "JOBY",
    "company": "JOBY AVIATION INC",
    "holders": [
@@ -16235,15 +16753,6 @@
    "value_usd": 306896
   },
   {
-   "ticker": "GPRE",
-   "company": "GREEN PLAINS INC",
-   "holders": [
-    "Joel Greenblatt"
-   ],
-   "holder_count": 1,
-   "value_usd": 304386
-  },
-  {
    "ticker": "CC",
    "company": "CHEMOURS CO",
    "holders": [
@@ -16271,15 +16780,6 @@
    "value_usd": 297665
   },
   {
-   "ticker": "MX",
-   "company": "MAGNACHIP SEMICONDUCTOR CORP",
-   "holders": [
-    "FAIRFAX FINANCIAL HOLDINGS LTD/ CAN"
-   ],
-   "holder_count": 1,
-   "value_usd": 296250
-  },
-  {
    "ticker": "SOFI",
    "company": "SOFI TECHNOLOGIES INC",
    "holders": [
@@ -16296,15 +16796,6 @@
    ],
    "holder_count": 1,
    "value_usd": 288552
-  },
-  {
-   "ticker": "CEPU",
-   "company": "CENTRAL PUERTO S A",
-   "holders": [
-    "Aquamarine Financial (Cayman) Ltd"
-   ],
-   "holder_count": 1,
-   "value_usd": 287006
   },
   {
    "ticker": "IBIT",
@@ -16332,15 +16823,6 @@
    ],
    "holder_count": 1,
    "value_usd": 276252
-  },
-  {
-   "ticker": "WGO",
-   "company": "WINNEBAGO INDS INC",
-   "holders": [
-    "Joel Greenblatt"
-   ],
-   "holder_count": 1,
-   "value_usd": 274850
   },
   {
    "ticker": "AGYS",
@@ -16431,6 +16913,15 @@
    ],
    "holder_count": 1,
    "value_usd": 255916
+  },
+  {
+   "ticker": "SHAK",
+   "company": "SHAKE SHACK INC",
+   "holders": [
+    "Howard Marks"
+   ],
+   "holder_count": 1,
+   "value_usd": 252112
   },
   {
    "ticker": "ZDGE",
@@ -16964,15 +17455,6 @@
    "value_usd": 53270
   },
   {
-   "ticker": "DPC",
-   "company": "DPC HOLDINGS PLC",
-   "holders": [
-    "KENSICO CAPITAL MANAGEMENT CORP"
-   ],
-   "holder_count": 1,
-   "value_usd": 47343
-  },
-  {
    "ticker": "CRCT",
    "company": "CRICUT INC",
    "holders": [
@@ -17079,15 +17561,6 @@
    ],
    "holder_count": 1,
    "value_usd": 20391
-  },
-  {
-   "ticker": "VLN",
-   "company": "VALENS SEMICONDUCTOR LTD",
-   "holders": [
-    "Aquamarine Financial (Cayman) Ltd"
-   ],
-   "holder_count": 1,
-   "value_usd": 15670
   },
   {
    "ticker": "REI",
