@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-17T02:25:08.933219+00:00",
+  "generated_at": "2026-09-17T08:10:25.506511+00:00",
   "source": "yahoo",
   "market_status": "closed",
   "indices": [
@@ -15,7 +15,7 @@
       "name": "Dow Jones",
       "ticker": "^DJI",
       "price": 51461.9,
-      "change_pct": -1.2116957501673429,
+      "change_pct": -1.2116767863690145,
       "vs_exit": 10.83882248114292,
       "source": "yahoo"
     },
@@ -30,16 +30,16 @@
     {
       "name": "Russell 2000",
       "ticker": "^RUT",
-      "price": 2858.8113,
-      "change_pct": -0.3997546724796203,
+      "price": 2858.811,
+      "change_pct": -0.3999247462799862,
       "vs_exit": null,
       "source": "yahoo"
     },
     {
       "name": "VIX",
       "ticker": "^VIX",
-      "price": 17.71,
-      "change_pct": 2.9651162790697767,
+      "price": 16.08,
+      "change_pct": -9.203839638622261,
       "vs_exit": null,
       "source": "yahoo"
     }
@@ -904,7 +904,7 @@
       "prev_close": 61.5,
       "change_pct": 2.4390243902439024,
       "date": "2026-09-16",
-      "time": "12:15:30",
+      "time": "16:00:00",
       "volume": 1000,
       "week52_high": 103.5,
       "week52_low": 37.05
