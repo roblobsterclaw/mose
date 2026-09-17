@@ -27,6 +27,8 @@ Joe reviewed every filer in the Voter Roster Review artifact and made the calls:
 
 **16 Sep 2026, cash from IBKR (`2026-09-16d`):** Joe: why doesn't my ~$14k IBKR cash show? Because the Flex queries only carry Open Positions. Added `CashReportCurrency` parsing to `pull_ibkr_flex.py` (BASE_SUMMARY ending cash → `cash` per account, USD fallback) and app support: `applyIbkrSnapshot` files it as ticker `CASH` in the Cash & T-bills bucket and adds it to the account total; sync note turns orange until the Cash Report section is present. Joe to add the section to both Flex queries; then run the sync workflow.
 
+**17 Sep 2026, Joe's 15-superinvestor check:** 14 of 15 were on the roster (10 Core, 4 Bench: Tepper, Berkowitz, Peltz, plus the Aquamarine entry). Two fixes: (1) the roster's "Aquamarine Financial (Cayman) Ltd" was NOT Guy Spier — a LatAm book (Bradesco, YPF, Galicia); pruned. Spier files as **Aquamarine Zurich AG** (1953324; 7 names, Berkshire ~49%, AXP, MA, MCO, RACE, DJCO) — added, but **dormant**: he announced on 28 Mar 2026 that he is returning capital (health, eroded edge; 9.4%/yr since 1997 vs 9.2% S&P). (2) **Howard Marks / Oaktree** (949509, $5.3B 13F, 138 names, TORM/Expand Energy/Garrett/AngloGold) added to the Bench with a dossier — the memos matter, the equity book does not. New `--only` mode on the SEC pull (submissions API, merge) so two filers don't cost an 11-index download. Rebuilt: 4,448 holdings, 121 voters, Core 25 unchanged.
+
 **Open:** annual dossier refresh capturing letters; monthly deep-dive data blocks; a conviction floor (or a cap on any one filer's weight) for the Core 15; ~635 unresolved CUSIP rows (3.2% of value); Joe still to delete the Mac crontab line and rotate Keli's Flex token.
 
 ---
