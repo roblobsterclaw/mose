@@ -26,9 +26,10 @@ current. Ordered by Joe's priority, then by deadline. Check items off in place.
   retitle it to Joe individually. Keli's half gets a stepped-up basis. This is
   now the cheapest money to spend or to use for conversion tax.
 - [ ] **2026 Roth conversion by December 31, 2026.** Last guaranteed joint-bracket
-  year. At $235k income the room to the top of the federal 24% bracket is about
-  $204k. Convert in kind from Joe's own IRA, highest-growth names first, in
-  tranches, last one in December once the year's income is known.
+  year. At ~$300k income (salary + SurfBox K-1) the room to the top of the
+  federal 24% bracket is about $136k; at $350k it is ~$86k. Convert SGOV from
+  Joe's IRA in tranches, last one in December once the CPA confirms the year's
+  taxable income.
 - [ ] **Confirm qualifying-surviving-spouse status for 2027 and 2028 with the CPA.**
   Needs one dependent child living at home (school absence counts) and no
   remarriage. Gives joint brackets for two more years. Watch the kids' ages: a

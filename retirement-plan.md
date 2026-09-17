@@ -13,14 +13,14 @@ businesses.
 
 | | Amount |
 |---|---:|
-| Salary today (gross) | $235k |
-| Take-home after federal, NJ and FICA (single, 2026 law) | ~$162k |
-| Retirement withdrawal to replace that, if drawn from Roth or stepped-up taxable money | ~$162k |
-| Same, if half comes from a pre-tax IRA | ~$175k |
+| Income today (salary plus SurfBox distributions since June 2026) | ~$300k |
+| Perks paid by the business (health insurance, vehicle, phone, travel; estimate) | ~$35k |
+| Take-home on $300k (single, NJ, 2026 law, no FICA on distributions) | ~$215k |
+| Retirement spend to replace take-home plus perks bought with after-tax money | **~$250k/yr, rising with inflation** |
 
-The target is therefore **about $165k to $175k a year of spendable money, rising
-with inflation**, not $235k. Tax-free and stepped-up sources are what make the
-number that low.
+The target is **about $250k a year of spendable money**. Corrected 2026-09-17
+from an earlier $162k that used salary alone. Perks are the hidden cost: health
+insurance before Medicare alone can run $25k to $30k a year for a family.
 
 ## 2. Where the money is today (2026-09-17)
 
@@ -50,34 +50,40 @@ Two mortgages totaling ~$1.36M sit against the real estate.
 ## 3. When can Joe retire?
 
 Monte Carlo, 8,000 paths, 90/10 stocks/treasuries (9.0% mean, 15.3%
-volatility), 3% inflation, spending $162k real per year, Social Security ~$45k
-from age 70. "Assets at retire" = today's $1.55M liquid grown at 7% plus ~$150k
-a year of savings while working, plus after-tax sale proceeds with Keli's half
-of the business stepped up. Sale figures are Joe's share.
+volatility), 3% inflation, **spending $250k real per year**, Social Security
+~$45k from age 70. "Assets at retire" = today's $1.55M liquid grown at 7% plus
+~$150k a year of savings while working, plus after-tax sale proceeds with
+Keli's half of the business stepped up. Sale figures are Joe's share.
 
 | Scenario | Assets at retirement | Never runs out | Ends above start (real) | Median ending (real) |
 |---|---:|---:|---:|---:|
-| A. Sell everything 2027 for $4.75M, retire at 58 | $5.9M | 98% | 82% | $17.4M |
-| B. Sell everything 2029 for $4.75M, retire at 60 | $6.4M | 99% | 85% | $20.9M |
-| **C. Sell the operating business 2029 (~$1M goodwill + ~$1M working capital), keep the real estate, net rent $150k/yr** | $4.2M | 100% | 97% | $21.2M |
-| D. Same as C with net rent of $100k/yr | $4.2M | 100% | 94% | $18.1M |
-| E. Keep everything, retire from operations 2029, distributions $150k/yr | $2.4M | 100% | 97% | $11.6M |
-| F. Sell everything 2029, retire at 62 | $7.4M | 99% | 88% | $26.5M |
+| A. Sell everything 2027 for $4.75M, retire at 58 | $5.9M | 84% | 61% | $9.7M |
+| B. Sell everything 2029 for $4.75M, retire at 60 | $6.4M | 89% | 67% | $13.1M |
+| **C. Sell the operating business 2029 (~$2M), keep the real estate, net rent $150k/yr** | $4.2M | 100% | 88% | $14.8M |
+| C2. Same, net rent $200k/yr | $4.2M | 100% | 95% | $19.1M |
+| E. Keep everything, retire from operations 2029, distributions $150k/yr | $2.4M | 94% | 73% | $5.4M |
+| E2. Keep everything, distributions $250k/yr | $2.4M | 100% | 97% | $12.4M |
+| F. Sell everything 2031 for $4.75M, retire at 62 | $7.0M | 92% | 72% | $16.6M |
+| G. Sell everything 2029, retire at 60, spend $200k instead of $250k | $6.4M | 96% | 78% | $17.5M |
 
-**Reading it.** Every scenario works. Joe can retire at 58 the moment the
-businesses sell, at a 2.5% withdrawal rate. But **scenario C is the standout**:
-sell the operating business, keep the commercial real estate, and lease it to
-the buyer. Rent is the "outside income" that makes the skip-bad-years rule
-work, the withdrawal rate on the portfolio drops to almost nothing, and the
-real estate keeps compounding and passes to the girls with a step-up. It also
-sidesteps depreciation recapture and NJ's top bracket on the property gain.
-The buyer of an operating business usually prefers to lease anyway.
+**Reading it.** At $250k a year the picture splits. **Selling everything and
+living off the portfolio is no longer comfortable**: a 3.9% withdrawal rate
+at 60 gives an 11% chance of running out and only a coin-flip-plus chance of
+real growth. Waiting to 62 barely helps. Cutting spend to $200k helps more
+than two extra working years do.
+
+**Keeping an income-producing asset is what makes $250k safe.** Scenario C,
+selling the operating business and leasing the real estate to the buyer,
+never fails and grows in real terms 88% of the time on $150k of net rent, 95%
+on $200k. Keeping the whole business and drawing $250k of distributions (E2)
+scores the same, but rides entirely on the business performing without Joe.
 
 **Recommended framing:** retire from operations at **60 (2029)**. Sell the
-goodwill and working capital in 2028 or 2029. Keep the real estate unless a
-buyer pays a premium for it, and even then consider a 1031 exchange into
-passive property rather than a taxable sale. 59½ is also when Keli's IRA can
-be merged into Joe's.
+goodwill and working capital in 2028 or 2029. **Keep the real estate and
+lease it**; that rent, not the portfolio, is what replaces the SurfBox
+distributions. If the buyer insists on the property, 1031 it into passive
+real estate rather than take the cash. 59½ is also when Keli's IRA can be
+merged into Joe's.
 
 ## 4. Selling the businesses: the tax is the plan
 
@@ -127,20 +133,23 @@ matter.
 
 | Year | Age | Filing | Convert | Why |
 |---|---|---|---|---|
-| 2026 | 57 | joint | ~$204k | fills 24%; last guaranteed joint year; convert SGOV cash, no timing needed |
-| 2027 | 58 | surviving spouse | ~$204k | same |
-| 2028 | 59 | surviving spouse | ~$204k, or $0 if this is the sale year | |
+| 2026 | 57 | joint | ~$136k at $300k income (~$86k if $350k) | fills 24%; last guaranteed joint year; convert SGOV cash, no timing needed |
+| 2027 | 58 | surviving spouse | ~$136k | same, assuming income holds at ~$300k |
+| 2028 | 59 | surviving spouse | ~$136k, or $0 if this is the sale year | |
 | sale year | | single | $0 | gain stacks; every conversion dollar costs 35%+ |
 | post-sale, pre-SS | 60 to 69 | single, ~$60k other income | ~$166k/yr | fills 24% at ~28% combined; finishes the traditional IRA by ~67 |
 | 70+ | | single | remainder | Social Security narrows the room |
 
-Roth at 59 on this schedule: roughly $750k to $800k at 8%. Roth at 67 after
-the post-sale conversions: $2M or more. That is the tax-free income sleeve.
+Roth at 59 on this schedule: roughly $500k to $550k at 8%. Roth at 67 after
+the post-sale conversions: $1.7M or more. That is the tax-free income sleeve.
+**The higher SurfBox income shrinks the joint-window room by a third**; the
+CPA should confirm 2026 taxable income before the December tranche, since
+K-1 income counts whether or not it was distributed.
 
 **Convert SGOV, not stocks, for the 2026 tranche.** With the IRA 89% in
-T-bills there is no "convert on a down day" edge yet. Move $204k of SGOV into
-the Roth, then deploy it into the highest-growth bucket names inside the
-Roth. The conversion tax (~$61k) comes from the joint account or Kearny cash.
+T-bills there is no "convert on a down day" edge yet. Move ~$136k of SGOV
+into the Roth, then deploy it into the highest-growth bucket names inside
+the Roth. The conversion tax (~$41k) comes from the joint account.
 
 ## 6. Income architecture in retirement
 
