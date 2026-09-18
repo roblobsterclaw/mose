@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T07:45:06.397954+00:00",
+  "generated_at": "2026-09-18T12:29:32.876800+00:00",
   "source": "yahoo",
   "market_status": "closed",
   "indices": [
@@ -14,9 +14,9 @@
     {
       "name": "Dow Jones",
       "ticker": "^DJI",
-      "price": 51778.0,
-      "change_pct": 0.6142408267086884,
-      "vs_exit": 11.519639780665267,
+      "price": 51778.04,
+      "change_pct": 0.6143185541147905,
+      "vs_exit": 11.519725932806937,
       "source": "yahoo"
     },
     {
@@ -38,8 +38,8 @@
     {
       "name": "VIX",
       "ticker": "^VIX",
-      "price": 15.01,
-      "change_pct": -2.7849740932642466,
+      "price": 15.53,
+      "change_pct": -12.309429700734057,
       "vs_exit": null,
       "source": "yahoo"
     }
@@ -163,7 +163,7 @@
       "time": "16:00:01",
       "volume": 1392115,
       "week52_high": 1999.96,
-      "week52_low": 916.03
+      "week52_low": 925.87
     },
     {
       "ticker": "ATO",
@@ -175,7 +175,7 @@
       "time": "16:00:03",
       "volume": 1303069,
       "week52_high": 192.51,
-      "week52_low": 161.44
+      "week52_low": 161.43
     },
     {
       "ticker": "AVGO",
@@ -810,7 +810,7 @@
       "date": "2026-09-17",
       "time": "16:00:02",
       "volume": 4149389,
-      "week52_high": 421.39,
+      "week52_high": 418.58,
       "week52_low": 289.1
     },
     {
@@ -1303,7 +1303,7 @@
       "time": "16:00:02",
       "volume": 8933229,
       "week52_high": 98.75,
-      "week52_low": 69.37
+      "week52_low": 70.37
     },
     {
       "ticker": "NFLX",
