@@ -13,12 +13,13 @@ businesses.
 
 | | Amount |
 |---|---:|
-| Income today (salary plus SurfBox distributions since June 2026) | ~$300k |
-| Perks paid by the business (health insurance, vehicle, phone, travel; estimate) | ~$35k |
-| Take-home on $300k (single, NJ, 2026 law, no FICA on distributions) | ~$215k |
-| Retirement spend to replace take-home plus perks bought with after-tax money | **~$250k/yr, rising with inflation** |
+| Salary | $235k |
+| SurfBox distributions (since June 2026) | ~$78k/yr |
+| Perks paid by the business | ~$50k |
+| Take-home on $313k (single, NJ, 2026 law) | ~$208k |
+| Retirement spend to replace take-home plus perks bought with after-tax money | **~$260k/yr, rising with inflation** |
 
-The target is **about $250k a year of spendable money**. Corrected 2026-09-17
+The target is **about $260k a year of spendable money**. Corrected 2026-09-18
 from an earlier $162k that used salary alone. Perks are the hidden cost: health
 insurance before Medicare alone can run $25k to $30k a year for a family.
 
@@ -37,9 +38,10 @@ return since the account opened on 2026-05-27 is +0.7%.
 | Schwab | ~$2k | Joe | the "fourth" brokerage account; negligible |
 | ADP Roth 401(k)s (Joe + Keli) | ~$63k | Tiller | roll Keli's into Joe's Roth IRA |
 | Vanguard | ~$6k | Tiller | $500/month going in |
-| Business interests (TLC/SurfBox 48.33%, Greenville Colorants 40%) | ~$4.75M net | Tiller balance sheet | book value at Joe's share. **Keli held part of these interests (confirmed 2026-09-17); her share steps up.** |
+| Business interests (TLC/SurfBox 48.33%, Greenville Colorants 40%) | ~$4.75M net | Tiller balance sheet | book value at Joe's share. **Keli held 50% of the family stake (confirmed 2026-09-18); her half steps up.** Business real estate carries ~$11M book value at the entity level against ~$5.2M of notes. |
+| Receivable from Joe's brother (beach-house buyout) | $500k | Joe | **due early 2027.** Tax treatment depends on whether it is a sale of Joe's ownership share (capital gain over basis) or a loan repayment (no tax). CPA to classify. |
 | Primary home mortgage (Kearny Federal) | ~$758k owed | Joe | liability, not cash |
-| Shellpoint mortgage | ~$602k owed | Tiller | which property? |
+| Shellpoint mortgage | ~$602k | Tiller | brother's beach house; Joe co-signed. Get released from it when the $500k is paid. Not Joe's asset or, in practice, his debt. |
 | Personal net worth at Joe's share | ~$6.36M | Tiller | includes real estate |
 | Total equity incl. businesses | ~$11.1M | Tiller | |
 
@@ -50,33 +52,41 @@ Two mortgages totaling ~$1.36M sit against the real estate.
 ## 3. When can Joe retire?
 
 Monte Carlo, 8,000 paths, 90/10 stocks/treasuries (9.0% mean, 15.3%
-volatility), 3% inflation, **spending $250k real per year**, Social Security
-~$45k from age 70. "Assets at retire" = today's $1.55M liquid grown at 7% plus
-~$150k a year of savings while working, plus after-tax sale proceeds with
-Keli's half of the business stepped up. Sale figures are Joe's share.
+volatility), 3% inflation, **spending $260k real per year**, Social Security
+$48k from age 70. "Assets at retire" = today's $1.55M liquid grown at 7%,
+plus ~$150k a year of savings while working, plus the $500k from Joe's
+brother in 2027, plus after-tax sale proceeds with Keli's half of the
+business stepped up. Sale figures are Joe's share.
 
 | Scenario | Assets at retirement | Never runs out | Ends above start (real) | Median ending (real) |
 |---|---:|---:|---:|---:|
-| A. Sell everything 2027 for $4.75M, retire at 58 | $5.9M | 84% | 61% | $9.7M |
-| B. Sell everything 2029 for $4.75M, retire at 60 | $6.4M | 89% | 67% | $13.1M |
-| **C. Sell the operating business 2029 (~$2M), keep the real estate, net rent $150k/yr** | $4.2M | 100% | 88% | $14.8M |
-| C2. Same, net rent $200k/yr | $4.2M | 100% | 95% | $19.1M |
-| E. Keep everything, retire from operations 2029, distributions $150k/yr | $2.4M | 94% | 73% | $5.4M |
-| E2. Keep everything, distributions $250k/yr | $2.4M | 100% | 97% | $12.4M |
-| F. Sell everything 2031 for $4.75M, retire at 62 | $7.0M | 92% | 72% | $16.6M |
-| G. Sell everything 2029, retire at 60, spend $200k instead of $250k | $6.4M | 96% | 78% | $17.5M |
+| B. Sell everything 2029 for $4.75M, retire at 60 | $7.0M | 91% | 69% | $14.8M |
+| **C. Sell the operating business 2029 (~$2M), keep the real estate, net rent $150k/yr** | $4.7M | 100% | 88% | $16.8M |
+| C2. Same, net rent $200k/yr | $4.7M | 100% | 95% | $21.5M |
+| C3. Same, net rent $100k/yr | $4.7M | 96% | 77% | $12.5M |
+| E2. Keep everything, retire from operations 2029, distributions $250k/yr | $2.9M | 100% | 97% | $14.6M |
+| F. Sell everything 2031 for $4.75M, retire at 62 | $7.7M | 94% | 74% | $19.3M |
+| G. Sell everything 2029, retire at 60, spend $220k instead of $260k | $7.0M | 96% | 78% | $19.1M |
 
-**Reading it.** At $250k a year the picture splits. **Selling everything and
-living off the portfolio is no longer comfortable**: a 3.9% withdrawal rate
-at 60 gives an 11% chance of running out and only a coin-flip-plus chance of
-real growth. Waiting to 62 barely helps. Cutting spend to $200k helps more
-than two extra working years do.
+**Reading it.** At $260k a year, **selling everything and living off the
+portfolio is not comfortable**: a 3.7% withdrawal rate at 60 fails about one
+time in eleven and grows in real terms only two times in three. Waiting to
+62 barely helps. Cutting spend to $220k helps more than two extra working
+years do.
 
-**Keeping an income-producing asset is what makes $250k safe.** Scenario C,
+**Keeping an income-producing asset is what makes $260k safe.** Scenario C,
 selling the operating business and leasing the real estate to the buyer,
 never fails and grows in real terms 88% of the time on $150k of net rent, 95%
-on $200k. Keeping the whole business and drawing $250k of distributions (E2)
-scores the same, but rides entirely on the business performing without Joe.
+on $200k. At $100k of rent it slips to 96% / 77%, so the rent number matters.
+Keeping the whole business and drawing $250k of distributions (E2) scores
+the same, but rides entirely on the business performing without Joe.
+
+**What the real estate could pay.** Book value ~$11M at the entity level
+against ~$5.2M of notes. A market lease at a 6% to 8% cap rate, less debt
+service on the notes (20-year amortization at 6.5%), leaves roughly $190k to
+$410k a year at the entity level, or **$90k to $200k at Joe's 48.33% share**.
+Rough; the leases, the actual note terms, and a broker's rent opinion decide
+it. The scenario C rows bracket that range.
 
 **Recommended framing:** retire from operations at **60 (2029)**. Sell the
 goodwill and working capital in 2028 or 2029. **Keep the real estate and
@@ -133,9 +143,9 @@ matter.
 
 | Year | Age | Filing | Convert | Why |
 |---|---|---|---|---|
-| 2026 | 57 | joint | ~$136k at $300k income (~$86k if $350k) | fills 24%; last guaranteed joint year; convert SGOV cash, no timing needed |
-| 2027 | 58 | surviving spouse | ~$136k | same, assuming income holds at ~$300k |
-| 2028 | 59 | surviving spouse | ~$136k, or $0 if this is the sale year | |
+| 2026 | 57 | joint | ~$123k at $313k income | fills 24%; last guaranteed joint year; convert SGOV cash, no timing needed |
+| 2027 | 58 | surviving spouse | ~$123k, less if the brother's $500k is a taxable gain | same, assuming income holds at ~$313k |
+| 2028 | 59 | surviving spouse | ~$123k, or $0 if this is the sale year | |
 | sale year | | single | $0 | gain stacks; every conversion dollar costs 35%+ |
 | post-sale, pre-SS | 60 to 69 | single, ~$60k other income | ~$166k/yr | fills 24% at ~28% combined; finishes the traditional IRA by ~67 |
 | 70+ | | single | remainder | Social Security narrows the room |
@@ -147,9 +157,9 @@ CPA should confirm 2026 taxable income before the December tranche, since
 K-1 income counts whether or not it was distributed.
 
 **Convert SGOV, not stocks, for the 2026 tranche.** With the IRA 89% in
-T-bills there is no "convert on a down day" edge yet. Move ~$136k of SGOV
+T-bills there is no "convert on a down day" edge yet. Move ~$123k of SGOV
 into the Roth, then deploy it into the highest-growth bucket names inside
-the Roth. The conversion tax (~$41k) comes from the joint account.
+the Roth. The conversion tax (~$37k) comes from the joint account.
 
 ## 6. Income architecture in retirement
 
@@ -214,11 +224,13 @@ Keli's share of the business = half of the family stake, sale prices as
 tabled, $150k/yr saved while working, Social Security $45k at 70, spending
 flat in real terms, NJ residency throughout, 2026 tax law unchanged.
 
-Answered 2026-09-17: Keli held part of the businesses (share TBD). Kearny is
-the primary-home mortgage. No JPMorgan account. Fourth account is Schwab,
-~$2k. A sale would be ~$1M goodwill plus the real estate plus net working
-capital, with values and mortgages on the balance-sheet workbook. Daughters
-are 19 and 21 (in college) and 28.
+Answered 2026-09-17/18: Keli held 50% of the family stake in the businesses.
+Kearny is the primary-home mortgage. No JPMorgan account. Fourth account is
+Schwab, ~$2k. A sale would be ~$1M goodwill plus the real estate (~$11M book)
+plus net working capital. SurfBox distributes ~$78k/yr to Joe. Perks ~$50k.
+Shellpoint is the brother's beach-house mortgage Joe co-signed; the brother
+bought Joe out and owes $500k in early 2027. Social Security expected ~$4k a
+month. Daughters are 19 and 21 (in college) and 28.
 
 **Filing status, settled:** the 19- and 21-year-olds qualify Joe as a
 surviving spouse for 2027 and 2028 (joint brackets). From 2029 the 19-year-old
@@ -226,10 +238,13 @@ still qualifies him for **head of household** until the year she turns 24,
 roughly 2031, which is better than single. The 28-year-old is not a dependent.
 
 Still open, in priority order:
-1. Keli's exact ownership percentage in each entity, and how it was titled.
-2. Book value and mortgage on the business real estate; current net rent it
-   could command if leased to a buyer. (Balance-sheet workbook, sheet 17.)
-3. Can the operating business run without Joe, and what does it distribute?
-4. Which property the Shellpoint mortgage is on.
-5. Social Security statements for Joe and for Keli's record.
+1. **Achievable net rent on the business real estate** if leased to a buyer.
+   A commercial broker's opinion plus the actual note terms. This single
+   number decides between scenarios C and C3.
+2. Can the operating business run without Joe day to day?
+3. Is the $500k from Joe's brother a sale of an ownership share (taxable
+   gain over Joe's basis) or a loan repayment (not taxable)? CPA.
+4. Whether Keli's 50% was held in her name or jointly (affects the paperwork,
+   not the amount).
+5. Social Security statement for Joe; survivor benefit on Keli's record.
 6. Primary-home value, and whether Joe stays in it.

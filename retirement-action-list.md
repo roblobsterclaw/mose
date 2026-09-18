@@ -26,10 +26,17 @@ current. Ordered by Joe's priority, then by deadline. Check items off in place.
   retitle it to Joe individually. Keli's half gets a stepped-up basis. This is
   now the cheapest money to spend or to use for conversion tax.
 - [ ] **2026 Roth conversion by December 31, 2026.** Last guaranteed joint-bracket
-  year. At ~$300k income (salary + SurfBox K-1) the room to the top of the
-  federal 24% bracket is about $136k; at $350k it is ~$86k. Convert SGOV from
+  year. At ~$313k income (salary $235k + SurfBox $78k) the room to the top of
+  the federal 24% bracket is about $123k, costing ~$37k. Convert SGOV from
   Joe's IRA in tranches, last one in December once the CPA confirms the year's
   taxable income.
+- [ ] **Classify the $500k due from Joe's brother in early 2027** (sale of an
+  ownership share, taxable over basis, or loan repayment, not taxable). Get a
+  release from the co-signed Shellpoint mortgage at payoff. Park the $500k in
+  SGOV in the joint account; it funds the 2027-2028 conversion tax.
+- [ ] **Get a commercial broker's rent opinion on the business real estate**
+  (~$11M book, ~$5.2M notes). Net rent at Joe's share is the number that
+  decides whether to keep the property after selling the operating business.
 - [ ] **Confirm qualifying-surviving-spouse status for 2027 and 2028 with the CPA.**
   Needs one dependent child living at home (school absence counts) and no
   remarriage. Gives joint brackets for two more years. Watch the kids' ages: a
