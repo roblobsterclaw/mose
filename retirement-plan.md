@@ -1,250 +1,245 @@
 # Comprehensive retirement plan — working draft
 
 **Owner:** Joe Lynch, age 57 (RMD age 75). **Keli** died July 22, 2026.
-**Started:** 2026-09-17. Living document; every number here is an estimate to be
-replaced by a sourced figure. Companion files: `retirement-action-list.md`,
-`step-up-basis-worksheet.md`, `truist-baseline-feb2026.json`.
+**Started:** 2026-09-17. **Rebuilt 2026-09-18 from `JFL_Financial_Master.xlsx`**
+(balance sheet as of 2026-08-31, asset & debt schedule, fair value, estate
+basis, income sheets). Every figure below names its source. Companion files:
+`retirement-action-list.md`, `step-up-basis-worksheet.md`.
 
 ## 1. The goal, in numbers
 
-Joe wants to keep the income he lives on today through retirement, keep growing
-the portfolio, and carve out a separate sleeve to invest with and to seed AI
+Keep the income Joe lives on today through retirement, keep growing the
+portfolio, and carve out a separate sleeve for concentrated bets and AI
 businesses.
 
-| | Amount |
-|---|---:|
-| Salary | $235k |
-| SurfBox distributions (since June 2026) | ~$78k/yr |
-| Perks paid by the business | ~$50k |
-| Take-home on $313k (single, NJ, 2026 law) | ~$208k |
-| Retirement spend to replace take-home plus perks bought with after-tax money | **~$260k/yr, rising with inflation** |
+| | Amount | Source |
+|---|---:|---|
+| TLC salary + forward comp + weekly extra | ~$225k | workbook sheet 7 |
+| SurfBox CEO comp (since 4/2026) | ~$78k | sheet 7 |
+| Total cash comp | **~$303k** | sheet 7 |
+| Perks paid by the business (health, vehicle, misc.) | ~$50k | Joe |
+| Roth 401(k) contributions already going in | ~$32k/yr | sheet 7 ($615/wk) |
+| Take-home on $303k (single, NJ, 2026 law) | ~$210k | model |
+| **Retirement spend to replace take-home plus perks** | **~$260k/yr, rising with inflation** | model |
 
-The target is **about $260k a year of spendable money**. Corrected 2026-09-18
-from an earlier $162k that used salary alone. Perks are the hidden cost: health
-insurance before Medicare alone can run $25k to $30k a year for a family.
+## 2. Where the money is (workbook, at Joe's ownership share)
 
-## 2. Where the money is today (2026-09-17)
+**Liquid and investable today: ~$1.55M.**
 
-**IBKR, Joe's IRA — live pull.** Net liquidation $948,968. Of that, $844,662 is
-SGOV (T-bills), $10,030 cash, and ~$90k in 53 stock positions, most of them
-one-share placeholders. **The IRA is 89% cash-equivalent.** Time-weighted
-return since the account opened on 2026-05-27 is +0.7%.
+| Account | Value | Note |
+|---|---:|---|
+| Joe's IRA (IBKR) | $948k | 89% SGOV, not deployed (live pull 9/17) |
+| Joint brokerage (IBKR) | $338k | Keli's half steps up |
+| Keli's Rollover IRA (IBKR) | $202k | keep titled as inherited until 59½ |
+| ADP Roth 401(k)s, Joe $31.6k + Keli $31.8k | $63k | roll Keli's into Joe's Roth IRA |
+| Robinhood, Vanguard, IBKR individual, WellsTrade | ~$17k | |
+| Personal cash accounts | ~$100k | JL&KL Ent LLC $69k is the bulk |
 
-| Account | Value | Source | Notes |
+**Money already owed to Joe: ~$820k gross, ~$750k after tax.**
+
+| Receivable | Gross to Joe | Timing | Source |
 |---|---:|---|---|
-| Joe's IRA (IBKR) | $949k | live | 89% SGOV, not yet deployed |
-| Keli's Rollover IRA (IBKR) | ~$199k | Tiller, Aug 22 | separate login; keep titled as inherited until Joe is 59½ |
-| Joint brokerage (IBKR) | ~$326k | Tiller, Aug 22 | Keli's half gets a stepped-up basis |
-| Schwab | ~$2k | Joe | the "fourth" brokerage account; negligible |
-| ADP Roth 401(k)s (Joe + Keli) | ~$63k | Tiller | roll Keli's into Joe's Roth IRA |
-| Vanguard | ~$6k | Tiller | $500/month going in |
-| Business interests (TLC/SurfBox 48.33%, Greenville Colorants 40%) | ~$4.75M net | Tiller balance sheet | book value at Joe's share. **Keli held 50% of the family stake (confirmed 2026-09-18); her half steps up.** Business real estate carries ~$11M book value at the entity level against ~$5.2M of notes. |
-| Receivable from Joe's brother (beach-house buyout) | $500k | Joe | **due early 2027.** Tax treatment depends on whether it is a sale of Joe's ownership share (capital gain over basis) or a loan repayment (no tax). CPA to classify. |
-| Primary home mortgage (Kearny Federal) | ~$758k owed | Joe | liability, not cash |
-| Shellpoint mortgage | ~$602k | Tiller | brother's beach house; Joe co-signed. Get released from it when the $500k is paid. Not Joe's asset or, in practice, his debt. |
-| Personal net worth at Joe's share | ~$6.36M | Tiller | includes real estate |
-| Total equity incl. businesses | ~$11.1M | Tiller | |
+| 1414 Bay Terrace buyout (brother Matt, at agreed $2.65M) | $500k | early 2027 | sheet 2; Joe's own workbook puts the tax at ~$68k |
+| Zone Storage sale proceeds, 48.33% of $310k | $150k | owed since 9/2024 | sheet 2 |
+| Chromascape earn-out, 40% of $250k | $100k | uncertain | sheet 2, Joe's own mark |
+| TLC distribution catch-up, 48.33% of ~$150k arrearage | ~$72k | Judy to schedule | sheet 7 |
 
-Liquid and investable today: **about $1.55M** (IBKR $1.49M, Roth 401(k)s
-$63k, Schwab $2k). There is no JPMorgan account; Kearny is the home mortgage.
-Two mortgages totaling ~$1.36M sit against the real estate.
+**Personal real estate: ~$4.4M gross, ~$3.9M net.**
 
-## 3. When can Joe retire?
+| Property | Value | Debt | Income |
+|---|---:|---:|---|
+| 381 12th St | $2.1M | none | **rents — amount not yet measured** |
+| 15 New Street, Crosswicks (home) | $1.0M | Kearny $376k | none |
+| Three buildable lots opposite firehouse | $600k | none | none, taxes only |
+| 458 Main St, Crosswicks | $400k | Mid Penn $117k at 6.79% | none; father-in-law lives there |
+| Old School Firehouse | $300k | none | small |
+
+**Business interests: ~$4.75M net at Joe's share (sheet 2 and 17).**
+
+| | 100% | Joe's 48.33% |
+|---|---:|---:|
+| Eight SC lots at $1.2M each (basis $3.2M) | $9.6M | $4.64M |
+| Tuckerton lot (basis $800k) | $1.2M | $0.58M |
+| Rte 539, Rte 72, Mt Holly (income properties) | $1.4M | $0.68M |
+| TLC inventory, equipment, goodwill | $1.1M | $0.53M |
+| TLC cash | $0.62M | $0.30M |
+| **TLC liabilities**: Truist notes $5.21M, truck leases $0.2M, AP over AR $0.15M, cards $0.04M | **($5.60M)** | **($2.71M)** |
+| TLC net | $8.32M | **$4.02M** |
+| SurfBox: NJ equipment $500k, NJ goodwill $350k, NC equipment $325k, cash $329k | $1.50M | **$0.73M** |
+| Greenville Colorants (40%) | ~$2k | ~$1k |
+
+**Other liabilities:** four Parent PLUS loans $82k (interest-only), personal
+cards ~$13k. Shellpoint $604k is the brother's 1414 Bay Terrace mortgage that
+Joe co-signed; it leaves with the buyout.
+
+**Net worth at Joe's share (workbook): personal ~$6.36M, business ~$4.75M,
+total ~$11.1M.** Reconciled to the figures above within rounding.
+
+## 3. What the business actually is
+
+**The business value is land, not an operating company.** Of TLC's $13.9M of
+assets, $10.8M is eight SC lots and the Tuckerton lot, carried against $5.2M
+of Truist notes. The operating pieces (TLC inventory, equipment and goodwill
+placeholder, SurfBox) are worth about $1.3M at Joe's share. The three small
+income properties are worth about $0.7M at his share.
+
+That changes the earlier "sell the business, keep the real estate and lease
+it" idea. Lots do not pay rent. They cost money to hold: interest on $5.2M of
+notes is roughly $340k to $390k a year at the entity level, $165k to $190k at
+Joe's share, and it comes out of the equity every year the lots sit.
+
+**So the exit is a lot-sale program, not a business sale.** Selling the
+eight lots at the carried $1.2M each, paying off the notes, leaves about
+$2.1M at Joe's share before tax, about $1.6M after, with Keli's half stepped
+up. That is the single largest liquidity event in the plan, it happens one
+lot at a time, and its timing is the retirement date.
+
+## 4. When can Joe retire?
 
 Monte Carlo, 8,000 paths, 90/10 stocks/treasuries (9.0% mean, 15.3%
-volatility), 3% inflation, **spending $260k real per year**, Social Security
-$48k from age 70. "Assets at retire" = today's $1.55M liquid grown at 7%,
-plus ~$150k a year of savings while working, plus the $500k from Joe's
-brother in 2027, plus after-tax sale proceeds with Keli's half of the
-business stepped up. Sale figures are Joe's share.
+volatility), 3% inflation, spending $260k real, Social Security $48k from 70.
+Starting assets = $1.55M liquid grown at 7%, plus $150k/yr saved while
+working, plus the receivables, plus after-tax proceeds of what is sold.
+
+After-tax proceeds at Joe's share used below: lots $1.61M, Tuckerton lot
+$0.55M, operating businesses $0.93M, small income properties $0.61M,
+receivables $0.75M, 381 12th St if sold ~$1.7M.
 
 | Scenario | Assets at retirement | Never runs out | Ends above start (real) | Median ending (real) |
 |---|---:|---:|---:|---:|
-| B. Sell everything 2029 for $4.75M, retire at 60 | $7.0M | 91% | 69% | $14.8M |
-| **C. Sell the operating business 2029 (~$2M), keep the real estate, net rent $150k/yr** | $4.7M | 100% | 88% | $16.8M |
-| C2. Same, net rent $200k/yr | $4.7M | 100% | 95% | $21.5M |
-| C3. Same, net rent $100k/yr | $4.7M | 96% | 77% | $12.5M |
-| E2. Keep everything, retire from operations 2029, distributions $250k/yr | $2.9M | 100% | 97% | $14.6M |
-| F. Sell everything 2031 for $4.75M, retire at 62 | $7.7M | 94% | 74% | $19.3M |
-| G. Sell everything 2029, retire at 60, spend $220k instead of $260k | $7.0M | 96% | 78% | $19.1M |
+| 1. Sell lots and operating businesses by 2029, keep 381 12th St; retire at 60; rent $60k | $6.8M | 97% | 80% | $19.1M |
+| 2. Same with 381 12th St rent $100k | $6.8M | 99% | 86% | $23.1M |
+| **3. Sell lots only; keep the operating businesses paying ~$100k of distributions; keep 381 12th St ($60k); retire from operations at 60** | $5.3M | 100% | 91% | $20.7M |
+| 4. Sell everything including 381 12th St; retire at 60; no rent | $8.5M | 96% | 77% | $23.2M |
+| 5. Lots sell slowly, half by 2029; retire at 60 on that; rest by 2032 | $5.4M | 95% | 77% | $15.6M |
+| 6. Sell everything by 2031, retire at 62, rent $60k | $7.4M | 98% | 83% | $23.2M |
 
-**Reading it.** At $260k a year, **selling everything and living off the
-portfolio is not comfortable**: a 3.7% withdrawal rate at 60 fails about one
-time in eleven and grows in real terms only two times in three. Waiting to
-62 barely helps. Cutting spend to $220k helps more than two extra working
-years do.
+**Reading it.** Every path works better than last week's version, because
+the workbook shows more assets and a lower home mortgage than the Tiller
+handoff implied. The pattern is the same as before: **income-producing
+assets kept beat lump sums banked.** Scenario 3 is the strongest: sell the
+lots, pay off the notes, keep the operating businesses as a distribution
+stream if they run without Joe, keep 381 12th St as a rental. It never fails
+and grows in real terms 91% of the time on a 3.8% starting withdrawal that
+falls to about 2% once distributions, rent and Social Security are in.
 
-**Keeping an income-producing asset is what makes $260k safe.** Scenario C,
-selling the operating business and leasing the real estate to the buyer,
-never fails and grows in real terms 88% of the time on $150k of net rent, 95%
-on $200k. At $100k of rent it slips to 96% / 77%, so the rent number matters.
-Keeping the whole business and drawing $250k of distributions (E2) scores
-the same, but rides entirely on the business performing without Joe.
+**Recommended framing:** retire from operations at **60 (2029)**, timed to
+the lot sales. Start selling lots now; each one sold retires ~$550k of notes
+and stops ~$40k a year of interest. Keep 381 12th St. Decide on the operating
+businesses by whether they can run without Joe; if not, sell them in the same
+2028 to 2029 window. 59½ is when Keli's IRA can be merged.
 
-**What the real estate could pay.** Book value ~$11M at the entity level
-against ~$5.2M of notes. A market lease at a 6% to 8% cap rate, less debt
-service on the notes (20-year amortization at 6.5%), leaves roughly $190k to
-$410k a year at the entity level, or **$90k to $200k at Joe's 48.33% share**.
-Rough; the leases, the actual note terms, and a broker's rent opinion decide
-it. The scenario C rows bracket that range.
+## 5. Tax on the exit
 
-**Recommended framing:** retire from operations at **60 (2029)**. Sell the
-goodwill and working capital in 2028 or 2029. **Keep the real estate and
-lease it**; that rent, not the portfolio, is what replaces the SurfBox
-distributions. If the buyer insists on the property, 1031 it into passive
-real estate rather than take the cash. 59½ is also when Keli's IRA can be
-merged into Joe's.
+**Keli held 50% of the family stake in TLC and SurfBox.** Her half stepped up
+to fair value on July 22, 2026. On the lots alone, Joe's share of the gain
+is $3.09M; after the step-up only $1.55M is taxable. Worth roughly $0.4M to
+$0.6M of tax on the lots and another ~$0.2M across the other assets.
 
-## 4. Selling the businesses: the tax is the plan
+| Question | Why it matters | Who |
+|---|---|---|
+| **Section 754 election on TLC's and SurfBox's 2026 partnership returns** | Without it, Keli's step-up does not reach the lots inside the LLC. Lot sales by the LLC would flow the full gain through. Must be on the 2026 return. | CPA, now |
+| **Dealer or investor on the lots?** | Capital gain: ~$0.36M of tax on Joe's $1.55M taxable share, sold over 4 years. Ordinary income (dealer, subdividing and selling): ~$0.56M. The difference is $200k. Holding period, development activity, and how sales are marketed decide it. | CPA and deal attorney |
+| Retrospective valuation of TLC and SurfBox as of July 22, 2026 | Fixes the step-up and feeds Form 706. The lots at $1.2M each is Joe's conservative mark; a higher appraised DOD value is a higher step-up. | valuation firm |
+| Sell lots across tax years | Each lot is ~$580k at Joe's share. Two a year keeps his taxable gain under NJ's 10.75% bracket and the federal 20% threshold. Eight in one year does not. | Joe |
+| 1414 Bay Terrace buyout | Sale of Joe's half at $2.65M. His workbook already computes ~$68k of tax. Not a loan repayment. | done |
+| No Roth conversion in a heavy lot-sale year | Gain stacks on ordinary income; every conversion dollar costs 35%+. | Joe |
+| Residency | NJ taxes a resident's gain on NJ-sourced real estate regardless of where he lives, and the lots are NJ real estate if they are in Surf City. A move does not help on the lots. | CPA |
 
-Assumed basis $500k; everything above is long-term capital gain. NJ has no
-capital-gains rate: gains are ordinary income, 8.97% from $500k to $1M and
-10.75% above $1M, so a $4M+ gain sits mostly in NJ's top bracket.
-
-**Keli owned part of the business interests.** Her share stepped up to its
-July 22, 2026 value, so the gain on that share is gone. Assuming her share was
-half of the family stake:
-
-| Proceeds (Joe's share) | Tax, no step-up | Tax with Keli's half stepped up | Saved | Net |
-|---|---:|---:|---:|---:|
-| $3.0M | $0.80M | $0.37M | $0.43M | $2.63M |
-| $4.0M | $1.15M | $0.54M | $0.60M | $3.46M |
-| $4.75M | $1.41M | $0.67M | $0.73M | $4.08M |
-
-The step-up is worth roughly $600k to $750k. Getting it requires paperwork now,
-not at sale:
-
-1. **Section 754 election.** For an LLC taxed as a partnership, the step-up
-   in Keli's interest only reaches the underlying assets (goodwill, real
-   estate, equipment) if the partnership makes a 754 election, which produces
-   a 743(b) basis adjustment for her share. Without it, an asset sale by the
-   company flows the full gain through. The election goes on the partnership
-   return for the year of death, i.e. the 2026 return. **Tell the CPA now.**
-2. **Retrospective business valuation as of July 22, 2026.** The step-up is to
-   fair market value on that date. A defensible appraisal fixes the number
-   before a buyer's price does. Also needed for Form 706.
-3. **Installment sale** of the goodwill: spreads NJ's 10.75% top bracket and
-   the federal 20% threshold. Worth ~$100k+ on a $2M+ gain.
-4. **Real estate: keep and lease, or 1031.** Selling it triggers depreciation
-   recapture at 25% federal plus NJ ordinary rates on Joe's half. Leasing it
-   to the buyer converts a taxable lump into an income stream that also
-   qualifies for the 20% qualified business income deduction in many cases.
-5. **Do not convert to Roth in the sale year.** The gain stacks on ordinary
-   income and pushes conversion dollars to 35%+.
-6. **Residency.** NJ taxes a resident's gain wherever it arises; nonresident
-   sourcing of a NJ business sale is complex. Do not assume a move solves it.
-7. **QSBS does not apply** to LLC interests; if any entity is a C-corp, ask.
-
-## 5. Roth conversions, integrated with the sale
-
-The 2026 to 2028 joint-bracket window from the earlier analysis still holds.
-Keli's death makes the case stronger, and the business sale makes sequencing
-matter.
+## 6. Roth conversions, integrated with the exit
 
 | Year | Age | Filing | Convert | Why |
 |---|---|---|---|---|
-| 2026 | 57 | joint | ~$123k at $313k income | fills 24%; last guaranteed joint year; convert SGOV cash, no timing needed |
-| 2027 | 58 | surviving spouse | ~$123k, less if the brother's $500k is a taxable gain | same, assuming income holds at ~$313k |
-| 2028 | 59 | surviving spouse | ~$123k, or $0 if this is the sale year | |
-| sale year | | single | $0 | gain stacks; every conversion dollar costs 35%+ |
-| post-sale, pre-SS | 60 to 69 | single, ~$60k other income | ~$166k/yr | fills 24% at ~28% combined; finishes the traditional IRA by ~67 |
+| 2026 | 57 | joint | ~$130k at $303k income | fills 24%; last guaranteed joint year; convert SGOV |
+| 2027 | 58 | surviving spouse | ~$130k, less the Bay Terrace gain | joint brackets hold (daughters 19 and 21 in college) |
+| 2028 | 59 | surviving spouse | ~$130k, or $0 if two lots sell | |
+| heavy lot-sale years | | single / HOH | $0 | gain stacks |
+| post-exit, pre-SS | 60 to 69 | HOH to ~2031, then single | ~$166k/yr | fills 24% at ~28% combined; empties the IRA by ~67 |
 | 70+ | | single | remainder | Social Security narrows the room |
 
-Roth at 59 on this schedule: roughly $500k to $550k at 8%. Roth at 67 after
-the post-sale conversions: $1.7M or more. That is the tax-free income sleeve.
-**The higher SurfBox income shrinks the joint-window room by a third**; the
-CPA should confirm 2026 taxable income before the December tranche, since
-K-1 income counts whether or not it was distributed.
+Roth at 59: roughly $500k. Roth at 67 after post-exit conversions: $1.7M
+or more. Joe's existing $32k/yr of Roth 401(k) contributions continue while
+he draws salary and add ~$100k by 2029.
 
-**Convert SGOV, not stocks, for the 2026 tranche.** With the IRA 89% in
-T-bills there is no "convert on a down day" edge yet. Move ~$123k of SGOV
-into the Roth, then deploy it into the highest-growth bucket names inside
-the Roth. The conversion tax (~$37k) comes from the joint account.
+**Convert SGOV, not stocks, for 2026.** The IRA is 89% T-bills; move ~$130k
+of SGOV into the Roth, deploy it into the highest-growth bucket names there.
+Tax ~$40k from the joint account.
 
-## 6. Income architecture in retirement
+## 7. Income architecture in retirement
 
-Which bucket pays, in order, so that taxable income stays inside the 24%
-bracket every year and IRMAA surcharges stay low:
+Order of draw, so taxable income stays inside the 24% bracket and Medicare
+surcharges stay low:
 
-1. **Business distributions or installment payments**, while they last.
-2. **Joint taxable account** with stepped-up basis: cheapest dollars first.
-3. **Roth**: for anything above the bracket line, and for lumpy spending.
-4. **Traditional IRA / Keli's inherited IRA**: only to fill the 24% bracket
-   via conversions, never for spending, until RMDs force it at 75.
-5. **Social Security at 70** on Joe's own record; survivor benefit on Keli's
-   record from 60 if it is higher than what Joe's own would be at 70, else
-   take survivor at 60 and switch to own at 70.
+1. **Rent from 381 12th St** and any TLC/SurfBox distributions.
+2. **Joint taxable account** (stepped-up basis) and the receivables as they
+   land: cheapest dollars.
+3. **Roth**: anything above the bracket line, and lumpy spending.
+4. **Traditional IRA / Keli's inherited IRA**: conversions only, never
+   spending, until RMDs at 75.
+5. **Social Security at 70** on Joe's record (~$48k); survivor benefit on
+   Keli's record from 60 if it is the larger of the two, else survivor at 60
+   and own at 70.
 
-The spending rule Joe proposed, $500k in years the portfolio returns 1% or
-more and nothing in years it does not, tested well only when skip years are
-funded from outside the portfolio. Under this architecture the business
-distributions and the Roth are that outside source, which is why keeping some
-distribution income (Scenario D) is so valuable.
+The skip-bad-years rule Joe proposed works in this architecture because
+rent and distributions fund the skip years.
 
-## 7. The "play money" sleeve
+## 8. The "play money" sleeve
 
-Purpose: a separate account for concentrated stock bets and seed money for AI
-businesses, walled off so a loss never touches the income engine.
+- **Size:** 5% of liquid at retirement, capped at $400k. About $80k today;
+  $250k to $350k after the lot sales.
+- **Home:** a separate IBKR taxable account. Losses in a taxable account are
+  deductible; in a Roth they are wasted; in an IRA they cost conversion room.
+- **Refill rule:** only from its own gains or from a lot-sale tranche, never
+  from the income portfolio.
+- **AI businesses:** funded from this sleeve up to its cap; anything larger
+  is a written business plan, not a portfolio decision.
 
-- **Size:** 5% of liquid assets at retirement, capped at $400k. Today that is
-  about $125k; after a sale about $300k to $400k.
-- **Home:** a separate IBKR taxable account, not the IRA and not the Roth.
-  Losses in a taxable account are at least deductible; in a Roth they are
-  wasted; in an IRA they cost future conversion capacity.
-- **Refill rule:** it is refilled only from its own gains or from a fresh
-  business-sale tranche, never from the income portfolio. When it is gone it
-  is gone until the next liquidity event.
-- **AI businesses:** fund from this sleeve up to its cap; anything larger is a
-  board-level decision with a written plan, not a portfolio decision. A
-  business Joe works in is also a source of earned income, which reopens
-  Roth contributions and solo-401(k) space in retirement.
+## 9. The IRA is not deployed
 
-## 8. The IRA is not deployed
+$845k of the $948k IRA is in T-bills. The MOSE buy targets exist to fix this.
+The 2026 conversion is the first deployment: convert SGOV to Roth, buy AI
+core and forever-compounder targets inside the Roth. Deploy the rest of the
+IRA in tranches over 6 to 12 months per the buy list, keeping the Cash &
+T-bills bucket at its parked target.
 
-89% of Joe's IRA is in T-bills earning ~4%. The MOSE buy targets exist to fix
-this. Every year the IRA sits in SGOV, the compounding the whole plan assumes
-does not happen. The 2026 conversion is a natural first deployment: convert
-SGOV to Roth, then buy the AI core and forever-compounder targets inside the
-Roth. Deploy the rest of the IRA in tranches over 6 to 12 months per the buy
-list, keeping the Cash & T-bills bucket at its parked target.
-
-## 9. Estate
+## 10. Estate
 
 - Form 706 portability election by **April 22, 2027** (extension to
-  October 22, 2027). At $11M+ of equity this is necessary, not optional.
-- Step-up worksheet for the CPA: `step-up-basis-worksheet.md`.
-- Beneficiaries on every account; Keli was almost certainly primary.
-- Consider a revocable trust once the business sale is in sight, so the
-  proceeds and the house avoid NJ probate for the kids.
+  October 22, 2027). At $11M+ of equity this is necessary.
+- **Sheet 18 of the workbook lists every business asset under "Joe's own,
+  no step-up."** That is wrong given Keli's 50%: her half of every TLC and
+  SurfBox line steps up. The sheet needs correcting before the accountant
+  works from it. See `step-up-basis-worksheet.md`.
+- Deeds for 15 New Street, 381 12th St, 458 Main, the firehouse and the
+  three lots decide the step-up on ~$4.4M of personal real estate. Joint
+  title means half steps up.
+- Beneficiaries on every account. Keli was almost certainly primary.
+- A revocable trust once the lot sales are underway, so the proceeds and
+  the real estate avoid NJ probate for the girls.
 
-## 10. Assumptions and open questions
+## 11. Assumptions and open questions
 
-Assumptions: 9% mean return on 90/10, 3% inflation, business basis $500k,
-Keli's share of the business = half of the family stake, sale prices as
-tabled, $150k/yr saved while working, Social Security $45k at 70, spending
-flat in real terms, NJ residency throughout, 2026 tax law unchanged.
+Assumptions: 9% mean return on 90/10, 3% inflation, lots sell at the carried
+$1.2M each, capital-gain treatment, Keli's half stepped up, $150k/yr saved
+while working, Social Security $48k at 70, spending flat in real terms,
+NJ residency throughout, 2026 tax law unchanged, notes at ~6.5% to 7.5%.
 
-Answered 2026-09-17/18: Keli held 50% of the family stake in the businesses.
-Kearny is the primary-home mortgage. No JPMorgan account. Fourth account is
-Schwab, ~$2k. A sale would be ~$1M goodwill plus the real estate (~$11M book)
-plus net working capital. SurfBox distributes ~$78k/yr to Joe. Perks ~$50k.
-Shellpoint is the brother's beach-house mortgage Joe co-signed; the brother
-bought Joe out and owes $500k in early 2027. Social Security expected ~$4k a
-month. Daughters are 19 and 21 (in college) and 28.
-
-**Filing status, settled:** the 19- and 21-year-olds qualify Joe as a
-surviving spouse for 2027 and 2028 (joint brackets). From 2029 the 19-year-old
-still qualifies him for **head of household** until the year she turns 24,
-roughly 2031, which is better than single. The 28-year-old is not a dependent.
+Answered from the workbook: Kearny is the home mortgage at $376k (the
+handoff's $758k appears to be a doubled feed). No JPMorgan account (UMB IRA
+closed into IBKR). Bay Terrace is a taxable buyout, ~$68k tax. Keli 50%.
+TLC comp ~$225k plus SurfBox ~$78k. Roth 401(k) contributions $32k/yr.
 
 Still open, in priority order:
-1. **Achievable net rent on the business real estate** if leased to a buyer.
-   A commercial broker's opinion plus the actual note terms. This single
-   number decides between scenarios C and C3.
-2. Can the operating business run without Joe day to day?
-3. Is the $500k from Joe's brother a sale of an ownership share (taxable
-   gain over Joe's basis) or a loan repayment (not taxable)? CPA.
-4. Whether Keli's 50% was held in her name or jointly (affects the paperwork,
-   not the amount).
-5. Social Security statement for Joe; survivor benefit on Keli's record.
-6. Primary-home value, and whether Joe stays in it.
+1. **What does 381 12th St rent for, net?** Sheet 7 says "to be measured"
+   from the 4503 account. This is the largest single unknown in the income
+   plan.
+2. **Lot sale timeline and dealer/investor status.** How many lots could
+   sell per year, at what price, and has TLC subdivided or improved them?
+3. **Terms on the three Truist notes**: rate, maturity, fixed or floating.
+   Carrying cost drives how urgent the lot sales are.
+4. **Can TLC and SurfBox run without Joe**, and what would they distribute?
+   The $100k/yr planned distribution across shareholders is the current mark.
+5. **Sheet 15's Morgan Stanley question**: $482k shown on Joe's old sheet,
+   $0 in Tiller. Presumably part of the $1.45M that went to IBKR; confirm.
+6. **Deeds** on the five personal properties.
+7. **Social Security statements** for Joe and for Keli's record.

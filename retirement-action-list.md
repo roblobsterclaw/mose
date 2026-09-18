@@ -75,9 +75,19 @@ current. Ordered by Joe's priority, then by deadline. Check items off in place.
   her exact percentage.
 - [ ] **Order a retrospective valuation of each business as of July 22, 2026.**
   Fixes the step-up number and feeds Form 706.
-- [ ] **Explore selling the operating business and keeping the real estate**
-  (lease to the buyer). Best-scoring scenario in the plan. Get the property
-  values, mortgages and achievable rent from the balance-sheet workbook.
+- [ ] **Start the lot-sale program.** The eight SC lots ($9.6M gross, $5.2M of
+  notes against them) are the exit. Two lots a year keeps Joe's gain under
+  NJ's top bracket. Each lot sold retires ~$550k of notes and ~$40k/yr of
+  interest. Get the CPA's read on dealer vs. investor status first.
+- [ ] **Measure 381 12th St net rent** from the 4503 account (sheet 7 says
+  "to be measured"). Largest unknown in the retirement income plan.
+- [ ] **Correct sheet 18 (Estate Basis)**: move all TLC and SurfBox rows from
+  "Joe's own, no step-up" to a Keli-50% block. See the worksheet.
+- [ ] **Pull deeds** for 15 New Street, 381 12th St, 458 Main, the firehouse and
+  the three lots. Joint title = half step-up on ~$4.4M of property.
+- [ ] **Chase the receivables**: Zone Storage $150k (owed since 9/2024),
+  Chromascape earn-out $100k, TLC distribution catch-up ~$72k (Judy's
+  schedule). ~$320k on top of the $500k Bay Terrace payment.
 - [ ] **Give the CPA `step-up-basis-worksheet.md`** and order retrospective
   appraisals (house, other property, business) as of July 22, 2026.
 - [ ] **Deploy the IRA.** $845k of $949k is in SGOV. Do the 2026 Roth conversion

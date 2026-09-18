@@ -27,6 +27,33 @@ from statements or appraisals as of July 22, 2026. Account numbers omitted.
 | Receivables / loans owed to Keli | Yes | Face value at DOD if collectible | 7/22/2026 | Balance sheet marks some as collectibility-uncertain. |
 | Debts in Keli's name | n/a | | | Estate liabilities on Form 706; do not net against Joe's assets. |
 
+## Correction to sheet 18 of JFL_Financial_Master.xlsx (2026-09-18)
+
+Sheet 18 "Estate Basis" files every TLC and SurfBox line under **"JOE'S OWN
+(no step-up)"** on the reasoning that Joe is the named partner. Joe has
+confirmed Keli held **50% of the family stake**. Those rows should move to a
+"JOINT / KELI 50%" block with a 50% step-up on Keli's half of each:
+
+| Sheet 18 row | Item | Gross | Joe's 48.33% share | Keli's half of that | Basis (sheet 2/17) |
+|---|---|---:|---:|---:|---:|
+| S-TLC-01 | SC lots (8) | $9,600,000 | $4,639,680 | $2,319,840 | $3,200,000 |
+| S-TLC-02 | Tuckerton lot | $1,200,000 | $579,960 | $289,980 | $800,000 |
+| S-TLC-03 | TLC inventory & equipment | $1,000,000 | $483,300 | $241,650 | none recorded |
+| S-TLC-04 | Rte 539 | $600,000 | $289,980 | $144,990 | $410,000 |
+| S-TLC-06 | Rte 72 / 230 Barnegat | $600,000 | $289,980 | $144,990 | $400,000 |
+| S-TLC-07 | Mt Holly | $200,000 | $96,660 | $48,330 | $125,000 |
+| S-TLC-08 | TLC goodwill | $100,000 | $48,330 | $24,165 | none |
+| S-SB-01/02/03 | SurfBox equipment and goodwill | $1,175,000 | $567,878 | $283,939 | $100,000 (NJ equip only) |
+| B-CHK-* | TLC and SurfBox cash accounts | ~$948,000 | ~$458,000 | n/a | cash |
+
+Also on sheet 18:
+- The "UNDETERMINED" block (381 12th St, 15 New Street, the three lots,
+  458 Main, the firehouse, World Cat, Robinhood, WellsTrade, the 529s)
+  needs deeds and account registrations to settle. Joint title means Keli's
+  half steps up.
+- UMB IRA FBO Keli ($154k) is closed into the IBKR Rollover IRA; count once.
+- Retirement rows are correctly marked NONE (IRD).
+
 ## Values needed, by source
 
 | Item | Source | Status |
