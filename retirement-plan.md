@@ -129,6 +129,39 @@ and stops ~$40k a year of interest. Keep 381 12th St. Decide on the operating
 businesses by whether they can run without Joe; if not, sell them in the same
 2028 to 2029 window. 59½ is when Keli's IRA can be merged.
 
+### 4b. Joe's rule (added 2026-09-20)
+
+Joe's proposal: sell everything but the Crosswicks house, invest it all,
+retire in 2030 at 61, draw $400k a year only after a positive year, live off
+a two-year cash reserve after a negative year, and convert as much IRA to
+Roth as possible before then.
+
+Starting assets in 2030 on the workbook figures: **~$9.8M** ($2.6M liquid
+grown, $0.8M receivables, $3.7M lots and businesses, $2.7M personal real
+estate). Two-year reserve = $800k in T-bills, ~8% of the total.
+
+| Case (34 years, 10,000 paths, stocks 9.5%/17%, reserve 4%, SS $48k at 70) | Never runs out | Ends above start (real) | Median ending (real) | 10th percentile |
+|---|---:|---:|---:|---:|
+| $400k flat, 100% stocks, 2-yr reserve | 99% | 78% | $26.9M | $4.2M |
+| $400k flat, 90/10, 2-yr reserve | 100% | 80% | $24.5M | $4.9M |
+| $400k rising with inflation, 90/10, 2-yr reserve | 93% | 61% | $15.5M | $0.8M |
+| $400k rising, 3-yr reserve | 98% | 58% | $14.1M | $1.2M |
+| $500k flat, 100% stocks, 2-yr reserve | 97% | 69% | $20.3M | $0.8M |
+| $400k rising, no skip rule (reference) | 84% | 64% | $19.1M | $0 |
+
+**Verdict:** the rule works if $400k is a fixed nominal draw (real spending
+halves over 34 years). If the draw must keep pace with inflation, real
+growth becomes a 60/40 proposition. Define "negative year" as the calendar
+year portfolio return checked once on Dec 31; refill the reserve to two years
+only in positive years. Paying off the $376k home mortgage at retirement
+lowers the draw to ~$370k and lifts every row.
+
+**Roth under this plan:** IRA + Keli's IRA = $1.15M. Fill the 24% bracket
+2026 to 2028 (~$133k/yr at ~30%), nothing in 2029 to 2030 while earning $303k
+(no 24% room; 38% if forced), then ~$160k/yr from 2031 at ~28%. Empties the
+IRA around 2038, age 69, before RMDs, without ever paying 32%. Frugal living
+in the next four years pays the ~$40k/yr conversion tax from cash flow.
+
 ## 5. Tax on the exit
 
 **Keli held 50% of the family stake in TLC and SurfBox.** Her half stepped up
