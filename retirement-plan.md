@@ -159,6 +159,55 @@ lowers the draw to ~$370k and lifts every row.
 **Roth under this plan:** superseded by section 6 (2026-09-21): the full
 $1.15M converts 2026 to 2035, front-loaded in the joint-bracket years.
 
+### 4c. The guardrail version (added 2026-09-21)
+
+Joe's refinement: $10M in play, mostly S&P 500. Draw $450k to $500k a year
+while the portfolio is within 10% of its high. When it is more than 10% below
+its high, cut the draw to a lower number, live off the two-year reserve, sell
+no stock, and refill the reserve once the portfolio recovers.
+
+| Rule (S&P 10%/17%, 2-yr reserve at 4%, SS $48k at 70, 34 years, 10,000 paths) | Never runs out | Ends above $10M (real) | Median ending (real) | 10th percentile | Years in cut mode |
+|---|---:|---:|---:|---:|---:|
+| $450k flat; cut to $300k | 100% | 87% | $33.7M | $8.4M | 11 |
+| **$500k flat; cut to $300k** | **100%** | **85%** | **$31.1M** | **$7.7M** | **11** |
+| $500k flat; cut to $350k | 99% | 84% | $31.8M | $6.8M | 11 |
+| $500k flat; cut to $250k | 100% | 87% | $32.0M | $8.5M | 11 |
+| $450k rising with inflation; cut to $300k rising | 96% | 74% | $24.1M | $3.5M | 13 |
+| $500k rising with inflation; cut to $300k rising | 95% | 70% | $20.5M | $2.7M | 13 |
+| $500k flat, no guardrail (reference) | 95% | 77% | $26.5M | $2.9M | |
+| $500k rising, no guardrail (reference) | 76% | 56% | $13.9M | $0 | |
+
+Sensitivity on the $500k / $300k rule: resuming only at a new high instead
+of at 90% of the high changes nothing material (100% / 87%); a 15% trigger
+instead of 10% cuts the years in cut mode from 11 to 8.5 at the same odds;
+a 3-year reserve keeps the reserve from running dry but lowers the median;
+at a 9% S&P average the odds are 99% / 77%, at 8% they are 99% / 66%.
+
+**Verdict.** This is the best rule tested. Cutting to $300k in drawdowns is
+worth more than skipping entirely, because it keeps the reserve from
+emptying (it runs dry about 3 years in 34, versus 5 to 7 without the cut)
+and it never forces a stock sale at the bottom. Expect to be in cut mode
+about one year in three. The draw being flat rather than inflation-adjusted
+is still what carries the real-growth odds from ~70% to ~85%.
+
+**Mechanics.** Measure the total portfolio (stocks plus reserve) against its
+high-water mark at each quarter end, not daily. Enter cut mode below 90% of
+the high; leave it when back above 90%. In cut mode, spend from the reserve
+and sell nothing. In normal mode, draw from stocks and top the reserve back
+up to two years of the full draw.
+
+**On the S&P 500 as the core.** Sound choice for the income engine: cheap,
+tax-efficient (about 1.3% qualified dividends, almost no forced gains),
+easy to measure against the guardrail, and it already holds most of MOSE's
+forever compounders and AI core. Three things to know: the top ten names
+are roughly a third of the index, so it is more concentrated than it looks;
+it holds no international or small companies; and it carries zero bonds,
+which is what the reserve is for. Structure: **VOO as 80% to 85% of the
+portfolio, the 2-year reserve in SGOV, and the MOSE stock-picking in the
+play-money sleeve** rather than inside the core. Realized returns will track
+the index minus about 0.03% a year; the model's 10% average is the long-run
+S&P figure and the 9% and 8% rows are the honest downside cases.
+
 ## 5. Tax on the exit
 
 **Keli held 50% of the family stake in TLC and SurfBox.** Her half stepped up
