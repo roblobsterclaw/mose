@@ -156,11 +156,8 @@ year portfolio return checked once on Dec 31; refill the reserve to two years
 only in positive years. Paying off the $376k home mortgage at retirement
 lowers the draw to ~$370k and lifts every row.
 
-**Roth under this plan:** IRA + Keli's IRA = $1.15M. Fill the 24% bracket
-2026 to 2028 (~$133k/yr at ~30%), nothing in 2029 to 2030 while earning $303k
-(no 24% room; 38% if forced), then ~$160k/yr from 2031 at ~28%. Empties the
-IRA around 2038, age 69, before RMDs, without ever paying 32%. Frugal living
-in the next four years pays the ~$40k/yr conversion tax from cash flow.
+**Roth under this plan:** superseded by section 6 (2026-09-21): the full
+$1.15M converts 2026 to 2035, front-loaded in the joint-bracket years.
 
 ## 5. Tax on the exit
 
@@ -179,24 +176,79 @@ $0.6M of tax on the lots and another ~$0.2M across the other assets.
 | No Roth conversion in a heavy lot-sale year | Gain stacks on ordinary income; every conversion dollar costs 35%+. | Joe |
 | Residency | NJ taxes a resident's gain on NJ-sourced real estate regardless of where he lives, and the lots are NJ real estate if they are in Surf City. A move does not help on the lots. | CPA |
 
-## 6. Roth conversions, integrated with the exit
+## 6. Roth conversion program: all pre-tax money to Roth, 2026 to 2035
 
-| Year | Age | Filing | Convert | Why |
-|---|---|---|---|---|
-| 2026 | 57 | joint | ~$130k at $303k income | fills 24%; last guaranteed joint year; convert SGOV |
-| 2027 | 58 | surviving spouse | ~$130k, less the Bay Terrace gain | joint brackets hold (daughters 19 and 21 in college) |
-| 2028 | 59 | surviving spouse | ~$130k, or $0 if two lots sell | |
-| heavy lot-sale years | | single / HOH | $0 | gain stacks |
-| post-exit, pre-SS | 60 to 69 | HOH to ~2031, then single | ~$166k/yr | fills 24% at ~28% combined; empties the IRA by ~67 |
-| 70+ | | single | remainder | Social Security narrows the room |
+**Joe's decision (2026-09-21):** open a Roth IRA at IBKR now and convert the
+entire pre-tax balance, Joe's IRA $948k plus Keli's IRA $202k, over 7 to 10
+years starting 2026. The Roth 401(k) at ADP is already Roth; it rolls into the
+Roth IRA when Joe leaves TLC. Keli's Roth 401(k) rolls in now.
 
-Roth at 59: roughly $500k. Roth at 67 after post-exit conversions: $1.7M
-or more. Joe's existing $32k/yr of Roth 401(k) contributions continue while
-he draws salary and add ~$100k by 2029.
+**The constraint that shapes the schedule.** Lot sales stack on top of
+conversions. With two lots a year from 2029 to 2032 (~$388k of taxable gain
+a year at Joe's share after Keli's step-up) and salary through 2030, there is
+no 24% room in 2029 to 2030 and conversions in 2031 to 2032 cost ~35%. A
+pure "fill 24% and skip lot years" schedule does not finish before 2038.
+Finishing inside 10 years means front-loading the joint-bracket years.
 
-**Convert SGOV, not stocks, for 2026.** The IRA is 89% T-bills; move ~$130k
-of SGOV into the Roth, deploy it into the highest-growth bucket names there.
-Tax ~$40k from the joint account.
+**Recommended schedule (F): front-load 2026 to 2028 to the top of the joint
+32% bracket, pause 2029 to 2030, then fill 24% every year, lot years included.**
+
+| Year | Age | Filing | Other income | Lot gain | Convert | Tax on conversion | Rate | IRA left after |
+|---|---|---|---:|---:|---:|---:|---:|---:|
+| 2026 | 57 | joint | $303k | 0 | **$242k** | $83k | 34% | $908k |
+| 2027 | 58 | surviving spouse | $303k | 0 | $242k | $83k | 34% | $730k |
+| 2028 | 59 | surviving spouse | $303k | 0 | $242k | $83k | 34% | $539k |
+| 2029 | 60 | head of household | $303k | $388k | $0 | | | $577k |
+| 2030 | 61 | head of household | $303k | $388k | $0 | | | $617k |
+| 2031 | 62 | head of household | ~$60k | $388k | $166k | $58k | 35% | $494k |
+| 2032 | 63 | single | ~$60k | $388k | $158k | $57k | 36% | $360k |
+| 2033 | 64 | single | ~$60k | 0 | $158k | $46k | 29% | $227k |
+| 2034 | 65 | single | ~$60k | 0 | $158k | $46k | 29% | $85k |
+| 2035 | 66 | single | ~$60k | 0 | $106k | $30k | 28% | **$0** |
+| | | | | | **$1.47M** | **$487k** | **33%** | |
+
+IRA assumed to grow 7% on the unconverted balance. Federal 2026 brackets
+plus NJ. Combined rate in 2026 to 2028 is a blend of 24% and 32% federal
+plus 6.4% NJ.
+
+**Alternatives tested, for the record:**
+
+| Schedule | Done by | Total tax | Avg rate |
+|---|---|---|---|
+| Fill 24% only, skip lot years | not by 2037 | | |
+| Fill 24% every year incl. lot years | 2036+, $416k left | | |
+| Flat $150k/yr regardless of bracket | 2036 | $536k | 35%, with two years at 49% |
+| **F. Front-load to 32%, pause 2029-30, then 24%** | **2035** | **$487k** | **33%** |
+| Same as F with lots sold one a year through 2036 | 2035 | $495k | 34% |
+
+The extra ~10 points paid in 2026 to 2028 buys finishing before Social
+Security and RMDs, and it uses the joint brackets that disappear after 2028.
+If the lot sales slip or pace at one a year, the 2029 to 2030 pause still
+holds while Joe is drawing salary; resume in the first year without it.
+
+**Mechanics.**
+
+1. Open the Roth IRA at IBKR. Convert from Joe's own IRA through 2028; leave
+   Keli's titled as inherited for penalty-free access until 59½, then merge
+   it in 2029 and convert from the combined balance.
+2. 2026 tranche: convert **$242k of SGOV in kind** before December 31, in two
+   or three pieces, the last after the CPA confirms 2026 taxable income
+   (K-1 share of profit counts whether or not it was distributed). Deploy the
+   converted cash into the highest-growth bucket names inside the Roth.
+3. Pay the ~$83k a year of 2026 to 2028 tax from the joint account and cash
+   flow, never from the IRA. Set estimated payments to the 110% safe harbor.
+4. Converted principal has its own five-year clock for the 10% penalty if
+   withdrawn before 59½. Leave conversions untouched until 2029 and it never
+   applies.
+5. Roth 401(k) contributions ($32k/yr) continue while Joe draws salary; they
+   do not share a limit with conversions. Direct Roth IRA contributions are
+   income-capped and not available at $303k.
+6. Ask ADP whether the employer match is pre-tax; if so, an in-plan Roth
+   conversion or a rollover at separation handles it.
+
+**Result:** Roth of roughly $1.0M at 59, $2.0M+ by 2035 at 8%, and no
+required distributions at 75. From 2036 every retirement dollar comes from
+Roth, stepped-up taxable money, rent, and Social Security.
 
 ## 7. Income architecture in retirement
 

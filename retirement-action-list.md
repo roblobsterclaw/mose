@@ -25,11 +25,14 @@ current. Ordered by Joe's priority, then by deadline. Check items off in place.
 - [ ] **Get date-of-death values for every position in the joint account** and
   retitle it to Joe individually. Keli's half gets a stepped-up basis. This is
   now the cheapest money to spend or to use for conversion tax.
-- [ ] **2026 Roth conversion by December 31, 2026.** Last guaranteed joint-bracket
-  year. At ~$313k income (salary $235k + SurfBox $78k) the room to the top of
-  the federal 24% bracket is about $123k, costing ~$37k. Convert SGOV from
-  Joe's IRA in tranches, last one in December once the CPA confirms the year's
-  taxable income.
+- [ ] **Open a Roth IRA at IBKR** (Joe, 2026-09-21) and roll Keli's ADP Roth
+  401(k) into it.
+- [ ] **2026 Roth conversion: ~$242k of SGOV in kind by December 31, 2026**, to
+  the top of the joint 32% bracket (~$83k tax, paid from the joint account).
+  Two or three tranches; last one after the CPA confirms 2026 taxable income.
+  Full 10-year schedule in plan section 6: $242k/yr 2026-2028, pause
+  2029-2030, ~$160k/yr 2031-2035. Set estimated payments to the 110% safe
+  harbor.
 - [ ] **Classify the $500k due from Joe's brother in early 2027** (sale of an
   ownership share, taxable over basis, or loan repayment, not taxable). Get a
   release from the co-signed Shellpoint mortgage at payoff. Park the $500k in
@@ -91,7 +94,7 @@ current. Ordered by Joe's priority, then by deadline. Check items off in place.
 - [ ] **Give the CPA `step-up-basis-worksheet.md`** and order retrospective
   appraisals (house, other property, business) as of July 22, 2026.
 - [ ] **Deploy the IRA.** $845k of $949k is in SGOV. Do the 2026 Roth conversion
-  from SGOV (~$204k), buy growth targets inside the Roth, then deploy the rest
+  from SGOV (~$242k, plan section 6), buy growth targets inside the Roth, then deploy the rest
   per the MOSE buy list over 6-12 months.
 - [ ] **Open a separate IBKR taxable "play money" account.** ~5% of liquid, capped
   at $400k, refilled only from its own gains or a sale tranche.
