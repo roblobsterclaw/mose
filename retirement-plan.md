@@ -196,18 +196,24 @@ the high; leave it when back above 90%. In cut mode, spend from the reserve
 and sell nothing. In normal mode, draw from stocks and top the reserve back
 up to two years of the full draw.
 
-**On the S&P 500 as the core.** Sound choice for the income engine: cheap,
-tax-efficient (about 1.3% qualified dividends, almost no forced gains),
-easy to measure against the guardrail, and it already holds most of MOSE's
-forever compounders and AI core. Three things to know: the top ten names
-are roughly a third of the index, so it is more concentrated than it looks;
-it holds no international or small companies; and it carries zero bonds,
-which is what the reserve is for. Structure: **VOO as 80% to 85% of the
-portfolio, the 2-year reserve in SGOV, and the MOSE stock-picking in the
-play-money sleeve** rather than inside the core. Realized returns will track
-the index minus about 0.03% a year; the model's 10% average is the long-run
-S&P figure and the 9% and 8% rows are the honest downside cases.
+**Core allocation (2026-09-22).** The S&P 500 is a sound engine: cheap,
+tax-efficient, easy to measure the guardrail against, and it already holds
+most of MOSE's forever compounders and AI core. Its gaps are that the top ten
+names are a third of the index, and it holds no US mid/small companies and
+nothing outside the US. Two index funds fill those gaps with zero overlap:
 
+| Fund | Role | Weight | On $10M | Expense |
+|---|---|---:|---:|---:|
+| VOO, S&P 500 | core | 60% | $6.0M | 0.03% |
+| VXF, Vanguard Extended Market (every US stock not in the S&P 500; alt: IJH + IJR) | US mid/small, no overlap | 10% | $1.0M | 0.05% |
+| VXUS, Vanguard Total International (~8,500 stocks, 75% developed / 25% emerging; alt: IXUS, or VEU for large-only) | everything outside the US | 20% | $2.0M | 0.05% |
+| SGOV | two-year reserve | 10% | $1.0M | 0.09% |
+
+Hold VXUS in the taxable account so the foreign tax credit on its dividends
+is claimable; it is lost inside an IRA or Roth. MOSE stock-picking lives in
+the play-money sleeve, not the core. The guardrail model's 10%/17% is the
+S&P figure; the 9% and 8% rows are the honest downside cases, and the
+three-fund mix runs slightly less volatile than the S&P alone.
 ## 5. Tax on the exit
 
 **Keli held 50% of the family stake in TLC and SurfBox.** Her half stepped up
