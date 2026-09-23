@@ -250,6 +250,41 @@ foreign tax credit.
 The earlier three-fund idea (VOO / VXF / VXUS) remains the simpler,
 cheaper alternative and is kept in the workbooks for comparison.
 
+### 4d. Five-year accumulation case (added 2026-09-23)
+
+Joe's question: sell $1M of real estate, invest it with the $1.5M already at
+IBKR in the 60/25/15 mix, take nothing out for five years, and beat the S&P
+500's average by one point. Where is it in five years?
+
+$2.5M invested, no withdrawals, 2026 to 2031 (Joe 57 to 62). Conversion tax
+in 2026 to 2028 assumed paid from salary, not from this money. S&P assumed
+at a 10% average; the mix at 18.6% volatility (19.2% for 50/35/15).
+
+| Case | Year 5 at the average | Median | 10th percentile | 90th percentile | Chance of ending below $2.5M |
+|---|---:|---:|---:|---:|---:|
+| S&P only, 10% | $4.03M | $3.83M | $2.38M | $5.93M | 12% |
+| 60/25/15, matches the S&P | $4.03M | $3.82M | $2.24M | $6.12M | 15% |
+| **60/25/15, beats the S&P by 1 point (11%)** | **$4.21M** | **$3.99M** | **$2.34M** | **$6.32M** | **13%** |
+| 50/35/15, beats by 1 point | $4.21M | $3.97M | $2.32M | $6.46M | 14% |
+| 60/25/15, beats by 2 points | $4.41M | $4.16M | $2.49M | $6.64M | 10% |
+| 60/25/15, trails by 1 point | $3.85M | $3.61M | $2.13M | $5.85M | 18% |
+
+Year by year at 11%: $2.78M, $3.08M, $3.42M, $3.80M, $4.21M.
+
+**Reading it.** One point of outperformance is worth about $180k over five
+years on $2.5M, before tax. Five years is short enough that the market's
+mood swamps it: the spread between a bad five years and a good one is
+$2.3M to $6.3M regardless of the mix. Beating the index by a point moves
+the middle of that range, not its width. The chance of having less than
+$2.5M after five years is about one in eight in every case, which is the
+argument for the reserve once withdrawals start, even though none is needed
+while Joe is still drawing salary.
+
+Not included: the $500k Bay Terrace payment (2027), the other receivables,
+lot sales, Roth 401(k) contributions, and the ~$150k/yr of savings from
+salary. Adding those, the liquid portfolio in 2031 is closer to $6M to $7M
+before any lot proceeds.
+
 ## 5. Tax on the exit
 
 **Keli held 50% of the family stake in TLC and SurfBox.** Her half stepped up
