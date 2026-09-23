@@ -196,24 +196,60 @@ the high; leave it when back above 90%. In cut mode, spend from the reserve
 and sell nothing. In normal mode, draw from stocks and top the reserve back
 up to two years of the full draw.
 
-**Core allocation (2026-09-22).** The S&P 500 is a sound engine: cheap,
-tax-efficient, easy to measure the guardrail against, and it already holds
-most of MOSE's forever compounders and AI core. Its gaps are that the top ten
-names are a third of the index, and it holds no US mid/small companies and
-nothing outside the US. Two index funds fill those gaps with zero overlap:
+**Core allocation (revised 2026-09-23): 60% S&P 500 / 25% sector ETFs / 15% Joe's picks, plus the reserve.**
 
-| Fund | Role | Weight | On $10M | Expense |
-|---|---|---:|---:|---:|
-| VOO, S&P 500 | core | 60% | $6.0M | 0.03% |
-| VXF, Vanguard Extended Market (every US stock not in the S&P 500; alt: IJH + IJR) | US mid/small, no overlap | 10% | $1.0M | 0.05% |
-| VXUS, Vanguard Total International (~8,500 stocks, 75% developed / 25% emerging; alt: IXUS, or VEU for large-only) | everything outside the US | 20% | $2.0M | 0.05% |
-| SGOV | two-year reserve | 10% | $1.0M | 0.09% |
+Joe's structure: capture growth across robotics and autonomy (ARKQ, BOTZ),
+AI infrastructure and power (AIPO, DTCR), biopharma (IBB) and materials (XLB)
+in a 25% sleeve, with 60% in the S&P 500 and 15% in his own stock picks. The
+two-year cash reserve sits on top of this, not inside it: on $10M that is
+$1M in SGOV and $9M split 60/25/15.
 
-Hold VXUS in the taxable account so the foreign tax credit on its dividends
-is claimable; it is lost inside an IRA or Roth. MOSE stock-picking lives in
-the play-money sleeve, not the core. The guardrail model's 10%/17% is the
-S&P figure; the 9% and 8% rows are the honest downside cases, and the
-three-fund mix runs slightly less volatile than the S&P alone.
+| Sleeve | Fund | Weight of total | On $9M invested | Why this weight |
+|---|---|---:|---:|---|
+| Robotics & autonomy | ARKQ | 5% | $450k | Best record of the six (18% CAGR since 2015) but 40% volatility and 55% of it is S&P mega-caps. |
+| Robotics & autonomy | BOTZ | 5% | $450k | Industrial robotics: Keyence, Fanuc, ABB, SMC, Daifuku. Only 25% overlap with the S&P; the most genuinely new exposure in the sleeve. 16% overlap with ARKQ (Nvidia, Intuitive). |
+| AI infrastructure & power | AIPO | 4% | $360k | Eaton, Quanta, GE Vernova, Vertiv, Bloom, Constellation. Two-thirds S&P names. Launched July 2025, no track record: capped until it has one. |
+| AI infrastructure & power | DTCR | 4% | $360k | Data-center and tower REITs (Digital Realty, American Tower, Equinix, Crown Castle). 70% S&P overlap; REIT-like returns (8% CAGR since 2020). Hold in the Roth: REIT income is ordinary. |
+| Biopharma | IBB | 4% | $360k | 229 biotechs, 42% S&P overlap. 7.6% CAGR over 24 years with a −46% year; most holdings pre-profit. Option value on the drug cycle. |
+| Materials | XLB | 3% | $270k | 100% S&P overlap: a pure overweight of the index's 1.7% materials sector. 7.7% CAGR over 27 years. Smallest slice. |
+| **Sleeve total** | | **25%** | **$2.25M** | blended fee ~0.55% vs 0.03% for VOO |
+| Joe's picks (MOSE) | individual stocks | 15% | $1.35M | Replaces the earlier $400k play-money cap. Measured against the S&P each year; if it trails by more than 3 points a year over any rolling 3 years, halve it into VOO. |
+| Core | VOO | 60% | $5.4M | |
+
+**What the sleeve actually adds.** After look-through, 87% of the 85% in
+VOO plus the sleeve is still S&P 500 companies. The sleeve mostly
+re-weights names Joe already owns: Nvidia goes from 4.6% of the portfolio
+to 5.6%, Tesla from 1.3% to 1.9%, AMD from 0.8% to 1.3%. The genuinely new
+exposure is BOTZ's Japanese and European robotics names, IBB's 219 small
+biotechs, DTCR's non-US data centers, and ARKQ's SpaceX, Kratos, Rocket Lab
+and eVTOL names. Pairwise overlap inside the sleeve is modest (largest:
+ARKQ-BOTZ 16%, ARKQ-AIPO 13%).
+
+**Cost to the guardrail.** The mix runs at about 18.6% volatility versus
+17% for the S&P alone. With the $500k / $300k guardrail on $10M:
+
+| | Never runs out | Ends above start (real) | Median | 10th pct |
+|---|---:|---:|---:|---:|
+| S&P only | 100% | 86% | $31M | $7.9M |
+| 60/25/15, sleeve and picks match the S&P | 99% | 81% | $29M | $6.1M |
+| 60/25/15, sleeve and picks beat the S&P by 2 points | 100% | 87% | $41M | $8.5M |
+| 60/25/15, sleeve and picks trail by 2 points | 98% | 74% | $22M | $4.3M |
+
+The structure costs about five points of real-growth odds if the satellites
+merely match the index, and pays off handsomely if they beat it by two.
+Four of the six sector funds have trailed the S&P over their lives; ARKQ
+and BOTZ's US names are the ones with a record of beating it. Joe's 15% is
+the swing factor, which is why it gets a written rule.
+
+**Tax location.** VOO and XLB in the taxable account (qualified dividends,
+low turnover). ARKQ, BOTZ, AIPO and Joe's highest-conviction picks in the
+Roth (highest expected growth, tax-free). DTCR and IBB in the Roth or IRA
+(REIT income and frequent rebalancing). VXUS, if added, in taxable for the
+foreign tax credit.
+
+The earlier three-fund idea (VOO / VXF / VXUS) remains the simpler,
+cheaper alternative and is kept in the workbooks for comparison.
+
 ## 5. Tax on the exit
 
 **Keli held 50% of the family stake in TLC and SurfBox.** Her half stepped up
