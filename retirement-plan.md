@@ -271,6 +271,15 @@ spending; if it has a 2022 again (−47%) while Joe is drawing, the cut-mode
 rule is doing real work. A 10% ARKQ weight captures most of the theme at
 about half the added risk. Joe's call; the plan records 20%.
 
+**Alternative for the 20% robotics slot (2026-09-24): buy the names directly.**
+`research/index-studies/Robotics25_Basket.xlsx` holds a 25-stock basket drawn
+from the union of ARKQ and BOTZ, in five categories with tiered weights
+(industrial robotics and vision 43%, autonomous vehicles and physical AI 23%,
+vision and AI enablers 17%, space/defense/aerial 15%, surgical 6%, of the
+sleeve). Roughly half the basket by weight is S&P 500 names, the same as
+ARKQ. It saves the funds' ~0.7% fee and gives lot-level control; it gives up
+ARK's active trading and requires six Tokyo/Zurich purchases through IBKR.
+
 The earlier three-fund idea (VOO / VXF / VXUS) remains the simpler,
 cheaper alternative and is kept in the workbooks for comparison.
 
