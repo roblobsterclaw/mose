@@ -247,6 +247,30 @@ Roth (highest expected growth, tax-free). DTCR and IBB in the Roth or IRA
 (REIT income and frequent rebalancing). VXUS, if added, in taxable for the
 foreign tax credit.
 
+**Joe's revision (2026-09-24): 60% S&P 500 / 20% ARKQ / 10% other sector ETFs / 10% Joe's picks.**
+
+Suggested split of the 10%: BOTZ 3%, AIPO 2%, DTCR 2%, IBB 2%, XLB 1%.
+
+| | 60/20/10/10 | prior 60/25/15 | S&P only |
+|---|---:|---:|---:|
+| Portfolio volatility | 21.1% | 18.9% | 17.0% |
+| Nvidia, look-through | 6.0% | 5.6% | 4.6% |
+| Tesla, look-through | 3.5% | 1.9% | 1.2% |
+| Top 10 names as share of the fund money | 30% | 26% | ~24% |
+| Guardrail ($500k / $300k on $10M), satellites match the S&P: never runs out / grows real | 98% / 75% | 99% / 81% | 100% / 86% |
+| Same, if ARKQ keeps its historical edge (mix +1.2%) | 99% / 84% | | |
+| Same, if ARKQ reverts (mix −1%) | 96% / 66% | | |
+
+**Reading it.** 20% in a 37-stock actively managed fund with 40% volatility
+is the single decision that moves the whole portfolio. It raises volatility
+by four points over the S&P alone and makes Tesla and SpaceX the third- and
+roughly tenth-largest positions Joe owns. If ARKQ keeps the edge it has
+shown since 2015 the plan does as well as S&P-only; if it merely matches
+the index the plan gives up ten points of real-growth odds for the same
+spending; if it has a 2022 again (−47%) while Joe is drawing, the cut-mode
+rule is doing real work. A 10% ARKQ weight captures most of the theme at
+about half the added risk. Joe's call; the plan records 20%.
+
 The earlier three-fund idea (VOO / VXF / VXUS) remains the simpler,
 cheaper alternative and is kept in the workbooks for comparison.
 
