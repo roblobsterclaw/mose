@@ -336,6 +336,13 @@ decides which side of the index it lands on. Six-month deployment costs
 ~$10k of expected return. The 5% bonds are a drag during accumulation and
 become the reserve once withdrawals start.
 
+**Second exploratory look (2026-09-25): 85% S&P / 12% MOSE / 3% hunt.**
+Volatility 17.6%. At S&P 10%: 7-yr median $3.40M, 10th pct $1.93M, 90th
+$5.73M, 9% chance below start. Beats the seven-sleeve mix on every line and
+matches the S&P alone within $10k of median; the 15% of picks decides which
+side of the index it lands on. The 3% hunt sleeve is three to five positions
+of $12k to $20k.
+
 ## 5. Tax on the exit
 
 **Keli held 50% of the family stake in TLC and SurfBox.** Her half stepped up
