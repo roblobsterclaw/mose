@@ -318,6 +318,24 @@ lot sales, Roth 401(k) contributions, and the ~$150k/yr of savings from
 salary. Adding those, the liquid portfolio in 2031 is closer to $6M to $7M
 before any lot proceeds.
 
+### 4e. Exploratory: 65/5/5/5/5/10/5 accumulation look (2026-09-25, not adopted)
+
+Joe's trial mix: 65% S&P 500, 5% ARKQ, 5% BOTZ, 5% IBB, 5% "30x" hunt
+sleeve, 10% MOSE forever stocks, 5% government bonds. $1.9M deployed over
+six months, no withdrawals. Portfolio volatility 18.1%.
+
+| Regime | Expected | 5-yr median | 5-yr 10th | 7-yr median | 7-yr 10th | 7-yr 90th | P(below start at 7 yrs) |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Long-run S&P 10%, picks match | 9.7% | $2.83M | $1.73M | $3.31M | $1.84M | $5.65M | 11% |
+| Long-run, picks beat by 2 | 10.0% | $2.85M | $1.75M | $3.40M | $1.90M | $5.79M | 10% |
+| Last-decade S&P 14.7% | 14.2% | $3.43M | $2.15M | $4.38M | $2.51M | $7.33M | 3% |
+| Weak decade, S&P 7% | 6.9% | $2.49M | $1.51M | $2.77M | $1.51M | $4.78M | 21% |
+
+Tracks the S&P closely with slightly wider outcomes; the 15% of picks
+decides which side of the index it lands on. Six-month deployment costs
+~$10k of expected return. The 5% bonds are a drag during accumulation and
+become the reserve once withdrawals start.
+
 ## 5. Tax on the exit
 
 **Keli held 50% of the family stake in TLC and SurfBox.** Her half stepped up
