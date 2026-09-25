@@ -343,6 +343,15 @@ matches the S&P alone within $10k of median; the 15% of picks decides which
 side of the index it lands on. The 3% hunt sleeve is three to five positions
 of $12k to $20k.
 
+**Third exploratory look (2026-09-25): 50% S&P / 20% Alphabet / 20% Amazon
+/ 5% OpenAI+Anthropic at IPO / 5% Berkshire.** Volatility 20.5%. After
+look-through, Alphabet and Amazon are ~45% of the portfolio. At S&P 10% with
+the two names matching it: 7-yr median $3.30M, 10th pct $1.69M, 14% chance
+below start. If they beat the index by 3 points: $3.57M / $1.87M / 11%. If
+they trail by 3: $2.94M / $1.49M / 20%. Two-stock concentration is the
+whole bet. (Anthropic builds the assistant that wrote this; that row is
+conflicted.)
+
 ## 5. Tax on the exit
 
 **Keli held 50% of the family stake in TLC and SurfBox.** Her half stepped up
