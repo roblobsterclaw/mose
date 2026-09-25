@@ -352,6 +352,19 @@ they trail by 3: $2.94M / $1.49M / 20%. Two-stock concentration is the
 whole bet. (Anthropic builds the assistant that wrote this; that row is
 conflicted.)
 
+**Fourth look (2026-09-25), written up as `research/Five_Year_Accumulation_Plan.pdf`:
+85/12/3 on $1.9M plus $300k reserve in SGOV, all pre-tax converted 2026-2030,
+$30k/yr Roth 401(k) + $25k/yr into the sleeve for five years, income raised
+~$75k to ~$378k for living costs.** Conversion: $1.32M at $537k tax (41%;
+$502k at $303k income), the 2029-30 slices at 43% as head of household. At
+S&P 10% with tax paid from outside cash: year 5 $3.39M straight line / $3.24M
+median, year 7 $4.10M / $3.83M (10th-90th $2.20M-$6.37M), 5% below start;
+reserve adds ~$365k / ~$395k on top. Tax paid from the portfolio: year-7 median
+$2.99M, 17% below start. Roth ~$1.86M of the year-5 total. The $75k raise nets
+~$50k after its own tax and is for living, so the $500k brother payment and
+receivables remain the conversion-tax source; the reserve is the backstop.
+Recommendation unchanged: convert hard 2026-28, decide on 2029-30 in late 2029.
+
 ## 5. Tax on the exit
 
 **Keli held 50% of the family stake in TLC and SurfBox.** Her half stepped up
