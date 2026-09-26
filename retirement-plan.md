@@ -365,6 +365,22 @@ $2.99M, 17% below start. Roth ~$1.86M of the year-5 total. The $75k raise nets
 receivables remain the conversion-tax source; the reserve is the backstop.
 Recommendation unchanged: convert hard 2026-28, decide on 2029-30 in late 2029.
 
+**Revision 2 (2026-09-26), same PDF.** Joe's build of the $1.9M: both IRAs
+($1.15M), joint brokerage ($338k), small accounts, the $500k brother
+payment, and the sale of the firehouse plus one buildable lot (~$450k);
+total pool ~$2.4M, leaving ~$200k after the $300k reserve as the 2026-28
+conversion-tax fund. **No lot-sale program.** The $75k raise = $48k TLC
+distribution share (taxable, unless already in the $303k) + $10k spending
+cuts + $15-20k Airbnb net from 381 12th St. Rules: tax never from the IRA
+or the $1.9M; 7-10 years fine. With the IRA compounding at 10% inside the
+mix, fill-24% schedules never finish (IRA $1.87M in 2037). Adopted for the
+PDF: **schedule E, $75k of tax a year every year, done 2033**: $1.55M
+converted, $588k tax, 38% average, 42% in the 2029-30 head-of-household
+years. Year 7 (Sep 2033): $4.10M, of which $2.28M Roth, $0.18M pre-tax,
+$1.64M taxable; reserve ~$395k. Funding 2026-30 needs the receivables
+(~$320k) on top of the raise; reserve is the backstop. Section 6's schedule
+F (SGOV-parked IRA at 7%, lot sales) is superseded for this plan.
+
 ## 5. Tax on the exit
 
 **Keli held 50% of the family stake in TLC and SurfBox.** Her half stepped up
