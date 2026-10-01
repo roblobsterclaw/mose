@@ -302,6 +302,12 @@ def main(argv: list[str]) -> int:
     print(f"wrote {out_path.relative_to(ROOT)} (gitignored) — {len(accounts)} account(s)")
     if "--firebase" in argv:
         push_firebase(payload)
+    if failures:
+        # Keep the good login's data (already written above) but fail the run.
+        # Keli's token expired 2026-09-14 and every run still showed green for
+        # two weeks because this returned 0. A red run is what emails Joe.
+        print("::error::IBKR Flex login failed — " + "; ".join(failures), file=sys.stderr)
+        return 1
     return 0
 
 
