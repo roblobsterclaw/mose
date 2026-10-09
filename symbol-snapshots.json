@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-09T00:50:07.562671+00:00",
+  "generated_at": "2026-10-09T06:59:00.753970+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -1066,7 +1066,7 @@
         "change_pct": 0.345281497460354,
         "date": "2026-10-08",
         "time": "16:00:01",
-        "volume": 47001,
+        "volume": 46901,
         "week52_high": 4081.71,
         "week52_low": 2196.0
       },
@@ -2143,10 +2143,10 @@
       "quote": {
         "ticker": "IFNNF",
         "symbol": "IFNNF",
-        "price": 69.22,
-        "prev_close": 71.5,
-        "change_pct": -3.1888111888111905,
-        "date": "2026-10-07",
+        "price": 66.68,
+        "prev_close": 69.22,
+        "change_pct": -3.6694596937301247,
+        "date": "2026-10-08",
         "time": "16:00:00",
         "volume": 645,
         "week52_high": 103.5,
@@ -2584,9 +2584,9 @@
       "quote": {
         "ticker": "LUMN",
         "symbol": "LUMN",
-        "price": 5.56,
-        "prev_close": 5.91,
-        "change_pct": -5.922165820642987,
+        "price": 5.62,
+        "prev_close": 5.75,
+        "change_pct": -2.2608695652173894,
         "date": "2026-10-08",
         "time": "16:00:01",
         "volume": 17079799,
@@ -3481,11 +3481,11 @@
         "date": "2026-10-08",
         "time": "16:00:02",
         "volume": 2749438,
-        "week52_high": 245.64,
+        "week52_high": 243.81,
         "week52_low": 189.2
       },
       "metrics": {
-        "week52High": 245.64,
+        "week52High": 243.81,
         "week52Low": 189.2,
         "marketCap": 117400117248,
         "peRatio": 11.374414976599063
@@ -5443,7 +5443,7 @@
       "quote": {
         "ticker": "^DJI",
         "price": 51231.64,
-        "change_pct": 0.101153050994457,
+        "change_pct": 0.10109437494015808,
         "source": "yahoo"
       },
       "metrics": {},
@@ -5475,7 +5475,7 @@
       "quote": {
         "ticker": "^RUT",
         "price": 2794.128,
-        "change_pct": 0.03308029059101942,
+        "change_pct": 0.033223542889887527,
         "source": "yahoo"
       },
       "metrics": {},
