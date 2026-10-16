@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16T07:40:42.014790+00:00",
+  "generated_at": "2026-10-16T12:51:24.452756+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -199,11 +199,11 @@
         "time": "16:00:01",
         "volume": 4366175,
         "week52_high": 738.01,
-        "week52_low": 260.99
+        "week52_low": 260.59
       },
       "metrics": {
         "week52High": 738.01,
-        "week52Low": 260.99
+        "week52Low": 260.59
       },
       "profile": {
         "company": "AppLovin Corporation",
@@ -586,11 +586,11 @@
         "date": "2026-10-15",
         "time": "16:00:02",
         "volume": 1221237,
-        "week52_high": 1209.89,
+        "week52_high": 1187.17,
         "week52_low": 917.39
       },
       "metrics": {
-        "week52High": 1209.89,
+        "week52High": 1187.17,
         "week52Low": 917.39
       },
       "profile": {
@@ -1275,11 +1275,11 @@
         "time": "16:00:02",
         "volume": 1184758,
         "week52_high": 721.22,
-        "week52_low": 445.55
+        "week52_low": 454.5
       },
       "metrics": {
         "week52High": 721.22,
-        "week52Low": 445.55
+        "week52Low": 454.5
       },
       "profile": {
         "company": "Deere & Company",
@@ -4985,8 +4985,8 @@
         "price": 714.89,
         "prev_close": 712.52,
         "change_pct": 0.3326222421826762,
-        "date": "2026-10-15",
-        "time": "20:08:52",
+        "date": "2026-10-16",
+        "time": "08:10:26",
         "volume": null,
         "week52_high": 721.63,
         "week52_low": 585.37
@@ -5076,11 +5076,11 @@
         "time": "16:00:02",
         "volume": 2514088,
         "week52_high": 461.52,
-        "week52_low": 155.29
+        "week52_low": 156.17
       },
       "metrics": {
         "week52High": 461.52,
-        "week52Low": 155.29
+        "week52Low": 156.17
       },
       "profile": {
         "company": null,
@@ -5442,13 +5442,13 @@
       "type": "Index",
       "quote": {
         "ticker": "^DJI",
-        "price": 52177.7,
-        "change_pct": 1.0774580358958905,
+        "price": 52177.69,
+        "change_pct": 1.0774386641225118,
         "source": "yahoo"
       },
       "metrics": {},
       "profile": {
-        "vsExit": 12.380515056271348
+        "vsExit": 12.38049351823594
       },
       "source": "yahoo"
     },
@@ -5490,8 +5490,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 16.02,
-        "change_pct": -2.6731470230862775,
+        "price": 15.97,
+        "change_pct": -2.9769137302551654,
         "source": "yahoo"
       },
       "metrics": {},
