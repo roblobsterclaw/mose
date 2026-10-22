@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-22T02:27:34.397393+00:00",
+  "generated_at": "2026-10-22T08:07:17.043882+00:00",
   "source": "yahoo",
   "market_status": "closed",
   "indices": [
@@ -14,9 +14,9 @@
     {
       "name": "Dow Jones",
       "ticker": "^DJI",
-      "price": 52856.09,
-      "change_pct": 0.6861681335754332,
-      "vs_exit": 13.841633840905853,
+      "price": 52856.1,
+      "change_pct": 0.6861488230509374,
+      "vs_exit": 13.841655378941272,
       "source": "yahoo"
     },
     {
@@ -30,16 +30,16 @@
     {
       "name": "Russell 2000",
       "ticker": "^RUT",
-      "price": 2781.0208,
-      "change_pct": 0.27406958997225916,
+      "price": 2781.021,
+      "change_pct": 0.27406595466968986,
       "vs_exit": null,
       "source": "yahoo"
     },
     {
       "name": "VIX",
       "ticker": "^VIX",
-      "price": 16.68,
-      "change_pct": -3.639514731369145,
+      "price": 18.39,
+      "change_pct": 10.251798561151086,
       "vs_exit": null,
       "source": "yahoo"
     }
@@ -67,7 +67,7 @@
       "time": "16:00:01",
       "volume": 497111,
       "week52_high": 397.44,
-      "week52_low": 185.52
+      "week52_low": 187.71
     },
     {
       "ticker": "ALL",
@@ -775,7 +775,7 @@
       "time": "16:00:02",
       "volume": 9012103,
       "week52_high": 91.85,
-      "week52_low": 65.89
+      "week52_low": 66.57
     },
     {
       "ticker": "GOOGL",
@@ -787,7 +787,7 @@
       "time": "16:00:01",
       "volume": 28525256,
       "week52_high": 408.61,
-      "week52_low": 249.29
+      "week52_low": 251.85
     },
     {
       "ticker": "GS",
@@ -901,10 +901,10 @@
       "ticker": "IFNNF",
       "symbol": "IFNNF",
       "price": 60.0,
-      "prev_close": 58.5,
-      "change_pct": 2.564102564102564,
+      "prev_close": 60.67,
+      "change_pct": -1.1043349266523845,
       "date": "2026-10-21",
-      "time": "12:39:45",
+      "time": "16:00:00",
       "volume": 1000,
       "week52_high": 103.5,
       "week52_low": 37.05
@@ -1531,7 +1531,7 @@
       "time": "16:00:02",
       "volume": 1637559,
       "week52_high": 788.75,
-      "week52_low": 404.51
+      "week52_low": 408.36
     },
     {
       "ticker": "QCOM",
