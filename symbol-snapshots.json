@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-27T00:08:57.365948+00:00",
+  "generated_at": "2026-10-27T05:49:08.119601+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -1066,7 +1066,7 @@
         "change_pct": -0.9879234167893951,
         "date": "2026-10-26",
         "time": "16:00:01",
-        "volume": 51721,
+        "volume": 50821,
         "week52_high": 3898.03,
         "week52_low": 2196.0
       },
@@ -2143,10 +2143,10 @@
       "quote": {
         "ticker": "IFNNF",
         "symbol": "IFNNF",
-        "price": 55.5,
-        "prev_close": 55.5,
+        "price": 54.14,
+        "prev_close": 54.14,
         "change_pct": 0.0,
-        "date": "2026-10-23",
+        "date": "2026-10-26",
         "time": "16:00:00",
         "volume": 1312,
         "week52_high": 103.5,
@@ -3123,11 +3123,11 @@
         "time": "16:00:01",
         "volume": 54193966,
         "week52_high": 116.733,
-        "week52_low": 62.865
+        "week52_low": 62.86
       },
       "metrics": {
         "week52High": 116.733,
-        "week52Low": 62.865,
+        "week52Low": 62.86,
         "marketCap": 389246222336,
         "peRatio": 20.612903225806452
       },
@@ -4986,7 +4986,7 @@
         "prev_close": 703.82,
         "change_pct": 0.6990423687874682,
         "date": "2026-10-26",
-        "time": "18:53:29",
+        "time": "20:08:29",
         "volume": null,
         "week52_high": 721.63,
         "week52_low": 585.37
@@ -5403,11 +5403,11 @@
         "date": "2026-10-26",
         "time": "16:03:31",
         "volume": 10875380,
-        "week52_high": 184.58,
+        "week52_high": 184.59,
         "week52_low": 112.51
       },
       "metrics": {
-        "week52High": 184.58,
+        "week52High": 184.59,
         "week52Low": 112.51
       },
       "profile": {
@@ -5443,7 +5443,7 @@
       "quote": {
         "ticker": "^DJI",
         "price": 52361.58,
-        "change_pct": 0.28041664528079246,
+        "change_pct": 0.2803398244189521,
         "source": "yahoo"
       },
       "metrics": {},
@@ -5475,7 +5475,7 @@
       "quote": {
         "ticker": "^RUT",
         "price": 2786.424,
-        "change_pct": 0.3791672945413962,
+        "change_pct": 0.3791202853128674,
         "source": "yahoo"
       },
       "metrics": {},
