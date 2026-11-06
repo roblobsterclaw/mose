@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T01:16:55.095152+00:00",
+  "generated_at": "2026-11-06T08:45:19.699032+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -1965,12 +1965,12 @@
       "quote": {
         "ticker": "HLT",
         "symbol": "HLT",
-        "price": 369.64,
-        "prev_close": 379.9,
-        "change_pct": -2.700710713345615,
+        "price": 376.53,
+        "prev_close": 363.83,
+        "change_pct": 3.4906412335431356,
         "date": "2026-11-05",
         "time": "16:00:00",
-        "volume": 2499725,
+        "volume": 2716458,
         "week52_high": 381.34,
         "week52_low": 263.66
       },
@@ -1978,7 +1978,7 @@
         "week52High": 381.34,
         "week52Low": 263.66,
         "marketCap": 76957147136,
-        "peRatio": 60.4975450081833
+        "peRatio": 61.625204582651385
       },
       "profile": {
         "company": "Hilton Worldwide Holdings Inc.",
@@ -2144,10 +2144,10 @@
         "ticker": "IFNNF",
         "symbol": "IFNNF",
         "price": 50.24,
-        "prev_close": 59.15,
-        "change_pct": -15.063398140321214,
+        "prev_close": 56.4,
+        "change_pct": -10.92198581560283,
         "date": "2026-11-05",
-        "time": "15:57:49",
+        "time": "16:00:00",
         "volume": 500,
         "week52_high": 103.5,
         "week52_low": 37.05
@@ -4986,7 +4986,7 @@
         "prev_close": 709.94,
         "change_pct": -4.35529763078571,
         "date": "2026-11-05",
-        "time": "18:55:18",
+        "time": "20:08:00",
         "volume": null,
         "week52_high": 721.63,
         "week52_low": 585.37
@@ -5443,7 +5443,7 @@
       "quote": {
         "ticker": "^DJI",
         "price": 51523.06,
-        "change_pct": -3.4355196742191993,
+        "change_pct": -3.4354834779903345,
         "source": "yahoo"
       },
       "metrics": {},
@@ -5474,8 +5474,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^RUT",
-        "price": 2729.8867,
-        "change_pct": -4.447505673621069,
+        "price": 2729.887,
+        "change_pct": -4.447505206601433,
         "source": "yahoo"
       },
       "metrics": {},
@@ -5490,8 +5490,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 28.18,
-        "change_pct": 69.65683323299217,
+        "price": 27.43,
+        "change_pct": -2.6614620298083747,
         "source": "yahoo"
       },
       "metrics": {},
