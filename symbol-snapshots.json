@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-17T04:53:07.453689+00:00",
+  "generated_at": "2026-11-17T13:59:10.898339+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -279,9 +279,9 @@
       "quote": {
         "ticker": "ASML",
         "symbol": "ASML",
-        "price": 1406.79,
+        "price": 1406.785,
         "prev_close": 1495.16,
-        "change_pct": -5.910404237673568,
+        "change_pct": -5.910738650044142,
         "date": "2026-11-16",
         "time": "16:00:01",
         "volume": 1587468,
@@ -292,7 +292,7 @@
         "week52High": 1999.96,
         "week52Low": 946.11,
         "marketCap": 561823285248,
-        "peRatio": 46.398087071240106
+        "peRatio": 46.39792216358839
       },
       "profile": {
         "company": "ASML Holding N.V.",
@@ -2172,9 +2172,9 @@
       "quote": {
         "ticker": "INTC",
         "symbol": "INTC",
-        "price": 55.47,
+        "price": 55.442,
         "prev_close": 59.66,
-        "change_pct": -7.023131076097884,
+        "change_pct": -7.07006369426751,
         "date": "2026-11-16",
         "time": "16:00:00",
         "volume": 100803088,
@@ -2295,11 +2295,11 @@
         "time": "16:00:03",
         "volume": 7941138,
         "week52_high": 290.25,
-        "week52_low": 195.9
+        "week52_low": 198.53
       },
       "metrics": {
         "week52High": 290.25,
-        "week52Low": 195.9
+        "week52Low": 198.53
       },
       "profile": {
         "company": null,
@@ -2827,11 +2827,11 @@
         "time": "16:00:01",
         "volume": 527711,
         "week52_high": 2342.0,
-        "week52_low": 1453.991
+        "week52_low": 1453.99
       },
       "metrics": {
         "week52High": 2342.0,
-        "week52Low": 1453.991,
+        "week52Low": 1453.99,
         "marketCap": 93040484352,
         "peRatio": 37.053218449062335
       },
@@ -3807,11 +3807,11 @@
         "date": "2026-11-16",
         "time": "16:03:21",
         "volume": 8977803,
-        "week52_high": 103.775,
+        "week52_high": 103.22,
         "week52_low": 33.88
       },
       "metrics": {
-        "week52High": 103.775,
+        "week52High": 103.22,
         "week52Low": 33.88
       },
       "profile": {
@@ -4160,11 +4160,11 @@
         "date": "2026-11-16",
         "time": "16:00:01",
         "volume": 2271318,
-        "week52_high": 52.67,
+        "week52_high": 50.94,
         "week52_low": 39.07
       },
       "metrics": {
-        "week52High": 52.67,
+        "week52High": 50.94,
         "week52Low": 39.07
       },
       "profile": {
@@ -4985,8 +4985,8 @@
         "price": 685.18,
         "prev_close": 698.48,
         "change_pct": -1.9041346924750986,
-        "date": "2026-11-16",
-        "time": "20:10:03",
+        "date": "2026-11-17",
+        "time": "08:10:28",
         "volume": null,
         "week52_high": 721.63,
         "week52_low": 585.37
@@ -5490,8 +5490,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 22.91,
-        "change_pct": 18.70466321243523,
+        "price": 23.09,
+        "change_pct": 0.7856831078131808,
         "source": "yahoo"
       },
       "metrics": {},

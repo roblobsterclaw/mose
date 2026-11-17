@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-17T04:53:07.453689+00:00",
+  "generated_at": "2026-11-17T13:59:10.898339+00:00",
   "source": "yahoo",
   "market_status": "closed",
   "indices": [
@@ -38,8 +38,8 @@
     {
       "name": "VIX",
       "ticker": "^VIX",
-      "price": 22.91,
-      "change_pct": 18.70466321243523,
+      "price": 23.09,
+      "change_pct": 0.7856831078131808,
       "vs_exit": null,
       "source": "yahoo"
     }
@@ -156,9 +156,9 @@
     {
       "ticker": "ASML",
       "symbol": "ASML",
-      "price": 1406.79,
+      "price": 1406.785,
       "prev_close": 1495.16,
-      "change_pct": -5.910404237673568,
+      "change_pct": -5.910738650044142,
       "date": "2026-11-16",
       "time": "16:00:01",
       "volume": 1587468,
@@ -912,9 +912,9 @@
     {
       "ticker": "INTC",
       "symbol": "INTC",
-      "price": 55.47,
+      "price": 55.442,
       "prev_close": 59.66,
-      "change_pct": -7.023131076097884,
+      "change_pct": -7.07006369426751,
       "date": "2026-11-16",
       "time": "16:00:00",
       "volume": 100803088,
@@ -967,7 +967,7 @@
       "time": "16:00:03",
       "volume": 7941138,
       "week52_high": 290.25,
-      "week52_low": 195.9
+      "week52_low": 198.53
     },
     {
       "ticker": "JPM",
@@ -1183,7 +1183,7 @@
       "time": "16:00:01",
       "volume": 527711,
       "week52_high": 2342.0,
-      "week52_low": 1453.991
+      "week52_low": 1453.99
     },
     {
       "ticker": "MET",
@@ -1578,7 +1578,7 @@
       "date": "2026-11-16",
       "time": "16:03:21",
       "volume": 8977803,
-      "week52_high": 103.775,
+      "week52_high": 103.22,
       "week52_low": 33.88
     },
     {
@@ -1722,7 +1722,7 @@
       "date": "2026-11-16",
       "time": "16:00:01",
       "volume": 2271318,
-      "week52_high": 52.67,
+      "week52_high": 50.94,
       "week52_low": 39.07
     },
     {
@@ -2055,8 +2055,8 @@
       "price": 685.18,
       "prev_close": 698.48,
       "change_pct": -1.9041346924750986,
-      "date": "2026-11-16",
-      "time": "20:10:03",
+      "date": "2026-11-17",
+      "time": "08:10:28",
       "volume": null,
       "week52_high": 721.63,
       "week52_low": 585.37
