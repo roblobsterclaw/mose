@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-17T02:49:20.366674+00:00",
+  "generated_at": "2026-11-17T04:53:07.453689+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -2144,10 +2144,10 @@
         "ticker": "IFNNF",
         "symbol": "IFNNF",
         "price": 53.7,
-        "prev_close": 57.2,
-        "change_pct": -6.118881118881118,
+        "prev_close": 56.99,
+        "change_pct": -5.772942621512545,
         "date": "2026-11-16",
-        "time": "14:52:02",
+        "time": "16:00:00",
         "volume": 126,
         "week52_high": 103.5,
         "week52_low": 37.05
@@ -5443,7 +5443,7 @@
       "quote": {
         "ticker": "^DJI",
         "price": 51608.17,
-        "change_pct": -1.4124443264298034,
+        "change_pct": -1.412538492691165,
         "source": "yahoo"
       },
       "metrics": {},
@@ -5474,8 +5474,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^RUT",
-        "price": 2742.9412,
-        "change_pct": -1.7039411902463681,
+        "price": 2742.941,
+        "change_pct": -1.7039659701342766,
         "source": "yahoo"
       },
       "metrics": {},
