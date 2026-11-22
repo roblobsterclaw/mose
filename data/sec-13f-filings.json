@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T18:05:38.171965+00:00",
+  "generated_at": "2026-11-22T18:38:49.519964+00:00",
   "source": "SEC EDGAR submissions and Archives information tables",
   "quarters_requested": 8,
   "investor_count": 141,
@@ -502957,7 +502957,9 @@
           "num_holdings": 9
         }
       ],
-      "filing_errors": []
+      "filing_errors": [
+        "0001493152-24-019599: could not fetch https://www.sec.gov/Archives/edgar/data/1985479/0001493152-24-019599.txt after 4 attempts: HTTP Error 502: Bad Gateway"
+      ]
     },
     {
       "name": "L1 Capital International Pty Ltd",
