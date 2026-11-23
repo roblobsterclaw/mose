@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T18:38:49.519964+00:00",
+  "generated_at": "2026-11-23T22:53:28.719268+00:00",
   "source": "SEC EDGAR submissions and Archives information tables",
   "quarters_requested": 8,
   "investor_count": 141,
@@ -502957,9 +502957,7 @@
           "num_holdings": 9
         }
       ],
-      "filing_errors": [
-        "0001493152-24-019599: could not fetch https://www.sec.gov/Archives/edgar/data/1985479/0001493152-24-019599.txt after 4 attempts: HTTP Error 502: Bad Gateway"
-      ]
+      "filing_errors": []
     },
     {
       "name": "L1 Capital International Pty Ltd",
@@ -537576,7 +537574,9 @@
           "num_holdings": 14
         }
       ],
-      "filing_errors": []
+      "filing_errors": [
+        "2020-Q4: could not fetch https://www.sec.gov/Archives/edgar/data/1404599/000140459921000002/index.json after 4 attempts: HTTP Error 404: Not Found"
+      ]
     },
     {
       "name": "Howard Marks",
