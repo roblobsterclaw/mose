@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T13:22:22.973191+00:00",
+  "generated_at": "2026-11-26T22:28:47.398745+00:00",
   "source": "mose-live-quote-snapshot",
   "symbols": {
     "AAPL": {
@@ -1090,12 +1090,12 @@
       "quote": {
         "ticker": "CSU",
         "symbol": "CSU.TO",
-        "price": 3071.86,
-        "prev_close": 3114.07,
-        "change_pct": -1.3554608599036,
-        "date": "2026-11-25",
+        "price": 3044.0,
+        "prev_close": 3071.86,
+        "change_pct": -0.9069423736758878,
+        "date": "2026-11-26",
         "time": "16:00:00",
-        "volume": 128300,
+        "volume": 20636,
         "week52_high": 3565.0,
         "week52_low": 2196.0
       },
@@ -5504,7 +5504,7 @@
       "quote": {
         "ticker": "^RUT",
         "price": 2704.061,
-        "change_pct": 0.7121574411346284,
+        "change_pct": 0.7120824211472777,
         "source": "yahoo"
       },
       "metrics": {},
@@ -5519,8 +5519,8 @@
       "type": "Index",
       "quote": {
         "ticker": "^VIX",
-        "price": 27.0,
-        "change_pct": -4.559915164369032,
+        "price": 26.8,
+        "change_pct": -5.266878755744074,
         "source": "yahoo"
       },
       "metrics": {},
